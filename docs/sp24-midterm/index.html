@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Spring 2024 Midterm Exam</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Spring 2024 Midterm Exam</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to practice.dsc10.com</a></p>
+<hr />
+<p><strong>Instructor(s):</strong> Janine Tiefenbruck</p>
+<p>This exam was administered in-person. The exam was closed-notes,
+except students were provided a copy of the
+<a href='https://drive.google.com/file/d/1ky0Np67HS2O4LO913P-ing97SJG0j27n/view'>DSC
+10 Reference Sheet</a>. No calculators were allowed. Students had
+<strong>50 minutes</strong> to take this exam.</p>
+<hr />
+<p>In this exam, you’ll work with a data set representing your phone’s
+contact list. <code>contacts</code> is indexed by <code>"Person"</code>.
+You store each person in your contacts under a unique name.</p>
+<p>The columns of <code>contacts</code> are as follows:</p>
+<ul>
+<li><p><code>"Phone"</code> (<code>str</code>): Your contact’s phone
+number, formatted like <code>"xxx-xxx-xxxx"</code>, where each
+<code>x</code> represents a digit 0 through 9. All of your contacts have
+distinct phone numbers.</p></li>
+<li><p><code>"Day"</code> (<code>int</code>): The day of the month your
+contact was born. Values are 1 through 31.</p></li>
+<li><p><code>"Month"</code> (<code>str</code>): The month your contact
+was born.</p></li>
+<li><p><code>"Year"</code> (<code>int</code>): The year your contact was
+born.</p></li>
+<li><p><code>"DOB"</code> (<code>str</code>): Your contact’s date of
+birth, in the form <code>"MM-DD-YYYY"</code>.</p></li>
+</ul>
+<p>The first few rows of <code>contacts</code> are shown below, though
+<code>contacts</code> has many more rows than pictured.</p>
+<center><img src="../../assets/images/sp24-midterm/contacts.jpg" width=400></center>
+<p>Throughout this exam, we will refer to <code>contacts</code>
+repeatedly.</p>
+<p>Assume that we have already run <code>import babypandas as bpd</code>
+and <code>import numpy as np</code>.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>Fill in the blanks in the function <code>sum_phone</code> below. This
+function should take as input a string representing a phone number,
+given in the form <code>"xxx-xxx-xxxx"</code>, and return the sum of the
+digits of that phone number, as an <code>int</code>.</p>
+<p>For example, <code>sum_phone("501-800-3002")</code> should evaluate
+to <code>19</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>     <span class="kw">def</span> sum_phone(phone_number):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> digit <span class="kw">in</span> phone_number:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ___(a)___:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                ___(b)___ </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> total</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1" class="accordion-collapse collapse"
+aria-labelledby="heading1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><strong>(a) <code>digit != "-"</code></strong></li>
+<li><strong>(b) <code>total = total + int(digit)</code></strong></li>
+</ul>
+<ol type="a">
+<li>We only care if the current <code>digit</code> is a number, and the
+only character in the string of the <code>phone_number</code> is the
+hyphen (<code>-</code>). For instance, in the given phone number of
+<code>"501-800-3002"</code>, we want to extract the actual numbers in
+the string, without the hyphens. So, because we cannot establish a
+numerical value to a hyphen, we exclude it.</li>
+</ol>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 34%.</p>
+<p><br/><br/></p>
+<ol start="2" type="a">
+<li>This converts the current character to an integer and adds it to the
+total sum if the character is a digit.</li>
+</ol>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 71%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>The first contact in <code>contacts</code> is your friend Calvin, who
+has an interesting phone number, with all the digits in descending
+order: 987-654-3210. Fill in the blanks below so that each expression
+evaluates to the sum of the digits in Calvin’s phone number.</p>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<pre><code>contacts.get(&quot;Phone&quot;).apply(sum_phone).iloc[___(a)___]</code></pre>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>0</code></p>
+<p>(a) should be filled with <code>0</code> because
+<code>.iloc[0]</code> refers to the first item in a Series, which
+corresponds to Calvin.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 89%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<pre><code>sum_phone(contacts.get(&quot;Phone&quot;).loc[___(b)___])</code></pre>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>"Calvin"</code></p>
+<p>(b) should be filled with <code>"Calvin"</code> because
+<code>.loc[]</code> accesses an element of Series by its row label. In
+this case, <code>"Calvin"</code> is the index label of the Series
+element that contains Calvin’s phone number.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 84%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<pre><code>np.arange(__(c)__,__(d)__,__(e)__).sum() </code></pre>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ul>
+<li><p>(c): <code>0</code> or alternate solution <code>9</code></p></li>
+<li><p>(d): <code>10</code> or alternate solution
+<code>-1</code></p></li>
+<li><p>(e): <code>1</code> or alternate solution
+<code>-1</code></p></li>
+</ul>
+<p>The expression uses <code>np.arange()</code> to generate a range of
+numbers and then sums them up. From the problem, we can see that
+Calvin’s phone number includes every digit from 9 to 0, so summing this
+is equivalent to summing the digits from 9 down to 0 or from 0 to 9.</p>
+<p><code>np.arange(0, 10, 1)</code> generates [0, 1, 2, 3, 4, 5, 6, 7,
+8, 9]. Alternatively, using the numbers in descending order (like the
+digits in Calvin’s phone number): <code>np.arange(9, -1, -1)</code>
+generates [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]. Both correctly sum up to
+45.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 74%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Write a Python expression that evaluates to a DataFrame of only your
+contacts whose phone numbers end in <code>"6789"</code>.</p>
+<p><strong>Note:</strong> Do not use slicing, if you know what that is.
+You must use methods from this course.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3" class="accordion-collapse collapse"
+aria-labelledby="heading3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong>
+<code>contacts[contacts.get("Phone").str.contains("6789")]</code> or
+<code>contacts[contacts.get("Phone").str.contains("-6789")]</code></p>
+<ul>
+<li><code>contacts.get("Phone")</code>: retrieves the
+<code>"Phone"</code> column from the contacts DataFrame as a
+Series.</li>
+<li><code>.str.contains("6789")</code>: applies a string method that
+checks for the presence of the substring <code>"6789"</code> in each
+phone number, which could only present in the end of the phone number.
+It returns a Boolean Series indicating True for phone numbers containing
+this substring.</li>
+<li><code>contacts[...]</code>: retrieve all rows where the condition is
+True.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 63%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>Oh no! A monkey has grabbed your phone and is dialing a phone number
+by randomly pressing buttons on the keypad, such that each button
+pressed is equally likely to be any of ten digits 0 through 9.</p>
+<p>The monkey managed to dial a ten-digit number and call that number.
+What is the probability that the monkey calls one of your contacts? Give
+your answer as a Python expression, using the DataFrame
+<code>contacts</code>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong>
+<code>(contacts.shape[0])/(10**10)</code></p>
+<ul>
+<li><code>contacts.shape[0]</code>: retrieves the number of rows in the
+contacts DataFrame, representing the total number of phone numbers you
+have stored in your contacts.</li>
+<li><code>10**10</code>: Since the phone number consists of ten digits,
+and each digit can be any number from 0 to 9, there are a total of
+<code>10**10</code> possible ten-digit numbers.</li>
+</ul>
+<p>Given that each digit pressed is equally likely and independent of
+others, the likelihood of hitting a specific number from your contacts
+by random chance is simply the count of your contacts divided by the
+total number of possible combinations (which is
+<code>10**10</code>).</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 43%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>Now, your cat is stepping carefully across the keypad of your phone,
+pressing 10 buttons. Each button is sampled randomly <strong>without
+replacement</strong> from the digits 0 through 9.</p>
+<p>You catch your cat in the act of dialing, when the cat has already
+dialed 987-654. Based on this information, what is the probability that
+the cat dials your friend Calvin’s number, 987-654-3210? Give your
+answer as an unsimplified mathematical expression.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\dfrac{1}{4 \cdot
+3 \cdot 2 \cdot 1}</span></p>
+<p>The cat has already dialed “987-654”. Since the first six digits are
+fixed and chosen without replacement, the only remaining digits to be
+dialed are 3, 2, 1, and 0. The sequence “3210” must be dialed in that
+exact order from the remaining digits.</p>
+<ul>
+<li>The probability of dialing ‘3’ first is <span class="math inline">\dfrac{1}{4}</span> (4 digits are remaining).</li>
+<li>The probability of then dialing ‘2’ next is <span class="math inline">\dfrac{1}{3}</span> (3 digits are remaining).</li>
+<li>The probability of then dialing ‘1’ next is <span class="math inline">\dfrac{1}{2}</span> (2 digits are remaining).</li>
+<li>The probability of lastly dialing ‘0’ is <span class="math inline">\dfrac{1}{1}</span> (as it’s the only digit
+left).</li>
+</ul>
+<p>The product of these probabilities gives <span class="math inline">\dfrac{1}{4 \cdot 3 \cdot 2 \cdot 1}</span>,
+representing the likelihood of this specific sequence occurring.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 55%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Arya’s phone number has an interesting property: after the area code
+(the first three digits), the remaining seven numbers of his phone
+number consist of only two distinct digits.</p>
+<p>Recall from the previous question that when the monkey dials a phone
+number, each digit it selects is equally likely to be any of the digits
+<span class="math inline">0</span> through <span
+class="math inline">9</span>. Further, when the cat is dialing a phone
+number, it makes sure to only use each digit once.</p>
+<p>You’re interested in estimating the probability that a phone number
+dialed by the monkey or the cat has exactly two distinct digits after
+the area code, like Arya’s phone number. You write the following code,
+which you plan to use for both the monkey and cat scenarios.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    digits <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    property_count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    num_trials <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(num_trials):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        after_area_code <span class="op">=</span> __(x)__</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        num_distinct <span class="op">=</span> <span class="bu">len</span>(np.unique(after_area_code))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> __(y)__:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            property_count <span class="op">=</span> property_count <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    probability_estimate <span class="op">=</span> property_count <span class="op">/</span> num_trials</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>First, you want to estimate the probability that the
+<strong>monkey</strong> randomly generates a number with only 2 distinct
+digits after the area code. What code should be used to fill in blank
+<code>(x)</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong>
+<code>np.random.choice(digits, 7, replace = True)</code> or
+<code>np.random.choice(digits, 7)</code></p>
+<p>The code simulates the monkey dialing seven digits where each digit
+is selected randomly from the digits 0 through 9, and digits can repeat
+<code>(replace = True)</code>. </p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>The
+average score on this problem was 50%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>Next, you want to estimate the probability that the
+<strong>cat</strong> randomly generates a number with only 2 distinct
+digits after the area code. What code should be used to fill in blank
+<code>(x)</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong>
+<code>np.random.choice(digits, 7, replace = False)</code></p>
+<p>The code simulates random dialing by a cat without replacement
+<code>(replace = False)</code>. Each digit from 0 to 9 is used only
+once. </p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>The average score on this
+problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>In either case, whether you’re simulating the monkey or the cat, what
+should be used to fill in blank <code>(y)</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>num_distinct == 2</code></p>
+<p>This part of the code checks if the number of unique digits in the
+dialed number is exactly two. </p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>The
+average score on this problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.4">Problem 5.4</h3>
+<p>When you are simulating the <strong>cat</strong>, what will the value
+of <code>probability_estimate</code> be after the code executes?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_4" aria-expanded="true" aria-controls="collapse5_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_4" class="accordion-collapse collapse"
+aria-labelledby="heading5_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">0</span></p>
+<p>Since the cat dials each digit without replacement, it’s impossible
+for the dialed number to contain only two distinct digits (as it would
+need to repeat some digits to achieve this). Thus, no trial will meet
+the condition <code>num_distinct == 2</code>, resulting in a
+property_count of 0 and therefore a probability_estimate of 0.
+</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>The average score on this problem was
+53%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose Charlie and Norah each have separate DataFrames for their
+contacts, called <code>charlie</code> and <code>norah</code>,
+respectively. These DataFrames have the same column names and format as
+your DataFrame, <code>contacts</code>.</p>
+<p>As illustrated in the diagram below, Charlie has 172 contacts in
+total, whereas Norah has 88 contacts. 12 of these contacts are shared,
+meaning they appear in both <code>charlie</code> and
+<code>norah</code>.</p>
+<center><img src="../../assets/images/sp24-midterm/venn_diagram.png" width=400></center>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>What does the following expression evaluate to?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>charlie.merge(norah, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>).shape[<span class="dv">0</span>]    </span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">12</span></p>
+<p>The code merges DataFrames <code>charlie</code> and
+<code>norah</code> on their indexes, so the resulting DataFrame will
+contain one row for every match between their indexes (‘Person’ since
+they follow the same format as DataFrame <code>contact</code>). From the
+Venn Diagram, we know that Charlie and Norah have 12 contacts in common,
+so the resulting DataFrame will contain 12 rows: one row for each shared
+contact.</p>
+<p>Thus,
+<code>charlie.merge(norah, left_index=True, right_index=True).shape[0]</code>
+returns the row number of the resulting DataFrame, which is 12.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 66%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>One day, when updating her phone’s operating system, Norah
+accidentally duplicates the 12 contacts she has in common with Charlie.
+Now, the <code>norah</code> DataFrame has 100 rows.</p>
+<p>What does the following expression evaluate to?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>norah.merge(norah, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>).shape[<span class="dv">0</span>]   </span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">24 \cdot 2 + 76 =
+124</span></p>
+<p>Since Norah duplicates 12 contacts, the <code>norah</code> DataFrame
+now has 76 unique rows + 12 rows + 12 duplicated rows. Note that the
+above code is now merging norah with itself on indexes.</p>
+<p>After merging, the resulting DataFrame will contain 76 unique rows,
+as there is only one match for each unique row. As for the duplicated
+rows, each row can match twice, and we have 24 rows. Thus the resulting
+DataFrame’s row number <span class="math inline">= 76 + 2 \cdot 24 =
+124</span>.</p>
+<p>For better understanding, imagine we have a smaller DataFrame
+<code>nor</code> with only one contact Jim. After duplication, it will
+have two identical rows of Jim. For easier explanation, let’s denote the
+original row Jim1, and duplicated row Jim2. When merging Nor with
+itself, Jim1 can be matched with Jim1 and Jim2, and Jim2 can be matched
+with Jim1 and Jim2, resulting $= 2 = 4 $ number of rows.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 3%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Recall from the data description that the <code>"DOB"</code> column
+in <code>contacts</code> contains the date of birth of everyone in your
+contacts list, as a string formatted like <code>"MM-DD-YYYY"</code>.</p>
+<p>Looking at the calendar, you see that today’s date is May 3rd, 2024,
+which is <code>"05-03-2024"</code>.</p>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>Using today’s date, fill in the blanks in the function
+<code>age_today</code> so that the function takes as input someone’s
+date of birth, as a string formatted like <code>"MM-DD-YYYY"</code>, and
+returns that person’s age, as of today.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> age_today(dob):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        dob <span class="op">=</span> dob.split(<span class="st">&quot;-&quot;</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        month <span class="op">=</span> ___(a)___ <span class="co"># the month, as an int</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        day <span class="op">=</span> ___(b)___ <span class="co"># the day, as an int</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        year <span class="op">=</span> ___(c)___ <span class="co"># the year, as an int</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ___(d)___:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">2024</span> <span class="op">-</span> year</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2024</span> <span class="op">-</span> year <span class="op">-</span> <span class="dv">1</span></span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>(a): <code>int(dob[0])</code></li>
+<li>(b): <code>int(dob[1])</code></li>
+<li>(c): <code>int(dob[2])</code></li>
+<li>(d): <code>month &lt;= 5 and day &lt;= 3</code></li>
+</ul>
+<p>.split() method divides a string into a list based on delimiter. In
+this probelm, <code>dob.split("-")</code> returns a list of substrings
+that were separated by hyphens in the original string formatted like
+<code>"MM-DD-YYYY". Thus, after using the .split("-"), the resulting list will be formatted like</code>[“MM”,
+“DD”, “YYYY”]. Thus, we can access month, day, year by its position in
+the list <code>dob</code>.</p>
+<p>Note that the comment asks month, day, year as int, do we need to
+convert them from string to int datatype, by using int(). Thus, we have
+<code>month = int(dob[0])</code>, <code>day = int(dob[1])</code>,
+<code>year = int(dob[2])</code>. This is for us to calculate age later
+by comparing month and day numebrs.</p>
+<p>Then to calculate the age of the person given today is “05-03-2024”,
+we can use <code>2024-year</code>. But if a person is born on or after
+May 3rd, then they are techinically 1 year younger than that, so we
+should use <code>2024-year-1</code>. Thus in the if statment, we use
+<code>month &lt;= 5 and day &lt;= 3</code> to compare if the person is
+born before May 3rd.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 59%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>Write a Python expression that evaluates to the average age of all of
+your contacts, as of today.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<p><code>contacts.get("DOB").apply(age_today).mean()</code></p>
+<p><code>contacts.get("DOB")</code> gets the column ‘DOB’ column in
+contacts DataFrame as a series.</p>
+<p><code>.apply(age_today)</code> applies the function
+<code>age_today</code> to each element in the series to calculate age,
+and returns a series of ages of all contacts.</p>
+<p><code>.mean()</code> calculates the average of the series, giving the
+average age of all contacts.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 80%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>You wonder if any of your friends have the same birthday, for example
+two people both born on April 3rd. Fill in the blanks below so that the
+given expression evaluates to the largest number of people in
+<code>contacts</code> who share the same birthday.</p>
+<p><strong>Note:</strong> People do not need to be born in the same year
+to share a birthday!</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>contacts.groupby(___(a)___).___(b)___.get(<span class="st">&quot;Phone&quot;</span>).___(c)___</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8" class="accordion-collapse collapse"
+aria-labelledby="heading8" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<ul>
+<li>(a): <code>["Month", "Day"]</code></li>
+<li>(b): <code>count()</code></li>
+<li>(c): <code>max()</code></li>
+</ul>
+<p><code>.groupby(["Month", "Day"]).count()</code> groups the DataFrame
+contacts by each unique combination of ‘Month’ and ‘Day’ (birthday) and
+then counts the number of rows in each group (i.e. number of people born
+on that date).</p>
+<p><code>.get('Phone')</code> gets a series which contains the counts of
+people born on each date, and <code>.max()</code> finds the largest
+number of people sharing the same birthday.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 72%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>Consider the histogram generated by the following code.</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>contacts.plot(kind<span class="op">=</span><span class="st">&quot;hist&quot;</span>, y<span class="op">=</span><span class="st">&quot;Day&quot;</span>, density<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">33</span>))</span></code></pre></div>
+<p>Which of the following questions would you be able to answer from
+this histogram? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> How many of your contacts were born on a Monday?</p></li>
+<li><p><input type="checkbox" disabled="" /> How many of your contacts were born on January 1st?</p></li>
+<li><p><input type="checkbox" disabled="" /> How many of your contacts were born on the first day of the
+month?</p></li>
+<li><p><input type="checkbox" disabled="" /> How many of your contacts were born on the last day of the month?</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9" class="accordion-collapse collapse"
+aria-labelledby="heading9" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Option 3: How many of your contacts were
+born on the first day of the month?</p>
+<p><code>contacts.plot(kind="hist", y="Day", density=True, bins=np.arange(1, 33))</code>
+generates a histogram that visualizes the distribution of values in the
+‘Day’ column of the contacts DataFrame.
+<code>bins=np.arange(1, 33)</code> creates the bins
+<code>[1,2], [2,3], ..., [31,32]</code>. Each bar in the histogram
+represents the density of a day.</p>
+<p>We can answer the question “How many of your contacts were born on
+the first day of the month?” by checking the bar containing the first
+day (the first bar).</p>
+<p>However, the histogram doesn’t contain information of day of the week
+or month, so it can’t answer questions in options 1 or 2.</p>
+<p>We also can’t choose option 4, because we have months with varying
+numbers of days (28, 29, 30, or 31). For months with 31 days, we know
+for sure it’s the last day of the month. For bars with 28, 29, and 30
+days, we won’t be able to tell which proportion of days are the last day
+of the month since months with 31 days will have a count in all the
+previous number of days.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 80%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>After looking at the distribution of <code>"Day"</code> for your
+contacts, you wonder how that distribution might look for other groups
+of people.</p>
+<p>In this problem, we will consider the distribution of day of birth
+(just the day of the month, not the month or year) for all babies born
+in the year 2023, under the assumption that all babies born in 2023 were
+equally likely to be born on each of the 365 days of the year.</p>
+<p>The density histogram below shows this distribution.</p>
+<p><strong>Note:</strong> 2023 was not a leap year, so February had 28
+days.</p>
+<center><img src="../../assets/images/sp24-midterm/baby_hist.png" width=600></center>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>What is height <code>(a)</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">\dfrac{1}{28}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\dfrac{28}{365}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\dfrac{12 \cdot 28}{365}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\dfrac{1}{12}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\dfrac{12}{365}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\dfrac{12}{365}</span></p>
+<p>2023 was not a leap year, so there are in total 365 days, and
+February only has 28 days. All the months have at least 28 days, so in
+bin [1,29], there are 12 * 28 data values. And, all the months other
+than February have 29th and 30th days, so there are 2 * 11 data values
+in bin [29,31]. Lastly, there are 7 months with 31 days, so there are 7
+data values in bin [31,32].</p>
+<p>There are in total 365 data values, so the proportion of data points
+falling into bin [1,29] <span class="math inline">=\dfrac{12 \cdot
+28}{365}</span>. Thus, the area of the bar of bin [1,29] <span class="math inline">= \dfrac{12 \cdot 28}{365}</span>. Area = Height *
+Width, width of the bin is 28, so height(a) <span class="math inline">=
+\dfrac{12 \cdot 28}{365 \cdot 28} = \dfrac{12}{365}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 38%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>Express height <code>(b)</code> in terms of height
+<code>(a)</code>.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{7}{12} \cdot
+\text{(a)}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{27}{28} \cdot
+\text{(a)}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{28}{29} \cdot
+\text{(a)}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{11}{12} \cdot
+\text{(a)}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{7}{11} \cdot
+\text{(a)}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\text{(b)} = \dfrac{12 \cdot 28}{365} \cdot
+\text{(a)}</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\text{(b)} =
+\dfrac{11}{12} \cdot \text{(a)}</span></p>
+<p>Similarly, height(b) = <span class="math inline">\dfrac{2 \cdot
+11}{365 \cdot 2} = \dfrac{11}{365} = \dfrac{11}{12} \cdot
+\dfrac{12}{365}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 43%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion?
+<a href="https://forms.gle/WZ71FchnXU1K154d7">Let us know
+here</u></a>.</h4>
+<hr />
+</body>
+</html>

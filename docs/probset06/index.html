@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Extra Practice Session 6: Bootstrapping, Confidence Intervals, Center, Spread, and Standardization</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Extra Practice Session 6: Bootstrapping, Confidence
+Intervals, Center, Spread, and Standardization</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to practice.dsc10.com</a></p>
+<hr />
+<p>Welcome! The problems shown below should be worked on <strong>on
+paper</strong>, since the quizzes and exams you take in this course will
+also be on paper. You do not need to submit your solutions anywhere.
+<br><br>We encourage you to complete this worksheet in groups during an
+extra practice session on Friday, February 16th. Solutions will be
+posted after all sessions have finished. This problem set is not
+designed to take any particular amount of time - focus on understanding
+concepts, not on getting through all the questions.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>An IKEA fan created an app where people can log the amount of time it
+took them to assemble their IKEA furniture. The DataFrame
+<code>app_data</code> has a row for each product build that was logged
+on the app. The columns are:</p>
+<ul>
+<li><code>'product'</code> (<code>str</code>): the name of the product,
+which includes the product line as the first word, followed by a
+description of the product</li>
+<li><code>'category'</code> (<code>str</code>): a categorical
+description of the type of product</li>
+<li><code>'assembly_time'</code> (<code>str</code>): the amount of time
+to assemble the product, formatted as <code>'x hr, y min'</code> where
+<code>x</code> and <code>y</code> represent integers, possibly zero</li>
+<li><code>'minutes'</code> (<code>int</code>): integer values
+representing the number of minutes it took to assemble each product
+<br><br></li>
+</ul>
+<p>We want to use <code>app_data</code> to estimate the average amount
+of time it takes to build an IKEA bed (any product in the
+<code>'bed'</code> category). Which of the following strategies would be
+an appropriate way to estimate this quantity? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Query to keep only the beds. Then resample with replacement many
+times. For each resample, take the mean of the <code>'minutes'</code>
+column. Compute a 95% confidence interval based on those means.</p></li>
+<li><p><input type="checkbox" disabled="" /> Query to keep only the beds. Group by <code>'product'</code> using
+the mean aggregation function. Then resample with replacement many
+times. For each resample, take the mean of the <code>'minutes'</code>
+column. Compute a 95% confidence interval based on those means.</p></li>
+<li><p><input type="checkbox" disabled="" /> Resample with replacement many times. For each resample, first query
+to keep only the beds and then take the mean of the
+<code>'minutes'</code> column. Compute a 95% confidence interval based
+on those means.</p></li>
+<li><p><input type="checkbox" disabled="" /> Resample with replacement many times. For each resample, first query
+to keep only the beds. Then group by <code>'product'</code> using the
+mean aggregation function, and finally take the mean of the
+<code>'minutes'</code> column. Compute a 95% confidence interval based
+on those means.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1" class="accordion-collapse collapse"
+aria-labelledby="heading1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong></p>
+<p>Only the first answer is correct. This is a question of parameter
+estimation, so our approach is to use bootstrapping to create many
+resamples of our original sample, computing the average of each
+resample. Each resample should always be the same size as the original
+sample. The first answer choice accomplishes this by querying first to
+keep only the beds, then resampling from the DataFrame of beds only.
+This means resamples will have the same size as the original sample.
+Each resample’s mean will be computed, so we will have many resample
+means from which to construct our 95% confidence interval.</p>
+<p>In the second answer choice, we are actually taking the mean twice.
+We first average the build times for all builds of the same product when
+grouping by product. This produces a DataFrame of different products
+with the average build time for each. We then resample from this
+DataFrame, computing the average of each resample. But this is a
+resample of products, not of product builds. The size of the resample is
+the number of unique products in <code>app_data</code>, not the number
+of reported product builds in <code>app_data</code>. Further, we get
+incorrect results by averaging numbers that are already averages. For
+example, if 5 people build bed A and it takes them each 1 hour, and 1
+person builds bed B and it takes them 10 hours, the average amount of
+time to build a bed is <span class="math inline">\frac{5*1+10}{6} =
+2.5</span>. But if we average the times for bed A (1 hour) and average
+the times for bed B (5 hours), then average those, we get <span class="math inline">\frac{1+5}{2} = 3</span>, which is not the same.
+More generally, grouping is not a part of the bootstrapping process
+because we want each data value to be weighted equally.</p>
+<p>The last two answer choices are incorrect because they involve
+resampling from the full <code>app_data</code> DataFrame before querying
+to keep only the beds. This is incorrect because it does not preserve
+the sample size. For example, if <code>app_data</code> contains 1000
+reported bed builds and 4000 other product builds, then the only
+relevant data is the 1000 bed build times, so when we resample, we want
+to consider another set of 1000 beds. If we resample from the full
+<code>app_data</code> DataFrame, our resample will contain 5000 rows,
+but the number of beds will be random, not necessarily 1000. If we query
+first to keep only the beds, then resample, our resample will contain
+exactly 1000 beds every time. As an added bonus, since we only care
+about beds, it’s much faster to resample from a smaller DataFrame of
+beds only than it is to resample from all <code>app_data</code> with
+plenty of rows we don’t care about.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 71%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>The <code>season</code> DataFrame contains statistics on all players
+in the WNBA in the 2021 season. The first few rows of
+<code>season</code> are shown below.</p>
+<center><img src='../assets/images/wi22-final/seasons.png' width=40%></center>
+<p>Each row in <code>season</code> corresponds to a single player. In
+this problem, we’ll be working with the <code>'PPG'</code> column, which
+contains the number of points scored per game played.</p>
+<p>Suppose we only have access to the DataFrame
+<code>small_season</code>, which is a random sample of <strong>size
+36</strong> from <code>season</code>. We’re interested in learning about
+the true mean points per game of all players in <code>season</code>
+given just the information in <code>small_season</code>.</p>
+<p>To start, we want to bootstrap <code>small_season</code> 10,000 times
+and compute the mean of the resample each time. We want to store these
+10,000 bootstrapped means in the array <code>boot_means</code>.</p>
+<p>Here is a broken implementation of this procedure.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>boot_means <span class="op">=</span> np.array([])                                           </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):                                          </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    resample <span class="op">=</span> small_season.sample(season.shape[<span class="dv">0</span>], replace<span class="op">=</span><span class="va">False</span>)  <span class="co"># Line 1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    resample_mean <span class="op">=</span> small_season.get(<span class="st">&#39;PPG&#39;</span>).mean()                  <span class="co"># Line 2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    np.append(boot_means, new_mean)                                 <span class="co"># Line 3</span></span></code></pre></div>
+<p>For each of the 3 lines of code above (marked by comments), specify
+what is incorrect about the line by selecting one or more of the
+corresponding options below. Or, select “Line _ is correct as-is” if you
+believe there’s nothing that needs to be changed about the line in order
+for the above code to run properly.</p>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>What is incorrect about Line 1? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Currently the procedure samples from <code>small_season</code>, when
+it should be sampling from <code>season</code></p></li>
+<li><p><input type="checkbox" disabled="" /> The sample size is <code>season.shape[0]</code>, when it should be
+<code>small_season.shape[0]</code></p></li>
+<li><p><input type="checkbox" disabled="" /> Sampling is currently being done without replacement, when it should
+be done with replacement</p></li>
+<li><p><input type="checkbox" disabled="" /> Line 1 is correct as-is</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<ul>
+<li>The sample size is <code>season.shape[0]</code>, when it should be
+<code>small_season.shape[0]</code></li>
+<li>Sampling is currently being done without replacement, when it should
+be done with replacement</li>
+</ul>
+<p>Here, our goal is to bootstrap from <code>small_season</code>. When
+bootstrapping, we <strong>sample with replacement</strong> from our
+original sample, with a sample size that’s equal to the original
+sample’s size. Here, our original sample is <code>small_season</code>,
+so we should be taking samples of size
+<code>small_season.shape[0]</code> from it.</p>
+<p>Option 1 is incorrect; <code>season</code> has nothing to do with
+this problem, as we are bootstrapping from
+<code>small_season</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 95%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>What is incorrect about Line 2? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Currently it is taking the mean of the <code>'PPG'</code> column in
+<code>small_season</code>, when it should be taking the mean of the
+<code>'PPG'</code> column in <code>season</code></p></li>
+<li><p><input type="checkbox" disabled="" /> Currently it is taking the mean of the <code>'PPG'</code> column in
+<code>small_season</code>, when it should be taking the mean of the
+<code>'PPG'</code> column in <code>resample</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>.mean()</code> is not a valid Series method, and should be
+replaced with a call to the function <code>np.mean</code></p></li>
+<li><p><input type="checkbox" disabled="" /> Line 2 is correct as-is</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Currently it is taking the mean of the
+<code>'PPG'</code> column in <code>small_season</code>, when it should
+be taking the mean of the <code>'PPG'</code> column in
+<code>resample</code></p>
+<p>The current implementation of Line 2 doesn’t use the
+<code>resample</code> at all, when it should. If we were to leave Line 2
+as it is, all of the values in <code>boot_means</code> would be
+identical (and equal to the mean of the <code>'PPG'</code> column in
+<code>small_season</code>).</p>
+<p>Option 1 is incorrect since our bootstrapping procedure is
+independent of <code>season</code>. Option 3 is incorrect because
+<code>.mean()</code> is a valid Series method.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 98%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<p>What is incorrect about Line 3? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The result of calling <code>np.append</code> is not being reassigned
+to <code>boot_means</code>, so <code>boot_means</code> will be an empty
+array after running this procedure</p></li>
+<li><p><input type="checkbox" disabled="" /> The indentation level of the line is incorrect –
+<code>np.append</code> should be outside of the <code>for</code>-loop
+(and aligned with <code>for i</code>)</p></li>
+<li><p><input type="checkbox" disabled="" /> <code>new_mean</code> is not a defined variable name, and should be
+replaced with <code>resample_mean</code></p></li>
+<li><p><input type="checkbox" disabled="" /> Line 3 is correct as-is</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<ul>
+<li>The result of calling <code>np.append</code> is not being reassigned
+to <code>boot_means</code>, so <code>boot_means</code> will be an empty
+array after running this procedure</li>
+<li><code>new_mean</code> is not a defined variable name, and should be
+replaced with <code>resample_mean</code></li>
+</ul>
+<p><code>np.append</code> returns a new array and does not modify the
+array it is called on (<code>boot_means</code>, in this case), so Option
+1 is a necessary fix. Furthermore, Option 3 is a necessary fix since
+<code>new_mean</code> wasn’t defined anywhere.</p>
+<p>Option 2 is incorrect; if <code>np.append</code> were outside of the
+<code>for</code>-loop, none of the 10,000 resampled means would be saved
+in <code>boot_means</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 94%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.4">Problem 2.4</h3>
+<p>We construct a 95% confidence interval for the true mean points per
+game for all players by taking the middle 95% of the bootstrapped sample
+means.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>left_b <span class="op">=</span> np.percentile(boot_means, <span class="fl">2.5</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>right_b <span class="op">=</span> np.percentile(boot_means, <span class="fl">97.5</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>boot_ci <span class="op">=</span> [left_b, right_b]</span></code></pre></div>
+<p>Select the most correct statement below.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>(left_b + right_b) / 2</code> is exactly equal to the mean
+points per game in <code>season</code>.</p></li>
+<li><p><input type="radio" disabled="" /> <code>(left_b + right_b) / 2</code> is not necessarily equal to the
+mean points per game in <code>season</code>, but is close.</p></li>
+<li><p><input type="radio" disabled="" /> <code>(left_b + right_b) / 2</code> is exactly equal to the mean
+points per game in <code>small_season</code>.</p></li>
+<li><p><input type="radio" disabled="" /> <code>(left_b + right_b) / 2</code> is not necessarily equal to the
+mean points per game in <code>small_season</code>, but is close.</p></li>
+<li><p><input type="radio" disabled="" /> <code>(left_b _+ right_b) / 2</code> is not close to either the mean
+points per game in <code>season</code> or the mean points per game in
+<code>small_season</code>.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_4" class="accordion-collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>(left_b + right_b) / 2</code> is not
+necessarily equal to the mean points per game in
+<code>small_season</code>, but is close.</p>
+<p>Normal-based confidence intervals are of the form <span class="math inline">[\text{mean} - \text{something}, \text{mean} +
+\text{something}]</span>. In such confidence intervals, it is the case
+that the average of the left and right endpoints is exactly the mean of
+the distribution used to compute the interval.</p>
+<p>However, <strong>the confidence interval we’ve created is not
+normal-based</strong>, rather it is bootstrap-based! As such, we can’t
+say that anything is <em>exactly</em> true; this rules out Options 1 and
+3.</p>
+<p>Our 95% confidence interval was created by taking the middle 95% of
+bootstrapped sample means. The distribution of bootstrapped sample means
+is <strong>roughly</strong> normal, and the normal distribution is
+symmetric (the mean and median are both equal, and represent the
+“center” of the distribution). This means that the middle of our 95%
+confidence interval should be roughly equal to the mean of the
+distribution of bootstrapped sample means. This implies that Option 4 is
+correct; the difference between Options 2 and 4 is that Option 4 uses
+<code>small_season</code>, which is the sample we bootstrapped from,
+while Option 2 uses <code>season</code>, which was not accessed at all
+in our bootstrapping procedure.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 62%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<ul>
+<li>Hector earned a 77 on an exam where the mean was 70 and the standard
+deviation was 5.</li>
+<li>Clara earned an 80 on an exam where the mean was 75 and the standard
+deviation was 3.</li>
+<li>Vivek earned an 83 on an exam where the mean was a 75 and the
+standard deviation was 6.</li>
+</ul>
+<p>Rank these three students in <strong>ascending</strong> order of
+their exam performance relative to their classmates.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Hector, Clara, Vivek</p></li>
+<li><p><input type="radio" disabled="" /> Vivek, Hector, Clara</p></li>
+<li><p><input type="radio" disabled="" /> Clara, Hector, Vivek</p></li>
+<li><p><input type="radio" disabled="" /> Vivek, Clara, Hector</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3" class="accordion-collapse collapse"
+aria-labelledby="heading3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Vivek, Hector, Clara</p>
+<p>To compare Vivek, Hector, and Clara’s relative performance we want to
+compare their Z scores to handle standardization. For Vivek, his Z score
+is (83-75) / 6 = 4/3. For Hector, his score is (77-70) / 5 = 7/5. For
+Clara, her score is (80-75) / 3 = 5/3. Ranking these, 5/3 &gt; 7/5 &gt;
+4/3 which yields the result of Vivek, Hector, Clara. </p>
+<hr/>
+<h5>Difficulty:
+⭐️⭐️</h5>
+<p>The average score on this problem was 76%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>The data visualization below shows all Olympic gold medals for
+women’s gymnastics, broken down by the age of the gymnast.</p>
+<center><img src='../assets/images/wi21-final/gymnastics.png' width=50%></center>
+<p>Based on this data, rank the following three quantities in
+<strong>ascending</strong> order: the median age at which gold medals
+are earned, the mean age at which gold medals are earned, the standard
+deviation of the age at which gold medals are earned.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> mean, median, SD</p></li>
+<li><p><input type="radio" disabled="" /> median, mean, SD</p></li>
+<li><p><input type="radio" disabled="" /> SD, mean, median</p></li>
+<li><p><input type="radio" disabled="" /> SD, median, mean</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4" class="accordion-collapse collapse"
+aria-labelledby="heading4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> SD, median, mean</p>
+<p>The standard deviation will clearly be the smallest of the three
+values as most of the data is encompassed between the range of
+<code>[14-26]</code>. Intuitively, the standard deviation will have to
+be about a third of this range which is around 4 (though this is not the
+exact standard deviation, but is clearly much less than the mean and
+median with values closer to 19-25). Comparing the median and mean, it
+is important to visualize that this distribution is skewed right. When
+the data is skewed right it pulls the mean towards a higher value (as
+the higher values naturally make the average higher). Therefore, we know
+that the mean will be greater than the median and the ranking is SD,
+median, mean. </p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>The average score on
+this problem was 72%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Among all Costco members in San Diego, the average monthly spending
+in October 2023 was <strong>$350</strong> with a standard deviation of
+<strong>$40</strong>.</p>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>The amount Ciro spent at Costco in October 2023 was
+<strong>-1.5</strong> in standard units. What is this amount in dollars?
+Give your answer as an integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 290</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 93%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>What is the minimum possible percentage of San Diego members that
+spent between <strong>$250</strong> and <strong>$450</strong> in October
+2023?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 16%</p></li>
+<li><p><input type="radio" disabled="" /> 22%</p></li>
+<li><p><input type="radio" disabled="" /> 36%</p></li>
+<li><p><input type="radio" disabled="" /> 60%</p></li>
+<li><p><input type="radio" disabled="" /> 78%</p></li>
+<li><p><input type="radio" disabled="" /> 84%</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 84%</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 61%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>Now, suppose we’re given that the distribution of monthly spending in
+October 2023 for all San Diego members is roughly normal. Given this
+fact, fill in the blanks:</p>
+<center>
+"In October 2023, 95% of San Diego members spent
+between __(m)__ dollars and __(n)__ dollars."
+</center>
+<p><br></p>
+<p>What are m and n? Give your answers as integers rounded to the
+nearest multiple of 10.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: m: 270, n: 430</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 81%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose we have access to a simple random sample of all US Costco
+members of size <strong>145</strong>. Our sample is stored in a
+DataFrame named <code>us_sample</code>, in which the
+<code>"Spend"</code> column contains the October 2023 spending of each
+sampled member in dollars.</p>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Fill in the blanks below so that <code>us_left</code> and
+<code>us_right</code> are the left and right endpoints of a
+<strong>46%</strong> confidence interval for the average October 2023
+spending of all US members.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>costco_means <span class="op">=</span> np.array([])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">5000</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    resampled_spends <span class="op">=</span> __(x)__</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    costco_means <span class="op">=</span> np.append(costco_means, resampled_spends.mean())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> np.percentile(costco_means, __(y)__)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> np.percentile(costco_means, __(z)__)</span></code></pre></div>
+<p>Which of the following could go in blank (x)? <strong>Select all that
+apply.</strong></p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>us_sample.sample(145, replace=True).get("Spend")</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>us_sample.sample(145, replace=False).get("Spend")</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>np.random.choice(us_sample.get("Spend"), 145)</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>np.random.choice(us_sample.get("Spend"), 145, replace=True)</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>np.random.choice(us_sample.get("Spend"), 145, replace=False)</code></p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<p>What goes in blanks (y) and (z)? Give your answers as integers.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><code>x</code>:
+<ul>
+<li><code>us_sample.sample(145, replace=True).get("Spend")</code></li>
+<li><code>np.random.choice(us_sample.get("Spend"), 145)</code></li>
+<li><code>np.random.choice(us_sample.get("Spend"), 145, replace=True)</code></li>
+</ul></li>
+<li><code>y</code>: <code>27</code></li>
+<li><code>z</code>: <code>73</code></li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 79%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>True or False: <strong>46%</strong> of all US members in
+<code>us_sample</code> spent between <code>us_left</code> and
+<code>us_right</code> in October 2023.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: False</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 85%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>True or False: If we repeat the code from part (b) 200 times, each
+time bootstrapping from a new random sample of 145 members drawn from
+all US members, then about <strong>92</strong> of the intervals we
+create will contain the average October 2023 spending of all US
+members.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: True</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 51%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.4">Problem 6.4</h3>
+<p>True or False: If we repeat the code from part (b) 200 times, each
+time bootstrapping from <code>us_sample</code>, then about
+<strong>92</strong> of the intervals we create will contain the average
+October 2023 spending of all US members.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_4" class="accordion-collapse collapse"
+aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: False</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 30%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Researchers from the San Diego Zoo, located within Balboa Park,
+collected physical measurements of several species of penguins in a
+region of Antarctica.</p>
+<p>One piece of information they tracked for each of 330 penguins was
+its mass in grams. The average penguin mass is 4200 grams, and the
+standard deviation is 840 grams.</p>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>Consider the histogram of mass below.</p>
+<center><img src='../assets/images/fa21-final/mass.png' width=40%></center>
+<p><br></p>
+<p>Select the true statement below.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The median mass of penguins is larger than the average mass of
+penguins</p></li>
+<li><p><input type="radio" disabled="" /> The median mass of penguins is roughly equal to the average mass of
+penguins (within 50 grams)</p></li>
+<li><p><input type="radio" disabled="" /> The median mass of penguins is less than the average mass of
+penguins</p></li>
+<li><p><input type="radio" disabled="" /> It is impossible to determine the relationship between the median and
+average mass of penguins just by looking at the above histogram</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> The median mass of penguins is less than the
+average mass of penguins</p>
+<p>This is a distribution that is skewed to the right, so mean is
+greater than median.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 87%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>For your convenience, we show the histogram of mass again below.</p>
+<center><img src='../assets/images/fa21-final/mass.png' width=40%></center>
+<p><br></p>
+<p>Recall, there are 330 penguins in our dataset. Their average mass is
+4200 grams, and the standard deviation of mass is 840 grams.</p>
+<p>Per Chebyshev’s inequality, at least what percentage of penguins have
+a mass between 3276 grams and 5124 grams? Input your answer as a
+percentage between 0 and 100, without the % symbol. Round to three
+decimal places.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> 17.355</p>
+<p>Recall, Chebyshev’s inequality states that No matter what the shape
+of the distribution is, the proportion of values in the range “average ±
+z SDs” is <strong>at least</strong> <span class="math inline">1 -
+\frac{1}{z^2}</span>.</p>
+<p>To approach the problem, we’ll start by converting 3276 grams and
+5124 grams to standard units. Doing so yields <span class="math inline">\frac{3276 - 4200}{840} = -1.1</span>, similarly,
+<span class="math inline">\frac{5124 - 4200}{840} = 1.1</span>. This
+means that 3276 is 1.1 standard deviations <strong>below</strong> the
+mean, and 5124 is 1.1 standard deviations <strong>above</strong> the
+mean. Thus, we are calculating the proportion of values in the range
+“average ± 1.1 SDs”.</p>
+<p>When <span class="math inline">z = 1.1</span>, we have <span class="math inline">1 - \frac{1}{z^2} = 1 - \frac{1}{1.1^2} \approx
+0.173553719</span>, which as a percentage rounded to three decimal
+places is <span class="math inline">17.355\%</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 76%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.3">Problem 7.3</h3>
+<p>Per Chebyshev’s inequality, at least what percentage of penguins have
+a mass between 1680 grams and 5880 grams?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 50%</p></li>
+<li><p><input type="radio" disabled="" /> 55.5%</p></li>
+<li><p><input type="radio" disabled="" /> 65.25%</p></li>
+<li><p><input type="radio" disabled="" /> 68%</p></li>
+<li><p><input type="radio" disabled="" /> 75%</p></li>
+<li><p><input type="radio" disabled="" /> 88.8%</p></li>
+<li><p><input type="radio" disabled="" /> 95%</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> 75%</p>
+<p>Recall: proportion with <span class="math inline">z</span> SDs of the
+mean</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Percent in Range</th>
+<th>All Distributions (via Chebyshev’s Inequality)</th>
+<th>Normal Distributions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\text{average} \pm 1 \
+\text{SD}</span></td>
+<td><span class="math inline">\geq 0\%</span></td>
+<td><span class="math inline">\approx 68\%</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\text{average} \pm 2\text{SDs}</span></td>
+<td><span class="math inline">\geq 75\%</span></td>
+<td><span class="math inline">\approx 95\%</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\text{average} \pm 3\text{SDs}</span></td>
+<td><span class="math inline">\geq 88\%</span></td>
+<td><span class="math inline">\approx 99.73\%</span></td>
+</tr>
+</tbody>
+</table>
+<p>To approach the problem, we’ll start by converting 3276 grams and
+5124 grams to standard units. Doing so yields <span class="math inline">\frac{1680 - 4200}{840} = -3</span>, similarly,
+<span class="math inline">\frac{5880 - 4200}{840} = 2</span>. This means
+that 1680 is 3 standard deviations <strong>below</strong> the mean, and
+5880 is 2 standard deviations <strong>above</strong> the mean.</p>
+<p>Proportion of values in [-3 SUs, 2 SUs] &gt;= Proportion of values in
+[-2 SUs, 2 SUs] &gt;= 75% (Since we cannot assume that the distribution
+is normal, we look at the <strong>All Distributions (via Chebyshev’s
+Inequality)</strong> column for proportion).</p>
+<p>Thus, <strong>at least</strong> 75% of the penguins have a mass
+between 1680 grams and 5880 grams.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 72%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.4">Problem 7.4</h3>
+<p>The distribution of mass in grams is not roughly normal. Is the
+distribution of mass in standard units roughly normal?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+<li><p><input type="radio" disabled="" /> Impossible to tell</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> No</p>
+<p>The shape of the distribution does not change since we are scaling
+the x values for all data.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 60%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.5">Problem 7.5</h3>
+<p>Suppose <code>boot_means</code> is an array of the resampled means.
+Fill in the blanks below so that <code>[left, right]</code> is a 68%
+confidence interval for the true mean mass of penguins.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> np.percentile(boot_means, __(a)__)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> np.percentile(boot_means, __(b)__)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[left, right]</span></code></pre></div>
+<p>What goes in blank (a)? What goes in blank (b)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_5" aria-expanded="true" aria-controls="collapse7_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_5" class="accordion-collapse collapse"
+aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> (a) 16 (b) 84</p>
+<p>Recall, <code>np.percentile(array, p)</code> computes the
+<code>p</code>th percentile of the numbers in <code>array</code>. To
+compute the 68% CI, we need to know the percentile of left tail and
+right tail.</p>
+<p>left percentile = <span class="math inline">(1-0.68)/2 = (0.32)/2 =
+0.16</span> so we have 16th percentile</p>
+<p>right percentile = <span class="math inline">1-((1-0.68)/2) =
+1-((0.32)/2) = 1-0.16 = 0.84</span> so we have 84th percentile</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 94%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.6">Problem 7.6</h3>
+<p>Which of the following is a correct interpretation of this confidence
+interval? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> There is an approximately 68% chance that mean weight of all penguins
+in Antarctica falls within the bounds of this confidence interval.</p></li>
+<li><p><input type="checkbox" disabled="" /> Approximately 68% of penguin weights in our sample fall within the
+bounds of this confidence interval.</p></li>
+<li><p><input type="checkbox" disabled="" /> Approximately 68% of penguin weights in the population fall within
+the bounds of this interval.</p></li>
+<li><p><input type="checkbox" disabled="" /> If we created many confidence intervals using the same method,
+approximately 68% of them would contain the mean weight of all penguins
+in Antarctica.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_6" aria-expanded="true" aria-controls="collapse7_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_6" class="accordion-collapse collapse"
+aria-labelledby="heading7_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Option 4 (If we created many confidence
+intervals using the same method, approximately 68% of them would contain
+the mean weight of all penguins in Antarctica.)</p>
+<p>Recall, what a <span class="math inline">k</span>% confidence level
+states is that approximately <span class="math inline">k</span>% of the
+time, the intervals you create through this process will contain the
+true population parameter.</p>
+<p>In this question, our population parameter is the mean weight of all
+penguins in Antarctica. So 86% of the time, the intervals you create
+through this process will contain the mean weight of all penguins in
+Antarctica. This is the same as Option 4. However, it will be false if
+we state it in the reverse order (Option 1) since our population
+parameter is already fixed.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 81%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion?
+<a href="https://forms.gle/WZ71FchnXU1K154d7">Let us know
+here</u></a>.</h4>
+<hr />
+</body>
+</html>

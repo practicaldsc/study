@@ -1,0 +1,17 @@
+title: 'Summer 2022 Final Exam'
+instructors: Sam Lau
+context: This exam was administered in-person. The exam was closed-note, except students were allowed 2 pages of hand-written pages of notes and provided a copy of the <a href='https://drive.google.com/file/d/1ky0Np67HS2O4LO913P-ing97SJG0j27n/view'>DSC 10 Reference Sheet<a>. No calculators were allowed. Students had **3 hours** to take this exam.
+show_solution: true
+data_info: su22-final/data-info
+problems:
+  - su22-final/q1-best-plot
+  - su22-final/q2-fill-in-blank
+  - su22-final/q3-dog-height-query
+  - su22-final/q4-cumulative-sum
+  - su22-final/q5-doggos
+  - su22-final/q6-contest-hypo-test
+  - su22-final/q7-which-test
+  - su22-final/q8-oren-stats
+  - su22-final/q9-dog-lovers
+  - su22-final/q10-height-vs-weight
+  - su22-final/q11-true-false
