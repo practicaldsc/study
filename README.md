@@ -1,4 +1,4 @@
-# study.practicaldsc.org
+# practicaldsc.org/study
 
 Repository containing practice problems for Practical Data Science (past exams and discussion). Hosted at study.practicaldsc.org. Before using the repo, make sure you have the following packages installed (install them all via `pip install`):
 
