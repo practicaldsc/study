@@ -19,8 +19,6 @@ penguin = np.arange(____)
 
 **Answer**: We need to provide `np.arange` with three arguments: 5, anything in $(21, 25]$, 4. For instance, something line `penguin = np.arange(5, 25, 4)` would work.
 
-<average>90</average>
-
 # END SOLUTION
 
 # END SUBPROB
@@ -41,8 +39,6 @@ parrot = __(x)__ * np.arange(0, __(y)__, 2) + __(z)__
 - `x`: `2`
 - `y`: anything in $(8, 10]$
 - `z`: `5`
-
-<average>74</average>
 
 # END SOLUTION
 
