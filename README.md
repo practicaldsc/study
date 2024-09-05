@@ -1,6 +1,6 @@
-# practice.dsc10.com
+# study.practicaldsc.org
 
-Repository containing practice problems for DSC 10 (past exams and discussion). Hosted at practice.dsc10.com. Before using the repo, make sure you have the following packages installed (install them all via `pip install`):
+Repository containing practice problems for Practical Data Science (past exams and discussion). Hosted at study.practicaldsc.org. Before using the repo, make sure you have the following packages installed (install them all via `pip install`):
 
 ```
 - BeautifulSoup4
@@ -49,7 +49,5 @@ To explain up-front:
 - What ( ) and [ ] mean. In their absence, students needed to write out code by hand.
 - In-person means on-paper.
 - Think of select-all questions as a sequence of true-false questions. Partial credit for these questions was assigned accordingly.
-- When taking an exam for practice, we recommend having a copy of the DSC 10 reference sheet open in another tab, as well as a second copy of the exam, so you can access the data descriptions.
-
 
 
