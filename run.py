@@ -400,7 +400,7 @@ def process_page(path, is_exam=True):
     out += '''
 ---
 
-#### 👋 Feedback: Find an error? Still confused? Have a suggestion? <a href="https://forms.gle/WZ71FchnXU1K154d7">Let us know here</u></a>.
+#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Email us at rampure@umich.edu.
 
 ---
     
@@ -529,15 +529,53 @@ def create_index():
     out += '\n' + index_src
 
     src_path = os.path.join(DST_FOLDER, 'index.md')
-    f = open(src_path, 'w')
-    f.write(out)
-    f.close()
+    
+    # Debug print statements
+    print(f"Writing to file: {src_path}")
+    print(f"Content to write:\n{out[:100]}...")  # Print first 100 characters
+    
+    try:
+        with open(src_path, 'w', encoding='utf-8') as f:
+            f.write(out)
+        print(f"File written successfully")
+    except Exception as e:
+        print(f"Error writing file: {e}")
+
+    # Check if file was actually created
+    if os.path.exists(src_path):
+        print(f"File exists at {src_path}")
+    else:
+        print(f"File does not exist at {src_path}")
 
     css_path = os.path.join('assets', 'theme.css')
-    src_path = os.path.join(DST_FOLDER, 'index.md')
     dst_path = os.path.join(DST_FOLDER, 'index.html')
-    os.system(f'pandoc -c {css_path} -s {src_path} -o {dst_path}')
-    os.remove(src_path)
+
+    pandoc_command = f'pandoc -c {css_path} -s {src_path} -o {dst_path}'
+    print(f"Executing command: {pandoc_command}")
+    try:
+        result = os.system(pandoc_command)
+        if result != 0:
+            print(f"Pandoc command failed with exit code {result}")
+            print("Checking if input file exists:")
+            if os.path.exists(src_path):
+                print(f"Input file {src_path} exists")
+                with open(src_path, 'r') as f:
+                    print("First few lines of input file:")
+                    print(f.read(500))
+            else:
+                print(f"Input file {src_path} does not exist")
+    except Exception as e:
+        print(f"Error executing pandoc command: {e}")
+
+    # print('done the command, there\'s the output above')
+
+    return
+
+    if os.path.exists(src_path):
+        os.remove(src_path)
+        print(f"Removed {src_path}")
+    else:
+        print(f"Could not remove {src_path} as it does not exist")
 
     # Remove pre-defined title
     src_path = os.path.join(DST_FOLDER, 'index.html')
