@@ -84,7 +84,7 @@ def create_top_info(params, is_exam=True):
     inst_info = f"**Instructor(s):** {params['instructors']}" if is_exam else ''
 
     return f'''
-[&#8592; return to practicaldsc.org/study](../index.html)
+[&#8592; return to study.practicaldsc.org](../index.html)
 
 ---
 
@@ -506,7 +506,7 @@ def write_all_pages(dir='pages'):
     # Add CNAME back – this is a massive hack, but whatever
     cname_path = os.path.join(DST_FOLDER, 'CNAME')
     cname = open(cname_path, 'w')
-    cname.write('practicaldsc.org/study')
+    cname.write('study.practicaldsc.org')
     cname.close()
 
     page_paths = os.path.join(dir, '*', '*.yml')
