@@ -85,6 +85,6 @@ You should work on these problems **on paper**, since your exams will also be on
 
 ----
 
-#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Email us at rampure@umich.edu.</u></a>
+#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.
 
 ----

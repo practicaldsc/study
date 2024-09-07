@@ -400,7 +400,7 @@ def process_page(path, is_exam=True):
     out += '''
 ---
 
-#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Email us at rampure@umich.edu.
+#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.
 
 ---
     
