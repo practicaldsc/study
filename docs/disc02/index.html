@@ -146,6 +146,27 @@ we don’t cover can be used for extra practice.</p>
 array <code>penguin</code> is identical to the array
 <code>puffin</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguin <span class="op">=</span> np.arange(____)</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: We need to provide <code>np.arange</code>
+with three arguments: 5, anything in <span class="math inline">(21,
+25]</span>, 4. For instance, something line
+<code>penguin = np.arange(5, 25, 4)</code> would work.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Fill in the blanks so that the array <code>parrot</code> is also
@@ -153,6 +174,30 @@ identical to the array <code>puffin</code>.<br />
 <em>Hint: Start by choosing</em> <code>y</code> <em>so that</em>
 <code>parrot</code> <em>has length 5.</em></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>parrot <span class="op">=</span> __(x)__ <span class="op">*</span> np.arange(<span class="dv">0</span>, __(y)__, <span class="dv">2</span>) <span class="op">+</span> __(z)__</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><code>x</code>: <code>2</code></li>
+<li><code>y</code>: anything in <span class="math inline">(8,
+10]</span></li>
+<li><code>z</code>: <code>5</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -189,6 +234,83 @@ the probability that Billina Records’ floor will be renovated.</p>
 <li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices) == 23</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>choices.str.contains(23)</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>np.arange(1, 76)</code>,
+<code>replace=False</code>,
+<code>np.count_nonzero(choices == 23) &gt; 0</code></p>
+<p>Here, the idea is to randomly choose 10 <strong>different</strong>
+floors repeatedly, and each time, check if floor 23 was selected.</p>
+<p>Blank (a): The first argument to <code>np.random.choice</code> needs
+to be an array/list containing the options we want to choose from,
+i.e. an array/list containing the values 1, 2, 3, 4, …, 75, since those
+are the numbers of the floors. <code>np.arange(a, b)</code> returns an
+array of integers spaced out by 1 starting from <code>a</code> and
+ending at <code>b-1</code>. As such, the correct call to
+<code>np.arange</code> is <code>np.arange(1, 76)</code>.</p>
+<p>Blank (b): Since we want to select 10 different floors, we need to
+specify <code>replace=False</code> (the default behavior is
+<code>replace=True</code>).</p>
+<p>Blank (c): The <code>if</code> condition needs to check if 23 was one
+of the 10 numbers that were selected, i.e. if 23 is in
+<code>choices</code>. It needs to evaluate to a single Boolean value,
+i.e. <code>True</code> (if 23 was selected) or <code>False</code> (if 23
+was not selected). Let’s go through each incorrect option to see why
+it’s wrong:</p>
+<ul>
+<li>Option 1, <code>choices == 23</code>, does not evaluate to a single
+Boolean value; rather, it evaluates to an array of length 10, containing
+multiple <code>True</code>s and <code>False</code>s.</li>
+<li>Option 2, <code>choices is 23</code>, does not evaluate to what we
+want – it checks to see if the array <code>choices</code> is the same
+Python object as the number 23, which it is not (and will never be,
+since an array cannot be a single number).</li>
+<li>Option 4, <code>np.count_nonzero(choices) == 23</code>, does
+evaluate to a single Boolean, however it is not quite correct.
+<code>np.count_nonzero(choices)</code> will always evaluate to 10, since
+<code>choices</code> is made up of 10 integers randomly selected from 1,
+2, 3, 4, …, 75, none of which are 0. As such,
+<code>np.count_nonzero(choices) == 23</code> is the same as
+<code>10 == 23</code>, which is always False, regardless of whether or
+not 23 is in <code>choices</code>.</li>
+<li>Option 5, <code>choices.str.contains(23)</code>, errors, since
+<code>choices</code> is not a Series (and <code>.str</code> can only
+follow a Series). If <code>choices</code> were a Series, this would
+still error, since the argument to <code>.str.contains</code> must be a
+string, not an int.</li>
+</ul>
+<p>By process of elimination, Option 3,
+<code>np.count_nonzero(choices == 23) &gt; 0</code>, must be the correct
+answer. Let’s look at it piece-by-piece:</p>
+<ul>
+<li>As we saw in Option 1, <code>choices == 23</code> is a Boolean array
+that contains <code>True</code> each time the selected floor was floor
+23 and <code>False</code> otherwise. (Since we’re sampling without
+replacement, floor 23 can only be selected at most once, and so
+<code>choices == 23</code> can only contain the value <code>True</code>
+at most once.)</li>
+<li><code>np.count_nonzero(choices == 23)</code> evaluates to the number
+of <code>True</code>s in <code>choices == 23</code>. If it is positive
+(i.e. 1), it means that floor 23 was selected. If it is 0, it means
+floor 23 was not selected.</li>
+<li>Thus, <code>np.count_nonzero(choices == 23) &gt; 0</code> evaluates
+to <code>True</code> if (and only if) floor 23 was selected.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
 <p>In this problem, we’ll work with the DataFrame <code>dogs</code>,
@@ -228,11 +350,64 @@ otherwise, the dog is a “purebred” dog.</li>
 <p>Fill in the blank so that <code>most_common</code> evaluates to the
 most common district in <code>dogs</code>. Assume there are no ties.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>most_common <span class="op">=</span> ____</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>dogs[<span class="st">"district"</span>].value_counts().idxmax()</span></code></pre>
+</div>
+<p>Above, we presented one possible solution, but there are many:</p>
+<ul>
+<li><code>dogs["district"].value_counts().idxmax()</code></li>
+<li><code>dogs["district"].value_counts().index[0]</code></li>
+<li><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code></li>
+<li><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>Fill in the blank so that <code>female_breeds</code> evaluates to a
 Series containing the primary breeds of all female dogs.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>female_breeds <span class="op">=</span> dogs.____</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>loc[dogs[<span class="st">"dog_sex"</span>] <span class="op">==</span> <span class="st">"f"</span>, <span class="st">"primary_breed"</span>]</span></code></pre>
+</div>
+<p>Another possible answer is:</p>
+<p>``<code>py query("dog_sex == 'f'")["primary_breed"]</code></p>
+<p>Note that the question <em>didn’t</em> ask for unique primary
+breeds.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -280,6 +455,36 @@ repeatedly.</strong></p>
 <li><p><input type="radio" disabled="" /> DataFrame</p></li>
 <li><p><input type="radio" disabled="" /> DataFrameGroupBy</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Series</p>
+<p>The <code>.value_counts()</code> method, when called on a Series
+<code>s</code>, produces a new Series in which</p>
+<ul>
+<li>the index contains all unique values in <code>s</code>.</li>
+<li>the values are the frequencies of the unique values in
+<code>s</code>.</li>
+</ul>
+<p>Since <code>tv["Title"]</code> is a Series,
+<code>tv["Title"].value_counts()</code> is a Series, and so is
+<code>tv["Title"].value_counts.value_counts()</code>. We provide an
+interpretation of each of these Series in the solution to the next
+subpart.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>Which of the following statements are true? Select all that
@@ -299,6 +504,130 @@ are 5 pairs of 2 TV shows such that each pair shares the same
 <code>"Title"</code>.</p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>:</p>
+<ul>
+<li>The only case in which it would make sense to set the index of
+<code>tv</code> to <code>"Title"</code> is if
+<code>double_count.loc[1] == tv.shape[0]</code> is
+<code>True</code>.</li>
+<li>If <code>double_count.loc[2] == 5</code> is <code>True</code>, there
+are 5 pairs of 2 TV shows such that each pair shares the same
+<code>"Title"</code>.</li>
+</ul>
+<p>To answer, we need to understand what each of
+<code>tv["Title"]</code>, <code>tv["Title"].value_counts()</code>, and
+<code>tv["Title"].value_counts().value_counts()</code> contain. To
+illustrate, let’s start with a basic, unrelated example. Suppose
+<code>tv["Title"]</code> looks like:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dv">0</span>    A</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dv">1</span>    B</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dv">2</span>    C</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dv">3</span>    B</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dv">4</span>    D</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dv">5</span>    E</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dv">6</span>    A</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>dtype: <span class="bu">object</span></span></code></pre>
+</div>
+<p>Then, <code>tv["Title"].value_counts()</code> looks like:</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>A    <span class="dv">2</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>B    <span class="dv">2</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>C    <span class="dv">1</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>D    <span class="dv">1</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>E    <span class="dv">1</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>dtype: int64</span></code></pre>
+</div>
+<p>and <code>tv["Title"].value_counts().value_counts()</code> looks
+like:</p>
+<div id="cb3" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">3</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dv">2</span>    <span class="dv">2</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>dtype: int64</span></code></pre>
+</div>
+<p>Back to our actual dataset. <code>tv["Title"]</code>, as we know,
+contains the name of each TV show.
+<code>tv["Title"].value_counts()</code> is a Series whose index is a
+sequence of the unique TV show titles in <code>tv["Title"]</code>, and
+whose values are the frequencies of each title.
+<code>tv["Title"].value_counts()</code> may look something like the
+following:</p>
+<div id="cb4" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>Breaking Bad                             <span class="dv">1</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>Fresh Meat                               <span class="dv">1</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>Doctor Thorne                            <span class="dv">1</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>                                       ...</span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>Styling Hollywood                        <span class="dv">1</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>Vai Anitta                               <span class="dv">1</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>Fearless Adventures <span class="cf">with</span> Jack Randall    <span class="dv">1</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>Name: Title, Length: <span class="dv">5368</span>, dtype: int64</span></code></pre>
+</div>
+<p>Then, <code>tv["Title"].value_counts().value_counts()</code> is a
+Series whose index is a sequence of the unique values in the above
+Series, and whose values are the frequencies of each value above. In the
+case where all titles in <code>tv["Title"]</code> are unique, then
+<code>tv["Title"].value_counts()</code> will only have one unique value,
+1, repeated many times. Then,
+<code>tv["Title"].value_counts().value_counts()</code> will only have
+one row total, and will look something like:</p>
+<div id="cb5" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5368</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>Name: Title, dtype: int64</span></code></pre>
+</div>
+<p>This allows us to distinguish between the first two answer choices.
+The key is remembering that <strong>in order to set a column to the
+index, the column should only contain unique values</strong>, since the
+goal of the index is to provide a “name” (more formally, a label) for
+each row.</p>
+<ul>
+<li>The first answer choice, “The only case in which it would make sense
+to set the index of <code>tv</code> to <code>"Title"</code> is if
+<code>double_count.iloc[0] == 1</code> is <code>True</code>”, is false.
+As we can see in the example above, all titles are unique, but
+<code>double_count.iloc[0]</code> is something other than 1.</li>
+<li>The second answer choice, “The only case in which it would make
+sense to set the index of <code>tv</code> to <code>"Title"</code> is if
+<code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>”,
+is true. If <code>double_count.loc[1] == tv.shape[0]</code>, it means
+that all values in <code>tv["Title"].value_counts()</code> were 1,
+meaning that <code>tv["Title"]</code> consisted solely of unique values,
+which is the only case in which it makes sense to set
+<code>"Title"</code> to the index.</li>
+</ul>
+<p>Now, let’s look at the second two answer choices. If
+<code>double_counts.loc[2] == 5</code>, it would mean that 5 of the
+values in <code>tv["Title"].value_counts()</code> were 2. This would
+mean that there were 5 pairs of titles in <code>tv["Title"]</code> that
+were the same.</p>
+<ul>
+<li>This makes the fourth answer choice, “If
+<code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5
+pairs of 2 TV shows such that each pair shares the same
+<code>"Title"</code>”, correct.</li>
+<li>The third answer choice, “If <code>double_count.loc[2] == 5</code>
+is <code>True</code>, there are 5 TV shows that all share the same
+<code>"Title"</code>”, is incorrect; if there were 5 TV shows with the
+same title, then <code>double_count.loc[5]</code> would be at least 1,
+but we can’t make any guarantees about
+<code>double_counts.loc[2]</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>Ethan is an avid Star Wars fan, and the only streaming service he has
@@ -311,6 +640,58 @@ Disney+.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>star_only <span class="op">=</span> __(a)__</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>star_disney_prop <span class="op">=</span> __(b)__ <span class="op">/</span> star_only.shape[<span class="dv">0</span>]</span></code></pre></div>
 <p>What goes in the blanks?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>:</p>
+<ul>
+<li>Blank (a):
+<code>tv[tv["Title"].str.contains("Star Wars")]</code></li>
+<li>Blank (b): <code>star_only["Disney+"].sum()</code></li>
+</ul>
+<p>We’re asked to find the proportion of TV shows with
+<code>"Star Wars"</code> in the title that are available to stream on
+Disney+. This is a fraction, where:</p>
+<ul>
+<li>The numerator is the number of TV shows that have
+<code>"Star Wars"</code> in the title <strong>and</strong> are available
+to stream on Disney+.</li>
+<li>The denominator is the number of TV shows that have
+<code>"Star Wars"</code> in the title.</li>
+</ul>
+<p>The key is recognizing that <code>star_only</code> must be a
+DataFrame that contains all the rows in which the <code>"Title"</code>
+contains <code>"Star Wars"</code>; to create this DataFrame in blank
+(a), we use <code>tv[tv["Title"].str.contains("Star Wars")]</code>.
+Then, the denominator is already provided for us, and all we need to
+fill in is the numerator. There are a few possibilities, though they all
+include <code>star_only</code>:</p>
+<ul>
+<li><code>star_only["Disney+"].sum()</code></li>
+<li><code>(star_only["Disney+"] == 1).sum()</code></li>
+<li><code>star_only[star_only["Disney+"] == 1].shape[0]</code></li>
+</ul>
+<p><strong>Common misconception</strong>: Many students calculated the
+wrong proportion: they calculated the proportion of shows available to
+stream on Disney+ that have <code>"Star Wars"</code> in the title. We
+asked for the proportion of shows with <code>"Star Wars"</code> in the
+title that are available to stream on Disney+; “proportion of <span class="math inline">X</span> that <span class="math inline">Y</span>” is
+always <span class="math inline">\frac{\# X \text{ and } Y}{\#
+X}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
@@ -336,6 +717,24 @@ that if <code>x</code> is an integer, <code>x % 2</code> is
 <li><p><input type="radio" disabled="" /> 4</p></li>
 <li><p><input type="radio" disabled="" /> 6</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5" class="accordion-collapse collapse"
+aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: -4</p>
+</div>
+</div>
+</div>
+</div>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
 <p>Consider the following four assignment statements.</p>
@@ -347,6 +746,24 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href=
 <p><br></p>
 <h3 id="problem-6.1">Problem 6.1</h3>
 <p>What is the value of the expression <code>bass * tuna</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>"55"</code></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
 <p>Which of the following expressions results in an error?</p>
@@ -357,6 +774,24 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>int(sword[3])</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>float(sword[4])</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>int(sword[0])</code></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
 <p>Which of the following expressions evaluates to
@@ -367,6 +802,25 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").upper() + str(gold[1] + int(gold[0]))</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").title() + str(gold[0] + int(gold[1]))</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:
+<code>gold[3].replace("o", "s").upper() + str(gold[0] + int(gold[1]))</code></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
@@ -396,14 +850,88 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>replace=False</code></p>
+<p>Since we want to guarantee that the same student cannot be selected
+twice, we should sample without replacement.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
 <p>What goes in blank (b)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Aswer</strong>: <code>unique_majors</code></p>
+<p><code>unique_majors</code> is the array we initialized before running
+our <code>for</code>-loop to keep track of our results. We’re already
+given that the first argument to <code>np.append</code> is
+<code>unique_majors</code>, meaning that in each iteration of the
+<code>for</code>-loop we’re creating a new array by adding a new element
+to the end of <code>unique_majors</code>; to save this new array, we
+need to re-assign it to <code>unique_majors</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
 <p>What goes in blank (c)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>np.unique(group)</code></p>
+<p>In each iteration of our <code>for</code>-loop, we’re interested in
+finding the number of unique majors among the 3 students who were
+selected. We can tell that this is what we’re meant to store in
+<code>unique_majors</code> by looking at the options in the next
+subpart, which involve checking the proportion of times that the values
+in <code>unique_majors</code> is 3.</p>
+<p>The majors of the 3 randomly selected students are stored in
+<code>group</code>, and <code>np.unique(group)</code> is an array with
+the unique values in <code>group</code>. Then,
+<code>len(np.unique(group))</code> is the number of unique majors in the
+group of 3 students selected.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-7.4">Problem 7.4</h3>
 <p>What could go in blank (d)? Select all that apply. At least one
@@ -415,6 +943,89 @@ option is correct; blank answers will receive no credit.</p>
 <li><p><input type="checkbox" disabled="" /> <code>1 - np.count_nonzero(unique_majors != 3).mean()</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>unique_majors.mean() - 3 == 0</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Option 1 only</p>
+<p>Let’s break down the code we have so far:</p>
+<ul>
+<li>An empty array named <code>unique_majors</code> is initialized to
+store the number of unique majors in each iteration of the
+simulation.</li>
+<li>The simulation runs 10,000 times, and in every iteration: Three
+majors are selected at random from the survey dataset without
+replacement. This ensures that the same item is not chosen more than
+once within a single iteration. The <code>np.unique</code> function is
+employed to identify the number of unique majors among the selected
+three. The result is then appended to the <code>unique_majors</code>
+array.</li>
+<li>Following the simulation, the objective is to determine the fraction
+of iterations in which all three selected majors were unique. Since the
+maximum number of unique majors that can be selected in a group of three
+is 3, the code checks the fraction of times the
+<code>unique_majors</code> array contains a value greater than 2.</li>
+</ul>
+<p>Let’s look at each option more carefully.</p>
+<ul>
+<li><strong>Option 1</strong>:
+<code>(unique_majors &gt; 2).mean()</code> will create a Boolean array
+where each value in <code>unique_majors</code> is checked if it’s
+greater than 2. In other words, it’ll return <code>True</code> for each
+3 and <code>False</code> otherwise. Taking the mean of this Boolean
+array will give the proportion of <code>True</code> values, which
+corresponds to the probability that all 3 students selected are in
+different majors.</li>
+<li><strong>Option 2</strong>: <code>(unique_majors.sum() &gt; 2)</code>
+will generate a single Boolean value (either <code>True</code> or
+<code>False</code>) since you’re summing up all values in the
+<code>unique_majors</code> array and then checking if the sum is greater
+than 2. This is not what you want. <code>.mean()</code> on a single
+Boolean value will raise an error because you can’t compute the mean of
+a single Boolean.</li>
+<li><strong>Option 3</strong>:
+<code>np.count_nonzero(unique_majors &gt; 2).sum() / len(unique_majors &gt; 2)</code>
+would work without the <code>.sum()</code>.
+<code>unique_majors &gt; 2</code> results in a Boolean array where each
+value is <code>True</code> if the respective simulation yielded 3 unique
+majors and <code>False</code> otherwise. <code>np.count_nonzero()</code>
+counts the number of <code>True</code> values in the array, which
+corresponds to the number of simulations where all 3 students had unique
+majors. This returns a single integer value representing the count. The
+<code>.sum()</code> method is meant for collections (like arrays or
+lists) to sum their elements. Since <code>np.count_nonzero</code>
+returns a single integer, calling <code>.sum()</code> on it will result
+in an AttributeError because individual numbers do not have a sum
+method. <code>len(unique_majors &gt; 2)</code> calculates the length of
+the Boolean array, which is equal to 10,000 (the total number of
+simulations). Because of the attempt to call <code>.sum()</code> on an
+integer value, the code will raise an error and won’t produce the
+desired result.</li>
+<li><strong>Option 4</strong>:
+<code>np.count_nonzero(unique_majors != 3)</code> counts the number of
+trials where not all 3 students had different majors. When you call
+<code>.mean()</code> on an integer value, which is what
+<code>np.count_nonzero</code> returns, it’s going to raise an
+error.</li>
+<li><strong>Option 5</strong>:
+<code>unique_majors.mean() - 3 == 0</code> is trying to check if the
+mean of <code>unique_majors</code> is 3. This line of code will return
+<code>True</code> or <code>False</code>, and this isn’t the right
+approach for calculating the estimated probability.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
