@@ -4,8 +4,17 @@ Define `small_students` to be the DataFrame with 8 rows and 2 columns
 shown directly below, and define `districts` to be the DataFrame
 with 3 rows and 2 columns shown below `small_students`.
 
-<center><img src='../assets/images/disc03/dsc80-sp22-midterm-small_students.png' width=30%></center>
-<center><img src='../assets/images/disc03/dsc80-sp22-midterm-districts.png' width=30%></center>
+<!-- <p style="display: flex; justify-content: left; gap: 20px;">
+    <img src='../assets/images/disc03/small_students.png' width=30%>
+</p>
+<p style="display: flex; justify-content: right; gap: 20px;">
+    <img src='../assets/images/disc03/districts.png' width=30%>
+</p> -->
+
+<p align="center">
+    <img src='../assets/images/disc03/small_students.png' width=30% style="display:inline-block; margin-right:20px;">
+    <img src='../assets/images/disc03/districts.png' width=30% style="display:inline-block;">
+</p>
 
 Consider the DataFrame `merged`, defined below.
 
@@ -25,7 +34,7 @@ an integer.
 
 `merged` is shown below.
 
-<center><img src='../assets/images/disc03/dsc80-sp22-midterm-merge-ans-1.png' width=45%></center>
+<center><img src='../assets/images/disc03/merge-ans-1.png' width=45%></center>
 
 # END SOLN
 

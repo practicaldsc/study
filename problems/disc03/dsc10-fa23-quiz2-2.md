@@ -11,7 +11,7 @@ For each item, we have:
 
 The first 6 rows of `items` are below, though `items` has more rows than are shown here.
 
-<center><img src="../assets/images/disc03/dsc10-fa23-quiz2-items.md.png" width=300></center>
+<center><img src="../assets/images/disc03/items.png" width=500></center>
 
 
 The DataFrame `keepers` has 5 rows, each of which represent a different
@@ -19,7 +19,7 @@ shopkeeper in the *Animal Crossing: New Horizons* universe.
 
 `keepers` is shown below in its entirety.
 
-<center><img src="../../assets/images/disc03/dsc10-fa23-quiz2-2.md.png" width=200></center>
+<center><img src="../../assets/images/disc03/keepers1.png" width=350></center>
 
 <br>
 
@@ -33,6 +33,10 @@ keepers.merge(items.take(np.arange(6)),
 ```
 
 # BEGIN SOLUTION
+
+**Answer**: 10. Since the type of join is not specified, this is an inner join. Each row in `keepers` is merged with each row in `items` only if `'Store'` in `keepers` equals `'Location'` in `items`. Each row in `keepers` has the following number of merges: row 0 has 1, row 1 has 3, row 2 has 3, row 3 has 0 (there are no rows in `items` with `'Location'` equal to 'Kicks Shoe Store'), and row 4 has 3. 
+
+1 + 3 + 3 + 0 + 3 = 10
 
 # END SOLUTION
 

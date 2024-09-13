@@ -2,7 +2,7 @@
 
 For your convenience, the first few rows of `tv` are shown again below.
 
-<center><img src='../assets/images/wi23-midterm/data-info-wi23-mt.png' width=65%></center>
+<center><img src='../assets/images/disc03/data-info-wi23-mt.png' width=65%></center>
 
 For the purposes of this question only, suppose we have also access to
 another similar DataFrame, `movies`, which contains information about a
@@ -13,7 +13,7 @@ IMDb ratings, which are missing from `movies`.
 The first few rows of `movies` are shown below (though `movies` has many
 more rows than are pictured here).
 
-<center><img src='../assets/images/wi23-midterm/movies-dinfo-wi23-mt.png' width=65%></center>
+<center><img src='../assets/images/disc03/movies-dinfo-wi23-mt.png' width=65%></center>
 
 # BEGIN SUBPROB
 

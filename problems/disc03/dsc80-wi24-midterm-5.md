@@ -2,7 +2,7 @@ The DataFrame `dogs`, contains one row for every registered pet dog in Zurich, S
 
 The first few rows of `dogs` are shown below, but `dogs` has many more rows than are shown.
 
-<center><img src="../assets/images/wi24-midterm/df.png" width=750></center>
+<center><img src="../assets/images/disc03/df.png" width=750></center>
 
 <br>
 
@@ -15,7 +15,6 @@ The first few rows of `dogs` are shown below, but `dogs` has many more rows than
 - `"dog_sex" (str)`: The birth sex of the dog; either `"m"` (male) or `"f"` (female).
 - `"birth_year" (int)`: The birth year of the dog.
 
-**Assume we have already run `import pandas as pd` and `import numpy as np`.**
 
 
 # BEGIN PROB

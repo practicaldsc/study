@@ -10,7 +10,7 @@ In this problem, we will work with the DataFrame `tv`, which contains informatio
 
 The first few rows of `tv` are shown below (though `tv` has many more rows than are pictured here).
 
-<center><img src='../assets/images/disc03/disc03-p1-df.png' width=65%></center>
+<center><img src='../assets/images/disc03/tv-excl.png' width=65%></center>
 
 As you see in the first few rows of `tv`, some TV shows are available
 for streaming on multiple streaming services. Fill in the blanks so that

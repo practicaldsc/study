@@ -10,12 +10,12 @@ The first few rows of `tv_excl` are shown below (though, of course,
 Erica* is not in `tv_excl`, since it is available to stream on multiple
 services.
 
-<center><img src='../assets/images/wi23-midterm/tv-excl.png' width=65%></center>
+<center><img src='../assets/images/disc03/tv-excl.png' width=65%></center>
 
 The DataFrame `counts`, shown in full below, contains the number of TV
 shows for every combination of `"Age"` and `"Service"`.
 
-<center><img src='../assets/images/wi23-midterm/pivot.png' width=40%></center>
+<center><img src='../assets/images/disc03/pivot.png' width=40%></center>
 
 Given the above information, what does the following expression evaluate
 to?

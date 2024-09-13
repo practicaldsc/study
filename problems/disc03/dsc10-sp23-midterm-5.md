@@ -5,7 +5,7 @@ start flipping a Michigan-themed coin, with a picture of the Michigan Union
 on the heads side and a picture of the Shapiro Undergraduate Library (aka
 the UgLi) on the tails side.
 
-<center><img src='../assets/images/disc03/michigan_union.jpg' width=200></center>
+<center><img src='../assets/images/disc03/michigan_union.png' width=400></center>
 <br>
 
 Kyle flips the coin 21 times and sees 13 heads and 8 tails. He stores
@@ -15,7 +15,7 @@ columns, such that:
 - The `"flips"` column contains `"Heads"` 13 times and `"Tails"` 8
   times.
 
-- The `"Wolftown"` column contains `"Kyle"` 21 times.
+- The `"Markley"` column contains `"Kyle"` 21 times.
 
 Then, Yutong flips the coin 11 times and sees 4 heads and 7 tails. She
 stores this information in a DataFrame named `yutong` that has 11 rows
@@ -24,7 +24,7 @@ and 2 columns, such that:
 - The `"flips"` column contains `"Heads"` 4 times and `"Tails"` 7
   times.
 
-- The `"Makai"` column contains `"Yutong"` 11 times.
+- The `"MoJo"` column contains `"Yutong"` 11 times.
 
 # BEGIN SUBPROB
 
@@ -69,10 +69,10 @@ Then, the total number of rows in the merged DataFrame is $52 + 56 = 108$.
 Let $A$ be your answer to the previous part. Now, suppose that:
 
 - `kyle` contains an additional row, whose `"flips"` value is
-  `"Total"` and whose `"Wolftown"` value is 21.
+  `"Total"` and whose `"Markley"` value is 21.
 
 - `yutong` contains an additional row, whose `"flips"` value is
-  `"Total"` and whose `"Makai"` value is 11.
+  `"Total"` and whose `"MoJo"` value is 11.
 
 Suppose we again merge `kyle` and `yutong` on the `"flips"` column. In
 terms of $A$, how many rows are in the new merged DataFrame?
