@@ -27,7 +27,7 @@ How many rows are in the following DataFrame? Give your answer as an
 integer.
 
 ```py
-keepers.merge(items.take(np.arange(6)), 
+keepers.merge(items.iloc[:6]), 
               left_on="Store", 
               right_on="Location")
 ```

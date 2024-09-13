@@ -17,7 +17,7 @@ quantity as above).
 
 # BEGIN SOLUTION
 
-**Answer:** `laptops[laptops["OS"] == "macOS"]["Price"].mean()`
+**Answer:** `laptops.loc[laptops["OS"] == "macOS", "Price"].mean()`
 
 # END SOLUTION
 
@@ -31,7 +31,7 @@ price of laptops with the `"macOS"` operating system.
 
 # BEGIN SOLUTION
 
-**Answer:** `laptops.groupby("OS").mean()["Price"].loc["macOS"]`
+**Answer:** `laptops.groupby("OS")["Price"].mean().loc["macOS"]`
 
 # END SOLUTION
 

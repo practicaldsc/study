@@ -284,7 +284,7 @@ aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer:</strong>
-<code>laptops[laptops["OS"] == "macOS"]["Price"].mean()</code></p>
+<code>laptops.loc[laptops["OS"] == "macOS", "Price"].mean()</code></p>
 </div>
 </div>
 </div>
@@ -309,7 +309,7 @@ aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer:</strong>
-<code>laptops.groupby("OS").mean()["Price"].loc["macOS"]</code></p>
+<code>laptops.groupby("OS")["Price"].mean().loc["macOS"]</code></p>
 </div>
 </div>
 </div>
@@ -490,155 +490,44 @@ written by Charles Dickens published in 1838.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
-<p>You are given a table called books that contains columns
-<code>'author'</code> (<code>str</code>), <code>'title'</code>
-(<code>str</code>), <code>'num_chapters'</code> (<code>int</code>), and
-<code>'publication_year'</code> (<code>int</code>). <br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
-<p>What will be the output of the following code?
-<code>books.groupby(“publication_year”).mean().shape[1]</code></p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>1</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>2</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>3</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>4</code></p></li>
+<p>The <code>h</code> table records addresses within San Diego. Only 50
+addresses are recorded. The index of the dataframe contains the numbers
+1-50 as unique integers.</p>
+<ul>
+<li><code>"number" (int)</code>: Street address number</li>
+<li><code>"street" (str)</code>: Street name</li>
 </ul>
+<center><img src="../assets/images/disc03/h.png" width=400></center>
+<p>Fill in the Python code to create a DataFrame containing the
+proportion of 4-digit address numbers for each unique street in
+<code>h</code>.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo(x):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    lengths <span class="op">=</span> __(a)__</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (lengths <span class="op">==</span> <span class="dv">4</span>).mean()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>h.groupby(__(b)__).__(c)__(foo)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+<h2 class="accordion-header" id="heading4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div id="collapse4" class="accordion-collapse collapse"
+aria-labelledby="heading4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> <code>1</code></p>
-<p>The output will return 1. Notice that the final function call is to
-<code>.shape[1]</code>. We know that <code>.shape[1]</code> is a call to
-see how many columns are in the resulting data frame. When we group by
-publication year, there is only one column that will be aggregated by
-the groupby call (which is the <code>'num_chapters'</code> column). The
-other columns are string, and therefore, will not be aggregated in the
-groupby call (since you can’t take the mean of a string). Consequently
-<code>.shape[1]</code> will only result one column for the mean of the
-<code>'num_chapters'</code> column.</p>
+<p><strong>Answer:</strong></p>
+<p>(a): <code>x.astype(str).str.len()</code></p>
+<p>(b): <code>'street'</code></p>
+<p>(c): <code>agg</code></p>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
-<p>Which of the following strategies would work to compute the absolute
-difference in the average number of chapters per book for authors “Dean
-Koontz” and “Charles Dickens”?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> group by <code>'author'</code>, aggregate with <code>.mean()</code>,
-and indexing into the <code>'num_chapters'</code> column, compute the
-absolute value of the difference between
-<code>iloc["Charles Dickens"]</code> and
-<code>iloc["Dean Koontz"]</code></p></li>
-<li><p><input type="radio" disabled="" /> do two queries to get two separate tables (one for each of “Dean
-Koontz” and “Charles Dickens”): index into the
-<code>'num_chapters'</code> column of each table, use the Series method
-<code>.mean()</code> on each, and compute the absolute value of the
-difference in these two means</p></li>
-<li><p><input type="radio" disabled="" /> group by both <code>'author'</code> and <code>'title'</code>,
-aggregate with <code>.mean()</code>, index into the
-<code>'num_chapters'</code> column, use <code>loc</code> twice to find
-values in that column corresponding to “Dean Koontz” and “Charles
-Dickens”, and compute the absolute value of the difference in these two
-values</p></li>
-<li><p><input type="radio" disabled="" /> query using a compound condition to get all books corresponding to
-“Dean Koontz” or “Charles Dickens”, group by <code>'author'</code>,
-aggregate with <code>.mean()</code>, and compute absolute value of the
-difference in <code>index[0]</code> and <code>index[1]</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Do two queries to get two separate tables
-(one for each of “Dean Koontz” and “Charles Dickens”), index the
-<code>'num_chapters'</code> column of each table, use the Series method
-<code>.mean()</code> on each, compute the absolute value of the
-difference in these two means</p>
-<p>Logically, we want to somehow separate data for author “Dean Koontz”
-and “Charles Dickens”. (If we don’t we’ll be taking a mean that includes
-the chapters of books from both authors.) To achieve this separation, we
-can create two separate tables with a query that specifies a value on
-the <code>'author'</code> column. Now having two separate tables, we can
-aggregate on the <code>'num_chapters'</code> (the column of interest).
-To acquire the mean of the <code>'num_chapters'</code> column we can
-evoke the <code>.mean()</code> call.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<!-- <br>
-
-### Problem 4.3
-
-
-
-Which of the following will produce the same value as the total number of books in the table?
-
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>books.groupby('Title').count().shape[0]</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>books.groupby('Author').count().shape[0]</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>books.groupby(['Author, 'Title']).count().shape[0]</code></p></li>
-</ul>
-
-
-
-
-
-<div class="accordion" id="accordionExample">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_3" class="accordion-collapse collapse collapse" aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>
-<code>books.groupby(['Author, 'Title']).count().shape[0]</code></p>
-<p>The key in this question is to understand that different authors can
-create books with the same name. The first two options check for each
-unique book title (the first response) and check for each unique other
-(the second response). To ensure we have all unique author and title
-pairs we must group based on both <code>'Author'</code> and
-<code>'Title'</code>. To actually get the number of rows we can take
-<code>.shape[0]</code>.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-    
-<br> -->
 <hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>The DataFrame <code>items</code> describes various items available to
@@ -664,9 +553,9 @@ Horizons</em> universe.</p>
 <p><br></p>
 <p>How many rows are in the following DataFrame? Give your answer as an
 integer.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>keepers.merge(items.take(np.arange(<span class="dv">6</span>)), </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>              left_on<span class="op">=</span><span class="st">&quot;Store&quot;</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>              right_on<span class="op">=</span><span class="st">&quot;Location&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>keepers.merge(items.iloc[:<span class="dv">6</span>]), </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>              left_on<span class="op">=</span><span class="st">&quot;Store&quot;</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              right_on<span class="op">=</span><span class="st">&quot;Location&quot;</span>)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5">
@@ -703,7 +592,7 @@ departed from each airport.</p>
 <p><br></p>
 <p>Consider the DataFrame that results from merging <code>midwest</code>
 with itself, as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>double_merge <span class="op">=</span> midwest.merge(midwest, left_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>double_merge <span class="op">=</span> midwest.merge(midwest, left_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>)</span></code></pre></div>
 <p>How many rows does <code>double_merge</code> have?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -719,10 +608,10 @@ aria-labelledby="heading6" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> 38</p>
-<p>There are two flights from DTW. When we merge <code>socal</code> with
-itself on the <code>'FROM'</code> column, each of these flights gets
-paired up with each of these flights, for a total of four rows in the
-output. That is, the first flight from DTW gets paired with both the
+<p>There are two flights from DTW. When we merge <code>midwest</code>
+with itself on the <code>'FROM'</code> column, each of these flights
+gets paired up with each of these flights, for a total of four rows in
+the output. That is, the first flight from DTW gets paired with both the
 first and second flights from DTW. Similarly, the second flight from DTW
 gets paired with both the first and second flights from DTW.</p>
 <p>Following this logic, each of the five flights from ORD gets paired
@@ -764,7 +653,7 @@ times.</p></li>
 <h3 id="problem-7.1">Problem 7.1</h3>
 <p>How many rows are in the following DataFrame? Give your answer as an
 integer.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    kyle.merge(yutong, on<span class="op">=</span><span class="st">&quot;flips&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    kyle.merge(yutong, on<span class="op">=</span><span class="st">&quot;flips&quot;</span>)</span></code></pre></div>
 <p><em>Hint: The answer is less than 200.</em></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -884,10 +773,10 @@ be the DataFrame with 3 rows and 2 columns shown below
     <img src='../assets/images/disc03/districts.png' width=30% style="display:inline-block;">
 </p>
 <p>Consider the DataFrame <code>merged</code>, defined below.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> small_students.merge(districts, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                left_on<span class="op">=</span><span class="st">&quot;High School&quot;</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                right_on<span class="op">=</span><span class="st">&quot;school&quot;</span>, </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> small_students.merge(districts, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                left_on<span class="op">=</span><span class="st">&quot;High School&quot;</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                right_on<span class="op">=</span><span class="st">&quot;school&quot;</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span></code></pre></div>
 <p>How many total <code>NaN</code> values does <code>merged</code>
 contain? Give your answer as an integer.</p>
 <div id="accordionExample" class="accordion">
@@ -947,15 +836,15 @@ otherwise, the dog is a “purebred” dog.</li>
 <code>dogs</code>.</p>
 <p>Suppose we merge the <code>dogs</code> DataFrame with itself as
 follows.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># on=&quot;x&quot; is the same as specifying both left_on=&quot;x&quot; and right_on=&quot;x&quot;.</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>double <span class="op">=</span> dogs.merge(dogs, on<span class="op">=</span><span class="st">&quot;district&quot;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sort_index sorts a Series in increasing order of its index.</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> double[<span class="st">&quot;district&quot;</span>].value_counts().value_counts().sort_index()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># on=&quot;x&quot; is the same as specifying both left_on=&quot;x&quot; and right_on=&quot;x&quot;.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>double <span class="op">=</span> dogs.merge(dogs, on<span class="op">=</span><span class="st">&quot;district&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sort_index sorts a Series in increasing order of its index.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> double[<span class="st">&quot;district&quot;</span>].value_counts().value_counts().sort_index()</span></code></pre></div>
 <p>The first few rows of <code>square</code> are shown below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">5500</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>      <span class="dv">215</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>       <span class="dv">40</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">5500</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>      <span class="dv">215</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>       <span class="dv">40</span></span></code></pre></div>
 <p><br></p>
 <h3 id="problem-9.1">Problem 9.1</h3>
 <p>In <code>dogs</code>, there are 12 rows with a
@@ -990,7 +879,8 @@ and 12 in the second, there are <span class="math inline">12 \cdot 12 =
 <h3 id="problem-9.2">Problem 9.2</h3>
 <p>What does the following expression evaluate to? Give your answer as a
 positive integer.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
 <p><em>Hint: Unlike in 5.1, your answer to 5.2 depends on the values in
 <code>square</code>.</em></p>
 <div id="accordionExample" class="accordion">
@@ -1039,8 +929,8 @@ number of TV shows for every combination of <code>"Age"</code> and
 <center><img src='../assets/images/disc03/pivot.png' width=40%></center>
 <p>Given the above information, what does the following expression
 evaluate to?</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tv_excl.groupby([<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Service&quot;</span>]).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tv_excl.groupby([<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Service&quot;</span>]).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> 4</p></li>
 <li><p><input type="radio" disabled="" /> 5</p></li>
@@ -1110,8 +1000,8 @@ flight arrives (e.g., <code>"LAX"</code>).</li>
 <p>Suppose we have another DataFrame <code>more_flights</code> which
 contains the same columns as <code>flights</code>, but different rows.
 Define <code>merged</code> as follows.</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>        merged <span class="op">=</span> flights.merge(more_flights, on <span class="op">=</span> <span class="st">&quot;airline&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>        merged <span class="op">=</span> flights.merge(more_flights, on <span class="op">=</span> <span class="st">&quot;airline&quot;</span>)</span></code></pre></div>
 <p>Suppose that in <code>merged</code>, there are 108 flights where the
 airline is <code>"United"</code>, and in <code>more_flights</code>,
 there are 12 flights where the airline is <code>"United"</code>. If
@@ -1167,15 +1057,15 @@ missing from <code>movies</code>.</p>
 <p>The function <code>total_null</code>, defined below, takes in a
 DataFrame and returns the total number of null values in the
 DataFrame.</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>total_null <span class="op">=</span> <span class="kw">lambda</span> df: df.isna().<span class="bu">sum</span>().<span class="bu">sum</span>()</span></code></pre></div>
-<p>Consider the function <code>delta</code>, defined below.</p>
 <div class="sourceCode" id="cb13"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delta(a, b):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    tv_a <span class="op">=</span> tv.head(a)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    movies_b <span class="op">=</span> movies.head(b)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    together <span class="op">=</span> pd.concat([tv_a, movies_b])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_null(together) <span class="op">-</span> total_null(tv_a) <span class="op">-</span> total_null(movies_b)</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>total_null <span class="op">=</span> <span class="kw">lambda</span> df: df.isna().<span class="bu">sum</span>().<span class="bu">sum</span>()</span></code></pre></div>
+<p>Consider the function <code>delta</code>, defined below.</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delta(a, b):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    tv_a <span class="op">=</span> tv.head(a)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    movies_b <span class="op">=</span> movies.head(b)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    together <span class="op">=</span> pd.concat([tv_a, movies_b])</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_null(together) <span class="op">-</span> total_null(tv_a) <span class="op">-</span> total_null(movies_b)</span></code></pre></div>
 <p>Which of the following functions is equivalent to
 <code>delta</code>?</p>
 <ul class="task-list">
@@ -1244,18 +1134,18 @@ about how merges work. As such, <strong>solutions containing
 points.</strong></p></li>
 </ul>
 <p><strong>What goes in the blank below?</strong></p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> size_of_merge(col):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (____).<span class="bu">sum</span>()</span></code></pre></div>
-<p><strong><em>Hint</em></strong>: Consider the behavior below.</p>
 <div class="sourceCode" id="cb15"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">=</span> pd.Series({<span class="st">&#39;a&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">3</span>})</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s2 <span class="op">=</span> pd.Series({<span class="st">&#39;c&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;a&#39;</span>: <span class="op">-</span><span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">4</span>})</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">*</span> s2</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>a    <span class="op">-</span><span class="fl">2.0</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>b    <span class="fl">12.0</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>c     NaN</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>dtype: float64</span></code></pre></div>
+class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> size_of_merge(col):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (____).<span class="bu">sum</span>()</span></code></pre></div>
+<p><strong><em>Hint</em></strong>: Consider the behavior below.</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">=</span> pd.Series({<span class="st">&#39;a&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">3</span>})</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s2 <span class="op">=</span> pd.Series({<span class="st">&#39;c&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;a&#39;</span>: <span class="op">-</span><span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">4</span>})</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">*</span> s2</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>a    <span class="op">-</span><span class="fl">2.0</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>b    <span class="fl">12.0</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>c     NaN</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>dtype: float64</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading12_2">
