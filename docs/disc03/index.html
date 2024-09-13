@@ -186,68 +186,6 @@ streaming services</strong>. Assume there are no ties and that the
 and columns of a DataFrame — the indexes of <code>df</code> are the
 columns of <code>df.T</code> and vice versa.</p>
 <p>What goes in the blanks?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1" class="accordion-collapse collapse"
-aria-labelledby="heading1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ul>
-<li><ol type="a">
-<li><code>:, "Netflix":</code> or some variation of that</li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><code>:, 5:</code> or some variation of that</li>
-</ol></li>
-<li><ol start="3" type="a">
-<li><code>axis=1</code></li>
-</ol></li>
-<li><ol start="4" type="a">
-<li><code>-1, 0</code></li>
-</ol></li>
-</ul>
-<p>In Expression 1, keep in mind that <code>idxmax()</code> is a Series
-method returns the index of the row with the maximum value. As such, we
-can infer that Expression 1 sums the service-specific indicator columns
-(that is, the columns <code>"Netflix"</code>, <code>"Hulu"</code>,
-<code>"Prime Video"</code>, and <code>"Disney+"</code>) for each row and
-returns the index of the row with the greatest sum. To do this, we need
-the <code>loc</code> accessor to select all the service-specific
-indicator columns, which we can do using <code>loc[:, "Netflix":]</code>
-or
-<code>loc[:, ["Netflix", "Hulu", "Prime Video", "Disney+"]]</code>.</p>
-<p>When looking at Expression 2, we can split the problem into two
-parts: the code inside the <code>assign</code> statement and the code
-outside of it.</p>
-<ul>
-<li>Glancing at the code inside of the <code>assign</code> statement,
-(and also noticing the variable <code>num_services</code>), we realize
-that we, once again, want to sum up the values in the service-specific
-indicator columns. We do this by first selecting the last four columns,
-using <code>.iloc[:, 5:]</code> (notice the <code>iloc</code>), and then
-summing over <code>axis=1</code>. We use <code>axis=1</code> (different
-from <code>axis=0</code> in Expression 1), because unlike Expression 1,
-we’re summing over each row, instead of each column. If there had not
-been a <code>.T</code> in the code for Expression 1, we would’ve also
-used <code>axis=1</code> in Expression 1.</li>
-<li>Finally, we need to select the <code>"Title"</code> of the last row
-in DataFrame in Expression 2, because <code>sort_values</code> sorts in
-ascending order by default. The last row has an integer position of -1,
-and the <code>"Title"</code> column has an integer position of 0, so we
-use <code>iloc[-1, 0]</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
 <p>The <code>laptops</code> DataFrame contains information on various
@@ -270,50 +208,12 @@ dollars.</li>
 <p><strong>Without using <code>groupby</code></strong>, write an
 expression that evaluates to the average price of laptops with the
 <code>"macOS"</code> operating system (the same quantity as above).</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong>
-<code>laptops.loc[laptops["OS"] == "macOS", "Price"].mean()</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p><strong>Using <code>groupby</code></strong>, write an expression that
 evaluates to the average price of laptops with the <code>"macOS"</code>
 operating system.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong>
-<code>laptops.groupby("OS")["Price"].mean().loc["macOS"]</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -355,35 +255,6 @@ alphabetically last of all author names in this dataset?</p>
 <li><p><input type="radio" disabled="" /> Yes</p></li>
 <li><p><input type="radio" disabled="" /> No</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> No</p>
-<p>When we group by <code>'Author'</code>, all books by the same author
-get aggregated together into a single row. The aggregation function is
-applied separately to each other column besides the column we’re
-grouping by. Since we’re grouping by <code>'Author'</code> here, the
-<code>'Author'</code> column never has the <code>max()</code> function
-applied to it. Instead, each unique value in the <code>'Author'</code>
-column becomes a value in the index of the grouped DataFrame. We are
-told that the Charles Dickens row is just one row of the output, but we
-don’t know anything about the other rows of the output, or the other
-authors. We can’t say anything about where Charles Dickens falls when
-authors are ordered alphabetically (but it’s probably not last!)</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>Based on this data, can you conclude that Charles Dickens wrote
@@ -392,30 +263,6 @@ authors are ordered alphabetically (but it’s probably not last!)</p>
 <li><p><input type="radio" disabled="" /> Yes</p></li>
 <li><p><input type="radio" disabled="" /> No</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Yes</p>
-<p>Grouping by <code>'Author'</code> collapses all books written by the
-same author into a single row. Since we’re applying the
-<code>max()</code> function to aggregate these books, we can conclude
-that <em>Oliver Twist</em> is alphabetically last among all books in the
-<code>books</code> DataFrame written by Charles Dickens. So Charles
-Dickens did write <em>Oliver Twist</em> based on this data.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
 <p>Based on this data, can you conclude that <em>Oliver Twist</em> has
@@ -424,39 +271,6 @@ Dickens did write <em>Oliver Twist</em> based on this data.</p>
 <li><p><input type="radio" disabled="" /> Yes</p></li>
 <li><p><input type="radio" disabled="" /> No</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> No</p>
-<p>The key to this problem is that <code>groupby</code> applies the
-aggregation function, <code>max()</code> in this case, independently to
-each column. The output should be interpreted as follows:</p>
-<ul>
-<li>Among all books in <code>books</code> written by Charles Dickens,
-<em>Oliver Twist</em> is the title that is alphabetically last.</li>
-<li>Among all books in <code>books</code> written by Charles Dickens, 53
-is the greatest number of chapters.</li>
-<li>Among all books in <code>books</code> written by Charles Dickens,
-1838 is the latest year of publication.</li>
-</ul>
-<p>However, the book titled <em>Oliver Twist</em>, the book with 53
-chapters, and the book published in 1838 are not necessarily all the
-same book. We cannot conclude, based on this data, that <em>Oliver
-Twist</em> has 53 chapters.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.4">Problem 3.4</h3>
 <p>Based on this data, can you conclude that Charles Dickens wrote a
@@ -465,28 +279,6 @@ book with 53 chapters that was published in 1838?</p>
 <li><p><input type="radio" disabled="" /> Yes</p></li>
 <li><p><input type="radio" disabled="" /> No</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_4" class="accordion-collapse collapse"
-aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> No</p>
-<p>As explained in the previous question, the <code>max()</code>
-function is applied separately to each column, so the book written by
-Charles Dickens with 53 chapters may not be the same book as the book
-written by Charles Dickens published in 1838.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -507,27 +299,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (lengths <span class="op">==</span> <span class="dv">4</span>).mean()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>h.groupby(__(b)__).__(c)__(foo)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4" class="accordion-collapse collapse"
-aria-labelledby="heading4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<p>(a): <code>x.astype(str).str.len()</code></p>
-<p>(b): <code>'street'</code></p>
-<p>(c): <code>agg</code></p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>The DataFrame <code>items</code> describes various items available to
@@ -556,32 +327,6 @@ integer.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>keepers.merge(items.iloc[:<span class="dv">6</span>]), </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>              left_on<span class="op">=</span><span class="st">&quot;Store&quot;</span>, </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              right_on<span class="op">=</span><span class="st">&quot;Location&quot;</span>)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5" class="accordion-collapse collapse"
-aria-labelledby="heading5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 10. Since the type of join is not specified,
-this is an inner join. Each row in <code>keepers</code> is merged with
-each row in <code>items</code> only if <code>'Store'</code> in
-<code>keepers</code> equals <code>'Location'</code> in
-<code>items</code>. Each row in <code>keepers</code> has the following
-number of merges: row 0 has 1, row 1 has 3, row 2 has 3, row 3 has 0
-(there are no rows in <code>items</code> with <code>'Location'</code>
-equal to ‘Kicks Shoe Store’), and row 4 has 3.</p>
-<p>1 + 3 + 3 + 0 + 3 = 10</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
 <p>Suppose we create a DataFrame called <code>midwest</code> containing
@@ -594,35 +339,6 @@ departed from each airport.</p>
 with itself, as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>double_merge <span class="op">=</span> midwest.merge(midwest, left_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>)</span></code></pre></div>
 <p>How many rows does <code>double_merge</code> have?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6" class="accordion-collapse collapse"
-aria-labelledby="heading6" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 38</p>
-<p>There are two flights from DTW. When we merge <code>midwest</code>
-with itself on the <code>'FROM'</code> column, each of these flights
-gets paired up with each of these flights, for a total of four rows in
-the output. That is, the first flight from DTW gets paired with both the
-first and second flights from DTW. Similarly, the second flight from DTW
-gets paired with both the first and second flights from DTW.</p>
-<p>Following this logic, each of the five flights from ORD gets paired
-with each of the five flights from ORD, for an additional 25 rows in the
-output. For MKE, there will be 9 rows in the output. The total is
-therefore <span class="math inline">2^2 + 5^2 + 3^2 = 4 + 25 + 9 =
-38</span> rows.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
 <p>Kyle and Yutong are trying to decide where they’ll study on campus
@@ -655,55 +371,6 @@ times.</p></li>
 integer.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    kyle.merge(yutong, on<span class="op">=</span><span class="st">&quot;flips&quot;</span>)</span></code></pre></div>
 <p><em>Hint: The answer is less than 200.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 108</p>
-<p>Since we used the argument <code>on="flips</code>, rows from
-<code>kyle</code> and <code>yutong</code> will be combined whenever they
-have matching values in their <code>"flips"</code> columns.</p>
-<p>For the <code>kyle</code> DataFrame:</p>
-<ul>
-<li>There are 13 rows with <code>"Heads"</code> in the
-<code>"flips"</code> column.</li>
-<li>There are 8 rows with <code>"Tails"</code> in the
-<code>"flips"</code> column.</li>
-</ul>
-<p>For the <code>yutong</code> DataFrame:</p>
-<ul>
-<li>There are 4 rows with <code>"Heads"</code> in the
-<code>"flips"</code> column.</li>
-<li>There are 7 rows with <code>"Tails"</code> in the
-<code>"flips"</code> column.</li>
-</ul>
-<p>The merged DataFrame will also only have the values
-<code>"Heads"</code> and <code>"Tails"</code> in its
-<code>"flips"</code> column.</p>
-<ul>
-<li>The 13 <code>"Heads"</code> rows from <code>kyle</code> will each
-pair with the 4 <code>"Heads"</code> rows from <code>yutong</code>. This
-results in <span class="math inline">13 \cdot 4 = 52</span> rows with
-<code>"Heads"</code></li>
-<li>The 8 <code>"Tails"</code> rows from <code>kyle</code> will each
-pair with the 7 <code>"Tails"</code> rows from <code>yutong</code>. This
-results in <span class="math inline">8 \cdot 7 = 56</span> rows with
-<code>"Tails"</code>.</li>
-</ul>
-<p>Then, the total number of rows in the merged DataFrame is <span class="math inline">52 + 56 = 108</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
 <p>Let <span class="math inline">A</span> be your answer to the previous
@@ -727,34 +394,6 @@ DataFrame?</p>
 <li><p><input type="radio" disabled="" /> <span class="math inline">A+4</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">A+231</span></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">A+1</span></p>
-<p>The additional row in each DataFrame has a unique
-<code>"flips"</code> value of <code>"Total"</code>. When we merge on the
-<code>"flips"</code> column, this unique value will only create a single
-new row in the merged DataFrame, as it pairs the <code>"Total"</code>
-from <code>kyle</code> with the <code>"Total"</code> from
-<code>yutong</code>. The rest of the rows are the same as in the
-previous merge, and as such, they will contribute the same number of
-rows, <span class="math inline">A</span>, to the merged DataFrame. Thus,
-the total number of rows in the new merged DataFrame will be <span class="math inline">A</span> (from the original matching rows) plus 1
-(from the new <code>"Total"</code> rows), which sums up to <span class="math inline">A+1</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
@@ -779,26 +418,6 @@ be the DataFrame with 3 rows and 2 columns shown below
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span></code></pre></div>
 <p>How many total <code>NaN</code> values does <code>merged</code>
 contain? Give your answer as an integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8" class="accordion-collapse collapse"
-aria-labelledby="heading8" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>4</p>
-<p><code>merged</code> is shown below.</p>
-<center><img src="../assets/images/disc03/merge-ans-1.png" width="45%"/></center>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
 <p>The DataFrame <code>dogs</code>, contains one row for every
@@ -851,30 +470,6 @@ follows.</p>
 <code>"district"</code> of <code>8</code>. How many rows of
 <code>double</code> have a <code>"district"</code> of <code>8</code>?
 Give your answer as a positive integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">144</span></p>
-<p>When we merge <code>dogs</code> with <code>dogs</code> on
-<code>"district"</code>, each <code>8</code> in the first
-<code>dogs</code> DataFrame will be combined with each <code>8</code> in
-the second <code>dogs</code> DataFrame. Since there are 12 in the first
-and 12 in the second, there are <span class="math inline">12 \cdot 12 =
-144</span> combinations.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-9.2">Problem 9.2</h3>
 <p>What does the following expression evaluate to? Give your answer as a
@@ -883,33 +478,6 @@ positive integer.</p>
 class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
 <p><em>Hint: Unlike in 5.1, your answer to 5.2 depends on the values in
 <code>square</code>.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_2" class="accordion-collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">120</span></p>
-<p><code>square</code> is telling us that: - There are 5500 districts
-that appeared just 1x in <code>dogs</code>. - There are 215 districts
-that appeared 2x in <code>dogs</code> (2x, not 4x, because of the logic
-explained in the 5a rubric item). - There are 40 districts that appeared
-3x in <code>dogs</code>.</p>
-<p>The expression given in this question is keeping all of the rows
-corresponding to districts that appear 3 times. There are 40 districts
-that appear 3 times. So, the total number of rows in this DataFrame is
-<span class="math inline">40 \cdot 3 = 120</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-10">Problem 10</h2>
@@ -940,47 +508,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <li><p><input type="radio" disabled="" /> 20</p></li>
 <li><p><input type="radio" disabled="" /> 25</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading10">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse10" class="accordion-collapse collapse"
-aria-labelledby="heading10" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 18</p>
-<p>Note that the DataFrame <code>counts</code> is a pivot table, created
-using
-<code>tv_excl.pivot_table(index="Age", columns="Service", aggfunc="size")</code>.
-As we saw in lecture, pivot tables contain the same information as the
-result of grouping on two columns.</p>
-<p>The DataFrame <code>tv_excl.groupby(["Age", "Service"]).sum()</code>
-will have one row for every unique combination of <code>"Age"</code> and
-<code>"Service"</code> in <code>tv_excl</code>. (The same is true even
-if we used a different aggregation method, like <code>.mean()</code> or
-<code>.max()</code>.) As <code>counts</code> shows us,
-<code>tv_excl</code> contains every possible combination of a single
-element in {<code>"13+"</code>, <code>"16+"</code>, <code>"18+"</code>,
-<code>"7+"</code>, <code>"all"</code>} with a single element in
-{<code>"Disney+"</code>, <code>"Hulu"</code>, <code>"Netflix"</code>,
-<code>"Prime Video"</code>}, except for (<code>"13+"</code>,
-<code>"Disney+"</code>) and (<code>"18+"</code>,
-<code>"Disney+"</code>), which were not present in <code>tv_excl</code>;
-if they were, they would have non-null values in
-<code>counts</code>.</p>
-<p>As such, <code>tv_excl.groupby(["Age", "Service"]).sum()</code> will
-have <span class="math inline">20 - 2 = 18</span> rows, and
-<code>tv_excl.groupby(["Age", "Service"]).sum().shape[0]</code>
-evaluates to 18.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-11">Problem 11</h2>
 <p>The DataFrame <code>flights</code> contains information about recent
@@ -1008,36 +535,6 @@ there are 12 flights where the airline is <code>"United"</code>. If
 <code>flights</code> has 15 rows in total, how many of these rows are
 <strong>not</strong> for <code>"United"</code> flights? Give your answer
 as an integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading11">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse11" class="accordion-collapse collapse"
-aria-labelledby="heading11" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> 6</p>
-<p>We are merging dataframes <code>flights</code> and
-<code>more_flights</code> according to the airline each flight belongs
-to. All the <code>"United"</code> flights in <code>more_flights</code>
-will be merged with all the <code>"United"</code> flights in
-<code>flights</code>, which we know gives us 108 total flights. We also
-know that there are 12 <code>"United"</code> flights in
-<code>more_flights</code>. To find the number of <code>"United"</code>
-flights in <code>flights</code>, we simply need to divide the total
-number of <code>"United"</code> flights in <code>merged</code> by the
-number of <code>"United"</code> flights in <code>more_flights</code>,
-which is 108/12 = 9. If <code>flights</code> has a total of 15 rows,
-then the total number of non-United rows is equal to 15 - 9 = 6.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-12">Problem 12</h2>
 <p>For your convenience, the first few rows of <code>tv</code> are shown
@@ -1075,48 +572,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>lambda a, b: 8 * b</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>lambda a, b: min(9 * a, 8 * b)</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading12_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse12_1" class="accordion-collapse collapse"
-aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>lambda a, b: b</code></p>
-<p>Let’s understand what each function does.</p>
-<ul>
-<li><code>total_null</code> just counts all the null values in a
-DataFrame.</li>
-<li><code>delta</code> concatenates the first <code>a</code> rows of
-<code>tv</code> with the first <code>b</code> rows of
-<code>movies</code> <strong>vertically</strong>, that is, on top of one
-another (over axis 0). It then returns the difference between the total
-number of null values in the concatenated DataFrame and the total number
-of null values in the first <code>a</code> rows of <code>tv</code> and
-first <code>b</code> rows of <code>movies</code> – in other words, it
-returns <strong>the number of null values that were added as a result of
-the concatenation</strong>.</li>
-</ul>
-<p>The key here is recognizing that <code>tv</code> and
-<code>movies</code> have all of the same column names,
-<strong>except</strong> <code>movies</code> doesn’t have an
-<code>"IMDb"</code> column. As a result, when we concatenate, the
-<code>"IMDb"</code> column will contain null values for every row that
-was originally from <code>movies</code>. Since <code>b</code> rows from
-<code>movies</code> are in the concatenated DataFrame, <code>b</code>
-new null values are introduced as a result of the concatenation, and
-thus <code>lambda, a, b: b</code> does the same thing as
-<code>delta</code>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-12.2">Problem 12.2</h3>
 <p>Fill in the blank to complete the implementation of the function
@@ -1146,49 +601,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href=
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>b    <span class="fl">12.0</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>c     NaN</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>dtype: float64</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading12_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse12_2" class="accordion-collapse collapse"
-aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:
-<code>tv[col].value_counts() * movies[col].value_counts()</code></p>
-<p><code>tv.merge(movies, on=col)</code> contains one row for every
-“match” between <code>tv[col]</code> and <code>movies[col]</code>.
-Suppose, for example, that <code>col="Year"</code>. If
-<code>tv["Year"]</code> contains 30 values equal to 2019, and
-<code>movies["Year"]</code> contains 5 values equal to 2019,
-<code>tv.merge(movies, on="Year")</code> will contain <span class="math inline">30 \cdot 5 = 150</span> rows in which the
-<code>"Year"</code> value is equal to 2019 – one for every combination
-of a 2019 row in <code>tv</code> and a 2019 row in
-<code>movies</code>.</p>
-<p><code>tv["Year"].value_counts()</code> and
-<code>movies["Year"].value_counts()</code> contain, respectively, the
-frequencies of the unique values in <code>tv["Year"]</code> and
-<code>movies["Year"]</code>. Using the 2019 example from above,
-<code>tv["Year"].value_counts() * movies["Year"].value_counts()</code>
-will contain a row whose index is 2019 and whose value is 150, with
-similar other entries for the other years in the two Series. (The hint
-is meant to demonstrate the fact that no matter how the two Series are
-sorted, the product is done element-wise by matching up indexes.) Then,
-<code>(tv["Year"].value_counts() * movies["Year"].value_counts()).sum()</code>
-will sum these products across all years, ignoring null values.</p>
-<p>As such, the answer we were looking for is
-<code>tv[col].value_counts() * movies[col].value_counts()</code>
-(remember, <code>"Year"</code> was just an example for this
-explanation).</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
