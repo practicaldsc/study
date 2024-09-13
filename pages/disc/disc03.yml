@@ -1,4 +1,4 @@
-title: "Arrays and DataFrames"
+title: "Grouping, Pivoting, and Merging"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -6,12 +6,18 @@ context: >
 show_solution: true
 problems:
   # Earlier problems
-  - disc02/dsc10-fa23-quiz1-3 #p1
-  - disc02/dsc10-wn22-mid-7 #p2
-  - disc02/dsc80-wi24-mid-13-14 #p3
-  - disc02/dsc80-wi23-mid-1 #p4
+  - disc03/dsc80-wi23-mid-3 #p1
+  - disc03/dsc10-disc3-3 #p2
+  - disc03/dsc10-wi24-quiz2-5 # p4
+  - disc03/dsc10-disc3-4 #p5
+  - disc03/dsc10-fa23-quiz2-2 # p6
+  - disc03/dsc10-fa21-midterm-5 #p7
+  - disc03/dsc10-sp23-midterm-5 #p8
+  - disc03/dsc80-sp22-midterm-7 #p9
+  - disc03/dsc80-wi24-midterm-5 #p10
 
   # Later problems
-  - disc02/dsc10-fa23-quiz2-5 #p5
-  - disc02/dsc10-fa23-quiz1-2 #p6
-  - disc02/dsc10-sp23-mid-8 #p7
+  - disc03/dsc10-fa23-quiz2-1 #p11
+  - disc03/dsc80-wi23-midterm-6 #p12
+  - disc03/dsc10-wi24-quiz3-3 #p13
+  - disc03/dsc80-wi23-midterm-5 #p14

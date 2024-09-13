@@ -66,12 +66,12 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, September 6th</td>
       <td><a href="disc02/index.html">Arrays and DataFrames</a></td>
     </tr>
-   <!-- <tr>
+   <<tr>
       <th scope="row">3</th>
       <td>Thursday, July 11</td>
-      <td><a href="disc03/index.html">Querying, Grouping, and Plotting</a></td>
+      <td><a href="disc03/index.html">Grouping, Pivoting, and Merging</a></td>
     </tr>
-    <tr>
+    <!-- tr>
       <th scope="row">4</th>
       <td>Tuesday, July 16</td>
       <td><a href="disc04/index.html">Functions, DataFrames, and Control Flow</a></td>

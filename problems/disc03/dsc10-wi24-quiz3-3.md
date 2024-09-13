@@ -1,0 +1,21 @@
+# BEGIN PROB
+
+Suppose we have another DataFrame `more_flights` which contains the same
+columns as `flights`, but different rows. Define `merged` as follows.
+```py
+        merged = flights.merge(more_flights, on = "airline")
+```
+Suppose that in `merged`, there are 108 flights where the airline is
+`"United"`, and in `more_flights`, there are 12 flights where the
+airline is `"United"`. If `flights` has 15 rows in total, how many of
+these rows are **not** for `"United"` flights? Give your answer as an
+integer.
+
+
+# BEGIN SOLUTION
+
+**Answer:** 6
+
+# END SOLUTION
+
+# END PROB
