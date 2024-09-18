@@ -37,6 +37,10 @@ You should work on these problems **on paper**, since your exams will also be on
 
 If you'd like, you can also view other exam problems from related classes at [practice.dsc10.com](https://practice.dsc10.com), [practice.dsc40.com](https://practice.dsc40.com), and [practice.dsc80.com](https://practice.dsc80.com). These sites are set up similarly to our Study Site, but contain lots of problems that are not in scope for this course. The problems you see below are taken from these other sites, but we've chosen problems that we know are in-scope and relevant.
 
+---
+
+**New**: To get a rough sense of the **format** of the exam, [**look at this example PDF**](https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing).
+
 ----
 
 ### 💯 Discussions in Fall 2024
@@ -66,12 +70,17 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, September 6th</td>
       <td><a href="disc02/index.html">Arrays and DataFrames</a></td>
     </tr>
-   <<tr>
+    <tr>
       <th scope="row">3</th>
-      <td>Thursday, July 11</td>
-      <td><a href="disc03/index.html">Grouping, Pivoting, and Merging</a></td>
+      <td>Friday, September 13th</td>
+      <td><a href="disc03/index.html">Grouping, Merging, and Pivoting</a></td>
     </tr>
-    <!-- tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Friday, September 20th</td>
+      <td>Visualization, Missing Values, More Practice</td>
+    </tr>
+   <!--     <tr>
       <th scope="row">4</th>
       <td>Tuesday, July 16</td>
       <td><a href="disc04/index.html">Functions, DataFrames, and Control Flow</a></td>
