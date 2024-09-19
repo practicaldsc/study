@@ -11,11 +11,9 @@ The PDS staff are looking into hotels — some in San Diego, for their family to
 
 The first few rows of `hotels` are shown below, but hotels has many more rows than are shown.
 
-<center><img src="../../assets/images/dsc80/hotels.png" width=750></center>
+<center><img src="../../assets/images/disc04/hotels.png" width=750></center>
 
 Remember that `hotels` is only being used in Question 1; other questions will introduce other assumptions.
-
-**Throughout the exam**, assume we have already run the necessary import statements.
 
 Consider the variable `summed`, defined below.
 

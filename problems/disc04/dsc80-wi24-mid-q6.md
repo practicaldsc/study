@@ -17,8 +17,6 @@ The first few rows of `dogs` are shown below, but `dogs` has many more rows than
 - `"dog_sex" (str)`: The birth sex of the dog; either `"m"` (male) or `"f"` (female).
 - `"birth_year" (int)`: The birth year of the dog.
 
-**Throughout the exam, assume we have already run `import pandas as pd` and `import numpy as np`.**
-
 # BEGIN SUBPROB
 
 Let $O$ be the mean of the observed ages in `dogs`, that is, the mean of
