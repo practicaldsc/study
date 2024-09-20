@@ -99,7 +99,7 @@ Justify your answer in **one sentence**. Your answer must fit in the box below.
 
 **Answer:** No
 
-`"Seats"` is a numerical feature, since it makes sense to do arithmetic with the values. For instance, we can find the average number of `"Seats"` that a group of cars has. Gabriel's argument could apply to any numerical feature; just because we can place numerical features into "bins" doesn't make them categorical.
+`"Seats"` is a numerical feature, since it makes sense to do arithmetic with the values. For instance, we can find the average number of `"Seats"` that a group of cars has. Kyle's argument could apply to any numerical feature; just because we can place numerical features into "bins" doesn't make them categorical.
 
 # END SOLUTION
 

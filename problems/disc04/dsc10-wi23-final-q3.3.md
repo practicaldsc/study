@@ -19,15 +19,6 @@ The first few rows of `games` are shown below (though `games` has many more rows
 
 Assume that we have already run `import pandas as pd` and `import numpy as np`.
 
-Notice that `"Strategy Games"` and `"Thematic Games"` are two of the possible domains, and that a game can belong to multiple domains.
-
-Define the variables strategy and thematic follows.
-
-```py
-strategy = games["Domains"].str.contains("Strategy Games")
-thematic = games["Domains"].str.contains("Thematic Games")
-```
-
 Many of the games in the `games` DataFrame belong to more than one domain. We want to identify the number of games that belong to only one domain. Select all of the options below that would correctly calculate the number of games that belong to only one domain.
 
 [ ] `(games["Domains"].str.split(" ").apply(len) == 2).sum()`
