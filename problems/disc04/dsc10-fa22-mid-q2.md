@@ -27,7 +27,7 @@ Assume that:
 - The only four values in the `"Brand"` column are `"Tesla"`, `"BMW"`, `"Audi"`, and `"Nissan"`.
 - We have already run `import pandas as pd` and `import numpy as np`.
 
-**Tip:** Open this page in another tab, so that it is easy to refer to this data description as you work through the exam.
+**Tip:** Open this page in another tab, so that it is easy to refer to this data description as you work through the problem.
 
 # BEGIN SUBPROB
 
