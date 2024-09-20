@@ -17,7 +17,7 @@ The first few rows of `games` are shown below (though `games` has many more rows
 <center><img src='../assets/images/disc04/preview.jpg' width=100%></center>
 <br>
 
-Assume that we have already run `import babypandas as bpd` and `import numpy as np`.
+Assume that we have already run `import pandas as pd` and `import numpy as np`.
 
 Notice that `"Strategy Games"` and `"Thematic Games"` are two of the possible domains, and that a game can belong to multiple domains.
 
@@ -41,7 +41,7 @@ Many of the games in the `games` DataFrame belong to more than one domain. We wa
 
 Let’s take a closer look at why **Option 3** and **Option 4** are correct.
 
-**Option 3**: Option 3 first queries the `games` DataFrame to only keep `games` with one `"Domains"`. `games["Domains"].str.split(",").str.len() == 1` gets the `"Domains"` column and splits all of them by their comma. 
+**Option 3**: Option 3 first queries the `games` DataFrame to only keep `games` with one `"Domains"`. `games["Domains"].str.split(",").str.len() == 1` gets the `"Domains"` column and splits all of them by their comma.
 
 For example, let’s say the domain was `"Strategy Games", "Thematic Games"` then after doing `.str.split(",")` we would have the list `["Strategy Games", "Thematic Games"]`. If the domain was just `"Strategy Games"`, then after splitting we'd have `["Strategy Games"]`.
 

@@ -8,12 +8,12 @@ fuel cell vehicles).
 
 The DataFrame `evs` consists of **32** rows, each of which contains information about a different EV model.
 
-* `"Brand"` (str): The vehicle's manufacturer.
-* `"Model"` (str): The vehicle's model name.
-* `"BodyStyle"` (str): The vehicle's body style.
-* `"Seats"` (int): The vehicle's number of seats.
-* `"TopSpeed"` (int): The vehicle's top speed, in kilometers per hour.
-* `"Range"` (int): The vehicle's range, or distance it can travel on a single charge, in kilometers.
+- `"Brand"` (str): The vehicle's manufacturer.
+- `"Model"` (str): The vehicle's model name.
+- `"BodyStyle"` (str): The vehicle's body style.
+- `"Seats"` (int): The vehicle's number of seats.
+- `"TopSpeed"` (int): The vehicle's top speed, in kilometers per hour.
+- `"Range"` (int): The vehicle's range, or distance it can travel on a single charge, in kilometers.
 
 The first few rows of `evs` are shown below (though remember, `evs` has 32 rows total).
 
@@ -25,10 +25,9 @@ The first few rows of `evs` are shown below (though remember, `evs` has 32 rows 
 Assume that:
 
 - The only four values in the `"Brand"` column are `"Tesla"`, `"BMW"`, `"Audi"`, and `"Nissan"`.
-- We have already run `import babypandas as bpd` and `import numpy as np`.
+- We have already run `import pandas as pd` and `import numpy as np`.
 
 **Tip:** Open this page in another tab, so that it is easy to refer to this data description as you work through the exam.
-
 
 # BEGIN SUBPROB
 
@@ -95,12 +94,12 @@ Is Kyle correct?
 ( ) No
 
 Justify your answer in **one sentence**. Your answer must fit in the box below.
+
 # BEGIN SOLUTION
 
 **Answer:** No
 
 `"Seats"` is a numerical feature, since it makes sense to do arithmetic with the values. For instance, we can find the average number of `"Seats"` that a group of cars has. Gabriel's argument could apply to any numerical feature; just because we can place numerical features into "bins" doesn't make them categorical.
-
 
 # END SOLUTION
 
