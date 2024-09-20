@@ -68,7 +68,7 @@ Which of the following statements below will always evaluate to `True`?
 
 **Answer:** None of the above
 
-Since the value which `impute()` will choose to impute with is random, the effect that it has on the standard deviation of `vals` is unknown. If the missing values are filled with a value close to the mean, this could reduce standard deviation; if they are filled with a value far from the mean, this could increase standard deviation. (Of course, the imputation will also shift the mean, so without knowing details of the Series, it's impossible to come up with thresholds.) In any case, since the value for imputation is chosen at random, none of these statements will *always* be true, and so the correct answer is "none of the above."
+Since the value which `impute` will choose to impute with is random, the effect that it has on the standard deviation of `vals` is unknown. If the missing values are filled with a value close to the mean, this could reduce standard deviation; if they are filled with a value far from the mean, this could increase standard deviation. (Of course, the imputation will also shift the mean, so without knowing details of the Series, it's impossible to come up with thresholds.) In any case, since the value for imputation is chosen at random, none of these statements will *always* be true, and so the correct answer is "none of the above."
 
 # END SOLUTION
 

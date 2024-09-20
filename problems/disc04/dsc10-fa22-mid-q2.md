@@ -32,22 +32,24 @@ Assume that:
 
 # BEGIN SUBPROB
 
-Which type of visualization should we use to visualize the distribution of `"Range"`?
+Which of the following types of visualizations could use to visualize the distribution of `"Range"`? Select all that apply.
 
-( ) Bar chart
-( ) Histogram
-( ) Scatter plot
-( ) Line plot
+[ ] Bar chart
+[ ] Histogram
+[ ] Scatter plot
+[ ] Line plot
+[ ] Box plot
+[ ] None of the above
 
 # BEGIN SOLUTION
 
-**Answer:** Histogram
+**Answer:** Histogram or box plot
 
-`"Range"` is a numerical (i.e. quantitative) variable, and we use histograms to visualize the distribution of numerical variables.
+`"Range"` is a numerical (i.e. quantitative) variable, and we use histograms and box plots to visualize the distribution of numerical features.
 
-- A bar chart couldn't work here. Bar charts can show the distribution of a categorical variable, but `"Range"` is not categorical.
-- A scatter plot visualizes the relationship between two numerical variables, but we are only dealing with one numerical variable here (`"Range"`).
-- Similarly, a line plot visualizes the relationship between two numerical variables, but we only have one here.
+- A bar chart couldn't work here. Bar charts can show the distribution of a categorical feature, but `"Range"` is not categorical.
+- A scatter plot visualizes the relationship between two numerical features, but we are only dealing with one numerical feature here (`"Range"`).
+- Similarly, a line plot visualizes the relationship between two numerical features, but we only have one here.
 
 # END SOLUTION
 
@@ -85,9 +87,9 @@ Let's look at each option more closely.
 
 # BEGIN SUBPROB
 
-Gabriel thinks `"Seats"` is a categorical variable because it can be used to categorize EVs by size. For instance, EVs with 4 seats are small, EVs with 5 seats are medium, and EVs with 6 or more seats are large.
+Kyle thinks `"Seats"` is a categorical feature because it can be used to categorize EVs by size. For instance, EVs with 4 seats are small, EVs with 5 seats are medium, and EVs with 6 or more seats are large.
 
-Is Gabriel correct?
+Is Kyle correct?
 
 ( ) Yes
 ( ) No
@@ -97,7 +99,7 @@ Justify your answer in **one sentence**. Your answer must fit in the box below.
 
 **Answer:** No
 
-`"Seats"` is a numerical variable, since it makes sense to do arithmetic with the values. For instance, we can find the average number of `"Seats"` that a group of cars has. Gabriel's argument could apply to any numerical variable; just because we can place numerical variables into "bins" doesn't make them categorical.
+`"Seats"` is a numerical feature, since it makes sense to do arithmetic with the values. For instance, we can find the average number of `"Seats"` that a group of cars has. Gabriel's argument could apply to any numerical feature; just because we can place numerical features into "bins" doesn't make them categorical.
 
 
 # END SOLUTION

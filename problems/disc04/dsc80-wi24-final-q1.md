@@ -1,8 +1,8 @@
 # BEGIN PROB
 
-The PDS staff are looking into hotels — some in San Diego, for their family to stay at for graduation, and some elsewhere, for summer trips.
+The EECS 398 staff are looking into hotels — some in San Diego, for their family to stay at for graduation (and to eat Mexican food), and some elsewhere, for summer trips.
 
-**In Question 1 only**, you will work with the DataFrame `hotels`. Each row of `hotels` contains information about a different hotel in San Diego. Specifically, for each hotel, we have:
+Each row of `hotels` contains information about a different hotel in San Diego. Specifically, for each hotel, we have:
 
 - `"Hotel Name" (str)`: The name of the hotel. **Assume hotel names are unique.**
 - `"Location" (str):` The hotel's neighborhood in San Diego.
@@ -13,11 +13,12 @@ The first few rows of `hotels` are shown below, but hotels has many more rows th
 
 <center><img src="../../assets/images/disc04/hotels.png" width=750></center>
 
-Remember that `hotels` is only being used in Question 1; other questions will introduce other assumptions.
 
-Consider the variable `summed`, defined below.
+Now, consider the variable `summed`, defined below.
 
-`summed = hotels.groupby("Chain")["Number of Rooms"].sum().idxmax()`
+```py
+summed = hotels.groupby("Chain")["Number of Rooms"].sum().idxmax()
+```
 
 # BEGIN SUBPROB
 
@@ -59,7 +60,9 @@ The result of the `.groupby()` and `.sum()` is a Series indexed by the unique `C
 
 Consider the variable `curious`, defined below.
 
-`curious = frame["Chain"].value_counts().idxmax()`
+```py
+curious = frame["Chain"].value_counts().idxmax()
+```
 
 Fill in the blank: `curious` is guaranteed to be equal to `summed` only if `frame` has one row for every ____ in San Diego.
 

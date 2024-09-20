@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-The seat-back TV on one of King Triton's more recent flights was very dirty and was full of fingerprints. The fingerprints made an interesting pattern. We've stored the x and y positions of each fingerprint in the DataFrame `fingerprints`, and created the following scatterplot using
+The seat-back TV on one of Biff the Wolverine's more recent flights was very dirty and was full of fingerprints. The fingerprints made an interesting pattern. We've stored the x and y positions of each fingerprint in the DataFrame `fingerprints`, and created the following scatterplot using
 
 ```py
 fingerprints.plot(kind='scatter', x='x', y='y')
@@ -14,6 +14,8 @@ fingerprints.plot(kind='scatter', x='x', y='y')
 True or False: The histograms that result from the following two lines of code will look very similar.
 
 ```py
+# When we say bins=np.arange(0, 8, 2),
+# we mean that the bins are [0, 2), [2, 4), [4, 6].
 fingerprints.plot(kind='hist', 
                   y='x',
                   density=True,

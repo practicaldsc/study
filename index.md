@@ -57,7 +57,7 @@ If you'd like, you can also view other exam problems from related classes at [pr
     <tr>
       <th scope="row">4</th>
       <td>Friday, September 20th</td>
-      <td>Visualization, Missing Values, More Practice</td>
+      <td><a href="disc04/index.html">Visualization, Missing Values, More Practice</a></td>
     </tr>
    <!--     <tr>
       <th scope="row">4</th>

@@ -1,21 +1,22 @@
 # BEGIN PROB
 
-In this exam, we'll work with the DataFrame `dogs`, which contains one row for every registered pet dog in Zurich, Switzerland in 2017.
+Suppose we have a DataFrame, `dogs`, in which each row corresponds to a different dog owned by someone in Ann Arbor. There are several columns in the DataFrame, including `"birth_year"` (the dog's year of birth) and `"Breed"` (the dog's breed).
 
-The first few rows of `dogs` are shown below, but `dogs` has many more rows than are shown.
+Using the `"birth_year"` column in `dogs`, Tahseen computes the age of
+each dog and stores it a new `"age"` column of `dogs`. He also
+categorizes dogs into three "breed classes" based on their breed – `"Retriever"`, `"Terrier"`, or `"Other"` – and stores these
+in a new `"class"` column of `dogs`.
 
-<center><img src="../../assets/images/disc04/df.png" width=750></center>
+The following bar chart shows the distribution of breed classes by
+missingness of age:
 
-<br>
+<center><img src="../../assets/images/disc04/dist-missingness.png" width=400></center>
 
-- `"owner_id" (int)`: A unique ID for each owner. Note that, for example, there are two rows in the preview for `4215`, meaning that owner has at least 2 dogs. **Assume that if an `"owner_id"` appears in `dogs` multiple times, the corresponding `"owner_age"`, `"owner_sex"`, and `"district"` are always the same.**
-- `"owner_age" (str)`: The age group of the owner; either `"11-20"`, `"21-30"`, ..., or `"91-100"` (9 possibilities in total).
-- `"owner_sex" (str)`: The birth sex of the owner; either `"m"` (male) or `"f"` (female).
-- `"district" (int)`: The city district the owner lives in; a positive integer between `1` and `12` (inclusive).
-- `"primary_breed" (str)`: The primary breed of the dog.
-- `"secondary_breed" (str)`: The secondary breed of the dog. If this column is not null, the dog is a "mixed breed" dog; otherwise, the dog is a "purebred" dog.
-- `"dog_sex" (str)`: The birth sex of the dog; either `"m"` (male) or `"f"` (female).
-- `"birth_year" (int)`: The birth year of the dog.
+The following bar chart shows the mean observed
+age for each breed class:
+
+<center><img src="../../assets/images/disc04/mean-ages.png" width=400></center>
+
 
 # BEGIN SUBPROB
 
@@ -56,7 +57,7 @@ In one sentence, describe this imputation strategy.
 
 # BEGIN SOLUTION
 
-**Answer**: This is filling in missing ages in each breed class with the most common observed age in that breed class
+**Answer**: This is filling in missing ages in each breed class with the most common observed age in that breed class.
 
 # END SOLUTION
 

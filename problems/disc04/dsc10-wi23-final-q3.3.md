@@ -24,18 +24,16 @@ Notice that `"Strategy Games"` and `"Thematic Games"` are two of the possible do
 Define the variables strategy and thematic follows.
 
 ```py
-strategy = games.get("Domains").str.contains("Strategy Games")
-thematic = games.get("Domains").str.contains("Thematic Games")
+strategy = games["Domains"].str.contains("Strategy Games")
+thematic = games["Domains"].str.contains("Thematic Games")
 ```
 
-# BEGIN SUBPROB
 Many of the games in the `games` DataFrame belong to more than one domain. We want to identify the number of games that belong to only one domain. Select all of the options below that would correctly calculate the number of games that belong to only one domain.
-**Hint:** Don’t make any assumptions about the possible domains.
 
 [ ] `(games["Domains"].str.split(" ").apply(len) == 2).sum()`
 [ ] `(games["Domains"].apply(len) == 1).sum()`
-[ ] `(games[games["Domains"].str.split(",").str.len == 1].value_counts["Name"].sum())`
-[ ] `games[games["Domains"].str.split(",").str.len == 1].shape[0]`
+[ ] `games[games["Domains"].str.split(",").str.len() == 1].value_counts("Name").sum()`
+[ ] `games[games["Domains"].str.split(",").str.len() == 1].shape[0]`
 
 # BEGIN SOLUTION
 
@@ -43,16 +41,26 @@ Many of the games in the `games` DataFrame belong to more than one domain. We wa
 
 Let’s take a closer look at why **Option 3** and **Option 4** are correct.
 
-**Option 3**: Option 3 first queries the `games` DataFrame to only keep `games` with one `“Domains”`. `games[“Domains”].str.split(“,”).str.len == 1` gets the `“Domains”` column and splits all of them if they contain a comma. If the value does have a comma then it will create a list. For example let’s say the domain was `“Strategy Games”, “Thematic Games”` then after doing `str.split(“,”)` we would have the `list`: `[“Strategy Games”, “Thematic Games”]`. Any row with a `list` will evaluate to `False`. This means we are only keeping values where there is **one** domain. The next part `.groupby(“Domains”).count()[“Name”].sum()` makes a DataFrame with an index of the unique domains and the number of times those appear. Note that all the other columns: `“Name”`, `“Mechanics”`, `“Play Time”`, `“Complexity”`, `“Rating”`, and `“BGG Rank”` now evaluate to the same thing, the number of times a unique domain appears. That means by doing `[“Name”]sum()` we are adding up all the number of times a unique domain appears, which would get us the number of games that belong to only one domain.
+**Option 3**: Option 3 first queries the `games` DataFrame to only keep `games` with one `"Domains"`. `games["Domains"].str.split(",").str.len() == 1` gets the `"Domains"` column and splits all of them by their comma. 
 
-**Option 4**: Option 4 starts off exactly like Option 3, but instead of doing `.groupby()` it gets the number of rows using `.shape[0]`, which will give us the number of games that belong to only one domain.
+For example, let’s say the domain was `"Strategy Games", "Thematic Games"` then after doing `.str.split(",")` we would have the list `["Strategy Games", "Thematic Games"]`. If the domain was just `"Strategy Games"`, then after splitting we'd have `["Strategy Games"]`.
 
-**Option 1:** Let’s step through why Option 1 is incorrect. `games[“Domains”].str.split(“ ”).apply(len) == 2.sum()` gives you a `Series` of the `“Domains”` column, then splits each domain by a space. We then get the length of that `list`, check if the length is equal to 2, which would mean there are two elements in the `list`, and finally get the sum of all elements in the list who had two elements because of the split. Remember that `True` evaluates to 1 and `False` evaluates to 0, so we are getting the number of elements that were split into two. It does not tell us the number of games that belong to only one domain.
+Any `"Domain"` with at least one comma will turn into a list whose length is at least 2, so the comparison with `.str.len() == 1` will evaluate to `False`. So ultimately,
 
-**Option 2:** Let’s step through why Option 2 is also incorrect. `(games[“Domains”].apply(len) == 1).sum()` checks to see if each element in the column `“Domains”` has only one character. Remember when you apply `len()` to a string then we get the number of characters in that string. This is essentially counting the number of domains that have 1 letter. Thus, it does not tell us the number of games that belong to only one domain.
+```py
+games[games["Domains"].str.split(",").str.len() == 1]
+```
+
+is a DataFrame with just the rows for games that belong to one `"Domain"`.
+
+The next part `.value_counts("Name").sum()` makes a Series with an index of the unique `"Name"`s and the number of times those appear. Finally, summing this resulting Series will give us the number of games, among the games that only belong to only one "Domain".
+
+**Option 4**: Option 4 starts off exactly like Option 3, but instead of using `value_counts` it gets the number of rows using `.shape[0]`, which will give us the number of games that belong to only one domain.
+
+**Option 1:** Let’s step through why Option 1 is incorrect. `games["Domains"].str.split(" ").apply(len) == 2.sum()` gives you a `Series` of the `"Domains"` column, then splits each domain by a space. We then get the length of that list, check if the length is equal to 2, which would mean there are two elements in the list, and finally get the sum of all elements in the list who had two elements because of the split. Remember that `True` evaluates to 1 and `False` evaluates to 0, so we are getting the number of elements that were split into two. It does not tell us the number of games that belong to only one domain.
+
+**Option 2:** Let’s step through why Option 2 is also incorrect. `(games["Domains"].apply(len) == 1).sum()` checks to see if each element in the column `"Domains"` has only one character. Remember when you apply `len()` to a string then we get the number of characters in that string. This is essentially counting the number of domains that have 1 letter. Thus, it does not tell us the number of games that belong to only one domain.
 
 # END SOLUTION
-
-# END SUBPROB
 
 # END PROB
