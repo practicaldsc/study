@@ -569,6 +569,8 @@ def create_index():
 
     # print('done the command, there\'s the output above')
 
+    os.system('rm docs/index.md')
+
     return
 
     if os.path.exists(src_path):
