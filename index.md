@@ -59,6 +59,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, September 20th</td>
       <td><a href="disc04/index.html">Visualization, Missing Values, More Practice</a></td>
     </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Friday, September 27th</td>
+      <td><a href="disc05/index.html">Web Scraping</a></td>
+    </tr>
    <!--     <tr>
       <th scope="row">4</th>
       <td>Tuesday, July 16</td>
