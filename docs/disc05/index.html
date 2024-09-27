@@ -183,17 +183,84 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="
 <h3 id="problem-1.1">Problem 1.1</h3>
 <p>How many children does the <code>div</code> node with class
 <code>course_list</code> contain in the Document Object Model (DOM)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 4 children</p>
+<p>Looking at the code, we could see that the <code>div</code> with
+class <code>course_list</code> has 4 children, namely: a
+<code>img</code> node, <code>p</code> node, <code>ul</code> node and
+<code>p</code> node.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Suppose the HTML document has been parsed using
 <code>doc = bs4.BeautifulSoup(html)</code>. Write a line of code to get
 the <code>h1</code> header text in the form of a string.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <code>doc.find('h1').text</code></p>
+<p>Since there’s only one <code>h1</code> element in the html code, we
+could simply do <code>doc.find('h1')</code> to get the <code>h1</code>
+element. Then simply adding <code>.text</code> will get the text of the
+<code>h1</code> element in the form of a string.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>Suppose the HTML document has been parsed using
 <code>doc = bs4.BeautifulSoup(html)</code>. Write a piece of code that
 scrapes the course names from the HTML. The value returned by your code
 should be a list of strings.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong>
+<code>[x.text for x in doc.find_all('li')]</code></p>
+<p>Doing <code>doc.find_all('li')</code> will find all <code>li</code>
+elements and return it is the form of a list. Simply performing some
+basic list comprehension combined <code>.text</code> to get the text of
+each <code>li</code> element will yield the desired result.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.4">Problem 1.4</h3>
 <p>There are two links in the document. Which of the following will
@@ -206,6 +273,46 @@ return the URL of the link contained in the <code>div</code> with class
 <li><p><input type="checkbox" disabled="" /> <code>doc.find('div', attrs={'class': 'news'}).find('a').attrs['href']</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>doc.find('href', attrs={'class': 'news'})</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_4" class="accordion-collapse collapse"
+aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option A and Option D</p>
+<ul>
+<li>Option A: This option works because <code>doc.find_all('a')</code>
+will return a list of all the <code>a</code> elements in the order that
+it appears in the HTML document, and since the <code>a</code> with class
+<code>news</code> is the second <code>a</code> element appearing in the
+HTML doc, we do <code>[1]</code> to select it (as we would in any other
+list). Finally, we return the URL of the <code>a</code> element by
+getting the <code>'href'</code> attribute using
+<code>.attrs['href']</code></li>
+<li>Option B: This does not work because <code>.find</code> will only
+find the first instance of <code>a</code>, which is not the one we’re
+looking for.</li>
+<li>Option C: This does not work because there are no quotations around
+the <code>a</code>.</li>
+<li>Option D: This option works becuase
+<code>doc.find('div', attrs={'class': 'news'})</code> will first find
+the <code>div</code> element with <code>class='news'</code>, and then
+find the <code>a</code> element within that element and get the
+<code>href</code> attribute of that, which is what we want.</li>
+<li>Option E: This does not work because there is no <code>href</code>
+element in the HTML document.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.5">Problem 1.5</h3>
 <p>What is the purpose of the <code>alt</code> attribute in the
@@ -218,6 +325,25 @@ random</p></li>
 <li><p><input type="radio" disabled="" /> It provides text that should be shown in the case that the image
 cannot be displayed</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_5" aria-expanded="true" aria-controls="collapse1_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_5" class="accordion-collapse collapse"
+aria-labelledby="heading1_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option D</p>
+<p>^pretty self-explanatory.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.6">Problem 1.6</h3>
 <p>You are scraping a web page using the <code>requests</code> module.
@@ -234,6 +360,38 @@ cannot parse</p></li>
 <li><p><input type="radio" disabled="" /> The page has suddenly changed and has caused <code>requests</code> to
 enter an infinite loop</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_6" aria-expanded="true" aria-controls="collapse1_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_6" class="accordion-collapse collapse"
+aria-labelledby="heading1_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<ul>
+<li>Option A: We can pretty confidentely (I hope) rule this option out
+since whether or not a GIF has stopped playing or not shouldn’t affect
+our web scraping.</li>
+<li>Option B: This answer is right because a server will time you out
+(and potentially block you) if you make too many requests to the
+server.</li>
+<li>Option C: This shouldn’t cause your code to never finish, rather,
+it’s more likely that the request module just doesn’t process said
+Unicode character correctly or it throws an error.</li>
+<li>Option D: Again, this shouldn’t cause your code to never finish,
+rather, the request module will just parse the older version of the
+website at the time you called it.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -275,6 +433,50 @@ Select all that apply.</p>
 <li><p><input type="checkbox" disabled="" /> <code>soup.find("scorelist", attrs={"listtype":"scores"}).get("kind")</code></p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 1, Option 3, Option 4</p>
+<p>Correct options:</p>
+<ul>
+<li>Option 1 finds the first <code>&lt;scorerow&gt;</code> element and
+retrieves its <code>"kind"</code> attribute, which is
+<code>"verbal"</code> for the first <code>&lt;scorerow&gt;</code>
+encountered in the HTML document.</li>
+<li>Option 2 finds the first <code>&lt;scorerow&gt;</code> tag,
+retrieves its text <code>("Verbal: 84")</code>, splits this text by “:”,
+and takes the first element of the resulting list
+<code>("Verbal")</code>, converting it to lowercase to match
+<code>"verbal"</code>.</li>
+<li>Option 3 creates a list of <code>"kind"</code> attributes for all
+<code>&lt;scorerow&gt;</code> elements. The second to last (-2) element
+in this list corresponds to the <code>"kind"</code> attribute of the
+first <code>&lt;scorerow&gt;</code> in the second
+<code>&lt;scorelist&gt;</code> tag, which is also
+<code>"verbal"</code>.</li>
+</ul>
+<p>Incorrect options:</p>
+<ul>
+<li>Option 2 attempts to get an attribute ready from the
+<code>&lt;sat&gt;</code> tag, which does not exist as an attribute.</li>
+<li>Option 5 tries to retrieve a <code>"kind"</code> attribute from a
+<code>&lt;scorelist&gt;</code> tag, but <code>&lt;scorelist&gt;</code>
+does not have a <code>"kind"</code> attribute.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Consider the following function.</p>
@@ -306,6 +508,40 @@ desired value. The first example has been done for you.</p>
 <li>Desired value: <code>899</code></li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find_all(__c__)</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> a: <code>"scorelist"</code>, b:
+<code>"scorelist", attrs={"listtype":"scores"}</code>, c:
+<code>"scorerow", attrs={"kind":"math"}</code></p>
+<p><code>soup.find("scorelist")</code> selects the first
+<code>&lt;scorelist&gt;</code> tag, which includes both verbal and math
+percentiles <code>(84 and 99)</code>. The function
+<code>summer(tree)</code> sums these values to get <code>183</code>.</p>
+<p>This selects the <code>&lt;scorelist&gt;</code> tag with
+<code>listtype="scores"</code>, which contains the actual scores of
+verbal <code>(680)</code> and math <code>(800)</code>. The function sums
+these to get <code>1480</code>.</p>
+<p>This selects all <code>&lt;scorerow&gt;</code>elements with
+<code>kind="math"</code>, capturing both the percentile
+<code>(99)</code> and the actual score <code>(800)</code>. Since tree is
+now a list, <code>summer(tree)</code> iterates through each
+<code>&lt;scorerow&gt;</code> in the list, summing their
+<code>&lt;scorenum&gt;</code> values to reach <code>899</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -348,15 +584,81 @@ document above.</p>
 <h3 id="problem-3.1">Problem 3.1</h3>
 <p>How many leaf nodes are there in the DOM tree of the previous
 document — that is, how many nodes have no children?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 14</p>
+<p>There’s 1 <code>&lt;title&gt;</code>, 1 <code>&lt;h1&gt;</code>, 3
+<code>&lt;th&gt;</code>s, and 9 <code>&lt;td&gt;</code>s, adding up to
+14.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>What does the following line of code evaluate to?</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(soup.find_all(<span class="st">&quot;td&quot;</span>))</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 9</p>
+<p>As mentioned in the solution to the part above, there are 9
+<code>&lt;td&gt;</code> nodes, and <code>soup.find_all</code> finds them
+all.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
 <p>What does the following line of code evaluate to?</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>soup.find(<span class="st">&quot;tr&quot;</span>).get(<span class="st">&quot;class&quot;</span>)</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <code>["heading"]</code> or
+<code>"heading"</code></p>
+<p><code>soup.find("tr")</code> finds the first occurrence of a
+<code>&lt;tr&gt;</code> node, and <code>get("class")</code> accesses the
+value of its <code>"class"</code> attribute.</p>
+<p>Note that technically the answer is <code>["heading"]</code>, but
+<code>"heading"</code> received full credit too.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.4">Problem 3.4</h3>
 <p>Complete the implementation of the function <code>top_nth</code>,
@@ -372,6 +674,30 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> soup.find(<span class="st">&quot;tr&quot;</span>, attrs<span class="op">=</span>__(a)__).find_all(<span class="st">&quot;td&quot;</span>)__(b)__</span></code></pre></div>
 <p>What goes in blank (a)?</p>
 <p>What goes in blank (b)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> a) <code>{'class' : n}</code> b)
+<code>[2].text</code> or <code>[-1].text</code></p>
+<p>The logic is to find the <code>&lt;tr&gt;</code> node with the
+correct class attribute (which we do by setting attr to
+<code>{'class' : 2}</code>), then access the text of the node’s last
+<code>&lt;td&gt;</code> child (since that’s where the song titles are
+stored).</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.5">Problem 3.5</h3>
 <p>Suppose we run the line of code <code>r = requests.get(url)</code>,
@@ -384,6 +710,26 @@ the HTML source code of the site at <code>url</code>.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_5" aria-expanded="true" aria-controls="collapse3_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_5" class="accordion-collapse collapse"
+aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B: False</p>
+<p>A status code of 200 means that the request has succeeded. Hence, the
+response could be JSON, it is not necessarily HTML.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -440,6 +786,27 @@ file?</p>
 <li><p><input type="radio" disabled="" /> Tree C</p></li>
 <li><p><input type="radio" disabled="" /> Tree D</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Tree D</p>
+<p>Following tree D in the image from top to bottom, we can follow the
+nesting of tags in the HTML file to verify that the DOM tree D matches
+the syntax of the HTML file.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>Rahul wants to extract the <code>‘instock availability’</code> status
@@ -463,6 +830,33 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href=
 class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;div&#39;</span>, attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>:<span class="st">&#39;product_price&#39;</span>})<span class="op">\</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;i&#39;</span>).text.strip()</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Code Snippet B</p>
+<p>Code Snippet B is the only option that finds the tag <code>p</code>
+with the attribute <code>class</code> being equal to
+<code>instock availability</code> and then getting the text contained in
+that tag, which is equal to <code>‘instock availability’</code>.</p>
+<p>Option A will cause an error because of <code>.get('icon-ok')</code>
+since <code>'icon-ok'</code> is not the name of the attribute, but is
+instead the value of the <code>class</code> attribute.</p>
+<p>Option C and D will both get the text of the <code>i</code> tag,
+which is <code>''</code> and is therefore incorrect.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>Rahul also wants to extract the number of stars that the book titled
@@ -479,6 +873,34 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb18-1"><a href=
 <div class="sourceCode" id="cb19"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).get(<span class="st">&#39;class&#39;</span>)[<span class="dv">1</span>]</span></code></pre></div>
 <p>None of the above</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Code Snippet C</p>
+<p>Code Snippet C finds the first occurence of the tag <code>p</code>,
+gets the contents of its <code>class</code> attribute as a list, and
+returns the last element, which is the rating <code>'Three'</code> as
+desired.</p>
+<p>Option A will error because <code>.get('class')</code> returns
+<code>['product_pod']</code> and strip cannot be used on a list, but
+also the content of the list does not bring us closer to the desired
+result.</p>
+<p>Option B gets the text contained within the first <code>p</code> tag
+as a list, which is <code>['']</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
