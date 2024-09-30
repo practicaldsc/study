@@ -14,7 +14,7 @@ For now, we've organized problems as **discussion worksheets**. Each discussion 
 
 You should work on these problems **on paper**, since your exams will also be on paper. Even though you will see some multiple choice bubbles, you intentionally cannot select them.
 
-If you'd like, you can also view other exam problems from related classes at [practice.dsc10.com](https://practice.dsc10.com), [practice.dsc40.com](https://practice.dsc40.com), and [practice.dsc80.com](https://practice.dsc80.com). These sites are set up similarly to our Study Site, but contain lots of problems that are not in scope for this course. The problems you see below are taken from these other sites, but we've chosen problems that we know are in-scope and relevant.
+If you'd like, you can also view other exam problems from related classes at [practice.dsc10.com](https://practice.dsc10.com), [practice.dsc40a.com](https://practice.dsc40a.com), and [practice.dsc80.com](https://practice.dsc80.com). These sites are set up similarly to our Study Site, but contain lots of problems that are not in scope for this course. The problems you see below are taken from these other sites, but we've chosen problems that we know are in-scope and relevant.
 
 ---
 
