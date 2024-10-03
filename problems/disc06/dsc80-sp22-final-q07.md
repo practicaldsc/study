@@ -28,7 +28,7 @@ names from valid datestrings**. If the datestring does not follow the
 above format, it should not extract anything. Example behavior is given
 below.
 
-```py
+```
 >>> re.findall(exp, "3*Canada-2022-06-04")
 ["Canada"]
 
@@ -56,7 +56,7 @@ solution on regex101.
 
 Consider the following regular expression.
 
-```py
+```
 r"^\w{2,5}.\d*\/[^A-Z5]{1,}"
 ```
 
@@ -93,7 +93,7 @@ Thus using these rules, it's not hard to verify that Options B, C and E are matc
 
 Consider the following string and regular expressions:
 
-```py
+```
 song_str = "doja cat you right"
 
 exp_1 = r"\b\w+\b" # \b stands for word boundary
