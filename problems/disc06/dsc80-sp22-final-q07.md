@@ -39,8 +39,6 @@ below.
 []
 ```
 
-`exp = r"^`  `$"`
-
 # BEGIN SOLN
 
 **Answer: ** One solution is given below.
