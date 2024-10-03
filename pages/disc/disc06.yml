@@ -1,0 +1,23 @@
+title: "Regular Expressions and Text Features"
+context: >
+  The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
+  <br><br>We encourage you to complete this worksheet in a live discussion section. 
+  Solutions will be made available after all discussion sections have concluded. You don't need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don't cover can be used for extra practice.
+show_solution: true
+problems:
+  # Earlier problems
+  - disc06/dsc80-wi24-final-q05 #p1
+  - disc06/dsc80-fa22-final-q05 #p2
+  - disc06/dsc80-fa21-final-q03 #p3
+  - disc06/dsc80-wi23-final-q04 #p4
+  - disc06/dsc80-sp24-final-q04 #p5
+  - disc06/dsc80-fa23-final-q02 #p6
+  - disc06/dsc80-sp22-final-q07 #p7
+  - disc06/dsc80-fa22-final-q06 #p8
+  - disc06/dsc80-wi24-final-q06 #p9
+  - disc06/dsc80-wi24-final-q07 #p10
+  - disc06/dsc80-sp24-final-q09 #p11
+  - disc06/dsc80-wi23-final-q06 #p12
+  - disc06/dsc80-sp22-final-q08 #p13
+  - disc06/dsc80-fa23-final-q08 #p14
+
