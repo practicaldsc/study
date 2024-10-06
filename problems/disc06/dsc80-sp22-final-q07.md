@@ -43,9 +43,9 @@ below.
 
 **Answer: ** One solution is given below.
 
-<center><img src='../assets/images/disc06/regex101-1.png' width=50%></center>
+<center><img src='../assets/images/disc06/regex101.png' width=50%></center>
 
-Click [this link](https://regex101.com/r/K88ddE/1) to interact with the
+Click [this link](https://regex101.com/r/jUnqNw/1) to interact with the
 solution on regex101.
 
 # END SOLN
