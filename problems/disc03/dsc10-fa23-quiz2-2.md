@@ -27,16 +27,18 @@ How many rows are in the following DataFrame? Give your answer as an
 integer.
 
 ```py
-keepers.merge(items.iloc[:6]), 
+keepers.merge(items.iloc[:6], 
               left_on="Store", 
               right_on="Location")
 ```
 
 # BEGIN SOLUTION
 
-**Answer**: 10. Since the type of join is not specified, this is an inner join. Each row in `keepers` is merged with each row in `items` only if `'Store'` in `keepers` equals `'Location'` in `items`. Each row in `keepers` has the following number of merges: row 0 has 1, row 1 has 3, row 2 has 3, row 3 has 0 (there are no rows in `items` with `'Location'` equal to 'Kicks Shoe Store'), and row 4 has 3. 
+**Answer**: 10
 
-1 + 3 + 3 + 0 + 3 = 10
+Since the type of join is not specified, this is an inner join. Each row in `keepers` is merged with each row in `items` only if `'Store'` in `keepers` equals `'Location'` in `items`. Each row in `keepers` has the following number of merges: row 0 has 1, row 1 has 3, row 2 has 3, row 3 has 0 (there are no rows in `items` with `'Location'` equal to 'Kicks Shoe Store'), and row 4 has 3. 
+
+$$1 + 3 + 3 + 0 + 3 = 10$$
 
 # END SOLUTION
 
