@@ -118,6 +118,9 @@ Fill in the blanks so that `popular_areas` is an array of the names of the uniqu
 
 We'd like to only consider certain neighborhoods according to group characteristics (having >= 5 hotels and >= 1000 hotel rooms), and `.filter()` allows us to do that by excluding groups not meeting those criteria. So, we can write a function that evaluates those criteria on one group at a time (the `df` of input to `f` is the subset of `hotels` containing just one `Location` value), and calling `filter(f)` means that the only remaining rows are hotels in neighborhoods that match those criteria. Finally, all we have to do is get the unique neighborhoods from this DataFrame, which are the neighborhoods for which `f` returned `True`.
 
+You may wonder why we're using `and` instead of `&`, when we're told to use `&` when making queries. In cases where we're Boolean filtering arrays/Series/DataFrames, you'll always use the bitwise operators (`&` for and, `|` for or). We use the "regular" `and`/`or` when taking the and/or of individual values. But here, `df.shape[0] >= 5` is an individual Boolean – not a Series of Booleans – and `df["Number of Rooms"].sum() >= 1000` is also an individual Boolean. So here, we needed to compute the and of two individual Booleans, making the `and` operator correct (and `&` incorrect).
+
+
 # END SOLUTION
 
 # END SUBPROB
