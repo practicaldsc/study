@@ -72,6 +72,7 @@ in `square`.*
 **Answer**: $120$
 
 `square` is telling us that:
+
 - There are 5500 districts that appeared just 1x in `dogs`.
 - There are 215 districts that appeared 2x in `dogs` (2x, not 4x, because of the logic explained in the 5a rubric item).
 - There are 40 districts that appeared 3x in `dogs`.
