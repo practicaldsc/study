@@ -58,7 +58,7 @@ The result of the `.groupby()` and `.sum()` is a Series indexed by the unique `C
 
 # BEGIN SUBPROB
 
-Consider the variable `curious`, defined below.
+Consider the variable `curious`, defined below. Assume `frame` is a DataFrame with the same columns as `hotels`, but different rows.
 
 ```py
 curious = frame["Chain"].value_counts().idxmax()
