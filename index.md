@@ -69,6 +69,16 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, October 4th</td>
       <td><a href="disc06/index.html">Regular Expressions and Text Features</a></td>
     </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Monday, October 7th</td>
+      <td><a href="mt-review-monday/index.html">Midterm Review: Monday</a></td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Tuesday, October 8th</td>
+      <td><a href="mt-review-tuesday/index.html">Midterm Review: Tuesday</a></td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>

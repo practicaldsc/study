@@ -182,36 +182,6 @@ repeatedly.</strong></p>
 <li><p><input type="radio" disabled="" /> DataFrame</p></li>
 <li><p><input type="radio" disabled="" /> DataFrameGroupBy</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_1" class="accordion-collapse collapse"
-aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: Series</p>
-<p>The <code>.value_counts()</code> method, when called on a Series
-<code>s</code>, produces a new Series in which</p>
-<ul>
-<li>the index contains all unique values in <code>s</code>.</li>
-<li>the values are the frequencies of the unique values in
-<code>s</code>.</li>
-</ul>
-<p>Since <code>tv["Title"]</code> is a Series,
-<code>tv["Title"].value_counts()</code> is a Series, and so is
-<code>tv["Title"].value_counts.value_counts()</code>. We provide an
-interpretation of each of these Series in the solution to the next
-subpart.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Which of the following statements are true? Select all that
@@ -231,130 +201,6 @@ are 5 pairs of 2 TV shows such that each pair shares the same
 <code>"Title"</code>.</p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_2" class="accordion-collapse collapse"
-aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ul>
-<li>The only case in which it would make sense to set the index of
-<code>tv</code> to <code>"Title"</code> is if
-<code>double_count.loc[1] == tv.shape[0]</code> is
-<code>True</code>.</li>
-<li>If <code>double_count.loc[2] == 5</code> is <code>True</code>, there
-are 5 pairs of 2 TV shows such that each pair shares the same
-<code>"Title"</code>.</li>
-</ul>
-<p>To answer, we need to understand what each of
-<code>tv["Title"]</code>, <code>tv["Title"].value_counts()</code>, and
-<code>tv["Title"].value_counts().value_counts()</code> contain. To
-illustrate, let’s start with a basic, unrelated example. Suppose
-<code>tv["Title"]</code> looks like:</p>
-<div id="cb1" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dv">0</span>    A</span>
-<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dv">1</span>    B</span>
-<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dv">2</span>    C</span>
-<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dv">3</span>    B</span>
-<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dv">4</span>    D</span>
-<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dv">5</span>    E</span>
-<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dv">6</span>    A</span>
-<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>dtype: <span class="bu">object</span></span></code></pre>
-</div>
-<p>Then, <code>tv["Title"].value_counts()</code> looks like:</p>
-<div id="cb2" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>A    <span class="dv">2</span></span>
-<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>B    <span class="dv">2</span></span>
-<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>C    <span class="dv">1</span></span>
-<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>D    <span class="dv">1</span></span>
-<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>E    <span class="dv">1</span></span>
-<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>dtype: int64</span></code></pre>
-</div>
-<p>and <code>tv["Title"].value_counts().value_counts()</code> looks
-like:</p>
-<div id="cb3" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dv">2</span>    <span class="dv">2</span></span>
-<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>dtype: int64</span></code></pre>
-</div>
-<p>Back to our actual dataset. <code>tv["Title"]</code>, as we know,
-contains the name of each TV show.
-<code>tv["Title"].value_counts()</code> is a Series whose index is a
-sequence of the unique TV show titles in <code>tv["Title"]</code>, and
-whose values are the frequencies of each title.
-<code>tv["Title"].value_counts()</code> may look something like the
-following:</p>
-<div id="cb4" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>Breaking Bad                             <span class="dv">1</span></span>
-<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>Fresh Meat                               <span class="dv">1</span></span>
-<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>Doctor Thorne                            <span class="dv">1</span></span>
-<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>                                       ...</span>
-<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>Styling Hollywood                        <span class="dv">1</span></span>
-<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>Vai Anitta                               <span class="dv">1</span></span>
-<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>Fearless Adventures <span class="cf">with</span> Jack Randall    <span class="dv">1</span></span>
-<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>Name: Title, Length: <span class="dv">5368</span>, dtype: int64</span></code></pre>
-</div>
-<p>Then, <code>tv["Title"].value_counts().value_counts()</code> is a
-Series whose index is a sequence of the unique values in the above
-Series, and whose values are the frequencies of each value above. In the
-case where all titles in <code>tv["Title"]</code> are unique, then
-<code>tv["Title"].value_counts()</code> will only have one unique value,
-1, repeated many times. Then,
-<code>tv["Title"].value_counts().value_counts()</code> will only have
-one row total, and will look something like:</p>
-<div id="cb5" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5368</span></span>
-<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>Name: Title, dtype: int64</span></code></pre>
-</div>
-<p>This allows us to distinguish between the first two answer choices.
-The key is remembering that <strong>in order to set a column to the
-index, the column should only contain unique values</strong>, since the
-goal of the index is to provide a “name” (more formally, a label) for
-each row.</p>
-<ul>
-<li>The first answer choice, “The only case in which it would make sense
-to set the index of <code>tv</code> to <code>"Title"</code> is if
-<code>double_count.iloc[0] == 1</code> is <code>True</code>”, is false.
-As we can see in the example above, all titles are unique, but
-<code>double_count.iloc[0]</code> is something other than 1.</li>
-<li>The second answer choice, “The only case in which it would make
-sense to set the index of <code>tv</code> to <code>"Title"</code> is if
-<code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>”,
-is true. If <code>double_count.loc[1] == tv.shape[0]</code>, it means
-that all values in <code>tv["Title"].value_counts()</code> were 1,
-meaning that <code>tv["Title"]</code> consisted solely of unique values,
-which is the only case in which it makes sense to set
-<code>"Title"</code> to the index.</li>
-</ul>
-<p>Now, let’s look at the second two answer choices. If
-<code>double_counts.loc[2] == 5</code>, it would mean that 5 of the
-values in <code>tv["Title"].value_counts()</code> were 2. This would
-mean that there were 5 pairs of titles in <code>tv["Title"]</code> that
-were the same.</p>
-<ul>
-<li>This makes the fourth answer choice, “If
-<code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5
-pairs of 2 TV shows such that each pair shares the same
-<code>"Title"</code>”, correct.</li>
-<li>The third answer choice, “If <code>double_count.loc[2] == 5</code>
-is <code>True</code>, there are 5 TV shows that all share the same
-<code>"Title"</code>”, is incorrect; if there were 5 TV shows with the
-same title, then <code>double_count.loc[5]</code> would be at least 1,
-but we can’t make any guarantees about
-<code>double_counts.loc[2]</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>Ethan is an avid Star Wars fan, and the only streaming service he has
@@ -367,58 +213,6 @@ Disney+.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>star_only <span class="op">=</span> __(a)__</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>star_disney_prop <span class="op">=</span> __(b)__ <span class="op">/</span> star_only.shape[<span class="dv">0</span>]</span></code></pre></div>
 <p>What goes in the blanks?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_3" class="accordion-collapse collapse"
-aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ul>
-<li>Blank (a):
-<code>tv[tv["Title"].str.contains("Star Wars")]</code></li>
-<li>Blank (b): <code>star_only["Disney+"].sum()</code></li>
-</ul>
-<p>We’re asked to find the proportion of TV shows with
-<code>"Star Wars"</code> in the title that are available to stream on
-Disney+. This is a fraction, where:</p>
-<ul>
-<li>The numerator is the number of TV shows that have
-<code>"Star Wars"</code> in the title <strong>and</strong> are available
-to stream on Disney+.</li>
-<li>The denominator is the number of TV shows that have
-<code>"Star Wars"</code> in the title.</li>
-</ul>
-<p>The key is recognizing that <code>star_only</code> must be a
-DataFrame that contains all the rows in which the <code>"Title"</code>
-contains <code>"Star Wars"</code>; to create this DataFrame in blank
-(a), we use <code>tv[tv["Title"].str.contains("Star Wars")]</code>.
-Then, the denominator is already provided for us, and all we need to
-fill in is the numerator. There are a few possibilities, though they all
-include <code>star_only</code>:</p>
-<ul>
-<li><code>star_only["Disney+"].sum()</code></li>
-<li><code>(star_only["Disney+"] == 1).sum()</code></li>
-<li><code>star_only[star_only["Disney+"] == 1].shape[0]</code></li>
-</ul>
-<p><strong>Common misconception</strong>: Many students calculated the
-wrong proportion: they calculated the proportion of shows available to
-stream on Disney+ that have <code>"Star Wars"</code> in the title. We
-asked for the proportion of shows with <code>"Star Wars"</code> in the
-title that are available to stream on Disney+; “proportion of <span class="math inline">X</span> that <span class="math inline">Y</span>” is
-always <span class="math inline">\frac{\# X \text{ and } Y}{\#
-X}</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -454,25 +248,6 @@ student wasn’t admitted to any universities, they should have an empty
 list.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    students.groupby(<span class="st">&quot;Email&quot;</span>).<span class="bu">apply</span>(_____)</span></code></pre></div>
 <p>What goes in the blank?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>
-<code>lambda df: df.loc[df["Admit"] == "Y", "University"].tolist()</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Which of the following blocks of code correctly assign
@@ -505,48 +280,6 @@ option.</p>
 <li><p><input type="checkbox" disabled="" /> Option 3</p></li>
 <li><p><input type="checkbox" disabled="" /> Option 4</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option 1 and Option 3</p>
-<ul>
-<li><p>Option 1 works correctly, it is probably the most straightforward
-way of answering the question. <code>cond1</code> is <code>True</code>
-for all rows in which students were rejected, and <code>cond2</code> is
-<code>True</code> for all rows in which students applied to UCSD. As
-such, <code>students.loc[cond1 &amp; cond2]</code> contains only the
-rows where students were rejected from UCSD. Then,
-<code>students.loc[cond1 &amp; cond2, "APs"].sort_values()</code> sorts
-by the number of <code>"APs"</code> taken in increasing order, and
-<code>.iloc[-1]</code> gets the largest number of <code>"APs"</code>
-taken.</p></li>
-<li><p>Option 2 doesn’t work because the lengths of <code>cond1</code>
-and <code>cond2</code> are not the same as the length of
-<code>d3</code>, so this causes an error.</p></li>
-<li><p>Option 3 works correctly. For each combination of
-<code>"Admit"</code> status (<code>"Y"</code>, <code>"N"</code>,
-<code>"W"</code>) and <code>"University"</code> (including UC San
-Diego), it computes the max number of <code>"APs"</code>. The usage of
-<code>.loc["N", "UC San Diego"]</code> is correct too.</p></li>
-<li><p>Option 4 doesn’t work. It currently returns the maximum number of
-<code>"APs"</code> taken by someone who applied to UC San Diego; it does
-not factor in whether they were admitted, rejected, or
-waitlisted.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p>Currently, <code>students</code> has a lot of repeated information —
@@ -564,28 +297,6 @@ student, indexed by <code>"Email"</code>, that contains their
 <p>There is exactly one issue with the line of code above. <strong>In
 one sentence</strong>, explain what needs to be changed about the line
 of code above so that the desired DataFrame is created.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse"
-aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> The problem right now is that aggregating
-High School by mean doesn’t work since you can’t aggregate a column with
-strings using <code>"mean"</code>. Thus changing it to something that
-works for strings like <code>"max"</code> or <code>"min"</code> would
-fix the issue.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
 <p>Consider the following snippet of code.</p>
@@ -617,36 +328,6 @@ to sum strings of the form <code>"Y"</code>, <code>"N"</code>, and
 <code>"W"</code>, so the values in <code>pivoted</code> are
 unreliable.</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_4" class="accordion-collapse collapse"
-aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option 3</p>
-<p><code>pivoted.loc["Warren High", "Stanford"]</code> is
-<code>NaN</code> because there were no rows in <code>students</code> in
-which the <code>"High School"</code> was <code>"Warren High"</code> and
-the <code>"University"</code> was <code>"Stanford"</code>, because
-nobody from Warren High applied to Stanford. However,
-<code>pivoted.loc["Warren High", "Columbia"]</code> is not
-<code>NaN</code> because there was at least one row in
-<code>students</code> in which the <code>"High School"</code> was
-<code>"Warren High"</code> and the <code>"University"</code> was
-<code>"Columbia"</code>. This means that at least one student from
-Warren High applied to Columbia.</p>
-<p>Option 3 is the only option consistent with this logic.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -688,50 +369,6 @@ Select all that apply.</p>
 <li><p><input type="checkbox" disabled="" /> <code>soup.find("scorelist", attrs={"listtype":"scores"}).get("kind")</code></p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option 1, Option 3, Option 4</p>
-<p>Correct options:</p>
-<ul>
-<li>Option 1 finds the first <code>&lt;scorerow&gt;</code> element and
-retrieves its <code>"kind"</code> attribute, which is
-<code>"verbal"</code> for the first <code>&lt;scorerow&gt;</code>
-encountered in the HTML document.</li>
-<li>Option 2 finds the first <code>&lt;scorerow&gt;</code> tag,
-retrieves its text <code>("Verbal: 84")</code>, splits this text by “:”,
-and takes the first element of the resulting list
-<code>("Verbal")</code>, converting it to lowercase to match
-<code>"verbal"</code>.</li>
-<li>Option 3 creates a list of <code>"kind"</code> attributes for all
-<code>&lt;scorerow&gt;</code> elements. The second to last (-2) element
-in this list corresponds to the <code>"kind"</code> attribute of the
-first <code>&lt;scorerow&gt;</code> in the second
-<code>&lt;scorelist&gt;</code> tag, which is also
-<code>"verbal"</code>.</li>
-</ul>
-<p>Incorrect options:</p>
-<ul>
-<li>Option 2 attempts to get an attribute ready from the
-<code>&lt;sat&gt;</code> tag, which does not exist as an attribute.</li>
-<li>Option 5 tries to retrieve a <code>"kind"</code> attribute from a
-<code>&lt;scorelist&gt;</code> tag, but <code>&lt;scorelist&gt;</code>
-does not have a <code>"kind"</code> attribute.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>Consider the following function.</p>
@@ -768,40 +405,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href=
 </ul>
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find_all(__c__)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> a: <code>"scorelist"</code>, b:
-<code>"scorelist", attrs={"listtype":"scores"}</code>, c:
-<code>"scorerow", attrs={"kind":"math"}</code></p>
-<p><code>soup.find("scorelist")</code> selects the first
-<code>&lt;scorelist&gt;</code> tag, which includes both verbal and math
-percentiles <code>(84 and 99)</code>. The function
-<code>summer(tree)</code> sums these values to get <code>183</code>.</p>
-<p>This selects the <code>&lt;scorelist&gt;</code> tag with
-<code>listtype="scores"</code>, which contains the actual scores of
-verbal <code>(680)</code> and math <code>(800)</code>. The function sums
-these to get <code>1480</code>.</p>
-<p>This selects all <code>&lt;scorerow&gt;</code>elements with
-<code>kind="math"</code>, capturing both the percentile
-<code>(99)</code> and the actual score <code>(800)</code>. Since tree is
-now a list, <code>summer(tree)</code> iterates through each
-<code>&lt;scorerow&gt;</code> in the list, summing their
-<code>&lt;scorenum&gt;</code> values to reach <code>899</code>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -837,32 +440,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>DataFrame</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>DataFrameGroupBy</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <code>str</code></p>
-<p>When we do a <code>groupby</code> on the <code>Chain</code> column in
-<code>hotels</code>, this means that the values in the
-<code>Chain</code> column will be the indices of the DataFrame or Series
-we get as output, in this case the Series
-<code>hotels.groupby("Chain")["Number of Rooms"].sum()</code>.</p>
-<p>Since the values of <code>Chain</code> are strings, and since
-<code>.idxmax()</code> will return a value from the index of the
-aforementioned Series, <code>summed</code> is a string.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>In one sentence, explain what the value of <code>summed</code> means.
@@ -871,31 +448,6 @@ data science major; that is, don’t say something like “it is the result
 of grouping <code>hotels</code> by <code>"Chain"</code>, selecting the
 <code>"Number of Rooms"</code> column, …”, but instead, give the value
 context.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <code>summed</code> is the name of the hotel
-chain with the most total rooms</p>
-<p>The result of the <code>.groupby()</code> and <code>.sum()</code> is
-a Series indexed by the unique <code>Chains</code>, whose values are the
-total number of rooms in hotels owned by each chain. The
-<code>idxmax()</code> function gets the index corresponding to the
-largest value in the Series, which will be the hotel chain name with the
-most total rooms.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>Consider the variable <code>curious</code>, defined below.</p>
@@ -910,31 +462,6 @@ ____ in San Diego.</p>
 <li><p><input type="radio" disabled="" /> hotel room</p></li>
 <li><p><input type="radio" disabled="" /> neighborhood</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_3" class="accordion-collapse collapse"
-aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> hotel room</p>
-<p><code>curious</code> gets the most common value of <code>Chain</code>
-in the DataFrame <code>frame</code>. We already know that
-<code>summed</code> is the hotel chain with the most rooms in San Diego,
-so <code>curious</code> only equals <code>summed</code> if the most
-common <code>Chain</code> in <code>frame</code> is the hotel chain with
-the most total rooms; this occurs when each row of <code>frame</code> is
-a single hotel room.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-4.4">Problem 4.4</h3>
 <p>Fill in the blanks so that <code>popular_areas</code> is an array of
@@ -964,41 +491,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb18-1"><a href=
 <ol start="4" type="1">
 <li>What goes in blank (iv)?</li>
 </ol>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_4" class="accordion-collapse collapse"
-aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ol type="1">
-<li><code>df.shape[0] &gt;= 5 and df["Number of Rooms"].sum() &gt;= 1000</code></li>
-<li><code>"Location"</code></li>
-<li><code>filter(f)</code></li>
-<li><code>["Location"].unique()</code> or equivalent</li>
-</ol>
-<p>We’d like to only consider certain neighborhoods according to group
-characteristics (having &gt;= 5 hotels and &gt;= 1000 hotel rooms), and
-<code>.filter()</code> allows us to do that by excluding groups not
-meeting those criteria. So, we can write a function that evaluates those
-criteria on one group at a time (the <code>df</code> of input to
-<code>f</code> is the subset of <code>hotels</code> containing just one
-<code>Location</code> value), and calling <code>filter(f)</code> means
-that the only remaining rows are hotels in neighborhoods that match
-those criteria. Finally, all we have to do is get the unique
-neighborhoods from this DataFrame, which are the neighborhoods for which
-<code>f</code> returned <code>True</code>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-4.5">Problem 4.5</h3>
 <p>Consider the code below.</p>
@@ -1030,49 +522,6 @@ above, which of the following will be equal to
 <li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>cond1.sum() + (cond1 &amp; cond2).sum()</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_5" aria-expanded="true" aria-controls="collapse4_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_5" class="accordion-collapse collapse"
-aria-labelledby="heading4_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ol type="1">
-<li><code>(cond1 &amp; cond2).sum()</code></li>
-<li><code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></li>
-</ol>
-<p>Note that <code>cond1</code> and <code>cond2</code> are boolean
-Series, and <code>hotels[cond1]</code> and <code>hotels[cond2]</code>
-are the subsets of <code>hotels</code> where
-<code>Chain == "Marriott</code> and
-<code>"Location" == "Coronado"</code>, respectively.</p>
-<ol type="1">
-<li><p>When we perform an inner merge, we’re selecting every row where a
-<code>Hotel Name</code> appears in <em>both</em>
-<code>hotels[cond1]</code> and <code>hotels[cond2]</code>. This is the
-same set of indices (and therefore hotel names, since those are unique)
-as where <code>(cond1 &amp; cond2) == True</code>. So, the length of
-<code>combined</code> will be the same as the number of
-<code>True</code>s in <code>(cond1 &amp; cond2)</code>.</p></li>
-<li><p>When we perform an outer merge, we’re selecting every row that
-appears in <em>either</em> DataFrame, although there will not be repeats
-for hotels that are both Marriott properties and are in Coronado. So, to
-find the total number of rows in either DataFrame, we take the sum of
-the sizes of each, and subtract rows that appear in both, which
-corresponds to answer
-<code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code>.</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
@@ -1089,31 +538,6 @@ imputation we learned about in class.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_1" class="accordion-collapse collapse"
-aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> False</p>
-<p>In <code>impute</code>, <code>np.random.choice</code> will return a
-single non-null value from <code>s</code>, and <code>.fillna()</code>
-will fill every null value with this single value. Meanwhile,
-probabilistic imputation draws a different value from a specified
-distribution to fill each missing value, making it such that there won’t
-be a single “spike” in the imputed distribution at a single chosen
-value.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>Consider the following expressions and values.</p>
@@ -1127,33 +551,6 @@ value.</p>
 <p>Given the above, what is the <strong>maximum</strong> possible value
 of <code>impute(vals).mean()</code>? Give your answer as a number
 rounded to one decimal place.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_2" class="accordion-collapse collapse"
-aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> 4.6</p>
-<p>The maximum possible value of <code>impute(vals).mean()</code> would
-occur when every single missing value in <code>vals</code> is filled in
-with the highest possible non-null value in <code>vals</code>. (As
-discussed in the previous solution, <code>impute</code> selects only one
-value from <code>s</code> to fill into every missing space.)</p>
-<p>If this occurs, then the mean of the imputed Series will be weighted
-mean of the available data and the filled data, and given the numbers in
-the question, this is <span class="math inline">0.8 \cdot 4 + 0.2 \cdot
-7</span>, or 4.6.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-5.3">Problem 5.3</h3>
 <p>Which of the following statements below will always evaluate to
@@ -1166,34 +563,6 @@ the question, this is <span class="math inline">0.8 \cdot 4 + 0.2 \cdot
 <li><p><input type="radio" disabled="" /> <code>vals.std() &gt; impute(vals).std()</code></p></li>
 <li><p><input type="radio" disabled="" /> None of the above</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_3" class="accordion-collapse collapse"
-aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> None of the above</p>
-<p>Since the value which <code>impute</code> will choose to impute with
-is random, the effect that it has on the standard deviation of
-<code>vals</code> is unknown. If the missing values are filled with a
-value close to the mean, this could reduce standard deviation; if they
-are filled with a value far from the mean, this could increase standard
-deviation. (Of course, the imputation will also shift the mean, so
-without knowing details of the Series, it’s impossible to come up with
-thresholds.) In any case, since the value for imputation is chosen at
-random, none of these statements will <em>always</em> be true, and so
-the correct answer is “none of the above.”</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
