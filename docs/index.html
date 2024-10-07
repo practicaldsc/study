@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="assets/theme.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -26,7 +31,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- add after bootstrap.min.css -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
 <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
 <!-- for difficulty gauges-->
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
@@ -41,15 +47,35 @@
 </script>
 <!-- <h1><a href=''>🧠 Study Problems</a></h1> -->
 <h3>
-<a href='https://practicaldsc.org'>EECS 398-003: Practical Data Science at the University of Michigan</a>
+<a href='https://practicaldsc.org'>EECS 398-003: Practical Data Science
+at the University of Michigan</a>
 </h3>
 <hr />
-<p>This site – <strong>which we’ll call the “Study Site” in class</strong> – contains practice problems taken from old related courses. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!</p>
-<p>For now, we’ve organized problems as <strong>discussion worksheets</strong>. Each discussion problem set contains problems about a particular topic. Come to discussions to work on these problem sets in groups, with the help of our course staff. Solutions will be made available each week after all discussion sections have concluded.</p>
-<p>You should work on these problems <strong>on paper</strong>, since your exams will also be on paper. Even though you will see some multiple choice bubbles, you intentionally cannot select them.</p>
-<p>If you’d like, you can also view other exam problems from related classes at <a href="https://practice.dsc10.com">practice.dsc10.com</a>, <a href="https://practice.dsc40a.com">practice.dsc40a.com</a>, and <a href="https://practice.dsc80.com">practice.dsc80.com</a>. These sites are set up similarly to our Study Site, but contain lots of problems that are not in scope for this course. The problems you see below are taken from these other sites, but we’ve chosen problems that we know are in-scope and relevant.</p>
+<p>This site – <strong>which we’ll call the “Study Site” in
+class</strong> – contains practice problems taken from old related
+courses. The problems here will be similar in style to the problems on
+our exams, but they will not be identical – expect to be challenged!</p>
+<p>For now, we’ve organized problems as <strong>discussion
+worksheets</strong>. Each discussion problem set contains problems about
+a particular topic. Come to discussions to work on these problem sets in
+groups, with the help of our course staff. Solutions will be made
+available each week after all discussion sections have concluded.</p>
+<p>You should work on these problems <strong>on paper</strong>, since
+your exams will also be on paper. Even though you will see some multiple
+choice bubbles, you intentionally cannot select them.</p>
+<p>If you’d like, you can also view other exam problems from related
+classes at <a href="https://practice.dsc10.com">practice.dsc10.com</a>,
+<a href="https://practice.dsc40a.com">practice.dsc40a.com</a>, and <a
+href="https://practice.dsc80.com">practice.dsc80.com</a>. These sites
+are set up similarly to our Study Site, but contain lots of problems
+that are not in scope for this course. The problems you see below are
+taken from these other sites, but we’ve chosen problems that we know are
+in-scope and relevant.</p>
 <hr />
-<p><strong>New</strong>: To get a rough sense of the <strong>format</strong> of the exam, <a href="https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing"><strong>look at this example PDF</strong></a>.</p>
+<p><strong>New</strong>: To get a rough sense of the
+<strong>format</strong> of the exam, <a
+href="https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing"><strong>look
+at this example PDF</strong></a>.</p>
 <hr />
 <h3 id="discussions-in-fall-2024">💯 Discussions in Fall 2024</h3>
 <center>
@@ -81,7 +107,8 @@ Topic(s)
 Friday, August 30th
 </td>
 <td>
-<a href="https://github.com/practicaldsc/fa24/tree/main/discussions/disc01">Introductions, Python Review (not on Study Site)</a>
+<a href="https://github.com/practicaldsc/fa24/tree/main/discussions/disc01">Introductions,
+Python Review (not on Study Site)</a>
 </td>
 </tr>
 <tr>
@@ -114,7 +141,8 @@ Friday, September 13th
 Friday, September 20th
 </td>
 <td>
-<a href="disc04/index.html">Visualization, Missing Values, More Practice</a>
+<a href="disc04/index.html">Visualization, Missing Values, More
+Practice</a>
 </td>
 </tr>
 <tr>
@@ -137,6 +165,28 @@ Friday, October 4th
 </td>
 <td>
 <a href="disc06/index.html">Regular Expressions and Text Features</a>
+</td>
+</tr>
+<tr>
+<th scope="row">
+7
+</th>
+<td>
+Monday, October 7th
+</td>
+<td>
+<a href="mt-review-monday/index.html">Midterm Review: Monday</a>
+</td>
+</tr>
+<tr>
+<th scope="row">
+8
+</th>
+<td>
+Tuesday, October 8th
+</td>
+<td>
+<a href="mt-review-tuesday/index.html">Midterm Review: Tuesday</a>
 </td>
 </tr>
 <!-- <tr>
@@ -168,7 +218,10 @@ Friday, October 4th
 </center>
 <p><br></p>
 <hr />
-<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
 <hr />
 </body>
 </html>
