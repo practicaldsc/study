@@ -3,7 +3,7 @@ context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to attempt these problems **before** Monday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
   <br><br>We will enable the solutions here after the review session, though you can find the written solutions to these problems in other discussion worksheets.
-show_solution: false
+show_solution: true
 problems:
   # Problems
   - mt-review-monday/dsc80-wi23-mid-1 #p1
