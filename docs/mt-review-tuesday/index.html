@@ -140,6 +140,27 @@ favorite review was:</p>
 <h3 id="problem-1.1">Problem 1.1</h3>
 <p>What is the TF of <code>"beach"</code> in Nishant’s favorite review?
 Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\frac{3}{10}</span></p>
+<p>The answer is simply the proportion of words in the sentence that are
+the word <code>"beach"</code>. There are 10 words in the sentence, 3 of
+which are <code>"beach"</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>The TF-IDF of <code>"beach"</code> in Nishant’s favorite review is
@@ -155,6 +176,37 @@ this hotel contain the term <code>"beach"</code>?</p>
 <li><p><input type="radio" disabled="" /> 24</p></li>
 <li><p><input type="radio" disabled="" /> 32</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> 12</p>
+<p>The TF-IDF is the product of the TF and IDF terms. So if the TF-IDF
+of this document is <span class="math inline">\frac{9}{10}</span>, and
+the TF is <span class="math inline">\frac{3}{10}</span>, as established
+in the last part, the IDF of the term <code>"beach"</code> is 3. The IDF
+for a word is the log of the inverse of the proportion of documents in
+which the word appears. So, since we know there are 96 total
+documents.</p>
+<p><span class="math display">3 = log_{2}(\frac{96}{\text{\# documents
+containing "beach"}})</span></p>
+<p><span class="math display">2^{3} = \frac{96}{\text{\# documents
+containing "beach"}}</span></p>
+<p><span class="math display">\boxed{12} = {\text{\# documents
+containing "beach"}}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -166,6 +218,35 @@ from 0 to 3.</p>
 <p>What is the TF-IDF of the word <code>"hate"</code> in Song 0’s title?
 Use base 2 in your logarithm, and give your answer as a simplified
 fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{1}{6}</span></p>
+<p>There are 12 words in Song 0’s title, and 2 of them are
+<code>"hate"</code>, so the term frequency of <code>"hate"</code> in
+Song 0’s title is <span class="math inline">\frac{2}{12} =
+\frac{1}{6}</span>.</p>
+<p>There are 4 documents total, and 2 of them contain
+<code>"hate"</code> (Song 0’s title and Song 3’s title), so the inverse
+document frequency of <code>"hate"</code> in the corpus is <span class="math inline">\log_2 \left( \frac{4}{2} \right) = \log_2 (2) =
+1</span>.</p>
+<p>Then, the TF-IDF of <code>"hate"</code> in Song 0’s title is</p>
+<p><span class="math display">\text{TF-IDF} = \frac{1}{6} \cdot 1 =
+\frac{1}{6}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Which word in Song 0’s title has the highest TF-IDF?</p>
@@ -178,6 +259,32 @@ fraction.</p>
 <li><p><input type="radio" disabled="" /> Two or more words are tied for the highest TF-IDF in Song 0’s
 title</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option A: <code>"i"</code></p>
+<p>It was not necessary to compute the TF-IDFs of all words in Song 0’s
+title to determine the answer. <span class="math inline">\text{tfidf}(t,
+d)</span> is high when <span class="math inline">t</span> occurs often
+in <span class="math inline">d</span> but rarely overall. That is the
+case with <code>"i"</code> — it is the most common word in Song 0’s
+title (with 4 appearances), but it does not appear in any other
+document. As such, it must be the word with the highest TF-IDF in Song
+0’s title.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p>Let <span class="math inline">\text{tfidf}(t, d)</span> be the TF-IDF
@@ -193,6 +300,34 @@ class="math inline">d</span>.</p>
 <li><p><input type="checkbox" disabled="" /> If <span class="math inline">\text{bow}(t, d) = 0</span>, then <span class="math inline">\text{tfidf}(t, d) = 0</span>.</p></li>
 <li><p><input type="checkbox" disabled="" /> Neither of the above statements are necessarily true.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>Recall that <span class="math inline">\text{tfidf}(t, d) =
+\text{tf}(t, d) \cdot \text{idf}(t)</span>, and note that <span class="math inline">\text{tf}(t, d)</span> is just $ (t, d) $. Thus,
+<span class="math inline">\text{tfidf}(t, d)</span> is 0 is if either
+<span class="math inline">\text{bow}(t, d) = 0</span> or <span class="math inline">\text{idf}(t) = 0</span>.</p>
+<p>So, if <span class="math inline">\text{bow}(t, d) = 0</span>, then
+<span class="math inline">\text{tf}(t, d) = 0</span> and <span class="math inline">\text{tfidf}(t, d) = 0</span>, so the second option
+is true. However, if <span class="math inline">\text{tfidf}(t, d) =
+0</span>, it could be the case that <span class="math inline">\text{bow}(t, d) &gt; 0</span> and <span class="math inline">\text{idf}(t) = 0</span> (which happens when term
+<span class="math inline">t</span> is in every document), so the first
+option is not necessarily true.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
 <p>Below, we’ve encoded the corpus from the previous page using the
@@ -208,6 +343,42 @@ title?</p>
 <li><p><input type="radio" disabled="" /> Song 2</p></li>
 <li><p><input type="radio" disabled="" /> Song 3</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_4" class="accordion-collapse collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B: Song 2</p>
+<p>Recall, the cosine similarity between two vectors <span class="math inline">\vec{a}, \vec{b}</span> is computed as</p>
+<p><span class="math display">\cos \theta = \frac{\vec{a} \cdot
+\vec{b}}{| \vec{a} | | \vec{b}|}</span></p>
+<p>We are told that each row vector is already normalized to have a
+length of 1, so to compute the similarity between two songs’ titles, we
+can compute dot products directly.</p>
+<ul>
+<li><p>Song 0 and Song 1: <span class="math inline">0.47 \cdot
+0.76</span></p></li>
+<li><p>Song 0 and Song 2: <span class="math inline">0.47 \cdot 0.58 +
+0.71 \cdot 0.58</span></p></li>
+<li><p>Song 0 and Song 3: <span class="math inline">0.47 \cdot
+0.71</span></p></li>
+</ul>
+<p>Without using a calculator (which students did not have access to
+during the exam), it is clear that the dot product between Song 0’s
+title and Song 2’s title is the highest, hence Song 2’s title is the
+most similar to Song 0’s.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -261,6 +432,30 @@ follows.</p>
 <code>"district"</code> of <code>8</code>. How many rows of
 <code>double</code> have a <code>"district"</code> of <code>8</code>?
 Give your answer as a positive integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">144</span></p>
+<p>When we merge <code>dogs</code> with <code>dogs</code> on
+<code>"district"</code>, each <code>8</code> in the first
+<code>dogs</code> DataFrame will be combined with each <code>8</code> in
+the second <code>dogs</code> DataFrame. Since there are 12 in the first
+and 12 in the second, there are <span class="math inline">12 \cdot 12 =
+144</span> combinations.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>What does the following expression evaluate to? Give your answer as a
@@ -268,6 +463,33 @@ positive integer.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
 <p><em>Hint: Unlike in 5.1, your answer to 5.2 depends on the values in
 <code>square</code>.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">120</span></p>
+<p><code>square</code> is telling us that: - There are 5500 districts
+that appeared just 1x in <code>dogs</code>. - There are 215 districts
+that appeared 2x in <code>dogs</code> (2x, not 4x, because of the logic
+explained in the 5a rubric item). - There are 40 districts that appeared
+3x in <code>dogs</code>.</p>
+<p>The expression given in this question is keeping all of the rows
+corresponding to districts that appear 3 times. There are 40 districts
+that appear 3 times. So, the total number of rows in this DataFrame is
+<span class="math inline">40 \cdot 3 = 120</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -301,6 +523,55 @@ times.</p></li>
 integer.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    kyle.merge(yutong, on<span class="op">=</span><span class="st">&quot;flips&quot;</span>)</span></code></pre></div>
 <p><em>Hint: The answer is less than 200.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 108</p>
+<p>Since we used the argument <code>on="flips</code>, rows from
+<code>kyle</code> and <code>yutong</code> will be combined whenever they
+have matching values in their <code>"flips"</code> columns.</p>
+<p>For the <code>kyle</code> DataFrame:</p>
+<ul>
+<li>There are 13 rows with <code>"Heads"</code> in the
+<code>"flips"</code> column.</li>
+<li>There are 8 rows with <code>"Tails"</code> in the
+<code>"flips"</code> column.</li>
+</ul>
+<p>For the <code>yutong</code> DataFrame:</p>
+<ul>
+<li>There are 4 rows with <code>"Heads"</code> in the
+<code>"flips"</code> column.</li>
+<li>There are 7 rows with <code>"Tails"</code> in the
+<code>"flips"</code> column.</li>
+</ul>
+<p>The merged DataFrame will also only have the values
+<code>"Heads"</code> and <code>"Tails"</code> in its
+<code>"flips"</code> column.</p>
+<ul>
+<li>The 13 <code>"Heads"</code> rows from <code>kyle</code> will each
+pair with the 4 <code>"Heads"</code> rows from <code>yutong</code>. This
+results in <span class="math inline">13 \cdot 4 = 52</span> rows with
+<code>"Heads"</code></li>
+<li>The 8 <code>"Tails"</code> rows from <code>kyle</code> will each
+pair with the 7 <code>"Tails"</code> rows from <code>yutong</code>. This
+results in <span class="math inline">8 \cdot 7 = 56</span> rows with
+<code>"Tails"</code>.</li>
+</ul>
+<p>Then, the total number of rows in the merged DataFrame is <span class="math inline">52 + 56 = 108</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>Let <span class="math inline">A</span> be your answer to the previous
@@ -324,6 +595,34 @@ DataFrame?</p>
 <li><p><input type="radio" disabled="" /> <span class="math inline">A+4</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">A+231</span></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">A+1</span></p>
+<p>The additional row in each DataFrame has a unique
+<code>"flips"</code> value of <code>"Total"</code>. When we merge on the
+<code>"flips"</code> column, this unique value will only create a single
+new row in the merged DataFrame, as it pairs the <code>"Total"</code>
+from <code>kyle</code> with the <code>"Total"</code> from
+<code>yutong</code>. The rest of the rows are the same as in the
+previous merge, and as such, they will contribute the same number of
+rows, <span class="math inline">A</span>, to the merged DataFrame. Thus,
+the total number of rows in the new merged DataFrame will be <span class="math inline">A</span> (from the original matching rows) plus 1
+(from the new <code>"Total"</code> rows), which sums up to <span class="math inline">A+1</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
@@ -373,6 +672,36 @@ entirety.</p>
 in <code>genres</code>, what fraction of the rows in the merged
 DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
 column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{5}</span></p>
+<p>If the five <code>"artist_names"</code> in <code>today</code> and
+<strong>genres</strong> are the same, the DataFrame that results from an
+inner merge will have 15 rows, one for each row in <code>today</code>.
+This is because there are 3 matches for <code>"harry styles"</code>, 3
+matches for <code>"olivia rodrigo"</code>, 3 matches for
+<code>"glass animals"</code>, and so on.</p>
+<p>In the merged DataFrame’s 15 rows, 6 of them will correspond to
+<code>"Pop"</code> artists — 3 to <code>"harry styles"</code> and 3 to
+<code>"olivia rodrigo"</code>. Thus, the fraction of rows that contain
+<code>"Pop"</code> in the <code>"genre"</code> column is <span class="math inline">\frac{6}{15} = \frac{2}{5}</span> (which is the
+fraction of rows that contained <code>"Pop"</code> in
+<code>genres["genre"]</code>, too).</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>Suppose we perform an <strong>inner</strong> merge between
@@ -383,6 +712,28 @@ overlapping <code>"artist_names"</code> between <code>today</code> and
 <code>"olivia rodrigo"</code>. What fraction of the rows in the merged
 DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
 column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{1}{2}</span></p>
+<p>If we perform an inner merge, there will only be 6 rows in the merged
+DataFrame — 3 for <code>"olivia rodrigo"</code> and 3 for
+<code>"drake"</code>. 3 of those 6 rows will have <code>"Pop"</code> in
+the <code>"genre"</code> column, hence the answer is <span class="math inline">\frac{3}{6} = \frac{1}{2}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-5.3">Problem 5.3</h3>
 <p>Suppose we perform an <strong>outer</strong> merge between
@@ -393,6 +744,46 @@ overlapping <code>"artist_names"</code> between <code>today</code> and
 <code>"olivia rodrigo"</code>. What fraction of the rows in the merged
 DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
 column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{9}</span></p>
+<p>Since we are performing an outer merge, we can decompose the rows in
+the merged DataFrame into three groups:</p>
+<ul>
+<li><p>Rows that are in <code>today</code> that are not in
+<code>genres</code>. There are 9 of these (3 each for the 3 artists that
+are in <code>today</code> and not <code>genres</code>).
+<code>today</code> doesn’t have a <code>"genre"</code> column, and so
+all of these <code>"genre"</code>s will be <code>NaN</code> upon
+merging.</p></li>
+<li><p>Rows that are in <code>genres</code> that are not in
+<code>today</code>. There are 3 of these — one for
+<code>"harry styles"</code>, one for <code>"glass animals"</code>, and
+one for <code>"doja cat"</code>. 1 of these 3 have <code>"Pop"</code> in
+the <code>"genre"</code> column.</p></li>
+<li><p>Rows that are in both <code>today</code> and <code>genres</code>.
+There are 6 of these — 3 for <code>"olivia rodrigo"</code> and 3 for
+<code>"drake"</code> — and 3 of those rows contain <code>"Pop"</code> in
+the <code>"genre"</code> column.</p></li>
+</ul>
+<p>Tallying things up, we see that there are <span class="math inline">9
++ 3 + 6 = 18</span> rows in the merged DataFrame overall, of which <span class="math inline">0 + 1 + 3 = 4</span> have <code>"Pop"</code> in the
+<code>"genre"</code> column. Hence, the relevant fraction is <span class="math inline">\frac{4}{18} = \frac{2}{9}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
