@@ -1,0 +1,22 @@
+title: "Fall 2024 Midterm Exam"
+instructors: Suraj Rampure
+context: >
+  This exam was administered in-person. The exam was closed-notes, except students were allowed to bring a single two-sided notes sheet. No calculators were allowed. Students had 120 minutes to take this exam.
+  <br><br>Access the original exam PDF here: <a href="../assets/pdf/fa24-midterm-a.pdf">Version A</a>, <a href="../assets/pdf/fa24-midterm-b.pdf">Version B</a>. (This site is based on Version A.)
+show_solution: true
+data_info: fa24-midterm/data-info
+problems:
+  - fa24-midterm/q01
+  - fa24-midterm/q02
+  - fa24-midterm/q03
+  - fa24-midterm/q04
+  - fa24-midterm/q05
+  - fa24-midterm/q06
+  - fa24-midterm/q07
+  - fa24-midterm/q08
+  - fa24-midterm/q09
+  - fa24-midterm/q10
+  - fa24-midterm/q11
+  - fa24-midterm/q12
+  - fa24-midterm/q13
+  - fa24-midterm/q14

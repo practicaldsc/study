@@ -10,7 +10,10 @@ title: '<a href="#">🧠 Study Problems</a>'
 
 This site – **which we'll call the "Study Site" in class** – contains practice problems taken from old related courses. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!
 
-For now, we've organized problems as **discussion worksheets**. Each discussion problem set contains problems about a particular topic. Come to discussions to work on these problem sets in groups, with the help of our course staff. Solutions will be made available each week after all discussion sections have concluded.
+Problems are organized in two ways:
+
+- You can find the exams for this class specifically in the first table. (There's only one exam here so far – the Fall 2024 Midterm Exam – but its detailed solutions are available, too.)
+- Most problems are organized into **discussion worksheets**. Each discussion problem set contains problems about a particular topic. Come to discussions to work on these problem sets in groups, with the help of our course staff. Solutions will be made available each week after all discussion sections have concluded.
 
 You should work on these problems **on paper**, since your exams will also be on paper. Even though you will see some multiple choice bubbles, you intentionally cannot select them.
 
@@ -18,7 +21,36 @@ If you'd like, you can also view other exam problems from related classes at [pr
 
 ---
 
-**New**: To get a rough sense of the **format** of the exam, [**look at this example PDF**](https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing).
+<!-- **New**: To get a rough sense of the **format** of the exam, [**look at this example PDF**](https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing).
+
+---- -->
+
+### 🧪 Exams
+
+<center>
+<table class="table" style="width:60%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 35%;">
+       <col span="1" style="width: 40%;">
+    </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">Semester</th>
+      <th scope="col">Instructor(s)</th>
+      <th scope="col">Exam</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Fall 2024</th>
+      <td>Suraj Rampure</td>
+      <td><a href='fa24-midterm/index.html'>Midterm</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
 
 ----
 
