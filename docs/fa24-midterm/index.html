@@ -2375,7 +2375,8 @@ aria-labelledby="heading13_5" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>:</p>
 <ul>
-<li>How many valid plane codes were extracted? <strong>2</strong>.</li>
+<li>How many valid plane codes were extracted? <strong>2</strong> (1
+also accepted)</li>
 <li>How many invalid strings were extracted? <strong>0</strong>.</li>
 </ul>
 <p>The difference between this regular expression and the last one is
@@ -2384,16 +2385,20 @@ matched to be at the end of a line. While are 5 valid plane codes in
 <code>thoughts</code>, only two are at the end of their respective
 lines: <code>"A380"</code> in line 5 and <code>"A350"</code> in line 6.
 So, those are the only two plane codes that are matched.</p>
-<p>Many students thought just 1 valid plane code would be extracted, as
-they thought <code>$</code> meant “end of string” instead of “end of
-line”.</p>
 <center><img src="../assets/images/fa24-midterm/q13-5.png" width="600"/></center>
+<p><strong>However</strong>, the default behavior of
+<code>re.findall</code> in Python is that it treats <code>$</code> as an
+end-of-<strong>string</strong> anchor, rather than an end-of-line
+character. So, in Python, only the final plane code of
+<code>"A350"</code> is extracted by default.</p>
+<center><img src="../assets/images/fa24-midterm/q13-52.png" width="600"/></center>
+<p>So, we gave full credit to both 1 and 2 as answers.</p>
 <p><strong>Interact with the solution on regex101 at <a href="https://regex101.com/r/x76OZv/5">this link</a>.</strong></p>
 <hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<h5>Difficulty: ⭐️⭐️</h5>
 <p>
 </p>
-<p>The average score on this problem was 62%.</p>
+<p>The average score on this problem was 80%.</p>
 </div>
 </div>
 </div>
