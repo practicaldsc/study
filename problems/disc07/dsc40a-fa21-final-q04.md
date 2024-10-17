@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 4</i>
+<!-- <i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 4</i> -->
 
 You may find the following properties of logarithms helpful in this question. Assume that all logarithms in this question are natural logarithms, i.e. of base $e$.
 
@@ -22,13 +22,15 @@ Show that: $$\frac{d}{dh} L_B(h, y) = - \frac{2}{h} \log \left( \frac{y}{h} \rig
 
 # BEGIN SOLN
 
-$$\begin{align*}
+$$
+\begin{align*}
     \frac{d}{dh} L_B(h, y) &= \frac{d}{dh} \left[ \log \left( \frac{y}{h} \right) \right]^2 \\
     &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \frac{d}{dh} \log \left( \frac{y}{h} \right) \\
     &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \frac{d}{dh} \left( \log(y) - \log(h) \right) \\
     &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \left( - \frac{1}{h} \right) \\
     &= -\frac{2}{h} \log \left( \frac{y}{h} \right)
-\end{align*}$$
+\end{align*}
+$$
 
 # END SOLN
 
@@ -46,7 +48,8 @@ _Hint: To confirm that you're interpreting the result correctly, $h^*$ for the d
 
 # BEGIN SOLN
 
-$$\begin{align*}
+$$
+\begin{align*}
     R_B(h) &= \frac{1}{n} \sum_{i = 1}^n \left[ \log \left( \frac{y_i}{h} \right) \right]^2 \\
 \frac{d}{dh} R_B(h) &= \frac{1}{n} \sum_{i = 1}^n \frac{d}{dh} \left[ \log \left( \frac{y_i}{h} \right) \right]^2 \\
 &= \frac{1}{n} \sum_{i = 1}^n -\frac{2}{h} \log \left( \frac{y_i}{h} \right) \\
@@ -57,7 +60,8 @@ $$\begin{align*}
 \log(h^n) &= \log(y_1 \cdot y_2 \cdot ... \cdot y_n) \\
 h^n &= y_1 \cdot y_2 \cdot ... \cdot y_n \\
 h^* &= (y_1 \cdot y_2 \cdot ... \cdot y_n)^{\frac{1}{n}}
-\end{align*}$$
+\end{align*}
+$$
 
 # END SOLN
 

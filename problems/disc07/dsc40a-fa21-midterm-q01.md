@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2021 Midterm](../fa21-midterm/index.html), Problem 1</i>
+<!-- <i>Source: [Fall 2021 Midterm](../fa21-midterm/index.html), Problem 1</i> -->
 
 King Triton just made an Instagram account and has been keeping track of
 the number of likes his posts have received so far.
@@ -68,14 +68,16 @@ place.
 For more justification, here we consider any general re-scaling
 $\alpha (y-h)^2$:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
     R_{sq}(h) &= \frac{1}{n} \sum_{i = 1}^n \alpha (y_i - h)^2 \\
               &= \alpha \cdot \frac{1}{n} \sum_{i = 1}^n (y_i - h)^2 \\
   \frac{d}{dh} R_{sq}(h) &= \alpha \cdot \frac{1}{n} \sum_{i = 1}^n 2(y_i - h)(-1) = 0\\
   &\implies -\frac{2\alpha}{n}\sum_{i = 1}^n (y_i - h) = 0 \\
   &\implies \sum_{i = 1}^n (y_i - h) = 0 \\
   &\implies h^* = \frac{1}{n} \sum_{i = 1}^n y_i
-\end{aligned}$$
+\end{aligned}
+$$
 
 # END SOLUTION
 
@@ -120,7 +122,7 @@ $$\frac{4}{3} h^* = \bar{x} \implies h^* = \frac{3}{4} \bar{x} = \frac{3}{4} \cd
 
 $L(h, y) = (y - h)^3$
 
-*Hint: Do not spend too long on this subpart.*
+_Hint: Do not spend too long on this subpart._
 
 # BEGIN SOLUTION
 

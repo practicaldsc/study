@@ -6,7 +6,7 @@ title: '<a href="#">🧠 Study Problems</a>'
 
 <h3><a href='https://practicaldsc.org'>EECS 398-003: Practical Data Science at the University of Michigan</a></h3>
 
-----
+---
 
 This site – **which we'll call the "Study Site" in class** – contains practice problems taken from old related courses. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!
 
@@ -52,7 +52,7 @@ If you'd like, you can also view other exam problems from related classes at [pr
 </table>
 </center>
 
-----
+---
 
 ### 💯 Discussions in Fall 2024
 
@@ -110,6 +110,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Tuesday, October 8th</td>
       <td><a href="mt-review-tuesday/index.html">Midterm Review: TF-IDF and Merging</a></td>
     </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Friday, October 18th</td>
+      <td><a href="disc07/index.html">Summary Statistics and the Constant Model</a></td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>
@@ -140,8 +145,8 @@ If you'd like, you can also view other exam problems from related classes at [pr
 
 <br>
 
-----
+---
 
 #### 👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.
 
-----
+---

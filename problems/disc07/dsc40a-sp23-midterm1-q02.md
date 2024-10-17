@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Midterm 1](../sp23-midterm1/index.html), Problem 2</i>
+<!-- <i>Source: [Spring 2023 Midterm 1](../sp23-midterm1/index.html), Problem 2</i> -->
 
 Let $R_{sq}(h)$ represent the mean squared error of a constant prediction $h$ for a given dataset. Find a dataset $\{y_1, y_2\}$ such that the graph of $R_{sq}(h)$ has its minimum at the point $(7,16)$.
 
@@ -12,7 +12,7 @@ We've already learned that $R_{sq}(h)$ is minimized at the mean of the data, and
 
 A more calculative approach uses the formulas for mean and variance and solves a system of two equations:
 
-$$\begin{aligned} \frac{y_1+y_2}{2} &= 7 \\ \frac12 \left((y_1 - 7)^2 + (y_2 - 7)^2 \right) &= 16 \end{aligned}$$ 
+$$\begin{aligned} \frac{y_1+y_2}{2} &= 7 \\ \frac12 \left((y_1 - 7)^2 + (y_2 - 7)^2 \right) &= 16 \end{aligned}$$
 
 # END SOLUTION
 

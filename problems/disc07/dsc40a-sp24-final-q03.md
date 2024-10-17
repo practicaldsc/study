@@ -1,13 +1,13 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 3</i>
+<!-- <i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 3</i> -->
 
 Suppose we're given a dataset of $n$ points,
 $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$, where $\bar{x}$ is the mean
 of $x_1, x_2, ..., x_n$ and $\bar{y}$ is the mean of
 $y_1, y_2, ..., y_n$.
 
-Using this dataset, we create a *transformed* dataset of $n$ points,
+Using this dataset, we create a _transformed_ dataset of $n$ points,
 $(x_1', y_1'), (x_2', y_2'), ..., (x_n', y_n')$, where:
 
 $$x_i' = 4x_i - 3 \qquad y_i' = y_i + 24$$
@@ -25,12 +25,12 @@ Suppose we were to fit a simple linear hypothesis function through the
 original dataset, $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$, again using
 squared loss. What would the optimal slope be?
 
-( ) $2$ 
-( ) $4$ 
-( ) $6$ 
-( ) $8$ 
-( ) $11$ 
-( ) $12$ 
+( ) $2$
+( ) $4$
+( ) $6$
+( ) $8$
+( ) $11$
+( ) $12$
 ( ) $24$
 
 # BEGIN SOLUTION

@@ -5,12 +5,12 @@ context: >
   Solutions will be made available after all discussion sections have concluded. You don't need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don't cover can be used for extra practice.
 show_solution: false
 problems:
-  - disc07/dsc40a-sp23-midterm1-q02 # Problem 3
+  - disc07/dsc40a-fa21-final-q01 # 3
   - disc07/dsc40a-fa21-final-q04 # Problem 5
-  - disc07/dsc40a-fa21-midterm-q01 # Problem 1
-  - disc07/dsc40a-sp23-final-pt1-q01 # Problem 9
-  - disc07/dsc40a-wi24-midterm1-q01 # Problem 16
-  - disc07/dsc40a-wi24-midterm1-q02 # Problem 18
-  - disc07/dsc40a-wi24-final-pt1-q01 # Problem 15
-  - disc07/dsc40a-wi22-midterm1-q02 # Problem 12
+  - disc07/dsc40a-fa21-midterm-q01 # 1
+  - disc07/dsc40a-sp23-midterm1-q02 # 9
+  - disc07/dsc40a-wi24-midterm1-q01 # 16
+  - disc07/dsc40a-sp24-final-q01 # 18
+  - disc07/dsc40a-wi24-final-pt1-q01 # 15
+  - disc07/dsc40a-wi22-midterm1-q01 # 12
   - disc07/dsc40a-sp24-final-q03 # Problem 3

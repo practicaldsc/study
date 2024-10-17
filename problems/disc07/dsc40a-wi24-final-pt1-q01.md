@@ -1,13 +1,14 @@
 # BEGIN PROB
 
-<i>Source: [Winter 2024 Final Part 1](../wi24-final-pt1/index.html), Problem 1</i>
+<!-- <i>Source: [Winter 2024 Final Part 1](../wi24-final-pt1/index.html), Problem 1</i> -->
 
-Suppose there is a dataset containing 10000 integers: 
+Suppose there is a dataset containing 10000 integers:
 
 - 2500 of them are $3$s
 - 2500 of them are $5$s
 - 4500 of them are $7$s
 - 500 of them are $9$s.
+
 # BEGIN SUBPROB
 
 Calculate the median of this dataset.
