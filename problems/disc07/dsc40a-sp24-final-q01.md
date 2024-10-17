@@ -5,7 +5,7 @@
 Consider a dataset of $n$ **integers**, $y_1, y_2, ..., y_n$, whose
 histogram is given below:
 
-<center><img src='../../assets/images/sp24-final/hist-dist.png' width=900></center>
+<center><img src='../../assets/images/disc07/hist-dist.png' width=900></center>
 
 # BEGIN SUBPROB
 
