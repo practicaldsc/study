@@ -296,53 +296,54 @@ class="math display">EM(f(x_1), f(x_2), \dots, f(x_n)) = f(EM(x_1, x_2,
 \dots, x_n)).</span></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
-<!-- <i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 3</i> -->
-<p>Suppose we’re given a dataset of <span class="math inline">n</span>
-points, <span class="math inline">(x_1, y_1), (x_2, y_2), ..., (x_n,
-y_n)</span>, where <span class="math inline">\bar{x}</span> is the mean
-of <span class="math inline">x_1, x_2, ..., x_n</span> and <span
-class="math inline">\bar{y}</span> is the mean of <span
-class="math inline">y_1, y_2, ..., y_n</span>.</p>
-<p>Using this dataset, we create a <em>transformed</em> dataset of <span
-class="math inline">n</span> points, <span
-class="math inline">(x_1&#39;, y_1&#39;), (x_2&#39;, y_2&#39;), ...,
-(x_n&#39;, y_n&#39;)</span>, where:</p>
-<p><span class="math display">x_i&#39; = 4x_i - 3 \qquad y_i&#39; = y_i
-+ 24</span></p>
-<p>That is, the transformed dataset is of the form <span
-class="math inline">(4x_1 - 3, y_1 + 24), ..., (4x_n - 3, y_n +
-24)</span>.</p>
-<p>We decide to fit a simple linear hypothesis function <span
-class="math inline">H(x&#39;) = w_0 + w_1x&#39;</span> on the
-transformed dataset using squared loss. We find that <span
-class="math inline">w_0^* = 7</span> and <span class="math inline">w_1^*
-= 2</span>, so <span class="math inline">H^*(x&#39;) = 7 +
-2x&#39;</span>.</p>
+<!-- <i>Source: [Spring 2024 Midterm](../sp24-midterm/index.html), Problem 2</i> -->
+<p>Consider a dataset of <span class="math inline">n</span> values,
+<span class="math inline">y_1, y_2, ..., y_n</span>, all of which are
+non-negative. We’re interested in fitting a constant model, <span
+class="math inline">H(x) = h</span>, to the data, using the new ``Sun
+God” loss function:</p>
+<p><span class="math display">L_\text{sungod}(y_i, h) = w_i \left( y_i^2
+- h^2  \right)^2</span></p>
+<p>Here, <span class="math inline">w_i</span> corresponds to the
+``weight” assigned to the data point <span
+class="math inline">y_i</span>, the idea being that different data
+points can be weighted differently when finding the optimal constant
+prediction, <span class="math inline">h^*</span>.</p>
+<p>For example, for the dataset <span class="math inline">y_1 = 1, y_2 =
+5, y_3 = 2</span>, we will end up with different values of <span
+class="math inline">h^*</span> when we use the weights <span
+class="math inline">w_1 = w_2 = w_3 = 1</span> and when we use weights
+<span class="math inline">w_1 = 8, w_2 = 4, w_3 = 3</span>.</p>
 <p><br></p>
 <h3 id="problem-9.1">Problem 9.1</h3>
-<p>Suppose we were to fit a simple linear hypothesis function through
-the original dataset, <span class="math inline">(x_1, y_1), (x_2, y_2),
-..., (x_n, y_n)</span>, again using squared loss. What would the optimal
-slope be?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">2</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">4</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">8</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">12</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">24</span></p></li>
-</ul>
+<p>Find <span class="math inline">\frac{\partial
+L_\text{sungod}}{\partial h}</span>, the derivative of the Sun God loss
+function with respect to <span class="math inline">h</span>. Show your
+work, and put a <span class="math inline">\boxed{\text{box}}</span>
+around your final answer.</p>
 <p><br></p>
 <h3 id="problem-9.2">Problem 9.2</h3>
-<p>Recall, the hypothesis function <span class="math inline">H^*</span>
-was fit on the transformed dataset,</p>
-<p><span class="math inline">(x_1&#39;, y_1&#39;), (x_2&#39;, y_2&#39;),
-..., (x_n&#39;, y_n&#39;)</span>. <span class="math inline">H^*</span>
-happens to pass through the point <span class="math inline">(\bar{x},
-\bar{y})</span>. What is the value of <span
-class="math inline">\bar{x}</span>? Give your answer as an integer with
-no variables.</p>
+<p>Prove that the constant prediction that minimizes average loss for
+the Sun God loss function is:</p>
+<p><span class="math display">h^* = \sqrt{\frac{\sum_{i = 1}^n w_i
+y_i^2}{\sum_{i = 1}^n w_i}}</span></p>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>For a dataset of non-negative values <span class="math inline">y_1,
+y_2, ..., y_n</span> with weights <span class="math inline">w_1, 1, ...,
+1</span>, evaluate: <span class="math display">\displaystyle \lim_{w_1
+\rightarrow \infty} h^*</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The maximum of <span class="math inline">y_1, y_2, ...,
+y_n</span></p></li>
+<li><p><input type="radio" disabled="" /> The mean of <span class="math inline">y_1, y_2, ...,
+y_{n-1}</span></p></li>
+<li><p><input type="radio" disabled="" /> The mean of <span class="math inline">y_2, y_3, ..., y_n</span></p></li>
+<li><p><input type="radio" disabled="" /> The mean of <span class="math inline">y_2, y_3, ..., y_n</span>,
+multiplied by <span class="math inline">\frac{n}{n-1}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">y_1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">y_n</span></p></li>
+</ul>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
