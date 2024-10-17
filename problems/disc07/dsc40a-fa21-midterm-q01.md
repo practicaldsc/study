@@ -2,7 +2,7 @@
 
 <!-- <i>Source: [Fall 2021 Midterm](../fa21-midterm/index.html), Problem 1</i> -->
 
-King Triton just made an Instagram account and has been keeping track of
+Biff the Wolverine just made an Instagram account and has been keeping track of
 the number of likes his posts have received so far.
 
 His first 7 posts have received a mean of 16 likes; the specific like
@@ -10,10 +10,10 @@ counts in sorted order are
 
 $$8, 12, 12, 15, 18, 20, 27$$
 
-King Triton wants to predict the number of likes his next post will
+Biff the Wolverine wants to predict the number of likes his next post will
 receive, using a constant prediction rule $h$. For each loss function
 $L(h, y)$, determine the constant prediction $h^*$ that minimizes
-empirical risk. If you believe there are multiple minimizers, specify
+average loss. If you believe there are multiple minimizers, specify
 them all. If you believe you need more information to answer the
 question or that there is no minimizer, state that clearly. **Give a
 brief justification for each answer.**
