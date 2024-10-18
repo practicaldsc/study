@@ -10,25 +10,25 @@ You may find the following properties of logarithms helpful in this question. As
 - $\log(a^c) = c \log (a)$
 - $\frac{d}{dx} \log x = \frac{1}{x}$
 
-Billy, the avocado-farmer-turned-waiter-turned-Instagram-influencer that you're all-too-familiar with, is trying his hand at coming up with loss functions. He comes up with the Billy loss, $L_B(h, y)$, defined as follows:
+Billy, the avocado-farmer-turned-waiter-turned-Instagram-influencer that you're all-too-familiar with, is trying his hand at coming up with loss functions. He comes up with the Billy loss, $L_B(y_i, h)$, defined as follows:
 
-$$L_B(h, y) = \left[ \log \left( \frac{y}{h} \right) \right]^2$$
+$$L_B(y_i, h) = \left[ \log \left( \frac{y_i}{h} \right) \right]^2$$
 
 Throughout this problem, assume that all $y$s are positive.
 
 # BEGIN SUBPROB
 
-Show that: $$\frac{d}{dh} L_B(h, y) = - \frac{2}{h} \log \left( \frac{y}{h} \right)$$
+Show that: $$\frac{d}{dh} L_B(y_i, h) = - \frac{2}{h} \log \left( \frac{y_i}{h} \right)$$
 
 # BEGIN SOLN
 
 $$
 \begin{align*}
-    \frac{d}{dh} L_B(h, y) &= \frac{d}{dh} \left[ \log \left( \frac{y}{h} \right) \right]^2 \\
-    &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \frac{d}{dh} \log \left( \frac{y}{h} \right) \\
-    &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \frac{d}{dh} \left( \log(y) - \log(h) \right) \\
-    &= 2 \cdot \log \left( \frac{y}{h} \right) \cdot \left( - \frac{1}{h} \right) \\
-    &= -\frac{2}{h} \log \left( \frac{y}{h} \right)
+    \frac{d}{dh} L_B(y_i, h) &= \frac{d}{dh} \left[ \log \left( \frac{y_i}{h} \right) \right]^2 \\
+    &= 2 \cdot \log \left( \frac{y_i}{h} \right) \cdot \frac{d}{dh} \log \left( \frac{y_i}{h} \right) \\
+    &= 2 \cdot \log \left( \frac{y_i}{h} \right) \cdot \frac{d}{dh} \left( \log(y) - \log(h) \right) \\
+    &= 2 \cdot \log \left( \frac{y_i}{h} \right) \cdot \left( - \frac{1}{h} \right) \\
+    &= -\frac{2}{h} \log \left( \frac{y_i}{h} \right)
 \end{align*}
 $$
 
@@ -38,7 +38,7 @@ $$
 
 # BEGIN SUBPROB
 
-Show that the constant prediction $h^*$ that minimizes \textbf{empirical risk} for Billy loss is:
+Show that the constant prediction $h^*$ that minimizes average loss for Billy loss is:
 
 $$h^* = \left(y_1 \cdot y_2 \cdot ... \cdot y_n \right)^{\frac{1}{n}}$$
 

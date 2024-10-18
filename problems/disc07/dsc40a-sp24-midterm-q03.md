@@ -2,27 +2,27 @@
 
 <!-- <i>Source: [Spring 2024 Midterm](../sp24-midterm/index.html), Problem 2</i> -->
 
-Consider a dataset of $n$ values, $y_1, y_2, ..., y_n$, all of which are non-negative. We're interested in fitting a constant model, $H(x) = h$, to the data, using the new ``Sun God" loss function:
+Consider a dataset of $n$ values, $y_1, y_2, ..., y_n$, all of which are non-negative. We're interested in fitting a constant model, $H(x) = h$, to the data, using the new "Wolverine" loss function:
 
-$$L_\text{sungod}(y_i, h) = w_i \left( y_i^2 - h^2  \right)^2$$
+$$L_\text{wolverine}(y_i, h) = w_i \left( y_i^2 - h^2  \right)^2$$
 
-Here, $w_i$ corresponds to the ``weight" assigned to the data point $y_i$, the idea being that different data points can be weighted differently when finding the optimal constant prediction, $h^*$.
+Here, $w_i$ corresponds to the "weight" assigned to the data point $y_i$, the idea being that different data points can be weighted differently when finding the optimal constant prediction, $h^*$.
 
 For example, for the dataset $y_1 = 1, y_2 = 5, y_3 = 2$, we will end up with different values of $h^*$ when we use the weights $w_1 = w_2 = w_3 = 1$ and when we use weights $w_1 = 8, w_2 = 4, w_3 = 3$.
 
 # BEGIN SUBPROB
 
-Find $\frac{\partial L_\text{sungod}}{\partial h}$, the derivative of the Sun God loss function with respect to $h$. Show your work, and put a $\boxed{\text{box}}$ around your final answer.
+Find $\frac{\partial L_\text{wolverine}}{\partial h}$, the derivative of the Wolverine loss function with respect to $h$. Show your work, and put a $\boxed{\text{box}}$ around your final answer.
 
 # BEGIN SOLUTION
 
 $\frac{\partial L}{\partial h} = -4w_ih(y_i^2 -h^2)$
 
-To solve this problem we simply take the derivative of $L_\text{sungod}(y_i, h) = w_i( y_i^2 - h^2 )^2$.
+To solve this problem we simply take the derivative of $L_\text{wolverine}(y_i, h) = w_i( y_i^2 - h^2 )^2$.
 
 We can use the chain rule to find the derivative. The chain rule is: $\frac{\partial}{\partial h}[f(g(h))]=f'(g(h))g'(h)$.
 
-Note that $(y_i^2 -h^2)^2$ is the area we care about inside of $L_\text{sungod}(y_i, h) = w_i( y_i^2 - h^2 )^2$ because that is where $h$ is!. In this case $f(h) = h^2$ and $g(h) = y_i^2 - h^2$. We can then take the derivative of both to get: $f'(h) = 2h$ and $g'(x) = -2h$.
+Note that $(y_i^2 -h^2)^2$ is the area we care about inside of $L_\text{wolverine}(y_i, h) = w_i( y_i^2 - h^2 )^2$ because that is where $h$ is!. In this case $f(h) = h^2$ and $g(h) = y_i^2 - h^2$. We can then take the derivative of both to get: $f'(h) = 2h$ and $g'(x) = -2h$.
 
 This tells us the derivative is: $\frac{\partial L}{\partial h} = (w_i) * 2(y_i^2 -h^2) * (-2h)$, which can be simplified to $\frac{\partial L}{\partial h} = -4w_ih(y_i^2 -h^2)$.
 
@@ -34,7 +34,7 @@ This tells us the derivative is: $\frac{\partial L}{\partial h} = (w_i) * 2(y_i^
 
 # BEGIN SUBPROB
 
-Prove that the constant prediction that minimizes average loss for the Sun God loss function is:
+Prove that the constant prediction that minimizes average loss for the Wolverine loss function is:
 
 $$h^* = \sqrt{\frac{\sum_{i = 1}^n w_i y_i^2}{\sum_{i = 1}^n w_i}}$$
 
@@ -42,9 +42,9 @@ $$h^* = \sqrt{\frac{\sum_{i = 1}^n w_i y_i^2}{\sum_{i = 1}^n w_i}}$$
 
 The recipe for average loss is to find the derivative of the risk function, set it equal to zero, and solve for $h^*$.
 
-We know that average loss follows the equation $R(L(y_i, h)) = \frac{1}{n} \sum_{i=1}^n L(y_i, h)$. This means that $R_\text{sungod}(h) = \frac{1}{n} \sum_{i = 1}^n w_i (y_i^2 - h^2)^2$.
+We know that average loss follows the equation $R(L(y_i, h)) = \frac{1}{n} \sum_{i=1}^n L(y_i, h)$. This means that $R_\text{wolverine}(h) = \frac{1}{n} \sum_{i = 1}^n w_i (y_i^2 - h^2)^2$.
 
-Recall we have already found the derivative of $L_\text{sungod}(y_i, h) = w_i ( y_i^2 - h^2)^2$. Which means that $\frac{\partial R}{\partial h}(h) = \frac{1}{n} \sum_{i = 1}^n \frac{\partial L}{\partial h}(h)$. So we can set $\frac{\partial}{\partial h}(h) R_\text{sungod}(h) = \frac{1}{n} \sum_{i = 1}^n -4hw_i(y_i^2 -h^2)$.
+Recall we have already found the derivative of $L_\text{wolverine}(y_i, h) = w_i ( y_i^2 - h^2)^2$. Which means that $\frac{\partial R}{\partial h}(h) = \frac{1}{n} \sum_{i = 1}^n \frac{\partial L}{\partial h}(h)$. So we can set $\frac{\partial}{\partial h}(h) R_\text{wolverine}(h) = \frac{1}{n} \sum_{i = 1}^n -4hw_i(y_i^2 -h^2)$.
 
 We can now do the last two steps:
 \begin{align*}

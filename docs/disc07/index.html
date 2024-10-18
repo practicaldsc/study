@@ -97,19 +97,20 @@ b)</span></li>
 <p>Billy, the avocado-farmer-turned-waiter-turned-Instagram-influencer
 that you’re all-too-familiar with, is trying his hand at coming up with
 loss functions. He comes up with the Billy loss, <span
-class="math inline">L_B(h, y)</span>, defined as follows:</p>
-<p><span class="math display">L_B(h, y) = \left[ \log \left( \frac{y}{h}
-\right) \right]^2</span></p>
+class="math inline">L_B(y_i, h)</span>, defined as follows:</p>
+<p><span class="math display">L_B(y_i, h) = \left[ \log \left(
+\frac{y_i}{h} \right) \right]^2</span></p>
 <p>Throughout this problem, assume that all <span
 class="math inline">y</span>s are positive.</p>
 <p><br></p>
 <h3 id="problem-2.1">Problem 2.1</h3>
-<p>Show that: <span class="math display">\frac{d}{dh} L_B(h, y) = -
-\frac{2}{h} \log \left( \frac{y}{h} \right)</span></p>
+<p>Show that: <span class="math display">\frac{d}{dh} L_B(y_i, h) = -
+\frac{2}{h} \log \left( \frac{y_i}{h} \right)</span></p>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Show that the constant prediction <span
-class="math inline">h^*</span> that minimizes for Billy loss is:</p>
+class="math inline">h^*</span> that minimizes average loss for Billy
+loss is:</p>
 <p><span class="math display">h^* = \left(y_1 \cdot y_2 \cdot ... \cdot
 y_n \right)^{\frac{1}{n}}</span></p>
 <p>You do not need to perform a second derivative test, but otherwise
@@ -130,7 +131,7 @@ counts in sorted order are</p>
 <p>Biff the Wolverine wants to predict the number of likes his next post
 will receive, using a constant prediction rule <span
 class="math inline">h</span>. For each loss function <span
-class="math inline">L(h, y)</span>, determine the constant prediction
+class="math inline">L(y_i, h)</span>, determine the constant prediction
 <span class="math inline">h^*</span> that minimizes average loss. If you
 believe there are multiple minimizers, specify them all. If you believe
 you need more information to answer the question or that there is no
@@ -138,23 +139,23 @@ minimizer, state that clearly. <strong>Give a brief justification for
 each answer.</strong></p>
 <p><br></p>
 <h3 id="problem-3.1">Problem 3.1</h3>
-<p><span class="math inline">L(h, y) = |y - h|</span></p>
+<p><span class="math inline">L(y_i, h) = |y_i - h|</span></p>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
-<p><span class="math inline">L(h, y) = (y - h)^2</span></p>
+<p><span class="math inline">L(y_i, h) = (y_i - h)^2</span></p>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
-<p><span class="math inline">L(h, y) = 4(y - h)^2</span></p>
+<p><span class="math inline">L(y_i, h) = 4(y_i - h)^2</span></p>
 <p><br></p>
 <h3 id="problem-3.4">Problem 3.4</h3>
-<p><span class="math inline">L(h, y) = \begin{cases} 0 &amp; h = y \\
-100 &amp; h \neq y \end{cases}</span></p>
+<p><span class="math inline">L(y_i, h) = \begin{cases} 0 &amp; h = y_i
+\\ 100 &amp; h \neq y_i \end{cases}</span></p>
 <p><br></p>
 <h3 id="problem-3.5">Problem 3.5</h3>
-<p><span class="math inline">L(h, y) = (3y - 4h)^2</span></p>
+<p><span class="math inline">L(y_i, h) = (3y_i - 4h)^2</span></p>
 <p><br></p>
 <h3 id="problem-3.6">Problem 3.6</h3>
-<p><span class="math inline">L(h, y) = (y - h)^3</span></p>
+<p><span class="math inline">L(y_i, h) = (y_i - h)^3</span></p>
 <p><em>Hint: Do not spend too long on this subpart.</em></p>
 <p><br></p>
 <hr />
@@ -300,12 +301,12 @@ class="math display">EM(f(x_1), f(x_2), \dots, f(x_n)) = f(EM(x_1, x_2,
 <p>Consider a dataset of <span class="math inline">n</span> values,
 <span class="math inline">y_1, y_2, ..., y_n</span>, all of which are
 non-negative. We’re interested in fitting a constant model, <span
-class="math inline">H(x) = h</span>, to the data, using the new ``Sun
-God” loss function:</p>
-<p><span class="math display">L_\text{sungod}(y_i, h) = w_i \left( y_i^2
-- h^2  \right)^2</span></p>
+class="math inline">H(x) = h</span>, to the data, using the new
+“Wolverine” loss function:</p>
+<p><span class="math display">L_\text{wolverine}(y_i, h) = w_i \left(
+y_i^2 - h^2  \right)^2</span></p>
 <p>Here, <span class="math inline">w_i</span> corresponds to the
-``weight” assigned to the data point <span
+“weight” assigned to the data point <span
 class="math inline">y_i</span>, the idea being that different data
 points can be weighted differently when finding the optimal constant
 prediction, <span class="math inline">h^*</span>.</p>
@@ -317,14 +318,14 @@ class="math inline">w_1 = w_2 = w_3 = 1</span> and when we use weights
 <p><br></p>
 <h3 id="problem-9.1">Problem 9.1</h3>
 <p>Find <span class="math inline">\frac{\partial
-L_\text{sungod}}{\partial h}</span>, the derivative of the Sun God loss
-function with respect to <span class="math inline">h</span>. Show your
-work, and put a <span class="math inline">\boxed{\text{box}}</span>
+L_\text{wolverine}}{\partial h}</span>, the derivative of the Wolverine
+loss function with respect to <span class="math inline">h</span>. Show
+your work, and put a <span class="math inline">\boxed{\text{box}}</span>
 around your final answer.</p>
 <p><br></p>
 <h3 id="problem-9.2">Problem 9.2</h3>
 <p>Prove that the constant prediction that minimizes average loss for
-the Sun God loss function is:</p>
+the Wolverine loss function is:</p>
 <p><span class="math display">h^* = \sqrt{\frac{\sum_{i = 1}^n w_i
 y_i^2}{\sum_{i = 1}^n w_i}}</span></p>
 <p><br></p>

@@ -12,7 +12,7 @@ $$8, 12, 12, 15, 18, 20, 27$$
 
 Biff the Wolverine wants to predict the number of likes his next post will
 receive, using a constant prediction rule $h$. For each loss function
-$L(h, y)$, determine the constant prediction $h^*$ that minimizes
+$L(y_i, h)$, determine the constant prediction $h^*$ that minimizes
 average loss. If you believe there are multiple minimizers, specify
 them all. If you believe you need more information to answer the
 question or that there is no minimizer, state that clearly. **Give a
@@ -20,7 +20,7 @@ brief justification for each answer.**
 
 # BEGIN SUBPROB
 
-$L(h, y) = |y - h|$
+$L(y_i, h) = |y_i - h|$
 
 # BEGIN SOLUTION
 
@@ -35,7 +35,7 @@ of mean absolute error, which is the median, 15.
 
 # BEGIN SUBPROB
 
-$L(h, y) = (y - h)^2$
+$L(y_i, h) = (y_i - h)^2$
 
 # BEGIN SOLUTION
 
@@ -50,7 +50,7 @@ of mean squared error, which is the mean, 16.
 
 # BEGIN SUBPROB
 
-$L(h, y) = 4(y - h)^2$
+$L(y_i, h) = 4(y_i - h)^2$
 
 # BEGIN SOLUTION
 
@@ -66,7 +66,7 @@ vertically by a factor of 4; the minimizing value will be in the same
 place.
 
 For more justification, here we consider any general re-scaling
-$\alpha (y-h)^2$:
+$\alpha (y_i-h)^2$:
 
 $$
 \begin{aligned}
@@ -85,7 +85,7 @@ $$
 
 # BEGIN SUBPROB
 
-$L(h, y) = \begin{cases} 0 & h = y \\ 100 & h \neq y \end{cases}$
+$L(y_i, h) = \begin{cases} 0 & h = y_i \\ 100 & h \neq y_i \end{cases}$
 
 # BEGIN SOLUTION
 
@@ -101,7 +101,7 @@ i.e. the most common value, is 12.
 
 # BEGIN SUBPROB
 
-$L(h, y) = (3y - 4h)^2$
+$L(y_i, h) = (3y_i - 4h)^2$
 
 # BEGIN SOLUTION
 
@@ -120,7 +120,7 @@ $$\frac{4}{3} h^* = \bar{x} \implies h^* = \frac{3}{4} \bar{x} = \frac{3}{4} \cd
 
 # BEGIN SUBPROB
 
-$L(h, y) = (y - h)^3$
+$L(y_i, h) = (y_i - h)^3$
 
 _Hint: Do not spend too long on this subpart._
 
@@ -128,8 +128,8 @@ _Hint: Do not spend too long on this subpart._
 
 No minimizer.
 
-Note that unlike $|y - h|$, $(y - h)^2$, and all of the other loss
-functions we've seen, $(y - h)^3$ tends towards $-\infty$, rather than
+Note that unlike $|y_i - h|$, $(y_i - h)^2$, and all of the other loss
+functions we've seen, $(y_i - h)^3$ tends towards $-\infty$, rather than
 having a minimum output of 0. This means that there is no $h$ that
 minimizes $\frac{1}{n} \sum_{i = 1}^n (y_i - h)^3$; the larger we make
 $h$, the more negative (and hence "smaller\") this empirical risk
