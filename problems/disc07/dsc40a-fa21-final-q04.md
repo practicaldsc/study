@@ -10,11 +10,11 @@ You may find the following properties of logarithms helpful in this question. As
 - $\log(a^c) = c \log (a)$
 - $\frac{d}{dx} \log x = \frac{1}{x}$
 
-Billy, the avocado-farmer-turned-waiter-turned-Instagram-influencer that you're all-too-familiar with, is trying his hand at coming up with loss functions. He comes up with the Billy loss, $L_B(y_i, h)$, defined as follows:
+Billy is trying his hand at coming up with loss functions. He comes up with the Billy loss, $L_B(y_i, h)$, defined as follows:
 
 $$L_B(y_i, h) = \left[ \log \left( \frac{y_i}{h} \right) \right]^2$$
 
-Throughout this problem, assume that all $y$s are positive.
+Throughout this problem, assume that all $y_i$s are positive.
 
 # BEGIN SUBPROB
 
@@ -38,7 +38,7 @@ $$
 
 # BEGIN SUBPROB
 
-Show that the constant prediction $h^*$ that minimizes average loss for Billy loss is:
+Show that the constant prediction $h^*$ that minimizes average Billy loss for the constant model is:
 
 $$h^* = \left(y_1 \cdot y_2 \cdot ... \cdot y_n \right)^{\frac{1}{n}}$$
 

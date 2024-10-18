@@ -94,14 +94,13 @@ b)</span></li>
 <li><span class="math inline">\frac{d}{dx} \log x =
 \frac{1}{x}</span></li>
 </ul>
-<p>Billy, the avocado-farmer-turned-waiter-turned-Instagram-influencer
-that you’re all-too-familiar with, is trying his hand at coming up with
-loss functions. He comes up with the Billy loss, <span
-class="math inline">L_B(y_i, h)</span>, defined as follows:</p>
+<p>Billy is trying his hand at coming up with loss functions. He comes
+up with the Billy loss, <span class="math inline">L_B(y_i, h)</span>,
+defined as follows:</p>
 <p><span class="math display">L_B(y_i, h) = \left[ \log \left(
 \frac{y_i}{h} \right) \right]^2</span></p>
 <p>Throughout this problem, assume that all <span
-class="math inline">y</span>s are positive.</p>
+class="math inline">y_i</span>s are positive.</p>
 <p><br></p>
 <h3 id="problem-2.1">Problem 2.1</h3>
 <p>Show that: <span class="math display">\frac{d}{dh} L_B(y_i, h) = -
@@ -109,8 +108,8 @@ class="math inline">y</span>s are positive.</p>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Show that the constant prediction <span
-class="math inline">h^*</span> that minimizes average loss for Billy
-loss is:</p>
+class="math inline">h^*</span> that minimizes average Billy loss for the
+constant model is:</p>
 <p><span class="math display">h^* = \left(y_1 \cdot y_2 \cdot ... \cdot
 y_n \right)^{\frac{1}{n}}</span></p>
 <p>You do not need to perform a second derivative test, but otherwise
