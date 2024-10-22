@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2024 Midterm](../sp24-midterm/index.html), Problem 4a-c</i>
-
 Suppose we want to fit a hypothesis function of the form:
 
 $$H(x) = w_0 + w_1 x^2$$
@@ -45,9 +43,6 @@ To do so, we will find the optimal parameter vector $\vec{w}^* = \begin{bmatrix}
   </tr>
 </table>
 
-
-
-
 Suppose that $x_1, x_2, ..., x_n$ have a mean of $\bar{x} = 2$ and a variance of $\sigma_x^2 = 10$.
 
 # BEGIN SUBPROB
@@ -68,7 +63,7 @@ Recall our hypothesis function is $H(x) = w_0 + w_1x^2$. Since there is a $w_0$ 
 
 # BEGIN SUBPROB
 
-Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for the augmented feature vector $\text{Aug}(\vec{x}) =  \begin{bmatrix} 1 \\ 4 \end{bmatrix}$? Give your answer as an integer with no variables. Show your work, and put 
+Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for the augmented feature vector $\text{Aug}(\vec{x}) =  \begin{bmatrix} 1 \\ 4 \end{bmatrix}$? Give your answer as an integer with no variables. Show your work, and put
 
 a $\boxed{\text{box}}$ around your final answer.
 
@@ -100,11 +95,13 @@ Let $X_\text{tri} = 3 X$. Using the fact that $\sum_{i = 1}^n x_i^2 = n \sigma_x
 $126n$
 
 To figure out a pattern it can be easier to use variables instead of numbers. Like so:
+
 $$
 X = \begin{bmatrix} 1 & x_1^2 \\ 1 & x_2^2 \\ \vdots & \vdots \\ 1 & x_n^2 \end{bmatrix}
 $$
 
 We can now create $X_{\text{tri}}$:
+
 $$
 X_{\text{tri}} = \begin{bmatrix} 3 & 3x_1^2 \\ 3 & 3x_2^2 \\ \vdots & \vdots \\ 3 & 3x_n^2 \end{bmatrix}
 $$
@@ -112,9 +109,9 @@ $$
 We want to know what the bottom left value of $X_\text{tri}^T X_\text{tri}$ is. We figure this out with matrix multiplication!
 
 \begin{align*}
-X_\text{tri}^T X_\text{tri} &= \begin{bmatrix} 3 & 3 & ... & 3\\ 3x_1^2 & 3x_2^2 & ... & 3x_n^2 \end{bmatrix} \begin{bmatrix} 3 & 3x_1^2 \\ 3 & 3x_2^2 \\ \vdots & \vdots \\ 3 & 3x_n^2 \end{bmatrix}\\
-&= \begin{bmatrix} \sum_{i = 1}^n 3(3) & \sum_{i = 1}^n 3(3x_i^2) \\  \sum_{i = 1}^n 3(3x_i^2) & \sum_{i = 1}^n (3x_i^2)(3x_i^2)\end{bmatrix}\\
-&= \begin{bmatrix} \sum_{i = 1}^n 9 & \sum_{i = 1}^n 9x_i^2 \\ \sum_{i = 1}^n 9x_i^2 & \sum_{i = 1}^n (3x_i^2)^2 \end{bmatrix}
+X*\text{tri}^T X*\text{tri} &= \begin{bmatrix} 3 & 3 & ... & 3\\ 3x*1^2 & 3x_2^2 & ... & 3x_n^2 \end{bmatrix} \begin{bmatrix} 3 & 3x_1^2 \\ 3 & 3x_2^2 \\ \vdots & \vdots \\ 3 & 3x_n^2 \end{bmatrix}\\
+&= \begin{bmatrix} \sum*{i = 1}^n 3(3) & \sum*{i = 1}^n 3(3x_i^2) \\ \sum*{i = 1}^n 3(3x*i^2) & \sum*{i = 1}^n (3x*i^2)(3x_i^2)\end{bmatrix}\\
+&= \begin{bmatrix} \sum*{i = 1}^n 9 & \sum*{i = 1}^n 9x_i^2 \\ \sum*{i = 1}^n 9x*i^2 & \sum*{i = 1}^n (3x_i^2)^2 \end{bmatrix}
 \end{align*}
 
 We can see that the bottom left element should be $\sum_{i = 1}^n 9x_i^2$.
@@ -122,9 +119,9 @@ We can see that the bottom left element should be $\sum_{i = 1}^n 9x_i^2$.
 From here we can use the fact given to us in the directions: $\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n \bar{x}^2$.
 
 \begin{align*}
-&\sum_{i = 1}^n 9x_i^2\\
-&9\sum_{i = 1}^n x_i^2\\
-&\text{Notice now we can replace $\sum_{i = 1}^n x_i^2$ with $n \sigma_x^2 + n \bar{x}^2$.}\\
+&\sum*{i = 1}^n 9x_i^2\\
+&9\sum*{i = 1}^n x*i^2\\
+&\text{Notice now we can replace $\sum*{i = 1}^n x_i^2$ with $n \sigma_x^2 + n \bar{x}^2$.}\\
 &9(n \sigma_x^2 + n \bar{x}^2)\\
 &\text{We know that $\sigma_x^2 = 10$ and $\bar x = 2$ fron the directions before part a.}\\
 &9(10n + 2^2n)\\

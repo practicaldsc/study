@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Spring 2024 Midterm](../sp24-midterm/index.html), Problem 2</i> -->
-
 Consider a dataset of $n$ values, $y_1, y_2, ..., y_n$, all of which are non-negative. We're interested in fitting a constant model, $H(x) = h$, to the data, using the new "Wolverine" loss function:
 
 $$L_\text{wolverine}(y_i, h) = w_i \left( y_i^2 - h^2  \right)^2$$

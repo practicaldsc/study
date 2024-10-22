@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Midterm 1](../sp23-midterm1/index.html), Problem 4</i>
-
 Suppose we are given a dataset of points $\{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}$ and for some reason, we want to make predictions using a prediction rule of the form $$H(x) = 17 + w_1x.$$
 
 # BEGIN SUBPROB
@@ -21,25 +19,23 @@ $MSE(w_1) = \dfrac1n \displaystyle\sum_{i=1}^n (y_i - (17 + w_1x_i))^2$
 
 Minimize the function $MSE(w_1)$ to find the parameter $w_1^*$ which defines the optimal prediction rule $H^*(x) = 17 + w_1^*x$. Show all your work and explain your steps.
 
-Fill in your final answer below: 
+Fill in your final answer below:
 
 # BEGIN SOLUTION
 
 $$w_1^* = \dfrac{\displaystyle\sum_{i=1}^n x_i(y_i - 17)}{\displaystyle\sum_{i=1}^n x_i^2}$$
 
-
 To minimize a function of one variable, we need to take the derivative, set it equal to zero, and solve. $$\begin{aligned} MSE(w_1) &= \dfrac1n \displaystyle\sum_{i=1}^n (y_i - 17 - w_1x_i)^2 \\ MSE'(w_1) &= \dfrac1n \displaystyle\sum_{i=1}^n -2x_i(y_i - 17 - w_1x_i)) \qquad \text{using the chain rule} \\ 0 &= \dfrac1n \displaystyle\sum_{i=1}^n -2x_i(y_i - 17) + \dfrac1n \displaystyle\sum_{i=1}^n 2x_i^2w_1 \qquad \text{splitting up the sum} \\ 0 &=  \displaystyle\sum_{i=1}^n -x_i(y_i - 17) +  \displaystyle\sum_{i=1}^n x_i^2w_1 \qquad \text{multiplying through by } \frac{n}{2} \\ w_1 \displaystyle\sum_{i=1}^n x_i^2 &=  \displaystyle\sum_{i=1}^n x_i(y_i - 17)   \qquad \text{rearranging terms and pulling out } w_1 \\ w_1 & = \dfrac{\displaystyle\sum_{i=1}^n x_i(y_i - 17)}{\displaystyle\sum_{i=1}^n x_i^2} \end{aligned}$$
-
 
 # END SOLUTION
 
-# END SUBPROB 
+# END SUBPROB
 
 # BEGIN SUBPROB
 
 True or False: For an arbitrary dataset, the prediction rule $H^*(x) = 17 + w_1^*x$ goes through the point $(\bar x, \bar y)$.
 
-( ) True 
+( ) True
 ( ) False
 
 # BEGIN SOLUTION
@@ -52,13 +48,13 @@ A simple example shows that this is the case. Consider the dataset $(-2, 0)$ and
 
 # END SOLUTION
 
-# END SUBPROB 
+# END SUBPROB
 
 # BEGIN SUBPROB
 
 True or False: For an arbitrary dataset, the mean squared error associated with $H^*(x)$ is greater than or equal to the mean squared error associated with the regression line.
 
-( ) True 
+( ) True
 ( ) False
 
 # BEGIN SOLUTION

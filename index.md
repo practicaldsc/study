@@ -115,6 +115,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, October 18th</td>
       <td><a href="disc07/index.html">Summary Statistics and the Constant Model</a></td>
     </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Friday, October 25th</td>
+      <td><a href="disc08/index.html">Linear Regression</a></td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>

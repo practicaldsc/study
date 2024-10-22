@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Winter 2022 Midterm 1](../wi22-midterm1/index.html), Problem 1</i> -->
+<!--  -->
 
 Define the extreme mean ($EM$) of a dataset to be the average of its largest and smallest values. Let
 $$f(x)=-3x+4.$$

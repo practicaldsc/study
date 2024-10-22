@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 4</i> -->
-
 You may find the following properties of logarithms helpful in this question. Assume that all logarithms in this question are natural logarithms, i.e. of base $e$.
 
 - $e^{\log(x)} = x$

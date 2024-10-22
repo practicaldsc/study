@@ -1,8 +1,6 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 5</i>
-
-Suppose we have a dataset of $n$ houses that were recently sold in the San Diego area. For each house, we have its square footage and most recent sale price. The correlation between square footage and price is $r$.
+Suppose we have a dataset of $n$ houses that were recently sold in the Ann Arbor area. For each house, we have its square footage and most recent sale price. The correlation between square footage and price is $r$.
 
 # BEGIN SUBPROB
 
@@ -22,24 +20,28 @@ Throughout this solution, let $x$ represent square footage and $y$ represent pri
 
 We know that $w_1^* = r \frac{\sigma_y}{\sigma_x}$. But what about $\beta_1^*$?
 
-When we take a rule that predicts price from square footage and transform it into a rule that predicts square footage from price, the roles of $x$ and $y$ have swapped; suddenly, square footage is no longer our independent variable, but our dependent variable, and vice versa for price. This means that the altered dataset we work with when using our new prediction rule has $\sigma_x$ standard deviation for its dependent variable (square footage), and $\sigma_y$ for its independent variable (price). So, we can write the formula for $\beta_1^*$ as follows: $$\beta_1^* = r \frac{\sigma_x}{\sigma_y}$$ 
+When we take a rule that predicts price from square footage and transform it into a rule that predicts square footage from price, the roles of $x$ and $y$ have swapped; suddenly, square footage is no longer our independent variable, but our dependent variable, and vice versa for price. This means that the altered dataset we work with when using our new prediction rule has $\sigma_x$ standard deviation for its dependent variable (square footage), and $\sigma_y$ for its independent variable (price). So, we can write the formula for $\beta_1^*$ as follows: $$\beta_1^* = r \frac{\sigma_x}{\sigma_y}$$
 
 In essence, swapping the independent and dependent variables of a dataset changes the slope of the regression line from $r \frac{\sigma_y}{\sigma_x}$ to $r \frac{\sigma_x}{\sigma_y}$.
 
 From here, we can use a little algebra to get our $\beta_1^*$ in terms of one or more $n$, $r$, $w_0^*$, and $w_1^*$:
 
-$$\begin{align*}
+$$
+\begin{align*}
 \beta_1^* &= r \frac{\sigma_x}{\sigma_y} \\
 w_1^* \cdot \beta_1^* &= w_1^* \cdot r \frac{\sigma_x}{\sigma_y} \\
 w_1^* \cdot \beta_1^* &= ( r \frac{\sigma_y}{\sigma_x}) \cdot r \frac{\sigma_x}{\sigma_y}
-\end{align*}$$
+\end{align*}
+$$
 
 The fractions $\frac{\sigma_y}{\sigma_x}$ and $\frac{\sigma_x}{\sigma_y}$ cancel out and we get:
 
-$$\begin{align*}
+$$
+\begin{align*}
 w_1^* \cdot \beta_1^* &= r^2 \\
 \beta_1^* &= \frac{r^2}{w_1^*}
-\end{align*}$$
+\end{align*}
+$$
 
 # END SOLN
 

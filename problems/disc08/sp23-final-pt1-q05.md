@@ -1,21 +1,19 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Final Part 1](../sp23-final-pt1/index.html), Problem 5</i>
-
 Suppose we want to predict how long it takes to run a
 Jupyter notebook on Datahub. For 100 different Jupyter notebooks, we
 collect the following 5 pieces of information:
 
--   **cells**: number of cells in the notebook
+- **cells**: number of cells in the notebook
 
--   **lines**: number of lines of code
+- **lines**: number of lines of code
 
--   **max iterations**: largest number of iterations in any loop in the
-    notebook, or 1 if there are no loops
+- **max iterations**: largest number of iterations in any loop in the
+  notebook, or 1 if there are no loops
 
--   **variables**: number of variables defined in the notebook
+- **variables**: number of variables defined in the notebook
 
--   **runtime**: number of seconds for the notebook to run on Datahub
+- **runtime**: number of seconds for the notebook to run on Datahub
 
 Then we use multiple regression to fit a prediction rule of the form
 $$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}$$
@@ -24,11 +22,13 @@ $$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cel
 
 What are the dimensions of the design matrix $X$?
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 & & & \\
 & & & \\
 & & & \\
-\end{bmatrix}_{r \times c}$$
+\end{bmatrix}_{r \times c}
+$$
 
 So, what should $r$ and $c$ be for: $r$ rows $\times$ $c$ columns.
 

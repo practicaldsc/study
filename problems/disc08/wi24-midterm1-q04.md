@@ -1,18 +1,18 @@
 # BEGIN PROB
 
-<i>Source: [Winter 2024 Midterm 1](../wi24-midterm1/index.html), Problem 4</i>
-
 Note that we have two simplified closed form expressions for the
 estimated slope $w$ in simple linear regression that you have already
 seen in discussions and lectures:
 
-$$\begin{align*}
+$$
+\begin{align*}
     w &= \frac{\sum_i (x_i - \overline{x}) y_i}{\sum_i (x_i - \overline{x})^2} \\ \\
     w &= \frac{\sum_i (y_i - \overline{y}) x_i }{\sum_i (x_i - \overline{x})^2}
-\end{align*}$$ 
+\end{align*}
+$$
 
 where we have dataset
-$D = [(x_1,y_1), \ldots, (x_n,y_n)]$ and  sample means &emsp;
+$D = [(x_1,y_1), \ldots, (x_n,y_n)]$ and sample means &emsp;
 $\overline{x} = {1 \over n} \sum_{i} x_i, \quad \overline{y} = {1 \over n} \sum_{i} y_i$.
 Without further explanation, $\sum_i$ means $\sum_{i=1}^n$
 
@@ -24,13 +24,16 @@ $$\sum_i (x_i - \overline{x}) y_i = \sum_i (y_i - \overline{y}) x_i$$
 
 # BEGIN SOLUTION
 
-True. 
-$$\begin{align*}
+True.
+
+$$
+\begin{align*}
     & \sum_i (x_i - \overline{x}) y_i = \sum_i (y_i - \overline{y}) x_i \\
     & \Leftrightarrow  \sum_i x_i y_i - \overline{x} \sum_i y_i = \sum_i x_i y_i - \overline{y} \sum_i x_i \\
     & \Leftrightarrow   \overline{x} \sum_i y_i = \overline{y} \sum_i x_i \\
     & \Leftrightarrow {1 \over n} \sum_i x_i \sum_i y_i = {1 \over n} \sum_i y_i \sum_i x_i \\
-\end{align*}$$
+\end{align*}
+$$
 
 # END SOLUTION
 
@@ -43,7 +46,7 @@ $a$, that is, we have the new dataset
 $D_a = (x_1 + a,y_1), \ldots, (x_n + a,y_n)$, then will the estimated
 slope $w$ change or not?
 
-( ) True 
+( ) True
 ( ) False
 
 # BEGIN SOLUTION
@@ -53,7 +56,7 @@ which is unchanged after shifting horizontally. Therefore, $w$ is unchanged.
 
 # END SOLUTION
 
-# END SUBPROB 
+# END SUBPROB
 
 # BEGIN SUBPROB
 
@@ -62,9 +65,8 @@ $b$, that is, we have the new dataset
 $D_b = [(x_1,y_1 + b), \ldots, (x_n,y_n + b)]$, then will the estimated
 slope $w$ change or not?
 
-( ) True 
+( ) True
 ( ) False
-
 
 # BEGIN SOLUTION
 

@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Winter 2024 Final Part 1](../wi24-final-pt1/index.html), Problem 4</i>
-
 Albert collected 400 data points from a radiation detector.
 Each data point contains 3 features: feature $A$, feature $B$ and feature $C$.
 The true particle energy $E$ is also reported. Albert wants to design a linear
@@ -18,7 +16,6 @@ correlaton of two terms:
 | $C$   | 0.13      | 0.25      | 1         | 0.72     |
 | $E$    | 0.8       | -0.95     | 0.72      | 1        |
 </div>
-
 
 # BEGIN SUBPROB
 
@@ -55,6 +52,7 @@ make additional improvements?
 ( ) $C$
 
 # BEGIN SOLUTION
+
 $C$
 
 $C$ is the correct answer, because although $A$ has a higher correlation
@@ -76,11 +74,13 @@ H(A,B,C) = w_0 + w_1 \cdot A\cdot C + w_2 \cdot B^{C-7}
 Given this prediction rule, what are the dimensions of the design
 matrix $X$?
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 & & & \\
 & & & \\
 & & & \\
-\end{bmatrix}_{r \times c}$$
+\end{bmatrix}_{r \times c}
+$$
 
 So, what are $r$ and $c$ in $r \text{ rows} \times c \text{ columns}$?
 
@@ -93,7 +93,6 @@ Recall there are 400 data points, which means there will be 400 rows. There will
 # END SOLUTION
 
 # END SUBPROB
-
 
 <!-- Commented out the last subproblem, because the solution is weird?? Need to rework. -->
 
@@ -109,7 +108,7 @@ with the following steps:
 2.  Swap the second and the third column
 
 Let $X_a$ be the modified design matrix. Let
-$\vec{w_a}^* = (X_a^TX_a)^{-1}X_a^T\vec{y}$. 
+$\vec{w_a}^* = (X_a^TX_a)^{-1}X_a^T\vec{y}$.
 
 Express the components
 $\vec{w_a}^*$ in terms of $w_0^*, w_1^*, w_2^*$, which were the

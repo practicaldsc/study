@@ -1,17 +1,14 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2021 Midterm](../fa21-midterm/index.html), Problem 4</i>
-
-Billy, the avocado farmer from Homework 3, wasn't making enough money
-growing avocados and decided to take on a part-time job as a waiter at
-the restaurant Dirty Birds on campus. For two months, he kept track of
+Billy decides to take on a part-time job as a waiter at
+the Panda Express in Pierpont. For two months, he kept track of
 all of the total bills he gave out to customers along with the tips they
 then gave him, all in dollars. Below is a scatter plot of Billy's tips
 and total bills.
 
 <!-- TODO -->
 
-<center><img src="../assets/images/fa21-midterm/dirtybirds.png" width="600" height="330"></center>
+<center><img src="../assets/images/disc08/dirtybirds.png" width="600" height="330"></center>
 
 Throughout this question, assume we are trying to fit a linear
 prediction rule $H(x) = w_0 + w_1x$ that uses total bills to predict
@@ -78,16 +75,15 @@ each tip $y$ so that the value of $w_0^*$ also does not change? Your
 answer should involve one or more of $\bar{x}, \bar{y}, w_0^*, w_1^*,$
 and any constants.
 
-*Note: To receive full points, you must provide a rigorous explanation,
+_Note: To receive full points, you must provide a rigorous explanation,
 though this explanation only takes a few lines. However, we will award
 partial credit to solutions with the correct answer, and it's possible
 to arrive at the correct answer by drawing a picture and thinking
-intuitively about what happens.*
+intuitively about what happens._
 
 # BEGIN SOLUTION
 
 We should add $w_1^*$ to each tip $y$.
-
 
 First, we present the rigorous solution.
 
@@ -105,12 +101,14 @@ intercept for the new line is
 $\bar{y}_\text{new} - w_1^* \bar{x}_\text{new}$. Setting these equal
 yields
 
-$$\begin{aligned}
+$$
+\begin{aligned}
     \bar{y}_\text{new} - w_1^* \bar{x}_\text{new} &= \bar{y}_\text{old} - w_1^* \bar{x}_\text{old} \\
      \bar{y}_\text{new} - w_1^* (\bar{x}_\text{old} + 1) &= \bar{y}_\text{old} - w_1^* \bar{x}_\text{old} \\
      \bar{y}_\text{new} &= \bar{y}_\text{old} - w_1^* \bar{x}_\text{old} + w_1^* (\bar{x}_\text{old} + 1) \\
      \bar{y}_{\text{new}} &= \bar{y}_\text{old} + w_1^*
-\end{aligned}$$
+\end{aligned}
+$$
 
 Thus, in order for the intercepts to be equal, we need the mean of the
 new $y$'s to be $w_1^*$ greater than the mean of the old $y$'s. Since

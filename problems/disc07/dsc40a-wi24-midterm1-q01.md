@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Winter 2024 Midterm 1](../wi24-midterm1/index.html), Problem 1</i> -->
+<!--  -->
 
 Consider a dataset $D$ with $5$ data points
 $\{7,5,1,2,a\}$, where a is a positive real number. Note that $a$ is not

@@ -1,14 +1,11 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 6</i>
-
 Billy's aunt owns a jewellery store, and gives him data on $5000$ of the diamonds in her store. For each diamond, we have:
 
 - **carat**: the weight of the diamond, in carats
 - **length**: the length of the diamond, in centimeters
 - **width**: the width of the diamond, in centimeters
 - **price**: the value of the diamond, in dollars
-
 
 The first 5 rows of the 5000-row dataset are shown below:
 
@@ -31,7 +28,7 @@ Suppose we want to fit a linear prediction rule that uses two features, carat an
 
 $$\text{predicted price} = w_0 + w_1 \cdot \text{carat} + w_2 \cdot \text{length}$$
 
-<br> 
+<br>
 
 We will use least squares to find $\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^* \end{bmatrix}$.
 
@@ -78,7 +75,6 @@ For each of the following quantities, state whether they are guaranteed to be eq
 - $X^TX \vec{w}^*$
 - $2X^TX \vec{w}^* - 2X^T\vec{y}$
 
-
 # BEGIN SOLN
 
 - $\sum_{i = 1}^n e_i$: **Yes**, this is guaranteed to be 0. This was discussed in Homework 4; it is a consequence of the fact that $X^T (y - X \vec{w}^*) = 0$ and that we have an intercept term in our prediction rule (and hence a column of all 1s in our design matrix, $X$).
@@ -101,16 +97,14 @@ Suppose we also decide to remove the intercept term of our prediction rule. With
 
 $$\text{predicted price} = w_1 \cdot \text{carat} + w_2 \cdot \text{length} + w_3 \cdot \text{width} + w_4 \cdot (\text{length} \cdot \text{width}) $$
 
-
 - Write out just the first 2 rows of the design matrix $X$ for this new prediction rule. You do **not** need to simplify the numbers in your matrix, it is fine if they involve the multiplication symbol.
 - Is the optimal coefficient for carat, $w_1^*$, for this new prediction rule guaranteed to be equal to 10000, the optimal coefficient for carat in our original prediction rule? No justification is necessary.
-
 
 # BEGIN SOLN
 
 - $X = \begin{bmatrix} 0.40 & 4.81 & 4.76 & 4.81 \cdot 4.76 \\ 1.04 & 6.58 & 6.53 & 6.58 \cdot 6.53 \end{bmatrix}$
 - No, it's not guaranteed that the $\vec{w}_1^*$ for this new prediction rule is equal to the $\vec{w}_1^*$ for the original prediction rule. The value of $\vec{w}_1^*$ in the new prediction rule will be influenced by the fact that there's no longer an intercept term and that there are two new features (width and area) that weren't previously there.
-    
+
 # END SOLN
 
 # END SUBPROB

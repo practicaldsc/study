@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Fall 2022 Midterm](../fa22-midterm/index.html), Problem 4</i>
-
 Consider a dataset that consists of $y_1, \cdots, y_n$. In class, we
 used calculus to minimize mean squared error,
 $R_{sq}(h) = \frac{1}{n} \sum_{i = 1}^n (h - y_i)^2$. In this problem,
@@ -33,7 +31,7 @@ of $\bar{y}$, $\alpha$ and $\lambda$.
 
 $$h^*=\alpha \bar{y} - \frac{\lambda}{2}$$
 
-___
+---
 
 <br>
 

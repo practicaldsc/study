@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Fall 2021 Midterm](../fa21-midterm/index.html), Problem 1</i> -->
-
 Biff the Wolverine just made an Instagram account and has been keeping track of
 the number of likes his posts have received so far.
 

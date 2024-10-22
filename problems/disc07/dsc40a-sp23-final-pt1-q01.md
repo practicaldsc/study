@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Final Part 1](../sp23-final-pt1/index.html), Problem 1</i>
-
 For a given dataset $\{y_1, y_2, \dots, y_n\}$, let $M_{abs}(h)$ represent the **median** absolute error of the constant prediction $h$ on that dataset (as opposed to the mean absolute error $R_{abs}(h)$).
 
 # BEGIN SUBPROB
@@ -45,6 +43,7 @@ We can solve this equation to get $|10-x| = 5 \rightarrow x = 15 \text{ and } x 
 We can then test this by following the same steps as we did in part (a).
 
 **For $x = 15$:**
+
 $$
 \begin{align*}
 \text{Absolute Errors} &= \{|4-15|, |9-15|, |10-15|, |14-15|, |15-15|\} \\
@@ -56,6 +55,7 @@ $$
 Then we order the elements to get the absolute errors: $\{0, 1, 5, 6, 11\}$. We can see the median is $5$, so $M_{abs}(15) =5$.
 
 **For $x = 5$:**
+
 $$
 \begin{align*}
 \text{Absolute Errors} &= \{|4-5|, |9-5|, |10-5|, |14-5|, |15-5|\} \\

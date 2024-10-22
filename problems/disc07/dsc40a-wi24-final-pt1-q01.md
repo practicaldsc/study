@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Winter 2024 Final Part 1](../wi24-final-pt1/index.html), Problem 1</i> -->
-
 Suppose there is a dataset containing 10000 integers:
 
 - 2500 of them are $3$s

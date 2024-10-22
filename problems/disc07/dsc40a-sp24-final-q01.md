@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 1</i> -->
+<!--  -->
 
 Consider a dataset of $n$ **integers**, $y_1, y_2, ..., y_n$, whose
 histogram is given below:

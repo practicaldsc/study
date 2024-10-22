@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 3</i> -->
+<!--  -->
 
 Suppose we're given a dataset of $n$ points,
 $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$, where $\bar{x}$ is the mean

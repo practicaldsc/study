@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<!-- <i>Source: [Fall 2021 Final Exam](../fa21-final/index.html), Problem 1</i> -->
-
 The mean of 12 non-negative numbers is 45. Suppose we remove 2 of these numbers. What is the largest possible value of the mean of the remaining 10 numbers? Show your work.
 
 # BEGIN SOLN

@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2024 Final](../sp24-final/index.html), Problem 4</i>
-
 Consider the vectors $\vec{u}$ and $\vec{v}$, defined below.
 
 $$\vec{u} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \qquad \vec{v} = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}$$
@@ -33,14 +31,14 @@ Vectors in $\text{span}(\vec u, \vec v)$ must have an equal 2nd and 3rd componen
 Show that:
 $$(X^TX)^{-1}X^T = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{1}{2} \end{bmatrix}$$
 
-*Hint: If $A = \begin{bmatrix} a_1 & 0 \\ 0 & a_2 \end{bmatrix}$, then
-$A^{-1} = \begin{bmatrix} \frac{1}{a_1} & 0 \\ 0 & \frac{1}{a_2} \end{bmatrix}$.*
+_Hint: If $A = \begin{bmatrix} a_1 & 0 \\ 0 & a_2 \end{bmatrix}$, then
+$A^{-1} = \begin{bmatrix} \frac{1}{a_1} & 0 \\ 0 & \frac{1}{a_2} \end{bmatrix}$._
 
 # BEGIN SOLUTION
 
 We can construct the following series of matrices to get $(X^TX)^{-1}X^T$.
 
-- $X = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 1 \end{bmatrix}$ 
+- $X = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 1 \end{bmatrix}$
 - $X^T = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \end{bmatrix}$
 - $X^TX = \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix}$
 - $(X^TX)^{-1} = \begin{bmatrix} 1 & 0 \\ 0 & \frac{1}{2} \end{bmatrix}$
@@ -78,11 +76,11 @@ the values you found in part (c).
 
 What is $\lVert \vec{e} \rVert$?
 
-( ) $0$ 
-( ) $3 \sqrt{2}$ 
-( ) $4 \sqrt{2}$ 
-( ) $6$ 
-( ) $6 \sqrt{2}$ 
+( ) $0$
+( ) $3 \sqrt{2}$
+( ) $4 \sqrt{2}$
+( ) $6$
+( ) $6 \sqrt{2}$
 ( ) $2\sqrt{21}$
 
 # BEGIN SOLUTION
@@ -115,6 +113,7 @@ $\begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^T$.
 Yes, but for a reason that isn't listed here.
 
 Here's the full reason:
+
 1. We can use the normal equations to find $c$ and $d$, no matter what $\vec{y}$ is.
 2. The error vector $\vec e$ that results from using the normal equations is such that $\vec e$ is orthogonal to the span of the columns of $X$.
 3. The columns of $X$ are just $\vec u$ and $\vec v$. So, $\vec e$ is orthogonal to any linear combination of $\vec u$ and $\vec v$.
@@ -133,14 +132,13 @@ are the dimensions of the following product?
 
 $$\vec{s}^T Q \vec{f}$$
 
-( ) scalar                   
-( ) $12 \times 1$ vector    
+( ) scalar  
+( ) $12 \times 1$ vector  
 ( ) $100 \times 1$ vector
-( ) $100 \times 12$ matrix   
-( ) $12 \times 12$ matrix   
+( ) $100 \times 12$ matrix  
+( ) $12 \times 12$ matrix  
 ( ) $12 \times 100$ matrix
-( ) undefined                                      
-
+( ) undefined
 
 # BEGIN SOLUTION
 
