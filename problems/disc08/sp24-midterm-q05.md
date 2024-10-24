@@ -63,9 +63,7 @@ Recall our hypothesis function is $H(x) = w_0 + w_1x^2$. Since there is a $w_0$ 
 
 # BEGIN SUBPROB
 
-Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for $x = 4$? Give your answer as an integer with no variables. Show your work, and put
-
-a $\boxed{\text{box}}$ around your final answer.
+Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for $x = 4$? Give your answer as an integer with no variables. Show your work.
 
 # BEGIN SOLUTION
 
@@ -88,7 +86,7 @@ To find the predicted $y$ value all you need to do is $\vec w^* \cdot \text{Aug}
 
 # BEGIN SUBPROB
 
-Let $X_\text{tri} = 3 X$. Using the fact that $\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n \bar{x}^2$, determine the value of the bottom-left value in the matrix $X_\text{tri}^T X_\text{tri}$, i.e. the value in the second row and first column. Give your answer as an expression involving $n$. Show your work, and put a $\boxed{\text{box}}$ around your final answer.
+Let $X_\text{tri} = 3 X$. Using the fact that $\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n \bar{x}^2$, determine the value of the bottom-left value in the matrix $X_\text{tri}^T X_\text{tri}$, i.e. the value in the second row and first column. Give your answer as an expression involving $n$. Show your work.
 
 # BEGIN SOLUTION
 
