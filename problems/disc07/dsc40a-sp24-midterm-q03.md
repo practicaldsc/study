@@ -10,7 +10,7 @@ For example, for the dataset $y_1 = 1, y_2 = 5, y_3 = 2$, we will end up with di
 
 # BEGIN SUBPROB
 
-Find $\frac{\partial L_\text{wolverine}}{\partial h}$, the derivative of the Wolverine loss function with respect to $h$. Show your work, and put a $\boxed{\text{box}}$ around your final answer.
+Find $\frac{\partial L_\text{wolverine}}{\partial h}$, the derivative of the Wolverine loss function with respect to $h$. Show your work.
 
 # BEGIN SOLUTION
 
