@@ -111,12 +111,12 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td><a href="mt-review-tuesday/index.html">Midterm Review: TF-IDF and Merging</a></td>
     </tr>
     <tr>
-      <th scope="row">7</th>
+      <th scope="row">8</th>
       <td>Friday, October 18th</td>
       <td><a href="disc07/index.html">Summary Statistics and the Constant Model</a></td>
     </tr>
     <tr>
-      <th scope="row">8</th>
+      <th scope="row">9</th>
       <td>Friday, October 25th</td>
       <td><a href="disc08/index.html">Linear Regression</a></td>
     </tr>
