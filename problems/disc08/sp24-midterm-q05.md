@@ -4,7 +4,7 @@ Suppose we want to fit a hypothesis function of the form:
 
 $$H(x) = w_0 + w_1 x^2$$
 
-Note that this is \textit{not} the simple linear regression hypothesis function, $H(x) = w_0 + w_1x$.
+Note that this is _not_ the simple linear regression hypothesis function, $H(x) = w_0 + w_1x$.
 
 To do so, we will find the optimal parameter vector $\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^* \end{bmatrix}$ that satisfies the normal equations. The first 5 rows of our dataset are as follows, though note that our dataset has $n$ rows in total.
 
@@ -63,7 +63,7 @@ Recall our hypothesis function is $H(x) = w_0 + w_1x^2$. Since there is a $w_0$ 
 
 # BEGIN SUBPROB
 
-Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for the augmented feature vector $\text{Aug}(\vec{x}) =  \begin{bmatrix} 1 \\ 4 \end{bmatrix}$? Give your answer as an integer with no variables. Show your work, and put
+Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for $x = 4$? Give your answer as an integer with no variables. Show your work, and put
 
 a $\boxed{\text{box}}$ around your final answer.
 
@@ -127,7 +127,7 @@ From here we can use the fact given to us in the directions: $\sum_{i = 1}^n x_i
 &9(10n + 2^2n)\\
 &9(10n + 4n)\\
 &9(14n) = 126n
-\end{align*}
+\end{align\*}
 
 <average>39</average>
 
