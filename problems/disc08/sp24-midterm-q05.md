@@ -125,7 +125,7 @@ From here we can use the fact given to us in the directions: $\sum_{i = 1}^n x_i
 &9(10n + 2^2n)\\
 &9(10n + 4n)\\
 &9(14n) = 126n
-\end{align\*}
+\end{align*}
 
 <average>39</average>
 
