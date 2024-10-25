@@ -63,13 +63,13 @@ Recall our hypothesis function is $H(x) = w_0 + w_1x^2$. Since there is a $w_0$ 
 
 # BEGIN SUBPROB
 
-Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for $x = 4$? Give your answer as an integer with no variables. Show your work.
+Suppose, just in part (b), that after solving the normal equations, we find $\vec{w}^* = \begin{bmatrix} 2 \\ -5 \end{bmatrix}$. What is the predicted $y$ value for $x = 2$? Give your answer as an integer with no variables. Show your work.
 
 # BEGIN SOLUTION
 
 $(2)(1)+(-5)(4)=-18$
 
-To find the predicted $y$ value all you need to do is $\vec w^* \cdot \text{Aug}(\vec x)$.
+To find the predicted $y$ value all you need to do is plug $x = 2$ into the hypothesis function $H(x) = w_0 + w_1x^2$, or take the dot product of $\vec{w}^*$ with $\begin{bmatrix}1 \\ 2^2\end{bmatrix}$.
 
 \begin{align*}
 &\begin{bmatrix} 2 \\ -5 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 4 \end{bmatrix}\\
