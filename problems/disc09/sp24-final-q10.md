@@ -2,9 +2,9 @@
 
 The two plots below show the total number of boots (top) and sandals (bottom) purchased per month in the `df` table. Assume that there is one data point per month.
 
-<center><img src="../../assets/images/sp24-final/boot.png" style="width: 100%; height: auto;"></center>
+<center><img src="../../assets/images/disc09/boot.png" style="width: 100%; height: auto;"></center>
 
-<center><img src="../../assets/images/sp24-final/sandal.png" style="width: 100%; height: auto;"></center>
+<center><img src="../../assets/images/disc09/sandal.png" style="width: 100%; height: auto;"></center>
 
 
 For each of the following regression models, use the visualizations shown above to select the value that is **closest** to the fitted model weights. If it is not possible to determine the model weight, select "Not enough info". For the models below:
