@@ -31,41 +31,6 @@ For part 2, the difference between predicted and actual number of rooms is $75 -
 
 For part 3, the answer is False, since the fact that our best-fit line has an error at a given input does not mean that this input was not seen in the training data. In other words, the line of best fit does not always have to pass through all of the training points (and due to overfitting, in most cases you don't want it to).
 
-<average>87</average>
-
-# END SOLUTION
-
-# END SUBPROB
-
-# BEGIN SUBPROB
-
-Then, on the same training set, Aritra fits a linear model, *with* an intercept term but without the `is_Other` feature. His new prediction rule, $H_2$, now looks like:
-
-$$H_2(x) = \beta_0 + \beta_1 \cdot \texttt{price} + \beta_2 \cdot \texttt{is\_Marriott} + \beta_3 \cdot \texttt{is\_Hilton}$$
-
-After fitting his model, Aritra finds optimal coefficients $\beta_{0}^{*}$, $\beta_{1}^{*}$, $\beta_{2}^{*}$, and $\beta_{3}^{*}$.
-
-1. The training RMSE of $H_2$ is equal to the training RMSE of $H_1$.
-
-( ) True
-( ) False
-
-2. Assuming we use the same test set, the test RMSE of $H_2$ is equal to the test RMSE of $H_1$.
-
-( ) True
-( ) False
-
-# BEGIN SOLUTION
-
-**Answers:**
-
-1. True
-2. True
-
-In model $H_1$, there is redundant information in the one-hot encoded features, creating multicollinearity. The second model $H_2$ removes the `is_Other` feature, but the intercept term it is replaced with serves a similar function. When `is_Other` is true, the prediction of $H_1$ is $w_1 \cdot \texttt{price} + w_4$, and the prediction of $H_2$ is $\beta_1 \cdot \texttt{price} + \beta_0$. The multicollinearity in $H_1$ doesn't affect model performance relative to model 2, but it will yield different parameter estimates since there will be multiple solutions, unlike with $H_2$. However, the models will have equivalent best solutions, even if the parameters differ, so both parts are True.
-
-<average>53</average>
-
 # END SOLUTION
 
 # END SUBPROB
@@ -94,7 +59,6 @@ As we saw in the previous question, these models should yield an equivalent best
 
 If $\beta_{0}^{*} = 50$, this means we are adding 50 to all predictions, and that the "adjustments" we make to the prediction for `is_Marriott` and `is_Hilton` should therefore be reduced to compensate for this; therefore, the new weights $\beta_{2}^{*}$ and $\beta_{3}^{*}$ will be 150 and 250.
 
-<average>69</average>
 
 # END SOLUTION
 

@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Final Part 1](../sp23-final-pt1/index.html), Problem 6</i>
-
 Now we solve the normal equations and find the solution to be
 \begin{aligned}
             \vec{w}^* &= \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^* \end{bmatrix}

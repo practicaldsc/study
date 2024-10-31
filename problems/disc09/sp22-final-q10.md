@@ -23,7 +23,7 @@ songs that were recently released:
 The first few rows of `new_releases` are shown below (though
 `new_releases` has many more rows than are shown below).
 
-<center><img src='../assets/images/sp22-final/new_releases.png' width=55%></center>
+<center><img src='../assets/images/disc09/new_releases.png' width=55%></center>
 
 We decide to build a linear regression model that predicts
 `"first_month"` given all other information. To start, we conduct a
@@ -36,34 +36,6 @@ data:
 -   Model 1 (`lr_one`): Uses `"danceability"` only.
 
 -   Model 2 (`lr_two`): Uses `"danceability"` and `"speechiness"` only.
-
-# BEGIN SUBPROB
-
-**True or False:** If `lr_one.score(X_train, y_train)` is much lower
-than\
-`lr_one.score(X_test, y_test)`, it is likely that `lr_one` overfit to
-the training data.
-
-( ) True
-( ) False
-
-# BEGIN SOLN
-
-**Answer: ** False
-
-For regression models, the `score` method computes $R^2$. A higher $R^2$
-indicates a better linear fit. If the training $R^2$ is much greater
-than the testing $R^2$, that is indication of overfitting. However, that
-is not the case here --- here, we were asked what happens if the
-training $R^2$ is much less than the testing $R^2$, which is not
-indication of overfitting (it is an indication that your model, luckily,
-performs much better on unseen data than it does on observed data!).
-
-<average>81</average>
-
-# END SOLN
-
-# END SUBPROB
 
 # BEGIN SUBPROB
 
@@ -93,8 +65,6 @@ $$\begin{aligned}
     &= \sqrt{10{,}000}
     \\
     &= 100\end{aligned}$$
-
-<average>87</average>
 
 # END SOLN
 
@@ -140,37 +110,6 @@ in `lr_no_drop`).
 If we drop one one-hot-encoded column per category, which is what
 `drop="first"` does, then we only have $(5 - 1) + (4 - 1) = 7$ one-hot
 encoded columns (which there are in `lr_drop`).
-
-<average>75</average>
-
-# END SOLN
-
-# END SUBPROB
-
-# BEGIN SUBPROB
-
-Fill in the blank:
-
-`lr_drop.score(X_test, y_test)` is _____
-
-------------------------------------------------------------------------
-
-`lr_no_drop.score(X_test, y_test)`.
-
-( ) likely greater than
-( ) roughly equal to
-( ) likely less than
-
-# BEGIN SOLN
-
-**Answer: ** Option B: roughly equal to
-
-Multicollinearity does not impact a linear model's ability to make
-predictions (even on unseen data), it only impacts the interpretability
-of its coefficients. As such, the testing RMSE of both Model 3 and Model
-4 will be roughly the same.
-
-<average>70</average>
 
 # END SOLN
 
@@ -238,8 +177,6 @@ $$\begin{aligned}
 
 Thus, the absolute difference between their songs' `"danceability"`s is
 $\frac{1}{1000}$.
-
-<average>70</average>
 
 # END SOLN
 

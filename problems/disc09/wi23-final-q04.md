@@ -2,8 +2,6 @@
 
 <!-- Regression Question -->
 
-<i>Source: [Winter 2023 Final](../wi23-final/index.html), Problem 4</i>
-
 Reggie and Essie are given a dataset of real features
 $x_i \in \mathbb{R}$ and observations $y_i$. Essie proposes the
 following linear prediction rule:

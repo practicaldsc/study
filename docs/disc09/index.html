@@ -8,12 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -24,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -50,7 +59,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +72,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,31 +86,35 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../assets/theme.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: false
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Linear Regression</h1>
 </header>
-<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!-- add after bootstrap.min.css --> <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js --> <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
 <!-- for difficulty gauges-->
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -115,21 +128,58 @@
 </script>
 <p><a href="../index.html">← return to study.practicaldsc.org</a></p>
 <hr />
-<p>The problems in this worksheet are taken from past exams in similar classes. Work on them <strong>on paper</strong>, since the exams you take in this course will also be on paper. <br><br>We encourage you to complete this worksheet in a live discussion section. Solutions will be made available after all discussion sections have concluded. You don’t need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don’t cover can be used for extra practice.</p>
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper. <br><br>We encourage you to
+complete this worksheet in a live discussion section. Solutions will be
+made available after all discussion sections have concluded. You don’t
+need to submit your answers anywhere.<br><br><b>Note: We do not plan to
+cover all problems here in the live discussion section</b>; the problems
+we don’t cover can be used for extra practice.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
-<p>Every week, Lauren goes to her local grocery store and buys a varying amount of vegetable but always buys exactly one pound of meat (either beef, fish, or chicken). We use a linear regression model to predict her total grocery bill. We’ve collected a dataset containing the pounds of vegetables bought, the type of meat bought, and the total bill. Below we display the first few rows of the dataset and two plots generated using the entire training set.</p>
-<center><img src='../../assets/images/fa23-final/dsc80_final_q9.png' width=65%></center>
+<p>Every week, Lauren goes to her local grocery store and buys a varying
+amount of vegetable but always buys exactly one pound of meat (either
+beef, fish, or chicken). We use a linear regression model to predict her
+total grocery bill. We’ve collected a dataset containing the pounds of
+vegetables bought, the type of meat bought, and the total bill. Below we
+display the first few rows of the dataset and two plots generated using
+the entire training set.</p>
+<center><img src='../../assets/images/disc09/dsc80_final_q9.png' width=65%></center>
 <p><br></p>
 <h3 id="problem-1.1">Problem 1.1</h3>
-<p>Suppose we fit the following linear regression models to predict <code>'total'</code> using the squared loss function. Based on the data and visualizations shown above, for each of the following models <span class="math inline">H(x)</span>, determine whether <strong>each fitted model coefficient <span class="math inline">w^*</span></strong> is positive (<span class="math inline">+</span>), negative (<span class="math inline">-</span>), or exactly 0. The notation <span class="math inline">\text{meat=beef}</span> refers to the one-hot encoded <code>'meat'</code> column with value <span class="math inline">1</span> if the original value in the <code>'meat'</code> column was <code>'beef'</code> and <span class="math inline">0</span> otherwise. Likewise, <span class="math inline">\text{meat=chicken}</span> and <span class="math inline">\text{meat=fish}</span> are the one-hot encoded <code>'meat'</code> columns for <code>'chicken'</code> and <code>'fish'</code>, respectively.</p>
-<p>For example, in part (iv), you’ll need to provide three answers: one for <span class="math inline">w_0^*</span> (either positive, negative, or 0), one for <span class="math inline">w_1^*</span> (either positive, negative, or 0), and one for <span class="math inline">w_2^*</span> (either positive, negative, or 0).</p>
+<p>Suppose we fit the following linear regression models to predict
+<code>'total'</code> using the squared loss function. Based on the data
+and visualizations shown above, for each of the following models <span
+class="math inline">H(x)</span>, determine whether <strong>each fitted
+model coefficient <span class="math inline">w^*</span></strong> is
+positive (<span class="math inline">+</span>), negative (<span
+class="math inline">-</span>), or exactly 0. The notation <span
+class="math inline">\text{meat=beef}</span> refers to the one-hot
+encoded <code>'meat'</code> column with value <span
+class="math inline">1</span> if the original value in the
+<code>'meat'</code> column was <code>'beef'</code> and <span
+class="math inline">0</span> otherwise. Likewise, <span
+class="math inline">\text{meat=chicken}</span> and <span
+class="math inline">\text{meat=fish}</span> are the one-hot encoded
+<code>'meat'</code> columns for <code>'chicken'</code> and
+<code>'fish'</code>, respectively.</p>
+<p>For example, in part (iv), you’ll need to provide three answers: one
+for <span class="math inline">w_0^*</span> (either positive, negative,
+or 0), one for <span class="math inline">w_1^*</span> (either positive,
+negative, or 0), and one for <span class="math inline">w_2^*</span>
+(either positive, negative, or 0).</p>
 <ol type="i">
 <li><span class="math inline">H(x) = w_0</span></li>
-<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{veg}</span></li>
-<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=chicken)}</span></li>
-<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}</span></li>
-<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot \text{(meat=fish)}</span></li>
+<li><span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{veg}</span></li>
+<li><span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{(meat=chicken)}</span></li>
+<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)}
++ w_2 \cdot \text{(meat=chicken)}</span></li>
+<li><span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)}
++ w_2 \cdot \text{(meat=chicken)} + w_3 \cdot
+\text{(meat=fish)}</span></li>
 </ol>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -138,57 +188,119 @@
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1_1" class="accordion-collapse collapse collapse" aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Model i. <span class="math inline">H(x) = w_0</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive</p>
-<p>If <span class="math inline">H(x) = w_0</span>, then <span class="math inline">w_0^*</span> will be the mean <code>'total'</code> value in our dataset, and since all of our observed <code>'total'</code> values are positive, their mean – and hence, <span class="math inline">w_0^*</span> – must also be positive.</p>
+<p><strong>Model i. <span class="math inline">H(x) = w_0</span></strong>
+<br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must
+be positive</p>
+<p>If <span class="math inline">H(x) = w_0</span>, then <span class="math inline">w_0^*</span> will be the mean <code>'total'</code>
+value in our dataset, and since all of our observed <code>'total'</code>
+values are positive, their mean – and hence, <span class="math inline">w_0^*</span> – must also be positive.</p>
 <p><br/></p>
-<p><strong>Model ii. <span class="math inline">H(x) = w_0 + w_1 \cdot \text{veg}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be positive</p>
-<p>Of the three graphs provided, the middle one shows the relationship between <code>'total'</code> and <code>'veg'</code>. We see that if we were to draw a line of best fit, the <span class="math inline">y</span>-intercept (<span class="math inline">w_0^*</span>) would be positive, and so would the slope (<span class="math inline">w_1^*</span>).</p>
+<p><strong>Model ii. <span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{veg}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be positive</p>
+<p>Of the three graphs provided, the middle one shows the relationship
+between <code>'total'</code> and <code>'veg'</code>. We see that if we
+were to draw a line of best fit, the <span class="math inline">y</span>-intercept (<span class="math inline">w_0^*</span>) would be positive, and so would the
+slope (<span class="math inline">w_1^*</span>).</p>
 <p><br/></p>
-<p><strong>Model iii. <span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=chicken)}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative</p>
-<p>Here’s the key to solving this part (and the following few): the input <span class="math inline">x</span> has a <code>'meat'</code> of <code>'chicken'</code>, <span class="math inline">H(x) = w_0 + w_1</span>. If the input <span class="math inline">x</span> has a <code>'meat'</code> of something other than <code>'chicken'</code>, then <span class="math inline">H(x) = w_0</span>. So:</p>
+<p><strong>Model iii. <span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{(meat=chicken)}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative</p>
+<p>Here’s the key to solving this part (and the following few): the
+input <span class="math inline">x</span> has a <code>'meat'</code> of
+<code>'chicken'</code>, <span class="math inline">H(x) = w_0 +
+w_1</span>. If the input <span class="math inline">x</span> has a
+<code>'meat'</code> of something other than <code>'chicken'</code>, then
+<span class="math inline">H(x) = w_0</span>. So:</p>
 <ul>
-<li><span class="math inline">w_0^*</span>, the optimal <span class="math inline">w_0</span>, should be a constant <code>'total'</code> prediction that makes sense for non-chicken inputs, and</li>
-<li><span class="math inline">w_1^*</span>, the optimal <span class="math inline">w_1</span>, should be a number we add to <span class="math inline">w_0^*</span> to adjust the constant <code>'total'</code> prediction for chickens.</li>
+<li><span class="math inline">w_0^*</span>, the optimal <span class="math inline">w_0</span>, should be a constant
+<code>'total'</code> prediction that makes sense for non-chicken inputs,
+and</li>
+<li><span class="math inline">w_1^*</span>, the optimal <span class="math inline">w_1</span>, should be a number we add to <span class="math inline">w_0^*</span> to adjust the constant
+<code>'total'</code> prediction for chickens.</li>
 </ul>
-<p>For all three <code>'meat'</code> categories, the average observed <code>'total'</code> value is positive, so it would make sense that for non-chickens, the constant prediction <span class="math inline">w_0^*</span> is positive. Based on the third graph, it seems that <code>'chicken'</code>s tend to have a lower <code>'total'</code> value on average than the other two categories, so if the input <span class="math inline">x</span> is a <code>'chicken'</code> (that is, if <span class="math inline">\text{meat=chicken} = 1</span>), then the constant <code>'total'</code> prediction should be less than the constant <code>'total'</code> prediction for other <code>'meat'</code>s. Since we want <code>w_0^* + w_1^*</code> to be less than <span class="math inline">w_0^*</span>, <span class="math inline">w_1^*</span> must then be negative.</p>
+<p>For all three <code>'meat'</code> categories, the average observed
+<code>'total'</code> value is positive, so it would make sense that for
+non-chickens, the constant prediction <span class="math inline">w_0^*</span> is positive. Based on the third graph,
+it seems that <code>'chicken'</code>s tend to have a lower
+<code>'total'</code> value on average than the other two categories, so
+if the input <span class="math inline">x</span> is a
+<code>'chicken'</code> (that is, if <span class="math inline">\text{meat=chicken} = 1</span>), then the constant
+<code>'total'</code> prediction should be less than the constant
+<code>'total'</code> prediction for other <code>'meat'</code>s. Since we
+want <code>w_0^* + w_1^*</code> to be less than <span class="math inline">w_0^*</span>, <span class="math inline">w_1^*</span>
+must then be negative.</p>
 <p><br/></p>
-<p><strong>Model iv. <span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative; <span class="math inline">w_2^*</span> must be negative</p>
-<p><span class="math inline">H(x)</span> makes one of three predictions:</p>
+<p><strong>Model iv. <span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}</span></strong>
+<br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must
+be positive; <span class="math inline">w_1^*</span> must be negative;
+<span class="math inline">w_2^*</span> must be negative</p>
+<p><span class="math inline">H(x)</span> makes one of three
+predictions:</p>
 <ul>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'fish'</code>, then it predicts <span class="math inline">w_0</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'fish'</code>, then it predicts <span class="math inline">w_0</span>.</li>
 </ul>
-<p>Think of <span class="math inline">w_1^*</span> and <span class="math inline">w_2^*</span> – the optimal <span class="math inline">w_1</span> and <span class="math inline">w_2</span> – as being adjustments to the mean <code>'total'</code> amount for <code>'fish'</code>. Per the third graph, <code>'fish'</code> have the highest mean <code>'total'</code> amount of the three <code>'meat'</code> types, so <span class="math inline">w_0^*</span> should be positive while <span class="math inline">w_1^*</span> and <span class="math inline">w_2^*</span> should be negative.</p>
+<p>Think of <span class="math inline">w_1^*</span> and <span class="math inline">w_2^*</span> – the optimal <span class="math inline">w_1</span> and <span class="math inline">w_2</span>
+– as being adjustments to the mean <code>'total'</code> amount for
+<code>'fish'</code>. Per the third graph, <code>'fish'</code> have the
+highest mean <code>'total'</code> amount of the three
+<code>'meat'</code> types, so <span class="math inline">w_0^*</span>
+should be positive while <span class="math inline">w_1^*</span> and
+<span class="math inline">w_2^*</span> should be negative.</p>
 <p><br/></p>
-<p><strong>Model v. <span class="math inline">H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot \text{(meat=fish)}</span></strong> <br/><strong>Answer</strong>: Not enough information for any of the four coefficients!</p>
-<p>Like in the previous part, <span class="math inline">H(x)</span> makes one of three predictions:</p>
+<p><strong>Model v. <span class="math inline">H(x) = w_0 + w_1 \cdot
+\text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot
+\text{(meat=fish)}</span></strong> <br/><strong>Answer</strong>: Not
+enough information for any of the four coefficients!</p>
+<p>Like in the previous part, <span class="math inline">H(x)</span>
+makes one of three predictions:</p>
 <ul>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code> value of <code>'fish'</code>, then it predicts <span class="math inline">w_0 + w_3</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
+<li>If <span class="math inline">x</span> has a <code>'meat'</code>
+value of <code>'fish'</code>, then it predicts <span class="math inline">w_0 + w_3</span>.</li>
 </ul>
-<p>Since the mean minimizes mean squared error for the constant model, we’d expect <span class="math inline">w_0^* + w_2^*</span> to be the mean <code>'total'</code> for <code>'chicken'</code>, <span class="math inline">w_0^* + w_1^*</span> to be the mean <code>'total'</code> for <code>'beef'</code>, and <span class="math inline">w_0^* + w_3^*</span> to be the mean total for <code>'fish'</code>. The issue is that there are infinitely many combinations of <span class="math inline">w_0^*, w_1^*, w_2^*, w_3^*</span> that allow this to happen!</p>
+<p>Since the mean minimizes mean squared error for the constant model,
+we’d expect <span class="math inline">w_0^* + w_2^*</span> to be the
+mean <code>'total'</code> for <code>'chicken'</code>, <span class="math inline">w_0^* + w_1^*</span> to be the mean
+<code>'total'</code> for <code>'beef'</code>, and <span class="math inline">w_0^* + w_3^*</span> to be the mean total for
+<code>'fish'</code>. The issue is that there are infinitely many
+combinations of <span class="math inline">w_0^*, w_1^*, w_2^*,
+w_3^*</span> that allow this to happen!</p>
 <p>Pretend, for example, that:</p>
 <ul>
 <li>The mean <code>'total'</code> for <code>'chicken</code> is 8.</li>
 <li>The mean <code>'total'</code> for <code>'beef'</code> is 12.</li>
 <li>The mean <code>'total'</code> for <code>'fish'</code> is 15.</li>
 </ul>
-<p>Then, <span class="math inline">w_0^* = -10, w_1^* = 22, w_2^* = 18, w_3^* = 25</span> and <span class="math inline">w_0^* = 20, w_1^* = -8, w_2^* = -12, w_3^* = -5</span> work, but the signs of the coefficients are inconsistent. As such, it’s impossible to tell!</p>
+<p>Then, <span class="math inline">w_0^* = -10, w_1^* = 22, w_2^* = 18,
+w_3^* = 25</span> and <span class="math inline">w_0^* = 20, w_1^* = -8,
+w_2^* = -12, w_3^* = -5</span> work, but the signs of the coefficients
+are inconsistent. As such, it’s impossible to tell!</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
-<p>Suppose we fit the model <span class="math inline">H(x) = w_0 + w_1 \cdot \text{veg} + w_2 \cdot \text{(meat=beef)} + w_3 \cdot \text{(meat=fish)}</span>. After fitting, we find that <span class="math inline">\vec{w^*}=[-3, 5, 8, 12]</span></p>
-<p>What is the prediction of this model on the <strong>first</strong> point in our dataset?</p>
+<p>Suppose we fit the model <span class="math inline">H(x) = w_0 + w_1
+\cdot \text{veg} + w_2 \cdot \text{(meat=beef)} + w_3 \cdot
+\text{(meat=fish)}</span>. After fitting, we find that <span
+class="math inline">\vec{w^*}=[-3, 5, 8, 12]</span></p>
+<p>What is the prediction of this model on the <strong>first</strong>
+point in our dataset?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -3</p></li>
 <li><p><input type="radio" disabled="" /> 2</p></li>
@@ -205,23 +317,26 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1_2" class="accordion-collapse collapse collapse" aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: 10</p>
-<p>Plugging in our weights <span class="math inline">\vec{w}^*</span> to the model <span class="math inline">H(x)</span> and filling in data from the row</p>
+<p>Plugging in our weights <span class="math inline">\vec{w}^*</span> to
+the model <span class="math inline">H(x)</span> and filling in data from
+the row</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>veg</th>
 <th>meat</th>
 <th>total</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>beef</td>
 <td>13</td>
@@ -229,19 +344,18 @@ Click to view the solution.
 </tbody>
 </table>
 <p><br/></p>
-<p>gives us <span class="math inline">-3 + 5(1) + 8(1) + 12(0) = 10</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 93%.</p>
+<p>gives us <span class="math inline">-3 + 5(1) + 8(1) + 12(0) =
+10</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
-<p>Following the same model <span class="math inline">H(x)</span> and weights from the previous problem, what is the loss of this model on the <strong>second</strong> point in our dataset, using squared error loss?</p>
+<p>Following the same model <span class="math inline">H(x)</span> and
+weights from the previous problem, what is the loss of this model on the
+<strong>second</strong> point in our dataset, using squared error
+loss?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> 0</p></li>
 <li><p><input type="radio" disabled="" /> 1</p></li>
@@ -259,99 +373,17 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1_3" class="accordion-collapse collapse collapse" aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: 25</p>
-<p>The squared loss for a single point is <span class="math inline">(\text{actual} - \text{predicted})^2</span>. Here, our actual <code>'total'</code> value is 19, and our predicted value <code>'total'</code> value is <span class="math inline">-3 + 5(3) + 8(0) + 12(1) = -3 + 15 + 12 = 24</span>, so the squared loss is <span class="math inline">(19 - 24)^2 = (-5)^2 = 25</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 84%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-1.4">Problem 1.4</h3>
-<p>Determine how each change below affects model bias and variance compared to the model <span class="math inline">H(x)</span> described at the top of this page. <strong>For each change (i., ii., iii., iv.), choose all of the following that apply: increase bias, decrease bias, increase variance, decrease variance.</strong></p>
-<ol type="i">
-<li>Add degree <span class="math inline">3</span> polynomial features.</li>
-<li>Add a feature of numbers chosen at random between <span class="math inline">0</span> and <span class="math inline">1</span>.</li>
-<li>Collect <span class="math inline">100</span> more points for the training set.</li>
-<li>Don’t use the <code>'veg'</code> feature.</li>
-</ol>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_4" class="accordion-collapse collapse collapse" aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<ul>
-<li><ol type="i">
-<li><strong>Answer: Decrease bias, increase variance</strong>. Note that adding degree 3 polynomial features will increase the complexity of our model. Increasing model complexity decreases model bias, but increases model variance (because the fitted model will vary more from training set to training set than it would without the degree 3 feature).</li>
-</ol></li>
-<li><ol start="2" type="i">
-<li><strong>Answer: Increase variance</strong>. We’re adding a new feature that will contribute nothing of quality to our model’s predictions, other than make them vary more from training set to training set.</li>
-</ol></li>
-<li><ol start="3" type="i">
-<li><strong>Answer: Decrease variance</strong>. Think of our training set as being a sample drawn from some population. The larger our training sets are, the less our model will vary from training set to training set, hence, reducing model variance.</li>
-</ol></li>
-<li><ol start="4" type="i">
-<li><strong>Answer: Increase bias, decrease variance</strong>. Removing the <span class="math inline">\text{veg}</span> feature would reduce the complexity of our model, which would increase model bias but decrease model complexity.</li>
-</ol></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-1.5">Problem 1.5</h3>
-<p>Suppose we predict <code>'total'</code> from <code>'veg'</code> using <span class="math inline">8</span> models with different degree polynomial features (degrees <span class="math inline">0</span> through <span class="math inline">7</span>). Which of the following plots display the training and validation errors of these models? Assume that we plot the degree of the polynomial features on the x-axis, mean squared error loss on the y-axis, and the plots share y-axes limits.</p>
-<center><img src='../../assets/images/fa23-final/dsc80_final_plots.png' width=65%></center>
-<p>Training Error:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> A</p></li>
-<li><p><input type="radio" disabled="" /> B</p></li>
-<li><p><input type="radio" disabled="" /> C</p></li>
-<li><p><input type="radio" disabled="" /> D</p></li>
-</ul>
-<p>Validation Error:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> A</p></li>
-<li><p><input type="radio" disabled="" /> B</p></li>
-<li><p><input type="radio" disabled="" /> C</p></li>
-<li><p><input type="radio" disabled="" /> D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_5" aria-expanded="true" aria-controls="collapse1_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_5" class="accordion-collapse collapse collapse" aria-labelledby="heading1_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: Training error: C; Validation Error: B</p>
-<p><strong>Training Error</strong>: As we increase the complexity of our model, it will gain the ability to memorize the patterns in our training set to a greater degree, meaning that its performance will get better and better (here, meaning that its MSE will get lower and lower).</p>
-<p><strong>Validation Error</strong>: As we increase the complexity of our model, there will be a point at which it becomes “too complex” and overfits to insignificant patterns in the training set. The second graph from the start of Problem 9 tells us that the relationship between <code>'total'</code> and <code>'veg'</code> is roughly quadratic, meaning it’s best modeled using degree <span class="math inline">2</span> polynomial features. Using a degree greater than <span class="math inline">2</span> will lead to overfitting and, therefore, worse validation set performance. Plot B shows MSE decrease until <span class="math inline">d = 2</span> and increase afterwards, which matches the previous explanation.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 88%.</p>
+<p>The squared loss for a single point is <span class="math inline">(\text{actual} - \text{predicted})^2</span>. Here,
+our actual <code>'total'</code> value is 19, and our predicted value
+<code>'total'</code> value is <span class="math inline">-3 + 5(3) + 8(0)
++ 12(1) = -3 + 15 + 12 = 24</span>, so the squared loss is <span class="math inline">(19 - 24)^2 = (-5)^2 = 25</span>.</p>
 </div>
 </div>
 </div>
@@ -359,19 +391,28 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p><i>Source: <a href="../fa21-final/index.html">Fall 2021 Final Exam</a>, Problem 6</i></p>
-<p>Billy’s aunt owns a jewellery store, and gives him data on <span class="math inline">5000</span> of the diamonds in her store. For each diamond, we have:</p>
+<p>Billy’s aunt owns a jewellery store, and gives him data on <span
+class="math inline">5000</span> of the diamonds in her store. For each
+diamond, we have:</p>
 <ul>
 <li><strong>carat</strong>: the weight of the diamond, in carats</li>
-<li><strong>length</strong>: the length of the diamond, in centimeters</li>
-<li><strong>width</strong>: the width of the diamond, in centimeters</li>
+<li><strong>length</strong>: the length of the diamond, in
+centimeters</li>
+<li><strong>width</strong>: the width of the diamond, in
+centimeters</li>
 <li><strong>price</strong>: the value of the diamond, in dollars</li>
 </ul>
 <p>The first 5 rows of the 5000-row dataset are shown below:</p>
 <div>
 <table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 27%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>carat   </th>
 <th>length   </th>
 <th>width   </th>
@@ -379,31 +420,31 @@ Click to view the solution.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>0.40</td>
 <td>4.81</td>
 <td>4.76</td>
 <td>1323</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1.04</td>
 <td>6.58</td>
 <td>6.53</td>
 <td>5102</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.40</td>
 <td>4.74</td>
 <td>4.76</td>
 <td>696</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.40</td>
 <td>4.67</td>
 <td>4.65</td>
 <td>798</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.50</td>
 <td>4.90</td>
 <td>4.95</td>
@@ -412,14 +453,21 @@ Click to view the solution.
 </tbody>
 </table>
 </div>
-<p><br> Billy has enlisted our help in predicting the price of a diamond given various other features.</p>
+<p><br> Billy has enlisted our help in predicting the price of a diamond
+given various other features.</p>
 <p><br></p>
 <h3 id="problem-2.1">Problem 2.1</h3>
-<p>Suppose we want to fit a linear prediction rule that uses two features, carat and length, to predict price. Specifically, our prediction rule will be of the form</p>
-<p><span class="math display">\text{predicted price} = w_0 + w_1 \cdot \text{carat} + w_2 \cdot \text{length}</span></p>
+<p>Suppose we want to fit a linear prediction rule that uses two
+features, carat and length, to predict price. Specifically, our
+prediction rule will be of the form</p>
+<p><span class="math display">\text{predicted price} = w_0 + w_1 \cdot
+\text{carat} + w_2 \cdot \text{length}</span></p>
 <p><br></p>
-<p>We will use least squares to find <span class="math inline">\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^* \end{bmatrix}</span>.</p>
-<p>Write out the first 5 rows of the design matrix, <span class="math inline">X</span>. Your matrix should not have any variables in it.</p>
+<p>We will use least squares to find <span class="math inline">\vec{w}^*
+= \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^* \end{bmatrix}</span>.</p>
+<p>Write out the first 5 rows of the design matrix, <span
+class="math inline">X</span>. Your matrix should not have any variables
+in it.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_1">
@@ -427,21 +475,27 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2_1" class="accordion-collapse collapse collapse" aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">X = \begin{bmatrix} 1 &amp; 0.40 &amp; 4.81 \\ 1 &amp; 1.04 &amp; 6.58 \\ 1 &amp; 0.40 &amp; 4.74 \\ 1 &amp; 0.40 &amp; 4.67 \\ 1 &amp; 0.50 &amp; 4.90 \end{bmatrix}</span></p>
+<p><span class="math display">X = \begin{bmatrix} 1 &amp; 0.40 &amp;
+4.81 \\ 1 &amp; 1.04 &amp; 6.58 \\ 1 &amp; 0.40 &amp; 4.74 \\ 1 &amp;
+0.40 &amp; 4.67 \\ 1 &amp; 0.50 &amp; 4.90 \end{bmatrix}</span></p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
-<p>Suppose the optimal parameter vector <span class="math inline">\vec{w}^*</span> is given by</p>
-<p><span class="math display">\vec{w}^* = \begin{bmatrix} 2000 \\ 10000 \\ -1000 \end{bmatrix}</span></p>
-<p>What is the predicted price of a diamond with 0.65 carats and a length of 4 centimeters? Show your work.</p>
+<p>Suppose the optimal parameter vector <span
+class="math inline">\vec{w}^*</span> is given by</p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix} 2000 \\ 10000
+\\ -1000 \end{bmatrix}</span></p>
+<p>What is the predicted price of a diamond with 0.65 carats and a
+length of 4 centimeters? Show your work.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_2">
@@ -449,23 +503,32 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2_2" class="accordion-collapse collapse collapse" aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>The predicted price is <span class="math inline">4500</span> dollars.</p>
-<p><span class="math display">2000 + 10000 \cdot 0.65 - 1000 \cdot 4 = 4500</span></p>
+<p>The predicted price is <span class="math inline">4500</span>
+dollars.</p>
+<p><span class="math display">2000 + 10000 \cdot 0.65 - 1000 \cdot 4 =
+4500</span></p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
-<p>Suppose <span class="math inline">\vec{e} = \begin{bmatrix} e_1 \\ e_2 \\ ... \\ e_n \end{bmatrix}</span> is the error/residual vector, defined as</p>
+<p>Suppose <span class="math inline">\vec{e} = \begin{bmatrix} e_1 \\
+e_2 \\ ... \\ e_n \end{bmatrix}</span> is the error/residual vector,
+defined as</p>
 <p><span class="math display">\vec{e} = \vec{y} - X \vec{w}^*</span></p>
-<p>where <span class="math inline">\vec{y}</span> is the observation vector containing the prices for each diamond.</p>
-<p>For each of the following quantities, state whether they are guaranteed to be equal to 0 the scalar, <span class="math inline">\vec{0}</span> the vector of all 0s, or neither. No justification is necessary.</p>
+<p>where <span class="math inline">\vec{y}</span> is the observation
+vector containing the prices for each diamond.</p>
+<p>For each of the following quantities, state whether they are
+guaranteed to be equal to 0 the scalar, <span
+class="math inline">\vec{0}</span> the vector of all 0s, or neither. No
+justification is necessary.</p>
 <ul>
 <li><span class="math inline">\sum_{i = 1}^n e_i</span></li>
 <li><span class="math inline">|| \vec{y} - X \vec{w}^* ||^2</span></li>
@@ -479,16 +542,35 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2_3" class="accordion-collapse collapse collapse" aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <ul>
-<li><span class="math inline">\sum_{i = 1}^n e_i</span>: <strong>Yes</strong>, this is guaranteed to be 0. This was discussed in Homework 4; it is a consequence of the fact that <span class="math inline">X^T (y - X \vec{w}^*) = 0</span> and that we have an intercept term in our prediction rule (and hence a column of all 1s in our design matrix, <span class="math inline">X</span>).</li>
-<li><span class="math inline">|| \vec{y} - X \vec{w}^* ||^2</span>: <strong>No</strong>, this is not guaranteed to be 0. This is the mean squared error of our prediction rule, multiplied by <span class="math inline">n</span>. <span class="math inline">\vec{w}^*</span> is found by minimizing mean squared error, but the minimum value of mean squared error isn’t necessarily 0 — in fact, this quantity is only 0 if we can write <span class="math inline">\vec{y}</span> exactly as <span class="math inline">X \vec{w}^*</span> with no prediction errors.</li>
-<li><span class="math inline">X^TX \vec{w}^*</span>: <strong>No</strong>, this is not guaranteed to be 0, either.</li>
-<li><span class="math inline">2X^TX \vec{w}^* - 2X^T\vec{y}</span>: <strong>Yes</strong>, this is guaranteed to be 0. Recall, the optimal parameter vector <span class="math inline">\vec{w}^*</span> satisfies the normal equations <span class="math inline">X^TX\vec{w}^* = X^T \vec{y}</span>. Subtracting <span class="math inline">X^T \vec{y}</span> from both sides of this equation and multiplying both sides by 2 yields the desired result. (You may also find <span class="math inline">2X^TX \vec{w}^* - 2X^T\vec{y}</span> to be familiar from lecture — it is the gradient of the mean squared error, multiplied by <span class="math inline">n</span>, and we set the gradient to 0 to find <span class="math inline">\vec{w}^*</span>.)</li>
+<li><span class="math inline">\sum_{i = 1}^n e_i</span>:
+<strong>Yes</strong>, this is guaranteed to be 0. This was discussed in
+Homework 4; it is a consequence of the fact that <span class="math inline">X^T (y - X \vec{w}^*) = 0</span> and that we have an
+intercept term in our prediction rule (and hence a column of all 1s in
+our design matrix, <span class="math inline">X</span>).</li>
+<li><span class="math inline">|| \vec{y} - X \vec{w}^* ||^2</span>:
+<strong>No</strong>, this is not guaranteed to be 0. This is the mean
+squared error of our prediction rule, multiplied by <span class="math inline">n</span>. <span class="math inline">\vec{w}^*</span>
+is found by minimizing mean squared error, but the minimum value of mean
+squared error isn’t necessarily 0 — in fact, this quantity is only 0 if
+we can write <span class="math inline">\vec{y}</span> exactly as <span class="math inline">X \vec{w}^*</span> with no prediction errors.</li>
+<li><span class="math inline">X^TX \vec{w}^*</span>:
+<strong>No</strong>, this is not guaranteed to be 0, either.</li>
+<li><span class="math inline">2X^TX \vec{w}^* - 2X^T\vec{y}</span>:
+<strong>Yes</strong>, this is guaranteed to be 0. Recall, the optimal
+parameter vector <span class="math inline">\vec{w}^*</span> satisfies
+the normal equations <span class="math inline">X^TX\vec{w}^* = X^T
+\vec{y}</span>. Subtracting <span class="math inline">X^T \vec{y}</span>
+from both sides of this equation and multiplying both sides by 2 yields
+the desired result. (You may also find <span class="math inline">2X^TX
+\vec{w}^* - 2X^T\vec{y}</span> to be familiar from lecture — it is the
+gradient of the mean squared error, multiplied by <span class="math inline">n</span>, and we set the gradient to 0 to find <span class="math inline">\vec{w}^*</span>.)</li>
 </ul>
 </div>
 </div>
@@ -501,11 +583,20 @@ Click to view the solution.
 <li>width alone, and</li>
 <li>area, which is defined as length times width</li>
 </ul>
-<p>Suppose we also decide to remove the intercept term of our prediction rule. With all of these changes, our prediction rule is now</p>
-<p><span class="math display">\text{predicted price} = w_1 \cdot \text{carat} + w_2 \cdot \text{length} + w_3 \cdot \text{width} + w_4 \cdot (\text{length} \cdot \text{width}) </span></p>
+<p>Suppose we also decide to remove the intercept term of our prediction
+rule. With all of these changes, our prediction rule is now</p>
+<p><span class="math display">\text{predicted price} = w_1 \cdot
+\text{carat} + w_2 \cdot \text{length} + w_3 \cdot \text{width} + w_4
+\cdot (\text{length} \cdot \text{width}) </span></p>
 <ul>
-<li>Write out just the first 2 rows of the design matrix <span class="math inline">X</span> for this new prediction rule. You do <strong>not</strong> need to simplify the numbers in your matrix, it is fine if they involve the multiplication symbol.</li>
-<li>Is the optimal coefficient for carat, <span class="math inline">w_1^*</span>, for this new prediction rule guaranteed to be equal to 10000, the optimal coefficient for carat in our original prediction rule? No justification is necessary.</li>
+<li>Write out just the first 2 rows of the design matrix <span
+class="math inline">X</span> for this new prediction rule. You do
+<strong>not</strong> need to simplify the numbers in your matrix, it is
+fine if they involve the multiplication symbol.</li>
+<li>Is the optimal coefficient for carat, <span
+class="math inline">w_1^*</span>, for this new prediction rule
+guaranteed to be equal to 10000, the optimal coefficient for carat in
+our original prediction rule? No justification is necessary.</li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -514,14 +605,22 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2_4" class="accordion-collapse collapse collapse" aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
+<div id="collapse2_4" class="accordion-collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <ul>
-<li><span class="math inline">X = \begin{bmatrix} 0.40 &amp; 4.81 &amp; 4.76 &amp; 4.81 \cdot 4.76 \\ 1.04 &amp; 6.58 &amp; 6.53 &amp; 6.58 \cdot 6.53 \end{bmatrix}</span></li>
-<li>No, it’s not guaranteed that the <span class="math inline">\vec{w}_1^*</span> for this new prediction rule is equal to the <span class="math inline">\vec{w}_1^*</span> for the original prediction rule. The value of <span class="math inline">\vec{w}_1^*</span> in the new prediction rule will be influenced by the fact that there’s no longer an intercept term and that there are two new features (width and area) that weren’t previously there.</li>
+<li><span class="math inline">X = \begin{bmatrix} 0.40 &amp; 4.81 &amp;
+4.76 &amp; 4.81 \cdot 4.76 \\ 1.04 &amp; 6.58 &amp; 6.53 &amp; 6.58
+\cdot 6.53 \end{bmatrix}</span></li>
+<li>No, it’s not guaranteed that the <span class="math inline">\vec{w}_1^*</span> for this new prediction rule is
+equal to the <span class="math inline">\vec{w}_1^*</span> for the
+original prediction rule. The value of <span class="math inline">\vec{w}_1^*</span> in the new prediction rule will
+be influenced by the fact that there’s no longer an intercept term and
+that there are two new features (width and area) that weren’t previously
+there.</li>
 </ul>
 </div>
 </div>
@@ -530,30 +629,52 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>The DataFrame <code>new_releases</code> contains the following information for songs that were recently released:</p>
+<p>The DataFrame <code>new_releases</code> contains the following
+information for songs that were recently released:</p>
 <ul>
-<li><p><code>"genre"</code>: the genre of the song (one of the following 5 possibilities: <code>"Hip-Hop/Rap"</code>, <code>"Pop"</code>, <code>"Country"</code>, <code>"Alternative"</code>, or <code>"International"</code>)</p></li>
-<li><p><code>"rec_label"</code>: the record label of the artist who released the song (one of the following 4 possibilities: <code>"EMI"</code>, <code>"SME"</code>, <code>"UMG"</code>, or <code>"WMG"</code>)</p></li>
-<li><p><code>"danceability"</code>: how easy the song is to dance to, according to the Spotify API (between 0 and 1)</p></li>
-<li><p><code>"speechiness"</code>: what proportion of the song is made up of spoken words, according to the Spotify API (between 0 and 1)</p></li>
-<li><p><code>"first_month"</code>: the number of total streams the song had on Spotify in the first month it was released</p></li>
+<li><p><code>"genre"</code>: the genre of the song (one of the following
+5 possibilities: <code>"Hip-Hop/Rap"</code>, <code>"Pop"</code>,
+<code>"Country"</code>, <code>"Alternative"</code>, or
+<code>"International"</code>)</p></li>
+<li><p><code>"rec_label"</code>: the record label of the artist who
+released the song (one of the following 4 possibilities:
+<code>"EMI"</code>, <code>"SME"</code>, <code>"UMG"</code>, or
+<code>"WMG"</code>)</p></li>
+<li><p><code>"danceability"</code>: how easy the song is to dance to,
+according to the Spotify API (between 0 and 1)</p></li>
+<li><p><code>"speechiness"</code>: what proportion of the song is made
+up of spoken words, according to the Spotify API (between 0 and
+1)</p></li>
+<li><p><code>"first_month"</code>: the number of total streams the song
+had on Spotify in the first month it was released</p></li>
 </ul>
-<p>The first few rows of <code>new_releases</code> are shown below (though <code>new_releases</code> has many more rows than are shown below).</p>
-<center><img src='../assets/images/sp22-final/new_releases.png' width=55%></center>
-<p>We decide to build a linear regression model that predicts <code>"first_month"</code> given all other information. To start, we conduct a train-test split, splitting <code>new_releases</code> into <code>X_train</code>, <code>X_test</code>, <code>y_train</code>, and <code>y_test</code>.</p>
-<p>We then fit two linear models (with intercept terms) to the training data:</p>
+<p>The first few rows of <code>new_releases</code> are shown below
+(though <code>new_releases</code> has many more rows than are shown
+below).</p>
+<center><img src='../assets/images/disc09/new_releases.png' width=55%></center>
+<p>We decide to build a linear regression model that predicts
+<code>"first_month"</code> given all other information. To start, we
+conduct a train-test split, splitting <code>new_releases</code> into
+<code>X_train</code>, <code>X_test</code>, <code>y_train</code>, and
+<code>y_test</code>.</p>
+<p>We then fit two linear models (with intercept terms) to the training
+data:</p>
 <ul>
-<li><p>Model 1 (<code>lr_one</code>): Uses <code>"danceability"</code> only.</p></li>
-<li><p>Model 2 (<code>lr_two</code>): Uses <code>"danceability"</code> and <code>"speechiness"</code> only.</p></li>
+<li><p>Model 1 (<code>lr_one</code>): Uses <code>"danceability"</code>
+only.</p></li>
+<li><p>Model 2 (<code>lr_two</code>): Uses <code>"danceability"</code>
+and <code>"speechiness"</code> only.</p></li>
 </ul>
 <p><br></p>
 <h3 id="problem-3.1">Problem 3.1</h3>
-<p><strong>True or False:</strong> If <code>lr_one.score(X_train, y_train)</code> is much lower than<br />
-<code>lr_one.score(X_test, y_test)</code>, it is likely that <code>lr_one</code> overfit to the training data.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> True</p></li>
-<li><p><input type="radio" disabled="" /> False</p></li>
-</ul>
+<p>Consider the following outputs.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> X_train.shape[<span class="dv">0</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.<span class="bu">sum</span>((y_train <span class="op">-</span> lr_two.predict(X_train)) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">500000</span> <span class="co"># five hundred thousand</span></span></code></pre></div>
+<p>What is Model 2 (<code>lr_two</code>)’s training RMSE? Give your
+answer as an integer.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading3_1">
@@ -561,31 +682,53 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_1" class="accordion-collapse collapse collapse" aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> False</p>
-<p>For regression models, the <code>score</code> method computes <span class="math inline">R^2</span>. A higher <span class="math inline">R^2</span> indicates a better linear fit. If the training <span class="math inline">R^2</span> is much greater than the testing <span class="math inline">R^2</span>, that is indication of overfitting. However, that is not the case here — here, we were asked what happens if the training <span class="math inline">R^2</span> is much less than the testing <span class="math inline">R^2</span>, which is not indication of overfitting (it is an indication that your model, luckily, performs much better on unseen data than it does on observed data!).</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 81%.</p>
+<p><strong>Answer: </strong> 100</p>
+<p>We are given that there are <span class="math inline">n=50</span>
+data points, and that the sum of squared errors <span class="math inline">\sum_{i = 1}^n (y_i - H(x_i))^2</span> is <span class="math inline">500{,}000</span>. Then:</p>
+<p><span class="math display">\begin{aligned}
+    \text{RMSE} &amp;= \sqrt{\frac{1}{n} \sum_{i = 1}^n (y_i -
+H(x_i))^2} \\
+    &amp;= \sqrt{\frac{1}{50} \cdot 500{,}000} \\
+    &amp;= \sqrt{10{,}000}
+    \\
+    &amp;= 100\end{aligned}</span></p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
+<p>Now, suppose we fit two more linear models (with intercept terms) to
+the training data:</p>
+<ul>
+<li><p>Model 3 (<span class="math inline">\texttt{lr\_drop}</span>):
+Uses <code>"danceability"</code> and <code>"speechiness"</code> as-is,
+and one-hot encodes <code>"genre"</code> and <code>"rec_label"</code>,
+using <code>OneHotEncoder(drop="first")</code>.</p></li>
+<li><p>Model 4 (<span class="math inline">\texttt{lr\_no\_drop}</span>):
+Uses <code>"danceability"</code> and <code>"speechiness"</code> as-is,
+and one-hot encodes <code>"genre"</code> and <code>"rec_label"</code>,
+using <code>OneHotEncoder()</code>.</p></li>
+</ul>
+<p>Note that the only difference between Model 3 and Model 4 is the fact
+that Model 3 uses <code>drop="first"</code>.</p>
+<p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
-<p>Consider the following outputs.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> X_train.shape[<span class="dv">0</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.<span class="bu">sum</span>((y_train <span class="op">-</span> lr_two.predict(X_train)) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">500000</span> <span class="co"># five hundred thousand</span></span></code></pre></div>
-<p>What is Model 2 (<code>lr_two</code>)’s training RMSE? Give your answer as an integer.</p>
+<p>How many <strong>one-hot encoded</strong> columns are used in each
+model? In other words, how many <strong>binary</strong> columns are used
+in each model? Give both answers as integers.</p>
+<p><em>Hint: Make sure to look closely at the description of
+<code>new_releases</code> at the top of the previous page, and don’t
+include the already-quantitative features.</em></p>
+<p>number of one-hot encoded columns in Model 3 (<code>lr_drop</code>)
+=</p>
+<p>number of one-hot encoded columns in Model 4
+(<code>lr_no_drop</code>) =</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading3_2">
@@ -593,41 +736,49 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_2" class="accordion-collapse collapse collapse" aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> 100</p>
-<p>We are given that there are <span class="math inline">n=50</span> data points, and that the sum of squared errors <span class="math inline">\sum_{i = 1}^n (y_i - H(x_i))^2</span> is <span class="math inline">500{,}000</span>. Then:</p>
-<p><span class="math display">\begin{aligned}
-    \text{RMSE} &amp;= \sqrt{\frac{1}{n} \sum_{i = 1}^n (y_i - H(x_i))^2} \\ 
-    &amp;= \sqrt{\frac{1}{50} \cdot 500{,}000} \\
-    &amp;= \sqrt{10{,}000}
-    \\
-    &amp;= 100\end{aligned}</span></p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 87%.</p>
+<p><strong>Answer: </strong> 7 and 9</p>
+<p>There are 5 unique values of <code>"genre"</code> and 4 unique values
+of <code>"rec_label"</code>, so if we create a single one-hot encoded
+column for each one, there would be <span class="math inline">5 + 4 =
+9</span> one-hot encoded columns (which there are in
+<code>lr_no_drop</code>).</p>
+<p>If we drop one one-hot-encoded column per category, which is what
+<code>drop="first"</code> does, then we only have <span class="math inline">(5 - 1) + (4 - 1) = 7</span> one-hot encoded columns
+(which there are in <code>lr_drop</code>).</p>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
-<p>Now, suppose we fit two more linear models (with intercept terms) to the training data:</p>
-<ul>
-<li><p>Model 3 (<span class="math inline">\texttt{lr\_drop}</span>): Uses <code>"danceability"</code> and <code>"speechiness"</code> as-is, and one-hot encodes <code>"genre"</code> and <code>"rec_label"</code>, using <code>OneHotEncoder(drop="first")</code>.</p></li>
-<li><p>Model 4 (<span class="math inline">\texttt{lr\_no\_drop}</span>): Uses <code>"danceability"</code> and <code>"speechiness"</code> as-is, and one-hot encodes <code>"genre"</code> and <code>"rec_label"</code>, using <code>OneHotEncoder()</code>.</p></li>
-</ul>
-<p>Note that the only difference between Model 3 and Model 4 is the fact that Model 3 uses <code>drop="first"</code>.</p>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
-<p>How many <strong>one-hot encoded</strong> columns are used in each model? In other words, how many <strong>binary</strong> columns are used in each model? Give both answers as integers.</p>
-<p><em>Hint: Make sure to look closely at the description of <code>new_releases</code> at the top of the previous page, and don’t include the already-quantitative features.</em></p>
-<p>number of one-hot encoded columns in Model 3 (<code>lr_drop</code>) =</p>
-<p>number of one-hot encoded columns in Model 4 (<code>lr_no_drop</code>) =</p>
+<p>Recall, in Model 4 (<code>lr_no_drop</code>) we one-hot encoded
+<code>"genre"</code> and <code>"rec_label"</code>, and did not use
+<code>drop="first"</code> when instantiating our
+<code>OneHotEncoder</code>.</p>
+<p>Suppose we are given the following coefficients in Model 4:</p>
+<ul>
+<li><p>The coefficient on <code>"genre_Pop"</code> is <span
+class="math inline">2000</span>.</p></li>
+<li><p>The coefficient on <code>"genre_Country"</code> is <span
+class="math inline">1000</span>.</p></li>
+<li><p>The coefficient on <code>"danceability"</code> is <span
+class="math inline">10^6 = 1{,}000{,}000</span>.</p></li>
+</ul>
+<p>Daisy and Billy are two artists signed to the same
+<code>"rec_label"</code> who each just released a new song with the same
+<code>"speechiness"</code>. Daisy is a <code>"Pop"</code> artist while
+Billy is a <code>"Country"</code> artist.</p>
+<p>Model 4 predicted that Daisy’s song and Billy’s song will have the
+same <code>"first_month"</code> streams. What is the <strong>absolute
+difference</strong> between Daisy’s song’s <code>"danceability"</code>
+and Billy’s song’s <code>"danceability"</code>? Give your answer as a
+simplified fraction.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading3_3">
@@ -635,101 +786,46 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_3" class="accordion-collapse collapse collapse" aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 7 and 9</p>
-<p>There are 5 unique values of <code>"genre"</code> and 4 unique values of <code>"rec_label"</code>, so if we create a single one-hot encoded column for each one, there would be <span class="math inline">5 + 4 = 9</span> one-hot encoded columns (which there are in <code>lr_no_drop</code>).</p>
-<p>If we drop one one-hot-encoded column per category, which is what <code>drop="first"</code> does, then we only have <span class="math inline">(5 - 1) + (4 - 1) = 7</span> one-hot encoded columns (which there are in <code>lr_drop</code>).</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 75%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.4">Problem 3.4</h3>
-<p>Fill in the blank:</p>
-<p><code>lr_drop.score(X_test, y_test)</code> is _____</p>
-<hr />
-<p><code>lr_no_drop.score(X_test, y_test)</code>.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> likely greater than</p></li>
-<li><p><input type="radio" disabled="" /> roughly equal to</p></li>
-<li><p><input type="radio" disabled="" /> likely less than</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_4" class="accordion-collapse collapse collapse" aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B: roughly equal to</p>
-<p>Multicollinearity does not impact a linear model’s ability to make predictions (even on unseen data), it only impacts the interpretability of its coefficients. As such, the testing RMSE of both Model 3 and Model 4 will be roughly the same.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 70%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.5">Problem 3.5</h3>
-<p>Recall, in Model 4 (<code>lr_no_drop</code>) we one-hot encoded <code>"genre"</code> and <code>"rec_label"</code>, and did not use <code>drop="first"</code> when instantiating our <code>OneHotEncoder</code>.</p>
-<p>Suppose we are given the following coefficients in Model 4:</p>
-<ul>
-<li><p>The coefficient on <code>"genre_Pop"</code> is <span class="math inline">2000</span>.</p></li>
-<li><p>The coefficient on <code>"genre_Country"</code> is <span class="math inline">1000</span>.</p></li>
-<li><p>The coefficient on <code>"danceability"</code> is <span class="math inline">10^6 = 1{,}000{,}000</span>.</p></li>
-</ul>
-<p>Daisy and Billy are two artists signed to the same <code>"rec_label"</code> who each just released a new song with the same <code>"speechiness"</code>. Daisy is a <code>"Pop"</code> artist while Billy is a <code>"Country"</code> artist.</p>
-<p>Model 4 predicted that Daisy’s song and Billy’s song will have the same <code>"first_month"</code> streams. What is the <strong>absolute difference</strong> between Daisy’s song’s <code>"danceability"</code> and Billy’s song’s <code>"danceability"</code>? Give your answer as a simplified fraction.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_5" aria-expanded="true" aria-controls="collapse3_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_5" class="accordion-collapse collapse collapse" aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> <span class="math inline">\frac{1}{1000}</span></p>
-<p>"My favorite problem on the exam!" -Suraj</p>
+<p>“My favorite problem on the exam!" -Suraj</p>
 <p>Model 4 is made up of 11 features, i.e. 11 columns.</p>
 <ul>
-<li><p>4 of the columns correspond to the different values of <code>"rec_label"</code>. Since Daisy and Billy have the same <code>"rec_label"</code>, their values in these four columns are all the same.</p></li>
-<li><p>One of the columns corresponds to <code>"speechiness"</code>. Since Daisy’s song and Billy’s song have the same <code>"speechiness"</code>, their values in this column are the same.</p></li>
-<li><p>5 of the columns correspond to the different values of <code>"genre"</code>. Daisy is a <code>"Pop"</code> artist, so she has a 1 in the <code>"genre_Pop"</code> column and a 0 in the other four <code>"genre_"</code> columns, and similarly Billy has a 1 in the <code>"genre_Country"</code> column and 0s in the others.</p></li>
-<li><p>One of the columns corresponds to <code>"danceability"</code>, and Daisy and Billy have different quantitative values in this column.</p></li>
+<li><p>4 of the columns correspond to the different values of
+<code>"rec_label"</code>. Since Daisy and Billy have the same
+<code>"rec_label"</code>, their values in these four columns are all the
+same.</p></li>
+<li><p>One of the columns corresponds to <code>"speechiness"</code>.
+Since Daisy’s song and Billy’s song have the same
+<code>"speechiness"</code>, their values in this column are the
+same.</p></li>
+<li><p>5 of the columns correspond to the different values of
+<code>"genre"</code>. Daisy is a <code>"Pop"</code> artist, so she has a
+1 in the <code>"genre_Pop"</code> column and a 0 in the other four
+<code>"genre_"</code> columns, and similarly Billy has a 1 in the
+<code>"genre_Country"</code> column and 0s in the others.</p></li>
+<li><p>One of the columns corresponds to <code>"danceability"</code>,
+and Daisy and Billy have different quantitative values in this
+column.</p></li>
 </ul>
 <p>Let <span class="math inline">d_1</span> and <span class="math inline">d_2</span>.</p>
-<p>The key is in recognizing that all features in Daisy’s prediction and Billy’s prediction are the same, other than the coefficients on <code>"genre_Pop"</code>, <code>"genre_Country"</code>, and <code>"danceability"</code>. Let’s let <span class="math inline">d_1</span> be Daisy’s song’s <code>"danceability"</code>, and let <span class="math inline">d_2</span> be Billy’s song’s <code>"danceability"</code>. Then:</p>
+<p>The key is in recognizing that all features in Daisy’s prediction and
+Billy’s prediction are the same, other than the coefficients on
+<code>"genre_Pop"</code>, <code>"genre_Country"</code>, and
+<code>"danceability"</code>. Let’s let <span class="math inline">d_1</span> be Daisy’s song’s
+<code>"danceability"</code>, and let <span class="math inline">d_2</span> be Billy’s song’s
+<code>"danceability"</code>. Then:</p>
 <p><span class="math display">\begin{aligned}
     2000 + 10^{6} \cdot d_1 = 1000 + 10^{6} \cdot d_2 \\
     1000 &amp;= 10^{6} (d_2 - d_1) \\
     \frac{1}{1000} &amp;= d_2 - d_1\end{aligned}</span></p>
-<p>Thus, the absolute difference between their songs’ <code>"danceability"</code>s is <span class="math inline">\frac{1}{1000}</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 70%.</p>
+<p>Thus, the absolute difference between their songs’
+<code>"danceability"</code>s is <span class="math inline">\frac{1}{1000}</span>.</p>
 </div>
 </div>
 </div>
@@ -737,25 +833,36 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
-<p><i>Source: <a href="../sp23-final-pt1/index.html">Spring 2023 Final Part 1</a>, Problem 5</i></p>
-<p>Suppose we want to predict how long it takes to run a Jupyter notebook on Datahub. For 100 different Jupyter notebooks, we collect the following 5 pieces of information:</p>
+<p>Suppose we want to predict how long it takes to run a Jupyter
+notebook on Datahub. For 100 different Jupyter notebooks, we collect the
+following 5 pieces of information:</p>
 <ul>
 <li><p><strong>cells</strong>: number of cells in the notebook</p></li>
 <li><p><strong>lines</strong>: number of lines of code</p></li>
-<li><p><strong>max iterations</strong>: largest number of iterations in any loop in the notebook, or 1 if there are no loops</p></li>
-<li><p><strong>variables</strong>: number of variables defined in the notebook</p></li>
-<li><p><strong>runtime</strong>: number of seconds for the notebook to run on Datahub</p></li>
+<li><p><strong>max iterations</strong>: largest number of iterations in
+any loop in the notebook, or 1 if there are no loops</p></li>
+<li><p><strong>variables</strong>: number of variables defined in the
+notebook</p></li>
+<li><p><strong>runtime</strong>: number of seconds for the notebook to
+run on Datahub</p></li>
 </ul>
-<p>Then we use multiple regression to fit a prediction rule of the form <span class="math display">H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}</span></p>
+<p>Then we use multiple regression to fit a prediction rule of the form
+<span class="math display">H(\text{cells, lines, max iterations,
+variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2
+\cdot (\text{max iterations})^{\text{variables} - 10}</span></p>
 <p><br></p>
 <h3 id="problem-4.1">Problem 4.1</h3>
-<p>What are the dimensions of the design matrix <span class="math inline">X</span>?</p>
+<p>What are the dimensions of the design matrix <span
+class="math inline">X</span>?</p>
 <p><span class="math display">\begin{bmatrix}
 &amp; &amp; &amp; \\
 &amp; &amp; &amp; \\
 &amp; &amp; &amp; \\
 \end{bmatrix}_{r \times c}</span></p>
-<p>So, what should <span class="math inline">r</span> and <span class="math inline">c</span> be for: <span class="math inline">r</span> rows <span class="math inline">\times</span> <span class="math inline">c</span> columns.</p>
+<p>So, what should <span class="math inline">r</span> and <span
+class="math inline">c</span> be for: <span class="math inline">r</span>
+rows <span class="math inline">\times</span> <span
+class="math inline">c</span> columns.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4_1">
@@ -763,20 +870,27 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_1" class="accordion-collapse collapse collapse" aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math inline">100 \text{ rows} \times 3 \text{ columns}</span></p>
-<p>There should be <span class="math inline">100</span> rows because there are <span class="math inline">100</span> different Jupyter notebooks with different information within them. There should be <span class="math inline">3</span> columns, one for each <span class="math inline">w_i</span>. In this case we have <span class="math inline">w_0</span>, which means <span class="math inline">X</span> will have a column of ones, <span class="math inline">w_1</span>, which means <span class="math inline">X</span> will have a second column of <span class="math inline">\text{cells} \cdot \text{lines}</span>, and <span class="math inline">w_2</span>, which will be the last column in <span class="math inline">X</span> containing <span class="math inline">\text{max iterations})^{\text{variables} - 10}</span>.</p>
+<p><span class="math inline">100 \text{ rows} \times 3 \text{
+columns}</span></p>
+<p>There should be <span class="math inline">100</span> rows because
+there are <span class="math inline">100</span> different Jupyter
+notebooks with different information within them. There should be <span class="math inline">3</span> columns, one for each <span class="math inline">w_i</span>. In this case we have <span class="math inline">w_0</span>, which means <span class="math inline">X</span> will have a column of ones, <span class="math inline">w_1</span>, which means <span class="math inline">X</span> will have a second column of <span class="math inline">\text{cells} \cdot \text{lines}</span>, and <span class="math inline">w_2</span>, which will be the last column in <span class="math inline">X</span> containing <span class="math inline">\text{max iterations})^{\text{variables} -
+10}</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
-<p>In <strong>one sentence</strong>, what does the entry in row 3, column 2 of the design matrix X represent? (Count rows and columns starting at 1, not 0).</p>
+<p>In <strong>one sentence</strong>, what does the entry in row 3,
+column 2 of the design matrix X represent? (Count rows and columns
+starting at 1, not 0).</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4_2">
@@ -784,12 +898,15 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_2" class="accordion-collapse collapse collapse" aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>This entry represents the product of the number of cells and number of lines of code for the third Jupyter notebook in the training dataset.</p>
+<p>This entry represents the product of the number of cells and number
+of lines of code for the third Jupyter notebook in the training
+dataset.</p>
 </div>
 </div>
 </div>
@@ -797,14 +914,37 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p><i>Source: <a href="../sp23-final-pt1/index.html">Spring 2023 Final Part 1</a>, Problem 6</i></p>
 Now we solve the normal equations and find the solution to be
+<span class="math display">\begin{aligned}
+            \vec{w}^* &amp;= \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^*
+\end{bmatrix}
+\end{aligned}</span>
 Define a new vector:
+<span class="math display">\begin{aligned}
+            \vec{w}^{\circ} &amp;= \begin{bmatrix} w_0^{\circ} \\
+w_1^{\circ} \\ w_2^{\circ} \end{bmatrix} = \begin{bmatrix} w_0^*+3 \\
+w_1^*-4 \\ w_2^*-6 \end{bmatrix}
+            
+\end{aligned}</span>
 <p>and consider the two prediction rules</p>
-<p>Let <span class="math inline">\text{MSE}</span> represent the mean squared error of a prediction rule, and let <span class="math inline">\text{MAE}</span> represent the mean absolute error of a prediction rule. Select the symbol that should go in each blank.</p>
+<span class="math display">\begin{aligned}
+        H^*(\text{cells, lines, max iterations, variables})
+&amp;=  w_0^* + w_1^* \cdot \text{cells} \cdot \text{lines} + w_2^*
+\cdot (\text{max iterations})^{\text{variables} - 10}\\
+        H^{\circ}(\text{cells, lines, max iterations, variables})
+&amp;=  w_0^{\circ} + w_1^{\circ} \cdot \text{cells} \cdot \text{lines}
++ w_2^{\circ} \cdot (\text{max iterations})^{\text{variables} - 10}
+        
+\end{aligned}</span>
+<p>Let <span class="math inline">\text{MSE}</span> represent the mean
+squared error of a prediction rule, and let <span
+class="math inline">\text{MAE}</span> represent the mean absolute error
+of a prediction rule. Select the symbol that should go in each
+blank.</p>
 <p><br></p>
 <h3 id="problem-5.1">Problem 5.1</h3>
-<p><span class="math inline">\text{MSE}(H^*)</span> ___ <span class="math inline">\text{MSE}(H^{\circ})</span></p>
+<p><span class="math inline">\text{MSE}(H^*)</span> ___ <span
+class="math inline">\text{MSE}(H^{\circ})</span></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">\leq</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">\geq</span></p></li>
@@ -817,15 +957,30 @@ Define a new vector:
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse5_1" class="accordion-collapse collapse collapse" aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><span class="math inline">\leq</span></p>
-<p>It is given that <span class="math inline">\vec{w}^*</span> is the optimal parameter vector. Here’s one thing we know about the optimal parameter vector <span class="math inline">\vec{w}^*</span>: it is optimal, which means that any <em>changes</em> made to it will, at best, keep our predictions of the exact same quality, and, at worst, reduce the quality of our predictions and <strong>increase our error</strong>. And since <span class="math inline">\vec{w} \degree</span> is just the optimal parameter vector but with some small <em>changes</em> to the weights, it stands that <span class="math inline">\vec{w} \degree</span> is liable to create equal or greater error!</p>
-<p>In other words, <span class="math inline">\vec{w} \degree</span> is a slightly worse version of <span class="math inline">\vec{w}^*</span>, meaning that <span class="math inline">H \degree(x)</span> is a slightly worse version of <span class="math inline">H^*(x)</span>. So, <span class="math inline">H \degree(x)</span> will have equal or higher error than <span class="math inline">H^*(x)</span>.</p>
-<p>Hence: <span class="math inline">\text{MSE}(H^*) \leq \text{MSE}(H^{\circ})</span></p>
+<p>It is given that <span class="math inline">\vec{w}^*</span> is the
+optimal parameter vector. Here’s one thing we know about the optimal
+parameter vector <span class="math inline">\vec{w}^*</span>: it is
+optimal, which means that any <em>changes</em> made to it will, at best,
+keep our predictions of the exact same quality, and, at worst, reduce
+the quality of our predictions and <strong>increase our error</strong>.
+And since <span class="math inline">\vec{w} \degree</span> is just the
+optimal parameter vector but with some small <em>changes</em> to the
+weights, it stands that <span class="math inline">\vec{w} \degree</span>
+is liable to create equal or greater error!</p>
+<p>In other words, <span class="math inline">\vec{w} \degree</span> is a
+slightly worse version of <span class="math inline">\vec{w}^*</span>,
+meaning that <span class="math inline">H \degree(x)</span> is a slightly
+worse version of <span class="math inline">H^*(x)</span>. So, <span class="math inline">H \degree(x)</span> will have equal or higher error
+than <span class="math inline">H^*(x)</span>.</p>
+<p>Hence: <span class="math inline">\text{MSE}(H^*) \leq
+\text{MSE}(H^{\circ})</span></p>
 <!-- Recall the equation for mean squared error: $\text{MSE}(H(x_i)) = \frac{1}{n}\sum_{i=1}^n(y_i-H(x_i))^2$. We can figure out which is bigger by subtracting  $\text{MSE}(H^{\circ})$ from $\text{MSE}(H^*)$. The difference between the squared differences is:
 $$(y_i-H^*(x_i))^2-(y_i-H^{\circ}(x_i))^2$$Notice there is a squared element, which means that the differences of $w^*_0 - w^{\circ}_0$, $w^*_1 - w^{\circ}_1$, and $w^*_2 - w^{\circ}_2$ will appear as squared terms, which are always positive! This means adding these squared differences to $H^*$ will make it at least as large as the squared difference for $H^{\circ}$. -->
 </div>
@@ -867,21 +1022,46 @@ Click to view the solution.
 <h1 class="title"> </h1>
 </header>
 <p><span class="math inline">\geq</span></p>
-<p>The formula for mean absolute error is: <span class="math inline">\text{MAE}(H(x_i)) = \frac{1}{n}\sum_{i=1}^n|y_i-H(x_i)|</span><br/>
-The formula for mean squared error is: <span class="math inline">\text{MSE}(H(x_i)) = \frac{1}{n}\sum_{i=1}^n(y_i-H(x_i))^2</span></p>
-<p>We can substitute these two formulas into our comparison and recieve: <span class="math inline">(\frac{1}{n}\sum_{i=1}^n|y_i-H(x_i)|)^2</span> ___ <span class="math inline">\frac{1}{n}\sum_{i=1}^n(y_i-H(x_i))^2</span></p>
-<p>It is now clear that our comparison boils down to this question: “Which is greater? If I take the absolute errors, square them, and then sum them up… <em>or</em> if I take the absolute errors, sum them up, and then square them?”</p>
-<p>Rules from algebra tell us that summing the absolute errors up <em>before</em> squaring them will always produce a greater result than the other way around (this holds when all of our values are positive, which they are in this case thanks to dealing with <em>absolute</em> errors)! It’s a good exercise to think about why this is the case, but a basic example is if I have two positive values <span class="math inline">a</span> and <span class="math inline">b</span>: <span class="math inline">(a + b)^2 = a^2 + b^2 + 2ab \geq a^2 + b^2</span>, since <span class="math inline">2ab</span> is a non-negative term.</p>
-<p>Bringing this altogether, we should conclude that <span class="math inline">\text{MAE}(H(x_i))^2 \geq \text{MSE}(H(x_i))</span>, since summing up the errors before squaring them is greater than the other way around!</p>
+<p>The formula for mean absolute error is: <span class="math inline">\text{MAE}(H(x_i)) =
+\frac{1}{n}\sum_{i=1}^n|y_i-H(x_i)|</span><br/>
+The formula for mean squared error is: <span class="math inline">\text{MSE}(H(x_i)) =
+\frac{1}{n}\sum_{i=1}^n(y_i-H(x_i))^2</span></p>
+<p>We can substitute these two formulas into our comparison and recieve:
+<span class="math inline">(\frac{1}{n}\sum_{i=1}^n|y_i-H(x_i)|)^2</span>
+___ <span class="math inline">\frac{1}{n}\sum_{i=1}^n(y_i-H(x_i))^2</span></p>
+<p>It is now clear that our comparison boils down to this question:
+“Which is greater? If I take the absolute errors, square them, and then
+sum them up… <em>or</em> if I take the absolute errors, sum them up, and
+then square them?”</p>
+<p>Rules from algebra tell us that summing the absolute errors up
+<em>before</em> squaring them will always produce a greater result than
+the other way around (this holds when all of our values are positive,
+which they are in this case thanks to dealing with <em>absolute</em>
+errors)! It’s a good exercise to think about why this is the case, but a
+basic example is if I have two positive values <span class="math inline">a</span> and <span class="math inline">b</span>:
+<span class="math inline">(a + b)^2 = a^2 + b^2 + 2ab \geq a^2 +
+b^2</span>, since <span class="math inline">2ab</span> is a non-negative
+term.</p>
+<p>Bringing this altogether, we should conclude that <span class="math inline">\text{MAE}(H(x_i))^2  \geq
+\text{MSE}(H(x_i))</span>, since summing up the errors before squaring
+them is greater than the other way around!</p>
 <p>Old Solution Below:</p>
-<p>This equation looks very similar to the mean squared error! We can actually take the square root of each sides of this equation to learn more about which side is larger: <span class="math display">
+<p>This equation looks very similar to the mean squared error! We can
+actually take the square root of each sides of this equation to learn
+more about which side is larger: <span class="math display">
 \begin{align*}
 (\text{MAE}(H^\circ))^2 &amp;\_\_\_ \text{MSE}(H^\circ) \\
 \sqrt{(\text{MAE}(H^\circ))^2} &amp;\_\_\_ \sqrt{\text{MSE}(H^\circ)} \\
 \text{MAE}(H^\circ) &amp;\_\_\_ \sqrt{\text{MSE}(H^\circ)}
 \end{align*}
 </span></p>
-<p>The square root of <span class="math inline">\text{MSE}</span> is equal to <span class="math inline">\text{MAE}</span>! These two elements are basically the same because squaring a value will lead to non-negatives and then it will be square rooted to match the absolute value from <span class="math inline">\text{MAE}</span>. However the <span class="math inline">\text{MSE}</span> being square rooted also allows for it to be smaller than the <span class="math inline">\text{MSE}</span> making the correct symbol <span class="math inline">\geq</span>.</p>
+<p>The square root of <span class="math inline">\text{MSE}</span> is
+equal to <span class="math inline">\text{MAE}</span>! These two elements
+are basically the same because squaring a value will lead to
+non-negatives and then it will be square rooted to match the absolute
+value from <span class="math inline">\text{MAE}</span>. However the
+<span class="math inline">\text{MSE}</span> being square rooted also
+allows for it to be smaller than the <span class="math inline">\text{MSE}</span> making the correct symbol <span class="math inline">\geq</span>.</p>
 
 </div>
 </div>
@@ -895,13 +1075,27 @@ The formula for mean squared error is: <span class="math inline">\text{MSE}(H(x_
 <br> -->
 <hr />
 <h2 id="problem-6">Problem 6</h2>
-<p><i>Source: <a href="../sp23-midterm1/index.html">Spring 2023 Midterm 1</a>, Problem 5</i></p>
-<p>Let <span class="math inline">X</span> be a design matrix with 4 columns, such that the first column is a column of all <span class="math inline">1</span>s. Let <span class="math inline">\vec{y}</span> be an observation vector. Let <span class="math inline">\vec{w}^* = (X^TX)^{-1}X^T\vec{y}.</span> We’ll name the components of <span class="math inline">\vec{w}^*</span> as follows:</p>
-<p><span class="math display">\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^* \\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
-<p>In this problem, we’ll consider various modifications to the design matrix and see how they affect the solution to the normal equations.</p>
+<p>Let <span class="math inline">X</span> be a design matrix with 4
+columns, such that the first column is a column of all <span
+class="math inline">1</span>s. Let <span
+class="math inline">\vec{y}</span> be an observation vector. Let <span
+class="math inline">\vec{w}^* = (X^TX)^{-1}X^T\vec{y}.</span> We’ll name
+the components of <span class="math inline">\vec{w}^*</span> as
+follows:</p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^*
+\\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
+<p>In this problem, we’ll consider various modifications to the design
+matrix and see how they affect the solution to the normal equations.</p>
 <p><br></p>
 <h3 id="problem-6.1">Problem 6.1</h3>
-<p>Let <span class="math inline">X_a</span> be the design matrix that comes from <strong>interchanging the first two columns</strong> of <span class="math inline">X</span>. Let <span class="math inline">\vec{w_a}^* = (X_a^TX_a)^{-1}X_a^T\vec{y}</span>. Express the components <span class="math inline">\vec{w_a}^*</span> in terms of <span class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span class="math inline">w_3^*</span> (which were the components of <span class="math inline">\vec{w}^*</span>).</p>
+<p>Let <span class="math inline">X_a</span> be the design matrix that
+comes from <strong>interchanging the first two columns</strong> of <span
+class="math inline">X</span>. Let <span class="math inline">\vec{w_a}^*
+= (X_a^TX_a)^{-1}X_a^T\vec{y}</span>. Express the components <span
+class="math inline">\vec{w_a}^*</span> in terms of <span
+class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span
+class="math inline">w_3^*</span> (which were the components of <span
+class="math inline">\vec{w}^*</span>).</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_1">
@@ -909,17 +1103,28 @@ The formula for mean squared error is: <span class="math inline">\text{MSE}(H(x_
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6_1" class="accordion-collapse collapse collapse" aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">\vec{w_a}^* = \begin{bmatrix} w_1^* \\ w_0^* \\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
-<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+ w_2x_2+  w_3x_3.</span></p>
-<p>Where: <span class="math display">\vec{w_a}^* = \begin{bmatrix} v_0^* \\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
-<p>By swapping the first two columns of our design matrix, this changes the prediction rule to be of the form: <span class="math display">H_2(\vec{x}) = v_1 + v_0x_1 + v_2x_2+  v_3x_3.</span></p>
-<p>Therefore the optimal parameters for <span class="math inline">H_2</span> are related to the optimal parameters for <span class="math inline">H</span> by: <span class="math display">\begin{aligned} v_0^* &amp;= w_1^* \\ v_1^* &amp;= w_0^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^* \end{aligned}</span></p>
-<p>Intuitively, when we interchange two columns of our design matrix, all that does is interchange the terms in the prediction rule, which interchanges those weights in the parameter vector.</p>
+<p><span class="math display">\vec{w_a}^* = \begin{bmatrix} w_1^* \\
+w_0^* \\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
+<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+
+w_2x_2+  w_3x_3.</span></p>
+<p>Where: <span class="math display">\vec{w_a}^* = \begin{bmatrix} v_0^*
+\\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
+<p>By swapping the first two columns of our design matrix, this changes
+the prediction rule to be of the form: <span class="math display">H_2(\vec{x}) = v_1 + v_0x_1 +
+v_2x_2+  v_3x_3.</span></p>
+<p>Therefore the optimal parameters for <span class="math inline">H_2</span> are related to the optimal parameters for
+<span class="math inline">H</span> by: <span class="math display">\begin{aligned} v_0^* &amp;= w_1^* \\ v_1^* &amp;=
+w_0^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^*
+\end{aligned}</span></p>
+<p>Intuitively, when we interchange two columns of our design matrix,
+all that does is interchange the terms in the prediction rule, which
+interchanges those weights in the parameter vector.</p>
 </div>
 </div>
 </div>
@@ -927,7 +1132,14 @@ Click to view the solution.
 <p><br></p>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
-<p>Let <span class="math inline">X_b</span> be the design matrix that comes from <strong>adding one to each entry of the first column</strong> of <span class="math inline">X</span>. Let <span class="math inline">\vec{w_b}^* = (X_b^TX_b)^{-1}X_b^T\vec{y}</span>. Express the components <span class="math inline">\vec{w_b}^*</span> in terms of <span class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span class="math inline">w_3^*</span> (which were the components of <span class="math inline">\vec{w}^*</span>).</p>
+<p>Let <span class="math inline">X_b</span> be the design matrix that
+comes from <strong>adding one to each entry of the first column</strong>
+of <span class="math inline">X</span>. Let <span
+class="math inline">\vec{w_b}^* = (X_b^TX_b)^{-1}X_b^T\vec{y}</span>.
+Express the components <span class="math inline">\vec{w_b}^*</span> in
+terms of <span class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span
+class="math inline">w_3^*</span> (which were the components of <span
+class="math inline">\vec{w}^*</span>).</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_2">
@@ -935,17 +1147,35 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6_2" class="accordion-collapse collapse collapse" aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">\vec{w_b}^* = \begin{bmatrix} \dfrac{w_0^*}{2}  \\ w_1^* \\ w_2^* \\ w_3^*\end{bmatrix}</span></p>
-<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+ w_2x_2+  w_3x_3.</span></p>
-<p>Where: <span class="math display">\vec{w_b}^* = \begin{bmatrix} v_0^* \\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
-<p>By adding one to each entry of the first column of the design matrix, we are changing the column of <span class="math inline">1</span>s to be a column of <span class="math inline">2</span>s. This changes the prediction rule to be of the form: <span class="math display">H_2(\vec{x}) = v_0\cdot 2+ v_1x_1 + v_2x_2+  v_3x_3.</span></p>
-<p>In order to compensate for these changes to our coefficients, we need to “offset” any alterations made to our coefficients. Therefore the optimal parameters for <span class="math inline">H_2</span> are related to the optimal parameters for <span class="math inline">H</span> by: <span class="math display">\begin{aligned} v_0^* &amp;= \dfrac{w_0^*}{2} \\ v_1^* &amp;= w_1^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^* \end{aligned}</span></p>
-<p>This is saying we just halve the intercept term. For example, imagine fitting a line to data in <span class="math inline">\mathbb{R}^2</span> and finding that the best-fitting line is <span class="math inline">y=12+3x</span>. If we had to write this in the form <span class="math inline">y=v_0\cdot 2 + v_1x</span>, we would find that the best choice for <span class="math inline">v_0</span> is <span class="math inline">6</span> and the best choice for <span class="math inline">v_1</span> is <span class="math inline">3</span>.</p>
+<p><span class="math display">\vec{w_b}^* = \begin{bmatrix}
+\dfrac{w_0^*}{2}  \\ w_1^* \\ w_2^* \\ w_3^*\end{bmatrix}</span></p>
+<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+
+w_2x_2+  w_3x_3.</span></p>
+<p>Where: <span class="math display">\vec{w_b}^* = \begin{bmatrix} v_0^*
+\\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
+<p>By adding one to each entry of the first column of the design matrix,
+we are changing the column of <span class="math inline">1</span>s to be
+a column of <span class="math inline">2</span>s. This changes the
+prediction rule to be of the form: <span class="math display">H_2(\vec{x}) = v_0\cdot 2+ v_1x_1 +
+v_2x_2+  v_3x_3.</span></p>
+<p>In order to compensate for these changes to our coefficients, we need
+to “offset” any alterations made to our coefficients. Therefore the
+optimal parameters for <span class="math inline">H_2</span> are related
+to the optimal parameters for <span class="math inline">H</span> by:
+<span class="math display">\begin{aligned} v_0^* &amp;= \dfrac{w_0^*}{2}
+\\ v_1^* &amp;= w_1^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^*
+\end{aligned}</span></p>
+<p>This is saying we just halve the intercept term. For example, imagine
+fitting a line to data in <span class="math inline">\mathbb{R}^2</span>
+and finding that the best-fitting line is <span class="math inline">y=12+3x</span>. If we had to write this in the form
+<span class="math inline">y=v_0\cdot 2 + v_1x</span>, we would find that
+the best choice for <span class="math inline">v_0</span> is <span class="math inline">6</span> and the best choice for <span class="math inline">v_1</span> is <span class="math inline">3</span>.</p>
 </div>
 </div>
 </div>
@@ -953,7 +1183,14 @@ Click to view the solution.
 <p><br></p>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
-<p>Let <span class="math inline">X_c</span> be the design matrix that comes from <strong>adding one to each entry of the third column</strong> of <span class="math inline">X</span>. Let <span class="math inline">\vec{w_c}^* = (X_c^TX_c)^{-1}X_c^T\vec{y}</span>. Express the components <span class="math inline">\vec{w_c}^*</span> in terms of <span class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span class="math inline">w_3^*</span>, which were the components of <span class="math inline">\vec{w}^*</span>.</p>
+<p>Let <span class="math inline">X_c</span> be the design matrix that
+comes from <strong>adding one to each entry of the third column</strong>
+of <span class="math inline">X</span>. Let <span
+class="math inline">\vec{w_c}^* = (X_c^TX_c)^{-1}X_c^T\vec{y}</span>.
+Express the components <span class="math inline">\vec{w_c}^*</span> in
+terms of <span class="math inline">w_0^*, w_1^*, w_2^*</span>, and <span
+class="math inline">w_3^*</span>, which were the components of <span
+class="math inline">\vec{w}^*</span>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_3">
@@ -961,17 +1198,33 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6_3" class="accordion-collapse collapse collapse" aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">\vec{w_c}^* = \begin{bmatrix} w_0^* - w_2^*  \\ w_1^* \\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
-<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+ w_2x_2+  w_3x_3.</span></p>
-<p>Where: <span class="math display">\vec{w_c}^* = \begin{bmatrix} v_0^* \\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
-<p>By adding one to each entry of the third column of the design matrix, this changes the prediction rule to be of the form: <span class="math display">\begin{aligned} H_2(\vec{x}) &amp;= v_0+ v_1x_1 + v_2(x_2+1)+  v_3x_3 \\ &amp;= (v_0 + v_2) + v_1x_1 + v_2x_2+  v_3x_3 \end{aligned}</span></p>
-<p>In order to compensate for these changes to our coefficients, we need to “offset” any alterations made to our coefficients. Therefore the optimal parameters for <span class="math inline">H_2</span> are related to the optimal parameters for <span class="math inline">H</span> by <span class="math display">\begin{aligned} v_0^* &amp;= w_0^* - w_2^* \\ v_1^* &amp;= w_1^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^* \end{aligned}</span></p>
-<p>One way to think about this is that if we replace <span class="math inline">x_2</span> with <span class="math inline">x_2+1</span>, then our predictions will increase by the coefficient of <span class="math inline">x_2</span>. In order to keep our predictions the same, we would need to adjust our intercept term by subtracting this same amount.</p>
+<p><span class="math display">\vec{w_c}^* = \begin{bmatrix} w_0^* -
+w_2^*  \\ w_1^* \\ w_2^* \\ w_3^* \end{bmatrix}</span></p>
+<p>Suppose our original prediction rule was of the form: <span class="math display">H(\vec{x}) = w_0 + w_1x_1+
+w_2x_2+  w_3x_3.</span></p>
+<p>Where: <span class="math display">\vec{w_c}^* = \begin{bmatrix} v_0^*
+\\ v_1^* \\ v_2^* \\ v_3^* \end{bmatrix}</span></p>
+<p>By adding one to each entry of the third column of the design matrix,
+this changes the prediction rule to be of the form: <span class="math display">\begin{aligned} H_2(\vec{x}) &amp;= v_0+ v_1x_1 +
+v_2(x_2+1)+  v_3x_3 \\ &amp;= (v_0 + v_2) + v_1x_1 + v_2x_2+  v_3x_3
+\end{aligned}</span></p>
+<p>In order to compensate for these changes to our coefficients, we need
+to “offset” any alterations made to our coefficients. Therefore the
+optimal parameters for <span class="math inline">H_2</span> are related
+to the optimal parameters for <span class="math inline">H</span> by
+<span class="math display">\begin{aligned} v_0^* &amp;= w_0^* - w_2^* \\
+v_1^* &amp;= w_1^* \\ v_2^* &amp;= w_2^* \\ v_3^* &amp;= w_3^*
+\end{aligned}</span></p>
+<p>One way to think about this is that if we replace <span class="math inline">x_2</span> with <span class="math inline">x_2+1</span>, then our predictions will increase by
+the coefficient of <span class="math inline">x_2</span>. In order to
+keep our predictions the same, we would need to adjust our intercept
+term by subtracting this same amount.</p>
 </div>
 </div>
 </div>
@@ -979,15 +1232,24 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
-<p>The two plots below show the total number of boots (top) and sandals (bottom) purchased per month in the <code>df</code> table. Assume that there is one data point per month.</p>
-<center><img src="../../assets/images/sp24-final/boot.png" style="width: 100%; height: auto;"></center>
-<center><img src="../../assets/images/sp24-final/sandal.png" style="width: 100%; height: auto;"></center>
-<p>For each of the following regression models, use the visualizations shown above to select the value that is <strong>closest</strong> to the fitted model weights. If it is not possible to determine the model weight, select “Not enough info”. For the models below:</p>
+<p>The two plots below show the total number of boots (top) and sandals
+(bottom) purchased per month in the <code>df</code> table. Assume that
+there is one data point per month.</p>
+<center><img src="../../assets/images/disc09/boot.png" style="width: 100%; height: auto;"></center>
+<center><img src="../../assets/images/disc09/sandal.png" style="width: 100%; height: auto;"></center>
+<p>For each of the following regression models, use the visualizations
+shown above to select the value that is <strong>closest</strong> to the
+fitted model weights. If it is not possible to determine the model
+weight, select “Not enough info”. For the models below:</p>
 <ul>
-<li>The notation <code>boot</code> refers to the number of boots sold.</li>
-<li>The notation <code>sandal</code> refers to the number of sandals sold.</li>
-<li><code>summer=1</code> is a column with value 1 if the month is between March (03) and August (08), inclusive.</li>
-<li><code>winter=1</code> is a column with value 1 if the month is between September (09) and February (02), inclusive.</li>
+<li>The notation <code>boot</code> refers to the number of boots
+sold.</li>
+<li>The notation <code>sandal</code> refers to the number of sandals
+sold.</li>
+<li><code>summer=1</code> is a column with value 1 if the month is
+between March (03) and August (08), inclusive.</li>
+<li><code>winter=1</code> is a column with value 1 if the month is
+between September (09) and February (02), inclusive.</li>
 </ul>
 <p><br></p>
 <h3 id="problem-7.1">Problem 7.1</h3>
@@ -1006,7 +1268,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_1" class="accordion-collapse collapse collapse" aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1044,7 +1307,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_2" class="accordion-collapse collapse collapse" aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1085,7 +1349,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_3" class="accordion-collapse collapse collapse" aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1126,7 +1391,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_4" class="accordion-collapse collapse collapse" aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1176,7 +1442,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_5" class="accordion-collapse collapse collapse" aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
+<div id="collapse7_5" class="accordion-collapse collapse"
+aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1192,19 +1459,35 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
-<p><i>Source: <a href="../sp24-midterm/index.html">Spring 2024 Midterm</a>, Problem 3</i></p>
-<p>Consider a dataset of <span class="math inline">n</span> values, <span class="math inline">y_1, y_2, ..., y_n</span>, where <span class="math inline">y_1 &lt; y_2 &lt; ... &lt; y_n</span>. Let <span class="math inline">R_\text{abs}(h)</span> be the mean absolute error of a constant prediction <span class="math inline">h</span> on this dataset of <span class="math inline">n</span> values.</p>
-<p>Suppose that we introduce a new value to the dataset, <span class="math inline">\alpha</span>. Let <span class="math inline">S_\text{abs}(h)</span> be the mean absolute error of a constant prediction <span class="math inline">h</span> on this new dataset of <span class="math inline">n + 1</span> values.</p>
+<p>Consider a dataset of <span class="math inline">n</span> values,
+<span class="math inline">y_1, y_2, ..., y_n</span>, where <span
+class="math inline">y_1 &lt; y_2 &lt; ... &lt; y_n</span>. Let <span
+class="math inline">R_\text{abs}(h)</span> be the mean absolute error of
+a constant prediction <span class="math inline">h</span> on this dataset
+of <span class="math inline">n</span> values.</p>
+<p>Suppose that we introduce a new value to the dataset, <span
+class="math inline">\alpha</span>. Let <span
+class="math inline">S_\text{abs}(h)</span> be the mean absolute error of
+a constant prediction <span class="math inline">h</span> on this new
+dataset of <span class="math inline">n + 1</span> values.</p>
 <p>We’re given that:</p>
 <ul>
 <li><span class="math inline">n &gt; 5</span></li>
-<li><span class="math inline">\alpha</span> is not equal to any of <span class="math inline">y_1, y_2, ..., y_n</span>.</li>
-<li>All values of <span class="math inline">h</span> between 7 and 9 minimize <span class="math inline">S_\text{abs}(h)</span>.</li>
-<li>The slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment immediately to the right of <span class="math inline">\alpha</span> is <span class="math inline">\frac{5-n}{1 + n}</span>.</li>
+<li><span class="math inline">\alpha</span> is not equal to any of <span
+class="math inline">y_1, y_2, ..., y_n</span>.</li>
+<li>All values of <span class="math inline">h</span> between 7 and 9
+minimize <span class="math inline">S_\text{abs}(h)</span>.</li>
+<li>The slope of <span class="math inline">S_\text{abs}(h)</span> on the
+line segment immediately to the right of <span
+class="math inline">\alpha</span> is <span
+class="math inline">\frac{5-n}{1 + n}</span>.</li>
 </ul>
 <p><br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
-<p>In the problem statement, we were told that ``all values between 7 and 9 minimize <span class="math inline">S_\text{abs}(h)</span>." More specifically, what interval of values <span class="math inline">h</span> minimize <span class="math inline">S_\text{abs}(h)</span>?</p>
+<p>In the problem statement, we were told that ``all values between 7
+and 9 minimize <span class="math inline">S_\text{abs}(h)</span>.” More
+specifically, what interval of values <span class="math inline">h</span>
+minimize <span class="math inline">S_\text{abs}(h)</span>?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">7 &lt; h &lt; 9</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">7 \leq h &lt; 9</span></p></li>
@@ -1218,33 +1501,58 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_1" class="accordion-collapse collapse collapse" aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><span class="math inline">7 \leq h \leq 9</span></p>
-<p>Remeber that when the minimizer of <span class="math inline">R_\text{abs}(h)</span> is a range that imples that you have dataset with an even number of elements (in this problem that means <span class="math inline">n+1</span> is even, so <span class="math inline">n</span> is odd). Now we know that any point in between 7 and 9 minimizes <span class="math inline">S_\text{abs}(h)</span>. Algebraically, if x is a point between 7 and 9, then <span class="math inline">S_\text{abs}(x)</span> looks like this</p>
-<p></p>
-<p>Now let’s say that <span class="math inline">\gamma = |7-x|</span> , and <span class="math inline">\beta = 2-\gamma = |9-x|</span>. Then we can see that</p>
-<p></p>
+<p>Remeber that when the minimizer of <span class="math inline">R_\text{abs}(h)</span> is a range that imples that
+you have dataset with an even number of elements (in this problem that
+means <span class="math inline">n+1</span> is even, so <span class="math inline">n</span> is odd). Now we know that any point in
+between 7 and 9 minimizes <span class="math inline">S_\text{abs}(h)</span>. Algebraically, if x is a
+point between 7 and 9, then <span class="math inline">S_\text{abs}(x)</span> looks like this</p>
+<p><span class="math display">\begin{align*}
+S_\text{abs}(x) &amp;= |y_1 - x| + ... + |7 - x| + |9 - x| + ... +
+|y_\text{n} -x| \\
+\end{align*}</span></p>
+<p>Now let’s say that <span class="math inline">\gamma = |7-x|</span> ,
+and <span class="math inline">\beta = 2-\gamma = |9-x|</span>. Then we
+can see that</p>
+<p><span class="math display">\begin{align*}
+S_\text{abs}(7) &amp;= (|y_1 - x| - \gamma) + ... + (|7 - x| - \gamma) +
+(|9 - x| + \gamma) + ... + (|y_\text{n} - x| + \gamma)\\
+S_\text{abs}(7) &amp;= |y_1 - x| + ... + |7 - x| + |9 - x| + ... +
+|y_\text{n} - x| + \frac{n+1}{2}(\gamma) + \frac{n+1}{2}(-\gamma)\\
+S_\text{abs}(7) &amp;= S_\text{abs}(x)
+\end{align*}</span></p>
 <p>Similarly</p>
-<p></p>
+<p><span class="math display">\begin{align*}
+S_\text{abs}(9) &amp;= (|y_1 - x| + \beta) + ... + (|7 - x| + \beta) +
+(|9 - x| - \beta) + ... + (|y_\text{n} - x| - \beta)\\
+S_\text{abs}(9) &amp;= |y_1 - x| + ... + |7 - x| + |9 - x| + ... +
+|y_\text{n} - x| + \frac{n+1}{2}(-\beta) + \frac{n+1}{2}(\beta)\\
+S_\text{abs}(9) &amp;= S_\text{abs}(x)
+\end{align*}</span></p>
 <p>Therefore both 7 and 9 minimize <span class="math inline">S_\text{abs}(h)</span>.</p>
-<p><strong>Note:</strong> Even though the equations end at <span class="math inline">y_n</span>, remember that there’s an element <span class="math inline">\alpha</span> somewhere on the dataset, making <span class="math inline">n+1</span> elements in total. In particular, there must be <span class="math inline">\frac{n+1}{2}</span> elements before and including 7, and <span class="math inline">\frac{n+1}{2}</span> after and including 9.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 59%.</p>
+<p><strong>Note:</strong> Even though the equations end at <span class="math inline">y_n</span>, remember that there’s an element <span class="math inline">\alpha</span> somewhere on the dataset, making <span class="math inline">n+1</span> elements in total. In particular, there
+must be <span class="math inline">\frac{n+1}{2}</span> elements before
+and including 7, and <span class="math inline">\frac{n+1}{2}</span>
+after and including 9.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
-<p>Which value(s) minimize <span class="math inline">R_\text{abs}(h)</span>? Give your answer(s) as integer(s) with no variables. Show your work.</p>
-<p><i>Hint: Don’t start by trying to expand <span class="math inline">\frac{1}{n} \sum_{i = 1}^n |y_i - h|</span> — instead, think about what removing <span class="math inline">\alpha</span> does.</i></p>
+<p>Which value(s) minimize <span
+class="math inline">R_\text{abs}(h)</span>? Give your answer(s) as
+integer(s) with no variables. Show your work.</p>
+<p><i>Hint: Don’t start by trying to expand <span
+class="math inline">\frac{1}{n} \sum_{i = 1}^n |y_i - h|</span> —
+instead, think about what removing <span
+class="math inline">\alpha</span> does.</i></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_2">
@@ -1252,27 +1560,49 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_2" class="accordion-collapse collapse collapse" aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p>9</p>
-<p>We now that the minimizer of <span class="math inline">R_\text{abs}(h)</span> must be the median, which we know it must be either 7 or 9, and it all depends on where on the dataset was <span class="math inline">\alpha</span> added. Assuming we added <span class="math inline">\alpha</span> on the first half of the dataset, our dataset should look like this  Now if we remove <span class="math inline">\alpha</span>, the dataset becomes  which means that now there’s only <span class="math inline">\frac{n+1}{2} - 1</span> elements from <span class="math inline">y_1</span> to <span class="math inline">7</span>, and <span class="math inline">\frac{n+1}{2}</span> elements from <span class="math inline">9</span> to <span class="math inline">y_\text{n}</span>. Thus 9 is the new median since there would be <span class="math inline">\frac{n+1}{2} - 1</span> elements before and after 9. Using a similar reasoning you can show that if <span class="math inline">\alpha</span> is on the second half of the dataset then 7 would be the new median and minimizer.</p>
-<p>Now we only need to find the placement of <span class="math inline">\alpha</span> on our data. Remember that the slope of <span class="math inline">S_\text{abs}(h)</span> at a point p can be calculated as  Which means that if the slope of <span class="math inline">S_\text{abs}(h)</span> is negative near <span class="math inline">\alpha</span> then <span class="math inline">\alpha</span> is in the first halft, otherwise <span class="math inline">\alpha</span> is in the second half.</p>
-<p>Since we know that the slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment immediately to the right of <span class="math inline">\alpha</span> is <span class="math inline">\frac{5-n}{1 + n}</span> , and since <span class="math inline">n &gt; 5</span> then the slope is negative, meaning that <span class="math inline">\alpha</span> is on the first half, making 9 the minimizer.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 39%.</p>
+<p>We now that the minimizer of <span class="math inline">R_\text{abs}(h)</span> must be the median, which we
+know it must be either 7 or 9, and it all depends on where on the
+dataset was <span class="math inline">\alpha</span> added. Assuming we
+added <span class="math inline">\alpha</span> on the first half of the
+dataset, our dataset should look like this <span class="math display">\begin{align*}
+y_1,...,\alpha,...7,9,...,y_\text{n+1}
+\end{align*}</span> Now if we remove <span class="math inline">\alpha</span>, the dataset becomes <span class="math display">\begin{align*}
+y_1,...,7,9,...,y_\text{n+1}
+\end{align*}</span> which means that now there’s only <span class="math inline">\frac{n+1}{2} - 1</span> elements from <span class="math inline">y_1</span> to <span class="math inline">7</span>,
+and <span class="math inline">\frac{n+1}{2}</span> elements from <span class="math inline">9</span> to <span class="math inline">y_\text{n}</span>. Thus 9 is the new median since
+there would be <span class="math inline">\frac{n+1}{2} - 1</span>
+elements before and after 9. Using a similar reasoning you can show that
+if <span class="math inline">\alpha</span> is on the second half of the
+dataset then 7 would be the new median and minimizer.</p>
+<p>Now we only need to find the placement of <span class="math inline">\alpha</span> on our data. Remember that the slope
+of <span class="math inline">S_\text{abs}(h)</span> at a point p can be
+calculated as <span class="math display">\begin{align*}
+\frac{\text{number of points before p} - \text{number of points after
+p}}{n+1} \\
+\end{align*}</span> Which means that if the slope of <span class="math inline">S_\text{abs}(h)</span> is negative near <span class="math inline">\alpha</span> then <span class="math inline">\alpha</span> is in the first halft, otherwise <span class="math inline">\alpha</span> is in the second half.</p>
+<p>Since we know that the slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment
+immediately to the right of <span class="math inline">\alpha</span> is
+<span class="math inline">\frac{5-n}{1 + n}</span> , and since <span class="math inline">n &gt; 5</span> then the slope is negative, meaning
+that <span class="math inline">\alpha</span> is on the first half,
+making 9 the minimizer.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-8.3">Problem 8.3</h3>
-<p>What is the slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment immediately to the left of <span class="math inline">\alpha</span>? Give your answer in the form of an expression involving <span class="math inline">n</span>. Show your work.</p>
+<p>What is the slope of <span class="math inline">S_\text{abs}(h)</span>
+on the line segment immediately to the left of <span
+class="math inline">\alpha</span>? Give your answer in the form of an
+expression involving <span class="math inline">n</span>. Show your
+work.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_3">
@@ -1280,20 +1610,26 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_3" class="accordion-collapse collapse collapse" aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
+<div id="collapse8_3" class="accordion-collapse collapse"
+aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><span class="math inline">\frac{3-n}{1 + n}</span></p>
-<p>Remember that the slope of <span class="math inline">S_\text{abs}(h)</span> at a point p can be calculated as </p>
-<p>Whenever we transition from the right of <span class="math inline">\alpha</span> to the left of <span class="math inline">\alpha</span>, then alpha becomes a new point after p and we also lose a point that was before p, therefore looking at the formula above we can get the slope of the segment to the left of <span class="math inline">\alpha</span> by subtracting 2 to the numerator of the slope to the right of <span class="math inline">\alpha</span>.</p>
-<p>Since we know that the slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment immediately to the right of <span class="math inline">\alpha</span> is <span class="math inline">\frac{5-n}{1 + n}</span>, then the answer must be <span class="math inline">\frac{3-n}{1 + n}</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 32%.</p>
+<p>Remember that the slope of <span class="math inline">S_\text{abs}(h)</span> at a point p can be
+calculated as <span class="math display">\begin{align*}
+\frac{\text{number of points before p} - \text{number of points after
+p}}{n+1} \\
+\end{align*}</span></p>
+<p>Whenever we transition from the right of <span class="math inline">\alpha</span> to the left of <span class="math inline">\alpha</span>, then alpha becomes a new point after
+p and we also lose a point that was before p, therefore looking at the
+formula above we can get the slope of the segment to the left of <span class="math inline">\alpha</span> by subtracting 2 to the numerator of
+the slope to the right of <span class="math inline">\alpha</span>.</p>
+<p>Since we know that the slope of <span class="math inline">S_\text{abs}(h)</span> on the line segment
+immediately to the right of <span class="math inline">\alpha</span> is
+<span class="math inline">\frac{5-n}{1 + n}</span>, then the answer must
+be <span class="math inline">\frac{3-n}{1 + n}</span>.</p>
 </div>
 </div>
 </div>
@@ -1301,38 +1637,40 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
-<p><i>Source: <a href="../wi22-midterm1/index.html">Winter 2022 Midterm 1</a>, Problem 4</i></p>
 <p>Consider the dataset shown below.</p>
 <div class="center">
 <table>
 <thead>
-<tr class="header">
-<th style="text-align: left;"><span class="math inline">x^{(1)}</span></th>
-<th style="text-align: left;"><span class="math inline">x^{(2)}</span></th>
-<th style="text-align: left;"><span class="math inline">x^{(3)}</span></th>
+<tr>
+<th style="text-align: left;"><span
+class="math inline">x^{(1)}</span></th>
+<th style="text-align: left;"><span
+class="math inline">x^{(2)}</span></th>
+<th style="text-align: left;"><span
+class="math inline">x^{(3)}</span></th>
 <th style="text-align: left;"><span class="math inline">y</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">8</td>
 <td style="text-align: left;">-5</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">7</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">-1</td>
 <td style="text-align: left;">-3</td>
 <td style="text-align: left;">4</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">0</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">1</td>
@@ -1343,7 +1681,12 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-9.1">Problem 9.1</h3>
-<p>We want to use multiple regression to fit a prediction rule of the form <span class="math display">H(x^{(1)}, x^{(2)}, x^{(3)}) = w_0 + w_1 x^{(1)}x^{(3)} + w_2 (x^{(2)}-x^{(3)})^2.</span> Write down the design matrix <span class="math inline">X</span> and observation vector <span class="math inline">\vec{y}</span> for this scenario. No justification needed.</p>
+<p>We want to use multiple regression to fit a prediction rule of the
+form <span class="math display">H(x^{(1)}, x^{(2)}, x^{(3)}) = w_0 + w_1
+x^{(1)}x^{(3)} + w_2 (x^{(2)}-x^{(3)})^2.</span> Write down the design
+matrix <span class="math inline">X</span> and observation vector <span
+class="math inline">\vec{y}</span> for this scenario. No justification
+needed.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading9_1">
@@ -1351,12 +1694,14 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_1" class="accordion-collapse collapse collapse" aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>The design matrix <span class="math inline">X</span> and observation vector <span class="math inline">\vec{y}</span> are given by:</p>
+<p>The design matrix <span class="math inline">X</span> and observation
+vector <span class="math inline">\vec{y}</span> are given by:</p>
 <p><span class="math display">
 \begin{align*}
 X &amp;=
@@ -1374,15 +1719,30 @@ X &amp;=
 \end{bmatrix}
 \end{align*}
 </span></p>
-<p>We got <span class="math inline">\vec{y}</span> by looking at our dataset and seeing the <span class="math inline">y</span> column.</p>
-<p>The matrix <span class="math inline">X</span> was found by looking at the equation <span class="math inline">H(x)</span>. You can think of each row of <span class="math inline">X</span> being: <span class="math inline">\begin{bmatrix}1 &amp; x^{(1)}x^{(3)} &amp; (x^{(2)}-x^{(3)})^2\end{bmatrix}</span>. Recall our bias term here is not affected by <span class="math inline">x^{(i)}</span>, but it still exists! So we will always have the first element in our row be <span class="math inline">1</span>. We can then easily calculate the other elements in the matrix.</p>
+<p>We got <span class="math inline">\vec{y}</span> by looking at our
+dataset and seeing the <span class="math inline">y</span> column.</p>
+<p>The matrix <span class="math inline">X</span> was found by looking at
+the equation <span class="math inline">H(x)</span>. You can think of
+each row of <span class="math inline">X</span> being: <span class="math inline">\begin{bmatrix}1 &amp; x^{(1)}x^{(3)} &amp;
+(x^{(2)}-x^{(3)})^2\end{bmatrix}</span>. Recall our bias term here is
+not affected by <span class="math inline">x^{(i)}</span>, but it still
+exists! So we will always have the first element in our row be <span class="math inline">1</span>. We can then easily calculate the other
+elements in the matrix.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-9.2">Problem 9.2</h3>
-<p>For the <span class="math inline">X</span> and <span class="math inline">\vec{y}</span> that you have written down, let <span class="math inline">\vec{w}</span> be the optimal parameter vector, which comes from solving the normal equations <span class="math inline">X^TX\vec{w}=X^T\vec{y}</span>. Let <span class="math inline">\vec{e} = \vec{y} - X \vec{w}</span> be the error vector, and let <span class="math inline">e_i</span> be the <span class="math inline">i</span>th component of this error vector. Show that <span class="math display">4e_1+e_2+4e_3+e_4=0.</span></p>
+<p>For the <span class="math inline">X</span> and <span
+class="math inline">\vec{y}</span> that you have written down, let <span
+class="math inline">\vec{w}</span> be the optimal parameter vector,
+which comes from solving the normal equations <span
+class="math inline">X^TX\vec{w}=X^T\vec{y}</span>. Let <span
+class="math inline">\vec{e} = \vec{y} - X \vec{w}</span> be the error
+vector, and let <span class="math inline">e_i</span> be the <span
+class="math inline">i</span>th component of this error vector. Show that
+<span class="math display">4e_1+e_2+4e_3+e_4=0.</span></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading9_2">
@@ -1390,32 +1750,42 @@ X &amp;=
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_2" class="accordion-collapse collapse collapse" aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>The key to this problem is the fact that the error vector, <span class="math inline">\vec{e}</span>, is orthogonal to the columns of the design matrix, <span class="math inline">X</span>. As a refresher, if <span class="math inline">\vec{w^*}</span> satisfies the normal equations, then:</p>
-<p>We can rewrite the normal equation (<span class="math inline">X^TX\vec{w}=X^T\vec{y}</span>) to allow substitution for <span class="math inline">\vec{e} = \vec{y} - X \vec{w}</span>.</p>
+<p>The key to this problem is the fact that the error vector, <span class="math inline">\vec{e}</span>, is orthogonal to the columns of the
+design matrix, <span class="math inline">X</span>. As a refresher, if
+<span class="math inline">\vec{w^*}</span> satisfies the normal
+equations, then:</p>
+<p>We can rewrite the normal equation (<span class="math inline">X^TX\vec{w}=X^T\vec{y}</span>) to allow substitution
+for <span class="math inline">\vec{e} = \vec{y} - X \vec{w}</span>.</p>
 <p><span class="math display">
 \begin{align*}
-X^TX\vec{w}&amp;=X^T\vec{y} \\ 
+X^TX\vec{w}&amp;=X^T\vec{y} \\
 0 &amp;= X^T\vec{y} - X^TX\vec{w} \\
 0 &amp;= X^T(\vec{y}-X\vec{w}) \\
 0 &amp;= X^T\vec{e}
 \end{align*}
 </span></p>
-<p>The first step is to find <span class="math inline">X^T</span>, which is easy because we found <span class="math inline">X</span> above: <span class="math display">
+<p>The first step is to find <span class="math inline">X^T</span>, which
+is easy because we found <span class="math inline">X</span> above: <span class="math display">
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 15 &amp; -15 &amp; 0 \\ 4 &amp; 1 &amp; 4 &amp; 1
+1 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 15 &amp; -15 &amp; 0 \\ 4 &amp; 1
+&amp; 4 &amp; 1
 \end{bmatrix}
 </span></p>
-<p>And now we can plug <span class="math inline">X^T</span> and <span class="math inline">\vec e</span> into our equation <span class="math inline">0 = X^T\vec{e}</span>. It might be easiest to find the right side first: <span class="math display">
+<p>And now we can plug <span class="math inline">X^T</span> and <span class="math inline">\vec e</span> into our equation <span class="math inline">0 = X^T\vec{e}</span>. It might be easiest to find
+the right side first: <span class="math display">
 \begin{align*}
-X^T\vec{e} &amp;= 
+X^T\vec{e} &amp;=
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 15 &amp; -15 &amp; 0 \\ 4 &amp; 1 &amp; 4 &amp; 1
-\end{bmatrix} \cdot \begin{bmatrix} e_1 \\ e_2 \\ e_3 \\ e_4\end{bmatrix} \\
+1 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 15 &amp; -15 &amp; 0 \\ 4 &amp; 1
+&amp; 4 &amp; 1
+\end{bmatrix} \cdot \begin{bmatrix} e_1 \\ e_2 \\ e_3 \\
+e_4\end{bmatrix} \\
 &amp;= \begin{bmatrix} e_1 + e_2 + e_3 + e_4 \\
 15e_2 - 15e_3 \\ 4e_1 + e_2 + 4e_3 + e_4\end{bmatrix}
 \end{align*}
@@ -1436,11 +1806,20 @@ X^T\vec{e} &amp;=
 <hr />
 <h2 id="problem-10">Problem 10</h2>
 <!-- Regression Question -->
-<p><i>Source: <a href="../wi23-final/index.html">Winter 2023 Final</a>, Problem 4</i></p>
-<p>Reggie and Essie are given a dataset of real features <span class="math inline">x_i \in \mathbb{R}</span> and observations <span class="math inline">y_i</span>. Essie proposes the following linear prediction rule: <span class="math display">H_1(\alpha_0,\alpha_1) = \alpha_0 + \alpha_1 x_i.</span> and Reggie proposes to use <span class="math inline">v_i=(x_i)^2</span> and the prediction rule <span class="math display">H_2(\gamma_0,\gamma_1) = \gamma_0 + \gamma_1 v_i.</span></p>
+<p>Reggie and Essie are given a dataset of real features <span
+class="math inline">x_i \in \mathbb{R}</span> and observations <span
+class="math inline">y_i</span>. Essie proposes the following linear
+prediction rule: <span class="math display">H_1(\alpha_0,\alpha_1) =
+\alpha_0 + \alpha_1 x_i.</span> and Reggie proposes to use <span
+class="math inline">v_i=(x_i)^2</span> and the prediction rule <span
+class="math display">H_2(\gamma_0,\gamma_1) = \gamma_0 + \gamma_1
+v_i.</span></p>
 <p><br></p>
 <h3 id="problem-10.1">Problem 10.1</h3>
-<p>Give an example of a dataset <span class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum MSE<span class="math inline">(H_2) &lt;</span> minimum MSE<span class="math inline">(H_1)</span>. Explain.</p>
+<p>Give an example of a dataset <span
+class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum
+MSE<span class="math inline">(H_2) &lt;</span> minimum MSE<span
+class="math inline">(H_1)</span>. Explain.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_1">
@@ -1448,19 +1827,25 @@ X^T\vec{e} &amp;=
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_1" class="accordion-collapse collapse collapse" aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>Example: If the datapoints follow a quadratic form <span class="math inline">y_i=x_i^2</span> for all <span class="math inline">i</span>, then the <span class="math inline">H_2</span> prediction rule will achieve a zero error while <span class="math inline">H_1&gt;0</span> since the data do not follow a linear form.</p>
+<p>Example: If the datapoints follow a quadratic form <span class="math inline">y_i=x_i^2</span> for all <span class="math inline">i</span>, then the <span class="math inline">H_2</span> prediction rule will achieve a zero error
+while <span class="math inline">H_1&gt;0</span> since the data do not
+follow a linear form.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-10.2">Problem 10.2</h3>
-<p>Give an example of a dataset <span class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum MSE<span class="math inline">(H_2) =</span> minimum MSE<span class="math inline">(H_1)</span>. Explain.</p>
+<p>Give an example of a dataset <span
+class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum
+MSE<span class="math inline">(H_2) =</span> minimum MSE<span
+class="math inline">(H_1)</span>. Explain.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_2">
@@ -1468,23 +1853,37 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_2" class="accordion-collapse collapse collapse" aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>Example 1: If the response variables are constant <span class="math inline">y_i=c</span> for all <span class="math inline">i</span>, then for both prediciton rules by setting <span class="math inline">\alpha_0=\gamma_0=c</span> and <span class="math inline">\alpha_1=\gamma_1=0</span>, both predictors will achieve MSE=0.</p>
-<p>Example 2: when every single value of the features <span class="math inline">x_i</span> and <span class="math inline">x^2_ i</span> coincide in the dataset (this occurs when <span class="math inline">x = 0</span> or <span class="math inline">x = 1</span>), the parameters of both prediction rules will be the same, as will the MSE.</p>
+<p>Example 1: If the response variables are constant <span class="math inline">y_i=c</span> for all <span class="math inline">i</span>, then for both prediciton rules by setting
+<span class="math inline">\alpha_0=\gamma_0=c</span> and <span class="math inline">\alpha_1=\gamma_1=0</span>, both predictors will
+achieve MSE=0.</p>
+<p>Example 2: when every single value of the features <span class="math inline">x_i</span> and <span class="math inline">x^2_
+i</span> coincide in the dataset (this occurs when <span class="math inline">x = 0</span> or <span class="math inline">x =
+1</span>), the parameters of both prediction rules will be the same, as
+will the MSE.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-10.3">Problem 10.3</h3>
-<p>A new feature <span class="math inline">z</span> has been added to the dataset.</p>
-<p>Essie proposes a linear regression model using two predictor variables <span class="math inline">x,z</span> as <span class="math display">H_3(w_0,w_1,w_2) = w_0 + w_1 x_i +w_2 z_i.</span></p>
-<p>Explain if the following statement is <strong>True or False</strong> (prove or provide counter-example).</p>
-<p>Reggie claims that having more features will lead to a smaller error, therefore the following prediction rule will give a smaller MSE: <span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0 + \alpha_1 x_i +\alpha_2 z_i + \alpha_3 (2x_i-z_i)</span></p>
+<p>A new feature <span class="math inline">z</span> has been added to
+the dataset.</p>
+<p>Essie proposes a linear regression model using two predictor
+variables <span class="math inline">x,z</span> as <span
+class="math display">H_3(w_0,w_1,w_2) = w_0 + w_1 x_i +w_2
+z_i.</span></p>
+<p>Explain if the following statement is <strong>True or False</strong>
+(prove or provide counter-example).</p>
+<p>Reggie claims that having more features will lead to a smaller error,
+therefore the following prediction rule will give a smaller MSE: <span
+class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0
++ \alpha_1 x_i +\alpha_2 z_i + \alpha_3 (2x_i-z_i)</span></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_3">
@@ -1492,14 +1891,22 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_3" class="accordion-collapse collapse collapse" aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math inline">H_4</span> can be rewritten as <span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0 + (\alpha_1+2\alpha_3) x_i +(\alpha_2 - \alpha_3)z_i</span> By setting <span class="math inline">\tilde{\alpha}_1=\alpha_1+2\alpha_3</span> and <span class="math inline">\tilde{\alpha_2}= \alpha_2 - \alpha_3</span> then</p>
-<p><span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = H_4(\alpha_0,\tilde{\alpha}_1,\tilde{\alpha}_2) = \alpha_0 + \tilde{\alpha_1} x_i +\tilde{\alpha}_2 z_i</span></p>
-<p>Thus <span class="math inline">H_4</span> and <span class="math inline">H_3</span> have the same normal equations and therefore the same minimum MSE.</p>
+<p><span class="math inline">H_4</span> can be rewritten as <span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0
++ (\alpha_1+2\alpha_3) x_i +(\alpha_2 - \alpha_3)z_i</span> By setting
+<span class="math inline">\tilde{\alpha}_1=\alpha_1+2\alpha_3</span> and
+<span class="math inline">\tilde{\alpha_2}= \alpha_2 - \alpha_3</span>
+then</p>
+<p><span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) =
+H_4(\alpha_0,\tilde{\alpha}_1,\tilde{\alpha}_2) = \alpha_0 +
+\tilde{\alpha_1} x_i +\tilde{\alpha}_2 z_i</span></p>
+<p>Thus <span class="math inline">H_4</span> and <span class="math inline">H_3</span> have the same normal equations and
+therefore the same minimum MSE.</p>
 </div>
 </div>
 </div>
@@ -1507,7 +1914,13 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-11">Problem 11</h2>
-<p>One piece of information that may be useful as a feature is the proportion of SAT test takers in a state in a given year that qualify for free lunches in school. The Series <code>lunch_props</code> contains 8 values, each of which are either <code>"low"</code>, <code>"medium"</code>, or <code>"high"</code>. Since we can’t use strings as features in a model, we decide to encode these strings using the following <code>Pipeline</code>:</p>
+<p>One piece of information that may be useful as a feature is the
+proportion of SAT test takers in a state in a given year that qualify
+for free lunches in school. The Series <code>lunch_props</code> contains
+8 values, each of which are either <code>"low"</code>,
+<code>"medium"</code>, or <code>"high"</code>. Since we can’t use
+strings as features in a model, we decide to encode these strings using
+the following <code>Pipeline</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The FunctionTransformer is only needed to change the result</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the OneHotEncoder from a &quot;sparse&quot; matrix to a regular matrix</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># so that it can be used with StandardScaler;</span></span>
@@ -1517,7 +1930,9 @@ Click to view the solution.
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ft&quot;</span>, FunctionTransformer(<span class="kw">lambda</span> X: X.toarray())),</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ss&quot;</span>, StandardScaler())</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
-<p>After calling <code>pl.fit(lunch_props)</code>, <code>pl.transform(lunch_props)</code> evaluates to the following array:</p>
+<p>After calling <code>pl.fit(lunch_props)</code>,
+<code>pl.transform(lunch_props)</code> evaluates to the following
+array:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([[ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
@@ -1526,9 +1941,15 @@ Click to view the solution.
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>]])</span></code></pre></div>
-<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates to the following array:</p>
+<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
+to the following array:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
-<p>Fill in the blanks: Given the above information, we can conclude that <code>lunch_props</code> has <strong>(a)</strong> value(s) equal to <code>"low"</code>, <strong>(b)</strong> value(s) equal to <code>"medium"</code>, and <strong>(c)</strong> value(s) equal to <code>"high"</code>. <em>(Note: You should write one positive integer in each box such that the numbers add up to 8.)</em></p>
+<p>Fill in the blanks: Given the above information, we can conclude that
+<code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
+<code>"low"</code>, <strong>(b)</strong> value(s) equal to
+<code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
+<code>"high"</code>. <em>(Note: You should write one positive integer in
+each box such that the numbers add up to 8.)</em></p>
 <p>What goes in the blanks?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1537,36 +1958,62 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11" class="accordion-collapse collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordionExample">
+<div id="collapse11" class="accordion-collapse collapse"
+aria-labelledby="heading11" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> 3, 1, 4</p>
-<p>The first column of the transformed array corresponds to the standardized one-hot-encoded <code>low</code> column. There are 3 values that are positive, which means there are 3 values that were originally <code>1</code> in that column pre-standardization. This means that 3 of the values in <code>lunch_props</code> were originally <code>"low"</code>.</p>
-<p>The second column of the transformed array corresponds to the standardized one-hot-encoded <code>med</code> column. There is only 1 value in the transformed column that is positive, which means only 1 of the values in <code>lunch_props</code> was originally <code>"medium"</code>.</p>
-<p>The Series <code>lunch_props</code> has 8 values, 3 of which were identified as <code>"low"</code> in subpart 1, and 1 of which was identified as <code>"medium"</code> in subpart 2. The number of values being <code>"high"</code> must therefore be <span class="math inline">8 - 3 - 1 = 4</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 73%.</p>
+<p>The first column of the transformed array corresponds to the
+standardized one-hot-encoded <code>low</code> column. There are 3 values
+that are positive, which means there are 3 values that were originally
+<code>1</code> in that column pre-standardization. This means that 3 of
+the values in <code>lunch_props</code> were originally
+<code>"low"</code>.</p>
+<p>The second column of the transformed array corresponds to the
+standardized one-hot-encoded <code>med</code> column. There is only 1
+value in the transformed column that is positive, which means only 1 of
+the values in <code>lunch_props</code> was originally
+<code>"medium"</code>.</p>
+<p>The Series <code>lunch_props</code> has 8 values, 3 of which were
+identified as <code>"low"</code> in subpart 1, and 1 of which was
+identified as <code>"medium"</code> in subpart 2. The number of values
+being <code>"high"</code> must therefore be <span class="math inline">8
+- 3 - 1 = 4</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="problem-12">Problem 12</h2>
-<p>Jasmine and Aritra are trying to build models that predict the number of open rooms a hotel room has. To do so, they use <code>price</code>, the average listing price of rooms at the hotel, along with a one hot encoded version of the hotel’s <code>chain</code>. <strong>For the purposes of this question, assume the only possible hotel chains are Marriott, Hilton, and Other.</strong></p>
+<p>Jasmine and Aritra are trying to build models that predict the number
+of open rooms a hotel room has. To do so, they use <code>price</code>,
+the average listing price of rooms at the hotel, along with a one hot
+encoded version of the hotel’s <code>chain</code>. <strong>For the
+purposes of this question, assume the only possible hotel chains are
+Marriott, Hilton, and Other.</strong></p>
 <p><br></p>
 <h3 id="problem-12.1">Problem 12.1</h3>
-<p>First, Jasmine fits a linear model <em>without</em> an intercept term. Her prediction rule, <span class="math inline">H_1</span>, looks like:</p>
-<p><span class="math display">H_{1}(x) = w_1 \cdot \texttt{price} + w_2 \cdot \texttt{is\_Marriott} + w_3 \cdot \texttt{is\_Hilton} + w_4 \cdot \texttt{is\_Other}</span></p>
-<p>After fitting her model, <span class="math inline">\vec{w}^* = \begin{bmatrix}−0.5 \\ 200 \\ 300 \\ 50 \end{bmatrix}</span>.</p>
+<p>First, Jasmine fits a linear model <em>without</em> an intercept
+term. Her prediction rule, <span class="math inline">H_1</span>, looks
+like:</p>
+<p><span class="math display">H_{1}(x) = w_1 \cdot \texttt{price} + w_2
+\cdot \texttt{is\_Marriott} + w_3 \cdot \texttt{is\_Hilton} + w_4 \cdot
+\texttt{is\_Other}</span></p>
+<p>After fitting her model, <span class="math inline">\vec{w}^* =
+\begin{bmatrix}−0.5 \\ 200 \\ 300 \\ 50 \end{bmatrix}</span>.</p>
 <ol type="1">
-<li>The Marriott Marquis San Diego Marina, a hotel in the Marriott chain, has an average listing price of $250. How many open rooms does <span class="math inline">H_1</span> predict it has? Give your answer as a number with no variables.</li>
-<li>The Marriott Marquis San Diego Marina actually has 45 open rooms. What’s the squared loss of your prediction above? Give your answer as a number with no variables.</li>
-<li>True or False: Because your answer to (ii) above is not 0, it means there were no hotels in the Marriott chain with an average listing price of $250 in the training set. d ( ) True ( ) False</li>
+<li>The Marriott Marquis San Diego Marina, a hotel in the Marriott
+chain, has an average listing price of $250. How many open rooms does
+<span class="math inline">H_1</span> predict it has? Give your answer as
+a number with no variables.</li>
+<li>The Marriott Marquis San Diego Marina actually has 45 open rooms.
+What’s the squared loss of your prediction above? Give your answer as a
+number with no variables.</li>
+<li>True or False: Because your answer to (ii) above is not 0, it means
+there were no hotels in the Marriott chain with an average listing price
+of $250 in the training set. d ( ) True ( ) False</li>
 </ol>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1575,7 +2022,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_1" class="accordion-collapse collapse collapse" aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div id="collapse12_1" class="accordion-collapse collapse"
+aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1586,37 +2034,38 @@ Click to view the solution.
 <li>900</li>
 <li>False</li>
 </ol>
-<p>If we plug in the weights from <span class="math inline">\vec{w}^*</span> into the equation for <span class="math inline">H_1(x)</span>, noting that the values of the one-hot variables are either 0 or 1, we get <span class="math inline">-0.5 \cdot 250 + 200 \cdot 1 + 300 \cdot 0 + 50 \cdot 0</span>, or <span class="math inline">-125 + 200</span>, or 75.</p>
-<p>For part 2, the difference between predicted and actual number of rooms is <span class="math inline">75 - 45 = 30</span>, and the squared loss is simply <span class="math inline">30^2 = 900</span>.</p>
-<p>For part 3, the answer is False, since the fact that our best-fit line has an error at a given input does not mean that this input was not seen in the training data. In other words, the line of best fit does not always have to pass through all of the training points (and due to overfitting, in most cases you don’t want it to).</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 87%.</p>
+<p>If we plug in the weights from <span class="math inline">\vec{w}^*</span> into the equation for <span class="math inline">H_1(x)</span>, noting that the values of the one-hot
+variables are either 0 or 1, we get <span class="math inline">-0.5 \cdot
+250 + 200 \cdot 1 + 300 \cdot 0 + 50 \cdot 0</span>, or <span class="math inline">-125 + 200</span>, or 75.</p>
+<p>For part 2, the difference between predicted and actual number of
+rooms is <span class="math inline">75 - 45 = 30</span>, and the squared
+loss is simply <span class="math inline">30^2 = 900</span>.</p>
+<p>For part 3, the answer is False, since the fact that our best-fit
+line has an error at a given input does not mean that this input was not
+seen in the training data. In other words, the line of best fit does not
+always have to pass through all of the training points (and due to
+overfitting, in most cases you don’t want it to).</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-12.2">Problem 12.2</h3>
-<p>Then, on the same training set, Aritra fits a linear model, <em>with</em> an intercept term but without the <code>is_Other</code> feature. His new prediction rule, <span class="math inline">H_2</span>, now looks like:</p>
-<p><span class="math display">H_2(x) = \beta_0 + \beta_1 \cdot \texttt{price} + \beta_2 \cdot \texttt{is\_Marriott} + \beta_3 \cdot \texttt{is\_Hilton}</span></p>
-<p>After fitting his model, Aritra finds optimal coefficients <span class="math inline">\beta_{0}^{*}</span>, <span class="math inline">\beta_{1}^{*}</span>, <span class="math inline">\beta_{2}^{*}</span>, and <span class="math inline">\beta_{3}^{*}</span>.</p>
-<ol type="1">
-<li>The training RMSE of <span class="math inline">H_2</span> is equal to the training RMSE of <span class="math inline">H_1</span>.</li>
-</ol>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> True</p></li>
-<li><p><input type="radio" disabled="" /> False</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Assuming we use the same test set, the test RMSE of <span class="math inline">H_2</span> is equal to the test RMSE of <span class="math inline">H_1</span>.</li>
-</ol>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> True</p></li>
-<li><p><input type="radio" disabled="" /> False</p></li>
-</ul>
+<p>As a reminder,</p>
+<p><span class="math display">H_{1}(x) = w_1 \cdot \texttt{price} + w_2
+\cdot \texttt{is\_Marriott} + w_3 \cdot \texttt{is\_Hilton} + w_4 \cdot
+\texttt{is\_Other}</span></p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix}−0.5 \\ 200 \\
+300 \\ 50 \end{bmatrix}</span></p>
+<p><span class="math display">H_2(x) = \beta_0 + \beta_1 \cdot
+\texttt{price} + \beta_2 \cdot \texttt{is\_Marriott} + \beta_3 \cdot
+\texttt{is\_Hilton}</span></p>
+<p>After fitting his model, Aritra finds <span
+class="math inline">\beta_{0}^{*} = 50.</span> Given that, what are
+<span class="math inline">\beta_{1}^{*}</span>, <span
+class="math inline">\beta_{2}^{*}</span>, and <span
+class="math inline">\beta_{3}^{*}</span>? Give your answers as numbers
+with no variables.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading12_2">
@@ -1624,41 +2073,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_2" class="accordion-collapse collapse collapse" aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<ol type="1">
-<li>True</li>
-<li>True</li>
-</ol>
-<p>In model <span class="math inline">H_1</span>, there is redundant information in the one-hot encoded features, creating multicollinearity. The second model <span class="math inline">H_2</span> removes the <code>is_Other</code> feature, but the intercept term it is replaced with serves a similar function. When <code>is_Other</code> is true, the prediction of <span class="math inline">H_1</span> is <span class="math inline">w_1 \cdot \texttt{price} + w_4</span>, and the prediction of <span class="math inline">H_2</span> is <span class="math inline">\beta_1 \cdot \texttt{price} + \beta_0</span>. The multicollinearity in <span class="math inline">H_1</span> doesn’t affect model performance relative to model 2, but it will yield different parameter estimates since there will be multiple solutions, unlike with <span class="math inline">H_2</span>. However, the models will have equivalent best solutions, even if the parameters differ, so both parts are True.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 53%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-12.3">Problem 12.3</h3>
-<p>As a reminder,</p>
-<p><span class="math display">H_{1}(x) = w_1 \cdot \texttt{price} + w_2 \cdot \texttt{is\_Marriott} + w_3 \cdot \texttt{is\_Hilton} + w_4 \cdot \texttt{is\_Other}</span></p>
-<p><span class="math display">\vec{w}^* = \begin{bmatrix}−0.5 \\ 200 \\ 300 \\ 50 \end{bmatrix}</span></p>
-<p><span class="math display">H_2(x) = \beta_0 + \beta_1 \cdot \texttt{price} + \beta_2 \cdot \texttt{is\_Marriott} + \beta_3 \cdot \texttt{is\_Hilton}</span></p>
-<p>After fitting his model, Aritra finds <span class="math inline">\beta_{0}^{*} = 50.</span> Given that, what are <span class="math inline">\beta_{1}^{*}</span>, <span class="math inline">\beta_{2}^{*}</span>, and <span class="math inline">\beta_{3}^{*}</span>? Give your answers as numbers with no variables.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading12_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse12_3" class="accordion-collapse collapse collapse" aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div id="collapse12_2" class="accordion-collapse collapse"
+aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1669,13 +2085,14 @@ Click to view the solution.
 <li>150</li>
 <li>250</li>
 </ol>
-<p>As we saw in the previous question, these models should yield an equivalent best-fit line. The relationship between <code>price</code> and predicted outcome will be the same, so <span class="math inline">\beta_{1}^{*}</span> will be <span class="math inline">-0.5</span>, the same weight as in <span class="math inline">H_1</span>.</p>
-<p>If <span class="math inline">\beta_{0}^{*} = 50</span>, this means we are adding 50 to all predictions, and that the “adjustments” we make to the prediction for <code>is_Marriott</code> and <code>is_Hilton</code> should therefore be reduced to compensate for this; therefore, the new weights <span class="math inline">\beta_{2}^{*}</span> and <span class="math inline">\beta_{3}^{*}</span> will be 150 and 250.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 69%.</p>
+<p>As we saw in the previous question, these models should yield an
+equivalent best-fit line. The relationship between <code>price</code>
+and predicted outcome will be the same, so <span class="math inline">\beta_{1}^{*}</span> will be <span class="math inline">-0.5</span>, the same weight as in <span class="math inline">H_1</span>.</p>
+<p>If <span class="math inline">\beta_{0}^{*} = 50</span>, this means we
+are adding 50 to all predictions, and that the “adjustments” we make to
+the prediction for <code>is_Marriott</code> and <code>is_Hilton</code>
+should therefore be reduced to compensate for this; therefore, the new
+weights <span class="math inline">\beta_{2}^{*}</span> and <span class="math inline">\beta_{3}^{*}</span> will be 150 and 250.</p>
 </div>
 </div>
 </div>
@@ -1683,7 +2100,10 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
-<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
 <hr />
 </body>
 </html>

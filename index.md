@@ -120,6 +120,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, October 25th</td>
       <td><a href="disc08/index.html">Linear Regression</a></td>
     </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>Friday, November 1st</td>
+      <td><a href="disc09/index.html">Feature Engineering</a></td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>

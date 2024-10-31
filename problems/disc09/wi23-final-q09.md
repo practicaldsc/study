@@ -46,8 +46,6 @@ The second column of the transformed array corresponds to the standardized one-h
 
 The Series `lunch_props` has 8 values, 3 of which were identified as `"low"` in subpart 1, and 1 of which was identified as `"medium"` in subpart 2. The number of values being `"high"` must therefore be $8 - 3 - 1 = 4$.
 
-<average>73</average>
-
 # END SOLN
 
 # END PROB

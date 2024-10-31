@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2024 Midterm](../sp24-midterm/index.html), Problem 3</i>
-
 Consider a dataset of $n$ values, $y_1, y_2, ..., y_n$, where $y_1 < y_2 < ... < y_n$. Let $R_\text{abs}(h)$ be the mean absolute error of a constant prediction $h$ on this dataset of $n$ values.
 
 Suppose that we introduce a new value to the dataset, $\alpha$. Let $S_\text{abs}(h)$ be the mean absolute error of a constant prediction $h$ on this new dataset of $n + 1$ values.
@@ -52,8 +50,6 @@ Therefore both 7 and 9 minimize $S_\text{abs}(h)$.
 
 **Note:** Even though the equations end at $y_n$, remember that there's an element $\alpha$ somewhere on the dataset, making $n+1$ elements in total. In particular, there must be $\frac{n+1}{2}$ elements before and including  7, and $\frac{n+1}{2}$ after and including  9.
 
-<average>59</average>
-
 # END SOLUTION
 
 # END SUBPROB
@@ -88,8 +84,6 @@ Which means that if the slope of $S_\text{abs}(h)$ is negative near $\alpha$ the
 
 Since we know that the slope of $S_\text{abs}(h)$ on the line segment immediately to the right of $\alpha$ is $\frac{5-n}{1 + n}$ , and since $n > 5$ then the slope is negative, meaning that $\alpha$ is on the first half, making 9 the minimizer.
 
-<average>39</average>
-
 # END SOLUTION
 
 # END SUBPROB
@@ -109,8 +103,6 @@ Remember that the slope of $S_\text{abs}(h)$ at a point p can be calculated as
 Whenever we transition from the right of $\alpha$ to the left of $\alpha$, then alpha becomes a new point after p and we also lose a point that was before p, therefore looking at the formula above we can get the slope of the segment to the left of $\alpha$ by subtracting 2 to the numerator of the slope to the right of $\alpha$.
 
 Since we know that the slope of $S_\text{abs}(h)$ on the line segment immediately to the right of $\alpha$ is $\frac{5-n}{1 + n}$, then the answer must be $\frac{3-n}{1 + n}$.
-
-<average>32</average>
 
 # END SOLUTION
 

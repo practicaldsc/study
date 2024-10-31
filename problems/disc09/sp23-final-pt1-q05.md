@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Spring 2023 Final Part 1](../sp23-final-pt1/index.html), Problem 5</i>
-
 Suppose we want to predict how long it takes to run a
 Jupyter notebook on Datahub. For 100 different Jupyter notebooks, we
 collect the following 5 pieces of information:
