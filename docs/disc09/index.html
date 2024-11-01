@@ -389,8 +389,8 @@ and <code>"speechiness"</code> only.</p></li>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> np.<span class="bu">sum</span>((y_train <span class="op">-</span> lr_two.predict(X_train)) <span class="op">**</span> <span class="dv">2</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">500000</span> <span class="co"># five hundred thousand</span></span></code></pre></div>
-<p>What is Model 2 (<code>lr_two</code>)’s training RMSE? Give your
-answer as an integer.</p>
+<p>What is Model 2 (<code>lr_two</code>)’s training RMSE (square root of
+mean squared error)? Give your answer as an integer.</p>
 <p><br></p>
 <p>Now, suppose we fit two more linear models (with intercept terms) to
 the training data:</p>
@@ -612,8 +612,8 @@ between September (09) and February (02), inclusive.</li>
 </ul>
 <p><br></p>
 <h3 id="problem-7.1">Problem 7.1</h3>
-<p><code>boot</code> = w_0</p>
-<p>w_0:</p>
+<p><code>boot</code> = <span class="math inline">w_0</span></p>
+<p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> 0</p></li>
 <li><p><input type="radio" disabled="" /> 50</p></li>
@@ -623,8 +623,9 @@ between September (09) and February (02), inclusive.</li>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
-<p><code>boot</code> = w_0 + w_1 </p>
-<p>w_0:</p>
+<p><code>boot</code> <span class="math inline">= w_0 + w_1 \cdot
+\text{sandals}</span></p>
+<p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -100</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -633,7 +634,7 @@ between September (09) and February (02), inclusive.</li>
 <li><p><input type="radio" disabled="" /> 100</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<p>w_1:</p>
+<p><span class="math inline">w_1</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -100</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -644,8 +645,9 @@ between September (09) and February (02), inclusive.</li>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
-<p><code>boot</code> = w_0 + w_1 ()</p>
-<p>w_0:</p>
+<p><code>boot</code> = <span class="math inline">w_0 + w_1 \cdot
+(\text{summer=1})</span></p>
+<p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -100</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -654,7 +656,7 @@ between September (09) and February (02), inclusive.</li>
 <li><p><input type="radio" disabled="" /> 100</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<p>w_1:</p>
+<p><span class="math inline">w_1</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -80</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -666,8 +668,9 @@ between September (09) and February (02), inclusive.</li>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.4">Problem 7.4</h3>
-<p><code>sandal</code> = ( w_0 + w_1 () )</p>
-<p>w_0:</p>
+<p><code>sandal</code> = <span class="math inline">w_0 + w_1 \cdot
+(\text{summer=1})</span></p>
+<p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -20</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -676,7 +679,7 @@ between September (09) and February (02), inclusive.</li>
 <li><p><input type="radio" disabled="" /> 20</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<p>w_1:</p>
+<p><span class="math inline">w_1</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -80</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -688,8 +691,9 @@ between September (09) and February (02), inclusive.</li>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.5">Problem 7.5</h3>
-<p><code>sandal</code> = w_0 + w_1 () + w_2 ()</p>
-<p>w_0:</p>
+<p><code>sandal</code> = <span class="math inline">w_0 + w_1 \cdot
+(\text{summer=1}) + w_2 \cdot (\text{winter=1})</span></p>
+<p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -20</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -698,7 +702,7 @@ between September (09) and February (02), inclusive.</li>
 <li><p><input type="radio" disabled="" /> 20</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<p>w_1:</p>
+<p><span class="math inline">w_1</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -80</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>
@@ -707,7 +711,7 @@ between September (09) and February (02), inclusive.</li>
 <li><p><input type="radio" disabled="" /> 80</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<p>w_2:</p>
+<p><span class="math inline">w_2</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -80</p></li>
 <li><p><input type="radio" disabled="" /> -1</p></li>

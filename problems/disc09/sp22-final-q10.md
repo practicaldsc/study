@@ -49,7 +49,7 @@ Consider the following outputs.
 500000 # five hundred thousand
 ```
 
-What is Model 2 (`lr_two`)'s training RMSE? Give your answer as an
+What is Model 2 (`lr_two`)'s training RMSE (square root of mean squared error)? Give your answer as an
 integer.
 
 # BEGIN SOLN

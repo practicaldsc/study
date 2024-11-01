@@ -123,7 +123,7 @@ If you'd like, you can also view other exam problems from related classes at [pr
     <tr>
       <th scope="row">10</th>
       <td>Friday, November 1st</td>
-      <td><a href="disc09/index.html">Feature Engineering</a></td>
+      <td><a href="disc09/index.html">Multiple Linear Regression and Feature Engineering</a></td>
     </tr>
     <!-- <tr>
       <th scope="row">5</th>

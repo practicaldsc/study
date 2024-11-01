@@ -17,9 +17,9 @@ For each of the following regression models, use the visualizations shown above 
 
 # BEGIN SUBPROB
 
-`boot` = w_0
+`boot` = $w_0$
 
-w_0:
+$w_0$:
 
 ( ) 0  
 ( ) 50  
@@ -38,9 +38,9 @@ w_0:
 
 # BEGIN SUBPROB
 
-`boot` = w_0 + w_1 \cdot \text{sandals}
+`boot` $= w_0 + w_1 \cdot \text{sandals}$
 
-w_0:
+$w_0$:
 
 ( ) -100  
 ( ) -1  
@@ -49,7 +49,7 @@ w_0:
 ( ) 100  
 ( ) Not enough info
 
-w_1:
+$w_1$:
 
 ( ) -100  
 ( ) -1  
@@ -61,9 +61,9 @@ w_1:
 
 **Answer:** 
 
-w_0: 100
+$w_0$: 100
 
-w_1: -1
+$w_1$: -1
 
 # END SOLN
 
@@ -73,9 +73,9 @@ w_1: -1
 
 # BEGIN SUBPROB
 
-`boot` = w_0 + w_1 \cdot (\text{summer=1})
+`boot` = $w_0 + w_1 \cdot (\text{summer=1})$
 
-w_0:
+$w_0$:
 
 ( ) -100  
 ( ) -1  
@@ -84,7 +84,7 @@ w_0:
 ( ) 100  
 ( ) Not enough info
 
-w_1:
+$w_1$:
 
 ( ) -80  
 ( ) -1  
@@ -97,9 +97,9 @@ w_1:
 
 **Answer:**
 
-w_0: 100
+$w_0$: 100
 
-w_1: -80
+$w_1$: -80
 
 # END SOLN
 
@@ -109,9 +109,9 @@ w_1: -80
 
 # BEGIN SUBPROB
 
-`sandal` = \( w_0 + w_1 \cdot (\text{summer=1}) \)
+`sandal` = $w_0 + w_1 \cdot (\text{summer=1})$
 
-w_0:
+$w_0$:
 
 ( ) -20  
 ( ) -1  
@@ -120,7 +120,7 @@ w_0:
 ( ) 20  
 ( ) Not enough info
 
-w_1:
+$w_1$:
 
 ( ) -80  
 ( ) -1  
@@ -133,9 +133,9 @@ w_1:
 
 **Answer:**
 
-w_0: 20
+$w_0$: 20
 
-w_1: 80
+$w_1$: 80
 
 # END SOLN
 
@@ -145,9 +145,9 @@ w_1: 80
 
 # BEGIN SUBPROB
 
-`sandal` = w_0 + w_1 \cdot (\text{summer=1}) + w_2 \cdot (\text{winter=1})
+`sandal` = $w_0 + w_1 \cdot (\text{summer=1}) + w_2 \cdot (\text{winter=1})$
 
-w_0:
+$w_0$:
 
 ( ) -20  
 ( ) -1  
@@ -156,7 +156,7 @@ w_0:
 ( ) 20  
 ( ) Not enough info
 
-w_1:
+$w_1$:
 
 ( ) -80  
 ( ) -1  
@@ -165,7 +165,7 @@ w_1:
 ( ) 80  
 ( ) Not enough info
 
-w_2:
+$w_2$:
 
 ( ) -80  
 ( ) -1  
@@ -178,11 +178,11 @@ w_2:
 
 **Answer:**
 
-w_0: Not enough info
+$w_0$: Not enough info
 
-w_1: Not enough info
+$w_1$: Not enough info
 
-w_2: Not enough info
+$w_2$: Not enough info
 
 # END SOLN
 

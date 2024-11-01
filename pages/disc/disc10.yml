@@ -1,19 +1,9 @@
-title: "Multiple Linear Regression and Feature Engineering"
+title: "TODO"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
   Solutions will be made available after all discussion sections have concluded. You don't need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don't cover can be used for extra practice.
 show_solution: false
 problems:
-  - disc09/fa23-final-q09 # q1
-  - disc09/q06 # q2
-  - disc09/sp22-final-q10 # q3
-  - disc09/wi22-midterm1-q04 # q9
-  - disc09/wi24-final-q11 # q12
-  - disc09/sp23-final-pt1-q05 # q4
-  - disc09/sp23-final-pt1-q06 # q5
-  - disc09/sp23-midterm1-q05 # q6
-  - disc09/sp24-final-q10 # q7
-  # - disc09/sp24-midterm-q04 # q8
-  - disc09/wi23-final-q04 # q10
-  # - disc09/wi23-final-q09 # q11
+  - disc09/wi23-final-q09 # q11 from last week
+
