@@ -1,5 +1,9 @@
 # BEGIN PROB 
 
+Every week, Pranavi goes to her local grocery store and buys a varying amount of vegetable but always buys exactly one pound of meat (either beef, fish, or chicken). We use a linear regression model to predict her total grocery bill. We've collected a dataset containing the pounds of vegetables bought, the type of meat bought, and the total bill. Below we display the first few rows of the dataset and two plots generated using the entire training set.
+
+<center><img src='../../assets/images/disc10/dsc80_final_q9.png' width=65%></center>
+
 # BEGIN SUBPROB
 
 Determine how each change below affects model bias and variance compared to the model $H(x)$ described at the top of this page. **For each change (i., ii., iii., iv.), choose all of the following that apply: increase bias, decrease bias, increase variance, decrease variance.**
@@ -21,10 +25,6 @@ iv. Don't use the `'veg'` feature.
 # END SUBPROB
 
 # BEGIN SUBPROB
-Every week, Pranavi goes to her local grocery store and buys a varying amount of vegetable but always buys exactly one pound of meat (either beef, fish, or chicken). We use a linear regression model to predict her total grocery bill. We've collected a dataset containing the pounds of vegetables bought, the type of meat bought, and the total bill. Below we display the first few rows of the dataset and two plots generated using the entire training set.
-
-<center><img src='../../assets/images/disc10/dsc80_final_q9.png' width=65%></center>
-
 Suppose we predict `'total'` from `'veg'` using $8$ models with different degree polynomial features (degrees $0$ through $7$). Which of the following plots display the training and validation errors of these models? Assume that we plot the degree of the polynomial features on the x-axis, mean squared error loss on the y-axis, and the plots share y-axes limits.
 
 <center><img src='../../assets/images/disc10/dsc80_final_plots.png' width=65%></center>
