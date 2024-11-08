@@ -75,7 +75,7 @@ impossible to tell
 
 # BEGIN SUBPROB
 
-Assume that our design matrix X contains a column of all ones. The sum of the
+Assume that our design matrix $X$ contains a column of all ones. The sum of the
 residuals of our model $\vec{y}^* = X \vec{w}_\text{ridge}^*$ ________.
 
 ( ) equal to 0
