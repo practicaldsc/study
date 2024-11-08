@@ -125,6 +125,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, November 1st</td>
       <td><a href="disc09/index.html">Multiple Linear Regression and Feature Engineering</a></td>
     </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>Friday, November 8th</td>
+      <td><a href="disc10/index.html">Generalization, Cross-Validation, and Regularization</a></td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>
