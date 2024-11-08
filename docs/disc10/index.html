@@ -221,6 +221,25 @@ complexity <code>__(i)__</code>. The optimal choice of
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>Determine how each change below affects model bias and variance
+compared to the model <span class="math inline">H(x)</span> described at
+the top of this page. <strong>For each change (i., ii., iii., iv.),
+choose all of the following that apply: increase bias, decrease bias,
+increase variance, decrease variance.</strong></p>
+<ol type="i">
+<li>Add degree <span class="math inline">3</span> polynomial
+features.</li>
+<li>Add a feature of numbers chosen at random between <span
+class="math inline">0</span> and <span
+class="math inline">1</span>.</li>
+<li>Collect <span class="math inline">100</span> more points for the
+training set.</li>
+<li>Don’t use the <code>'veg'</code> feature.</li>
+</ol>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
 <p>Every week, Pranavi goes to her local grocery store and buys a
 varying amount of vegetable but always buys exactly one pound of meat
 (either beef, fish, or chicken). We use a linear regression model to
@@ -251,51 +270,35 @@ squared error loss on the y-axis, and the plots share y-axes limits.</p>
 <li><p><input type="radio" disabled="" /> C</p></li>
 <li><p><input type="radio" disabled="" /> D</p></li>
 </ul>
+<p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>Suppose we write the following code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>hyperparameters <span class="op">=</span> {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;n_estimators&#39;</span>: [<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>], <span class="co"># number of trees per forest</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;max_depth&#39;</span>: [<span class="va">None</span>, <span class="dv">100</span>, <span class="dv">10</span>]     <span class="co"># max depth of each tree</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>grids <span class="op">=</span> GridSearchCV(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    RandomForestClassifier(), param_grid<span class="op">=</span>hyperparameters,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    cv<span class="op">=</span><span class="dv">3</span>, <span class="co"># 3-fold cross-validation</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>grids.fit(X_train, y_train)</span></code></pre></div>
-<p>Answer the following questions with a single number.</p>
-<ol type="i">
-<li>How many random forests are fit in total?</li>
-<li>How many decision trees are fit in total?</li>
-<li>How many times in total is the first point in <code>X_train</code>
-used to train a decision tree?</li>
-</ol>
-<hr />
-<h2 id="problem-4">Problem 4</h2>
 <p>Consider the least squares regression model, <span
-class="math inline">\hat{Y} = X \theta</span>. Assume that <span
-class="math inline">X</span> and <span class="math inline">Y</span>
-refer to the design matrix and true response vector for our training
-data.</p>
-<p>Let <span class="math inline">\hat{\gamma}</span> be the parameter
-vector that minimizes mean squared error without regularization.
-Specifically:</p>
-<p><span class="math inline">\hat{\gamma} = \arg\underset{\gamma}{\min}
-\frac{1}{n} \| Y - X \gamma \|^2_2</span></p>
-<p>Let <span class="math inline">\hat{\beta}</span> be the parameter
-vector that minimizes mean squared error with <span
+class="math inline">\vec{y} = X \vec{w}</span>. Assume that <span
+class="math inline">X</span> and <span
+class="math inline">\vec{y}</span> refer to the design matrix and true
+response vector for our training data.</p>
+<p>Let <span class="math inline">\vec{w}_\text{OLS}^*</span> be the
+parameter vector that minimizes mean squared error without
+regularization. Specifically:</p>
+<p><span class="math inline">\vec{w}_\text{OLS}^*</span> = <span
+class="math inline">\arg\underset{\vec{w}}{\min} \frac{1}{n} \| \vec{y}
+- X \vec{w} \|^2_2</span></p>
+<p>Let <span class="math inline">\vec{w}_\text{ridge}^*</span> be the
+parameter vector that minimizes mean squared error with <span
 class="math inline">L_2</span> regularization, using a non-negative
-regularization hyperparameter <span class="math inline">\gamma</span>
+regularization hyperparameter <span class="math inline">\lambda</span>
 (i.e. ridge regression). Specifically:</p>
-<p><span class="math inline">\hat{\beta} = \arg\underset{\beta}{\min}
-\frac{1}{n} \| Y - X \beta \|^2_2 + \lambda \sum_{j=1}^{p}
-\beta_j^2</span></p>
+<p><span class="math inline">\vec{w}_\text{ridge}^*</span> = <span
+class="math inline">\arg\underset{\vec{w}}{\min} \frac{1}{n} \| y - X
+\vec{w} \|^2_2 + \lambda \sum_{j=1}^{p} w_j^2</span></p>
 <p>For each of the following problems, fill in the blank.</p>
 <p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
-<p>If we set <span class="math inline">\gamma</span> = 0, then <span
-class="math inline">\Vert \hat{\gamma} \Vert^2_2</span> is ________
-<span class="math inline">\Vert \hat{\beta} \Vert^2_2</span></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>If we set <span class="math inline">\lambda</span> = 0, then <span
+class="math inline">\Vert \vec{w}_\text{OLS}^* \Vert^2_2</span> is
+________ <span class="math inline">\Vert \vec{w}_\text{ridge}^*
+\Vert^2_2</span></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -303,15 +306,16 @@ class="math inline">\Vert \hat{\gamma} \Vert^2_2</span> is ________
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
+<h3 id="problem-3.2">Problem 3.2</h3>
 <p>For each of the remaining parts, you can assume that <span
-class="math inline">\gamma</span> is set such that the predicted
-response vectors for our two models (<span class="math inline">\hat{Y} =
-X \hat{\gamma}</span> and <span class="math inline">\hat{Y} = X
-\hat{\beta}</span>) is different.</p>
-<p>The <strong>training</strong> RMSE of the model <span
-class="math inline">\hat{Y} = X \hat{\gamma}</span> is ________ than the
-model <span class="math inline">\hat{Y} = X \hat{\beta}</span>.</p>
+class="math inline">\lambda</span> is set such that the predicted
+response vectors for our two models (<span class="math inline">\vec{y}^*
+= X \vec{w}_\text{OLS}^*</span> and <span class="math inline">\vec{y}^*
+= X \vec{w}_\text{ridge}^*</span>) is different.</p>
+<p>The <strong>training</strong> MSE of the model <span
+class="math inline">\vec{y}^* = X \vec{w}_\text{OLS}^*</span> is
+________ than the model <span class="math inline">\vec{y}^* = X
+\vec{w}_\text{ridge}^*</span>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -319,12 +323,13 @@ model <span class="math inline">\hat{Y} = X \hat{\beta}</span>.</p>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.3">Problem 4.3</h3>
+<h3 id="problem-3.3">Problem 3.3</h3>
 <p>Now, assume we’ve fit both models using our training data, and
 evaluate both models on some unseen testing data.</p>
-<p>The <strong>test</strong> RMSE of the model <span
-class="math inline">\hat{Y} = X \hat{\gamma}</span> is ________ than the
-model <span class="math inline">\hat{Y} = X \hat{\beta}</span>.</p>
+<p>The <strong>test</strong> MSE of the model <span
+class="math inline">\vec{y}^* = X \vec{w}_\text{OLS}^*</span> is
+________ than the model <span class="math inline">\vec{y}^* = X
+\vec{w}_\text{ridge}^*</span>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -332,39 +337,39 @@ model <span class="math inline">\hat{Y} = X \hat{\beta}</span>.</p>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.4">Problem 4.4</h3>
+<h3 id="problem-3.4">Problem 3.4</h3>
 <p>Assume that our design matrix X contains a column of all ones. The
-sum of the residuals of our model <span class="math inline">\hat{Y} = X
-\hat{\beta}</span> ________.</p>
+sum of the residuals of our model <span class="math inline">\vec{y}^* =
+X \vec{w}_\text{ridge}^*</span> ________.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> equal to 0</p></li>
 <li><p><input type="radio" disabled="" /> not necessarily equal to 0</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.5">Problem 4.5</h3>
-<p>As we increase <span class="math inline">\gamma</span>, the bias of
-the model <span class="math inline">\hat{Y} = X \hat{\beta}</span> tends
-to ________.</p>
+<h3 id="problem-3.5">Problem 3.5</h3>
+<p>As we increase <span class="math inline">\lambda</span>, the bias of
+the model <span class="math inline">\vec{y}^* = X
+\vec{w}_\text{ridge}^*</span> tends to ________.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
 <li><p><input type="radio" disabled="" /> decrease</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.6">Problem 4.6</h3>
-<p>As we increase <span class="math inline">\gamma</span>, the model
-variance of the model <span class="math inline">\hat{Y} = X
-\hat{\beta}</span> tends to ________.</p>
+<h3 id="problem-3.6">Problem 3.6</h3>
+<p>As we increase <span class="math inline">\lambda</span>, the model
+variance of the model <span class="math inline">\vec{y}^* = X
+\vec{w}_\text{ridge}^*</span> tends to ________.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
 <li><p><input type="radio" disabled="" /> decrease</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-4.7">Problem 4.7</h3>
-<p>As we increase <span class="math inline">\gamma</span>, the
-observation variance of the model <span class="math inline">\hat{Y} = X
-\hat{\beta}</span> tends to ________.</p>
+<h3 id="problem-3.7">Problem 3.7</h3>
+<p>As we increase <span class="math inline">\lambda</span>, the
+observation variance of the model <span class="math inline">\vec{y}^* =
+X \vec{w}_\text{ridge}^*</span> tends to ________.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
@@ -372,11 +377,50 @@ observation variance of the model <span class="math inline">\hat{Y} = X
 </ul>
 <p><br></p>
 <hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>One piece of information that may be useful as a feature is the
+proportion of SAT test takers in a state in a given year that qualify
+for free lunches in school. The Series <code>lunch_props</code> contains
+8 values, each of which are either <code>"low"</code>,
+<code>"medium"</code>, or <code>"high"</code>. Since we can’t use
+strings as features in a model, we decide to encode these strings using
+the following <code>Pipeline</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The FunctionTransformer is only needed to change the result</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the OneHotEncoder from a &quot;sparse&quot; matrix to a regular matrix</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># so that it can be used with StandardScaler;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it doesn&#39;t change anything mathematically.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pl <span class="op">=</span> Pipeline([</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ohe&quot;</span>, OneHotEncoder(drop<span class="op">=</span><span class="st">&quot;first&quot;</span>)),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ft&quot;</span>, FunctionTransformer(<span class="kw">lambda</span> X: X.toarray())),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ss&quot;</span>, StandardScaler())</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<p>After calling <code>pl.fit(lunch_props)</code>,
+<code>pl.transform(lunch_props)</code> evaluates to the following
+array:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>array([[ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>,  <span class="fl">2.64575131</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>]])</span></code></pre></div>
+<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
+to the following array:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
+<p>Fill in the blanks: Given the above information, we can conclude that
+<code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
+<code>"low"</code>, <strong>(b)</strong> value(s) equal to
+<code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
+<code>"high"</code>. <em>(Note: You should write one positive integer in
+each box such that the numbers add up to 8.)</em></p>
+<p>What goes in the blanks?</p>
+<hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>Suppose we have one qualitative variable that that we convert to
 numerical values using one- hot encoding. We’ve shown the first four
 rows of the resulting design matrix below:</p>
-<center><img src='../assets/images/disc10/matrix.png' width=50%></center>
+<center><img src='../assets/images/disc10/matrix.png' width=400></center>
 <p><br></p>
 <h3 id="problem-5.1">Problem 5.1</h3>
 <p>Say we train a linear model <span class="math inline">m_1</span> on
@@ -396,7 +440,7 @@ class="math inline">m_2</span>.</p>
 </ul>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
-<p>To account for the intercept term,we add a column of all ones to our
+<p>To account for the intercept term, we add a column of all ones to our
 design matrix from part a. That is, the resulting design matrix has four
 columns: <strong>a</strong> with 3’s instead of 1’s, <strong>b</strong>
 with 2’s instead of 1’s, <strong>c</strong>, and a column of all ones.
@@ -423,38 +467,6 @@ column? (Note: This part is independent of parts a and b.)</p>
 <p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
-<p>The DataFrame <code>sat</code> contains one row for
-<strong>most</strong> combinations of <code>"Year"</code> and
-<code>"State"</code>, where <code>"Year"</code> ranges between
-<code>2005</code> and <code>2015</code> and <code>"State"</code> is one
-of the 50 states (not including the District of Columbia).</p>
-<p>The other columns are as follows:</p>
-<ul>
-<li><p><code>"# Students"</code> contains the number of students who
-took the SAT in that state in that year.</p></li>
-<li><p><code>"Math"</code> contains the mean math section score among
-all students who took the SAT in that state in that year. This ranges
-from 200 to 800.</p></li>
-<li><p><code>"Verbal"</code> contains the mean verbal section score
-among all students who took the SAT in that state in that year. This
-ranges from 200 to 800. (This is now known as the “Critical Reading”
-section.)</p></li>
-</ul>
-<p>The first few rows of <code>sat</code> are shown below (though
-<code>sat</code> has many more rows than are pictured here).</p>
-<center><img src='../assets/images/disc10/df.png' width=40%></center>
-<p>For instance, the first row of <code>sat</code> tells us that 41227
-students took the SAT in Washington in 2014, and among those students,
-the mean math score was 519 and the mean verbal score was 510.</p>
-<p>Assume:</p>
-<ul>
-<li><p><code>sat</code> does not contain any duplicate rows — that is,
-there is only one row for every unique combination of
-<code>"Year"</code> and <code>"State"</code> that is in
-<code>sat</code>.</p></li>
-<li><p><code>sat</code> does not contain any null values.</p></li>
-<li><p>We have already run all of the necessary imports.</p></li>
-</ul>
 <p>We will aim to build a classifier that takes in demographic
 information about a state from a particular year and predicts whether or
 not the state’s mean math score is higher than its mean verbal score
@@ -474,6 +486,11 @@ which is <code>height</code>. As we increase the value of
 <code>ChickenClassifier</code> trained using various values of
 <code>height</code>. Consider the plot below.</p>
 <center><img src='../assets/images/disc10/accuracy.png' width=30%></center>
+<ul>
+<li>Note that <strong>accuracy</strong> is a metric that measures how
+well a classifier performs by comparing the number of correct
+predictions to the total number of predictions.</li>
+</ul>
 <p>Which of the following depicts <strong>training accuracy
 vs. <code>height</code></strong>?</p>
 <ul class="task-list">
@@ -556,190 +573,6 @@ validation?</li>
 <p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
-<p>One piece of information that may be useful as a feature is the
-proportion of SAT test takers in a state in a given year that qualify
-for free lunches in school. The Series <code>lunch_props</code> contains
-8 values, each of which are either <code>"low"</code>,
-<code>"medium"</code>, or <code>"high"</code>. Since we can’t use
-strings as features in a model, we decide to encode these strings using
-the following <code>Pipeline</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The FunctionTransformer is only needed to change the result</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the OneHotEncoder from a &quot;sparse&quot; matrix to a regular matrix</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># so that it can be used with StandardScaler;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it doesn&#39;t change anything mathematically.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>pl <span class="op">=</span> Pipeline([</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ohe&quot;</span>, OneHotEncoder(drop<span class="op">=</span><span class="st">&quot;first&quot;</span>)),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ft&quot;</span>, FunctionTransformer(<span class="kw">lambda</span> X: X.toarray())),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ss&quot;</span>, StandardScaler())</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
-<p>After calling <code>pl.fit(lunch_props)</code>,
-<code>pl.transform(lunch_props)</code> evaluates to the following
-array:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([[ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>,  <span class="fl">2.64575131</span>],</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>]])</span></code></pre></div>
-<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
-to the following array:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
-<p>Fill in the blanks: Given the above information, we can conclude that
-<code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
-<code>"low"</code>, <strong>(b)</strong> value(s) equal to
-<code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
-<code>"high"</code>. <em>(Note: You should write one positive integer in
-each box such that the numbers add up to 8.)</em></p>
-<p>What goes in the blanks?</p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
-<p>We decide to build a classifier that takes in a state’s demographic
-information and predicts whether, in a given year:</p>
-<ul>
-<li><p>The state’s mean math score was greater than its mean verbal
-score (1), or</p></li>
-<li><p>the state’s mean math score was less than or equal to its mean
-verbal score (0).</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
-<p>The simplest possible classifier we could build is one that predicts
-the same label (1 or 0) every time, independent of all other
-features.</p>
-<p>Consider the following statement:</p>
-<p><em>If <code>a &gt; b</code>, then the constant classifier that
-maximizes training accuracy predicts 1 every time; otherwise, it
-predicts 0 every time.</em></p>
-<p>For which combination of <code>a</code> and <code>b</code> is the
-above statement <strong>not guaranteed</strong> to be true?</p>
-<p><em>Note: Treat <code>sat</code> as our training set.</em></p>
-<p>Option 1:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">&gt;</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
-<p>Option 2:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
-<p>Option 3:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>).mean()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
-<p>Option 4:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> ((sat[<span class="st">&#39;Math&#39;</span>] <span class="op">/</span> sat[<span class="st">&#39;Verbal&#39;</span>]) <span class="op">&gt;</span> <span class="dv">1</span>).mean() <span class="op">-</span> <span class="fl">0.5</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Option 1</p></li>
-<li><p><input type="radio" disabled="" /> Option 2</p></li>
-<li><p><input type="radio" disabled="" /> Option 3</p></li>
-<li><p><input type="radio" disabled="" /> Option 4</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
-<p>Suppose we train a classifier, named Classifier 1, and it achieves an
-accuracy of <span class="math inline">\frac{5}{9}</span> on our training
-set.</p>
-<p>Typically, root mean squared error (RMSE) is used as a performance
-metric for regression models, but mathematically, nothing is stopping us
-from using it as a performance metric for classification models as
-well.</p>
-<p>What is the RMSE of Classifier 1 on our training set? Give your
-answer as a <strong>simplified fraction</strong>.</p>
-<p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
-<p>While Classifier 1’s accuracy on our training set is <span
-class="math inline">\frac{5}{9}</span>, its accuracy on our test set is
-<span class="math inline">\frac{1}{4}</span>. Which of the following
-scenarios is most likely?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to increase its
-complexity.</p></li>
-<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to decrease its
-complexity.</p></li>
-<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to increase its
-complexity.</p></li>
-<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to decrease its
-complexity.</p></li>
-</ul>
-<p><br></p>
-<p>For the remainder of this question, suppose we train another
-classifier, named Classifier 2, again on our training set. Its
-performance on the training set is described in the confusion matrix
-below. Note that the columns of the confusion matrix have been
-separately normalized so that each has a sum of 1.</p>
-<center><img src='../assets/images/disc10/conf-matrix.png' width=30%></center>
-<p><br></p>
-<h3 id="problem-8.4">Problem 8.4</h3>
-<p>Suppose <code>conf</code> is the DataFrame above. Which of the
-following evaluates to a Series of length 2 whose only unique value is
-the number <code>1</code>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=0)</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=1)</code></p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-8.5">Problem 8.5</h3>
-<p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
-0.6.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> precision</p></li>
-<li><p><input type="radio" disabled="" /> recall</p></li>
-</ul>
-<p><br></p>
-<p>For your convenience, we show the column-normalized confusion matrix
-from the previous page below. You will need to use the specific numbers
-in this matrix when answering the following subpart.</p>
-<center><img src='../assets/images/disc10/conf-matrix.png' width=30%></center>
-<p><br></p>
-<h3 id="problem-8.6">Problem 8.6</h3>
-<p>Suppose a fraction <span class="math inline">\alpha</span> of the
-labels in the training set are actually 1 and the remaining <span
-class="math inline">1 - \alpha</span> are actually 0. The accuracy of
-Classifier 2 is 0.65. What is the value of <span
-class="math inline">\alpha</span>? </p>
-<p>Hint: If you’re unsure on how to proceed, here are some guiding
-questions:</p>
-<ul>
-<li><p>Suppose the number of <span class="math inline">y</span>-values
-that are actually 1 is <span class="math inline">A</span> and that the
-number of <span class="math inline">y</span>-values that are actually 0
-is <span class="math inline">B</span>. In terms of <span
-class="math inline">A</span> and <span class="math inline">B</span>,
-what is the accuracy of Classifier 2? Remember, you’ll need to refer to
-the numbers in the confusion matrix above.</p></li>
-<li><p>What is the relationship between <span
-class="math inline">A</span>, <span class="math inline">B</span>, and
-<span class="math inline">\alpha</span>? How does it simplify your
-calculation for the accuracy in the previous step?</p></li>
-</ul>
-<p><br></p>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>For each day in May 2022, the DataFrame <code>streams</code> contains
-the number of streams for each of the “Top 200" songs on Spotify that
-day — that is, the number of streams for the 200 songs with the most
-streams on Spotify that day. The columns in <code>streams</code> are as
-follows:</p>
-<ul>
-<li><p><code>"date"</code>: the date the song was streamed</p></li>
-<li><p><code>"artist_names"</code>: name(s) of the artists who created
-the song</p></li>
-<li><p><code>"track_name"</code>: name of the song</p></li>
-<li><p><code>"streams"</code>: the number of times the song was streamed
-on Spotify that day</p></li>
-</ul>
-<p>The first few rows of <code>streams</code> are shown below. Since
-there were 31 days in May and 200 songs per day, <code>streams</code>
-has 6200 rows in total.</p>
-<center><img src='../assets/images/disc10/streams.png' width=50%></center>
-<p>Note that:</p>
-<ul>
-<li><p><code>streams</code> is already sorted in a very particular way —
-it is sorted by <code>"date"</code> in reverse chronological
-(decreasing) order, and, within each <code>"date"</code>, by
-<code>"streams"</code> in increasing order.</p></li>
-<li><p>Many songs will appear multiple times in <code>streams</code>,
-because many songs were in the Top 200 on more than one day.</p></li>
-</ul>
 <p>Suppose we build a binary classifier that uses a song’s
 <code>"track_name"</code> and <code>"artist_names"</code> to predict
 whether its genre is <code>"Hip-Hop/Rap"</code> (1) or not (0).</p>
@@ -749,11 +582,11 @@ whether its genre is <code>"Hip-Hop/Rap"</code> (1) or not (0).</p>
 has three hyperparameters that we’d like to tune. Below, we show a
 dictionary containing the values for each hyperparameter that we’d like
 to try:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>hyp_grid <span class="op">=</span> {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radius&quot;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">100</span>], <span class="co"># 12 total</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;inflection&quot;</span>: [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="co"># 10 total</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;color&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>] <span class="co"># 5 total</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hyp_grid <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radius&quot;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">100</span>], <span class="co"># 12 total</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;inflection&quot;</span>: [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="co"># 10 total</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;color&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>] <span class="co"># 5 total</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>To find the best combination of hyperparameters for our
 <code>BillyClassifier</code>, we first conduct a train-test split, which
 we use to create a training set with 800 rows. We then use
@@ -762,22 +595,21 @@ class="math inline">k</span>-fold cross-validation for each combination
 of hyperparameters in <code>hyp_grid</code>, with <span
 class="math inline">k=4</span>.</p>
 <p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
+<h3 id="problem-7.1">Problem 7.1</h3>
 <p>When we call <code>GridSearchCV</code>, how many times is a
 <code>BillyClassifier</code> instance trained in total? Give your answer
 as an integer.</p>
 <p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
+<h3 id="problem-7.2">Problem 7.2</h3>
 <p>In each of the 4 folds of the data, how large is the training set,
 and how large is the validation set? Give your answers as integers.</p>
 <p>size of training set =</p>
 <p>size of validation set =</p>
 <p><br></p>
-<h3 id="problem-9.3">Problem 9.3</h3>
+<h3 id="problem-7.3">Problem 7.3</h3>
 <p>Suppose that after fitting a <code>GridSearchCV</code> instance, its
 <code>best_params_</code> attribute is</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&quot;radius&quot;</span>: <span class="dv">8</span>, <span class="st">&quot;inflection&quot;</span>: <span class="dv">4</span>, <span class="st">&quot;color&quot;</span>: <span class="st">&quot;blue&quot;</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&quot;radius&quot;</span>: <span class="dv">8</span>, <span class="st">&quot;inflection&quot;</span>: <span class="dv">4</span>, <span class="st">&quot;color&quot;</span>: <span class="st">&quot;blue&quot;</span>}</span></code></pre></div>
 <p>Select all true statements below.</p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in

@@ -2,7 +2,7 @@
 
 Suppose we have one qualitative variable that that we convert to numerical values using one- hot encoding. We’ve shown the first four rows of the resulting design matrix below:
 
-<center><img src='../assets/images/disc10/matrix.png' width=50%></center>
+<center><img src='../assets/images/disc10/matrix.png' width=400></center>
 
 # BEGIN SUBPROB
 
@@ -27,7 +27,7 @@ Note that we can just re-scale our weights accordingly. Any model we can get wit
 
 # BEGIN SUBPROB
 
-To account for the intercept term,we add a column of all ones to our design matrix from part a. That is, the resulting design matrix has four columns: **a** with 3’s instead of 1’s, **b** with 2’s instead of 1’s, **c**, and a column of all ones. What is the rank of the new design matrix with these four columns?
+To account for the intercept term, we add a column of all ones to our design matrix from part a. That is, the resulting design matrix has four columns: **a** with 3’s instead of 1’s, **b** with 2’s instead of 1’s, **c**, and a column of all ones. What is the rank of the new design matrix with these four columns?
 
 ( ) 1
 ( ) 2
