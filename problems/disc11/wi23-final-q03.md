@@ -2,22 +2,18 @@
 
 <!-- **Gradient Descent** Problem -->
 
-Let $(x,y)$ be a sample where $x$ is the feature and $y$ denotes the
-class. Consider the following loss function, known as Hinge loss, for a
-predictor $z$ of $y$: \begin{aligned}
-        L(z)=\max(0,1-yz).
-    
-\end{aligned}
+Consider the following function $f(x)$ defined below \begin{aligned}
+f(x)=\max(0,1-x).
 
-**For all the following questions assume $y=1$.**
+\end{aligned}
 
 # BEGIN SUBPROB
 
-Plot $L(z)$.
+Plot $f(x)$.
 
 # BEGIN SOLUTION
 
-<center><img src="../assets/disc11/plot.png" width="500"></center>
+<center><img src="../assets/images/disc11/plot.png" width="500"></center>
 
 The plot should have a y-intercept at $(0,1)$ with slope of $-1$ until $(1,0)$, where it plateaus to
 zero.
@@ -28,39 +24,39 @@ zero.
 
 # BEGIN SUBPROB
 
-Consider the following smoothed version of Hinge loss. \begin{aligned}
-    L_s(z)=\begin{cases}
-    0 & \text{ if } z\geq 1\\
-    \frac12(1-z)^2 & \text{ if } 0<z< 1\\
-    0.5-z & \text{ if } z\leq 0
-    \end{cases}.
-    
+Consider the following smoothed version of $f(x)$. \begin{aligned}
+f_s(x)=\begin{cases}
+0 & \text{ if } x\geq 1\\
+\frac12(1-x)^2 & \text{ if } 0 < x < 1\\
+0.5-x & \text{ if } x\leq 0
+\end{cases}.
+
 \end{aligned}
 
-Is the global minima of $L_s(z)$ unique?
+Is the global minima of $f_s(x)$ unique?
 
 # BEGIN SOLUTION
 
 The minima is not unique since the minimum value is 0 and any
-$z\geq 1$ achieves $L(z)=0$.
+$x \geq 1$ achieves $f_s(x)=0$.
 
 # END SOLUTION
 
-# END SUBPROB 
+# END SUBPROB
 
 # BEGIN SUBPROB
 
 Perform two steps of gradient descent with step size
-$\alpha=1$ for $L_s(z)$ starting from the point $z_0=-0.5$.
+$\alpha=1$ for $f_s(x)$ starting from the point $x_0=-0.5$.
 
 # BEGIN SOLUTION
 
-For $z_0=-0.5$, our point lies on the linear part of the function ($L_s(z)=0.5-z$), therefore ${L'}_s(z)=-1$. Our update is then:
-$$z_1=z_0 - \alpha {L'}_s(z_0)=-0.5+1=0.5$$
+For $x_0=-0.5$, our point lies on the linear part of the function ($f_s(x)=0.5-x$), therefore ${f'}_s(x)=-1$. Our update is then:
+$$x_1=x_0 - \alpha {f'}_s(x_0)=-0.5+1=0.5$$
 
-For $z_1=0.5$, our point lies on the quadratic part of the function
-($L_s(z)=0.5(1-z)^2$), therefore ${L'}_s(z)=-(1-z)$. The update is then
-$$z_2=z_1 - \alpha {L'}_s(z_1)=0.5+(1-0.5)=1$$
+For $x_1=0.5$, our point lies on the quadratic part of the function
+($f_s(x)=0.5(1-x)^2$), therefore ${f'}_s(x)=-(1-x)$. The update is then
+$$x_2=x_1 - \alpha {f'}_s(x_1)=0.5+(1-0.5)=1$$
 
 # END SOLUTION
 

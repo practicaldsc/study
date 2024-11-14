@@ -3,17 +3,15 @@ context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
   Solutions will be made available after all discussion sections have concluded. You don't need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don't cover can be used for extra practice.
-show_solution: true
+show_solution: false
 problems:
-  - disc11/sp24-final-q05
-  - disc11/sp23-final-pt1-q03
-  - disc11/sp21-midterm1-q01
-  - disc11/sp23-midterm1-q03
-  - disc11/fa21-midterm-q03
-  - disc11/fa22-midterm-q01
-  - disc11/wi23-final-q02
-  - disc11/wi23-final-q03
-  - disc11/wi24-final-pt1-q02
-  - disc11/wi24-final-pt1-q03
-  - disc11/wi24-midterm1-q03
-
+  - disc10/su20-midterm-q03 # q1
+  - disc11/sp24-final-q05 # q2
+  - disc11/fa21-midterm-q03 # 5
+  - disc11/wi23-final-q02 # 7 (old)
+  - disc11/sp21-midterm1-q01 # 3
+  - disc11/sp23-midterm1-q03 # 4
+  - disc11/wi23-final-q03 # 8
+  - disc11/wi24-final-pt1-q03 # 10
+  - disc11/wi24-midterm1-q03 # 11
+  - disc11/fa22-midterm-q01 # 6 (old)
