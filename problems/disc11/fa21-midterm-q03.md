@@ -77,7 +77,7 @@ Below is a graph of $R(h)$ with no axis labels.
 
 <!-- TODO -->
 
-<center><img src="../assets/images/fa21-midterm/grad-desc.png" width="500" height="350"></center>
+<center><img src="../assets/disc11/graph.png" width="500" height="350"></center>
 
 True or False: Given an appropriate choice of step size, $\alpha$,
 gradient descent is guaranteed to find the minimizer of $R(h)$.
