@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fall 2024 Midterm Exam</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Fall 2024 Midterm Exam</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!-- add after bootstrap.min.css --> <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js --> <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p><strong>Instructor(s):</strong> Suraj Rampure</p>
+<p>This exam was administered in-person. The exam was closed-notes, except students were allowed to bring a single two-sided notes sheet. No calculators were allowed. Students had 120 minutes to take this exam. <br><br>Access the original exam PDF here: <a href="../assets/pdf/fa24-midterm-a.pdf">Version A</a>, <a href="../assets/pdf/fa24-midterm-b.pdf">Version B</a>. (This site is based on Version A.)</p>
+<hr />
+<p>Skytrax is a website that allows anyone to submit a review for a flight they took. In this exam, we’ll work with the DataFrame <code>reviews</code>, which contains flight reviews taken from Skytrax.</p>
+<p>The first few rows of <code>reviews</code> are shown below, but <code>reviews</code> has many more rows than are shown.</p>
+<center><img src="../assets/images/fa24-midterm/df.png" width=800></center>
+<p>The columns in <code>reviews</code> are as follows:</p>
+<ul>
+<li><code>"airline"</code> (str): The airline flown. Note that an airline can be reviewed multiple times.</li>
+<li><code>"author"</code> (str): The author of the review. Note that an author can write multiple reviews (and can even write multiple reviews of the same airline!).</li>
+<li><code>"date"</code> (str): The date on which the review was written. Most of the reviews were written in 2015.</li>
+<li><code>"content"</code> (str): The content of the review.</li>
+<li><code>"cabin"</code> (str): The cabin the author flew; either <code>"Economy"</code>, <code>"Premium Economy"</code>, <code>"Business"</code>, or <code>"First"</code>.</li>
+<li><code>"overall"</code> (int): The overall rating the author gave their flight experience, between 0 and 10 (inclusive).</li>
+</ul>
+<p><strong>Throughout the exam</strong>, assume we have already run <code>import pandas as pd</code> and <code>import numpy as np</code>.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>Fill in the blanks so that <code>santas_airlines</code> evaluates to an array containing the <strong>unique</strong> names of the airlines that Santa Ono has reviewed.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>santas_airlines <span class="op">=</span> reviews.loc[__(i)__, __(ii)__].__(iii)__</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1" class="accordion-collapse collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    santas_airlines <span class="op">=</span> reviews.loc[reviews[<span class="st">"author"</span>] <span class="op">==</span> <span class="st">"Santa Ono"</span>, <span class="st">"airline"</span>].unique()</span></code></pre>
+</div>
+<p>Conceptually, we need to find a Series containing the names of all of the airlines that Santa Ono has reviewed, and then find the unique values in that Series.</p>
+<p><code>loc</code> helps us extract a subset of the rows and columns in a DataFrame. In general, <code>loc</code> works as follows:</p>
+<pre><code>    reviews.loc[&lt;subset of rows&gt;, &lt;subset of columns&gt;]</code></pre>
+<p>Here: - We want all of the rows where <code>reviews["author"]</code> is equal to <code>"Santa Ono"</code>, so we use the expression <code>reviews["author"] == "Santa Ono"</code> as the first input to <code>loc</code>. (Remember, <code>reviews["author"] == "Santa Ono"</code> is a Series of <code>True</code>s and <code>False</code>s; only the <code>True</code> values are kept in the result.) - We want just the column <code>"airline"</code>, so we supply it as a string as the second input to <code>loc</code>.</p>
+<p>Now, we have a Series with the names of all airlines that Santa Ono has reviewed; calling the <code>.unique()</code> method on this Series will give us back an <strong>array</strong> with just the unique values in the Series, which is what we’re looking for here.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 88%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>Consider the function <code>operate</code>, defined below.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> operate(df):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">&quot;content&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;content&quot;</span>].<span class="bu">str</span>.split().<span class="bu">str</span>.<span class="bu">len</span>()</span></code></pre></div>
+<p>Consider the following six answer choices:</p>
+<ol type="A">
+<li><p>Nothing, because we didn’t reassign <code>reviews</code> after calling <code>operate(reviews)</code>.</p></li>
+<li><p><code>reviews["content"]</code> now contains the number of characters per review.</p></li>
+<li><p><code>reviews["content"]</code> now contains the number of words per review.</p></li>
+<li><p>We see an error because we’re trying to use <code>.str</code> methods on an invalid column.</p></li>
+<li><p>We see an error because a column with the name <code>"content"</code> already exists.</p></li>
+<li><p>We see an error because we’re assuming <code>df</code> is a DataFrame but it is <code>None</code> (null).</p></li>
+</ol>
+<p>All three parts of this question are <strong>independent</strong> from one another; the code in earlier parts should not influence your answers in later parts.</p>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>What happens after running the following block of code?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>operate(reviews)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+<li><p><input type="radio" disabled="" /> E</p></li>
+<li><p><input type="radio" disabled="" /> F</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse collapse" aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: C. <code>reviews["content"]</code> now contains the number of words per review.</p>
+<p>The main premise behind this question is that running <code>operate(reviews)</code> makes an in-place modification to <code>reviews</code>, because DataFrame objects are <strong>mutable</strong>. So, even though we didn’t run <code>reviews = operate(reviews)</code>, <code>reviews</code> was still updated.</p>
+<p>Let’s visualize what happens to the Series <code>reviews["content"]</code> through the transformation <code>reviews["content"].str.split().str.len()</code>:</p>
+<center><img src="../assets/images/fa24-midterm/q2-sol.png" width="400"/></center>
+<p>To summarize:</p>
+<ul>
+<li>If <code>s</code> is a Series of strings, <code>s.str.split()</code> evaluates to a Series of <strong>lists</strong> resulting from splitting each string in <code>s</code> by <code>" "</code> (the default argument to <code>split</code> is <code>" "</code>). These new lists now contain all of the words in the original strings.</li>
+<li>Now, if <code>t</code> is a Series of lists, then <code>t.str.len()</code> evaluates to a Series of <strong>ints</strong> containing the lengths of the lists in <code>t</code>. If each list in <code>t</code> contained words, then the ints in <code>t.str.len()</code> represent numbers of words.</li>
+<li>So, <code>reviews["content"].str.split().str.len()</code> evaluates to a list containing the number of words per review!</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 67%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>What happens after running the following block of code?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>operate(reviews)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>operate(reviews)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+<li><p><input type="radio" disabled="" /> E</p></li>
+<li><p><input type="radio" disabled="" /> F</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse collapse" aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: D. We see an error because we’re trying to use <code>.str</code> methods on an invalid column.</p>
+<p>As we discussed in the solution above, after running <code>operate(reviews)</code>, the DataFrame <code>reviews</code> is modified in-place such that its <code>"content"</code> column contains the number of words per review. This new <code>"content"</code> column is made up of ints.</p>
+<p>When we try and call <code>operate(reviews)</code> a second time, we’ll try to use <code>.str.split()</code> on the new <code>"content"</code> column, but the new <code>"content"</code> column contains ints! Numbers cannot be “split”, and <code>.str</code> methods in general don’t work on Series of numbers, so we’ll get an error that results from this mismatch in types.</p>
+<center><img src="../assets/images/fa24-midterm/q2.2-sol.png" width="600"/><br/>Notice the line at the very top of the error message points to the second call to <code>operate(reviews)</code>.</center>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 62%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<p>What happens after running the following block of code?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reviews <span class="op">=</span> operate(reviews)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reviews <span class="op">=</span> operate(reviews)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+<li><p><input type="radio" disabled="" /> E</p></li>
+<li><p><input type="radio" disabled="" /> F</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse collapse" aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: F. We see an error because we’re assuming <code>df</code> is a DataFrame but it is <code>None</code> (null).</p>
+<p>As discussed in the previous two solutions, after calling <code>operate(reviews)</code>, <code>reviews["content"]</code> now contains the number of words per review. However, the function <code>operate</code> itself doesn’t have an explicit <code>return</code> keyword, which means it returns <code>None</code>, the default Python null value. That is, <code>operate(reviews)</code> makes an in-place modification, but outputs <code>None</code>.</p>
+<p>So, when we set <code>reviews = operate(reviews)</code>, we’re effectively setting <code>reviews = None</code>, i.e. setting <code>reviews</code> to a null value. So, the second time <code>operate(reviews)</code> is called, Python will try to use <code>None</code> in place of <code>df</code> in the body of <code>operate</code>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">def</span> operate(df):</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>    df[<span class="st">"content"</span>] <span class="op">=</span> df[<span class="st">"content"</span>].<span class="bu">str</span>.split().<span class="bu">str</span>.<span class="bu">len</span>()</span></code></pre>
+</div>
+<p>But, <code>None["content"]</code> is an undefined operation, and we’ll get an error to that effect.</p>
+<center><img src="../assets/images/fa24-midterm/q2.3-sol.png" width="600"/><br/>Pay close attention to the error message!</center>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 50%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Suppose we define <code>n = reviews.shape[0]</code>.</p>
+<p>In each of the four parts of this question, we provide an expression that evaluates to a new DataFrame. Depending on the expression, the new DataFrame:</p>
+<ul>
+<li>May or may not have the same number of rows as <code>reviews</code>.</li>
+<li>May have some rows from <code>reviews</code> appear multiple times (i.e. may have duplicated rows). Note that <code>reviews</code> itself <strong>does not</strong> have any duplicated rows.</li>
+<li>May have rows that appear in a different order than they appeared in <code>reviews</code>.</li>
+</ul>
+<p>For example, if <code>df</code> is on the left, the DataFrame on the right has the same number of rows as <code>df</code>, has some duplicated rows (row 1 appears twice), and has the same row order as <code>df</code> (all row 0s before row 1s, all row 1s before row 2s, etc.).</p>
+<center>
+
+<img src="../assets/images/fa24-midterm/df-1.png" width=200> <img src="../assets/images/fa24-midterm/df-2.png" width=200>
+
+</center>
+<p>Select the options that correctly describe the DataFrame that results from each of the following expressions.</p>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>reviews.loc[np.random.choice([<span class="va">True</span>, <span class="va">False</span>], size<span class="op">=</span>n, replace<span class="op">=</span><span class="va">True</span>)]</span></code></pre></div>
+<ol type="i">
+<li><p>Same number of rows as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Possibility of duplicated rows? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Row order guaranteed to be the same as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse collapse" aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ol type="i">
+<li>Same number of rows as <code>reviews</code>? <strong>No</strong>.</li>
+<li>Possibility of duplicated rows? <strong>No</strong>.</li>
+<li>Row order guaranteed to be the same as <code>reviews</code>? <strong>Yes</strong>.</li>
+</ol>
+<p>Here, <code>np.random.choice([True, False], size=n, replace=True)</code> evaluates to an array of <code>True</code>s and <code>False</code>s with the same length as <code>reviews</code>. For instance, it may evaluate to:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>np.array([<span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">False</span>, ...., <span class="va">False</span>])</span></code></pre>
+</div>
+<p>When passing this array into <code>reviews.loc</code>, it is used as a Boolean mask, the same way that Boolean Series are. For example, we write <code>reviews.loc[reviews["author"] == "Santa Ono"]</code> – or <code>reviews[reviews["author"] == "Santa Ono"]</code> for short – we’re asking to keep all the rows when <code>reviews["author"] == "Santa Ono"</code> (a Boolean Series) contains <code>True</code> and exclude all of the rows when that Boolean Series contains <code>False</code>.</p>
+<p>In the above example, we’re saying keep row 0, exclude rows 1 and 2, keep rows 3 and 4, exclude row 5, and so on. In this scheme:</p>
+<ul>
+<li>(i). Since there will (almost certainly) be some <code>False</code>s in the resulting array, we will exclude at least some of the rows in <code>reviews</code>, so the result will almost certainly <strong>not have</strong> the same number of rows as <code>reviews</code>.</li>
+<li>(ii). We can’t include the same row multiple times – we either include or exclude each row – so there’s <strong>no possibility of duplicated rows</strong>.</li>
+<li>(iii). We can’t change the order in which rows appear, since in effect we’re just removing a subset of rows but doing no other shuffling. So, the row order <strong>is guaranteed</strong> to be the same as in <code>reviews</code>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>reviews.loc[np.random.permutation(np.arange(n))]</span></code></pre></div>
+<ol type="i">
+<li><p>Same number of rows as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Possibility of duplicated rows? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Row order guaranteed to be the same as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse collapse" aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<ol type="i">
+<li>Same number of rows as <code>reviews</code>? <strong>Yes</strong>.</li>
+<li>Possibility of duplicated rows? <strong>No</strong>.</li>
+<li>Row order guaranteed to be the same as <code>reviews</code>? <strong>No</strong>.</li>
+</ol>
+<p><code>np.arange(n)</code> evaluates to the array:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, ..., n <span class="op">-</span> <span class="dv">2</span>, n <span class="op">-</span> <span class="dv">1</span>])</span></code></pre>
+</div>
+<p>where, again, <code>n</code> is the length of <code>reviews</code>. <code>np.random.permutation</code> shuffles a sequence, without removing or adding any extra elements, so <code>np.random.permutation(np.arange(n))</code> is an array with the integers between <code>0</code> in <code>n - 1</code> in a random order.</p>
+<p>Separately, as we see in the DataFrame preview provided at the start of the exam, the index of <code>reviews</code> is <strong>0</strong>, <strong>1</strong>, <strong>2</strong>, <strong>3</strong>, etc. When passing a sequence of index values as the first argument to <code>reviews.loc</code>, <code>pandas</code> will return a DataFrame with just the index values you asked for.</p>
+<p>For example, <code>reviews.loc[[19, 1, 3, 18]]</code> evaluates to a DataFrame with 4 rows, specifically, the rows with index values <strong>19</strong>, <strong>1</strong>, <strong>3</strong>, and <strong>18</strong> from <code>reviews</code>. If the index of <code>reviews</code> <strong>wasn’t</strong> made up of integers, then <code>reviews.loc[[19, 1, 3, 18]]</code> would error (and we’d need to use <code>reviews.iloc</code>, which uses integer positions, instead).</p>
+<p>Putting this all together, <code>reviews.loc[np.random.permutation(np.arange(n))]</code> will produce a new DataFrame that results from <strong>shuffling</strong> all of the rows in <code>reviews</code>. If <code>np.random.permutation(np.arange(n))</code> evalutes to <code>np.array([235, 11, 4, 953, 23, 1, 355, ...])</code>, <code>reviews.loc[np.random.permutation(np.arange(n))]</code> will first have row <strong>235</strong> from <code>reviews</code>, then row <strong>11</strong>, and so on.</p>
+<p>So, the resulting DataFrame will have <strong>the same number of rows</strong> as <code>reviews</code>, and <strong>not have any duplicated rows</strong>, but <strong>have a different row order</strong> than <code>reviews</code> in all likelihood.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 74%.</p>
+<!-- <iframe
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1&code=
+  import numpy as np %0A
+  &code=np.random.permutation(np.arange(15))"
+  width="100%"
+  height="500px"
+>
+</iframe> -->
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.3">Problem 3.3</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>reviews.loc[np.random.choice(np.arange(n), size<span class="op">=</span>n, replace<span class="op">=</span><span class="va">True</span>)]</span></code></pre></div>
+<ol type="i">
+<li><p>Same number of rows as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Possibility of duplicated rows? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Row order guaranteed to be the same as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse collapse" aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<ol type="i">
+<li>Same number of rows as <code>reviews</code>? <strong>Yes</strong>.</li>
+<li>Possibility of duplicated rows? <strong>Yes</strong>.</li>
+<li>Row order guaranteed to be the same as <code>reviews</code>? <strong>No</strong>.</li>
+</ol>
+<p>The expression <code>np.random.choice(np.arange(n), size=n, replace=True)</code> selects <code>n</code> elements <strong>with replacement</strong> from <code>np.arange(n)</code>, and returns the results in an array. This array could look like, for example:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>np.array([<span class="dv">235</span>, <span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">940</span>, <span class="dv">15</span>, ...])</span></code></pre>
+</div>
+<p>The resulting array will have <code>n</code> elements, but could have duplicated values (<strong>15</strong> in the example above), and also could be sorted differently than <code>reviews</code>. So, the DataFrame that results from <code>reviews.loc[np.random.choice(np.arange(n), size=n, replace=True)]</code> will have <strong>the same number of rows</strong> as <code>reviews</code>, but <strong>could have duplicated values</strong>, and very well could <strong>have a different row order</strong> than <code>reviews</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 92%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.4">Problem 3.4</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>reviews.loc[np.random.choice(np.arange(n), size<span class="op">=</span>n, replace<span class="op">=</span><span class="va">False</span>)]</span></code></pre></div>
+<ol type="i">
+<li><p>Same number of rows as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Possibility of duplicated rows? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+<li><p>Row order guaranteed to be the same as <code>reviews</code>? <input type="radio" disabled="" /> Yes <input type="radio" disabled="" /> No</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_4" class="accordion-collapse collapse collapse" aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<ol type="i">
+<li>Same number of rows as <code>reviews</code>? <strong>Yes</strong>.</li>
+<li>Possibility of duplicated rows? <strong>No</strong>.</li>
+<li>Row order guaranteed to be the same as <code>reviews</code>? <strong>No</strong>.</li>
+</ol>
+<p>The expression <code>np.random.choice(np.arange(n), size=n, replace=False)</code> selects <code>n</code> elements <strong>without replacement</strong> from <code>np.arange(n)</code>, and returns the results in an array.</p>
+<p>Let’s consider what it means to select <code>n</code> items without replacement from a collection of <code>n</code> items labeled <code>0</code>, <code>1</code>, <code>2</code>, …, <code>n-1</code>. For example, let <code>n = 5</code>. Then, selecting 5 elements <strong>without replacement</strong> from <code>np.array([0, 1, 2, 3, 4])</code> could look like:</p>
+<ul>
+<li>Select one element randomly, say, <code>2</code>. Now there are 4 items left, <code>np.array([0, 1, 3, 4])</code>.</li>
+<li>Let’s pick <code>3</code>. Now we have 3 items left, <code>np.array([0, 1, 4])</code>.</li>
+<li>Let’s pick <code>1</code>. Now we have 2 items left, <code>np.array([0, 4])</code>.</li>
+<li>Let’s pick <code>4</code>. Now we have 1 item left, <code>np.array([0])</code>.</li>
+<li>Let’s pick <code>0</code>. We’re done!</li>
+<li>So, the 5 items we picked, in order, are <code>np.array([2, 3, 1, 4, 0])</code>.</li>
+</ul>
+<p><code>np.array([2, 3, 1, 4, 0])</code> is just a <strong>permutation</strong> of <code>np.array([0, 1, 2, 3, 4])</code>!</p>
+<p>More generally, <code>np.random.choice(np.arange(n), size=n, replace=False)</code> behaves identically to <code>np.random.permutation(np.arange(n))</code>, so our answer to this part should be the same as our answer to part 2 of this question. That is, <code>reviews.loc[np.random.choice(np.arange(n), size=n, replace=False)]</code> produces a DataFrame that has <strong>the same number of rows</strong> as <code>reviews</code>, and <strong>does not have any duplicated rows</strong>, but <strong>has a different row order</strong> than <code>reviews</code> in all likelihood.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>The bar chart below shows the distribution of the number of reviews per <code>"author"</code> in <code>reviews</code>. For instance, it’s telling us that approximately 120 <code>"author"</code>s wrote 2 reviews. <strong>Assume that the height of the bar at 8 on the <span class="math inline">x</span>-axis is exactly 1, and that this is the shortest bar (with no ties).</strong></p>
+<center>
+<img src="../assets/images/fa24-midterm/reviews-per-author.png" width=500>
+</center>
+<p>Hint: The <strong>values</strong> in the Series that results from calling <code>value_counts()</code> are sorted in descending order.</p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>Fill in the blank below so that <code>W</code> evaluates to the value <code>7</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> reviews[<span class="st">&quot;author&quot;</span>].value_counts().__(i)__</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse collapse" aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: There are a few valid answers, namely:</p>
+<ul>
+<li><code>iloc[1]</code>.</li>
+<li><code>iloc[2]</code>.</li>
+<li><code>value_counts().index[-2]</code>.</li>
+<li><code>value_counts().index[6]</code>.</li>
+</ul>
+<p><code>reviews["author"].value_counts()</code> is a <strong>Series</strong> where: - The index contains all of the unique values in <code>reviews["author"]</code>. - The values contain the frequencies (i.e. counts) of each value in <code>reviews["author"]</code>.</p>
+<p>In other words, <code>reviews["author"].value_counts()</code> tells us <strong>the number of reviews per <code>"author"</code></strong>.</p>
+<p>What do we know about <code>reviews["author"].value_counts()</code> from the question?</p>
+<ul>
+<li>Much of our information comes from the bar chart, which is showing us the number of <code>"author"</code>s that wrote 1 review, the number of <code>"author"</code>s that wrote 2 reviews, etc.</li>
+<li>Since the height of the bar at 8 is 1, and this is the shortest bar, we know that exactly 1 <code>"author"</code> wrote 8 reviews, and the author with the next most reviews was 7.</li>
+</ul>
+<p>As the question hints to us, <code>reviews["author"].value_counts()</code> is sorted in decreasing order of value by default. Putting the information above together, we know that the first few rows of <code>reviews["author"].value_counts()</code> looks like:</p>
+<pre><code>Most Common Author      8
+Someone else            7
+A third person          7
+...</code></pre>
+<p>With that in mind, <code>reviews["author"].value_counts().iloc[0]</code> would give us 8, and <code>reviews["author"].value_counts().iloc[1]</code> would give us 7. So, <strong><code>iloc[1]</code></strong> and <strong><code>iloc[2]</code></strong> are two ways of answering this part. There are other solutions, but they involve understanding how <code>reviews["author"].value_counts().value_counts()</code> works, which we will save for the solution of the next part.</p>
+<p>If it’s helpful, here’s what <code>reviews["author"].value_counts()</code> actually looks like on the full DataFrame we used to make this exam:</p>
+<center>
+<img src="../assets/images/fa24-midterm/q4-vc.png" width="500"/>
+</center>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 41%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Now, consider the values defined below.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> reviews[<span class="st">&quot;author&quot;</span>].value_counts().value_counts().loc[<span class="dv">1</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> reviews[<span class="st">&quot;author&quot;</span>].value_counts().value_counts().iloc[<span class="dv">1</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> reviews[<span class="st">&quot;author&quot;</span>].value_counts().value_counts().index[<span class="dv">1</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> reviews[<span class="st">&quot;author&quot;</span>].value_counts().value_counts().index[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>Which value is equal to <strong>8</strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>W</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>X</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Y</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Z</code></p></li>
+<li><p><input type="radio" disabled="" /> None of these.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse collapse" aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>Z = reviews["author"].value_counts().value_counts().index[-1]</code>.</p>
+<p>In the solution to the previous part, we understood that <code>reviews["author"].value_counts()</code> would look something like:</p>
+<pre><code>Most Common Author      8
+Someone else            7
+A third person          7
+...</code></pre>
+<p>Then, what does <code>reviews["author"].value_counts().value_counts()</code> look like? It’s a <strong>Series</strong>, too, where:</p>
+<ul>
+<li>The index contains all of the unique values in <code>reviews["author"].value_counts()</code> (so 1, 2, 3, 4, …, 8).</li>
+<li>The values tell us the number of <code>"author"</code>s with 1 review, the number of <code>"author"</code>s with 2 reviews, etc.</li>
+</ul>
+<p>So, <code>reviews["author"].value_counts().value_counts()</code> actually describes the information in the bar chart provided! It may look something like:</p>
+<pre><code>1           1400
+2           120
+3           25
+5           12
+6           9
+4           8
+7           2
+8           1</code></pre>
+<p>The only one of these values that we know exactly is in the very last row, because we’re told that exactly one <code>"author"</code> wrote 8 reviews, the rest wrote fewer. The other values were estimated from the provided bar chart, but their values are not important in answering any of the remaining parts of this question.</p>
+<p>Keep in mind that the resulting Series is sorted in descending order of <strong>value</strong>, not by index!</p>
+<p>So, we can answer all three remaining parts of this question at once:</p>
+<ul>
+<li><strong>Part 2</strong>: Since the bar for 8 is the shortest bar, 8 is the very last value in the index of <code>reviews["author"].value_counts().value_counts()</code>, so <code>Z = reviews["author"].value_counts().value_counts().index[-1]</code> must evaluate to <code>8</code>.</li>
+<li><strong>Part 3</strong>: <code>W = reviews["author"].value_counts().value_counts().loc[1]</code> will give us the value at index <code>1</code>, which will be the number of <code>"author"</code>s with 1 review, which is the height of the first bar.</li>
+<li><strong>Part 4</strong>: <code>X = reviews["author"].value_counts().value_counts().iloc[1]</code> will give us the value at integer position 1. Since Python is 0-indexed, this will give us the second-largest value in <code>reviews["author"].value_counts().value_counts()</code>, which is the height of the second-tallest bar, which is indeed what we want.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 64%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>Which value is equal to <strong>the height of the tallest bar</strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>W</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>X</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Y</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Z</code></p></li>
+<li><p><input type="radio" disabled="" /> None of these.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse collapse" aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>W = reviews["author"].value_counts().value_counts().loc[1]</code>.</p>
+<p>See the solution to Part 2.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 56%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.4">Problem 4.4</h3>
+<p>Which value is equal to <strong>the height of the second-tallest bar</strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>W</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>X</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Y</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Z</code></p></li>
+<li><p><input type="radio" disabled="" /> None of these.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_4" class="accordion-collapse collapse collapse" aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>X = reviews["author"].value_counts().value_counts().loc[1]</code>.</p>
+<p>See the solution to Part 2.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 67%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p><strong>Select all</strong> visualization techniques we <em>could</em> use to visualize the distribution of <code>"overall"</code> ratings, separately for Delta Air Lines and United Airlines. At least one answer is correct.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> side-by-side box plots</p></li>
+<li><p><input type="checkbox" disabled="" /> side-by-side bar charts</p></li>
+<li><p><input type="checkbox" disabled="" /> a scatter plot</p></li>
+<li><p><input type="checkbox" disabled="" /> a pie chart</p></li>
+<li><p><input type="checkbox" disabled="" /> overlaid histograms</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5" class="accordion-collapse collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: side-by-side box plots, side-by-side bar charts, overlaid histograms</p>
+<p><code>"overall"</code> ratings are a numerical feature type, and we’ve learned to visualize the distribution of numerical features using box plots and histograms.</p>
+<p>So, a side-by-side box plot, with one box for Delta Air Lines and one box for United Airlines, would do the job:</p>
+<center>
+<img src="../assets/images/fa24-midterm/q5-box.png" width="500"/>
+</center>
+<p>An overlaid histogram would do the job, too: one histogram figure for Delta, one for United.</p>
+<center>
+<img src="../assets/images/fa24-midterm/q5-hist.png" width="500"/>
+</center>
+<p>But, there’s a third possibility! Since <code>"overall"</code> ratings are some integer between 0 and 10, we can also use a bar chart to describe them. While we didn’t talk about such plots in class explicitly, a similar one is provided to you in the exam at the start of Problem 4! There, we show the distribution of a discrete, numerical feature using a bar chart:</p>
+<center>
+<img src="../assets/images/fa24-midterm/reviews-per-author.png" width="500"/>
+</center>
+<p>We can do the same thing here, with one bar chart for Delta and one for United, overlaid:</p>
+<center>
+<img src="../assets/images/fa24-midterm/q5-bar.png" width="500"/>
+</center>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 82%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>We define the <strong>robust mean</strong> of a collection of values to be the mean of all values, once the largest and smallest values are removed. For example, the robust mean of <span class="math inline">2, 2, 3, 7, 12</span> is <span class="math inline">\frac{2+3+7}{3} = 4</span>.</p>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Fill in the blanks so that <code>worst_robustly</code> evaluates to the <code>"airline"</code> with the lowest robust mean of <code>"overall"</code> ratings. Assume there are no ties in robust ratings, and that each <code>"airline"</code> has at least 3 ratings.</p>
+<pre><code>def funky(x):
+    return __(iii)__
+
+worst_robustly = reviews.__(i)__[&quot;overall&quot;].__(ii)__(funky).idxmin()</code></pre>
+<ul>
+<li>Options for <code>(i)</code>:</li>
+</ul>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>sort_values("overall")</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>groupby("overall")</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>value_counts("overall")</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sort_values("airline")</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>groupby("airline")</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>value_counts("airline")</code></p></li>
+</ul>
+<ul>
+<li>Options for <code>(ii)</code>:</li>
+</ul>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>agg</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>filter</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>transform</code></p></li>
+</ul>
+<ul>
+<li>Options for <code>(iii)</code>: Free response</li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse collapse" aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    <span class="kw">def</span> funky(x):</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>        <span class="cf">return</span> x.sort_values().iloc[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>].mean()</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>        <span class="co"># OR</span></span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a>        <span class="cf">return</span> (x.<span class="bu">sum</span>() <span class="op">-</span> x.<span class="bu">min</span>() <span class="op">-</span> x.<span class="bu">max</span>()) <span class="op">/</span> (x.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a>    worst_robustly <span class="op">=</span> reviews.groupby(<span class="st">"airline"</span>)[<span class="st">"overall"</span>].agg(funky).idxmin()</span></code></pre>
+</div>
+<p>Let’s look at the problem step-by-step.</p>
+<ul>
+<li>(i). We want to find the name of the <code>"airline"</code> with the lowest robust mean of <code>"overall"</code> rating. To do so, we need to first find the robust mean of <code>"overall"</code> ratings for each <code>"airline"</code>. Since we want to perform this calculation <strong>for each</strong> <code>"airline"</code>, we should <code>groupby("airline")</code>. (Note that the <code>.idxmin()</code> at the very end of the expression finds the index of the lowest value in the preceding Series.)</li>
+<li>(ii). For each airline, we want to take all of its <code>"overall"</code> ratings – which are stored in a Series – and compute the robust mean of them. This act of taking many <code>"overall"</code> ratings and condensing them into a single value is called aggregation, and so the appropriate method here is <code>agg</code>.</li>
+<li>(iii). Finally, <code>funky</code> needs to find the robust mean of a collection of values. If <code>x</code> is a Series of values, there are a few ways we can do this:
+<ul>
+<li>Sort <code>x</code>, either in ascending or descending order. Then, remove the first and last value, which will be the min and max if sorted in ascending order, or the max and min if sorted in descending order (either way, it doesn’t change the result). Then, extract all of the remaining values and take the mean of them. <code>x.sort_values().iloc[1:-1]</code> gets the values we need to take the mean of, and <code>x.sort_values().iloc[1:-1].mean()</code> returns what we want.</li>
+<li>Use the fact that the mean of a collection of values is the sum of all values divided by the number of values total. Here, the robust mean is the mean of all values, with the min and max removed. The sum of all values, with the min and max removed, is <code>x.sum() - x.min() - x.max()</code>, and the number of values – again, with the min and max removed – is <code>x.shape[0] - 2</code>, which means that <code>(x.sum() - x.min() - x.max()) / (x.shape[0] - 2)</code> also returns the robust mean.</li>
+</ul></li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 86%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>What are the input and output types of the function <code>funky</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Input: Series, Output: Number</p></li>
+<li><p><input type="radio" disabled="" /> Input: Series, Output: Series</p></li>
+<li><p><input type="radio" disabled="" /> Input: Series, Output: DataFrame</p></li>
+<li><p><input type="radio" disabled="" /> Input: DataFrame, Output: Number</p></li>
+<li><p><input type="radio" disabled="" /> Input: DataFrame, Output: Series</p></li>
+<li><p><input type="radio" disabled="" /> Input: DataFrame, Output: DataFrame</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse collapse" aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Input: Series, Output: Number</p>
+<p>Let’s take a look at the expression below:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    reviews.groupby(<span class="st">"airline"</span>)[<span class="st">"overall"</span>].agg(funky).idxmin()</span></code></pre>
+</div>
+<p><code>reviews.groupby("airline")["overall"]</code> is a SeriesGroupBy object, meaning that <code>funky</code> is called on various <strong>Series</strong>. Specifically, it is called on a Series of <code>"overall"</code> scores, separately for each <code>"airline"</code>. The output of <code>funky</code> is a single number, since it’s an aggregation method that takes lots of values (numbers) and condenses them into a single value (number).</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Consider the DataFrame <code>imp</code>, shown in its entirety below.</p>
+<center>
+<img src="../assets/images/fa24-midterm/imp.png" width=200>
+</center>
+<p>As in the previous question, we define the <strong>robust mean</strong> of a collection of values to be the mean of all values, once the largest and smallest values are removed. For example, the robust mean of <span class="math inline">2, 2, 3, 7, 12</span> is <span class="math inline">\frac{2+3+7}{3} = 4</span>.</p>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>Suppose we use <strong>robust mean imputation, conditional on <code>"cabin"</code></strong> to fill in the missing values in the <code>"overall"</code> column. In doing so, what are the missing values in the <code>"overall"</code> column filled in with? Give your answers as <strong>numbers</strong>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse collapse" aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li>Missing value in row <code>9</code>: 6 (or 6.0)</li>
+<li>Missing value in row <code>10</code>: 7 (or 7.0)</li>
+</ul>
+<p>To perform <strong>robust mean</strong> imputation, conditional on <code>"cabin"</code>, we must fill each missing <code>"overall"</code> value with the robust mean of the observed <code>"overall"</code> values with the same <code>"cabin"</code> as the missing value. So:</p>
+<ul>
+<li>The missing value in row <code>9</code> has a <code>"cabin"</code> of Business. The observed <code>"overall"</code> values for Business are 7, 6, and 2. The robust mean of 7, 6, and 2 is just 6, since when you remove the min (2) and max (7) you’re left with just a single value, 6, and the mean of a single value is that one value. So, we fill in the missing value in row <code>9</code> with <strong>6</strong>.</li>
+<li>The missing value in row <code>10</code> has a <code>"cabin"</code> of Premium Economy. The observed <code>"overall"</code> values for Premium Economy are 5, 6, 9, and 8, and the robust mean of these values is <span class="math inline">\frac{6 + 8}{2} = 7</span>, which is the mean once the min (5) and max (9) are removed. So, we fill in the missing value in row <code>10</code> with <strong>7</strong>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 90%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>Suppose <code>imp</code> represents the DataFrame above, with 2 missing values, and <code>filled</code> represents the DataFrame that results from imputing the missing values in <code>imp</code> in the way described in the previous part. In the following code block, what is the value of <code>comp</code>?</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  old_means <span class="op">=</span> imp.groupby(<span class="st">&quot;cabin&quot;</span>)[<span class="st">&quot;overall&quot;</span>].mean()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  comp <span class="op">=</span> old_means <span class="op">==</span> filled.groupby(<span class="st">&quot;cabin&quot;</span>)[<span class="st">&quot;overall&quot;</span>].mean()</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>True</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>False</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[True, True, True]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[False, False, False]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[True, True, False]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[True, False, True]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[False, True, True]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[False, False, True]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[False, True, False]</code></p></li>
+<li><p><input type="radio" disabled="" /> The Series <code>[True, False, False]</code></p></li>
+</ul>
+<p>Hint: When grouping, the index is automatically sorted in ascending order.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse collapse" aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The Series <code>[False, True, True]</code></p>
+<p><code>old_means</code> is a Series containing the mean <code>"overall"</code> score of each <code>"airline"</code>, before we fill in any missing values (i.e. with missing values ignored), and <code>filled.groupby("cabin")["overall"].mean()</code> is a Series containing the mean <code>"overall"</code> score of each <code>"airline"</code> post-imputation. The index of both of these Series is <code>["Business", "First", "Premium Economy"]</code>, since when grouping and aggregating, the index is set to the unique values in the grouped-on column (<code>"cabin"</code>, here) in ascending order.</p>
+<p>So, this question boils down to checking whether the means of each group changed because of the imputation we did.</p>
+<ul>
+<li>Business:
+<ul>
+<li>Mean before imputation: <span class="math inline">\frac{7 + 6 + 2}{3} = 5</span>.</li>
+<li>Mean after imputation: <span class="math inline">\frac{7 + 6 + 2 + 6}{4} = 5.25</span>.</li>
+<li>Different!</li>
+</ul></li>
+<li>First: No missing values, so we didn’t have to impute anything, so nothing changed!</li>
+<li>Premium Economy:
+<ul>
+<li>Mean before imputation: <span class="math inline">\frac{5 + 6 + 9 + 8}{4} = 7</span>.</li>
+<li>Mean after imputation: <span class="math inline">\frac{5 + 6 + 9 + 8 + 7}{5} = 7</span>.</li>
+<li>Same! Note that because the robust mean is equal to the regular mean, in effect, we imputed the missing value with the mean of the observed values, which we know will not change the mean. (Add a bunch of average values to a dataset, and the average doesn’t change!)</li>
+</ul></li>
+</ul>
+<p>So, the Business mean changed, while the First and Premium Economy means did not change. In the order <code>["Business", "First", "Premium Economy"]</code> that we established above, our comparisons are <code>[False, True, True]</code>, and so <code>comp</code> is a Series of <code>[False, True, True]</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 46%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>Consider the DataFrame <code>framer</code>, defined below.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>framer <span class="op">=</span> reviews.pivot_table(index<span class="op">=</span><span class="st">&quot;airline&quot;</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                                columns<span class="op">=</span><span class="st">&quot;cabin&quot;</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                values<span class="op">=</span><span class="st">&quot;author&quot;</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                                aggfunc<span class="op">=</span><span class="st">&quot;max&quot;</span>)</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<p>In one English sentence, describe the meaning of the <strong>value</strong> that the following expression evaluates to.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>framer.loc[<span class="st">&quot;emirates&quot;</span>, <span class="st">&quot;Economy&quot;</span>]</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_1" class="accordion-collapse collapse collapse" aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The last name, alphabetically, among all authors who submitted an Economy Class Emirates review.</p>
+<p><code>framer</code> might look something like this:</p>
+<center>
+<img src="../assets/images/fa24-midterm/q8-framer.png" width="500"/>
+</center>
+<p>The rows of <code>framer</code> are the unique <code>"airline"</code>s and the columns of <code>framer</code> are the unique <code>"cabin"</code>s. The value in row <code>a</code> and column <code>c</code> is the maximum <code>"author"</code> who wrote a review for <code>"airline"</code> <code>a</code> in <code>"cabin"</code> <code>c</code>. Since <code>"author"</code> names are strings, the “maximum” <code>"author"</code> name is the last alphabetically (or <em>lexicographically</em>).</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 73%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.2">Problem 8.2</h3>
+<p>What is the value of the following expression?</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>framer.isna().<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The number of unique values in the <code>"airline"</code> column of <code>reviews</code>.</p></li>
+<li><p><input type="radio" disabled="" /> The number of unique values in the <code>"cabin"</code> column of <code>reviews</code>.</p></li>
+<li><p><input type="radio" disabled="" /> The number of unique values in the <code>"author"</code> column of <code>reviews</code>.</p></li>
+<li><p><input type="radio" disabled="" /> The number of unique values in the <code>"overall"</code> column of <code>reviews</code>.</p></li>
+<li><p><input type="radio" disabled="" /> None of the above.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_2" class="accordion-collapse collapse collapse" aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The number of unique values in the <code>"cabin"</code> column of <code>reviews</code>.</p>
+<p>Let’s walk through the logic:</p>
+<ul>
+<li><code>framer</code> has one column per unique <code>"cabin"</code> in <code>reviews</code>.</li>
+<li><code>framer.isna()</code> is a DataFrame with the same shape as <code>framer</code>, with each value either being <code>True</code> (if the corresponding value in <code>framer</code> is null) or <code>False</code>.</li>
+<li><code>framer.isna().sum(axis=0)</code> computes the sum across the rows, which is the sum <strong>of each column</strong> of <code>framer</code>.</li>
+<li>So, the Series <code>framer.isna().sum(axis=0)</code> has one entry per column in <code>framer</code>, i.e. one entry per unique <code>"cabin"</code> in reviews.</li>
+<li>So, <code>framer.isna().sum(axis=0).shape[0]</code> is equal to the number of unique values in the <code>"cabin"</code> column of <code>reviews</code>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 17%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.3">Problem 8.3</h3>
+<p>Consider the following information.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> framer.isna().<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).<span class="bu">sum</span>()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">320</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> reviews[<span class="st">&quot;airline&quot;</span>].nunique()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dv">125</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> reviews[<span class="st">&quot;cabin&quot;</span>].nunique()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span></span></code></pre></div>
+<p>What is the value of the following expression? Show your work, and <span class="math inline">\boxed{\text{box}}</span> your final answer, which should be a <strong>positive integer</strong>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>reviews.groupby([<span class="st">&quot;airline&quot;</span>, <span class="st">&quot;cabin&quot;</span>])[<span class="st">&quot;overall&quot;</span>].mean().shape[<span class="dv">0</span>]</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_3" class="accordion-collapse collapse collapse" aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 180.</p>
+<p>Let <code>grouped = reviews.groupby(["airline", "cabin"])["overall"].mean()</code>, the DataFrame provided in the question. <code>grouped</code> has one row for every unique combination of <code>"airline"</code> and <code>"cabin"</code> that actually appears in <code>reviews</code>. Since there are 125 unique values of <code>"airline"</code> and 4 unique values of <code>"cabin"</code>, there are <span class="math inline">125 \cdot 4 = 500</span> <em>possible</em> unique combinations of <code>"airline"</code> and <code>"cabin"</code>.</p>
+<p><strong>But</strong>, these combinations don’t all actually exist in <code>grouper</code>! The fact that <code>framer.isna().sum(axis=0).sum()</code> is <code>320</code> means that there are 320 missing values in <code>framer</code>, total. <code>framer</code>, too, has 125 rows and 4 columns, since it results from calling <code>reviews.pivot_table(index="airline", columns="cabin")</code>. But, since it has 320 missing values, it means that 320 of the possible combinations of <code>"airline"</code> and <code>"cabin"</code> never actually appeared in <code>reviews</code>.</p>
+<p>So, the number of combinations of <code>"airline"</code> and <code>"cabin"</code> that actually appeared in <code>reviews</code> is equal to the number of non-null values in <code>framer</code> – or, equivalently, the number of rows in <code>grouped</code> (so <code>grouped.shape[0]</code>), which is the answer to the question we’re looking for – is:</p>
+<p><span class="math display">125 \cdot 4 - 320 = \boxed{180}</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 61%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>Consider the DataFrame <code>lines</code>, created by keeping the rows in <code>reviews</code> corresponding to reviews written between 2015-11-24 and 2015-11-28. Remember, each row in <code>lines</code> corresponds to a review of an <strong>airline</strong>.</p>
+<p>Also consider the DataFrame <code>ports</code>, in which each row corresponds to a review of a particular <strong>airport</strong>. <code>ports</code> has a <code>"date"</code> column, too, and also only has reviews written between 2015-11-24 and 2015-11-28.</p>
+<p>Consider the following information.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lines[<span class="st">&quot;date&quot;</span>].value_counts().sort_index()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2015</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">24</span>      <span class="dv">2</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2015</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">25</span>      <span class="dv">7</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2015</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">26</span>      <span class="dv">1</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2015</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">27</span>      <span class="dv">4</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ports.shape[<span class="dv">0</span>]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="dv">17</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> ports[<span class="st">&quot;date&quot;</span>].unique()</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;2015-11-26&quot;</span>, <span class="st">&quot;2015-11-27&quot;</span>, <span class="st">&quot;2015-11-28&quot;</span>])</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lines.merge(ports, on<span class="op">=</span><span class="st">&quot;date&quot;</span>, how<span class="op">=</span><span class="st">&quot;inner&quot;</span>).shape[<span class="dv">0</span>]</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="dv">29</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lines.merge(ports, on<span class="op">=</span><span class="st">&quot;date&quot;</span>, how<span class="op">=</span><span class="st">&quot;outer&quot;</span>).shape[<span class="dv">0</span>]</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="dv">41</span></span></code></pre></div>
+<p>Below, give your answers as <strong>integers</strong>.</p>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>How many values in <code>ports["date"]</code> are equal to <code>"2015-11-24"</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_1" class="accordion-collapse collapse collapse" aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 0.</p>
+<p>Since <code>ports["date"].unique()</code> evaluates to <code>array(["2015-11-26", "2015-11-27", "2015-11-28"])</code>, we know that none of the values in <code>ports["date"]</code> are <code>"2015-11-24"</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 83%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>How many values in <code>ports["date"]</code> are equal to <code>"2015-11-25"</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_2" class="accordion-collapse collapse collapse" aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 0.</p>
+<p>Since <code>ports["date"].unique()</code> evaluates to <code>array(["2015-11-26", "2015-11-27", "2015-11-28"])</code>, we know that none of the values in <code>ports["date"]</code> are <code>"2015-11-25"</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 83%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>How many values in <code>ports["date"]</code> are equal to <code>"2015-11-26"</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_3" class="accordion-collapse collapse collapse" aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 9.</p>
+<p>Let:</p>
+<ul>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-26"</code> be <span class="math inline">a</span>,</li>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-27"</code> be <span class="math inline">b</span>, and</li>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-28"</code> be <span class="math inline">c</span>.</li>
+</ul>
+<p>Then, <span class="math inline">a</span>, <span class="math inline">b</span>, and <span class="math inline">c</span> are the answers to parts 3, 4, and 5 of this question, respectively.</p>
+<p>To solve for <span class="math inline">a</span>, <span class="math inline">b</span>, and <span class="math inline">c</span>, we’ll need to put together several pieces of information:</p>
+<ul>
+<li>Since <code>ports.shape[0]</code> is <code>17</code>, the total number of values in <code>ports["date"]</code> is 17. We know, from the fact that <code>ports["date"].unique()</code> is <code>array(["2015-11-26", "2015-11-27", "2015-11-28"])</code>, that the only values in <code>ports["date"]</code> are <code>"2015-11-26"</code>, <code>"2015-11-27"</code>, and <code>"2015-11-28"</code>. This means that <span class="math inline">a + b + c = 17</span> – we’ll call this equation 1.</li>
+<li>There are 29 rows when we perform an inner merge between <code>lines</code> and <code>ports</code> on <code>"date"</code>. The only unique values that are shared between <code>lines["date"]</code> and <code>ports["date"]</code> are <code>"2015-11-26"</code> (1 in <code>lines</code>, <span class="math inline">a</span> in <code>ports</code>) and <code>"2015-11-27"</code> (4 in <code>lines</code>, <span class="math inline">b</span> in <code>ports</code>). So, because of the fact that: <span class="math display">\underbrace{\text{frequency}(\text{value}, \texttt{merged(lines, dates)} = \text{frequency}(\text{value}, \texttt{lines}) \cdot \text{frequency}(\text{value}, \texttt{dates})}_{\text{this is not a formula we saw explicitly in class; rather, it's a principle we used repeatedly when solving number-of-rows-in-merges problems}}</span> We have our equation 2: <span class="math display">1a + 4b = 29</span></li>
+<li>Finally, there are 41 rows we perform an outer merge between <code>lines</code> and <code>ports</code> on <code>"date"</code>. The rows in the result of the outer merge are all 29 rows of the inner merge, plus one row each for each row that was in <code>lines</code> or <code>dates</code> without an overlapping <code>"date"</code>. So, equation 3 is: <span class="math display">\underbrace{29}_{\text{inner merge}} + \underbrace{2 + 7}_{\text{the frequencies of \texttt{"2015-11-24"} and \texttt{"2015-11-25"} in \texttt{lines}}} + \underbrace{c}_\text{the frequency of \texttt{"2015-11-28"} in \texttt{ports}} = 41</span></li>
+</ul>
+<p>So, our three equations are:</p>
+<p><span class="math display">\begin{align*} a + b + c &amp;= 17 &amp; (1) \\ a + 4b &amp; = 29 &amp; (2) \\ 29 + 2 + 7 + c &amp;= 41 &amp; (3) \end{align*}</span></p>
+<p>Let’s work our way to a solution.</p>
+<ul>
+<li>First, equation (3) only involves <span class="math inline">c</span>; re-arranging gives: <span class="math display">c = 41 - 29 - 2 - 7 = \boxed{3}</span></li>
+<li>Then, substituting <span class="math inline">c = 3</span> into equation (1) gives us two equations relating <span class="math inline">a</span> and <span class="math inline">b</span>: <span class="math display">\begin{align*} a + 4b &amp;= 29 \\ a + b &amp;= 14\end{align*}</span></li>
+<li>Subtracting the two equations above gives: <span class="math display">3b = 15 \implies b = \boxed{5}</span></li>
+<li>Substituting <span class="math inline">b = 5</span> into <span class="math inline">a + b = 14</span> gives: <span class="math display">a = 14 - 5 = \boxed{9}</span></li>
+</ul>
+<p>So, <span class="math inline">a = 9</span>, <span class="math inline">b = 5</span>, and <span class="math inline">c = 3</span>, meaning that:</p>
+<ul>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-26"</code> is 9,</li>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-27"</code> is 5, and</li>
+<li>the number of values in <code>ports["date"]</code> equal to <code>"2015-11-28"</code> is 3.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 52%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.4">Problem 9.4</h3>
+<p>How many values in <code>ports["date"]</code> are equal to <code>"2015-11-27"</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_4" class="accordion-collapse collapse collapse" aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong> 5.</p>
+<p>See the solution to part 3.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 55%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.5">Problem 9.5</h3>
+<p>How many values in <code>ports["date"]</code> are equal to <code>"2015-11-28"</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_5" aria-expanded="true" aria-controls="collapse9_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_5" class="accordion-collapse collapse collapse" aria-labelledby="heading9_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong> 3.</p>
+<p>See the solution to part 3.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 65%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>Consider the following SQL query.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> author, <span class="fu">AVG</span>(overall) <span class="kw">AS</span> average_overall <span class="kw">FROM</span> reviews</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> author</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">HAVING</span> <span class="fu">AVG</span>(overall) <span class="op">&gt;=</span> <span class="dv">8</span> <span class="kw">AND</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">&gt;=</span> <span class="dv">5</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> average_overall;</span></code></pre></div>
+<p>Now, consider the following four code blocks.</p>
+<ul>
+<li>Block 1:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">&quot;overall&quot;</span>].mean() <span class="op">&gt;=</span> <span class="dv">8</span> <span class="kw">and</span> x.shape[<span class="dv">0</span>] <span class="op">&gt;=</span> <span class="dv">5</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    pop_auth <span class="op">=</span> (reviews.groupby(<span class="st">&quot;author&quot;</span>).<span class="bu">filter</span>(f)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                        .groupby(<span class="st">&quot;author&quot;</span>)[[<span class="st">&quot;overall&quot;</span>]].mean()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                        .sort_values(<span class="st">&quot;overall&quot;</span>).reset_index())</span></code></pre></div>
+<ul>
+<li>Block 2:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> <span class="kw">lambda</span> x: x.shape[<span class="dv">0</span>] <span class="op">&gt;=</span> <span class="dv">5</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    pop_auth <span class="op">=</span> (reviews[reviews[<span class="st">&quot;overall&quot;</span>] <span class="op">&gt;=</span> <span class="dv">8</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                .groupby(<span class="st">&quot;author&quot;</span>).<span class="bu">filter</span>(g)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                .groupby(<span class="st">&quot;author&quot;</span>)[[<span class="st">&quot;overall&quot;</span>]].mean()</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                .sort_values(<span class="st">&quot;overall&quot;</span>).reset_index())</span></code></pre></div>
+<ul>
+<li>Block 3:</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    pop_auth <span class="op">=</span> (reviews[<span class="st">&quot;author&quot;</span>].value_counts().reset_index()</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                .merge(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                    reviews.groupby(<span class="st">&quot;author&quot;</span>)[[<span class="st">&quot;overall&quot;</span>]].mean().reset_index(), </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                    on<span class="op">=</span><span class="st">&quot;author&quot;</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                .pipe(<span class="kw">lambda</span> x: x[(x[<span class="st">&quot;overall&quot;</span>] <span class="op">&gt;=</span> <span class="dv">8</span>)])</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                .sort_values(<span class="st">&quot;overall&quot;</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                .pipe(<span class="kw">lambda</span> r: r[r[<span class="st">&quot;count&quot;</span>] <span class="op">&gt;=</span> <span class="dv">5</span>])</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                [[<span class="st">&quot;author&quot;</span>, <span class="st">&quot;overall&quot;</span>]])</span></code></pre></div>
+<ul>
+<li>Block 4:</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    temp <span class="op">=</span> reviews.groupby(<span class="st">&quot;author&quot;</span>)[<span class="st">&quot;overall&quot;</span>].agg([<span class="st">&quot;count&quot;</span>, <span class="st">&quot;mean&quot;</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    pop_auth <span class="op">=</span> (temp[(temp[<span class="st">&quot;count&quot;</span>] <span class="op">&gt;=</span> <span class="dv">5</span>) <span class="op">&amp;</span> (temp[<span class="st">&quot;mean&quot;</span>] <span class="op">&gt;=</span> <span class="dv">8</span>)]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                .sort_values(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                .reset_index()[[<span class="st">&quot;author&quot;</span>, <span class="st">&quot;mean&quot;</span>]])</span></code></pre></div>
+<p>Three of the blocks above correctly assign <code>pop_auth</code> to a DataFrame that is equivalent to the table outputted by the SQL query at the top of the page (ignoring the names of the resulting columns and the values in the index). One of the options <strong>is incorrect</strong>.</p>
+<p>Which block is <strong>incorrect</strong> – that is, which block <strong>does not</strong> assign <code>pop_auth</code> so that it is equivalent to the result of the SQL query at the top of the page?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Block 1</p></li>
+<li><p><input type="radio" disabled="" /> Block 2</p></li>
+<li><p><input type="radio" disabled="" /> Block 3</p></li>
+<li><p><input type="radio" disabled="" /> Block 4</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10" class="accordion-collapse collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Block 2</p>
+<p>The provided SQL query finds the name and average <code>"overall"</code> rating given by all <code>"author"</code>s who wrote at least 5 reviews and gave an average <code>"overall"</code> rating of at least 8. Blocks 1, 3, and 4 do this.</p>
+<p>The issue with Block 2 is that it first <strong>queries</strong> for just the rows where the <code>"overall"</code> rating is over 8 before grouping, using <code>reviews[reviews["overall"] &gt;= 8]</code>. After this (<code>pandas</code>) query, we’ve totally lost all of the rows with an <code>"overall"</code> rating below 8. It’s very possible for <code>"author"</code>s to have an average <code>"overall"</code> rating above 8 but have written <em>some</em> reviews with an <code>"overall"</code> rating below 8, which means that the resulting DataFrame in Block 2 could have incorrect average <code>"overall"</code> ratings for some <code>"author"</code>s. It could even be missing some <code>"author"</code>s entirely.</p>
+<p>For example, suppose we have two <code>"author"</code>s, A and B, who gave out the following <code>"overall"</code> ratings:</p>
+<ul>
+<li>A: 8, 9, 9, 9, 10, 10 (average: 9.166).</li>
+<li>B: 7, 7, 8, 9, 10, 10 (average: 8.5).</li>
+</ul>
+<p>Both A and B meet the criteria to be included in the the output DataFrame – they have written at least 5 reviews and have an average <code>"overall"</code> rating of at least 8. But, after querying out all of the rows with an <code>"overall"</code> rating under 8, B is reduced to just having the 4 values 8, 9, 10, 10. Since B no longer fits the criteria in <code>filter(g)</code>, it won’t be included in the output.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 73%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-11">Problem 11</h2>
+<p>Suppose we define <code>soup</code> to be a BeautifulSoup object that is instantiated using the HTML document below. (To save space, we’ve omitted the tags <code>&lt;html&gt;</code> and <code>&lt;/html&gt;</code>.)</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;title&gt;</span>Aalborg Airport Customer Reviews - SKYTRAX<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.airlinequality.com&quot;</span><span class="ot"> rel=</span><span class="st">&quot;nofollow&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;https://www.airlinequality.com/images/skytrax.svg&quot;</span><span class="ot"> alt=</span><span class="st">&quot;SKYTRAX&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/a&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;skytrax-ratings&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;review-ratings&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;terminal-cleanliness&quot;</span><span class="kw">&gt;</span>Terminal Cleanliness<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td&gt;</span>4<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;food-beverages&quot;</span><span class="kw">&gt;</span>Food Beverages<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td&gt;</span>9<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;tr&gt;</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;airport-staff&quot;</span><span class="kw">&gt;</span>SKYTRAX Staff<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;td&gt;</span>3<span class="kw">&lt;/td&gt;</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/tr&gt;</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/table&gt;</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p>In parts 1 and 2, fill in the blanks so that each expression evaluates to <code>"SKYTRAX"</code>.</p>
+<p><br></p>
+<h3 id="problem-11.1">Problem 11.1</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>soup.__(i)__(<span class="st">&quot;alt&quot;</span>)</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_1" class="accordion-collapse collapse collapse" aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    soup.find(<span class="st">"img"</span>).get(<span class="st">"alt"</span>)</span></code></pre>
+</div>
+<p>The existing <code>"alt"</code> argument tells us that we’re looking to extract the <code>alt</code> attribute’s value from this tag:</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">"https://www.airlinequality.com/images/skytrax.svg"</span><span class="ot"> alt=</span><span class="st">"SKYTRAX"</span><span class="kw">&gt;</span></span></code></pre>
+</div>
+<p>The tag containing this attribute is the very first <code>img</code> tag in the document, so <code>soup.find("img")</code> will navigate to this tag. To access the value of this tag’s <code>img</code> attribute, we use <code>.get("alt")</code> on the tag, so putting it all together, we have <code>soup.find("img").get("alt")</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 64%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.2">Problem 11.2</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>soup.find(<span class="st">&quot;td&quot;</span>, __(i)__).text.__(ii)__</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_2" class="accordion-collapse collapse collapse" aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    soup.find(<span class="st">"td"</span>, class_<span class="op">=</span><span class="st">"airport-staff"</span>).text.split()[<span class="dv">0</span>]</span></code></pre>
+</div>
+<p>or</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>    soup.find(<span class="st">"td"</span>, attrs<span class="op">=</span>{<span class="st">"class"</span>: <span class="st">"airport-staff"</span>}).text[:<span class="dv">7</span>]</span></code></pre>
+</div>
+<p>or some combination.</p>
+<p>Here, we’re told the information we’re looking for must be in some <code>td</code> tag. There’s only one <code>td</code> tag that contains <code>"SKYTRAX"</code> anywhere, and it’s this one:</p>
+<div id="cb3" class="sourceCode">
+<pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">"airport-staff"</span><span class="kw">&gt;</span>SKYTRAX Staff<span class="kw">&lt;/td&gt;</span></span></code></pre>
+</div>
+<p>To navigate to this <code>td</code> tag specifically, we can ask for a <code>td</code> tag whose <code>class</code> attribute is <code>"airport-staff"</code>. Two ways to do that are:</p>
+<ul>
+<li><code>soup.find("td", class_="airport-staff")</code></li>
+<li><code>soup.find("td", attrs={"class": "airport-staff"})</code></li>
+</ul>
+<p>Once we’ve navigated to that tag, its <code>text</code> attribute evaluates to <code>"SKYTRAX Staff"</code> (the <code>text</code> attribute of a tag gives us back all of the text between <code>&lt;tag&gt;</code> and <code>&lt;/tag&gt;</code>). Then, it’s a matter of extracting <code>"SKYTRAX"</code> from <code>"SKYTRAX Staff"</code>, which can either be done by:</p>
+<ul>
+<li>Splitting the string and extracting the first element, which yields <code>soup.find("td", class_="airport-staff").text.split()[0]</code>, or</li>
+<li>Slicing just the first 7 characters, which yields <code>soup.find("td", class_="airport-staff").text[:7]</code>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 82%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.3">Problem 11.3</h3>
+<p>Fill in the blanks so that <code>avg_rating</code> evaluates to the mean of the three ratings in the document above. (In the document, the three ratings are 4, 9, and 3, but you <strong>shouldn’t</strong> hard-code these values.)</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [tag.text <span class="cf">for</span> tag <span class="kw">in</span> soup.find_all(<span class="st">&quot;td&quot;</span>)]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>avg_rating <span class="op">=</span> np.mean([__(i)__ <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(__(ii)__)])</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_3" aria-expanded="true" aria-controls="collapse11_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_3" class="accordion-collapse collapse collapse" aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>    avg_rating <span class="op">=</span> np.mean([<span class="bu">int</span>(texts[j]) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span>)])</span></code></pre>
+</div>
+<p><code>texts</code> evaluates to a list containing the text between each <code>td</code> tag, all as strings. Here, that would be:</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>texts <span class="op">=</span> [<span class="st">"Terminal Cleanliness"</span>, <span class="st">"4"</span>, <span class="st">"Food Beverages"</span>, <span class="st">"9"</span>, <span class="st">"SKYTRAX Staff"</span>, <span class="st">"3"</span>]</span></code></pre>
+</div>
+<p>The purpose of the list comprehension in the second line, <code>[__(i)__ for j in range(__(ii)__)]</code>, is to extract out just the numbers from this list.</p>
+<ul>
+<li>The numbers are at positions 1, 3, and 5, and <code>range(1, 6, 2)</code> evaluates to a list (technically, a range object) with the values <code>[1, 3, 5]</code>, so iterating over <code>range(1, 6, 2)</code> will allow us to access the positions of each number.</li>
+<li>So then, <code>[j for j in range(1, 6, 2)]</code> gives us <code>[1, 3, 5]</code>, and <code>[texts[j] for j in range(1, 6, 2)]</code> gives us <code>["4", "9", "3"]</code>.</li>
+<li>We can’t take the mean of a list of strings, so we also need to convert each <code>texts[j]</code> value either to an int or float. <code>int(texts[j])</code> does this for us. Putting all steps together gives us:</li>
+</ul>
+<div id="cb3" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>[<span class="bu">int</span>(texts[j]) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span>)]</span></code></pre>
+</div>
+<p>Note that a common incorrect answer was:</p>
+<div id="cb4" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>[texts[j].astype(<span class="bu">int</span>) <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">2</span>)]</span></code></pre>
+</div>
+<p>But, <code>astype</code> is a Series method, meaning that whatever comes before <code>.astype(int)</code> must be a Series, and each individual <code>texts[j]</code> value is a single string, not a Series of strings.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 48%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-12">Problem 12</h2>
+<p>All airports have IATA codes, which are strings of three uppercase letters that uniquely identify the airport. For example, Detroit’s IATA code is <code>"DTW"</code>. Many of the entries in the <code>"content"</code> column of <code>reviews</code> use IATA codes to describe the route flown.</p>
+<p>We define a <strong>route string</strong> as being a pair of IATA codes separated by <code>"-"</code> or <code>" to "</code> (pay close attention to the spacing). For example, in <code>test_review</code> there are two route strings, <code>"YWG-LHR"</code> and <code>"EDI to YWG"</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>test_review <span class="op">=</span> <span class="st">&quot;&quot;&quot;I recently traveled YWG-LHR and returned home from </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="st">                    EDI to YWG with AC Rouge. I must say I was</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="st">                    pleasantly surprised with how well the trip went</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">                    in both directions, but I&#39;m glad I didn&#39;t have to</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="st">                    transit in ORD.&quot;&quot;&quot;</span></span></code></pre></div>
+<p>Write a regular expression that matches valid route strings.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="true" aria-controls="collapse12">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12" class="accordion-collapse collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <code>[A-Z]{3}( to |-)[A-Z]{3}</code></p>
+<p>Interact with the solution on regex101 at <a href="https://regex101.com/r/RyBJ39/1">this link</a>:</p>
+<center><img src="../assets/images/fa24-midterm/q12-regex.png" width="700"/></center>
+<p>Here, we need to match all sequences with:</p>
+<ul>
+<li>Three uppercase letters, matched by <code>[A-Z]{3}</code>, followed by</li>
+<li>Either <code>" to "</code> or <code>"-"</code>, matched by <code>( to |-)</code>, followed by</li>
+<li>Three more uppercase letters, matched by <code>[A-Z]{3}</code>.</li>
+</ul>
+<p>Some refreshers:</p>
+<ul>
+<li>The <code>[A-Z]</code> character class matches any uppercase letter.</li>
+<li>{3} says “repeat the previous character 3 times”.</li>
+<li>In <code>( to |-)</code>, the spaces and <code>-</code> are literals, and <code>|</code> is the “or” operator. Parentheses are needed so that the “or” operation only applies to <code>to</code> and <code>-</code>, not everything before and after the <code>|</code>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 91%.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-13">Problem 13</h2>
+<p>Consider the string <code>thoughts</code>, defined below:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>thoughts <span class="op">=</span> <span class="st">&quot;&quot;&quot;Brought my Sony A5000 for my trip</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="st">                the Airbus A220v300&#39;s bathroom has a window</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="st">                My favorite jet is the B737-900ER flew it like x 239</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">                all stan the queen B747, 120% the B333st</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">                I like the chonky A380</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">                but I love the A350&quot;&quot;&quot;</span></span></code></pre></div>
+<p>There are exactly 5 valid <strong>plane codes</strong> in <code>thoughts</code>: <code>"A220"</code>, <code>"B737"</code>, <code>"B747"</code>, <code>"A380"</code>, and <code>"A350"</code>. For each regular expression <code>exp</code> below,</p>
+<ul>
+<li>specify the number of valid plane codes that the expression <code>re.findall(exp, thoughts)</code> extracts in their entirety, and</li>
+<li>specify the number of <strong>other, invalid</strong> strings that <code>re.findall(exp, thoughts)</code> also extracts.</li>
+</ul>
+<p>The first example has been done for you.</p>
+<p><br></p>
+<h3 id="problem-13.1">Problem 13.1</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="vs">r&quot;B\d</span><span class="sc">{3}</span><span class="vs">&quot;</span></span></code></pre></div>
+<ul>
+<li>How many valid plane codes were extracted? <span class="math inline">\boxed{2}</span></li>
+<li>How many invalid strings were extracted? <span class="math inline">\boxed{1}</span></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_1" aria-expanded="true" aria-controls="collapse13_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_1" class="accordion-collapse collapse collapse" aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Even though the answer was already provided for you, we’ve illustrated it here:</p>
+<center><img src="../assets/images/fa24-midterm/q13-1.png" width="600"/></center>
+<p>The regular expression says, match any sequence of characters with a <code>"B"</code> followed by any three digits. This correctly captures <code>"B737"</code> and <code>"B747"</code>, but incorrectly captures <code>"B333"</code> in line 4, which is not a valid plane code.</p>
+<p><strong>Interact with the regular expression on regex101 at <a href="https://regex101.com/r/x76OZv/1">this link</a>.</strong></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.2">Problem 13.2</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="vs">r&quot;[AB]\d</span><span class="sc">{3}</span><span class="vs">&quot;</span></span></code></pre></div>
+<ul>
+<li>How many valid plane codes were extracted?</li>
+<li>How many invalid strings were extracted?</li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_2" aria-expanded="true" aria-controls="collapse13_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_2" class="accordion-collapse collapse collapse" aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<ul>
+<li>How many valid plane codes were extracted? <strong>5</strong>.</li>
+<li>How many invalid strings were extracted? <strong>2</strong>.</li>
+</ul>
+<p>The regular expression says, match any sequence of characters with an <code>"A"</code> or <code>"B"</code> followed by any three digits. This correctly captures all 5 plane codes, but also matches <code>"A500"</code> in line 1 and <code>"B333"</code> in line 4.</p>
+<center><img src="../assets/images/fa24-midterm/q13-2.png" width="600"/></center>
+<p><strong>Interact with the solution on regex101 at <a href="https://regex101.com/r/x76OZv/2">this link</a>.</strong></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 84%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.3">Problem 13.3</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="vs">r&quot;A\d</span><span class="sc">{2}</span><span class="vs">0|B7\d7&quot;</span></span></code></pre></div>
+<ul>
+<li>How many valid plane codes were extracted?</li>
+<li>How many invalid strings were extracted?</li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_3" aria-expanded="true" aria-controls="collapse13_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_3" class="accordion-collapse collapse collapse" aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li>How many valid plane codes were extracted? <strong>5</strong>.</li>
+<li>How many invalid strings were extracted? <strong>1</strong>.</li>
+</ul>
+<p>This regular expression says, match any sequence that either looks like:</p>
+<ul>
+<li>The character <code>"A"</code>, followed by any two digits, followed by a <code>"0"</code>, or</li>
+<li>The character <code>"B"</code>, followed by a <code>"7"</code>, followed by any digit, followed by another <code>"7"</code>.</li>
+</ul>
+<p>This correctly captures all 5 plane codes, but also matches <code>"A500"</code>. Unlike the previous regular expression, it doesn’t match <code>"B333"</code>.</p>
+<center><img src="../assets/images/fa24-midterm/q13-3.png" width="600"/></center>
+<p><strong>Interact with the solution on regex101 at <a href="https://regex101.com/r/x76OZv/3">this link</a>.</strong></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 80%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.4">Problem 13.4</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="vs">r&quot;A[23]\d0|B7\d7&quot;</span></span></code></pre></div>
+<ul>
+<li>How many valid plane codes were extracted?</li>
+<li>How many invalid strings were extracted?</li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_4" aria-expanded="true" aria-controls="collapse13_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_4" class="accordion-collapse collapse collapse" aria-labelledby="heading13_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li>How many valid plane codes were extracted? <strong>5</strong>.</li>
+<li>How many invalid strings were extracted? <strong>0</strong>.</li>
+</ul>
+<p>This regular expression says, match any sequence that looks like:</p>
+<ul>
+<li>The character <code>"A"</code>, followed by either a <code>"2"</code> or a <code>"3"</code>, followed by any digit, followed by a <code>"0"</code>, or</li>
+<li>The character <code>"B"</code>, followed by a <code>"7"</code>, followed by any digit, followed by another <code>"7"</code>.</li>
+</ul>
+<p>This correctly captures all 5 plane codes, and nothing else! <code>"B333"</code> still isn’t matched, and <code>"A500"</code> isn’t matched either, because we’ve required that the digit right after <code>"A"</code> must either be <code>"2"</code> or <code>"3"</code>, disqualifying the <code>"5"</code> in <code>"A500"</code>.</p>
+<center><img src="../assets/images/fa24-midterm/q13-4.png" width="600"/></center>
+<p><strong>Interact with the solution on regex101 at <a href="https://regex101.com/r/x76OZv/4">this link</a>.</strong></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 79%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.5">Problem 13.5</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> <span class="vs">r&quot;(A[23]\d0|B7\d7)$&quot;</span></span></code></pre></div>
+<ul>
+<li>How many valid plane codes were extracted?</li>
+<li>How many invalid strings were extracted?</li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_5" aria-expanded="true" aria-controls="collapse13_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_5" class="accordion-collapse collapse collapse" aria-labelledby="heading13_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li>How many valid plane codes were extracted? <strong>2</strong> (1 also accepted)</li>
+<li>How many invalid strings were extracted? <strong>0</strong>.</li>
+</ul>
+<p>The difference between this regular expression and the last one is the anchor at the end, <code>$</code>. This requires the pattern being matched to be at the end of a line. While are 5 valid plane codes in <code>thoughts</code>, only two are at the end of their respective lines: <code>"A380"</code> in line 5 and <code>"A350"</code> in line 6. So, those are the only two plane codes that are matched.</p>
+<center><img src="../assets/images/fa24-midterm/q13-5.png" width="600"/></center>
+<p><strong>However</strong>, the default behavior of <code>re.findall</code> in Python is that it treats <code>$</code> as an end-of-<strong>string</strong> anchor, rather than an end-of-line character. So, in Python, only the final plane code of <code>"A350"</code> is extracted by default.</p>
+<center><img src="../assets/images/fa24-midterm/q13-52.png" width="600"/></center>
+<p>So, we gave full credit to both 1 and 2 as answers.</p>
+<p><strong>Interact with the solution on regex101 at <a href="https://regex101.com/r/x76OZv/5">this link</a>.</strong></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 80%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-14">Problem 14</h2>
+<p>The following bag of words matrix represents the frequencies of various words across four reviews. Assume, just for this question, that the only five words that appear in any review are the columns of this matrix, and <strong>all calculations use a base-2 logarithm</strong>.</p>
+<center>
+<img src="../assets/images/fa24-midterm/bow.png" width=600>
+</center>
+<p>The matrix has three unknown <strong>integer</strong> values, <span class="math inline">A</span>, <span class="math inline">B</span>, and <span class="math inline">C</span>. However, we’re given that:</p>
+<ul>
+<li>The TF-IDF of <code>"movies"</code> in Review 0 is <span class="math inline">\frac{5}{4}</span>.</li>
+<li>The TF-IDF of <code>"landing"</code> in Review 2 is <span class="math inline">\frac{1}{5}</span>.</li>
+<li>The cosine similarity between the bag of words vectors for Reviews 1 and 2 is <span class="math inline">\frac{16}{21}</span>.</li>
+</ul>
+<p><br></p>
+<h3 id="problem-14.1">Problem 14.1</h3>
+<p>What is the value of <span class="math inline">A</span>? Show your work, and <span class="math inline">\boxed{\text{box}}</span> your final answer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading14_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_1" aria-expanded="true" aria-controls="collapse14_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse14_1" class="accordion-collapse collapse collapse" aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 10.</p>
+<p>The information we need to answer this part comes from the first bullet point:</p>
+<blockquote>
+<p>The TF-IDF of <code>"movies"</code> in Review 0 is <span class="math inline">\frac{5}{4}</span>.</p>
+</blockquote>
+<p>Recall, the TF-IDF of <code>"movies"</code> in Review 0 is:</p>
+<p><span class="math display">\begin{align*}
+\text{tfidf}(\text{``movies"}, \text{Review 0}) &amp;= \text{tf}(\text{``movies"}, \text{Review 0}) \cdot \text{idf}(\text{``movies"}) \\
+&amp;= \frac{ \text{number of occurrences of ``movies" in Review 0}}{\text{total number of terms in Review 0}} 
+\cdot \log_2 \left( \frac{\text{total number of reviews}}{\text{number of reviews in which ``movies" appears}} \right)
+\end{align*}</span></p>
+<p>Here, we have:</p>
+<ul>
+<li>The number of occurrences of <code>"movies"</code> in Review 0 is <span class="math inline">A</span>.</li>
+<li>The total number of terms in Review 0 is <span class="math inline">2 + 1 + 3 + 0 + A = 6 + A</span>.</li>
+<li>The total number of reviews is 4.</li>
+<li>The number of reviews in which<code>"movies"</code> occurs is 1 – it only occurs in Review 0.</li>
+<li>The TF-IDF of <code>"movies"</code> in Review 0 is, as the question tells us, <span class="math inline">\frac{5}{4}</span>.</li>
+</ul>
+<p>Putting all of this together, we have:</p>
+<p><span class="math display">\begin{align*}\frac{5}{4} &amp;= \frac{A}{6+A} \cdot \underbrace{\log_2\left(\frac{4}{1}\right)}_{\text{this is } 2\text{, because }2^2 = 4} \\ \frac{5}{4} &amp;= \frac{A}{6+A} \cdot 2 \\ \frac{5}{8} &amp;= \frac{A}{6+A} \\ 5(6+A) &amp;= 8A \\ 30 + 5A &amp;= 8A \\ 30 &amp;= 3A \\ A &amp;= \boxed{10} \end{align*}</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 83%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-14.2">Problem 14.2</h3>
+<p>What is the value of <span class="math inline">B</span>? Show your work, and <span class="math inline">\boxed{\text{box}}</span> your final answer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading14_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_2" aria-expanded="true" aria-controls="collapse14_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse14_2" class="accordion-collapse collapse collapse" aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 3.</p>
+<p>The information we need to answer this part comes from the last bullet point:</p>
+<blockquote>
+<p>The cosine similarity between the bag of words vectors for Reviews 1 and 2 is <span class="math inline">\frac{16}{21}</span>.</p>
+</blockquote>
+<p>Recall, the cosine similarity between two vectors <span class="math inline">\vec u</span> and <span class="math inline">\vec v</span> is:</p>
+<p><span class="math display">\text{cosine similarity}(\vec u, \vec v) = \frac{\vec u \cdot \vec v}{\lVert \vec u \rVert \lVert \vec v \rVert}</span></p>
+<p>Here, let <span class="math inline">\vec{r_1}</span> be the row vector for Review 1 and let <span class="math inline">\vec r_2</span> be the row vector for Review 2.</p>
+<ul>
+<li><p><span class="math inline">\vec r_1 \cdot \vec r_2 = \begin{bmatrix} 0 \\ 6 \\ B \\ 2 \\ 0 \end{bmatrix} \cdot \begin{bmatrix} 4 \\ 8 \\ 0 \\ 8 \\ 0 \end{bmatrix} = 6 \cdot 8 + 2 \cdot 8 = 48 + 16 = 64</span>.</p></li>
+<li><p><span class="math inline">\lVert \vec r_1 \rVert = \sqrt{0^2 + 6^2 + B^2 + 2^2 + 0^2} = \sqrt{B^2 + 40}</span>.</p></li>
+<li><p><span class="math inline">\lVert \vec r_2 \rVert = \sqrt{4^2 + 8^2 + 0^2 + 8^2 + 0^2} = \sqrt{16 + 64 + 64} = \sqrt{144} = 12</span>.</p></li>
+</ul>
+<p>So, we have:</p>
+<p><span class="math display">\begin{align*} \text{cosine similarity}(\vec r_1, \vec r_2) &amp;= \frac{\vec r_1 \cdot \vec r_2}{\lVert \vec r_1 \rVert \lVert \vec r_2 \rVert} \\ \frac{16}{21} &amp;= \frac{64}{12\sqrt{B^2 + 40}} \\ \frac{64}{84} &amp;= \frac{64}{12\sqrt{B^2 + 40}} \\ 84 &amp;= 12 \sqrt{B^2 + 40} \\ 7 &amp;= \sqrt{B^2 + 40} \\ 49 &amp;= B^2 + 40 \\ 9 &amp;= B^2 \\ B = \boxed{3} \end{align*}</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 67%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-14.3">Problem 14.3</h3>
+<p>What is the value of <span class="math inline">C</span>? Show your work, and <span class="math inline">\boxed{\text{box}}</span> your final answer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading14_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_3" aria-expanded="true" aria-controls="collapse14_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse14_3" class="accordion-collapse collapse collapse" aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 0.</p>
+<p>The information we need to answer this part comes from the second bullet point:</p>
+<blockquote>
+<p>The TF-IDF of <code>"landing"</code> in Review 2 is <span class="math inline">\frac{1}{5}</span>.</p>
+</blockquote>
+<p>As in part 1, we’ll look at the formula for the TF-IDF:</p>
+<p><span class="math display">\text{tfidf}(\text{``landing"}, \text{Review 0}) = \frac{ \text{number of occurrences of ``landing" in Review 2}}{\text{total number of terms in Review 2}} 
+\cdot \log_2 \left( \frac{\text{total number of reviews}}{\text{number of reviews in which ``landing" appears}} \right)</span></p>
+<p>Here:</p>
+<ul>
+<li>The number of occurrences of <code>"landing"</code> in Review 2 is 4.</li>
+<li>The total number of terms in Review 2 is <span class="math inline">4 + 8 + 0 + 8 + 0 = 20</span>.</li>
+<li>The total number of reviews is 4.</li>
+<li>The number of reviews in which <code>"landing"</code> appears is either 2, if <span class="math inline">C = 0</span>, or 3, if <span class="math inline">C &gt; 0</span>.</li>
+</ul>
+<p>Putting together what we know, we have:</p>
+<p><span class="math display">\frac{1}{5} = \frac{5}{20} \cdot \log_2 \left( \frac{4}{\text{number of reviews in which ``landing" appears}} \right)</span></p>
+<p>Note that <span class="math inline">\frac{5}{20} = \frac{1}{4}</span>, so:</p>
+<p><span class="math display">\frac{1}{5} = \frac{1}{5} \cdot \log_2 \left( \frac{4}{\text{number of reviews in which ``landing" appears}} \right)</span></p>
+<p>In order for the above to be true, we must have that:</p>
+<p><span class="math display">\log_2 \left( \frac{4}{\text{number of reviews in which ``landing" appears}} \right) = 1 \implies \left( \frac{4}{\text{number of reviews in which ``landing" appears}} \right) = 2</span></p>
+<p>This gives us that:</p>
+<p><span class="math display">\text{number of reviews in which ``landing" appears} = 2</span></p>
+<p>So, it must be the case that <span class="math inline">C = \boxed{0}</span>, because there are already two reviews in which <code>"landing"</code> appears (Reviews 0 and 2), and if <span class="math inline">C &gt; 0</span>, then <code>"landing"</code> would be in three reviews, violating this constraint.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 67%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<hr />
+</body>
+</html>
