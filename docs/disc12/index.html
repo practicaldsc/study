@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>disc12</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">disc12</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper. <br><br>We encourage you to
+complete this worksheet in a live discussion section. Solutions will be
+made available after all discussion sections have concluded. You don’t
+need to submit your answers anywhere.<br><br><b>Note: We do not plan to
+cover all problems here in the live discussion section</b>; the problems
+we don’t cover can be used for extra practice.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>Consider three classifiers with the following confusion matrices: e
+<center><img src='../assets/images/old-from-80/fa23-final/dsc80_final_models.png' width=65%></center></p>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>Which model has the highest accuracy?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model B</p>
+<p>Accuracy is defined as <span class="math inline">\frac{\text{number\;of\;correct\;predictions}}{\text{number\;of\;total\;predictions}}</span>,
+so we sum the (Yes, Yes) and (No, No) cells to get the number of correct
+predictions and divide that by the sum of all cells as the number of
+total predictions. We see that Model B has the highest accuracy of 0.9
+with that formula. (Note that for simplicity, the confusion matrices are
+such that the sum of all values is 100 in all three cases.)</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 98%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>Which model has the highest precision?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model C</p>
+<p>Precision is defined as <span class="math inline">\frac{\text{number
+of correctly predicted yes values}}{\text{total number of yes
+predictions}}</span>, so the number of correctly predicted yes values is
+the (Yes, Yes) cell, while the total number of yes predictions is the
+sum of the Yes column. We see that Model C has the highest precision,
+<span class="math inline">\frac{80}{85}</span>, with that formula.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 86%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>Which model has the highest recall?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model B</p>
+<p>Recall is defined as <span class="math inline">\frac{\text{number of
+correctly predicted yes values}}{\text{total number of values actually
+yes}}</span>, so the number of correctly predicted yes values is the
+(Yes, Yes) cell, while the total number of values that are actually yes
+is the sum of the Yes row. We see that Model B has the highest recall,
+<span class="math inline">1</span>, with that formula.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 83%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>You have a classification data set consisting of two <span
+class="math inline">(x, y)</span> pairs <span class="math inline">(1,
+0)</span> and <span class="math inline">(-1, 1)</span>. The covariate
+vector <span class="math inline">\vec{x}</span> for each pair is a
+two-element column vector ^T$. You run an algorithm to fit a model for
+the probability of <span class="math inline">Y=1</span> given <span
+class="math inline">\vec{x}</span>: <span
+class="math display">\mathbb{P}({Y=1|}{\vec{x}}) = \sigma(\vec{x}^T
+\theta)</span></p>
+<p>where <span class="math display">\sigma(t) = \frac{1}{1 +
+\exp(-t)}</span></p>
+<p>Your algorithm returns <span class="math inline">\hat\theta =
+\left[-\frac{1}{2} \quad -\frac{1}{2}\right]^T</span></p>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>Calculate <span
+class="math inline">\hat{\mathbb{P}}({Y=1|}{\vec{x}=\left[1
+\quad   0\right]^T})</span></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math display">\begin{align*}
+            \hat{\mathbb{P}}({Y=1|}{\vec{x}=[1 \quad 0]^T})
+            &amp;= \sigma\left(\begin{bmatrix}1 &amp; 0\end{bmatrix}
+\begin{bmatrix}-\frac{1}{2} \\ -\frac{1}{2}\end{bmatrix}\right) \\
+            &amp;= \sigma\left(1 \cdot -\frac{1}{2} + 0 \cdot
+-\frac{1}{2}\right) \\
+            &amp;= \sigma\left(-\frac{1}{2}\right) \\
+            &amp;= \dfrac{1}{1 + \exp(\frac{1}{2})} \\
+            &amp;\approx 0.38
+        \end{align*}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>The empirical risk using log loss (a.k.a., cross-entropy loss) is
+given by the following expression. Remember, whenever you see <span
+class="math inline">\log</span> in this course, you must assume the
+natural logarithm (base-<span class="math inline">e</span>), unless
+explicitly told otherwise. <span class="math display">\begin{align*}
+        R(\theta) &amp;= \dfrac{1}{n} \sum_{i=1}^{n} - \log
+\hat{\mathbb{P}}({Y=y_i|}{\vec{x_i}}) \\
+        &amp;= -\dfrac{1}{n} \sum_{i=1}^{n} y_i \log
+\hat{\mathbb{P}}({Y=1|}{\vec{x_i}}) + (1-y_i)
+\log  \hat{\mathbb{P}}({Y=0|}{\vec{x_i}})
+    \end{align*}</span> And <span
+class="math inline">\hat{\mathbb{P}}({Y=1|}{\vec{x_i}}) =
+\sigma\left(\vec{x_i}^T\theta\right) = \frac{1}{1 +
+\exp\left(-\vec{x_i}^T\theta\right)} =
+\frac{\exp\left(\vec{x_i}^T\theta\right)}{1+\exp\left(\vec{x_i}^T\theta\right)}</span>
+while <span class="math inline">\hat{\mathbb{P}}({Y=0|}{\vec{x_i}}) = 1-
+\hat{\mathbb{P}}({Y=1|}{\vec{x_i}}) = 1 -
+\frac{\exp\left(\vec{x_i}^T\theta\right)}{1+\exp\left(\vec{x_i}^T\theta\right)}
+= \frac{1}{1+\exp\left(\vec{x_i}^T\theta\right)}</span>. Therefore,
+<span class="math display">\begin{align*}
+        R(\theta) &amp;=  -\dfrac{1}{n} \sum_{i=1}^{n} y_i \log
+\frac{\exp\left(\vec{x_i}^T\theta\right)}{1+\exp\left(\vec{x_i}^T\theta\right)}
++ (1-y_i) \log \frac{1}{1+\exp\left(\vec{x_i}^T\theta\right)} \\
+        &amp;= -\dfrac{1}{n} \sum_{i=1}^{n} y_i \vec{x}_i^T\theta +
+\log(\sigma(-\vec{x}_i^T\theta)) \\
+    \end{align*}</span> Let <span class="math inline">\theta =
+\left[\theta_0 \quad \theta_1 \right]</span>. Explicitly write out the
+empirical risk for the data set <span class="math inline">(1, 0)</span>
+and <span class="math inline">(-1, 1)</span> as a function of <span
+class="math inline">\theta_0</span> and <span
+class="math inline">\theta_1</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math display"> \vec{x_i}^T
+\theta
+        = \begin{bmatrix}1 &amp; x_i\end{bmatrix}
+\begin{bmatrix}\theta_0 \\ \theta_1\end{bmatrix}
+        = \theta_0 + \theta_1 x_i
+        </span> For the data point <span class="math inline">(1,
+0)</span>, <span class="math inline">\vec{x}_i = [1 \quad 1]^T</span>
+and <span class="math inline">y_i = 0</span>, so: <span class="math display">y_i \vec{x}_i^T\theta = 0</span> <span class="math display">-\vec{x}_i^T\theta = -(\theta_0 + \theta_1 \cdot 1)
+= -\theta_0 - \theta_1 </span> For the data point <span class="math inline">(-1, 1)</span>: <span class="math display">y_i\vec{x_i}^T\theta = 1 \cdot (\theta_0 + \theta_1
+\cdot -1) = \theta_0 - \theta_1 </span> <span class="math display">-\vec{x_i}^T\theta = -(\theta_0 + \theta_1 \cdot
+-1) = -\theta_0 + \theta_1 </span> We can then write the empirical risk
+as: <span class="math display">\begin{align*}
+        R(\theta) &amp;= -\dfrac{1}{2} \left[
+        \left(0 + \log\sigma(-\theta_0 - \theta_1)\right)
+        + \left(\theta_0 - \theta_1 + \log\sigma(-\theta_0 +
+\theta_1)\right)
+        \right] \\
+        &amp;= -\frac{1}{2} \left[\theta_0 - \theta_1 +
+\log\sigma(-\theta_0 - \theta_1) + \log\sigma(-\theta_0 + \theta_1)
+\right]\\
+        &amp;= -\frac{1}{2} \left[\theta_0 - \theta_1
+            + \log\left(\frac{1}{1 + \exp(\theta_0 + \theta_1)}\right)
+            + \log\left(\frac{1}{1 + \exp(\theta_0 -
+\theta_1)}\right)\right] \\
+        &amp;= \frac{1}{2} \left[\theta_1 - \theta_0
+            + \log\left(1 + \exp(\theta_0 + \theta_1)\right)
+            + \log\left(1 + \exp(\theta_0 - \theta_1)\right)\right]
+        \end{align*}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<p>Calculate the empirical risk for <span class="math inline">\hat\theta
+= \left[-\frac{1}{2} \quad -\frac{1}{2}\right]^T</span> and the two
+observations <span class="math inline">(1, 0)</span> and <span
+class="math inline">(-1, 1)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math display">\begin{align*}
+        R(\hat\theta)
+        &amp;= \frac{1}{2} \left[\theta_1 - \theta_0
+            + \log\left(1 + \exp(\theta_0 + \theta_1)\right)
+            + \log\left(1 + \exp(\theta_0 - \theta_1)\right)\right] \\
+        &amp;= \frac{1}{2}\left[
+            -\frac{1}{2} - \left(-\frac{1}{2}\right)
+            + \log\left(1 + \exp(-\frac{1}{2} + -\frac{1}{2})\right)
+            + \log\left(1 + \exp(-\frac{1}{2} - -\frac{1}{2})\right)
+            \right] \\
+        &amp;= \frac{1}{2}\left[
+            0
+            + \log\left(1 + \exp(-1)\right)
+            + \log\left(1 + \exp(0)\right)
+            \right] \\
+        &amp;= \frac{1}{2} \log(2+2e^{-1})
+        \end{align*}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Suppose we build a binary classifier that uses a song’s
+<code>"track_name"</code> and <code>"artist_names"</code> to predict
+whether its genre is <code>"Hip-Hop/Rap"</code> (1) or not (0).</p>
+<p>For our classifier, we decide to use a brand-new model built into
+<code>sklearn</code> called the<br />
+<code>BillyClassifier</code>. A <code>BillyClassifier</code> instance
+has three hyperparameters that we’d like to tune. Below, we show a
+dictionary containing the values for each hyperparameter that we’d like
+to try:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>hyp_grid <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radius&quot;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">100</span>], <span class="co"># 12 total</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;inflection&quot;</span>: [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="co"># 10 total</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;color&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>] <span class="co"># 5 total</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To find the best combination of hyperparameters for our
+<code>BillyClassifier</code>, we first conduct a train-test split, which
+we use to create a training set with 800 rows. We then use
+<code>GridSearchCV</code> to conduct <span
+class="math inline">k</span>-fold cross-validation for each combination
+of hyperparameters in <code>hyp_grid</code>, with <span
+class="math inline">k=4</span>.</p>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>When we call <code>GridSearchCV</code>, how many times is a
+<code>BillyClassifier</code> instance trained in total? Give your answer
+as an integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 2400</p>
+<p>There are <span class="math inline">12 \cdot 10 \cdot 5 = 600</span>
+combinations of hyperparameters. For each combination of
+hyperparameters, we will train a <code>BillyClassifier</code> with that
+combination of hyperparameters <span class="math inline">k = 4</span>
+times. So, the total number of <code>BillyClassifier</code> instances
+that will be trained is <span class="math inline">600 \cdot 4 =
+2400</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 73%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<p>In each of the 4 folds of the data, how large is the training set,
+and how large is the validation set? Give your answers as integers.</p>
+<p>size of training set =</p>
+<p>size of validation set =</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 600, 200</p>
+<p>Since we performed <span class="math inline">k=4</span>
+cross-validation, we must divide the training set into four disjoint
+groups each of the same size. <span class="math inline">\frac{800}{4} =
+200</span>, so each group is of size 200. Each time we perform cross
+validation, one group is used for validation, and the other three are
+used for training, so the validation set size is 200 and the training
+set size is <span class="math inline">200 \cdot 3 = 600</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 77%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.3">Problem 3.3</h3>
+<p>Suppose that after fitting a <code>GridSearchCV</code> instance, its
+<code>best_params_</code> attribute is</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&quot;radius&quot;</span>: <span class="dv">8</span>, <span class="st">&quot;inflection&quot;</span>: <span class="dv">4</span>, <span class="st">&quot;color&quot;</span>: <span class="st">&quot;blue&quot;</span>}</span></code></pre></div>
+<p>Select all true statements below.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average training accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average validation accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest training accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest validation accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> A <code>BillyClassifier</code> that is fit using the specific
+combination of hyperparameters in <code>best_params_</code> is
+guaranteed to have the best accuracy on unseen testing data among all
+combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>When performing cross validation, we select the combination of
+hyperparameters that had the highest <strong>average validation
+accuracy</strong> across all four folds of the data. That is, by
+definition, how <code>best_params_</code> came to be. None of the other
+options are guaranteed to be true.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 82%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>After fitting our <code>BillyClassifier</code> from the previous
+question, we use it to make predictions on an unseen test set. Our
+results are summarized in the following confusion matrix.</p>
+<center><img src='../assets/images/old-from-80/sp22-final/confusion-2.png' width=50%></center>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>What is the recall of our classifier? Give your answer as a fraction
+(it does not need to be simplified).</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{35}{57}</span></p>
+<p>There are 105 true positives and 66 false negatives. Hence, the
+recall is <span class="math inline">\frac{105}{105 + 66} =
+\frac{105}{171} = \frac{35}{57}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 89%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>The accuracy of our classifier is <span
+class="math inline">\frac{69}{117}</span>. How many <strong>true
+negatives</strong> did our classifier have? Give your answer as an
+integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 33</p>
+<p>Let <span class="math inline">x</span> be the number of true
+negatives. The number of correctly classified data points is <span class="math inline">105 + x</span>, and the total number of data points
+is <span class="math inline">105 + 30 + 66 + x = 201 + x</span>. Hence,
+this boils down to solving for <span class="math inline">x</span> in
+<span class="math inline">\frac{69}{117} = \frac{105 + x}{201 +
+x}</span>.</p>
+<p>It may be tempting to cross-multiply here, but that’s not necessary
+(in fact, we picked the numbers specifically so you would not have to)!
+Multiply <span class="math inline">\frac{69}{117}</span> by <span class="math inline">\frac{2}{2}</span> to yield <span class="math inline">\frac{138}{234}</span>. Then, conveniently, setting
+<span class="math inline">x = 33</span> in <span class="math inline">\frac{105 + x}{201 + x}</span> also yields <span class="math inline">\frac{138}{234}</span>, so <span class="math inline">x = 33</span> and hence the number of true negatives
+our classifier has is 33.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 84%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>True or False: In order for a binary classifier’s precision and
+recall to be equal, the number of mistakes it makes must be an even
+number.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> True</p>
+<p>Remember that <span class="math inline">\text{precision} =
+\frac{TP}{TP + FP}</span> and <span class="math inline">\text{recall} =
+\frac{TP}{TP + FN}</span>. In order for precision to be the same as
+recall, it must be the case that <span class="math inline">FP =
+FN</span>, i.e. that our classifier makes the same number of false
+positives and false negatives. The only kinds of “errors" or”mistakes" a
+classifier can make are false positives and false negatives; thus, we
+must have</p>
+<p><span class="math display">\text{mistakes} = FP + FN = FP + FP = 2
+\cdot FP</span></p>
+<p>2 times any integer must be an even integer, so the number of
+mistakes must be even.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 100%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.4">Problem 4.4</h3>
+<p>Suppose we are building a classifier that listens to an audio source
+(say, from your phone’s microphone) and predicts whether or not it is
+Soulja Boy’s 2008 classic “Kiss Me thru the Phone." Our classifier is
+pretty good at detecting when the input stream is”Kiss Me thru the
+Phone", but it often incorrectly predicts that similar sounding songs
+are also “Kiss Me thru the Phone."</p>
+<p>Complete the sentence: Our classifier has...</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> low precision and low recall.</p></li>
+<li><p><input type="radio" disabled="" /> low precision and high recall.</p></li>
+<li><p><input type="radio" disabled="" /> high precision and low recall.</p></li>
+<li><p><input type="radio" disabled="" /> high precision and high recall.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_4" class="accordion-collapse collapse"
+aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B: low precision and high
+recall.</p>
+<p>Our classifier is good at identifying when the input stream is “Kiss
+Me thru the Phone", i.e. it is good at identifying true positives
+amongst all positives. This means it has high recall.</p>
+<p>Since our classifier makes many false positive predictions — in other
+words, it often incorrectly predicts “Kiss Me thru the Phone" when
+that’s not what the input stream is — it has many false positives, so
+its precision is low.</p>
+<p>Thus, our classifier has low precision and high recall.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 91%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Sam Altman has trained a Logistic Regression model to classify emails
+into “Spam” / “Non-Spam” categories/classes. Here, ‘Spam’ is the
+positive class. Once the model is trained, Sam opted to evaluate the
+model performance on the testing set. The Logistic Regression outputs a
+value between 0 and 1. When the output of the Logistic Regression model
+is greater than or equal to the threshold, the email is classified as a
+‘Spam’ email. By varying the threshold, Sam creates the following
+Precision-Recall graph.</p>
+<center><img  src='../assets/images/old-from-80/sp23-final/q2_prgraph.png'  width=40%></center>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>Which point corresponds to the <strong>highest</strong> threshold
+value?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> B</p>
+<p>Remember that precision measures the predicted positive values that
+were actually positive, while recall measures actually positive values
+that were predicted as being positive. The highest threshold is 1, and
+we would expect that when the model predicts 1 the email is actually
+likely Spam, but that the model does not predict 1 for every Spam email.
+This means that at the highest threshold, precision is almost perfect
+while recall is extremely low, corresponding to point B on the plot.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>Consider the following confusion matrix with “Spam” and “Not Spam”
+classes where ‘Spam’ is the positive class.</p>
+<center><img  src='../assets/images/old-from-80/sp23-final/q2b.png'  width=40%></center>
+<p>Suppose the recall of Sam’s classifier is 0.75 and the precision of
+Sam’s classifier is 0.6. What are the values of X and Y? Give your
+answers as positive integers.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> X = 15, Y = 10</p>
+<p>We are given that <span class="math inline">FN = 5</span> and <span class="math inline">TN = 50</span><br/>
+Remember that <span class="math inline">Precision =
+\frac{TP}{(TP+FP)}</span> and <span class="math inline">Recall =
+\frac{TP}{(TP+FN)}</span></p>
+<p>To calculate TP (X) use the formula for recall:<br/>
+<span class="math inline">0.75 = \frac{TP}{(TP+5)}</span><br/>
+<span class="math inline">0.75 \cdot (TP+5)* = TP</span><br/>
+<span class="math inline">0.75 \cdot TP+ 5 \cdot 0.75  = TP</span><br/>
+<span class="math inline">0.25 \cdot TP = 3.75</span><br/>
+<span class="math inline">TP = 15</span><br/>
+Therefore X = 15</p>
+<p>To calculate FP (Y) use the formula for precision:<br/>
+<span class="math inline">0.6 = \frac{15}{(15+FP)}</span><br/>
+<span class="math inline">0.6 \cdot (15+FP)* = 15</span><br/>
+<span class="math inline">0.6 \cdot 15 + 0.6 \cdot FP = 15</span><br/>
+<span class="math inline">0.6 \cdot FP = 6</span><br/>
+<span class="math inline">FP = 10</span><br/>
+Therefore Y = 10</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>Suppose you want to predict if people are depressed based on their
+Electrocardiogram ECG signal. To train your model, you sampled ECG data
+from 100 people, with 80% of them not being depressed. Which of the
+following metrics is definitely not suitable for evaluating this binary
+classification model? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Precision</p></li>
+<li><p><input type="radio" disabled="" /> Recall</p></li>
+<li><p><input type="radio" disabled="" /> Accuracy</p></li>
+<li><p><input type="radio" disabled="" /> F1 Score</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Accuracy</p>
+<p>Because the the data set is imbalanced (80% of the data belongs to
+one class), accuracy is not a suitable metric to evaluate this
+classification model. This is because accuracy does not differentiate
+between if the accuracy was achieved on predictions made for the
+majority or the minority class, and it is highly likely in a biased
+dataset that a high accuracy is achieved based on making correct
+predictions solely for the majority, but not the minority class.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.4">Problem 5.4</h3>
+<p>For the purposes of such a binary depression classification task,
+which is more important?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> high precision</p></li>
+<li><p><input type="radio" disabled="" /> high recall</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_4" aria-expanded="true" aria-controls="collapse5_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_4" class="accordion-collapse collapse"
+aria-labelledby="heading5_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> High recall</p>
+<p>High recall is relatively more important for medical tests generally.
+High recall minimizes FN, while high precision minimizes FP. A high
+recall ensures that you are capturing the people who have the condition,
+and it is usually worse in these settings to think someone does not have
+a condition when they actually do, than the other way around. If your
+system fails to detect the condition, the condition goes undiagnosed and
+unaddressed, so it is more important to minimize FN.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.5">Problem 5.5</h3>
+<p>For the purposes of determining whether someone committed a crime,
+which is more important?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> high precision</p></li>
+<li><p><input type="radio" disabled="" /> high recall</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_5" aria-expanded="true" aria-controls="collapse5_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_5" class="accordion-collapse collapse"
+aria-labelledby="heading5_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> High precision</p>
+<p>High precision is relatively more important since you do not want to
+punish someone who did not commit the crime (want to minimize FP). See
+the previous explanation for more details about the differences between
+high recall and high precision.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.6">Problem 5.6</h3>
+<p>In the context of a spam detector, an important email from a
+legitimate source ending up in one’s spam folder is an example of
+what?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True positive</p></li>
+<li><p><input type="radio" disabled="" /> False positive</p></li>
+<li><p><input type="radio" disabled="" /> False negative</p></li>
+<li><p><input type="radio" disabled="" /> True negative</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_6" aria-expanded="true" aria-controls="collapse5_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_6" class="accordion-collapse collapse"
+aria-labelledby="heading5_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> False positive</p>
+<p>For a spam detector, detetcted an email as Spam is equivalnet to
+assigning it as belonging to the positive class. Since the email was
+classified by the spam detector as spam, it is positive. However, since
+it was not actually spam, it is a false positive.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose you fit four different models to predict whether someone has
+an income greater than $100,000 a year using their purchase history. You
+split the data into a training and test set and use 3-fold
+cross-validation. The table below shows all the calculated accuracies
+for each model (higher accuracy is better).</p>
+<center><img src="../assets/images/old-from-80/sp24-final/train-valid-test.png" style="width: 40%; height: auto;"></center>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Which model has the lowest model bias?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+<li><p><input type="radio" disabled="" /> Model D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model D</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>Which model most severely underfits the data?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+<li><p><input type="radio" disabled="" /> Model D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model A</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>Which model most severely overfits the data?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+<li><p><input type="radio" disabled="" /> Model D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model D</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-6.4">Problem 6.4</h3>
+<p>Which model should you pick overall?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model A</p></li>
+<li><p><input type="radio" disabled="" /> Model B</p></li>
+<li><p><input type="radio" disabled="" /> Model C</p></li>
+<li><p><input type="radio" disabled="" /> Model D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_4" class="accordion-collapse collapse"
+aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model B</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Suppose you fit a logistic regression classifier. The classifier’s
+predictions on a test set of 5 points are shown below, along with the
+actual labels.</p>
+<center><img src="../assets/images/old-from-80/sp24-final/eval.png" style="width: 30%; height: auto;"></center>
+<p>Recall that for logistic regression, we must also choose a threshold
+<code>$ \tau $</code> to convert the predicted probabilities to
+predicted labels. For this question, assume that
+<code>$ 0 &lt; \tau &lt; 1 $</code>. Precision is undefined when the
+classifier doesn’t make any positive predictions (since
+<code>$\frac{0}{0}$</code> is undefined). For each question, show your
+work and draw a box around your final answer in the space provided. Each
+of your final answers should be a single number.</p>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>What is the <strong>lowest</strong> possible precision for any
+threshold <code>$ \tau $</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<p>The lowest precision happens when <code>$ \tau $</code> is less than
+0.3. In this case, the classifier predicts all points are 1, which gives
+a precision of <code>$ \frac{3}{5} $</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>What is the <strong>lowest</strong> possible recall for any threshold
+<code>$ \tau $</code>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<p>The lowest recall happens when <code>$ \tau $</code> is greater than
+0.7. In this case, the classifier predicts all points are 0, which gives
+a recall of 0.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-7.3">Problem 7.3</h3>
+<p>What is the <strong>highest</strong> possible recall if the
+classifier achieves a precision of 1?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<p>If precision is 1, the threshold must be greater than 0.4. Of these
+thresholds, the recall is greatest when the threshold is between 0.4 and
+0.6. In this case, the recall is <span class="math inline">\frac{2}{3}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>We decide to build a classifier that takes in a state’s demographic
+information and predicts whether, in a given year:</p>
+<ul>
+<li><p>The state’s mean math score was greater than its mean verbal
+score (1), or</p></li>
+<li><p>the state’s mean math score was less than or equal to its mean
+verbal score (0).</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<p>The simplest possible classifier we could build is one that predicts
+the same label (1 or 0) every time, independent of all other
+features.</p>
+<p>Consider the following statement:</p>
+<p><em>If <code>a &gt; b</code>, then the constant classifier that
+maximizes training accuracy predicts 1 every time; otherwise, it
+predicts 0 every time.</em></p>
+<p>For which combination of <code>a</code> and <code>b</code> is the
+above statement <strong>not guaranteed</strong> to be true?</p>
+<p><em>Note: Treat <code>sat</code> as our training set.</em></p>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">&gt;</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<p>Option 3:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>).mean()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 4:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> ((sat[<span class="st">&#39;Math&#39;</span>] <span class="op">/</span> sat[<span class="st">&#39;Verbal&#39;</span>]) <span class="op">&gt;</span> <span class="dv">1</span>).mean() <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Option 1</p></li>
+<li><p><input type="radio" disabled="" /> Option 2</p></li>
+<li><p><input type="radio" disabled="" /> Option 3</p></li>
+<li><p><input type="radio" disabled="" /> Option 4</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Conceptually, we’re looking for a combination of <code>a</code> and
+<code>b</code> such that when <code>a &gt; b</code>, it’s true that
+<strong>in more than 50% of states, the <code>"Math"</code> value is
+larger than the <code>"Verbal"</code> value</strong>. Let’s look at all
+four options through this lens:</p>
+<ul>
+<li>Option 1: <code>sat['Math'] &gt; sat['Verbal']</code> is a Series of
+Boolean values, containing <code>True</code> for all states where the
+<code>"Math"</code> value is larger than the <code>"Verbal"</code> value
+and <code>False</code> for all other states. The mean of this series,
+then, is the proportion of states satisfying this criteria, and since
+<code>b</code> is <code>0.5</code>, <code>a &gt; b</code> is
+<code>True</code> only when the bolded condition above is
+<code>True</code>.</li>
+<li>Option 3 is the same as Option 1 – note that <span class="math inline">x &gt; y</span> is equivalent to <span class="math inline">x - y &gt; 0</span>.</li>
+<li>Option 4: <code>sat['Math'] / sat['Verbal']</code> is a Series that
+contains values greater than 1 whenever a state’s <code>"Math"</code>
+value is larger than its <code>"Verbal"</code> value and less than or
+equal to 1 in all other cases. As in the other options that work,
+<code>(sat['Math'] / sat['Verbal']) &gt; 1</code> is a Boolean Series
+with <code>True</code> for all states with a larger <code>"Math"</code>
+value than <code>"Verbal"</code> values; <code>a &gt; b</code> compares
+the proportion of <code>True</code> values in this Series to 0.5. (Here,
+<span class="math inline">p - 0.5 &gt; 0</span> is the same as <span class="math inline">p &gt; 0.5</span>.)</li>
+</ul>
+<p>Then, by process of elimination, Option 2 must be the correct option
+– that is, it must be the only option that <strong>doesn’t</strong>
+work. But why? <code>sat['Math'] - sat['Verbal']</code> is a Series
+containing the difference between each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values, and <code>.mean()</code> computes the mean
+of these differences. The issue is that here, we don’t care about
+<em>how different</em> each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values are; rather, we just care about the
+proportion of states with a bigger <code>"Math"</code> value than
+<code>"Verbal"</code> value. It could be the case that 90% of states
+have a larger <code>"Math"</code> value than <code>"Verbal"</code>
+value, but one state has such a big <code>"Verbal"</code> value that it
+makes the mean difference between <code>"Math"</code> and
+<code>"Verbal"</code> scores negative. (A property you’ll learn about in
+future probability courses is that this is equal to the difference in
+the mean <code>"Math"</code> value for all states and the mean
+<code>"Verbal"</code> value for all states – this is called the
+“linearity of expectation” – but you don’t need to know that to answer
+this question.)</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 58%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.2">Problem 8.2</h3>
+<p>Suppose we train a classifier, named Classifier 1, and it achieves an
+accuracy of <span class="math inline">\frac{5}{9}</span> on our training
+set.</p>
+<p>Typically, root mean squared error (RMSE) is used as a performance
+metric for regression models, but mathematically, nothing is stopping us
+from using it as a performance metric for classification models as
+well.</p>
+<p>What is the RMSE of Classifier 1 on our training set? Give your
+answer as a <strong>simplified fraction</strong>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{3}</span></p>
+<p>An accuracy of <span class="math inline">\frac{5}{9}</span> means
+that the model is such that out of 9 values, 5 are labeled correctly. By
+extension, this means that 4 out of 9 are not labeled correctly as 0 or
+1.</p>
+<p>Remember, RMSE is defined as</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i =
+1}^n (y_i - H(x_i))^2}</span></p>
+<p>where <span class="math inline">y_i</span> represents the <span class="math inline">i</span>th actual value and <span class="math inline">H(x_i)</span> represents the <span class="math inline">i</span>th prediction. Here, <span class="math inline">y_i</span> is either 0 or 1 and $H(x_i) is also
+either 0 or 1. We’re told that <span class="math inline">\frac{5}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are the same; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 0^2 = 0</span>. We’re also told
+that <span class="math inline">\frac{4}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are different; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 1</span>. So,</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{5}{9} \cdot 0 +
+\frac{4}{9} \cdot 1} = \sqrt{\frac{4}{9}} = \frac{2}{3}</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 55%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.3">Problem 8.3</h3>
+<p>While Classifier 1’s accuracy on our training set is <span
+class="math inline">\frac{5}{9}</span>, its accuracy on our test set is
+<span class="math inline">\frac{1}{4}</span>. Which of the following
+scenarios is most likely?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to decrease its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to decrease its
+complexity.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_3" class="accordion-collapse collapse"
+aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Since the accuracy of Classifier 1 is much higher on the dataset used
+to train it than the dataset it was tested on, it’s likely Classifer 1
+overfit to the training set because it was too complex. To fix the
+issue, we need to decrease its complexity, so that it focuses on
+learning the general structure of the data in the training set and not
+too much on the random noise in the training set.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 86%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>For the remainder of this question, suppose we train another
+classifier, named Classifier 2, again on our training set. Its
+performance on the training set is described in the confusion matrix
+below. Note that the columns of the confusion matrix have been
+separately normalized so that each has a sum of 1.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-8.4">Problem 8.4</h3>
+<p>Suppose <code>conf</code> is the DataFrame above. Which of the
+following evaluates to a Series of length 2 whose only unique value is
+the number <code>1</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=0)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=1)</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_4" aria-expanded="true" aria-controls="collapse8_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_4" class="accordion-collapse collapse"
+aria-labelledby="heading8_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 1</p>
+<p>Note that the columns of <code>conf</code> sum to 1 – <span class="math inline">0.9 + 0.1 = 1</span>, and <span class="math inline">0.4 + 0.6 = 1</span>. To create a Series with just
+the value 1, then, we need to sum the columns of <code>conf</code>,
+which we can do using <code>conf.sum(axis=0)</code>.
+<code>conf.sum(axis=1)</code> would sum the rows of
+<code>conf</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 81%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.5">Problem 8.5</h3>
+<p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
+0.6.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> precision</p></li>
+<li><p><input type="radio" disabled="" /> recall</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_5" aria-expanded="true" aria-controls="collapse8_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_5" class="accordion-collapse collapse"
+aria-labelledby="heading8_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> recall</p>
+<p>The number 0.6 appears in the bottom-right corner of
+<code>conf</code>. Since <code>conf</code> is column-normalized, the
+value 0.6 represents the proportion of values in the second column that
+were predicted to be 1. The second column contains values that were
+actually 1, so 0.6 is really <strong>the proportion of values that were
+actually 1 that were predicted to be 1</strong>, that is, <span class="math inline">\frac{\text{actually 1 and predicted
+1}}{\text{actually 1}}</span>. This is the definition of recall!</p>
+<p>If you’d like to think in terms of true positives, etc., then
+remember that: - True Positives (TP) are values that were actually 1 and
+were predicted to be 1. - True Negatives (TN) are values that were
+actually 0 and were predicted to be 0. - False Positives (FP) are values
+that were actually 0 and were predicted to be 1. - False Negatives (FN)
+are values that were actually 1 and were predicted to be 0.</p>
+<p>Recall is <span class="math inline">\frac{\text{TP}}{\text{TP} +
+\text{FN}}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 77%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>For your convenience, we show the column-normalized confusion matrix
+from the previous page below. You will need to use the specific numbers
+in this matrix when answering the following subpart.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-8.6">Problem 8.6</h3>
+<p>Suppose a fraction <span class="math inline">\alpha</span> of the
+labels in the training set are actually 1 and the remaining <span
+class="math inline">1 - \alpha</span> are actually 0. The accuracy of
+Classifier 2 is 0.65. What is the value of <span
+class="math inline">\alpha</span>? </p>
+<p>Hint: If you’re unsure on how to proceed, here are some guiding
+questions:</p>
+<ul>
+<li><p>Suppose the number of <span class="math inline">y</span>-values
+that are actually 1 is <span class="math inline">A</span> and that the
+number of <span class="math inline">y</span>-values that are actually 0
+is <span class="math inline">B</span>. In terms of <span
+class="math inline">A</span> and <span class="math inline">B</span>,
+what is the accuracy of Classifier 2? Remember, you’ll need to refer to
+the numbers in the confusion matrix above.</p></li>
+<li><p>What is the relationship between <span
+class="math inline">A</span>, <span class="math inline">B</span>, and
+<span class="math inline">\alpha</span>? How does it simplify your
+calculation for the accuracy in the previous step?</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_6" aria-expanded="true" aria-controls="collapse8_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_6" class="accordion-collapse collapse"
+aria-labelledby="heading8_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{5}{6}</span></p>
+<p>Here is one way to solve this problem:</p>
+<p>accuracy = <span class="math inline">\frac{TP + TN}{TP + TN + FP +
+FN}</span></p>
+<p>Given the values from the confusion matrix:</p>
+<p>accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9
+\cdot (1 - \alpha)}{\alpha + (1 - \alpha)}</span><br/>
+accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9 - 0.9
+\cdot \alpha}{1}</span><br/>
+accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
+<p>Therefore:</p>
+<p>0.65 = <span class="math inline">0.9 - 0.3 \cdot \alpha</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.9 - 0.65</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.25</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{0.25}{0.3}</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{5}{6}</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 61%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>Let’s continue with the premise from the previous question. That is,
+we will aim to build a classifier that takes in demographic information
+about a state from a particular year and predicts whether or not the
+state’s mean math score is higher than its mean verbal score that
+year.</p>
+<p>In honor of the
+<a href="https://www.reddit.com/r/UCSD/comments/11o0w9r/chicken_event/">rotisserie
+chicken event</a> on UCSD’s campus a few weeks ago, <code>sklearn</code>
+released a new classifier class called
+<code>ChickenClassifier</code>.</p>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p><code>ChickenClassifier</code>s have many hyperparameters, one of
+which is <code>height</code>. As we increase the value of
+<code>height</code>, the model variance of the resulting
+<code>ChickenClassifier</code> also increases.</p>
+<p>First, we consider the training and testing accuracy of a
+<code>ChickenClassifier</code> trained using various values of
+<code>height</code>. Consider the plot below.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/accuracy.png' width=30%></center>
+<p>Which of the following depicts <strong>training accuracy
+vs. <code>height</code></strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Option 1</p></li>
+<li><p><input type="radio" disabled="" /> Option 2</p></li>
+<li><p><input type="radio" disabled="" /> Option 3</p></li>
+</ul>
+<p>Which of the following depicts <strong>testing accuracy
+vs. <code>height</code></strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Option 1</p></li>
+<li><p><input type="radio" disabled="" /> Option 2</p></li>
+<li><p><input type="radio" disabled="" /> Option 3</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2 depicts training accuracy
+vs. <code>height</code>; Option 3 depicts testing accuract
+vs. <code>height</code></p>
+<p>We are told that as <code>height</code> increases, the model variance
+(complexity) also increases.</p>
+<p>As we increase the complexity of our classifier, it will do a better
+job of fitting to the training set because it’s able to “memorize” the
+patterns in the training set. As such, as <code>height</code> increases,
+training accuracy increases, which we see in Option 2.</p>
+<p>However, after a certain point, increasing <code>height</code> will
+make our classifier overfit too closely to our training set and not
+general enough to match the patterns in other similar datasets, meaning
+that after a certain point, increasing <code>height</code> will actually
+decrease our classifier’s accuracy on our testing set. The only option
+that shows accuracy increase and then decrease is Option 3.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 75%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><code>ChickenClassifier</code>s have another hyperparameter,
+<code>color</code>, for which there are four possible values:
+<code>"yellow"</code>, <code>"brown"</code>, <code>"red"</code>, and
+<code>"orange"</code>. To find the optimal value of <code>color</code>,
+we perform <span class="math inline">k</span>-fold cross-validation with
+<span class="math inline">k=4</span>. The results are given in the table
+below.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/CV.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>Which value of <code>color</code> has the best average validation
+accuracy?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>"yellow"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"brown"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"red"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"orange"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <code>"red"</code></p>
+<p>From looking at the results of the k-fold cross validation, we see
+that the color red has the highest, and therefore the best, validation
+accuracy as it has the highest row mean (across all 4 folds).</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 91%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>True or False: It is possible for a hyperparameter value to have the
+best average validation accuracy across all folds, but not have the best
+validation accuracy in any one particular fold.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_3" class="accordion-collapse collapse"
+aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> True</p>
+<p>An example is shown below:</p>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th>Fold 1</th>
+<th>Fold 2</th>
+<th>Fold 3</th>
+<th>Fold 4</th>
+<th>average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color 1</td>
+<td>0.8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>color 2</td>
+<td>0</td>
+<td>0.6</td>
+<td>0</td>
+<td>0</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>color 3</td>
+<td>0</td>
+<td>0</td>
+<td>0.1</td>
+<td>0</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>color 4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>color 5</td>
+<td>0.7</td>
+<td>0.5</td>
+<td>0.01</td>
+<td>0.1</td>
+<td>0.3275</td>
+</tr>
+</tbody>
+</table>
+<p>In the example, color 5 has the highest average validation accuracy
+across all folds, but is not the best in any one fold.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 94%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.4">Problem 9.4</h3>
+<p>Now, instead of finding the best <code>height</code> and best
+<code>color</code> individually, we decide to perform a grid search that
+uses <span class="math inline">k</span>-fold cross-validation to find
+the combination of <code>height</code> and <code>color</code> with the
+best average validation accuracy.</p>
+<p>For the purposes of this question, assume that:</p>
+<ul>
+<li>We are performing <span class="math inline">k</span>-fold cross
+validation.</li>
+<li>Our training set contains <span class="math inline">n</span> rows,
+where <span class="math inline">n</span> is greater than 5 and is a
+multiple of <span class="math inline">k</span>.</li>
+<li>There are <span class="math inline">h_1</span> possible values of
+<code>height</code> and <span class="math inline">h_2</span> possible
+values of <code>color</code>.</li>
+</ul>
+<p>Consider the following three subparts:</p>
+<ul>
+<li>A. What is the size of each fold?</li>
+<li>B. How many times is row 5 in the training set used for
+training?</li>
+<li>C. How many times is row 5 in the training set used for
+validation?</li>
+</ul>
+<p>Choose from the following options.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{k}{n}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{n}{k}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{n}{k} \cdot (k - 1)</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">h_1h_2k</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">h_1h_2(k-1)</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{nh_1h_2}{k}</span></p></li>
+<li><p><input type="radio" disabled="" /> None of the above</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_4" class="accordion-collapse collapse"
+aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> A: Option 3 (<span class="math inline">\frac{n}{k}</span>), B: Option 6 (<span class="math inline">h_1h_2(k-1)</span>), C: Option 8 (None of the
+above)</p>
+<p><br/></p>
+<h5 id="a.-what-is-the-size-of-each-fold">A. What is the size of each
+fold?</h5>
+<p>The training set is divided into <span class="math inline">k</span>
+folds of equal size, resulting in <span class="math inline">k</span>
+folds with size <span class="math inline">\frac{n}{k}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 66%.</p>
+<p><br/></p>
+<h5 id="b.-how-many-times-is-row-5-in-the-training-set-used-for-training">B.
+How many times is row 5 in the training set used for training?</h5>
+<p>For each combination of hyperparameters, row 5 is <span class="math inline">k - 1</span> times for training and <span class="math inline">1</span> time for validation. There are <span class="math inline">h_1 \cdot h_2</span> combinations of
+hyperparameters, so row 5 is used for training <span class="math inline">h_1 \cdot h_2 \cdot (k-1)</span> times.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 76%.</p>
+<p><br/></p>
+<h5 id="c.-how-many-times-is-row-5-in-the-training-set-used-for-validation">C.
+How many times is row 5 in the training set used for validation?</h5>
+<p>Building off of the explanation for the previous subpart, row 5 is
+used for validation 1 times for each combination of hyperparameters, so
+the correct expression would be <span class="math inline">h_1 \cdot
+h_2</span>, which is not a provided option.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 69%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>Suppose Yutian builds a classifier that predicts whether or not a
+hotel provides free parking. The confusion matrix for her classifier,
+when evaluated on our training set, is given below.</p>
+<center><img src="../assets/images/old-from-80/wi24-final/confusion.png" width=550></center>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>What is the precision of Yutian’s classifier? Give your answer as a
+simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\frac{8}{13}</span></p>
+<p>Precision is the proportion of predicted positives that actually were
+positives. So, given this confusion matrix, that value is <span class="math inline">\frac{8}{8 + 5}</span>, or <span class="math inline">\frac{8}{13}</span>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 89%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>Fill in the blanks: In order for Yutian’s classifier’s recall to be
+equal to its precision, <code>__(i)__</code> must be equal to
+<code>__(ii)__</code>.</p>
+<ol type="1">
+<li>What goes in blank (i)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">A</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">B</span></p></li>
+</ul>
+<ol start="2" type="1">
+<li>What goes in blank (ii)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+<li><p><input type="radio" disabled="" /> 5</p></li>
+<li><p><input type="radio" disabled="" /> 6</p></li>
+<li><p><input type="radio" disabled="" /> 8</p></li>
+<li><p><input type="radio" disabled="" /> 13</p></li>
+<li><p><input type="radio" disabled="" /> 14</p></li>
+<li><p><input type="radio" disabled="" /> 20</p></li>
+<li><p><input type="radio" disabled="" /> 40</p></li>
+<li><p><input type="radio" disabled="" /> 50</p></li>
+<li><p><input type="radio" disabled="" /> 80</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ol type="1">
+<li><span class="math inline">B</span></li>
+<li>5</li>
+</ol>
+<p>We already know that the precision is <span class="math inline">\frac{8}{13}</span>. Recall is the proportion of
+true positives that were indeed classified positives, which in this
+matrix is <span class="math inline">\frac{8}{B + 8}</span>. So, in order
+for precision to equal recall, <span class="math inline">B</span> must
+be 5.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 96%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.3">Problem 10.3</h3>
+<p>Now, suppose both <span class="math inline">A</span> and <span
+class="math inline">B</span> are unknown. Fill in the blanks: In order
+for Yutian’s classifier’s recall to be equal to its accuracy,
+<code>__(i)__</code> must be equal to <code>__(ii)__</code>.</p>
+<ol type="1">
+<li>What goes in blank (i)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">A + B</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">A - B</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">B - A</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">A \cdot B</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{A}{B}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{B}{A}</span></p></li>
+</ul>
+<ol start="2" type="1">
+<li>What goes in blank (ii)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+<li><p><input type="radio" disabled="" /> 5</p></li>
+<li><p><input type="radio" disabled="" /> 6</p></li>
+<li><p><input type="radio" disabled="" /> 8</p></li>
+<li><p><input type="radio" disabled="" /> 13</p></li>
+<li><p><input type="radio" disabled="" /> 14</p></li>
+<li><p><input type="radio" disabled="" /> 20</p></li>
+<li><p><input type="radio" disabled="" /> 40</p></li>
+<li><p><input type="radio" disabled="" /> 50</p></li>
+<li><p><input type="radio" disabled="" /> 80</p></li>
+</ul>
+<p><em>Hint: To verify your answer, pick an arbitrary value of A, like A
+= 10, and solve for the B that sets the model’s recall equal to its
+accuracy. Do the specific A and B you find satisfy your answer
+above?</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ol type="1">
+<li><span class="math inline">A \cdot B</span></li>
+<li>40</li>
+</ol>
+<p>We can solve this problem by simply stating recall and accuracy in
+terms of the values in the confusion matrix. As we already found, recall
+is <span class="math inline">\frac{8}{B+8}</span>. Accuracy is the sum
+of correct predictions over total number of predictions, or <span class="math inline">\frac{A + 8}{A + B + 13}</span>. Then, we simply set
+these equal to each other, and solve.</p>
+<p><span class="math display">\frac{8}{B+8} = \frac{A + 8}{A + B +
+13}</span> <span class="math display">8(A + B + 13) = (A + 8)(B +
+8)</span> <span class="math display">8A + 8B + 104 = AB + 8A + 8B +
+64</span> <span class="math display">104 = AB + 64</span> <span class="math display">AB = 40</span></p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 79%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-11">Problem 11</h2>
+<p>The next four questions concern the following example.</p>
+<p>A Silicon Valley startup candy company buys a factory from a
+lightbulb company and repurposes some of the existing equipment to make
+chocolate bars with the goal of disrupting the candy industry. Their IPO
+is delayed, however, when they discover that some of their chocolate
+bars contain broken glass.</p>
+<p>The company’s engineers quickly build an AI which looks at the
+chocolate bars coming off of the conveyor belt and predicts which bars
+contain broken glass (“yes”) and which don’t (“no”). The results are
+shown in the following confusion matrix:</p>
+<center><img src='../assets/images/old-from-80/fa22-final/confusion.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-11.1">Problem 11.1</h3>
+<p>What is the accuracy of their model as a percentage (between 0% and
+100%)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_1" class="accordion-collapse collapse"
+aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 91%</p>
+<p>The accuracy of a model is given by the number of correct predictions
+divided by the total number of predictions. To tell if a prediction is
+correct, we simply see if the predicted value matches the actual value.
+In this case, our model’s accuracy is just <span class="math inline">\frac{87+4}{87+6+3+4} = \frac{91}{100}</span> which
+is just 91%.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 95%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.2">Problem 11.2</h3>
+<p>What is the recall of their model as a percentage (between 0% and
+100%)?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_2" class="accordion-collapse collapse"
+aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 40%</p>
+<p>The recall of a model is given by the number of True Positives
+divided by the sum of True Positives and False Negatives. A True
+Positive is when the model correctly predicts a Positive value (in this
+case, a Positive value is “Yes”), and a False Negative is when a model
+incorrectly predicts a Negative value. Thus the answer is just <span class="math inline">\frac{4}{6+4} = \frac{4}{10}</span> which is just
+40%.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 92%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.3">Problem 11.3</h3>
+<p>From a safety perspective, which metric should be maximized in this
+situation?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Precision</p></li>
+<li><p><input type="radio" disabled="" /> Recall</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_3" aria-expanded="true" aria-controls="collapse11_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_3" class="accordion-collapse collapse"
+aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Recall</p>
+<p>From a safetly perspective, it makes sense that we should maximize
+catching broken glass in the chocolate bars. This means that we should
+minimize False Negative values, which means maximizing Recall.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 100%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.4">Problem 11.4</h3>
+<p>Suppose the company’s investors wish to improve the model’s
+precision. Which should they do (besides hire better data
+scientists)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Lower their model’s threshold for predicting that a bar contains
+glass, thus throwing out more candy.</p></li>
+<li><p><input type="radio" disabled="" /> Raise their model’s threshold for predicting that a bar contains
+glass, thus throwing out less candy.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_4" aria-expanded="true" aria-controls="collapse11_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_4" class="accordion-collapse collapse"
+aria-labelledby="heading11_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>The precision of a model is given by the number of True Positives
+divided by the sum of True Positives and False Positives. Thus to
+maximumize the precision of a model, we should minimize the number of
+False Positives. To do this, simply raising the model’s threshold for
+predicting Positive values would result in less False Positives. Thus
+the answer is Option B.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 97%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<hr />
+</body>
+</html>
