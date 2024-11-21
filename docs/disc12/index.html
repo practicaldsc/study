@@ -2148,6 +2148,140 @@ the answer is Option B.</p>
 </div>
 <p><br></p>
 <hr />
+<h2 id="problem-12">Problem 12</h2>
+<p>Suppose we want to build a classifier to predict whether a person
+survived the sinking of the Titanic. The first 5 rows of our dataset are
+given below. <span class="math display">\begin{array}{|c|c|c|c|}
+\hline
+&amp; \textbf{Age} &amp; \textbf{Survived} &amp; \textbf{Female} \\
+\hline
+0 &amp; 22.0 &amp; 0 &amp; 0 \\ \hline
+1 &amp; 38.0 &amp; 1 &amp; 1 \\ \hline
+2 &amp; 26.0 &amp; 1 &amp; 1 \\ \hline
+3 &amp; 35.0 &amp; 1 &amp; 1 \\ \hline
+4 &amp; 35.0 &amp; 0 &amp; 0 \\ \hline
+\end{array}</span> <br></p>
+<h3 id="problem-12.1">Problem 12.1</h3>
+<p>For a given classifier, suppose the first 10 predictions of our
+classifier and 10 true observations are as follows: <span
+class="math display">
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Predictions} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+&amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ \hline
+\textbf{True Label} &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0
+&amp; 0 &amp; 1 &amp; 1 &amp; 1 \\ \hline
+\end{array}
+</span> 1. What is the accuracy of our classifier on these 10
+predictions?</p>
+<ol start="2" type="1">
+<li><p>What is the precision on these 10 predictions?</p></li>
+<li><p>What is the recall on these 10 predictions?</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_1" class="accordion-collapse collapse"
+aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> TODO</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-12.2">Problem 12.2</h3>
+<p>In general (not just for the Titanic model), if we increase the
+threshold for a classification model, which of the following can happen
+to our precision, recall, and accuracy? Select all that apply.</p>
+<pre><code>- [ ] Precision can increase.
+- [ ] Precision can decrease.
+- [ ] Recall can increase.
+- [ ] Recall can decrease.
+- [ ] Accuracy can increase.
+- [ ] Accuracy can decrease.</code></pre>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_2" class="accordion-collapse collapse"
+aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> TODO</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-12.3">Problem 12.3</h3>
+<p>Suppose after training our model we get <span
+class="math inline">\mathbf{\beta} = \begin{bmatrix}
+-1.2 &amp; -0.005 &amp; 2.5
+\end{bmatrix}^T</span>, where <span class="math inline">-1.2</span> is
+an intercept term, <span class="math inline">-0.005</span> is the
+parameter corresponding to passenger’s age, and <span
+class="math inline">2.5</span> is the parameter corresponding to
+sex.</p>
+<ol type="1">
+<li><p>Consider Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak, a 20 year old
+female. What chance did she have to survive the sinking of the Titanic
+according to our model? Give your answer as a probability in terms of
+<span class="math inline">\sigma</span>. If there is not enough
+information, write “not enough information.” <span class="math display">
+P(Y = 1 | \text{age} = 20, \text{female} = 1) =
+</span></p></li>
+<li><p>Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak actually survived. What
+is the cross-entropy loss for our prediction in part (i)? If there is
+not enough information, write “not enough information.” <span
+class="math display">
+\text{Cross entropy loss} =
+</span></p></li>
+<li><p>Let <span class="math inline">m</span> be the odds of a given
+male passenger’s survival according to our model, i.e., if the passenger
+had an 80% chance of survival, <span class="math inline">m</span> would
+be 4, since their odds of survival are <span class="math inline">0.8 /
+0.2 = 4</span>. It turns out we can compute <span
+class="math inline">f</span>, the odds of survival for a female of the
+same age, even if we don’t know the age of the two people. What is this
+relationship? Hint: How are the odds related to <span
+class="math inline">t = \mathbf{x}^T \mathbf{\beta}</span> for a given
+observation? <span class="math display">
+f =
+</span></p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_3" class="accordion-collapse collapse"
+aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> TODO</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
 <h2 id="section"><span class="math display"> </span></h2>
 <h4
 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
