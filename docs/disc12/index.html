@@ -2191,7 +2191,15 @@ aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong> TODO</p>
+<p><strong>Answer:</strong> 1. <span class="math inline">\frac{7}{10}</span></p>
+<ol start="2" type="1">
+<li><p>We have 6 true positive and 3 false positives, so the precision
+evaluates to <span class="math display">\frac{6}{6+3} =
+\frac{2}{3}</span></p></li>
+<li><p>From the solution to the previous part, we know true positives =
+6. The number of false negatives is 0 (we only predicted 0 once and the
+true value actually was 0). Thus the recall is <span class="math display">\frac{6}{6+0} = 1</span></p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -2220,7 +2228,19 @@ aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong> TODO</p>
+<p><strong>Answer:</strong> All except “Recall can increase” are
+correct.</p>
+<p>As we increase our classification threshold, the number of false
+positives decreases, but the number of false negatives (i.e. undetected
+points) increases. As a result, our precision increases (more of the
+points we say are positive will actually be positive), but our recall
+decreases (there will be more points that are actually positive that we
+don’t detect). However, in some cases precision can also decrease, when
+increasing a threshold lowers the number of true positives but keeps the
+number of true negatives the same. As seen in lecture, accuracy may
+increase or decrease – there typically exists an optimal threshold that
+maximizes accuracy, and if we increase or decrease our threshold from
+that point, accuracy decreases.</p>
 </div>
 </div>
 </div>
@@ -2275,7 +2295,33 @@ aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong> TODO</p>
+<p><strong>Answer:</strong> 1. Our observation vector is of the form
+<span class="math inline">\vec{x} = [1, 20, 1]^T</span>. Then $^T } =
+1(-1.2) + 20(-0.005) + 1(2.5) = 1.2, so <span class="math inline">P(Y =
+1 | \vec{x}) = \sigma \vec{x}^T \vec{\beta}} = \sigma (1.2)</span></p>
+<ol start="2" type="1">
+<li><p>Here <span class="math inline">y=1</span> and <span class="math inline">\hat{y} = \sigma (1.2)</span>. The formula for cross
+entropy loss is <span class="math inline">-y\log (\hat{y}) - (1 - y)\log
+(1 - \hat{y}) = -\log (\sigma (1.2))</span></p></li>
+<li><p>We start by finding a simple relationship between the odds and
+<span class="math inline">\sigma(t) = \sigma(\mathbf{x}^T
+\boldsymbol{\beta})</span>. In logistic regression <span class="math inline">p = \sigma(\mathbf{x}^T
+\boldsymbol{\beta})</span>.<br/>
+The odds are defined as <span class="math inline">\text{odds} =
+\frac{p}{1-p}</span>. Substituting in, we have:<br/>
+<span class="math inline">= \frac{\frac{1}{1+e^{-t}}}{1 -
+\frac{1}{1+e^{-t}}}</span></p></li>
+</ol>
+<p><span class="math inline">=
+\frac{\frac{1}{1+e^{-t}}}{\frac{1+e^{-t}-1}{1+e^{-t}}}</span></p>
+<p>$ = $</p>
+<p>$ = e^t$ Thus, we have that <span class="math inline">\text{odds} =
+e^{\mathbf{x}^T \boldsymbol{\beta}}</span>.<br/>
+From here, the problem is relatively straightforward, as we have
+that</p>
+<p><span class="math display">\frac{f}{m} = \frac{e^{-1.2 -
+0.005\text{age} + 2.5}}{e^{-1.2 - 0.005\text{age}}}</span></p>
+<p><span class="math display">\frac{f}{m} = e^{2.5}</span></p>
 </div>
 </div>
 </div>

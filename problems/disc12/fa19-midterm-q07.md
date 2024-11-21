@@ -24,8 +24,12 @@ $$
 
 3. What is the recall on these 10 predictions?
 # BEGIN SOLN
-**Answer:** 
-TODO
+**Answer:**
+1. $\frac{7}{10}$
+
+2. We have 6 true positive and 3 false positives, so the precision evaluates to $$\frac{6}{6+3} = \frac{2}{3}$$
+
+3. From the solution to the previous part, we know true positives = 6. The number of false negatives is 0 (we only predicted 0 once and the true value actually was 0). Thus the recall is $$\frac{6}{6+0} = 1$$
 # END SOLN
 
 # END SUBPROB
@@ -41,7 +45,17 @@ In general (not just for the Titanic model), if we increase the threshold for a 
     - [ ] Accuracy can decrease.
 # BEGIN SOLN
 **Answer:**
-TODO
+All except "Recall can increase" are correct.
+
+As we increase our classification threshold, the number of false positives
+decreases, but the number of false negatives (i.e. undetected points) increases. As a
+result, our precision increases (more of the points we say are positive will actually be
+positive), but our recall decreases (there will be more points that are actually positive
+that we don’t detect). However, in some cases precision can also decrease, when
+increasing a threshold lowers the number of true positives but keeps the number of
+true negatives the same. As seen in lecture, accuracy may increase or decrease – there
+typically exists an optimal threshold that maximizes accuracy, and if we increase or
+decrease our threshold from that point, accuracy decreases.
 # END SOLN
 
 # END SUBPROB
@@ -70,7 +84,30 @@ Suppose after training our model we get $\mathbf{\beta} = \begin{bmatrix}
 
 # BEGIN SOLN
 **Answer:** 
-TODO
+1. Our observation vector is of the form $\vec{x} = [1, 20, 1]^T$. Then $\vec{x}^T \vec{\beta}} = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2, so $P(Y = 1 | \vec{x}) = \sigma \vec{x}^T \vec{\beta}} = \sigma (1.2)$
+
+2. Here $y=1$ and $\hat{y} = \sigma (1.2)$. The formula for cross entropy loss is $-y\log (\hat{y}) - (1 - y)\log (1 - \hat{y}) = -\log (\sigma (1.2))$
+
+3. 
+We start by finding a simple relationship between the odds and $\sigma(t) = \sigma(\mathbf{x}^T \boldsymbol{\beta})$.
+In logistic regression $p = \sigma(\mathbf{x}^T \boldsymbol{\beta})$.  
+The odds are defined as $\text{odds} = \frac{p}{1-p}$. Substituting in, we have:  
+ $= \frac{\frac{1}{1+e^{-t}}}{1 - \frac{1}{1+e^{-t}}}$
+
+
+ $= \frac{\frac{1}{1+e^{-t}}}{\frac{1+e^{-t}-1}{1+e^{-t}}}$
+
+
+$ = \frac{\frac{1}{1+e^{-t}}}{\frac{e^{-t}}{1+e^{-t}}}$
+
+
+$ \frac{1}{e^{-t}} = e^t$
+Thus, we have that $\text{odds} = e^{\mathbf{x}^T \boldsymbol{\beta}}$.  
+From here, the problem is relatively straightforward, as we have that  
+
+$$\frac{f}{m} = \frac{e^{-1.2 - 0.005\text{age} + 2.5}}{e^{-1.2 - 0.005\text{age}}}$$
+
+$$\frac{f}{m} = e^{2.5}$$
 # END SOLN
 
 # END SUBPROB
