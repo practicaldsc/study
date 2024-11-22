@@ -1,7 +1,6 @@
 # BEGIN PROB
 
-After fitting our `BillyClassifier` from the previous question, we use
-it to make predictions on an unseen test set. Our results are summarized
+After fitting a `BillyClassifier` on our training set, we use it to make predictions on an unseen test set. Our results are summarized
 in the following confusion matrix.
 
 <center><img src='../assets/images/old-from-80/sp22-final/confusion-2.png' width=50%></center>
@@ -78,14 +77,10 @@ must be even.
 
 # BEGIN SUBPROB
 
-Suppose we are building a classifier that listens to an audio source
-(say, from your phone's microphone) and predicts whether or not it is
-Soulja Boy's 2008 classic "Kiss Me thru the Phone.\" Our classifier is
-pretty good at detecting when the input stream is "Kiss Me thru the
-Phone\", but it often incorrectly predicts that similar sounding songs
-are also "Kiss Me thru the Phone.\"
+Suppose we are building a classifier that listens to an audio source (say, from your phone's microphone) and predicts whether or not it is Soulja Boy's 2008 classic "Kiss Me thru the Phone". Our classifier is pretty good at detecting when the input stream is "Kiss Me thru the Phone", but it often incorrectly predicts that similar sounding songs
+are also "Kiss Me thru the Phone".
 
-Complete the sentence: Our classifier has\...
+Complete the sentence: Our classifier has...
 
 ( ) low precision and low recall.
 ( ) low precision and high recall.
@@ -96,14 +91,9 @@ Complete the sentence: Our classifier has\...
 
 **Answer: ** Option B: low precision and high recall.
 
-Our classifier is good at identifying when the input stream is "Kiss Me
-thru the Phone\", i.e. it is good at identifying true positives amongst
-all positives. This means it has high recall.
+Our classifier is good at identifying when the input stream is "Kiss Me thru the Phone", i.e. it is good at identifying true positives amongst all positives. This means it has high recall.
 
-Since our classifier makes many false positive predictions --- in other
-words, it often incorrectly predicts "Kiss Me thru the Phone\" when
-that's not what the input stream is --- it has many false positives, so
-its precision is low.
+Since our classifier makes many false positive predictions – in other words, it often incorrectly predicts "Kiss Me thru the Phone" when that's not what the input stream is – it has many false positives, so its precision is low.
 
 Thus, our classifier has low precision and high recall.
 

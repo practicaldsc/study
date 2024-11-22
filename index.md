@@ -135,6 +135,16 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, November 15th</td>
       <td><a href="disc11/index.html">Gradient Descent and Convexity</a></td>
     </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>Friday, November 22nd</td>
+      <td><a href="disc12/index.html">Classifier Evaluation and Logistic Regression</a></td>
+    </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>Friday, November 29th</td>
+      <td>No Discussion: Thanksgiving! 🦃</td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>
