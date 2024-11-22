@@ -18,8 +18,6 @@ fraction (it does not need to be simplified).
 There are 105 true positives and 66 false negatives. Hence, the recall
 is $\frac{105}{105 + 66} = \frac{105}{171} = \frac{35}{57}$.
 
-<average>89</average>
-
 # END SOLN
 
 # END SUBPROB
@@ -45,8 +43,6 @@ Multiply $\frac{69}{117}$ by $\frac{2}{2}$ to yield $\frac{138}{234}$.
 Then, conveniently, setting $x = 33$ in $\frac{105 + x}{201 + x}$ also
 yields $\frac{138}{234}$, so $x = 33$ and hence the number of true
 negatives our classifier has is 33.
-
-<average>84</average>
 
 # END SOLN
 
@@ -75,8 +71,6 @@ $$\text{mistakes} = FP + FN = FP + FP = 2 \cdot FP$$
 
 2 times any integer must be an even integer, so the number of mistakes
 must be even.
-
-<average>100</average>
 
 # END SOLN
 
@@ -112,8 +106,6 @@ that's not what the input stream is --- it has many false positives, so
 its precision is low.
 
 Thus, our classifier has low precision and high recall.
-
-<average>91</average>
 
 # END SOLN
 

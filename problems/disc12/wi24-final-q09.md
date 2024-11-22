@@ -1,12 +1,12 @@
 # BEGIN PROB
 
-Suppose Yutian builds a classifier that predicts whether or not a hotel provides free parking. The confusion matrix for her classifier, when evaluated on our training set, is given below.
+Suppose Yutong builds a classifier that predicts whether or not a hotel provides free parking. The confusion matrix for her classifier, when evaluated on our training set, is given below.
 
 <center><img src="../assets/images/old-from-80/wi24-final/confusion.png" width=550></center>
 
 # BEGIN SUBPROB
 
-What is the precision of Yutian’s classifier? Give your answer as a simplified fraction.
+What is the precision of Yutong’s classifier? Give your answer as a simplified fraction.
 
 # BEGIN SOLUTION
 
@@ -14,15 +14,13 @@ What is the precision of Yutian’s classifier? Give your answer as a simplified
 
 Precision is the proportion of predicted positives that actually were positives. So, given this confusion matrix, that value is $\frac{8}{8 + 5}$, or $\frac{8}{13}$.
 
-<average>89</average>
-
 # END SOLUTION
 
 # END SUBPROB
 
 # BEGIN SUBPROB
 
-Fill in the blanks: In order for Yutian’s classifier’s recall to be equal to its precision, `__(i)__` must be equal to `__(ii)__`.
+Fill in the blanks: In order for Yutong’s classifier’s recall to be equal to its precision, `__(i)__` must be equal to `__(ii)__`.
 
 1. What goes in blank (i)?
 
@@ -53,15 +51,13 @@ Fill in the blanks: In order for Yutian’s classifier’s recall to be equal to
 
 We already know that the precision is $\frac{8}{13}$. Recall is the proportion of true positives that were indeed classified positives, which in this matrix is $\frac{8}{B + 8}$. So, in order for precision to equal recall, $B$ must be 5.
 
-<average>96</average>
-
 # END SOLUTION
 
 # END SUBPROB
 
 # BEGIN SUBPROB
 
-Now, suppose both $A$ and $B$ are unknown. Fill in the blanks: In order for Yutian’s classifier’s recall to be equal to its accuracy, `__(i)__` must be equal to `__(ii)__`.
+Now, suppose both $A$ and $B$ are unknown. Fill in the blanks: In order for Yutong’s classifier’s recall to be equal to its accuracy, `__(i)__` must be equal to `__(ii)__`.
 
 1. What goes in blank (i)?
 
@@ -103,8 +99,6 @@ $$8(A + B + 13) = (A + 8)(B + 8)$$
 $$8A + 8B + 104 = AB + 8A + 8B + 64$$
 $$104 = AB + 64$$
 $$AB = 40$$
-
-<average>79</average>
 
 # END SOLUTION
 

@@ -58,9 +58,6 @@ Conceptually, we're looking for a combination of `a` and `b` such that when `a >
 
 Then, by process of elimination, Option 2 must be the correct option – that is, it must be the only option that **doesn't** work. But why? `sat['Math'] - sat['Verbal']` is a Series containing the difference between each state's `"Math"` and `"Verbal"` values, and `.mean()` computes the mean of these differences. The issue is that here, we don't care about _how different_ each state's `"Math"` and `"Verbal"` values are; rather, we just care about the proportion of states with a bigger `"Math"` value than `"Verbal"` value. It could be the case that 90% of states have a larger `"Math"` value than `"Verbal"` value, but one state has such a big `"Verbal"` value that it makes the mean difference between `"Math"` and `"Verbal"` scores negative. (A property you'll learn about in future probability courses is that this is equal to the difference in the mean `"Math"` value for all states and the mean `"Verbal"` value for all states – this is called the "linearity of expectation" – but you don't need to know that to answer this question.)
 
-
-<average>58</average>
-
 # END SOLN
 
 # END SUBPROB
@@ -85,8 +82,6 @@ where $y_i$ represents the $i$th actual value and $H(x_i)$ represents the $i$th 
 
 $$\text{RMSE} = \sqrt{\frac{5}{9} \cdot 0 + \frac{4}{9} \cdot 1} = \sqrt{\frac{4}{9}} = \frac{2}{3}$$
 
-<average>55</average>
-
 # END SOLN
 
 # END SUBPROB
@@ -104,8 +99,6 @@ While Classifier 1's accuracy on our training set is $\frac{5}{9}$, its accuracy
 **Answer: ** Option 2
 
 Since the accuracy of Classifier 1 is much higher on the dataset used to train it than the dataset it was tested on, it's likely Classifer 1 overfit to the training set because it was too complex. To fix the issue, we need to decrease its complexity, so that it focuses on learning the general structure of the data in the training set and not too much on the random noise in the training set.
-
-<average>86</average>
 
 # END SOLN
 
@@ -125,8 +118,6 @@ Suppose `conf` is the DataFrame above. Which of the following evaluates to a Ser
 **Answer: ** Option 1
 
 Note that the columns of `conf` sum to 1 – $0.9 + 0.1 = 1$, and $0.4 + 0.6 = 1$. To create a Series with just the value 1, then, we need to sum the columns of `conf`, which we can do using `conf.sum(axis=0)`. `conf.sum(axis=1)` would sum the rows of `conf`.
-
-<average>81</average>
 
 # END SOLN
 
@@ -150,8 +141,6 @@ If you'd like to think in terms of true positives, etc., then remember that:
 - False Negatives (FN) are values that were actually 1 and were predicted to be 0.
 
 Recall is $\frac{\text{TP}}{\text{TP} + \text{FN}}$.
-
-<average>77</average>
 
 
 # END SOLN
@@ -192,8 +181,6 @@ $0.3 \cdot \alpha$  = $0.9 - 0.65$ \
 $0.3 \cdot \alpha$  = $0.25$ \
 $\alpha$  = $\frac{0.25}{0.3}$ \
 $\alpha$  = $\frac{5}{6}$
-
-<average>61</average>
 
 # END SOLN
 
