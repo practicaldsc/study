@@ -107,9 +107,9 @@ $$
 We want to know what the bottom left value of $X_\text{tri}^T X_\text{tri}$ is. We figure this out with matrix multiplication!
 
 \begin{align*}
-X*\text{tri}^T X*\text{tri} &= \begin{bmatrix} 3 & 3 & ... & 3\\ 3x*1^2 & 3x_2^2 & ... & 3x_n^2 \end{bmatrix} \begin{bmatrix} 3 & 3x_1^2 \\ 3 & 3x_2^2 \\ \vdots & \vdots \\ 3 & 3x_n^2 \end{bmatrix}\\
-&= \begin{bmatrix} \sum*{i = 1}^n 3(3) & \sum*{i = 1}^n 3(3x_i^2) \\ \sum*{i = 1}^n 3(3x*i^2) & \sum*{i = 1}^n (3x*i^2)(3x_i^2)\end{bmatrix}\\
-&= \begin{bmatrix} \sum*{i = 1}^n 9 & \sum*{i = 1}^n 9x_i^2 \\ \sum*{i = 1}^n 9x*i^2 & \sum*{i = 1}^n (3x_i^2)^2 \end{bmatrix}
+X_\text{tri}^T X_\text{tri} &= \begin{bmatrix} 3 & 3 & ... & 3\\ 3x_1^2 & 3x_2^2 & ... & 3x_n^2 \end{bmatrix} \begin{bmatrix} 3 & 3x_1^2 \\ 3 & 3x_2^2 \\ \vdots & \vdots \\ 3 & 3x_n^2 \end{bmatrix}\\
+&= \begin{bmatrix} \sum_{i = 1}^n 3(3) & \sum_{i = 1}^n 3(3x_i^2) \\ \sum_{i = 1}^n 3(3x_i^2) & \sum_{i = 1}^n (3x_i^2)(3x_i^2)\end{bmatrix}\\
+&= \begin{bmatrix} \sum_{i = 1}^n 9 & \sum_{i = 1}^n 9x_i^2 \\ \sum_{i = 1}^n 9x_i^2 & \sum_{i = 1}^n (3x_i^2)^2 \end{bmatrix}
 \end{align*}
 
 We can see that the bottom left element should be $\sum_{i = 1}^n 9x_i^2$.
@@ -117,9 +117,9 @@ We can see that the bottom left element should be $\sum_{i = 1}^n 9x_i^2$.
 From here we can use the fact given to us in the directions: $\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n \bar{x}^2$.
 
 \begin{align*}
-&\sum*{i = 1}^n 9x_i^2\\
-&9\sum*{i = 1}^n x*i^2\\
-&\text{Notice now we can replace $\sum*{i = 1}^n x_i^2$ with $n \sigma_x^2 + n \bar{x}^2$.}\\
+&\sum_{i = 1}^n 9x_i^2\\
+&9\sum_{i = 1}^n x_i^2\\
+&\text{Notice now we can replace $\sum_{i = 1}^n x_i^2$ with $n \sigma_x^2 + n \bar{x}^2$.}\\
 &9(n \sigma_x^2 + n \bar{x}^2)\\
 &\text{We know that $\sigma_x^2 = 10$ and $\bar x = 2$ fron the directions before part a.}\\
 &9(10n + 2^2n)\\

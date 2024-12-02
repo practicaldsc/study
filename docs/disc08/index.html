@@ -527,23 +527,23 @@ X_{\text{tri}} = \begin{bmatrix} 3 &amp; 3x_1^2 \\ 3 &amp; 3x_2^2 \\
 <p>We want to know what the bottom left value of <span class="math inline">X_\text{tri}^T X_\text{tri}</span> is. We figure
 this out with matrix multiplication!</p>
 <p><span class="math display">\begin{align*}
-X*\text{tri}^T X*\text{tri} &amp;= \begin{bmatrix} 3 &amp; 3 &amp; ...
-&amp; 3\\ 3x*1^2 &amp; 3x_2^2 &amp; ... &amp; 3x_n^2 \end{bmatrix}
+X_\text{tri}^T X_\text{tri} &amp;= \begin{bmatrix} 3 &amp; 3 &amp; ...
+&amp; 3\\ 3x_1^2 &amp; 3x_2^2 &amp; ... &amp; 3x_n^2 \end{bmatrix}
 \begin{bmatrix} 3 &amp; 3x_1^2 \\ 3 &amp; 3x_2^2 \\ \vdots &amp; \vdots
 \\ 3 &amp; 3x_n^2 \end{bmatrix}\\
-&amp;= \begin{bmatrix} \sum*{i = 1}^n 3(3) &amp; \sum*{i = 1}^n
-3(3x_i^2) \\ \sum*{i = 1}^n 3(3x*i^2) &amp; \sum*{i = 1}^n
-(3x*i^2)(3x_i^2)\end{bmatrix}\\
-&amp;= \begin{bmatrix} \sum*{i = 1}^n 9 &amp; \sum*{i = 1}^n 9x_i^2 \\
-\sum*{i = 1}^n 9x*i^2 &amp; \sum*{i = 1}^n (3x_i^2)^2 \end{bmatrix}
+&amp;= \begin{bmatrix} \sum_{i = 1}^n 3(3) &amp; \sum_{i = 1}^n
+3(3x_i^2) \\ \sum_{i = 1}^n 3(3x_i^2) &amp; \sum_{i = 1}^n
+(3x_i^2)(3x_i^2)\end{bmatrix}\\
+&amp;= \begin{bmatrix} \sum_{i = 1}^n 9 &amp; \sum_{i = 1}^n 9x_i^2 \\
+\sum_{i = 1}^n 9x_i^2 &amp; \sum_{i = 1}^n (3x_i^2)^2 \end{bmatrix}
 \end{align*}</span></p>
 <p>We can see that the bottom left element should be <span class="math inline">\sum_{i = 1}^n 9x_i^2</span>.</p>
 <p>From here we can use the fact given to us in the directions: <span class="math inline">\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n
 \bar{x}^2</span>.</p>
 <p><span class="math display">\begin{align*}
-&amp;\sum*{i = 1}^n 9x_i^2\\
-&amp;9\sum*{i = 1}^n x*i^2\\
-&amp;\text{Notice now we can replace $\sum*{i = 1}^n x_i^2$ with $n
+&amp;\sum_{i = 1}^n 9x_i^2\\
+&amp;9\sum_{i = 1}^n x_i^2\\
+&amp;\text{Notice now we can replace $\sum_{i = 1}^n x_i^2$ with $n
 \sigma_x^2 + n \bar{x}^2$.}\\
 &amp;9(n \sigma_x^2 + n \bar{x}^2)\\
 &amp;\text{We know that $\sigma_x^2 = 10$ and $\bar x = 2$ fron the
