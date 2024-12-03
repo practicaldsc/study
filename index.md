@@ -145,6 +145,11 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, November 29th</td>
       <td>No Discussion: Thanksgiving! 🦃</td>
     </tr>
+    <tr>
+      <th scope="row">15</th>
+      <td>Friday, December 6th</td>
+      <td>Group Office Hours (no worksheet; come with questions)</td>
+    </tr>
     <!-- <tr>
       <th scope="row">5</th>
       <td>Tuesday, July 23</td>
