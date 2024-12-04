@@ -46,16 +46,16 @@ Recall we have already found the derivative of $L_\text{wolverine}(y_i, h) = w_i
 
 We can now do the last two steps:
 \begin{align*}
-0 &= \frac{1}{n} \sum*{i = 1}^n -4hw_i(y_i^2 -h^2)\\
-0&= \frac{-4h}{n} \sum*{i = 1}^n w*ih(y_i^2 -h^2)\\
-0&= \sum*{i = 1}^n w*i(y_i^2 -h^2)\\
-0&= \sum*{i = 1}^n w*iy_i^2 -w_ih^2\\
-0&= \sum*{i = 1}^n w*iy_i^2 - \sum*{i = 1}^n w*ih^2\\
-\sum*{i = 1}^n w*ih^2 &= \sum*{i = 1}^n w*iy_i^2\\
-h^2\sum*{i = 1}^n w*i &= \sum*{i = 1}^n w*iy_i^2\\
-h^2 &= \frac{\sum*{i = 1}^n w*iy_i^2}{\sum*{i = 1}^n w_i}\\
-h^* &= \sqrt{\frac{\sum*{i = 1}^n w_iy_i^2}{\sum*{i = 1}^n w_i}}
-\end{align\*}
+0 &= \frac{1}{n} \sum_{i = 1}^n -4hw_i(y_i^2 -h^2)\\
+0&= \frac{-4h}{n} \sum_{i = 1}^n w_ih(y_i^2 -h^2)\\
+0&= \sum_{i = 1}^n w_i(y_i^2 -h^2)\\
+0&= \sum_{i = 1}^n w_iy_i^2 -w_ih^2\\
+0&= \sum_{i = 1}^n w_iy_i^2 - \sum_{i = 1}^n w_ih^2\\
+\sum_{i = 1}^n w_ih^2 &= \sum_{i = 1}^n w_iy_i^2\\
+h^2\sum_{i = 1}^n w_i &= \sum_{i = 1}^n w_iy_i^2\\
+h^2 &= \frac{\sum_{i = 1}^n w_iy_i^2}{\sum_{i = 1}^n w_i}\\
+h^* &= \sqrt{\frac{\sum_{i = 1}^n w_iy_i^2}{\sum_{i = 1}^n w_i}}
+\end{align*}
 
 <average>77</average>
 
@@ -80,7 +80,7 @@ $y_1$
 
 Recall from part b $h^* = \sqrt{\frac{\sum_{i = 1}^n w_i y_i^2}{\sum_{i = 1}^n w_i}}$.
 
-The problem is askin us $\lim_{w_1 \rightarrow \infty} \sqrt{\frac{\sum_{i = 1}^n w_i y_i^2}{\sum_{i = 1}^n w_i}}$.
+The problem is asking us $\lim_{w_1 \rightarrow \infty} \sqrt{\frac{\sum_{i = 1}^n w_i y_i^2}{\sum_{i = 1}^n w_i}}$.
 
 We can further rewrite the problem to get something like this: $\lim_{w_1 \rightarrow \infty} \sqrt{\frac{w_1 y_1^2 + \sum_{i=1}^{n-1}y_i^2}{w_1 + (n-1)}}$. Note that $\frac{\sum_{i=1}^{n-1}y_i^2}{n-1}$ is insignificant because it is a constant. Constants compared to infinity can be ignored. We now have something like $\sqrt{\frac{w_1y_1^2}{w_1}}$. We can cancel out the $w_1$ to get $\sqrt{y_1^2}$, which becomes $y_1$.
 
