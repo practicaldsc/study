@@ -150,30 +150,16 @@ If you'd like, you can also view other exam problems from related classes at [pr
       <td>Friday, December 6th</td>
       <td>Group Office Hours (no worksheet; come with questions)</td>
     </tr>
-    <!-- <tr>
-      <th scope="row">5</th>
-      <td>Tuesday, July 23</td>
-      <td><a href="disc05/index.html">Sampling, Bootstrapping, and Confidence Intervals</a></td>
-    </tr>
-    </tr>   
-      <tr>
-      <th scope="row">6</th>
-      <td>Thursday, July 25</td>
-      <td><a href="disc06/index.html">Standardization, the Normal Distribution, and the Central Limit Theorem</a></td>
-    </tr>
     </tr>
     <tr>
-      <th scope="row">7</th>
-      <td>Tuesday, July 30</td>
-      <td><a href="disc07/index.html">Hypothesis Testing, Total Variation Distance, and Permutation Testing</a></td>
-    </tr>
+      <th scope="row" rowspan=2>16</th>
+      <td>Monday, December 9th</td>
+      <td><a href="fa24-midterm/index.html">Final Review: Take Up Midterm Exam</a></td>
     </tr>
     <tr>
-      <th scope="row">8</th>
-      <td>Thursday, August 1</td>
-      <td><a href="disc08/index.html">Regression</a></td>
-    </tr> -->
-    </tr>  
+      <td>Tuesday, December 10th</td>
+      <td><a href="fi-review-tuesday/index.html">Final Review: Post-Midterm Content</a></td>
+    </tr>
   </tbody>
 </table>
 </center>

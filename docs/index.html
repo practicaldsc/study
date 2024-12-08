@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="assets/theme.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -316,29 +321,26 @@ Friday, December 6th
 Group Office Hours (no worksheet; come with questions)
 </td>
 </tr>
-<!-- <tr>
-      <th scope="row">5</th>
-      <td>Tuesday, July 23</td>
-      <td><a href="disc05/index.html">Sampling, Bootstrapping, and Confidence Intervals</a></td>
-    </tr>
-    </tr>   
-      <tr>
-      <th scope="row">6</th>
-      <td>Thursday, July 25</td>
-      <td><a href="disc06/index.html">Standardization, the Normal Distribution, and the Central Limit Theorem</a></td>
-    </tr>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>Tuesday, July 30</td>
-      <td><a href="disc07/index.html">Hypothesis Testing, Total Variation Distance, and Permutation Testing</a></td>
-    </tr>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>Thursday, August 1</td>
-      <td><a href="disc08/index.html">Regression</a></td>
-    </tr> -->
+</tr>
+<tr>
+<th scope="row" rowspan="2">
+16
+</th>
+<td>
+Monday, December 9th
+</td>
+<td>
+<a href="fa24-midterm/index.html">Final Review: Take Up Midterm Exam</a>
+</td>
+</tr>
+<tr>
+<td>
+Tuesday, December 10th
+</td>
+<td>
+<a href="fi-review-tuesday/index.html">Final Review: Post-Midterm
+Content</a>
+</td>
 </tr>
 </tbody>
 </table>
