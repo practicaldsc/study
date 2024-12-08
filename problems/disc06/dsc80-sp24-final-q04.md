@@ -58,7 +58,7 @@ names.str.findall(regex)
 
 # BEGIN SOLN
 
-**Answer:** 1, 2, 4
+**Answer:** 0, 1, 2, and 4. This pattern matches **either** numbers+any character+numbers+[a space]+"oz" OR "Ounce".
 
 # END SOLN
 
