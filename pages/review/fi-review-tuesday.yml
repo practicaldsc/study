@@ -3,14 +3,14 @@ context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to attempt these problems **before** Tuesday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
   <br><br>We will enable the solutions here after the review session, though you can find the written solutions to these problems in other discussion worksheets.
-show_solution: false
+show_solution: true
 problems:
-  - disc07/dsc40a-sp24-midterm-q03    # Defining a new loss function
-  - disc08/sp24-midterm-q05           # OLS, design matrices
-  - disc10/su20-midterm-q04           # One-hot encoding
-  - disc10/wi23-final-q09             # One-hot encoding/standard scaler
-  - disc10/su20-midterm-q03           # Regularization
-  - disc10/wi24-final-q12             # Cross-validation and bias-variance
-  - disc12/fa19-midterm-q07           # Logistic regression
-  - disc12/wi23-final-q07             # Classifier evaluation
-  - disc11/sp24-final-q05             # Gradient descent
+  - disc07/dsc40a-sp24-midterm-q03 # Defining a new loss function
+  - disc08/sp24-midterm-q05 # OLS, design matrices
+  - disc10/su20-midterm-q04 # One-hot encoding
+  - disc10/wi23-final-q09 # One-hot encoding/standard scaler
+  - disc10/su20-midterm-q03 # Regularization
+  - disc10/wi24-final-q12 # Cross-validation and bias-variance
+  - disc12/fa19-midterm-q07 # Logistic regression
+  - disc12/wi23-final-q07 # Classifier evaluation
+  - disc11/sp24-final-q05 # Gradient descent
