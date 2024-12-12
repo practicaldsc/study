@@ -11,7 +11,7 @@ $\nabla g\left( \begin{bmatrix} -1 \\ 1 \end{bmatrix} \right) = \begin{bmatrix} 
 
 # BEGIN SOLUTION
 
-$$\nabla g(\vec{x}) = \begin{bmatrix} 2x_1 -6 + 4x_1(4x_1^2 - x_2) \\ -2(x_1^2 - x_2) \end{bmatrix}$$
+$$\nabla g(\vec{x}) = \begin{bmatrix} 2x_1 -6 + 4x_1(x_1^2 - x_2) \\ -2(x_1^2 - x_2) \end{bmatrix}$$
 
 We can find $\nabla g(\vec{x})$ by finding the partial derivatives of $g(\vec{x})$:
 
