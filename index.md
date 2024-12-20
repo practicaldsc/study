@@ -4,57 +4,22 @@ title: '<a href="#">🧠 Study Problems</a>'
 
 <!-- <h1><a href=''>🧠 Study Problems</a></h1> -->
 
-<h3><a href='https://practicaldsc.org'>EECS 398-003: Practical Data Science at the University of Michigan</a></h3>
+<h3><a href='https://practicaldsc.org'>EECS 398: Practical Data Science at the University of Michigan</a></h3>
 
 ---
 
-This site – **which we'll call the "Study Site" in class** – contains practice problems taken from old related courses. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!
+Welcome to the **Study Site**! This site contains practice problems taken from prior offerings of _Practical Data Science_ and related courses taught at UC San Diego. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!
 
 Problems are organized in two ways:
 
-- You can find the exams for this class specifically in the first table. (There's only one exam here so far – the Fall 2024 Midterm Exam – but its detailed solutions are available, too.)
 - Most problems are organized into **discussion worksheets**. Each discussion problem set contains problems about a particular topic. Come to discussions to work on these problem sets in groups, with the help of our course staff. Solutions will be made available each week after all discussion sections have concluded.
+- You can find the exams for this class specifically in the second table. (There's only one exam here so far – the Fall 2024 Midterm Exam – but its detailed solutions are available, too.)
 
 You should work on these problems **on paper**, since your exams will also be on paper. Even though you will see some multiple choice bubbles, you intentionally cannot select them.
 
-If you'd like, you can also view other exam problems from related classes at [practice.dsc10.com](https://practice.dsc10.com), [practice.dsc40a.com](https://practice.dsc40a.com), and [practice.dsc80.com](https://practice.dsc80.com). These sites are set up similarly to our Study Site, but contain lots of problems that are not in scope for this course. The problems you see below are taken from these other sites, but we've chosen problems that we know are in-scope and relevant.
-
 ---
 
-<!-- **New**: To get a rough sense of the **format** of the exam, [**look at this example PDF**](https://drive.google.com/file/d/1hN78Cb3lSVYDFG__-TwPWL0vj_NPcmw7/view?usp=sharing).
-
----- -->
-
-### 🧪 Exams
-
-<center>
-<table class="table" style="width:60%">
-    <colgroup>
-       <col span="1" style="width: 25%;">
-       <col span="1" style="width: 35%;">
-       <col span="1" style="width: 40%;">
-    </colgroup>
-  <thead>
-    <tr>
-      <th scope="col">Semester</th>
-      <th scope="col">Instructor(s)</th>
-      <th scope="col">Exam</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-      <th scope="row">Fall 2024</th>
-      <td>Suraj Rampure</td>
-      <td><a href='fa24-midterm/index.html'>Midterm</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</center>
-
----
-
-### 💯 Discussions in Fall 2024
+### 💯 Discussions in Winter 2025
 
 <center>
 <table class="table" style="width:60%">
@@ -73,10 +38,10 @@ If you'd like, you can also view other exam problems from related classes at [pr
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Friday, August 30th</td>
-      <td><a href="https://github.com/practicaldsc/fa24/tree/main/discussions/disc01">Introductions, Python Review (not on Study Site)</a></td>
+      <td>Thursday, January 9th</td>
+      <td>Introductions, Python Review</td>
     </tr>
-    <tr>
+    <!-- <tr>
       <th scope="row">2</th>
       <td>Friday, September 6th</td>
       <td><a href="disc02/index.html">Arrays and DataFrames</a></td>
@@ -159,6 +124,40 @@ If you'd like, you can also view other exam problems from related classes at [pr
     <tr>
       <td>Tuesday, December 10th</td>
       <td><a href="fi-review-tuesday/index.html">Final Review: Post-Midterm Content</a></td>
+    </tr> -->
+  </tbody>
+</table>
+</center>
+
+<br>
+
+---
+
+### 🧪 Exams
+
+<b>Note: We recommend setting aside these exams as complete "practice exams" that you can work on in their entirety. That is, DON'T look at them until you've already studied for the exams, using the discussion problems above!</b> 
+
+<center>
+<table class="table" style="width:60%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 35%;">
+       <col span="1" style="width: 40%;">
+    </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">Semester</th>
+      <th scope="col">Instructor(s)</th>
+      <th scope="col">Exam</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Fall 2024</th>
+      <td>Suraj Rampure</td>
+      <td><a href='fa24-midterm/index.html'>Midterm</a><br>
+          <a href='fa24-final/index.html'>Final</a>
+      </td>
     </tr>
   </tbody>
 </table>
