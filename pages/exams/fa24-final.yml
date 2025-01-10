@@ -2,8 +2,24 @@ title: "Fall 2024 Final Exam"
 instructors: Suraj Rampure
 context: >
   This exam was administered in-person. The exam was closed-notes, except students were allowed to bring two double-sided notes sheets. No calculators were allowed. Students had 120 minutes to take this exam.
-  <br><br>Access the original exam PDF <a href="../assets/pdf/fa24-final.pdf"><b>here</b></a>.
-show_solution: false
-# data_info: fa24-midterm/data-info
+  <br><br>Access the original exam PDF <a href="../assets/pdf/fa24-final.pdf"><b>here</b></a>. 
+
+  **Note**: Questions 1-6 were used for 'midterm redemption', which during the F24 semester allowed students to improve their midterm grade. Starting W25, final exam questions will look more like questions 7-15. 
+show_solution: true 
+data_info: fa24-final/data-info
 problems:
-  - fa24-final/temp
+  - fa24-final/q01
+  - fa24-final/q02
+  - fa24-final/q03
+  - fa24-final/q04
+  - fa24-final/q05
+  - fa24-final/q06
+  - fa24-final/q07
+  - fa24-final/q08
+  - fa24-final/q09
+  - fa24-final/q10
+  - fa24-final/q11
+  - fa24-final/q12
+  - fa24-final/q13
+  - fa24-final/q14
+  - fa24-final/q15
