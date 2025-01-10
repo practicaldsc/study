@@ -1293,6 +1293,58 @@ aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>: <span class="math display">\begin{bmatrix}
 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span></p>
+<p>The design matrix <span class="math inline">U</span> is defined as:
+<span class="math display">
+U =
+\begin{bmatrix}
+1 &amp; -x_1 \\
+1 &amp; -x_2 \\
+\vdots &amp; \vdots \\
+1 &amp; -x_n
+\end{bmatrix}
+</span> where 1 represents the intercept term, and <span class="math inline">-x_i</span> represents the negative price of product
+<span class="math inline">i</span>. Thus:</p>
+<p><span class="math display">
+U^T U =
+\begin{bmatrix}
+1 &amp; 1 &amp; \cdots &amp; 1 \\
+-x_1 &amp; -x_2 &amp; \cdots &amp; -x_n
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; -x_1 \\
+1 &amp; -x_2 \\
+\vdots &amp; \vdots \\
+1 &amp; -x_n
+\end{bmatrix}
+</span></p>
+<p>When we multiply this out, we get: <span class="math display">
+U^T U =
+\begin{bmatrix}
+n &amp; -\sum x_i \\
+-\sum x_i &amp; \sum x_i^2
+\end{bmatrix}
+</span></p>
+<p>Conceptually, this matrix represents: <span class="math display">
+\begin{bmatrix}
+\text{Number of elements} &amp; \text{Sum of the negative values of the
+data} \\
+\text{Sum of the negative values of the data} &amp; \text{Sum of squared
+values of the data}
+\end{bmatrix}.
+</span></p>
+<p>We know that the sum of all elements in a series is equal to the mean
+of the series multiplied by the number of elements in the series. <span class="math display">
+\Sigma x_i = n \cdot \bar{x}
+</span></p>
+<p><span class="math inline">\bar{x}</span> is equal to <span class="math inline">40</span>. The first element in the matrix, <span class="math inline">15</span>, represents the number of elements in the
+series. Thus, <span class="math inline">\Sigma x_i = 40 \times
+15</span>, and the solution must be as follows:</p>
+<p><span class="math display">\begin{bmatrix}
+n &amp; -\sum x_i \\
+-\sum x_i &amp; \sum x_i^2
+\end{bmatrix} =
+\begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000
+\end{bmatrix}</span></p>
 </div>
 </div>
 </div>
