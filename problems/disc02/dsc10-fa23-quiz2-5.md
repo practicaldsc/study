@@ -26,7 +26,9 @@ What value does `tom_nook(8)` evaluate to?
 
 # BEGIN SOLUTION
 
-**Answer**: -4
+**Answer**: -4. 
+
+`np.arange(crossing)` will evaluate to `[0,1,2,3,4,5,6,7]`. Thus, the code contained within the loop `for nook in np.arange(crossing)` will execute a total of 8 times and go into the `if` statement code 4 times and the `else` statement code 4 times. After this execution, the final value of `bells` comes out to -4.
 
 # END SOLUTION
 

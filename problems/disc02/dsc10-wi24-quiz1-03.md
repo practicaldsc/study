@@ -18,8 +18,6 @@ spread of `peach`.
 
 **Answer:** `peach.max() - peach.min()`
 
-<average>62</average>
-
 # END SOLUTION
 
 # END SUBPROB
@@ -33,8 +31,6 @@ evaluates to the spread of `peach`.\
 # BEGIN SOLUTION
 
 **Answer:** `peach[len(peach) - 1] - peach[0]`  or `peach[-1] - peach[0]`
-
-<average>36</average>
 
 # END SOLUTION
 
@@ -57,8 +53,6 @@ Choose the correct way to fill in the blank in this sentence:
 # BEGIN SOLUTION
 
 **Answer:** always less than
-
-<average>48</average>
 
 # END SOLUTION
 

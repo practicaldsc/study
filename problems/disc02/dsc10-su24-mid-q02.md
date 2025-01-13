@@ -1,0 +1,54 @@
+# BEGIN PROB
+
+Suppose we run the following code to simulate the winners of the Tour de France.
+
+```py
+    evenepoel_wins = 0
+    vingegaard_wins = 0
+    pogacar_wins = 0
+    for i in np.arange(4):
+        result = np.random.multinomial(1, [0.3, 0.3, 0.4])
+        if result[0] == 1:
+            evenepoel_wins = evenepoel_wins + 1
+        elif result[1] == 1:
+            vingegaard_wins = vingegaard_wins + 1
+        elif result[2] == 1:
+            pogacar_wins = pogacar_wins + 1
+```
+
+# BEGIN SUBPROB
+
+What is the probability that `pogacar_wins` is equal to 4 when the code finishes running? Do not simplify your answer.
+
+# BEGIN SOLUTION
+
+**Answer:** $0.4 ^ 4$
+
+- The code runs a loop 4 times, simulating the outcome of each iteration using `np.random.multinomial(1, [0.3, 0.3, 0.4])`.
+- The probability that `pogacar` wins in a single iteration is 0.4 (the third entry in the probability vector `[0.3, 0.3, 0.4]`).
+- To win all 4 iterations, `pogacar` must win **independently** in each iteration.
+- Since the trials are independent, the probability is calculated as: **0.4 * 0.4 * 0.4 * 0.4 = $0.4 ^ 4$**
+
+# END SOLUTION
+
+# END SUBPROB
+
+# BEGIN SUBPROB
+
+What is the probability that `evenepoel_wins` is at least 1 when the code finishes running? Do not simplify your answer.
+
+# BEGIN SOLUTION
+
+**Answer:** $1 - 0.7 ^ 4$
+
+- The probability that `evenepoel` wins in a single iteration is 0.3 (the first entry in the probability vector `[0.3, 0.3, 0.4]`).
+- The complement of "at least 1 win" is "no wins at all." To calculate the complement:
+  - The probability that `evenepoel` **does not win** in a single iteration is: 1 - 0.3 = 0.7
+  - For `evenepoel` to win no iterations across all 4 loops, they must **fail to win independently** in each iteration: **0.7 * 0.7 * 0.7 * 0.7 = $0.7 ^ 4$**
+- The probability that `evenepoel_wins` is at least 1 is then: $1 - 0.7 ^ 4$
+
+# END SOLUTION
+
+# END SUBPROB
+
+# END PROB
