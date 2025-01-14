@@ -74,8 +74,7 @@ The majors of the 3 randomly selected students are stored in `group`, and `np.un
 
 # BEGIN SUBPROB
 
-What could go in blank (d)? Select all that apply. At least one option
-is correct; blank answers will receive no credit.
+What goes in blank (d)?
 
 [ ] `(unique_majors > 2).mean()`
 [ ] `(unique_majors.sum() > 2).mean()`
@@ -85,7 +84,7 @@ is correct; blank answers will receive no credit.
 
 # BEGIN SOLUTION
 
-**Answer**: Option 1 only
+**Answer**: Option 1
 
 Let's break down the code we have so far:
 

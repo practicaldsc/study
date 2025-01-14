@@ -41,11 +41,11 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, January 9th</td>
       <td>Introductions, Python Review</td>
     </tr>
-    <!-- <tr>
+    <tr>
       <th scope="row">2</th>
-      <td>Friday, September 6th</td>
-      <td><a href="disc02/index.html">Arrays and DataFrames</a></td>
-    </tr>
+      <td>Thursday, January 16th</td>
+      <td><a href="disc02/index.html">Arrays and Probability</a></td>
+    <!-- </tr>
     <tr>
       <th scope="row">3</th>
       <td>Friday, September 13th</td>

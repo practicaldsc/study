@@ -146,27 +146,6 @@ we don’t cover can be used for extra practice.</p>
 array <code>penguin</code> is identical to the array
 <code>puffin</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguin <span class="op">=</span> np.arange(____)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_1" class="accordion-collapse collapse"
-aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: We need to provide <code>np.arange</code>
-with three arguments: 5, anything in <span class="math inline">(21,
-25]</span>, 4. For instance, something line
-<code>penguin = np.arange(5, 25, 4)</code> would work.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Fill in the blanks so that the array <code>parrot</code> is also
@@ -174,30 +153,6 @@ identical to the array <code>puffin</code>.<br />
 <em>Hint: Start by choosing</em> <code>y</code> <em>so that</em>
 <code>parrot</code> <em>has length 5.</em></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>parrot <span class="op">=</span> __(x)__ <span class="op">*</span> np.arange(<span class="dv">0</span>, __(y)__, <span class="dv">2</span>) <span class="op">+</span> __(z)__</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_2" class="accordion-collapse collapse"
-aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<ul>
-<li><code>x</code>: <code>2</code></li>
-<li><code>y</code>: anything in <span class="math inline">(8,
-10]</span></li>
-<li><code>z</code>: <code>5</code></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -223,45 +178,6 @@ simulation.</p>
 <li><p><input type="radio" disabled="" /> <code>A.sum(axis=1)</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>B.sum(axis=1)</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2" class="accordion-collapse collapse"
-aria-labelledby="heading2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option 2</p>
-<p>Note that <code>arr.sum(axis=1)</code> takes the sum of each
-<strong>row</strong> of <code>arr</code>.</p>
-<p>The difference comes down to the behavior of
-<code>np.random.permutation([0, 1])</code> and
-<code>np.random.choice([0, 1])</code>.</p>
-<p>Each call to <code>np.random.permutation([0, 1])</code> will either
-return <code>array([0, 1])</code> or <code>array([1, 0])</code> — one
-head and one tail. As a result, each row of <code>A</code> will consist
-of 50 1s and 50 0s, and so the sum of each row of <code>A</code> will be
-exactly 50. If we drew a histogram of this distribution, it would be a
-single spike at the number 50.</p>
-<p>On the other hand, each call to
-<code>np.random.choice([0, 1], 2)</code> could either return
-<code>array([0, 0])</code>, <code>array([0, 1])</code>,
-<code>array([1, 0])</code>, or <code>array([1, 1])</code>. Each of these
-are returned with equal probabilities. In effect,
-<code>np.random.choice([0, 1], 2)</code> flips a fair coin twice, so
-<code>[np.random.choice([0, 1], 2) for _ in range(50)]</code> flips a
-fair coin 100 times. When we take the sum of each row of <code>B</code>,
-we will get the number of heads in 100 coin flips; the histogram drawn
-is consistent with this interpretation.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
 <p>Suppose we run the following code to simulate the winners of the Tour
@@ -281,77 +197,10 @@ de France.</p>
 <h3 id="problem-3.1">Problem 3.1</h3>
 <p>What is the probability that <code>pogacar_wins</code> is equal to 4
 when the code finishes running? Do not simplify your answer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <span class="math inline">0.4 ^ 4</span></p>
-<ul>
-<li>The code runs a loop 4 times, simulating the outcome of each
-iteration using
-<code>np.random.multinomial(1, [0.3, 0.3, 0.4])</code>.</li>
-<li>The probability that <code>pogacar</code> wins in a single iteration
-is 0.4 (the third entry in the probability vector
-<code>[0.3, 0.3, 0.4]</code>).</li>
-<li>To win all 4 iterations, <code>pogacar</code> must win
-<strong>independently</strong> in each iteration.</li>
-<li>Since the trials are independent, the probability is calculated as:
-<strong>0.4 * 0.4 * 0.4 * 0.4 = <span class="math inline">0.4 ^
-4</span></strong></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>What is the probability that <code>evenepoel_wins</code> is at least
 1 when the code finishes running? Do not simplify your answer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <span class="math inline">1 - 0.7 ^
-4</span></p>
-<ul>
-<li>The probability that <code>evenepoel</code> wins in a single
-iteration is 0.3 (the first entry in the probability vector
-<code>[0.3, 0.3, 0.4]</code>).</li>
-<li>The complement of “at least 1 win” is “no wins at all.” To calculate
-the complement:
-<ul>
-<li>The probability that <code>evenepoel</code> <strong>does not
-win</strong> in a single iteration is: 1 - 0.3 = 0.7</li>
-<li>For <code>evenepoel</code> to win no iterations across all 4 loops,
-they must <strong>fail to win independently</strong> in each iteration:
-<strong>0.7 * 0.7 * 0.7 * 0.7 = <span class="math inline">0.7 ^
-4</span></strong></li>
-</ul></li>
-<li>The probability that <code>evenepoel_wins</code> is at least 1 is
-then: <span class="math inline">1 - 0.7 ^ 4</span></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -377,30 +226,6 @@ that if <code>x</code> is an integer, <code>x % 2</code> is
 <li><p><input type="radio" disabled="" /> 4</p></li>
 <li><p><input type="radio" disabled="" /> 6</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4" class="accordion-collapse collapse"
-aria-labelledby="heading4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: -4.</p>
-<p><code>np.arange(crossing)</code> will evaluate to
-<code>[0,1,2,3,4,5,6,7]</code>. Thus, the code contained within the loop
-<code>for nook in np.arange(crossing)</code> will execute a total of 8
-times and go into the <code>if</code> statement code 4 times and the
-<code>else</code> statement code 4 times. After this execution, the
-final value of <code>bells</code> comes out to -4.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>There’s been an expansion of Collegiate Mario Kart across the
@@ -421,55 +246,6 @@ class="math inline">\left[1 - (\frac{1}{2})^4\right]</span> are
 from <code>bigkart</code> <strong>with replacement</strong>. What is the
 probability there are no duplicates among the four teams selected for
 the tournament? Do not simplify your answer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_1" class="accordion-collapse collapse"
-aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <span class="math inline">\frac{1}{1} \cdot
-\frac{49}{50} \cdot \frac{48}{50} \cdot \frac{47}{50}</span></p>
-<p>We need to find the probability that there are no duplicates among
-the four teams selected for the tournament from <code>bigkart</code>
-<strong>with replacement</strong>. Since we are selecting four times, we
-want each selected team to be unique.</p>
-<ol type="1">
-<li><strong>First Selection:</strong>
-<ul>
-<li>We can select any of the 50 teams, so the probability is <span class="math inline">\frac{50}{50}</span> = 1.</li>
-</ul></li>
-<li><strong>Second Selection:</strong>
-<ul>
-<li>To avoid duplicates, we must pick a team different from the first
-one.</li>
-<li>The probability is <span class="math inline">\frac{49}{50}</span>.</li>
-</ul></li>
-<li><strong>Third Selection:</strong>
-<ul>
-<li>We must pick a team different from the first two selections.</li>
-<li>The probability is <span class="math inline">\frac{48}{50}</span>.</li>
-</ul></li>
-<li><strong>Fourth Selection:</strong>
-<ul>
-<li>We must pick a team different from the first three selections.</li>
-<li>The probability is <span class="math inline">\frac{47}{50}</span>.</li>
-</ul></li>
-</ol>
-<p>The total probability that there are <strong>no duplicates among the
-four teams selected</strong> is the product of these probabilities:
-<strong><span class="math inline">\frac{1}{1} \cdot \frac{49}{50} \cdot
-\frac{48}{50} \cdot \frac{47}{50}</span></strong></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>Now, assume we populate our tournament by randomly selecting four
@@ -478,63 +254,6 @@ Additionally, assume 30 are from Division 1 and 20 teams are from
 Division 2. What is the probability that there is at least one Division
 2 team among the four teams selected for the tournament? Do not simplify
 your answer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_2" class="accordion-collapse collapse"
-aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <span class="math inline">1 - \frac{30}{50}
-\cdot \frac{29}{49} \cdot \frac{28}{48} \cdot \frac{27}{47}</span></p>
-<p>We are selecting four teams from <code>bigkart</code> <strong>without
-replacement</strong>, and we want to calculate the probability that
-<strong>at least one Division 2 team</strong> is selected, which
-represented as P(A). We know that there are 30 Division 1 teams and 20
-Division 2 teams.</p>
-<p>First calculating the <strong>complement probability</strong>, P(Ac)
-which is the probability that <strong>all four teams are from Division
-1</strong>.</p>
-<ol type="1">
-<li><strong>First Selection:</strong>
-<ul>
-<li>Probability of picking a Division 1 team is <span class="math inline">\frac{30}{50}</span>.</li>
-</ul></li>
-<li><strong>Second Selection:</strong>
-<ul>
-<li>After one Division 1 team is selected, there are 29 Division 1 teams
-left and 49 teams remaining in total.</li>
-<li>The probability is <span class="math inline">\frac{29}{49}</span>.</li>
-</ul></li>
-<li><strong>Third Selection:</strong>
-<ul>
-<li>After two Division 1 teams are selected, there are 28 Division 1
-teams left and 48 teams remaining in total.</li>
-<li>The probability is <span class="math inline">\frac{28}{48}</span>.</li>
-</ul></li>
-<li><strong>Fourth Selection:</strong>
-<ul>
-<li>After three Division 1 teams are selected, there are 27 Division 1
-teams left and 47 teams remaining in total.</li>
-<li>The probability is <span class="math inline">\frac{27}{47}</span>.</li>
-</ul></li>
-</ol>
-<p>The probability that <strong>all four teams are from Division
-1</strong> is: <span class="math inline">\frac{30}{50} \cdot
-\frac{29}{49} \cdot \frac{28}{48} \cdot \frac{27}{47}</span></p>
-<p>To find the probability of <strong>at least one Division 2
-team</strong> being selected, we use P(A) = 1 - P(Ac): <strong><span class="math inline">1 - \frac{30}{50} \cdot \frac{29}{49} \cdot
-\frac{28}{48} \cdot \frac{27}{47}</span></strong></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
@@ -571,83 +290,6 @@ the probability that Billina Records’ floor will be renovated.</p>
 <li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices) == 23</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>choices.str.contains(23)</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6" class="accordion-collapse collapse"
-aria-labelledby="heading6" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <code>np.arange(1, 76)</code>,
-<code>replace=False</code>,
-<code>np.count_nonzero(choices == 23) &gt; 0</code></p>
-<p>Here, the idea is to randomly choose 10 <strong>different</strong>
-floors repeatedly, and each time, check if floor 23 was selected.</p>
-<p>Blank (a): The first argument to <code>np.random.choice</code> needs
-to be an array/list containing the options we want to choose from,
-i.e. an array/list containing the values 1, 2, 3, 4, …, 75, since those
-are the numbers of the floors. <code>np.arange(a, b)</code> returns an
-array of integers spaced out by 1 starting from <code>a</code> and
-ending at <code>b-1</code>. As such, the correct call to
-<code>np.arange</code> is <code>np.arange(1, 76)</code>.</p>
-<p>Blank (b): Since we want to select 10 different floors, we need to
-specify <code>replace=False</code> (the default behavior is
-<code>replace=True</code>).</p>
-<p>Blank (c): The <code>if</code> condition needs to check if 23 was one
-of the 10 numbers that were selected, i.e. if 23 is in
-<code>choices</code>. It needs to evaluate to a single Boolean value,
-i.e. <code>True</code> (if 23 was selected) or <code>False</code> (if 23
-was not selected). Let’s go through each incorrect option to see why
-it’s wrong:</p>
-<ul>
-<li>Option 1, <code>choices == 23</code>, does not evaluate to a single
-Boolean value; rather, it evaluates to an array of length 10, containing
-multiple <code>True</code>s and <code>False</code>s.</li>
-<li>Option 2, <code>choices is 23</code>, does not evaluate to what we
-want – it checks to see if the array <code>choices</code> is the same
-Python object as the number 23, which it is not (and will never be,
-since an array cannot be a single number).</li>
-<li>Option 4, <code>np.count_nonzero(choices) == 23</code>, does
-evaluate to a single Boolean, however it is not quite correct.
-<code>np.count_nonzero(choices)</code> will always evaluate to 10, since
-<code>choices</code> is made up of 10 integers randomly selected from 1,
-2, 3, 4, …, 75, none of which are 0. As such,
-<code>np.count_nonzero(choices) == 23</code> is the same as
-<code>10 == 23</code>, which is always False, regardless of whether or
-not 23 is in <code>choices</code>.</li>
-<li>Option 5, <code>choices.str.contains(23)</code>, errors, since
-<code>choices</code> is not a Series (and <code>.str</code> can only
-follow a Series). If <code>choices</code> were a Series, this would
-still error, since the argument to <code>.str.contains</code> must be a
-string, not an int.</li>
-</ul>
-<p>By process of elimination, Option 3,
-<code>np.count_nonzero(choices == 23) &gt; 0</code>, must be the correct
-answer. Let’s look at it piece-by-piece:</p>
-<ul>
-<li>As we saw in Option 1, <code>choices == 23</code> is a Boolean array
-that contains <code>True</code> each time the selected floor was floor
-23 and <code>False</code> otherwise. (Since we’re sampling without
-replacement, floor 23 can only be selected at most once, and so
-<code>choices == 23</code> can only contain the value <code>True</code>
-at most once.)</li>
-<li><code>np.count_nonzero(choices == 23)</code> evaluates to the number
-of <code>True</code>s in <code>choices == 23</code>. If it is positive
-(i.e. 1), it means that floor 23 was selected. If it is 0, it means
-floor 23 was not selected.</li>
-<li>Thus, <code>np.count_nonzero(choices == 23) &gt; 0</code> evaluates
-to <code>True</code> if (and only if) floor 23 was selected.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
 <p>Suppose <code>x</code> and <code>y</code> are both <code>int</code>s
@@ -661,49 +303,11 @@ spread should be a non-negative integer.</p>
 <h3 id="problem-7.1">Problem 7.1</h3>
 <p><strong>Using array methods</strong>, write an expression that
 evaluates to the spread of <code>peach</code>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <code>peach.max() - peach.min()</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
 <p><strong>Without using any methods or functions</strong>, write an
 expression that evaluates to the spread of <code>peach</code>.<br />
 <em>Hint:</em> Use <code>[ ]</code>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong>
-<code>peach[len(peach) - 1] - peach[0]</code> or
-<code>peach[-1] - peach[0]</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
 <p>Choose the correct way to fill in the blank in this sentence:</p>
@@ -718,24 +322,6 @@ value of</em> <code>y - x</code>.</p>
 <li><p><input type="radio" disabled="" /> sometimes greater than and sometimes equal to</p></li>
 <li><p><input type="radio" disabled="" /> always equal to</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_3" class="accordion-collapse collapse"
-aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> always less than</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
@@ -748,24 +334,6 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href=
 <p><br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
 <p>What is the value of the expression <code>bass * tuna</code>?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_1" class="accordion-collapse collapse"
-aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>"55"</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
 <p>Which of the following expressions results in an error?</p>
@@ -776,24 +344,6 @@ aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <li><p><input type="radio" disabled="" /> <code>int(sword[3])</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>float(sword[4])</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_2" class="accordion-collapse collapse"
-aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>int(sword[0])</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-8.3">Problem 8.3</h3>
 <p>Which of the following expressions evaluates to
@@ -804,25 +354,6 @@ aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").upper() + str(gold[1] + int(gold[0]))</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").title() + str(gold[0] + int(gold[1]))</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_3" class="accordion-collapse collapse"
-aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:
-<code>gold[3].replace("o", "s").upper() + str(gold[0] + int(gold[1]))</code></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
@@ -852,92 +383,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>replace=False</code></p>
-<p>Since we want to guarantee that the same student cannot be selected
-twice, we should sample without replacement.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-9.2">Problem 9.2</h3>
 <p>What goes in blank (b)?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_2" class="accordion-collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Aswer</strong>: <code>unique_majors</code></p>
-<p><code>unique_majors</code> is the array we initialized before running
-our <code>for</code>-loop to keep track of our results. We’re already
-given that the first argument to <code>np.append</code> is
-<code>unique_majors</code>, meaning that in each iteration of the
-<code>for</code>-loop we’re creating a new array by adding a new element
-to the end of <code>unique_majors</code>; to save this new array, we
-need to re-assign it to <code>unique_majors</code>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-9.3">Problem 9.3</h3>
 <p>What goes in blank (c)?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_3" class="accordion-collapse collapse"
-aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>np.unique(group)</code></p>
-<p>In each iteration of our <code>for</code>-loop, we’re interested in
-finding the number of unique majors among the 3 students who were
-selected. We can tell that this is what we’re meant to store in
-<code>unique_majors</code> by looking at the options in the next
-subpart, which involve checking the proportion of times that the values
-in <code>unique_majors</code> is 3.</p>
-<p>The majors of the 3 randomly selected students are stored in
-<code>group</code>, and <code>np.unique(group)</code> is an array with
-the unique values in <code>group</code>. Then,
-<code>len(np.unique(group))</code> is the number of unique majors in the
-group of 3 students selected.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-9.4">Problem 9.4</h3>
-<p>What could go in blank (d)? Select all that apply. At least one
-option is correct; blank answers will receive no credit.</p>
+<p>What goes in blank (d)?</p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> <code>(unique_majors &gt; 2).mean()</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>(unique_majors.sum() &gt; 2).mean()</code></p></li>
@@ -945,89 +401,6 @@ option is correct; blank answers will receive no credit.</p>
 <li><p><input type="checkbox" disabled="" /> <code>1 - np.count_nonzero(unique_majors != 3).mean()</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>unique_majors.mean() - 3 == 0</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_4" class="accordion-collapse collapse"
-aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: Option 1 only</p>
-<p>Let’s break down the code we have so far:</p>
-<ul>
-<li>An empty array named <code>unique_majors</code> is initialized to
-store the number of unique majors in each iteration of the
-simulation.</li>
-<li>The simulation runs 10,000 times, and in every iteration: Three
-majors are selected at random from the survey dataset without
-replacement. This ensures that the same item is not chosen more than
-once within a single iteration. The <code>np.unique</code> function is
-employed to identify the number of unique majors among the selected
-three. The result is then appended to the <code>unique_majors</code>
-array.</li>
-<li>Following the simulation, the objective is to determine the fraction
-of iterations in which all three selected majors were unique. Since the
-maximum number of unique majors that can be selected in a group of three
-is 3, the code checks the fraction of times the
-<code>unique_majors</code> array contains a value greater than 2.</li>
-</ul>
-<p>Let’s look at each option more carefully.</p>
-<ul>
-<li><strong>Option 1</strong>:
-<code>(unique_majors &gt; 2).mean()</code> will create a Boolean array
-where each value in <code>unique_majors</code> is checked if it’s
-greater than 2. In other words, it’ll return <code>True</code> for each
-3 and <code>False</code> otherwise. Taking the mean of this Boolean
-array will give the proportion of <code>True</code> values, which
-corresponds to the probability that all 3 students selected are in
-different majors.</li>
-<li><strong>Option 2</strong>: <code>(unique_majors.sum() &gt; 2)</code>
-will generate a single Boolean value (either <code>True</code> or
-<code>False</code>) since you’re summing up all values in the
-<code>unique_majors</code> array and then checking if the sum is greater
-than 2. This is not what you want. <code>.mean()</code> on a single
-Boolean value will raise an error because you can’t compute the mean of
-a single Boolean.</li>
-<li><strong>Option 3</strong>:
-<code>np.count_nonzero(unique_majors &gt; 2).sum() / len(unique_majors &gt; 2)</code>
-would work without the <code>.sum()</code>.
-<code>unique_majors &gt; 2</code> results in a Boolean array where each
-value is <code>True</code> if the respective simulation yielded 3 unique
-majors and <code>False</code> otherwise. <code>np.count_nonzero()</code>
-counts the number of <code>True</code> values in the array, which
-corresponds to the number of simulations where all 3 students had unique
-majors. This returns a single integer value representing the count. The
-<code>.sum()</code> method is meant for collections (like arrays or
-lists) to sum their elements. Since <code>np.count_nonzero</code>
-returns a single integer, calling <code>.sum()</code> on it will result
-in an AttributeError because individual numbers do not have a sum
-method. <code>len(unique_majors &gt; 2)</code> calculates the length of
-the Boolean array, which is equal to 10,000 (the total number of
-simulations). Because of the attempt to call <code>.sum()</code> on an
-integer value, the code will raise an error and won’t produce the
-desired result.</li>
-<li><strong>Option 4</strong>:
-<code>np.count_nonzero(unique_majors != 3)</code> counts the number of
-trials where not all 3 students had different majors. When you call
-<code>.mean()</code> on an integer value, which is what
-<code>np.count_nonzero</code> returns, it’s going to raise an
-error.</li>
-<li><strong>Option 5</strong>:
-<code>unique_majors.mean() - 3 == 0</code> is trying to check if the
-mean of <code>unique_majors</code> is 3. This line of code will return
-<code>True</code> or <code>False</code>, and this isn’t the right
-approach for calculating the estimated probability.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
