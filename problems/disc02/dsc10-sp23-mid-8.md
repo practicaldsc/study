@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-Suppose we're curious about how often a randomly formed group of three students in Practical DSC will have three different majors. To explore this, we created an array `class_majors`, which is an array of every student's major. For example, `class_majors` could look something like `["DS", "CS", "Stats", "CS", "CE", "CS"]`.
+Suppose we're curious about how often a randomly formed group of three students in EECS 398 will have three different majors. To explore this, we created an array `class_majors`, which is an array of every student's major. For example, `class_majors` could look something like `["DS", "CS", "Stats", "CS", "CE", "CS"]`.
 
 Fill in the blanks below so that `prob_all_unique` is an estimate of the
 probability that all three students selected are in different majors.
