@@ -7,11 +7,12 @@ show_solution: false
 problems:
   # Earlier problems
   - disc02/dsc10-fa23-quiz1-3 #p1
-  - disc02/sp22-mid-q12 #p2
-  - disc02/dsc10-su24-mid-q02 #p3
+  - disc02/dsc10-su24-mid-q02 #p2
+  - disc02/sp22-mid-q12 #p3
   - disc02/dsc10-fa23-quiz2-5 #p4
-  - disc02/dsc10-su24-final-q08 #p5
-  - disc02/dsc10-wn22-mid-7 #p6
-  - disc02/dsc10-wi24-quiz1-03 #p7
-  - disc02/dsc10-fa23-quiz1-2 #p8
-  - disc02/dsc10-sp23-mid-8 #p9
+  - disc02/dsc10-sp23-mid-8 #p5
+  - disc02/dsc10-su24-final-q08 #p6
+  - disc02/dsc10-wn22-mid-7 #p7
+  - disc02/dsc10-wi24-quiz1-03 #p8
+  
+

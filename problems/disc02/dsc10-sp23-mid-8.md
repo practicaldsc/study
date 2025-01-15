@@ -1,9 +1,6 @@
 # BEGIN PROB
 
-We'd like to select three students at random from the entire class to
-win extra credit (not really). When doing so, we want to guarantee that
-the same student cannot be selected twice, since it wouldn't really be
-fair to give a student double extra credit.
+Suppose we're curious about how often a randomly formed group of three students in Practical DSC will have three different majors. To explore this, we created an array `class_majors`, which is an array of every student's major. For example, `class_majors` could look something like `["DS", "CS", "Stats", "CS", "CE", "CS"]`.
 
 Fill in the blanks below so that `prob_all_unique` is an estimate of the
 probability that all three students selected are in different majors.
@@ -13,14 +10,14 @@ array with just one copy of each unique element in the input. For
 example, if `vals` contains the values `1, 2, 2, 3, 3, 4`,
 `np.unique(vals)` contains the values `1, 2, 3, 4`.*
 
-
 ```py
     unique_majors = np.array([])
     for i in np.arange(10000):
-        group = np.random.choice(survey.get("Major"), 3, __(a)__)
-        __(b)__ = np.append(unique_majors, len(__(c)__))
+        group = np.random.choice(class_majors, 3, __(a)__)
+        num_unique_majors = len(__(b)__)
+        unique_majors = np.append(unique_majors, num_unique_majors)
         
-    prob_all_unique = __(d)__
+    prob_all_unique = __(c)__
 ```
 
 # BEGIN SUBPROB
@@ -47,21 +44,6 @@ What goes in blank (b)?
 
 # BEGIN SOLUTION
 
-**Aswer**: `unique_majors`
-
-`unique_majors` is the array we initialized before running our `for`-loop to keep track of our results. We're already given that the first argument to `np.append` is `unique_majors`, meaning that in each iteration of the `for`-loop we're creating a new array by adding a new element to the end of `unique_majors`; to save this new array, we need to re-assign it to `unique_majors`.
-
-# END SOLUTION
-
-# END SUBPROB
-
-
-# BEGIN SUBPROB
-
-What goes in blank (c)?
-
-# BEGIN SOLUTION
-
 **Answer**: `np.unique(group)`
 
 In each iteration of our `for`-loop, we're interested in finding the number of unique majors among the 3 students who were selected. We can tell that this is what we're meant to store in `unique_majors` by looking at the options in the next subpart, which involve checking the proportion of times that the values in `unique_majors` is 3.
@@ -74,7 +56,7 @@ The majors of the 3 randomly selected students are stored in `group`, and `np.un
 
 # BEGIN SUBPROB
 
-What goes in blank (d)?
+What goes in blank (c)?
 
 [ ] `(unique_majors > 2).mean()`
 [ ] `(unique_majors.sum() > 2).mean()`

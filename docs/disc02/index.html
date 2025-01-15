@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -85,7 +86,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="..\assets\theme.css" />
   <script defer=""
   src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -156,20 +157,44 @@ identical to the array <code>puffin</code>.<br />
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
+<p>Suppose we run the following code to simulate the winners of the Tour
+de France.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    evenepoel_wins <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    vingegaard_wins <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    pogacar_wins <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">4</span>):</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> np.random.multinomial(<span class="dv">1</span>, [<span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> result[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            evenepoel_wins <span class="op">=</span> evenepoel_wins <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> result[<span class="dv">1</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            vingegaard_wins <span class="op">=</span> vingegaard_wins <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> result[<span class="dv">2</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            pogacar_wins <span class="op">=</span> pogacar_wins <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>What is the probability that <code>pogacar_wins</code> is equal to 4
+when the code finishes running? Do not simplify your answer.</p>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>What is the probability that <code>evenepoel_wins</code> is at least
+1 when the code finishes running? Do not simplify your answer.</p>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
 <p>After getting bored flipping coins, Caleb decides to use the new
 skills he learned from lecture to create a simulation.</p>
 <p>He defines the 2-D array <code>A</code> as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .flatten() reshapes from 50 x 2 to 1 x 100</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    np.array([np.random.permutation([<span class="dv">0</span>, <span class="dv">1</span>]) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>)]).flatten() </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3000</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
-<p>He also defines the 2-D array <code>B</code> as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .flatten() reshapes from 50 x 2 to 1 x 100</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    np.array([np.random.choice([<span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">2</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>)]).flatten() </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    np.array([np.random.permutation([<span class="dv">0</span>, <span class="dv">1</span>]) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>)]).flatten() </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3000</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<p>He also defines the 2-D array <code>B</code> as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .flatten() reshapes from 50 x 2 to 1 x 100</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    np.array([np.random.choice([<span class="dv">0</span>, <span class="dv">1</span>], <span class="dv">2</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>)]).flatten() </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3000</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
 <p>Below, we see a histogram of the distribution resulting from this
 simulation.</p>
 <center><img src='../assets/images/disc02/hist.png' width=45%></center>
@@ -178,30 +203,6 @@ simulation.</p>
 <li><p><input type="radio" disabled="" /> <code>A.sum(axis=1)</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>B.sum(axis=1)</code></p></li>
 </ul>
-<hr />
-<h2 id="problem-3">Problem 3</h2>
-<p>Suppose we run the following code to simulate the winners of the Tour
-de France.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    evenepoel_wins <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    vingegaard_wins <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    pogacar_wins <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">4</span>):</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> np.random.multinomial(<span class="dv">1</span>, [<span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>])</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> result[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            evenepoel_wins <span class="op">=</span> evenepoel_wins <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> result[<span class="dv">1</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            vingegaard_wins <span class="op">=</span> vingegaard_wins <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> result[<span class="dv">2</span>] <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            pogacar_wins <span class="op">=</span> pogacar_wins <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
-<p><br></p>
-<h3 id="problem-3.1">Problem 3.1</h3>
-<p>What is the probability that <code>pogacar_wins</code> is equal to 4
-when the code finishes running? Do not simplify your answer.</p>
-<p><br></p>
-<h3 id="problem-3.2">Problem 3.2</h3>
-<p>What is the probability that <code>evenepoel_wins</code> is at least
-1 when the code finishes running? Do not simplify your answer.</p>
-<p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
 <p>Consider the function <code>tom_nook</code>, defined below. Recall
@@ -228,48 +229,89 @@ that if <code>x</code> is an integer, <code>x % 2</code> is
 </ul>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p>There’s been an expansion of Collegiate Mario Kart across the
-country, so to determine a champion, we’d like to set up a bracket for a
-Mario Kart tournament and fill it with four college teams from
-<code>bigkart</code>. We won’t display <code>bigkart</code> for this
-question, but assume it’s a larger version of <code>kart</code>: there
-are 50 rows in <code>bigkart</code>, and thus 50 teams. Selection is
-performed uniformly at random, so that each team has the same chance of
-being selected. Please leave your answers in
+<p>Suppose we’re curious about how often a randomly formed group of
+three students in Practical DSC will have three different majors. To
+explore this, we created an array <code>class_majors</code>, which is an
+array of every student’s major. For example, <code>class_majors</code>
+could look something like
+<code>["DS", "CS", "Stats", "CS", "CE", "CS"]</code>.</p>
+<p>Fill in the blanks below so that <code>prob_all_unique</code> is an
+estimate of the probability that all three students selected are in
+different majors.</p>
+<p><em>Hint: The function <code>np.unique</code>, when called on an
+array, returns an array with just one copy of each unique element in the
+input. For example, if <code>vals</code> contains the values
+<code>1, 2, 2, 3, 3, 4</code>, <code>np.unique(vals)</code> contains the
+values <code>1, 2, 3, 4</code>.</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    unique_majors <span class="op">=</span> np.array([])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        group <span class="op">=</span> np.random.choice(class_majors, <span class="dv">3</span>, __(a)__)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        num_unique_majors <span class="op">=</span> <span class="bu">len</span>(__(b)__)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        unique_majors <span class="op">=</span> np.append(unique_majors, num_unique_majors)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    prob_all_unique <span class="op">=</span> __(c)__</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>What goes in blank (a)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>What goes in blank (b)?</p>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>What goes in blank (c)?</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>(unique_majors &gt; 2).mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>(unique_majors.sum() &gt; 2).mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>np.count_nonzero(unique_majors &gt; 2).sum() / len(unique_majors &gt; 2)</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>1 - np.count_nonzero(unique_majors != 3).mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>unique_majors.mean() - 3 == 0</code></p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>We have a pool of 50 colleges, and would like to randomly select 4 of
+those colleges to form a bracket for our Mario Kart Tournament.
+Selection is performed uniformly at random, so that each team has the
+same chance of being selected. Please leave your answers in
 <strong>unsimplified</strong> form: answers of the form <span
 class="math inline">(\frac{3}{4}) \cdot (\frac{2}{3})</span> or <span
 class="math inline">\left[1 - (\frac{1}{2})^4\right]</span> are
 <em>preferred</em>.</p>
 <p><br></p>
-<h3 id="problem-5.1">Problem 5.1</h3>
+<h3 id="problem-6.1">Problem 6.1</h3>
 <p>Assume we populate our tournament by randomly selecting four teams
-from <code>bigkart</code> <strong>with replacement</strong>. What is the
-probability there are no duplicates among the four teams selected for
-the tournament? Do not simplify your answer.</p>
+<strong>with replacement</strong>. What is the probability there are no
+duplicates among the four teams selected for the tournament? Do not
+simplify your answer.</p>
 <p><br></p>
-<h3 id="problem-5.2">Problem 5.2</h3>
+<h3 id="problem-6.2">Problem 6.2</h3>
 <p>Now, assume we populate our tournament by randomly selecting four
-teams from <code>bigkart</code> <strong>without replacement</strong>.
+teams from our pool of 50 <strong>without replacement</strong>.
 Additionally, assume 30 are from Division 1 and 20 teams are from
 Division 2. What is the probability that there is at least one Division
 2 team among the four teams selected for the tournament? Do not simplify
 your answer.</p>
 <p><br></p>
 <hr />
-<h2 id="problem-6">Problem 6</h2>
+<h2 id="problem-7">Problem 7</h2>
 <p>Billina Records, a new record company focused on creating new TikTok
 audios, has its offices on the 23rd floor of a skyscraper with 75 floors
 (numbered 1 through 75). The owners of the building promised that 10
 different random floors will be selected to be renovated.</p>
 <p>Below, fill in the blanks to complete a simulation that will estimate
 the probability that Billina Records’ floor will be renovated.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>repetitions <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(repetitions):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    choices <span class="op">=</span> np.random.choice(__(a)__, <span class="dv">10</span>, __(b)__)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> __(c)__:</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>prob_renovate <span class="op">=</span> total <span class="op">/</span> repetitions</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>repetitions <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(repetitions):</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    choices <span class="op">=</span> np.random.choice(__(a)__, <span class="dv">10</span>, __(b)__)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> __(c)__:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>prob_renovate <span class="op">=</span> total <span class="op">/</span> repetitions</span></code></pre></div>
 <p>What goes in blank (a)?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>np.arange(1, 75)</code></p></li>
@@ -291,7 +333,7 @@ the probability that Billina Records’ floor will be renovated.</p>
 <li><p><input type="radio" disabled="" /> <code>choices.str.contains(23)</code></p></li>
 </ul>
 <hr />
-<h2 id="problem-7">Problem 7</h2>
+<h2 id="problem-8">Problem 8</h2>
 <p>Suppose <code>x</code> and <code>y</code> are both <code>int</code>s
 that have been previously defined, with <code>x &lt; y</code>. Now,
 define:</p>
@@ -300,16 +342,16 @@ define:</p>
 between the largest and smallest values in <code>peach</code>. The
 spread should be a non-negative integer.</p>
 <p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
+<h3 id="problem-8.1">Problem 8.1</h3>
 <p><strong>Using array methods</strong>, write an expression that
 evaluates to the spread of <code>peach</code>.</p>
 <p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
+<h3 id="problem-8.2">Problem 8.2</h3>
 <p><strong>Without using any methods or functions</strong>, write an
 expression that evaluates to the spread of <code>peach</code>.<br />
 <em>Hint:</em> Use <code>[ ]</code>.</p>
 <p><br></p>
-<h3 id="problem-7.3">Problem 7.3</h3>
+<h3 id="problem-8.3">Problem 8.3</h3>
 <p>Choose the correct way to fill in the blank in this sentence:</p>
 <div class="center">
 <p><em>The spread of</em> <code>peach</code> <em>is</em> ______ <em>the
@@ -321,85 +363,6 @@ value of</em> <code>y - x</code>.</p>
 <li><p><input type="radio" disabled="" /> always greater than</p></li>
 <li><p><input type="radio" disabled="" /> sometimes greater than and sometimes equal to</p></li>
 <li><p><input type="radio" disabled="" /> always equal to</p></li>
-</ul>
-<p><br></p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
-<p>Consider the following four assignment statements.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bass <span class="op">=</span> <span class="st">&quot;5&quot;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tuna <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>sword <span class="op">=</span> [<span class="st">&quot;4.0&quot;</span>, <span class="dv">5</span>, <span class="fl">12.5</span>, <span class="op">-</span><span class="dv">10</span>, <span class="st">&quot;2023&quot;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>gold <span class="op">=</span> [<span class="dv">4</span>, <span class="st">&quot;6&quot;</span>, <span class="st">&quot;CSE&quot;</span>, <span class="st">&quot;doc&quot;</span>]</span></code></pre></div>
-<p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
-<p>What is the value of the expression <code>bass * tuna</code>?</p>
-<p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
-<p>Which of the following expressions results in an error?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>int(sword[0])</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>float(sword[1])</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>int(sword[2])</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>int(sword[3])</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>float(sword[4])</code></p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
-<p>Which of the following expressions evaluates to
-<code>"DSC10"</code>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").title() + str(gold[0] + gold[1])</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").upper() + str(gold[0] + int(gold[1]))</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").upper() + str(gold[1] + int(gold[0]))</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>gold[3].replace("o", "s").title() + str(gold[0] + int(gold[1]))</code></p></li>
-</ul>
-<p><br></p>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>We’d like to select three students at random from the entire class to
-win extra credit (not really). When doing so, we want to guarantee that
-the same student cannot be selected twice, since it wouldn’t really be
-fair to give a student double extra credit.</p>
-<p>Fill in the blanks below so that <code>prob_all_unique</code> is an
-estimate of the probability that all three students selected are in
-different majors.</p>
-<p><em>Hint: The function <code>np.unique</code>, when called on an
-array, returns an array with just one copy of each unique element in the
-input. For example, if <code>vals</code> contains the values
-<code>1, 2, 2, 3, 3, 4</code>, <code>np.unique(vals)</code> contains the
-values <code>1, 2, 3, 4</code>.</em></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    unique_majors <span class="op">=</span> np.array([])</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> np.arange(<span class="dv">10000</span>):</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        group <span class="op">=</span> np.random.choice(survey.get(<span class="st">&quot;Major&quot;</span>), <span class="dv">3</span>, __(a)__)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        __(b)__ <span class="op">=</span> np.append(unique_majors, <span class="bu">len</span>(__(c)__))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    prob_all_unique <span class="op">=</span> __(d)__</span></code></pre></div>
-<p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
-<p>What goes in blank (a)?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
-</ul>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
-<p>What goes in blank (b)?</p>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-9.3">Problem 9.3</h3>
-<p>What goes in blank (c)?</p>
-<p><br></p>
-<h3 id="problem-9.4">Problem 9.4</h3>
-<p>What goes in blank (d)?</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>(unique_majors &gt; 2).mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>(unique_majors.sum() &gt; 2).mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>np.count_nonzero(unique_majors &gt; 2).sum() / len(unique_majors &gt; 2)</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>1 - np.count_nonzero(unique_majors != 3).mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>unique_majors.mean() - 3 == 0</code></p></li>
 </ul>
 <p><br></p>
 <hr />
