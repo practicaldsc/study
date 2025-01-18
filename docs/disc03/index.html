@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Grouping, Pivoting, and Merging</title>
+  <title>DataFrames and Querying</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -77,38 +77,31 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../assets/theme.css" />
-  <script defer=""
-  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
   </script>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Grouping, Pivoting, and Merging</h1>
+<h1 class="title">DataFrames and Querying</h1>
 </header>
-<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- add after bootstrap.min.css -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
-<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
-<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!-- add after bootstrap.min.css --> <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js --> <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
 <!-- for difficulty gauges-->
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -122,73 +115,116 @@
 </script>
 <p><a href="../index.html">← return to study.practicaldsc.org</a></p>
 <hr />
-<p>The problems in this worksheet are taken from past exams in similar
-classes. Work on them <strong>on paper</strong>, since the exams you
-take in this course will also be on paper. <br><br>We encourage you to
-complete this worksheet in a live discussion section. Solutions will be
-made available after all discussion sections have concluded. You don’t
-need to submit your answers anywhere.<br><br><b>Note: We do not plan to
-cover all problems here in the live discussion section</b>; the problems
-we don’t cover can be used for extra practice.</p>
+<p>The problems in this worksheet are taken from past exams in similar classes. Work on them <strong>on paper</strong>, since the exams you take in this course will also be on paper. <br><br>We encourage you to complete this worksheet in a live discussion section. Solutions will be made available after all discussion sections have concluded. You don’t need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don’t cover can be used for extra practice.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
-<p>In this problem, we will work with the DataFrame <code>tv</code>,
-which contains information about various TV shows available to watch on
-streaming services. For each TV show, we have:</p>
+<p>In this problem, we’ll work with the DataFrame <code>dogs</code>, which contains one row for every registered pet dog in Zurich, Switzerland in 2017.</p>
+<p>The first few rows of <code>dogs</code> are shown below, but <code>dogs</code> has many more rows than are shown.</p>
+<center><img src="../../assets/images/disc02/disc02-p3-df.png" width=750></center>
+<p><br></p>
 <ul>
-<li><code>"Title" (object)</code>: The title of the TV show.</li>
-<li><code>"Year" (int)</code>: The year in which the TV show was first
-released. (For instance, the show <em>How I Met Your Mother</em> ran
-from 2005 to 2014; there is only one row for <em>How I Met Your
-Mother</em> in <code>tv</code>, and its <code>"Year"</code> value is
-2005.)</li>
-<li><code>"Age" (object)</code>: The age category for the TV show. If
-not missing, <code>"Age"</code> is one of <code>"all"</code>,
-<code>"7+"</code>, <code>"13+"</code>, <code>"16+"</code>, or
-<code>"18+"</code>. (For instance, <code>"all"</code> means that the
-show is appropriate for all audiences, while `“18+”} means that the show
-contains mature content and viewers should be at least 18 years
-old.)</li>
-<li><code>"IMDb" (float)</code>: The TV show’s rating on IMDb (between 0
-and 10).</li>
-<li><code>"Rotten Tomatoes" (int)</code>: The TV show’s rating on Rotten
-Tomatoes (between 0 and 100).</li>
-<li><code>"Netflix" (int)</code>: 1 if the show is available for
-streaming on Netflix and 0 otherwise. The <code>"Hulu"</code>,
-<code>"Prime Video"</code>, and <code>"Disney+"</code> columns work the
-same way.</li>
+<li><code>"owner_id" (int)</code>: A unique ID for each owner. Note that, for example, there are two rows in the preview for <code>4215</code>, meaning that owner has at least 2 dogs. <strong>Assume that if an <code>"owner_id"</code> appears in <code>dogs</code> multiple times, the corresponding <code>"owner_age"</code>, <code>"owner_sex"</code>, and <code>"district"</code> are always the same.</strong></li>
+<li><code>"owner_age" (str)</code>: The age group of the owner; either <code>"11-20"</code>, <code>"21-30"</code>, …, or <code>"91-100"</code> (9 possibilities in total).</li>
+<li><code>"owner_sex" (str)</code>: The birth sex of the owner; either <code>"m"</code> (male) or <code>"f"</code> (female).</li>
+<li><code>"district" (int)</code>: The city district the owner lives in; a positive integer between <code>1</code> and <code>12</code> (inclusive).</li>
+<li><code>"primary_breed" (str)</code>: The primary breed of the dog.</li>
+<li><code>"secondary_breed" (str)</code>: The secondary breed of the dog. If this column is not null, the dog is a “mixed breed” dog; otherwise, the dog is a “purebred” dog.</li>
+<li><code>"dog_sex" (str)</code>: The birth sex of the dog; either <code>"m"</code> (male) or <code>"f"</code> (female).</li>
+<li><code>"birth_year" (int)</code>: The birth year of the dog.</li>
 </ul>
-<p>The first few rows of <code>tv</code> are shown below (though
-<code>tv</code> has many more rows than are pictured here).</p>
-<center><img src='../assets/images/disc03/data-info-wi23-mt.png' width=65%></center>
-<p>As you see in the first few rows of <code>tv</code>, some TV shows
-are available for streaming on multiple streaming services. Fill in the
-blanks so that the two expressions below, Expression 1 and Expression 2,
-<strong>both</strong> evaluate to the <code>"Title"</code> of the TV
-show that is available for streaming on the <strong>greatest number of
-streaming services</strong>. Assume there are no ties and that the
-<code>"Title"</code> column contains unique values.</p>
-<p>Expression 1:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tv.set_index(<span class="st">&quot;Title&quot;</span>).loc[__(a)__].T.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).idxmax()</span></code></pre></div>
-<p>Expression 2:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    (</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        tv.assign(num_services<span class="op">=</span>tv.iloc[__(b)__].<span class="bu">sum</span>(__(c)__))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            .sort_values(<span class="st">&quot;num_services&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            .iloc[__(d)__]</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
-<p><strong><em>Hint</em></strong>: <code>.T</code> transposes the rows
-and columns of a DataFrame — the indexes of <code>df</code> are the
-columns of <code>df.T</code> and vice versa.</p>
-<p>What goes in the blanks?</p>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>Fill in the blank so that <code>most_common</code> evaluates to the most common district in <code>dogs</code>. Assume there are no ties.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>most_common <span class="op">=</span> ____</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading1" data-bs-parent="#accordionExample">
+<div id="collapse1_1" class="accordion-collapse collapse collapse" aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>dogs[<span class="st">"district"</span>].value_counts().idxmax()</span></code></pre>
+</div>
+<p>Above, we presented one possible solution, but there are many:</p>
+<ul>
+<li><code>dogs["district"].value_counts().idxmax()</code></li>
+<li><code>dogs["district"].value_counts().index[0]</code></li>
+<li><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code></li>
+<li><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>Fill in the blank so that <code>female_breeds</code> evaluates to a Series containing the primary breeds of all female dogs.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>female_breeds <span class="op">=</span> dogs.____</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse collapse" aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>loc[dogs[<span class="st">"dog_sex"</span>] <span class="op">==</span> <span class="st">"f"</span>, <span class="st">"primary_breed"</span>]</span></code></pre>
+</div>
+<p>Another possible answer is:</p>
+<p>``<code>py query("dog_sex == 'f'")["primary_breed"]</code></p>
+<p>Note that the question <em>didn’t</em> ask for unique primary breeds.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>In this problem, we will work with the DataFrame <code>tv</code>, which contains information about various TV shows available to watch on streaming services. For each TV show, we have:</p>
+<ul>
+<li><code>"Title" (object)</code>: The title of the TV show.</li>
+<li><code>"Year" (int)</code>: The year in which the TV show was first released. (For instance, the show <em>How I Met Your Mother</em> ran from 2005 to 2014; there is only one row for <em>How I Met Your Mother</em> in <code>tv</code>, and its <code>"Year"</code> value is 2005.)</li>
+<li><code>"Age" (object)</code>: The age category for the TV show. If not missing, <code>"Age"</code> is one of <code>"all"</code>, <code>"7+"</code>, <code>"13+"</code>, <code>"16+"</code>, or <code>"18+"</code>. (For instance, <code>"all"</code> means that the show is appropriate for all audiences, while `“18+”} means that the show contains mature content and viewers should be at least 18 years old.)</li>
+<li><code>"IMDb" (float)</code>: The TV show’s rating on IMDb (between 0 and 10).</li>
+<li><code>"Rotten Tomatoes" (int)</code>: The TV show’s rating on Rotten Tomatoes (between 0 and 100).</li>
+<li><code>"Netflix" (int)</code>: 1 if the show is available for streaming on Netflix and 0 otherwise. The <code>"Hulu"</code>, <code>"Prime Video"</code>, and <code>"Disney+"</code> columns work the same way.</li>
+</ul>
+<p>The first few rows of <code>tv</code> are shown below (though <code>tv</code> has many more rows than are pictured here).</p>
+<center><img src='../assets/images/disc03/data-info-wi23-mt.png' width=65%></center>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>As you see in the first few rows of <code>tv</code>, some TV shows are available for streaming on multiple streaming services. Fill in the blanks so that the two expressions below, Expression 1 and Expression 2, <strong>both</strong> evaluate to the <code>"Title"</code> of the TV show that is available for streaming on the <strong>greatest number of streaming services</strong>. Assume there are no ties and that the <code>"Title"</code> column contains unique values.</p>
+<p>Expression 1:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tv.set_index(<span class="st">&quot;Title&quot;</span>).loc[__(a)__].T.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>).idxmax()</span></code></pre></div>
+<p>Expression 2:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    (</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        tv.assign(num_services<span class="op">=</span>tv.iloc[__(b)__].<span class="bu">sum</span>(__(c)__))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            .sort_values(<span class="st">&quot;num_services&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            .iloc[__(d)__]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<p><strong><em>Hint</em></strong>: <code>.T</code> transposes the rows and columns of a DataFrame — the indexes of <code>df</code> are the columns of <code>df.T</code> and vice versa.</p>
+<p>What goes in the blanks?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse collapse" aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -208,87 +244,28 @@ aria-labelledby="heading1" data-bs-parent="#accordionExample">
 <li><code>-1, 0</code></li>
 </ol></li>
 </ul>
-<p>In Expression 1, keep in mind that <code>idxmax()</code> is a Series
-method returns the index of the row with the maximum value. As such, we
-can infer that Expression 1 sums the service-specific indicator columns
-(that is, the columns <code>"Netflix"</code>, <code>"Hulu"</code>,
-<code>"Prime Video"</code>, and <code>"Disney+"</code>) for each row and
-returns the index of the row with the greatest sum. To do this, we need
-the <code>loc</code> accessor to select all the service-specific
-indicator columns, which we can do using <code>loc[:, "Netflix":]</code>
-or
-<code>loc[:, ["Netflix", "Hulu", "Prime Video", "Disney+"]]</code>.</p>
-<p>When looking at Expression 2, we can split the problem into two
-parts: the code inside the <code>assign</code> statement and the code
-outside of it.</p>
+<p>In Expression 1, keep in mind that <code>idxmax()</code> is a Series method returns the index of the row with the maximum value. As such, we can infer that Expression 1 sums the service-specific indicator columns (that is, the columns <code>"Netflix"</code>, <code>"Hulu"</code>, <code>"Prime Video"</code>, and <code>"Disney+"</code>) for each row and returns the index of the row with the greatest sum. To do this, we need the <code>loc</code> accessor to select all the service-specific indicator columns, which we can do using <code>loc[:, "Netflix":]</code> or <code>loc[:, ["Netflix", "Hulu", "Prime Video", "Disney+"]]</code>.</p>
+<p>When looking at Expression 2, we can split the problem into two parts: the code inside the <code>assign</code> statement and the code outside of it.</p>
 <ul>
-<li>Glancing at the code inside of the <code>assign</code> statement,
-(and also noticing the variable <code>num_services</code>), we realize
-that we, once again, want to sum up the values in the service-specific
-indicator columns. We do this by first selecting the last four columns,
-using <code>.iloc[:, 5:]</code> (notice the <code>iloc</code>), and then
-summing over <code>axis=1</code>. We use <code>axis=1</code> (different
-from <code>axis=0</code> in Expression 1), because unlike Expression 1,
-we’re summing over each row, instead of each column. If there had not
-been a <code>.T</code> in the code for Expression 1, we would’ve also
-used <code>axis=1</code> in Expression 1.</li>
-<li>Finally, we need to select the <code>"Title"</code> of the last row
-in DataFrame in Expression 2, because <code>sort_values</code> sorts in
-ascending order by default. The last row has an integer position of -1,
-and the <code>"Title"</code> column has an integer position of 0, so we
-use <code>iloc[-1, 0]</code>.</li>
+<li>Glancing at the code inside of the <code>assign</code> statement, (and also noticing the variable <code>num_services</code>), we realize that we, once again, want to sum up the values in the service-specific indicator columns. We do this by first selecting the last four columns, using <code>.iloc[:, 5:]</code> (notice the <code>iloc</code>), and then summing over <code>axis=1</code>. We use <code>axis=1</code> (different from <code>axis=0</code> in Expression 1), because unlike Expression 1, we’re summing over each row, instead of each column. If there had not been a <code>.T</code> in the code for Expression 1, we would’ve also used <code>axis=1</code> in Expression 1.</li>
+<li>Finally, we need to select the <code>"Title"</code> of the last row in DataFrame in Expression 2, because <code>sort_values</code> sorts in ascending order by default. The last row has an integer position of -1, and the <code>"Title"</code> column has an integer position of 0, so we use <code>iloc[-1, 0]</code>.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<hr />
-<h2 id="problem-2">Problem 2</h2>
-<p>The <code>laptops</code> DataFrame contains information on various
-factors that influence the pricing of laptops. Each row represents a
-laptop, and the columns are:</p>
-<ul>
-<li><code>"Mfr" (str)</code>: the company that manufactures the laptop,
-like “Apple” or “Dell”.</li>
-<li><code>"Model" (str)</code>: the model name of the laptop, such as
-“MacBook Pro”.</li>
-<li><code>"OS" (str)</code>: the operating system, such as “macOS” or
-“Windows 11”.</li>
-<li><code>"Screen Size" (float)</code>: the diagonal length of the
-screen, in inches.</li>
-<li><code>"Price" (float)</code>: the price of the laptop, in
-dollars.</li>
-</ul>
 <p><br></p>
-<h3 id="problem-2.1">Problem 2.1</h3>
-<p><strong>Without using <code>groupby</code></strong>, write an
-expression that evaluates to the average price of laptops with the
-<code>"macOS"</code> operating system (the same quantity as above).</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong>
-<code>laptops.loc[laptops["OS"] == "macOS", "Price"].mean()</code></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
+<p>In the following subparts, consider the variable <code>double_count</code>, defined below.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>double_count <span class="op">=</span> tv[<span class="st">&quot;Title&quot;</span>].value_counts().value_counts()</span></code></pre></div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
-<p><strong>Using <code>groupby</code></strong>, write an expression that
-evaluates to the average price of laptops with the <code>"macOS"</code>
-operating system.</p>
+<p>What is <code>type(double_count)</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Series</p></li>
+<li><p><input type="radio" disabled="" /> SeriesGroupBy</p></li>
+<li><p><input type="radio" disabled="" /> DataFrame</p></li>
+<li><p><input type="radio" disabled="" /> DataFrameGroupBy</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_2">
@@ -296,14 +273,111 @@ operating system.</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2_2" class="accordion-collapse collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div id="collapse2_2" class="accordion-collapse collapse collapse" aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong>
-<code>laptops.groupby("OS")["Price"].mean().loc["macOS"]</code></p>
+<p><strong>Answer</strong>: Series</p>
+<p>The <code>.value_counts()</code> method, when called on a Series <code>s</code>, produces a new Series in which</p>
+<ul>
+<li>the index contains all unique values in <code>s</code>.</li>
+<li>the values are the frequencies of the unique values in <code>s</code>.</li>
+</ul>
+<p>Since <code>tv["Title"]</code> is a Series, <code>tv["Title"].value_counts()</code> is a Series, and so is <code>tv["Title"].value_counts.value_counts()</code>. We provide an interpretation of each of these Series in the solution to the next subpart.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 84%.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<p>Which of the following statements are true? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.iloc[0] == 1</code> is <code>True</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 TV shows that all share the same <code>"Title"</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse collapse" aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>:</p>
+<ul>
+<li>The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>.</li>
+<li>If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>.</li>
+</ul>
+<p>To answer, we need to understand what each of <code>tv["Title"]</code>, <code>tv["Title"].value_counts()</code>, and <code>tv["Title"].value_counts().value_counts()</code> contain. To illustrate, let’s start with a basic, unrelated example. Suppose <code>tv["Title"]</code> looks like:</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dv">0</span>    A</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dv">1</span>    B</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dv">2</span>    C</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dv">3</span>    B</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dv">4</span>    D</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dv">5</span>    E</span>
+<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dv">6</span>    A</span>
+<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>dtype: <span class="bu">object</span></span></code></pre>
+</div>
+<p>Then, <code>tv["Title"].value_counts()</code> looks like:</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>A    <span class="dv">2</span></span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>B    <span class="dv">2</span></span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>C    <span class="dv">1</span></span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>D    <span class="dv">1</span></span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>E    <span class="dv">1</span></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>dtype: int64</span></code></pre>
+</div>
+<p>and <code>tv["Title"].value_counts().value_counts()</code> looks like:</p>
+<div id="cb3" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">3</span></span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dv">2</span>    <span class="dv">2</span></span>
+<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>dtype: int64</span></code></pre>
+</div>
+<p>Back to our actual dataset. <code>tv["Title"]</code>, as we know, contains the name of each TV show. <code>tv["Title"].value_counts()</code> is a Series whose index is a sequence of the unique TV show titles in <code>tv["Title"]</code>, and whose values are the frequencies of each title. <code>tv["Title"].value_counts()</code> may look something like the following:</p>
+<div id="cb4" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>Breaking Bad                             <span class="dv">1</span></span>
+<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>Fresh Meat                               <span class="dv">1</span></span>
+<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>Doctor Thorne                            <span class="dv">1</span></span>
+<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>                                       ...</span>
+<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>Styling Hollywood                        <span class="dv">1</span></span>
+<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>Vai Anitta                               <span class="dv">1</span></span>
+<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>Fearless Adventures <span class="cf">with</span> Jack Randall    <span class="dv">1</span></span>
+<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>Name: Title, Length: <span class="dv">5368</span>, dtype: int64</span></code></pre>
+</div>
+<p>Then, <code>tv["Title"].value_counts().value_counts()</code> is a Series whose index is a sequence of the unique values in the above Series, and whose values are the frequencies of each value above. In the case where all titles in <code>tv["Title"]</code> are unique, then <code>tv["Title"].value_counts()</code> will only have one unique value, 1, repeated many times. Then, <code>tv["Title"].value_counts().value_counts()</code> will only have one row total, and will look something like:</p>
+<div id="cb5" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5368</span></span>
+<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>Name: Title, dtype: int64</span></code></pre>
+</div>
+<p>This allows us to distinguish between the first two answer choices. The key is remembering that <strong>in order to set a column to the index, the column should only contain unique values</strong>, since the goal of the index is to provide a “name” (more formally, a label) for each row.</p>
+<ul>
+<li>The first answer choice, “The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.iloc[0] == 1</code> is <code>True</code>”, is false. As we can see in the example above, all titles are unique, but <code>double_count.iloc[0]</code> is something other than 1.</li>
+<li>The second answer choice, “The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>”, is true. If <code>double_count.loc[1] == tv.shape[0]</code>, it means that all values in <code>tv["Title"].value_counts()</code> were 1, meaning that <code>tv["Title"]</code> consisted solely of unique values, which is the only case in which it makes sense to set <code>"Title"</code> to the index.</li>
+</ul>
+<p>Now, let’s look at the second two answer choices. If <code>double_counts.loc[2] == 5</code>, it would mean that 5 of the values in <code>tv["Title"].value_counts()</code> were 2. This would mean that there were 5 pairs of titles in <code>tv["Title"]</code> that were the same.</p>
+<ul>
+<li>This makes the fourth answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>”, correct.</li>
+<li>The third answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 TV shows that all share the same <code>"Title"</code>”, is incorrect; if there were 5 TV shows with the same title, then <code>double_count.loc[5]</code> would be at least 1, but we can’t make any guarantees about <code>double_counts.loc[2]</code>.</li>
+</ul>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 68%.</p>
 </div>
 </div>
 </div>
@@ -311,37 +385,30 @@ aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>You are given a DataFrame called <code>books</code> that contains
-columns <code>'author'</code> (string), <code>'title'</code> (string),
-<code>'num_chapters'</code> (int), and <code>'publication_year'</code>
-(int).</p>
-<p>Suppose that after doing <code>books.groupby('author').max()</code>,
-one row says</p>
-<table>
-<thead>
-<tr class="header">
-<th>author</th>
-<th>title</th>
-<th>num_chapters</th>
-<th>publication_year</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Charles Dickens</td>
-<td>Oliver Twist</td>
-<td>53</td>
-<td>1838</td>
-</tr>
-</tbody>
-</table>
+<p>For the problems that follow, we will work with a dataset consisting of various skyscrapers in the US, which we’ve loaded into a DataFrame called <code>sky</code>. The first few rows of <code>sky</code> are shown below (though the full DataFrame has more rows):</p>
+<center><img src='../assets/images/disc03/data-info-sky.png' width=60%></center>
+<p>&nbsp;</p>
+<p>Each row of <code>sky</code> corresponds to a single skyscraper. For each skyscraper, we have:</p>
+<ul>
+<li><p>its name, which is stored in the index of <code>sky</code> (string)</p></li>
+<li><p>the <code>'material'</code> it is made up of (string)</p></li>
+<li><p>the <code>'city'</code> in the US where it is located (string)</p></li>
+<li><p>the number of <code>'floors'</code> (levels) it contains (int)</p></li>
+<li><p>its <code>'height'</code> in meters (float), and</p></li>
+<li><p>the <code>'year'</code> in which it was opened (int)</p></li>
+</ul>
+<p>Below, identify the data type of the result of each of the following expressions, or select “error” if you believe the expression results in an error.</p>
 <p><br></p>
 <h3 id="problem-3.1">Problem 3.1</h3>
-<p>Based on this data, can you conclude that Charles Dickens is the
-alphabetically last of all author names in this dataset?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sky.sort_values(<span class="st">&#39;height&#39;</span>)</span></code></pre></div>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes</p></li>
-<li><p><input type="radio" disabled="" /> No</p></li>
+<li><p><input type="radio" disabled="" /> int or float</p></li>
+<li><p><input type="radio" disabled="" /> Boolean</p></li>
+<li><p><input type="radio" disabled="" /> string</p></li>
+<li><p><input type="radio" disabled="" /> array</p></li>
+<li><p><input type="radio" disabled="" /> Series</p></li>
+<li><p><input type="radio" disabled="" /> DataFrame</p></li>
+<li><p><input type="radio" disabled="" /> error</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -350,35 +417,33 @@ alphabetically last of all author names in this dataset?</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div id="collapse3_1" class="accordion-collapse collapse collapse" aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> No</p>
-<p>When we group by <code>'author'</code>, all books by the same author
-get aggregated together into a single row. The aggregation function is
-applied separately to each other column besides the column we’re
-grouping by. Since we’re grouping by <code>'author'</code> here, the
-<code>'author'</code> column never has the <code>max()</code> function
-applied to it. Instead, each unique value in the <code>'author'</code>
-column becomes a value in the index of the grouped DataFrame. We are
-told that the Charles Dickens row is just one row of the output, but we
-don’t know anything about the other rows of the output, or the other
-authors. We can’t say anything about where Charles Dickens falls when
-authors are ordered alphabetically (but it’s probably not last!)</p>
+<p><strong>Answer:</strong> DataFrame</p>
+<p><code>sky</code> is a DataFrame. All the <code>sort_values</code> method does is change the order of the rows in the Series/DataFrame it is called on, it does not change the data structure. As such, <code>sky.sort_values('height')</code> is also a DataFrame.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 87%.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
-<p>Based on this data, can you conclude that Charles Dickens wrote
-<em>Oliver Twist</em>?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sky.index[<span class="dv">0</span>]</span></code></pre></div>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes</p></li>
-<li><p><input type="radio" disabled="" /> No</p></li>
+<li><p><input type="radio" disabled="" /> int or float</p></li>
+<li><p><input type="radio" disabled="" /> Boolean</p></li>
+<li><p><input type="radio" disabled="" /> string</p></li>
+<li><p><input type="radio" disabled="" /> array</p></li>
+<li><p><input type="radio" disabled="" /> Series</p></li>
+<li><p><input type="radio" disabled="" /> DataFrame</p></li>
+<li><p><input type="radio" disabled="" /> error</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -387,31 +452,25 @@ authors are ordered alphabetically (but it’s probably not last!)</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_2" class="accordion-collapse collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div id="collapse3_2" class="accordion-collapse collapse collapse" aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> Yes</p>
-<p>Grouping by <code>'author'</code> collapses all books written by the
-same author into a single row. Since we’re applying the
-<code>max()</code> function to aggregate these books, we can conclude
-that <em>Oliver Twist</em> is alphabetically last among all books in the
-<code>books</code> DataFrame written by Charles Dickens. So Charles
-Dickens did write <em>Oliver Twist</em> based on this data.</p>
+<p><strong>Answer:</strong> string</p>
+<p><code>sky.index</code> contains the values <code>'Bayard-Condict Building'</code>, <code>'The Yacht Club at Portofino'</code>, <code>'City Investing Building'</code>, etc. <code>sky.index[0]</code> is then <code>'Bayard-Condict Building'</code>, which is a string.</p>
+<hr/>
+<h5>Difficulty: ⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 91%.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
-<p>Based on this data, can you conclude that <em>Oliver Twist</em> has
-53 chapters?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes</p></li>
-<li><p><input type="radio" disabled="" /> No</p></li>
-</ul>
+<p>Write a single line of code that evaluates to the name of the tallest skyscraper in the <code>sky</code> DataFrame.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading3_3">
@@ -419,58 +478,13 @@ Dickens did write <em>Oliver Twist</em> based on this data.</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_3" class="accordion-collapse collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div id="collapse3_3" class="accordion-collapse collapse collapse" aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> No</p>
-<p>The key to this problem is that <code>groupby</code> applies the
-aggregation function, <code>max()</code> in this case, independently to
-each column. The output should be interpreted as follows:</p>
-<ul>
-<li>Among all books in <code>books</code> written by Charles Dickens,
-<em>Oliver Twist</em> is the title that is alphabetically last.</li>
-<li>Among all books in <code>books</code> written by Charles Dickens, 53
-is the greatest number of chapters.</li>
-<li>Among all books in <code>books</code> written by Charles Dickens,
-1838 is the latest year of publication.</li>
-</ul>
-<p>However, the book titled <em>Oliver Twist</em>, the book with 53
-chapters, and the book published in 1838 are not necessarily all the
-same book. We cannot conclude, based on this data, that <em>Oliver
-Twist</em> has 53 chapters.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.4">Problem 3.4</h3>
-<p>Based on this data, can you conclude that Charles Dickens wrote a
-book with 53 chapters that was published in 1838?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes</p></li>
-<li><p><input type="radio" disabled="" /> No</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_4" class="accordion-collapse collapse collapse"
-aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> No</p>
-<p>As explained in the previous question, the <code>max()</code>
-function is applied separately to each column, so the book written by
-Charles Dickens with 53 chapters may not be the same book as the book
-written by Charles Dickens published in 1838.</p>
+<p><strong>Answer:</strong> <code>sky.sort_values(by='height', ascending=False).index[0]</code></p>
+<p>In order to answer this question, we must first sort the values of the column we are interested in. As such, we sort the entire DataFrame by the <code>height</code> column, and because we are interested in the name of the tallest building, we should set the <code>ascending</code> parameter to <code>False</code> because we would like the heights to be ordered in descending order, thus leading to the line <code>sky.sort_values(by='height', ascending=False)</code>. After sorting in descending order, we know that the tallest building is going to be the first row of the new <code>sky</code> DataFrame, and thus we now only need to get the name of the skyscraper, which happens to be in the index. In order to access the index of the DataFrame we can use <code>sky.index</code>, and in our case because we know that we want the first index, we would need to write <code>sky.index[0]</code>. Finally, putting it all together, in order to get the name of the tallest skyscraper in the <code>sky</code> DataFrame, we would need to write <code>sky.sort_values(by='Height', ascending=False).index[0]</code>.</p>
 </div>
 </div>
 </div>
@@ -478,23 +492,14 @@ written by Charles Dickens published in 1838.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
-<p>The <code>h</code> table records addresses within San Diego. Only 50
-addresses are recorded. The index of the dataframe contains the numbers
-1-50 as unique integers.</p>
-<ul>
-<li><code>"number" (int)</code>: Street address number</li>
-<li><code>"street" (str)</code>: Street name</li>
+<p>Suppose you are given a DataFrame of employees for a given company. The DataFrame, called <code>employees</code>, is indexed by <code>'employee_id'</code> (string) with a column called <code>'years'</code> (int) that contains the number of years each employee has worked for the company. Suppose that the code</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>employees.sort_values(by<span class="op">=</span><span class="st">&#39;years&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).index[<span class="dv">0</span>]</span></code></pre></div>
+<p>outputs <code>'2476'</code>.</p>
+<p>True or False: The number of years that employee 2476 has worked for the company is greater than the number of years that any other employee has worked for the company.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
-<center><img src="../assets/images/disc03/h.png" width=400></center>
-<p>Fill in the Python code to create a DataFrame containing the
-proportion of 4-digit address numbers for each unique street in
-<code>h</code>.</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo(x):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    lengths <span class="op">=</span> __(a)__</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (lengths <span class="op">==</span> <span class="dv">4</span>).mean()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>h.groupby(__(b)__).__(c)__(foo)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4">
@@ -502,48 +507,56 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4" class="accordion-collapse collapse collapse"
-aria-labelledby="heading4" data-bs-parent="#accordionExample">
+<div id="collapse4" class="accordion-collapse collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong></p>
-<p>(a): <code>x.astype(str).str.len()</code></p>
-<p>(b): <code>'street'</code></p>
-<p>(c): <code>agg</code></p>
+<p><strong>Answer: </strong> False</p>
+<p>This is false because there could be other employees who worked at the company equally long as employee 2476.</p>
+<p>The code says that when the <code>employees</code> DataFrame is sorted in descending order of <code>'years'</code>, employee 2476 is in the first row. There might, however, be a tie among several employees for their value of <code>'years'</code>. In that case, employee 2476 may wind up in the first row of the sorted DataFrame, but we cannot say that the number of years employee 2476 has worked for the company is greater than the number of years that any other employee has worked for the company.</p>
+<p>If the statement had said <em>greater than or equal to</em> instead of <em>greater than</em>, the statement would have been true.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 29%.</p>
 </div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p>The DataFrame <code>items</code> describes various items available to
-collect or purchase using bells, the currency used in the game
-<em>Animal Crossing: New Horizons</em>.</p>
-<p>For each item, we have:</p>
-<ul>
-<li><code>"Item" (str)</code>: The name of the item.</li>
-<li><code>"Cost" (int)</code>: The cost of the item in bells. Items that
-cost 0 bells cannot be purchased and must be collected through other
-means (such as crafting).</li>
-<li><code>"Location" (str)</code>: The store or action through which the
-item can be obtained.</li>
+<p>You are given a DataFrame called <code>sports</code>, indexed by <code>'Sport'</code> containing one column, <code>'PlayersPerTeam'</code>. The first few rows of the DataFrame are shown below:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Sport</th>
+<th>PlayersPerTeam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>baseball</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>basketball</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>field hockey</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p><br /> Which of the following evaluates to <code>'basketball'</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>sports.loc[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.iloc[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.index[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.get('Sport').iloc[1]</code></p></li>
 </ul>
-<p>The first 6 rows of <code>items</code> are below, though
-<code>items</code> has more rows than are shown here.</p>
-<center><img src="../assets/images/disc03/items.png" width=500></center>
-<p>The DataFrame <code>keepers</code> has 5 rows, each of which
-represent a different shopkeeper in the <em>Animal Crossing: New
-Horizons</em> universe.</p>
-<p><code>keepers</code> is shown below in its entirety.</p>
-<center><img src="../../assets/images/disc03/keepers1.png" width=350></center>
-<p><br></p>
-<p>How many rows are in the following DataFrame? Give your answer as an
-integer.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>keepers.merge(items.iloc[:<span class="dv">6</span>], </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>              left_on<span class="op">=</span><span class="st">&quot;Store&quot;</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              right_on<span class="op">=</span><span class="st">&quot;Location&quot;</span>)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5">
@@ -551,38 +564,31 @@ integer.</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse5" class="accordion-collapse collapse collapse"
-aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div id="collapse5" class="accordion-collapse collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: 10</p>
-<p>Since the type of join is not specified, this is an inner join. Each
-row in <code>keepers</code> is merged with each row in
-<code>items</code> only if <code>'Store'</code> in <code>keepers</code>
-equals <code>'Location'</code> in <code>items</code>. Each row in
-<code>keepers</code> has the following number of merges: row 0 has 1,
-row 1 has 3, row 2 has 3, row 3 has 0 (there are no rows in
-<code>items</code> with <code>'Location'</code> equal to ‘Kicks Shoe
-Store’), and row 4 has 3.</p>
-<p><span class="math display">1 + 3 + 3 + 0 + 3 = 10</span></p>
+<p><strong>Answer: </strong> <code>sports.index[1]</code></p>
+<p>We are told that the DataFrame is indexed by <code>'Sport'</code> and <code>'basketball'</code> is one of the elements of the index. To access an element of the index, we use <code>.index</code> to extract the index and square brackets to extract an element at a certain position. Therefore, <code>sports.index[1]</code> will evaluate to <code>'basketball'</code>.</p>
+<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame. We typically use <code>.loc</code> or <code>.iloc</code> on a Series that results from using <code>.get</code> on some column. Although we don’t typically do it this way, it is possible to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame, but doing so would produce an entire row of the DataFrame. Since we want just one word, <code>'basketball'</code>, the first two answer choices must be incorrect.</p>
+<p>The last answer choice is incorrect because we can’t use <code>.get</code> with the index, only with a column. The index is never considered a column.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️</h5>
+<p>
+</p>
+<p>The average score on this problem was 88%.</p>
 </div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
-<p>Suppose we create a DataFrame called <code>midwest</code> containing
-Nishant’s flights departing from DTW, ORD, and MKE. <code>midwest</code>
-has 10 rows; the bar chart below shows how many of these 10 flights
-departed from each airport.</p>
-<center><img src='../assets/images/disc03/midwest.png' width=30%></center>
-<p><br></p>
-<p>Consider the DataFrame that results from merging <code>midwest</code>
-with itself, as follows:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>double_merge <span class="op">=</span> midwest.merge(midwest, left_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;FROM&#39;</span>)</span></code></pre></div>
-<p>How many rows does <code>double_merge</code> have?</p>
+<p>Fill in Python code below so that the last line of each part evaluates to each desired result, assuming that the following tables are both stored as <code>pandas</code> DataFrames. <strong>You may not use <code>for</code> or <code>while</code> loops in any answer for this question. Only the first few rows are shown for each table.</strong></p>
+<p>The <code>df</code> table (left) records what people ate in kilograms (kg) on each date in 2023. For example, the first row records that Sam ate 0.2 kg of Ribeye on Jan 1, 2023. The <code>foods</code> table (right) records the carbon dioxide (CO2) emissions it takes to produce each kind of food. For example, the first row in the <code>foods</code> table shows that growing 1 kg of mung beans produces 0.1 kg of CO2.</p>
+<center><img src='../assets/images/disc03/data-foods-dsc80.png' width=65%></center>
+<p>Find all the rows in <code>df</code> where Tina was the person eating.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.____</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6">
@@ -590,604 +596,25 @@ with itself, as follows:</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6" class="accordion-collapse collapse collapse"
-aria-labelledby="heading6" data-bs-parent="#accordionExample">
+<div id="collapse6" class="accordion-collapse collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> 38</p>
-<p>There are two flights from DTW. When we merge <code>midwest</code>
-with itself on the <code>'FROM'</code> column, each of these flights
-gets paired up with each of these flights, for a total of four rows in
-the output. That is, the first flight from DTW gets paired with both the
-first and second flights from DTW. Similarly, the second flight from DTW
-gets paired with both the first and second flights from DTW.</p>
-<p>Following this logic, each of the five flights from ORD gets paired
-with each of the five flights from ORD, for an additional 25 rows in the
-output. For MKE, there will be 9 rows in the output. The total is
-therefore <span class="math inline">2^2 + 5^2 + 3^2 = 4 + 25 + 9 =
-38</span> rows.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-7">Problem 7</h2>
-<p>Kyle and Yutong are trying to decide where they’ll study on campus
-and start flipping a Michigan-themed coin, with a picture of the
-Michigan Union on the heads side and a picture of the Shapiro
-Undergraduate Library (aka the UgLi) on the tails side.</p>
-<center><img src='../assets/images/disc03/michigan_union.png' width=400></center>
-<p><br></p>
-<p>Kyle flips the coin 21 times and sees 13 heads and 8 tails. He stores
-this information in a DataFrame named <code>kyle</code> that has 21 rows
-and 2 columns, such that:</p>
-<ul>
-<li><p>The <code>"flips"</code> column contains <code>"Heads"</code> 13
-times and <code>"Tails"</code> 8 times.</p></li>
-<li><p>The <code>"Markley"</code> column contains <code>"Kyle"</code> 21
-times.</p></li>
-</ul>
-<p>Then, Yutong flips the coin 11 times and sees 4 heads and 7 tails.
-She stores this information in a DataFrame named <code>yutong</code>
-that has 11 rows and 2 columns, such that:</p>
-<ul>
-<li><p>The <code>"flips"</code> column contains <code>"Heads"</code> 4
-times and <code>"Tails"</code> 7 times.</p></li>
-<li><p>The <code>"MoJo"</code> column contains <code>"Yutong"</code> 11
-times.</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
-<p>How many rows are in the following DataFrame? Give your answer as an
-integer.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    kyle.merge(yutong, on<span class="op">=</span><span class="st">&quot;flips&quot;</span>)</span></code></pre></div>
-<p><em>Hint: The answer is less than 200.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 108</p>
-<p>Since we used the argument <code>on="flips</code>, rows from
-<code>kyle</code> and <code>yutong</code> will be combined whenever they
-have matching values in their <code>"flips"</code> columns.</p>
-<p>For the <code>kyle</code> DataFrame:</p>
-<ul>
-<li>There are 13 rows with <code>"Heads"</code> in the
-<code>"flips"</code> column.</li>
-<li>There are 8 rows with <code>"Tails"</code> in the
-<code>"flips"</code> column.</li>
-</ul>
-<p>For the <code>yutong</code> DataFrame:</p>
-<ul>
-<li>There are 4 rows with <code>"Heads"</code> in the
-<code>"flips"</code> column.</li>
-<li>There are 7 rows with <code>"Tails"</code> in the
-<code>"flips"</code> column.</li>
-</ul>
-<p>The merged DataFrame will also only have the values
-<code>"Heads"</code> and <code>"Tails"</code> in its
-<code>"flips"</code> column.</p>
-<ul>
-<li>The 13 <code>"Heads"</code> rows from <code>kyle</code> will each
-pair with the 4 <code>"Heads"</code> rows from <code>yutong</code>. This
-results in <span class="math inline">13 \cdot 4 = 52</span> rows with
-<code>"Heads"</code></li>
-<li>The 8 <code>"Tails"</code> rows from <code>kyle</code> will each
-pair with the 7 <code>"Tails"</code> rows from <code>yutong</code>. This
-results in <span class="math inline">8 \cdot 7 = 56</span> rows with
-<code>"Tails"</code>.</li>
-</ul>
-<p>Then, the total number of rows in the merged DataFrame is <span class="math inline">52 + 56 = 108</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
-<p>Let <span class="math inline">A</span> be your answer to the previous
-part. Now, suppose that:</p>
-<ul>
-<li><p><code>kyle</code> contains an additional row, whose
-<code>"flips"</code> value is <code>"Total"</code> and whose
-<code>"Markley"</code> value is 21.</p></li>
-<li><p><code>yutong</code> contains an additional row, whose
-<code>"flips"</code> value is <code>"Total"</code> and whose
-<code>"MoJo"</code> value is 11.</p></li>
-</ul>
-<p>Suppose we again merge <code>kyle</code> and <code>yutong</code> on
-the <code>"flips"</code> column. In terms of <span
-class="math inline">A</span>, how many rows are in the new merged
-DataFrame?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">A</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">A+1</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">A+2</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">A+4</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">A+231</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">A+1</span></p>
-<p>The additional row in each DataFrame has a unique
-<code>"flips"</code> value of <code>"Total"</code>. When we merge on the
-<code>"flips"</code> column, this unique value will only create a single
-new row in the merged DataFrame, as it pairs the <code>"Total"</code>
-from <code>kyle</code> with the <code>"Total"</code> from
-<code>yutong</code>. The rest of the rows are the same as in the
-previous merge, and as such, they will contribute the same number of
-rows, <span class="math inline">A</span>, to the merged DataFrame. Thus,
-the total number of rows in the new merged DataFrame will be <span class="math inline">A</span> (from the original matching rows) plus 1
-(from the new <code>"Total"</code> rows), which sums up to <span class="math inline">A+1</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
-<p>Define <code>small_students</code> to be the DataFrame with 8 rows
-and 2 columns shown directly below, and define <code>districts</code> to
-be the DataFrame with 3 rows and 2 columns shown below
-<code>small_students</code>.</p>
-<!-- <p style="display: flex; justify-content: left; gap: 20px;">
-    <img src='../assets/images/disc03/small_students.png' width=30%>
+<p><strong>Answer</strong>: <code>df.loc[df['name'] == 'Tina']</code></p>
+<p>We can use the <code>loc</code> accessor to select the rows from <code>df</code> under a specific condition, where rows satisfying the condition as <code>True</code> will be selected. In this case, to get the rows where “Tina was the person eating”, our conditional is when a value from the column <code>df['name']</code> is equal to the string <code>'Tina'</code>.</p>
+<hr/>
+<h5>Difficulty: ⭐️⭐️⭐️</h5>
+<p>
 </p>
-<p style="display: flex; justify-content: right; gap: 20px;">
-    <img src='../assets/images/disc03/districts.png' width=30%>
-</p> -->
-<p align="center">
-    <img src='../assets/images/disc03/small_students.png' width=30% style="display:inline-block; margin-right:20px;">
-    <img src='../assets/images/disc03/districts.png' width=30% style="display:inline-block;">
-</p>
-<p>Consider the DataFrame <code>merged</code>, defined below.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> small_students.merge(districts, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                left_on<span class="op">=</span><span class="st">&quot;High School&quot;</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                right_on<span class="op">=</span><span class="st">&quot;school&quot;</span>, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span></code></pre></div>
-<p>How many total <code>NaN</code> values does <code>merged</code>
-contain? Give your answer as an integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8" class="accordion-collapse collapse collapse"
-aria-labelledby="heading8" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>4</p>
-<p><code>merged</code> is shown below.</p>
-<center><img src="../assets/images/disc03/merge-ans-1.png" width="45%"/></center>
+<p>The average score on this problem was 67%.</p>
 </div>
 </div>
 </div>
 </div>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>The DataFrame <code>dogs</code>, contains one row for every
-registered pet dog in Zurich, Switzerland in 2017.</p>
-<p>The first few rows of <code>dogs</code> are shown below, but
-<code>dogs</code> has many more rows than are shown.</p>
-<center><img src="../assets/images/disc03/df.png" width=750></center>
-<p><br></p>
-<ul>
-<li><code>"owner_id" (int)</code>: A unique ID for each owner. Note
-that, for example, there are two rows in the preview for
-<code>4215</code>, meaning that owner has at least 2 dogs.
-<strong>Assume that if an <code>"owner_id"</code> appears in
-<code>dogs</code> multiple times, the corresponding
-<code>"owner_age"</code>, <code>"owner_sex"</code>, and
-<code>"district"</code> are always the same.</strong></li>
-<li><code>"owner_age" (str)</code>: The age group of the owner; either
-<code>"11-20"</code>, <code>"21-30"</code>, …, or <code>"91-100"</code>
-(9 possibilities in total).</li>
-<li><code>"owner_sex" (str)</code>: The birth sex of the owner; either
-<code>"m"</code> (male) or <code>"f"</code> (female).</li>
-<li><code>"district" (int)</code>: The city district the owner lives in;
-a positive integer between <code>1</code> and <code>12</code>
-(inclusive).</li>
-<li><code>"primary_breed" (str)</code>: The primary breed of the
-dog.</li>
-<li><code>"secondary_breed" (str)</code>: The secondary breed of the
-dog. If this column is not null, the dog is a “mixed breed” dog;
-otherwise, the dog is a “purebred” dog.</li>
-<li><code>"dog_sex" (str)</code>: The birth sex of the dog; either
-<code>"m"</code> (male) or <code>"f"</code> (female).</li>
-<li><code>"birth_year" (int)</code>: The birth year of the dog.</li>
-</ul>
-<p>In this question, assume that there are more than 12 districts in
-<code>dogs</code>.</p>
-<p>Suppose we merge the <code>dogs</code> DataFrame with itself as
-follows.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># on=&quot;x&quot; is the same as specifying both left_on=&quot;x&quot; and right_on=&quot;x&quot;.</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>double <span class="op">=</span> dogs.merge(dogs, on<span class="op">=</span><span class="st">&quot;district&quot;</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sort_index sorts a Series in increasing order of its index.</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> double[<span class="st">&quot;district&quot;</span>].value_counts().value_counts().sort_index()</span></code></pre></div>
-<p>The first few rows of <code>square</code> are shown below.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">5500</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>      <span class="dv">215</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>       <span class="dv">40</span></span></code></pre></div>
-<p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
-<p>In <code>dogs</code>, there are 12 rows with a
-<code>"district"</code> of <code>8</code>. How many rows of
-<code>double</code> have a <code>"district"</code> of <code>8</code>?
-Give your answer as a positive integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">144</span></p>
-<p>When we merge <code>dogs</code> with <code>dogs</code> on
-<code>"district"</code>, each <code>8</code> in the first
-<code>dogs</code> DataFrame will be combined with each <code>8</code> in
-the second <code>dogs</code> DataFrame. Since there are 12 in the first
-and 12 in the second, there are <span class="math inline">12 \cdot 12 =
-144</span> combinations.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
-<p>What does the following expression evaluate to? Give your answer as a
-positive integer.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
-<p><em>Hint: Unlike in 5.1, your answer to 5.2 depends on the values in
-<code>square</code>.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_2" class="accordion-collapse collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">120</span></p>
-<p><code>square</code> is telling us that:</p>
-<ul>
-<li>There are 5500 districts that appeared just 1x in
-<code>dogs</code>.</li>
-<li>There are 215 districts that appeared 2x in <code>dogs</code> (2x,
-not 4x, because of the logic explained in the 5a rubric item).</li>
-<li>There are 40 districts that appeared 3x in <code>dogs</code>.</li>
-</ul>
-<p>The expression given in this question is keeping all of the rows
-corresponding to districts that appear 3 times. There are 40 districts
-that appear 3 times. So, the total number of rows in this DataFrame is
-<span class="math inline">40 \cdot 3 = 120</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-10">Problem 10</h2>
-<p>The DataFrame <code>tv_excl</code> contains all of the information we
-have for TV shows that are available to stream <em>exclusively</em> on a
-single streaming service. The <code>"Service"</code> column contains the
-name of the one streaming service that the TV show is available for
-streaming on.</p>
-<p>The first few rows of <code>tv_excl</code> are shown below (though,
-of course, <code>tv_excl</code> has many more rows than are pictured
-here). Note that <em>Being Erica</em> is not in <code>tv_excl</code>,
-since it is available to stream on multiple services.</p>
-<center><img src='../assets/images/disc03/tv-excl.png' width=65%></center>
-<p>The DataFrame <code>counts</code>, shown in full below, contains the
-number of TV shows for every combination of <code>"Age"</code> and
-<code>"Service"</code>.</p>
-<center><img src='../assets/images/disc03/pivot.png' width=40%></center>
-<p>Given the above information, what does the following expression
-evaluate to?</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tv_excl.groupby([<span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Service&quot;</span>]).<span class="bu">sum</span>().shape[<span class="dv">0</span>]</span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> 4</p></li>
-<li><p><input type="radio" disabled="" /> 5</p></li>
-<li><p><input type="radio" disabled="" /> 12</p></li>
-<li><p><input type="radio" disabled="" /> 16</p></li>
-<li><p><input type="radio" disabled="" /> 18</p></li>
-<li><p><input type="radio" disabled="" /> 20</p></li>
-<li><p><input type="radio" disabled="" /> 25</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading10">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse10" class="accordion-collapse collapse collapse"
-aria-labelledby="heading10" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 18</p>
-<p>Note that the DataFrame <code>counts</code> is a pivot table, created
-using
-<code>tv_excl.pivot_table(index="Age", columns="Service", aggfunc="size")</code>.
-As we saw in lecture, pivot tables contain the same information as the
-result of grouping on two columns.</p>
-<p>The DataFrame <code>tv_excl.groupby(["Age", "Service"]).sum()</code>
-will have one row for every unique combination of <code>"Age"</code> and
-<code>"Service"</code> in <code>tv_excl</code>. (The same is true even
-if we used a different aggregation method, like <code>.mean()</code> or
-<code>.max()</code>.) As <code>counts</code> shows us,
-<code>tv_excl</code> contains every possible combination of a single
-element in {<code>"13+"</code>, <code>"16+"</code>, <code>"18+"</code>,
-<code>"7+"</code>, <code>"all"</code>} with a single element in
-{<code>"Disney+"</code>, <code>"Hulu"</code>, <code>"Netflix"</code>,
-<code>"Prime Video"</code>}, except for (<code>"13+"</code>,
-<code>"Disney+"</code>) and (<code>"18+"</code>,
-<code>"Disney+"</code>), which were not present in <code>tv_excl</code>;
-if they were, they would have non-null values in
-<code>counts</code>.</p>
-<p>As such, <code>tv_excl.groupby(["Age", "Service"]).sum()</code> will
-have <span class="math inline">20 - 2 = 18</span> rows, and
-<code>tv_excl.groupby(["Age", "Service"]).sum().shape[0]</code>
-evaluates to 18.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-11">Problem 11</h2>
-<p>The DataFrame <code>flights</code> contains information about recent
-flights, with each row representing a specific flight and the following
-columns:</p>
-<ul>
-<li><code>"flight num" (str)</code>: The unique code of the flight,
-consisting of a two-character airline designator followed by 1 to 4
-digits (e.g., <code>"UA1989"</code>).</li>
-<li><code>"airline" (str)</code>: The airline name (e.g.,
-<code>"United"</code>).</li>
-<li><code>"departure" (str)</code>: The code for the airport from which
-the flight departs (e.g., <code>"SAN"</code>).</li>
-<li><code>"arrival" (str)</code>: The code for the airport at which the
-flight arrives (e.g., <code>"LAX"</code>).</li>
-</ul>
-<p>Suppose we have another DataFrame <code>more_flights</code> which
-contains the same columns as <code>flights</code>, but different rows.
-Define <code>merged</code> as follows.</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>        merged <span class="op">=</span> flights.merge(more_flights, on <span class="op">=</span> <span class="st">&quot;airline&quot;</span>)</span></code></pre></div>
-<p>Suppose that in <code>merged</code>, there are 108 flights where the
-airline is <code>"United"</code>, and in <code>more_flights</code>,
-there are 12 flights where the airline is <code>"United"</code>. If
-<code>flights</code> has 15 rows in total, how many of these rows are
-<strong>not</strong> for <code>"United"</code> flights? Give your answer
-as an integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading11">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse11" class="accordion-collapse collapse collapse"
-aria-labelledby="heading11" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> 6</p>
-<p>We are merging dataframes <code>flights</code> and
-<code>more_flights</code> according to the airline each flight belongs
-to. All the <code>"United"</code> flights in <code>more_flights</code>
-will be merged with all the <code>"United"</code> flights in
-<code>flights</code>, which we know gives us 108 total flights. We also
-know that there are 12 <code>"United"</code> flights in
-<code>more_flights</code>. To find the number of <code>"United"</code>
-flights in <code>flights</code>, we simply need to divide the total
-number of <code>"United"</code> flights in <code>merged</code> by the
-number of <code>"United"</code> flights in <code>more_flights</code>,
-which is 108/12 = 9. If <code>flights</code> has a total of 15 rows,
-then the total number of non-United rows is equal to 15 - 9 = 6.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-12">Problem 12</h2>
-<p>For your convenience, the first few rows of <code>tv</code> are shown
-again below.</p>
-<center><img src='../assets/images/disc03/data-info-wi23-mt.png' width=65%></center>
-<p>For the purposes of this question only, suppose we have also access
-to another similar DataFrame, <code>movies</code>, which contains
-information about a variety of movies. The information we have for each
-movie in <code>movies</code> is the same as the information we have for
-each TV show in <code>tv</code>, except for IMDb ratings, which are
-missing from <code>movies</code>.</p>
-<p>The first few rows of <code>movies</code> are shown below (though
-<code>movies</code> has many more rows than are pictured here).</p>
-<center><img src='../assets/images/disc03/movies-dinfo-wi23-mt.png' width=65%></center>
-<p><br></p>
-<h3 id="problem-12.1">Problem 12.1</h3>
-<p>The function <code>total_null</code>, defined below, takes in a
-DataFrame and returns the total number of null values in the
-DataFrame.</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>total_null <span class="op">=</span> <span class="kw">lambda</span> df: df.isna().<span class="bu">sum</span>().<span class="bu">sum</span>()</span></code></pre></div>
-<p>Consider the function <code>delta</code>, defined below.</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delta(a, b):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    tv_a <span class="op">=</span> tv.head(a)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    movies_b <span class="op">=</span> movies.head(b)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    together <span class="op">=</span> pd.concat([tv_a, movies_b])</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total_null(together) <span class="op">-</span> total_null(tv_a) <span class="op">-</span> total_null(movies_b)</span></code></pre></div>
-<p>Which of the following functions is equivalent to
-<code>delta</code>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>lambda a, b: a</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>lambda a, b: b</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>lambda a, b: 9 * a</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>lambda a, b: 8 * b</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>lambda a, b: min(9 * a, 8 * b)</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading12_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse12_1" class="accordion-collapse collapse collapse"
-aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <code>lambda a, b: b</code></p>
-<p>Let’s understand what each function does.</p>
-<ul>
-<li><code>total_null</code> just counts all the null values in a
-DataFrame.</li>
-<li><code>delta</code> concatenates the first <code>a</code> rows of
-<code>tv</code> with the first <code>b</code> rows of
-<code>movies</code> <strong>vertically</strong>, that is, on top of one
-another (over axis 0). It then returns the difference between the total
-number of null values in the concatenated DataFrame and the total number
-of null values in the first <code>a</code> rows of <code>tv</code> and
-first <code>b</code> rows of <code>movies</code> – in other words, it
-returns <strong>the number of null values that were added as a result of
-the concatenation</strong>.</li>
-</ul>
-<p>The key here is recognizing that <code>tv</code> and
-<code>movies</code> have all of the same column names,
-<strong>except</strong> <code>movies</code> doesn’t have an
-<code>"IMDb"</code> column. As a result, when we concatenate, the
-<code>"IMDb"</code> column will contain null values for every row that
-was originally from <code>movies</code>. Since <code>b</code> rows from
-<code>movies</code> are in the concatenated DataFrame, <code>b</code>
-new null values are introduced as a result of the concatenation, and
-thus <code>lambda, a, b: b</code> does the same thing as
-<code>delta</code>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-12.2">Problem 12.2</h3>
-<p>Fill in the blank to complete the implementation of the function
-<code>size_of_merge</code>, which takes a string <code>col</code>,
-corresponding to the name of a <strong>single</strong> column that is
-shared between <code>tv</code> and <code>movies</code>, and returns the
-<strong>number of rows in</strong> the DataFrame
-<code>tv.merge(movies, on=col)</code>.</p>
-<ul>
-<li><p>For instance, <code>size_of_merge("Year")</code> should return
-the number of rows in <code>tv.merge(movies, on="Year")</code>.</p></li>
-<li><p>The purpose of this question is to have you think conceptually
-about how merges work. As such, <strong>solutions containing
-<code>merge</code> or <code>concat</code> will receive 0
-points.</strong></p></li>
-</ul>
-<p><strong>What goes in the blank below?</strong></p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> size_of_merge(col):</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (____).<span class="bu">sum</span>()</span></code></pre></div>
-<p><strong><em>Hint</em></strong>: Consider the behavior below.</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">=</span> pd.Series({<span class="st">&#39;a&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">3</span>})</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s2 <span class="op">=</span> pd.Series({<span class="st">&#39;c&#39;</span>: <span class="dv">4</span>, <span class="st">&#39;a&#39;</span>: <span class="op">-</span><span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">4</span>})</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">*</span> s2</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>a    <span class="op">-</span><span class="fl">2.0</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>b    <span class="fl">12.0</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>c     NaN</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>dtype: float64</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading12_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse12_2" class="accordion-collapse collapse collapse"
-aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:
-<code>tv[col].value_counts() * movies[col].value_counts()</code></p>
-<p><code>tv.merge(movies, on=col)</code> contains one row for every
-“match” between <code>tv[col]</code> and <code>movies[col]</code>.
-Suppose, for example, that <code>col="Year"</code>. If
-<code>tv["Year"]</code> contains 30 values equal to 2019, and
-<code>movies["Year"]</code> contains 5 values equal to 2019,
-<code>tv.merge(movies, on="Year")</code> will contain <span class="math inline">30 \cdot 5 = 150</span> rows in which the
-<code>"Year"</code> value is equal to 2019 – one for every combination
-of a 2019 row in <code>tv</code> and a 2019 row in
-<code>movies</code>.</p>
-<p><code>tv["Year"].value_counts()</code> and
-<code>movies["Year"].value_counts()</code> contain, respectively, the
-frequencies of the unique values in <code>tv["Year"]</code> and
-<code>movies["Year"]</code>. Using the 2019 example from above,
-<code>tv["Year"].value_counts() * movies["Year"].value_counts()</code>
-will contain a row whose index is 2019 and whose value is 150, with
-similar other entries for the other years in the two Series. (The hint
-is meant to demonstrate the fact that no matter how the two Series are
-sorted, the product is done element-wise by matching up indexes.) Then,
-<code>(tv["Year"].value_counts() * movies["Year"].value_counts()).sum()</code>
-will sum these products across all years, ignoring null values.</p>
-<p>As such, the answer we were looking for is
-<code>tv[col].value_counts() * movies[col].value_counts()</code>
-(remember, <code>"Year"</code> was just an example for this
-explanation).</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
-<h4
-id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
-Feedback: Find an error? Still confused? Have a suggestion? Let us know
-<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
 <hr />
 </body>
 </html>
