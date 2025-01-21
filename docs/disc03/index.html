@@ -152,12 +152,12 @@ Click to view the solution.
 <div id="cb1" class="sourceCode">
 <pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>dogs[<span class="st">"district"</span>].value_counts().idxmax()</span></code></pre>
 </div>
-<p>To find the most common district in the <code>dogs</code> DataFrame, the solution uses the <code>value_counts()</code> method, which counts the occurrences of each unique value in the <code>district</code> column. The <code>idxmax()</code> method is then used to identify the index of the maximum value in the resulting series, which corresponds to the most frequent district. Above, we presented one possible solution, but there are many:</p>
+<p>To find the most common district in the <code>’dogs’</code> DataFrame, the solution uses the <code>value_counts()</code> method, which counts the occurrences of each unique value in the <code>’district’</code> column. The <code>idxmax()</code> method is then used to identify the index of the maximum value in the resulting series, which corresponds to the most frequent district. Above, we presented one possible solution, but there are many:</p>
 <ul>
 <li><p><code>dogs["district"].value_counts().index[0]</code><br/>
 Directly selects the first district in the sorted counts.</p></li>
 <li><p><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code><br/>
-Groups by <code>district</code>, counts rows in each group, sorts by count, and retrieves the first district.</p></li>
+Groups by <code>’district’</code>, counts rows in each group, sorts by count, and retrieves the first district. Additionally, grouping by <code>’district’</code> and using <code>.size()</code> does the same thing as using <code>.value_counts()</code> on the <code>’district’</code> column; the only difference is that the values are sorted in a different order, which is why we set <code>ascending=False</code></p></li>
 <li><p><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code><br/>
 Counts non-NaN values of <code>owner_id</code> for each district, sorts by count, and retrieves the first district.</p></li>
 </ul>
@@ -410,8 +410,7 @@ Click to view the solution.
 <hr />
 <h2 id="problem-4">Problem 4</h2>
 <p>You are given a DataFrame called <code>sports</code>, indexed by <code>'Sport'</code> containing one column, <code>'PlayersPerTeam'</code>. The first few rows of the DataFrame are shown below:</p>
-<center><img src='../assets/images/disc03/sports.png' width=40%></center>
-<p><br /></p>
+<center><img src='../assets/images/disc03/sports.png' width=20%></center>
 <p><br></p>
 <h3 id="problem-4.1">Problem 4.1</h3>
 <p>Which of the following evaluates to <code>'basketball'</code>?</p>
@@ -435,20 +434,20 @@ Click to view the solution.
 </header>
 <p><strong>Answer: </strong> <code>sports.index[1]</code></p>
 <p>We are told that the DataFrame is indexed by <code>'Sport'</code> and <code>'basketball'</code> is one of the elements of the index. To access an element of the index, we use <code>.index</code> to extract the index and square brackets to extract an element at a certain position. Therefore, <code>sports.index[1]</code> will evaluate to <code>'basketball'</code>.</p>
-<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame. We typically use <code>.loc</code> or <code>.iloc</code> on a Series that results from using <code>.get</code> on some column. Although we don’t typically do it this way, it is possible to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame, but doing so would produce an entire row of the DataFrame. Since we want just one word, <code>'basketball'</code>, the first two answer choices must be incorrect.</p>
-<p>The last answer choice is incorrect because we can’t use <code>.get</code> with the index, only with a column. The index is never considered a column.</p>
+<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame.Specifically, <code>sports.loc[1]</code> attempts to locate a row with the index label <code>1</code>. However, since the DataFrame is indexed by <code>'Sport'</code>, and <code>1</code> is not a valid index label, this would result in a KeyError. On the other hand, <code>sports.iloc[1]</code> accesses the second row of the DataFrame (based on zero-based indexing), but it returns the entire row as a Series, including all its columns.</p>
+<p>The last answer choice is incorrect because <code>'Sport'</code> is not a column in the DataFrame. Instead, <code>'Sport'</code> is the index of the DataFrame, which is never considered a column.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
-<p>Which of the following evaluates to <code>5</code>?</p>
+<p>Select all the following that evaluate to <code>5</code>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>sports.loc["basketball", "PlayersPerTeam"]</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>sports["PlayersPerTeam"].loc["basketball"]</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>sports["PlayersPerTeam"].iloc[1]</code></p></li>
-<li><p><input type="radio" disabled="" /> All of the above</p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.loc['basketball', 'PlayersPerTeam']</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports['PlayersPerTeam'].loc['basketball']</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports['PlayersPerTeam'].iloc[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.loc['PlayersPerTeam']['basketball']</code></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -462,13 +461,19 @@ Click to view the solution.
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> <code>All of the above</code></p>
+<p><strong>Answer: </strong> The first three options are correct.</p>
+<h3 id="explanation">Explanation:</h3>
 <ul>
-<li><p><code>sports.loc["basketball", "PlayersPerTeam"]</code>: The <code>.loc</code> method accesses the value of a specific row (<code>"basketball"</code>) and column (<code>"PlayersPerTeam"</code>) by label. This will return <code>5</code>.</p></li>
-<li><p><code>sports["PlayersPerTeam"].loc["basketball"]</code>: Selecting the column <code>'PlayersPerTeam'</code> as a Series and then using <code>.loc["basketball"]</code> accesses the value for the <code>"basketball"</code> index, returning <code>5</code>.</p></li>
-<li><p><code>sports["PlayersPerTeam"].iloc[1]</code>: Selecting the column <code>'PlayersPerTeam'</code> as a Series and using <code>.iloc[1]</code> accesses the second value (index <code>1</code>) in the Series, which corresponds to <code>"basketball"</code>. This will also return <code>5</code>.</p></li>
+<li><p><code>sports.loc['basketball', 'PlayersPerTeam']</code>:<br/>
+The <code>.loc</code> method accesses the value of a specific row (<code>'basketball'</code>) and column (<code>'PlayersPerTeam'</code>) by label. This will return <code>5</code>.</p></li>
+<li><p><code>sports['PlayersPerTeam'].loc['basketball']</code>:<br/>
+Selecting the column <code>'PlayersPerTeam'</code> as a Series and then using <code>.loc['basketball']</code> accesses the value for the <code>'basketball'</code> index, returning <code>5</code>.</p></li>
+<li><p><code>sports['PlayersPerTeam'].iloc[1]</code>:<br/>
+Selecting the column <code>'PlayersPerTeam'</code> as a Series and using <code>.iloc[1]</code> accesses the second value (index <code>1</code>) in the Series, which corresponds to <code>'basketball'</code>. This will also return <code>5</code>.</p></li>
+<li><p><code>sports.loc['PlayersPerTeam']['basketball']</code>:<br/>
+This throws a KeyError because <code>'PlayersPerTeam'</code> is not a valid index label in the DataFrame. The <code>sports</code> DataFrame is indexed by <code>'Sport'</code>, so attempting to locate a row labeled <code>'PlayersPerTeam'</code> is invalid.</p></li>
 </ul>
-<p>Since all three options evaluate to <code>5</code>, the correct answer is <strong><code>All of the above</code></strong>.</p>
+<p>Thus, the correct choices are the first three options, and the last one is incorrect due to an indexing error.</p>
 </div>
 </div>
 </div>

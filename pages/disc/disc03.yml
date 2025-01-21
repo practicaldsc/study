@@ -6,6 +6,6 @@ context: >
 show_solution: true
 problems:
   - disc03/dsc80-wi24-mid-13-14
-  - disc03/dsc80-wi23-mid-3 #p1
-  - disc03/q4-employee-database #p3
-  - disc03/q2-sports #p4
+  - disc03/dsc80-wi23-mid-3 
+  - disc03/q4-employee-database 
+  - disc03/q2-sports 

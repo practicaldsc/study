@@ -1,10 +1,8 @@
 # BEGIN PROB
 You are given a DataFrame called `sports`, indexed by `'Sport'` containing one column, `'PlayersPerTeam'`. The first few rows of the DataFrame are shown below:
 
-<center><img src='../assets/images/disc03/sports.png' width=40%></center>
+<center><img src='../assets/images/disc03/sports.png' width=20%></center>
 
-
-<br />
 
 # BEGIN SUBPROB
 Which of the following evaluates to `'basketball'`?
@@ -20,33 +18,41 @@ Which of the following evaluates to `'basketball'`?
 
 We are told that the DataFrame is indexed by `'Sport'` and `'basketball'` is one of the elements of the index. To access an element of the index, we use `.index` to extract the index and square brackets to extract an element at a certain position. Therefore, `sports.index[1]` will evaluate to `'basketball'`.
 
-The first two answer choices attempt to use `.loc` or `.iloc` directly on a DataFrame. We typically use `.loc` or `.iloc` on a Series that results from using `.get` on some column. Although we don't typically do it this way, it is possible to use `.loc` or `.iloc` directly on a DataFrame, but doing so would produce an entire row of the DataFrame. Since we want just one word, `'basketball'`, the first two answer choices must be incorrect. 
+The first two answer choices attempt to use `.loc` or `.iloc` directly on a DataFrame.Specifically, `sports.loc[1]` attempts to locate a row with the index label `1`. However, since the DataFrame is indexed by `'Sport'`, and `1` is not a valid index label, this would result in a KeyError. On the other hand, `sports.iloc[1]` accesses the second row of the DataFrame (based on zero-based indexing), but it returns the entire row as a Series, including all its columns. 
 
-The last answer choice is incorrect because we can't use `.get` with the index, only with a column. The index is never considered a column.
+The last answer choice is incorrect because `'Sport'` is not a column in the DataFrame. Instead, `'Sport'` is the index of the DataFrame, which is never considered a column.
 
 # END SOLN
 
 # END SUBPROB
 
 # BEGIN SUBPROB
-Which of the following evaluates to `5`?
+Which of the following statements evaluate to `5`? Select all that apply.
 
-( ) `sports.loc["basketball", "PlayersPerTeam"]`  
-( ) `sports["PlayersPerTeam"].loc["basketball"]`  
-( ) `sports["PlayersPerTeam"].iloc[1]`  
-( ) All of the above  
+( ) `sports.loc['basketball', 'PlayersPerTeam']`  
+( ) `sports['PlayersPerTeam'].loc['basketball']`  
+( ) `sports['PlayersPerTeam'].iloc[1]`  
+( ) `sports.loc['PlayersPerTeam']['basketball']`  
 
 # BEGIN SOLN
 
-**Answer: ** `All of the above`
+**Answer: ** The first three options are correct.
 
-- `sports.loc["basketball", "PlayersPerTeam"]`: The `.loc` method accesses the value of a specific row (`"basketball"`) and column (`"PlayersPerTeam"`) by label. This will return `5`.
+### Explanation:
 
-- `sports["PlayersPerTeam"].loc["basketball"]`: Selecting the column `'PlayersPerTeam'` as a Series and then using `.loc["basketball"]` accesses the value for the `"basketball"` index, returning `5`.
+- `sports.loc['basketball', 'PlayersPerTeam']`:  
+  The `.loc` method accesses the value of a specific row (`'basketball'`) and column (`'PlayersPerTeam'`) by label. This will return `5`.
 
-- `sports["PlayersPerTeam"].iloc[1]`: Selecting the column `'PlayersPerTeam'` as a Series and using `.iloc[1]` accesses the second value (index `1`) in the Series, which corresponds to `"basketball"`. This will also return `5`.
+- `sports['PlayersPerTeam'].loc['basketball']`:  
+  Selecting the column `'PlayersPerTeam'` as a Series and then using `.loc['basketball']` accesses the value for the `'basketball'` index, returning `5`.
 
-Since all three options evaluate to `5`, the correct answer is `All of the above`.
+- `sports['PlayersPerTeam'].iloc[1]`:  
+  Selecting the column `'PlayersPerTeam'` as a Series and using `.iloc[1]` accesses the second value (index `1`) in the Series, which corresponds to `'basketball'`. This will also return `5`.
+
+- `sports.loc['PlayersPerTeam']['basketball']`:  
+  This throws a KeyError because `'PlayersPerTeam'` is not a valid index label in the DataFrame. The `sports` DataFrame is indexed by `'Sport'`, so attempting to locate a row labeled `'PlayersPerTeam'` is invalid. 
+
+Thus, the correct choices are the first three options, and the last one is incorrect due to an indexing error.
 
 # END SOLN
 
