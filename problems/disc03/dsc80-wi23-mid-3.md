@@ -89,7 +89,6 @@ The `.value_counts()` method, when called on a Series `s`, produces a new Series
 
 Since `tv["Title"]` is a Series, `tv["Title"].value_counts()` is a Series, and so is `tv["Title"].value_counts.value_counts()`. We provide an interpretation of each of these Series in the solution to the next subpart.
 
-<average>84</average>
 
 # END SOLN
 
@@ -174,7 +173,6 @@ Now, let's look at the second two answer choices. If `double_counts.loc[2] == 5`
 - This makes the fourth answer choice, "If `double_count.loc[2] == 5` is `True`, there are 5 pairs of 2 TV shows such that each pair shares the same `"Title"`", correct. 
 - The third answer choice, "If `double_count.loc[2] == 5` is `True`, there are 5 TV shows that all share the same `"Title"`", is incorrect; if there were 5 TV shows with the same title, then `double_count.loc[5]` would be at least 1, but we can't make any guarantees about `double_counts.loc[2]`.
 
-<average>68</average>
 
 # END SOLN
 

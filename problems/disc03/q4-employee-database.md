@@ -22,7 +22,6 @@ The code says that when the `employees` DataFrame is sorted in descending order 
 
 If the statement had said *greater than or equal to* instead of *greater than*, the statement would have been true.
 
-<average>29</average>
 # END SOLUTION
 
 # END PROB

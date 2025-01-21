@@ -152,12 +152,14 @@ Click to view the solution.
 <div id="cb1" class="sourceCode">
 <pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>dogs[<span class="st">"district"</span>].value_counts().idxmax()</span></code></pre>
 </div>
-<p>Above, we presented one possible solution, but there are many:</p>
+<p>To find the most common district in the <code>dogs</code> DataFrame, the solution uses the <code>value_counts()</code> method, which counts the occurrences of each unique value in the <code>district</code> column. The <code>idxmax()</code> method is then used to identify the index of the maximum value in the resulting series, which corresponds to the most frequent district. Above, we presented one possible solution, but there are many:</p>
 <ul>
-<li><code>dogs["district"].value_counts().idxmax()</code></li>
-<li><code>dogs["district"].value_counts().index[0]</code></li>
-<li><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code></li>
-<li><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code></li>
+<li><p><code>dogs["district"].value_counts().index[0]</code><br/>
+Directly selects the first district in the sorted counts.</p></li>
+<li><p><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code><br/>
+Groups by <code>district</code>, counts rows in each group, sorts by count, and retrieves the first district.</p></li>
+<li><p><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code><br/>
+Counts non-NaN values of <code>owner_id</code> for each district, sorts by count, and retrieves the first district.</p></li>
 </ul>
 </div>
 </div>
@@ -184,7 +186,9 @@ Click to view the solution.
 <pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>loc[dogs[<span class="st">"dog_sex"</span>] <span class="op">==</span> <span class="st">"f"</span>, <span class="st">"primary_breed"</span>]</span></code></pre>
 </div>
 <p>Another possible answer is:</p>
-<p>``<code>py query("dog_sex == 'f'")["primary_breed"]</code></p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>query(<span class="st">"dog_sex == 'f'"</span>)[<span class="st">"primary_breed"</span>]</span></code></pre>
+</div>
 <p>Note that the question <em>didn’t</em> ask for unique primary breeds.</p>
 </div>
 </div>
@@ -285,11 +289,6 @@ Click to view the solution.
 <li>the values are the frequencies of the unique values in <code>s</code>.</li>
 </ul>
 <p>Since <code>tv["Title"]</code> is a Series, <code>tv["Title"].value_counts()</code> is a Series, and so is <code>tv["Title"].value_counts.value_counts()</code>. We provide an interpretation of each of these Series in the solution to the next subpart.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 84%.</p>
 </div>
 </div>
 </div>
@@ -373,11 +372,6 @@ Click to view the solution.
 <li>This makes the fourth answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>”, correct.</li>
 <li>The third answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 TV shows that all share the same <code>"Title"</code>”, is incorrect; if there were 5 TV shows with the same title, then <code>double_count.loc[5]</code> would be at least 1, but we can’t make any guarantees about <code>double_counts.loc[2]</code>.</li>
 </ul>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 68%.</p>
 </div>
 </div>
 </div>
@@ -385,115 +379,8 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>For the problems that follow, we will work with a dataset consisting of various skyscrapers in the US, which we’ve loaded into a DataFrame called <code>sky</code>. The first few rows of <code>sky</code> are shown below (though the full DataFrame has more rows):</p>
-<center><img src='../assets/images/disc03/data-info-sky.png' width=60%></center>
-<p>&nbsp;</p>
-<p>Each row of <code>sky</code> corresponds to a single skyscraper. For each skyscraper, we have:</p>
-<ul>
-<li><p>its name, which is stored in the index of <code>sky</code> (string)</p></li>
-<li><p>the <code>'material'</code> it is made up of (string)</p></li>
-<li><p>the <code>'city'</code> in the US where it is located (string)</p></li>
-<li><p>the number of <code>'floors'</code> (levels) it contains (int)</p></li>
-<li><p>its <code>'height'</code> in meters (float), and</p></li>
-<li><p>the <code>'year'</code> in which it was opened (int)</p></li>
-</ul>
-<p>Below, identify the data type of the result of each of the following expressions, or select “error” if you believe the expression results in an error.</p>
-<p><br></p>
-<h3 id="problem-3.1">Problem 3.1</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sky.sort_values(<span class="st">&#39;height&#39;</span>)</span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> int or float</p></li>
-<li><p><input type="radio" disabled="" /> Boolean</p></li>
-<li><p><input type="radio" disabled="" /> string</p></li>
-<li><p><input type="radio" disabled="" /> array</p></li>
-<li><p><input type="radio" disabled="" /> Series</p></li>
-<li><p><input type="radio" disabled="" /> DataFrame</p></li>
-<li><p><input type="radio" disabled="" /> error</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse collapse" aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> DataFrame</p>
-<p><code>sky</code> is a DataFrame. All the <code>sort_values</code> method does is change the order of the rows in the Series/DataFrame it is called on, it does not change the data structure. As such, <code>sky.sort_values('height')</code> is also a DataFrame.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 87%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.2">Problem 3.2</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sky.index[<span class="dv">0</span>]</span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> int or float</p></li>
-<li><p><input type="radio" disabled="" /> Boolean</p></li>
-<li><p><input type="radio" disabled="" /> string</p></li>
-<li><p><input type="radio" disabled="" /> array</p></li>
-<li><p><input type="radio" disabled="" /> Series</p></li>
-<li><p><input type="radio" disabled="" /> DataFrame</p></li>
-<li><p><input type="radio" disabled="" /> error</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse collapse" aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> string</p>
-<p><code>sky.index</code> contains the values <code>'Bayard-Condict Building'</code>, <code>'The Yacht Club at Portofino'</code>, <code>'City Investing Building'</code>, etc. <code>sky.index[0]</code> is then <code>'Bayard-Condict Building'</code>, which is a string.</p>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 91%.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.3">Problem 3.3</h3>
-<p>Write a single line of code that evaluates to the name of the tallest skyscraper in the <code>sky</code> DataFrame.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse collapse" aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <code>sky.sort_values(by='height', ascending=False).index[0]</code></p>
-<p>In order to answer this question, we must first sort the values of the column we are interested in. As such, we sort the entire DataFrame by the <code>height</code> column, and because we are interested in the name of the tallest building, we should set the <code>ascending</code> parameter to <code>False</code> because we would like the heights to be ordered in descending order, thus leading to the line <code>sky.sort_values(by='height', ascending=False)</code>. After sorting in descending order, we know that the tallest building is going to be the first row of the new <code>sky</code> DataFrame, and thus we now only need to get the name of the skyscraper, which happens to be in the index. In order to access the index of the DataFrame we can use <code>sky.index</code>, and in our case because we know that we want the first index, we would need to write <code>sky.index[0]</code>. Finally, putting it all together, in order to get the name of the tallest skyscraper in the <code>sky</code> DataFrame, we would need to write <code>sky.sort_values(by='Height', ascending=False).index[0]</code>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-4">Problem 4</h2>
 <p>Suppose you are given a DataFrame of employees for a given company. The DataFrame, called <code>employees</code>, is indexed by <code>'employee_id'</code> (string) with a column called <code>'years'</code> (int) that contains the number of years each employee has worked for the company. Suppose that the code</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>employees.sort_values(by<span class="op">=</span><span class="st">&#39;years&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).index[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>employees.sort_values(by<span class="op">=</span><span class="st">&#39;years&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>).index[<span class="dv">0</span>]</span></code></pre></div>
 <p>outputs <code>'2476'</code>.</p>
 <p>True or False: The number of years that employee 2476 has worked for the company is greater than the number of years that any other employee has worked for the company.</p>
 <ul class="task-list">
@@ -502,12 +389,12 @@ Click to view the solution.
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+<h2 class="accordion-header" id="heading3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4" class="accordion-collapse collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+<div id="collapse3" class="accordion-collapse collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -516,55 +403,32 @@ Click to view the solution.
 <p>This is false because there could be other employees who worked at the company equally long as employee 2476.</p>
 <p>The code says that when the <code>employees</code> DataFrame is sorted in descending order of <code>'years'</code>, employee 2476 is in the first row. There might, however, be a tie among several employees for their value of <code>'years'</code>. In that case, employee 2476 may wind up in the first row of the sorted DataFrame, but we cannot say that the number of years employee 2476 has worked for the company is greater than the number of years that any other employee has worked for the company.</p>
 <p>If the statement had said <em>greater than or equal to</em> instead of <em>greater than</em>, the statement would have been true.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 29%.</p>
 </div>
 </div>
 </div>
 </div>
 <hr />
-<h2 id="problem-5">Problem 5</h2>
+<h2 id="problem-4">Problem 4</h2>
 <p>You are given a DataFrame called <code>sports</code>, indexed by <code>'Sport'</code> containing one column, <code>'PlayersPerTeam'</code>. The first few rows of the DataFrame are shown below:</p>
-<table>
-<thead>
-<tr class="header">
-<th>Sport</th>
-<th>PlayersPerTeam</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>baseball</td>
-<td>9</td>
-</tr>
-<tr class="even">
-<td>basketball</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>field hockey</td>
-<td>11</td>
-</tr>
-</tbody>
-</table>
-<p><br /> Which of the following evaluates to <code>'basketball'</code>?</p>
+<center><img src='../assets/images/disc03/sports.png' width=40%></center>
+<p><br /></p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>Which of the following evaluates to <code>'basketball'</code>?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>sports.loc[1]</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports.iloc[1]</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports.index[1]</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>sports.get('Sport').iloc[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports['Sport'].iloc[1]</code></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse5" class="accordion-collapse collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div id="collapse4_1" class="accordion-collapse collapse collapse" aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -573,45 +437,43 @@ Click to view the solution.
 <p>We are told that the DataFrame is indexed by <code>'Sport'</code> and <code>'basketball'</code> is one of the elements of the index. To access an element of the index, we use <code>.index</code> to extract the index and square brackets to extract an element at a certain position. Therefore, <code>sports.index[1]</code> will evaluate to <code>'basketball'</code>.</p>
 <p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame. We typically use <code>.loc</code> or <code>.iloc</code> on a Series that results from using <code>.get</code> on some column. Although we don’t typically do it this way, it is possible to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame, but doing so would produce an entire row of the DataFrame. Since we want just one word, <code>'basketball'</code>, the first two answer choices must be incorrect.</p>
 <p>The last answer choice is incorrect because we can’t use <code>.get</code> with the index, only with a column. The index is never considered a column.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 88%.</p>
 </div>
 </div>
 </div>
 </div>
-<hr />
-<h2 id="problem-6">Problem 6</h2>
-<p>Fill in Python code below so that the last line of each part evaluates to each desired result, assuming that the following tables are both stored as <code>pandas</code> DataFrames. <strong>You may not use <code>for</code> or <code>while</code> loops in any answer for this question. Only the first few rows are shown for each table.</strong></p>
-<p>The <code>df</code> table (left) records what people ate in kilograms (kg) on each date in 2023. For example, the first row records that Sam ate 0.2 kg of Ribeye on Jan 1, 2023. The <code>foods</code> table (right) records the carbon dioxide (CO2) emissions it takes to produce each kind of food. For example, the first row in the <code>foods</code> table shows that growing 1 kg of mung beans produces 0.1 kg of CO2.</p>
-<center><img src='../assets/images/disc03/data-foods-dsc80.png' width=65%></center>
-<p>Find all the rows in <code>df</code> where Tina was the person eating.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.____</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>Which of the following evaluates to <code>5</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>sports.loc["basketball", "PlayersPerTeam"]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports["PlayersPerTeam"].loc["basketball"]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports["PlayersPerTeam"].iloc[1]</code></p></li>
+<li><p><input type="radio" disabled="" /> All of the above</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6" class="accordion-collapse collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+<div id="collapse4_2" class="accordion-collapse collapse collapse" aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <code>df.loc[df['name'] == 'Tina']</code></p>
-<p>We can use the <code>loc</code> accessor to select the rows from <code>df</code> under a specific condition, where rows satisfying the condition as <code>True</code> will be selected. In this case, to get the rows where “Tina was the person eating”, our conditional is when a value from the column <code>df['name']</code> is equal to the string <code>'Tina'</code>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 67%.</p>
+<p><strong>Answer: </strong> <code>All of the above</code></p>
+<ul>
+<li><p><code>sports.loc["basketball", "PlayersPerTeam"]</code>: The <code>.loc</code> method accesses the value of a specific row (<code>"basketball"</code>) and column (<code>"PlayersPerTeam"</code>) by label. This will return <code>5</code>.</p></li>
+<li><p><code>sports["PlayersPerTeam"].loc["basketball"]</code>: Selecting the column <code>'PlayersPerTeam'</code> as a Series and then using <code>.loc["basketball"]</code> accesses the value for the <code>"basketball"</code> index, returning <code>5</code>.</p></li>
+<li><p><code>sports["PlayersPerTeam"].iloc[1]</code>: Selecting the column <code>'PlayersPerTeam'</code> as a Series and using <code>.iloc[1]</code> accesses the second value (index <code>1</code>) in the Series, which corresponds to <code>"basketball"</code>. This will also return <code>5</code>.</p></li>
+</ul>
+<p>Since all three options evaluate to <code>5</code>, the correct answer is <strong><code>All of the above</code></strong>.</p>
 </div>
 </div>
 </div>
 </div>
+<p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
 <h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>

@@ -42,7 +42,6 @@ sky.sort_values('height')
 
 `sky` is a DataFrame. All the `sort_values` method does is change the order of the rows in the Series/DataFrame it is called on, it does not change the data structure. As such, `sky.sort_values('height')` is also a DataFrame.
 
-<average>87</average>
 
 # END SOLN
 
@@ -68,7 +67,6 @@ sky.index[0]
 
 `sky.index` contains the values `'Bayard-Condict Building'`, `'The Yacht Club at Portofino'`, `'City Investing Building'`, etc. `sky.index[0]` is then `'Bayard-Condict Building'`, which is a string.
 
-<average>91</average>
 
 # END SOLN
 

@@ -16,7 +16,6 @@ df.____
 
 We can use the `loc` accessor to select the rows from `df` under a specific condition, where rows satisfying the condition as `True` will be selected. In this case, to get the rows where "Tina was the person eating", our conditional is when a value from the column `df['name']` is equal to the string `'Tina'`.
 
-<average>67</average>
 
 # END SOLN
 
