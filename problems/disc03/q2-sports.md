@@ -27,14 +27,14 @@ The last answer choice is incorrect because `'Sport'` is not a column in the Dat
 # END SUBPROB
 
 # BEGIN SUBPROB
-Select the following statements that evaluate to `5`.
+Which of the following expressions evaluate to `5`?
 
-( ) `sports.loc['basketball', 'PlayersPerTeam']`  
-( ) `sports['PlayersPerTeam'].loc['basketball']`  
-( ) `sports['PlayersPerTeam'].iloc[1]`  
-( ) `sports.loc['PlayersPerTeam']['basketball']`
-( ) `sports.loc['basketball']`   
-( ) `sports.iloc[1]`
+[ ] `sports.loc['basketball', 'PlayersPerTeam']`  
+[ ] `sports['PlayersPerTeam'].loc['basketball']`  
+[ ] `sports['PlayersPerTeam'].iloc[1]`  
+[ ] `sports.loc['PlayersPerTeam']['basketball']`
+[ ] `sports.loc['basketball']`   
+[ ] `sports.iloc[1]`
 
 # BEGIN SOLN
 
