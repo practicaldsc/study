@@ -136,64 +136,10 @@
 <h3 id="problem-1.1">Problem 1.1</h3>
 <p>Fill in the blank so that <code>most_common</code> evaluates to the most common district in <code>dogs</code>. Assume there are no ties.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>most_common <span class="op">=</span> ____</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_1" class="accordion-collapse collapse collapse" aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<div id="cb1" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>dogs[<span class="st">"district"</span>].value_counts().idxmax()</span></code></pre>
-</div>
-<p>To find the most common district in the <code>’dogs’</code> DataFrame, the solution uses the <code>value_counts()</code> method, which counts the occurrences of each unique value in the <code>’district’</code> column. The <code>idxmax()</code> method is then used to identify the index of the maximum value in the resulting series, which corresponds to the most frequent district. Above, we presented one possible solution, but there are many:</p>
-<ul>
-<li><p><code>dogs["district"].value_counts().index[0]</code><br/>
-Directly selects the first district in the sorted counts.</p></li>
-<li><p><code>dogs.groupby("district").size().sort_values(ascending=False).index[0]</code><br/>
-Groups by <code>’district’</code>, counts rows in each group, sorts by count, and retrieves the first district. Additionally, grouping by <code>’district’</code> and using <code>.size()</code> does the same thing as using <code>.value_counts()</code> on the <code>’district’</code> column; the only difference is that the values are sorted in a different order, which is why we set <code>ascending=False</code></p></li>
-<li><p><code>dogs.groupby("district").count()["owner_id"].sort_values(ascending=False).index[0]</code><br/>
-Counts non-NaN values of <code>owner_id</code> for each district, sorts by count, and retrieves the first district.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Fill in the blank so that <code>female_breeds</code> evaluates to a Series containing the primary breeds of all female dogs.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>female_breeds <span class="op">=</span> dogs.____</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_2" class="accordion-collapse collapse collapse" aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<div id="cb1" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>loc[dogs[<span class="st">"dog_sex"</span>] <span class="op">==</span> <span class="st">"f"</span>, <span class="st">"primary_breed"</span>]</span></code></pre>
-</div>
-<p>Another possible answer is:</p>
-<div id="cb2" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>query(<span class="st">"dog_sex == 'f'"</span>)[<span class="st">"primary_breed"</span>]</span></code></pre>
-</div>
-<p>Note that the question <em>didn’t</em> ask for unique primary breeds.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -221,43 +167,6 @@ Click to view the solution.
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p><strong><em>Hint</em></strong>: <code>.T</code> transposes the rows and columns of a DataFrame — the indexes of <code>df</code> are the columns of <code>df.T</code> and vice versa.</p>
 <p>What goes in the blanks?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse collapse" aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ul>
-<li><ol type="a">
-<li><code>:, "Netflix":</code> or some variation of that</li>
-</ol></li>
-<li><ol start="2" type="a">
-<li><code>:, 5:</code> or some variation of that</li>
-</ol></li>
-<li><ol start="3" type="a">
-<li><code>axis=1</code></li>
-</ol></li>
-<li><ol start="4" type="a">
-<li><code>-1, 0</code></li>
-</ol></li>
-</ul>
-<p>In Expression 1, keep in mind that <code>idxmax()</code> is a Series method returns the index of the row with the maximum value. As such, we can infer that Expression 1 sums the service-specific indicator columns (that is, the columns <code>"Netflix"</code>, <code>"Hulu"</code>, <code>"Prime Video"</code>, and <code>"Disney+"</code>) for each row and returns the index of the row with the greatest sum. To do this, we need the <code>loc</code> accessor to select all the service-specific indicator columns, which we can do using <code>loc[:, "Netflix":]</code> or <code>loc[:, ["Netflix", "Hulu", "Prime Video", "Disney+"]]</code>.</p>
-<p>When looking at Expression 2, we can split the problem into two parts: the code inside the <code>assign</code> statement and the code outside of it.</p>
-<ul>
-<li>Glancing at the code inside of the <code>assign</code> statement, (and also noticing the variable <code>num_services</code>), we realize that we, once again, want to sum up the values in the service-specific indicator columns. We do this by first selecting the last four columns, using <code>.iloc[:, 5:]</code> (notice the <code>iloc</code>), and then summing over <code>axis=1</code>. We use <code>axis=1</code> (different from <code>axis=0</code> in Expression 1), because unlike Expression 1, we’re summing over each row, instead of each column. If there had not been a <code>.T</code> in the code for Expression 1, we would’ve also used <code>axis=1</code> in Expression 1.</li>
-<li>Finally, we need to select the <code>"Title"</code> of the last row in DataFrame in Expression 2, because <code>sort_values</code> sorts in ascending order by default. The last row has an integer position of -1, and the <code>"Title"</code> column has an integer position of 0, so we use <code>iloc[-1, 0]</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p>In the following subparts, consider the variable <code>double_count</code>, defined below.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>double_count <span class="op">=</span> tv[<span class="st">&quot;Title&quot;</span>].value_counts().value_counts()</span></code></pre></div>
@@ -270,29 +179,6 @@ Click to view the solution.
 <li><p><input type="radio" disabled="" /> DataFrame</p></li>
 <li><p><input type="radio" disabled="" /> DataFrameGroupBy</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse collapse" aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: Series</p>
-<p>The <code>.value_counts()</code> method, when called on a Series <code>s</code>, produces a new Series in which</p>
-<ul>
-<li>the index contains all unique values in <code>s</code>.</li>
-<li>the values are the frequencies of the unique values in <code>s</code>.</li>
-</ul>
-<p>Since <code>tv["Title"]</code> is a Series, <code>tv["Title"].value_counts()</code> is a Series, and so is <code>tv["Title"].value_counts.value_counts()</code>. We provide an interpretation of each of these Series in the solution to the next subpart.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p>Which of the following statements are true? Select all that apply.</p>
@@ -303,79 +189,6 @@ Click to view the solution.
 <li><p><input type="checkbox" disabled="" /> If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>.</p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse collapse" aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers</strong>:</p>
-<ul>
-<li>The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>.</li>
-<li>If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>.</li>
-</ul>
-<p>To answer, we need to understand what each of <code>tv["Title"]</code>, <code>tv["Title"].value_counts()</code>, and <code>tv["Title"].value_counts().value_counts()</code> contain. To illustrate, let’s start with a basic, unrelated example. Suppose <code>tv["Title"]</code> looks like:</p>
-<div id="cb1" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="dv">0</span>    A</span>
-<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a><span class="dv">1</span>    B</span>
-<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a><span class="dv">2</span>    C</span>
-<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="dv">3</span>    B</span>
-<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="dv">4</span>    D</span>
-<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="dv">5</span>    E</span>
-<span id="cb1-7"><a aria-hidden="true" href="#cb1-7" tabindex="-1"></a><span class="dv">6</span>    A</span>
-<span id="cb1-8"><a aria-hidden="true" href="#cb1-8" tabindex="-1"></a>dtype: <span class="bu">object</span></span></code></pre>
-</div>
-<p>Then, <code>tv["Title"].value_counts()</code> looks like:</p>
-<div id="cb2" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a>A    <span class="dv">2</span></span>
-<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>B    <span class="dv">2</span></span>
-<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>C    <span class="dv">1</span></span>
-<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>D    <span class="dv">1</span></span>
-<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a>E    <span class="dv">1</span></span>
-<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a>dtype: int64</span></code></pre>
-</div>
-<p>and <code>tv["Title"].value_counts().value_counts()</code> looks like:</p>
-<div id="cb3" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="dv">2</span>    <span class="dv">2</span></span>
-<span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>dtype: int64</span></code></pre>
-</div>
-<p>Back to our actual dataset. <code>tv["Title"]</code>, as we know, contains the name of each TV show. <code>tv["Title"].value_counts()</code> is a Series whose index is a sequence of the unique TV show titles in <code>tv["Title"]</code>, and whose values are the frequencies of each title. <code>tv["Title"].value_counts()</code> may look something like the following:</p>
-<div id="cb4" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>Breaking Bad                             <span class="dv">1</span></span>
-<span id="cb4-2"><a aria-hidden="true" href="#cb4-2" tabindex="-1"></a>Fresh Meat                               <span class="dv">1</span></span>
-<span id="cb4-3"><a aria-hidden="true" href="#cb4-3" tabindex="-1"></a>Doctor Thorne                            <span class="dv">1</span></span>
-<span id="cb4-4"><a aria-hidden="true" href="#cb4-4" tabindex="-1"></a>                                       ...</span>
-<span id="cb4-5"><a aria-hidden="true" href="#cb4-5" tabindex="-1"></a>Styling Hollywood                        <span class="dv">1</span></span>
-<span id="cb4-6"><a aria-hidden="true" href="#cb4-6" tabindex="-1"></a>Vai Anitta                               <span class="dv">1</span></span>
-<span id="cb4-7"><a aria-hidden="true" href="#cb4-7" tabindex="-1"></a>Fearless Adventures <span class="cf">with</span> Jack Randall    <span class="dv">1</span></span>
-<span id="cb4-8"><a aria-hidden="true" href="#cb4-8" tabindex="-1"></a>Name: Title, Length: <span class="dv">5368</span>, dtype: int64</span></code></pre>
-</div>
-<p>Then, <code>tv["Title"].value_counts().value_counts()</code> is a Series whose index is a sequence of the unique values in the above Series, and whose values are the frequencies of each value above. In the case where all titles in <code>tv["Title"]</code> are unique, then <code>tv["Title"].value_counts()</code> will only have one unique value, 1, repeated many times. Then, <code>tv["Title"].value_counts().value_counts()</code> will only have one row total, and will look something like:</p>
-<div id="cb5" class="sourceCode">
-<pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5368</span></span>
-<span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>Name: Title, dtype: int64</span></code></pre>
-</div>
-<p>This allows us to distinguish between the first two answer choices. The key is remembering that <strong>in order to set a column to the index, the column should only contain unique values</strong>, since the goal of the index is to provide a “name” (more formally, a label) for each row.</p>
-<ul>
-<li>The first answer choice, “The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.iloc[0] == 1</code> is <code>True</code>”, is false. As we can see in the example above, all titles are unique, but <code>double_count.iloc[0]</code> is something other than 1.</li>
-<li>The second answer choice, “The only case in which it would make sense to set the index of <code>tv</code> to <code>"Title"</code> is if <code>double_count.loc[1] == tv.shape[0]</code> is <code>True</code>”, is true. If <code>double_count.loc[1] == tv.shape[0]</code>, it means that all values in <code>tv["Title"].value_counts()</code> were 1, meaning that <code>tv["Title"]</code> consisted solely of unique values, which is the only case in which it makes sense to set <code>"Title"</code> to the index.</li>
-</ul>
-<p>Now, let’s look at the second two answer choices. If <code>double_counts.loc[2] == 5</code>, it would mean that 5 of the values in <code>tv["Title"].value_counts()</code> were 2. This would mean that there were 5 pairs of titles in <code>tv["Title"]</code> that were the same.</p>
-<ul>
-<li>This makes the fourth answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 pairs of 2 TV shows such that each pair shares the same <code>"Title"</code>”, correct.</li>
-<li>The third answer choice, “If <code>double_count.loc[2] == 5</code> is <code>True</code>, there are 5 TV shows that all share the same <code>"Title"</code>”, is incorrect; if there were 5 TV shows with the same title, then <code>double_count.loc[5]</code> would be at least 1, but we can’t make any guarantees about <code>double_counts.loc[2]</code>.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -387,26 +200,6 @@ Click to view the solution.
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3" class="accordion-collapse collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> False</p>
-<p>This is false because there could be other employees who worked at the company equally long as employee 2476.</p>
-<p>The code says that when the <code>employees</code> DataFrame is sorted in descending order of <code>'years'</code>, employee 2476 is in the first row. There might, however, be a tie among several employees for their value of <code>'years'</code>. In that case, employee 2476 may wind up in the first row of the sorted DataFrame, but we cannot say that the number of years employee 2476 has worked for the company is greater than the number of years that any other employee has worked for the company.</p>
-<p>If the statement had said <em>greater than or equal to</em> instead of <em>greater than</em>, the statement would have been true.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
 <p>You are given a DataFrame called <code>sports</code>, indexed by <code>'Sport'</code> containing one column, <code>'PlayersPerTeam'</code>. The first few rows of the DataFrame are shown below:</p>
@@ -420,26 +213,6 @@ Click to view the solution.
 <li><p><input type="radio" disabled="" /> <code>sports.index[1]</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports['Sport'].iloc[1]</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_1" class="accordion-collapse collapse collapse" aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <code>sports.index[1]</code></p>
-<p>We are told that the DataFrame is indexed by <code>'Sport'</code> and <code>'basketball'</code> is one of the elements of the index. To access an element of the index, we use <code>.index</code> to extract the index and square brackets to extract an element at a certain position. Therefore, <code>sports.index[1]</code> will evaluate to <code>'basketball'</code>.</p>
-<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame. Specifically, <code>sports.loc[1]</code> attempts to locate a row with the index label <code>1</code>. However, since the DataFrame is indexed by <code>'Sport'</code>, and <code>1</code> is not a valid index label, this would result in a KeyError. On the other hand, <code>sports.iloc[1]</code> accesses the second row of the DataFrame (based on zero-based indexing), but it returns the entire row as a Series, including all its columns.</p>
-<p>The last answer choice is incorrect because <code>'Sport'</code> is not a column in the DataFrame. Instead, <code>'Sport'</code> is the index of the DataFrame, which is never considered a column.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>Select the following statements that evaluate to <code>5</code>.</p>
@@ -451,36 +224,6 @@ Click to view the solution.
 <li><p><input type="radio" disabled="" /> <code>sports.loc['basketball']</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports.iloc[1]</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse collapse" aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> The first three options are correct.</p>
-<h3 id="explanation">Explanation:</h3>
-<ul>
-<li><p><code>sports.loc['basketball', 'PlayersPerTeam']</code>:<br/>
-<code>.loc</code> will access the value of a specific row (<code>'basketball'</code>) and column (<code>'PlayersPerTeam'</code>) by label. This will return <code>5</code>.</p></li>
-<li><p><code>sports['PlayersPerTeam'].loc['basketball']</code>:<br/>
-Selecting the column <code>'PlayersPerTeam'</code> as a Series and then using <code>.loc['basketball']</code> accesses the value for the <code>'basketball'</code> index, returning <code>5</code>.</p></li>
-<li><p><code>sports['PlayersPerTeam'].iloc[1]</code>:<br/>
-Selecting the column <code>'PlayersPerTeam'</code> as a Series and using <code>.iloc[1]</code> accesses the second value (index <code>1</code>) in the Series, which corresponds to <code>'basketball'</code>. This will also return <code>5</code>.</p></li>
-<li><p><code>sports.loc['PlayersPerTeam']['basketball']</code>:<br/>
-This throws a KeyError because <code>'PlayersPerTeam'</code> is not a valid index label in the DataFrame. The <code>sports</code> DataFrame is indexed by <code>'Sport'</code>, so attempting to locate a row labeled <code>'PlayersPerTeam'</code> is invalid.</p></li>
-<li><p><code>sports.loc['basketball']</code>: While this syntax is valid, it retrieves the entire row corresponding to the index <code>'basketball'</code>. The result will be a Series, not just the single value.</p></li>
-<li><p><code>sports.iloc[1]</code>: In this case, <code>sports.iloc[1]</code> retrieves the entire second row of the DataFrame.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
