@@ -45,6 +45,11 @@ You should work on these problems **on paper**, since your exams will also be on
       <th scope="row">2</th>
       <td>Thursday, January 16th</td>
       <td><a href="disc02/index.html">Arrays and Probability</a></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Thursday, January 23rd</td>
+      <td><a href="disc03/index.html">DataFrames and Querying</a></td>
     <!-- </tr>
     <tr>
       <th scope="row">3</th>
