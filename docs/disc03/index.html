@@ -434,7 +434,7 @@ Click to view the solution.
 </header>
 <p><strong>Answer: </strong> <code>sports.index[1]</code></p>
 <p>We are told that the DataFrame is indexed by <code>'Sport'</code> and <code>'basketball'</code> is one of the elements of the index. To access an element of the index, we use <code>.index</code> to extract the index and square brackets to extract an element at a certain position. Therefore, <code>sports.index[1]</code> will evaluate to <code>'basketball'</code>.</p>
-<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame.Specifically, <code>sports.loc[1]</code> attempts to locate a row with the index label <code>1</code>. However, since the DataFrame is indexed by <code>'Sport'</code>, and <code>1</code> is not a valid index label, this would result in a KeyError. On the other hand, <code>sports.iloc[1]</code> accesses the second row of the DataFrame (based on zero-based indexing), but it returns the entire row as a Series, including all its columns.</p>
+<p>The first two answer choices attempt to use <code>.loc</code> or <code>.iloc</code> directly on a DataFrame. Specifically, <code>sports.loc[1]</code> attempts to locate a row with the index label <code>1</code>. However, since the DataFrame is indexed by <code>'Sport'</code>, and <code>1</code> is not a valid index label, this would result in a KeyError. On the other hand, <code>sports.iloc[1]</code> accesses the second row of the DataFrame (based on zero-based indexing), but it returns the entire row as a Series, including all its columns.</p>
 <p>The last answer choice is incorrect because <code>'Sport'</code> is not a column in the DataFrame. Instead, <code>'Sport'</code> is the index of the DataFrame, which is never considered a column.</p>
 </div>
 </div>
@@ -442,12 +442,14 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
-<p>Select all the following that evaluate to <code>5</code>?</p>
+<p>Select the following statements that evaluate to <code>5</code>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>sports.loc['basketball', 'PlayersPerTeam']</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports['PlayersPerTeam'].loc['basketball']</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports['PlayersPerTeam'].iloc[1]</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>sports.loc['PlayersPerTeam']['basketball']</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.loc['basketball']</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>sports.iloc[1]</code></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -465,15 +467,16 @@ Click to view the solution.
 <h3 id="explanation">Explanation:</h3>
 <ul>
 <li><p><code>sports.loc['basketball', 'PlayersPerTeam']</code>:<br/>
-The <code>.loc</code> method accesses the value of a specific row (<code>'basketball'</code>) and column (<code>'PlayersPerTeam'</code>) by label. This will return <code>5</code>.</p></li>
+<code>.loc</code> will access the value of a specific row (<code>'basketball'</code>) and column (<code>'PlayersPerTeam'</code>) by label. This will return <code>5</code>.</p></li>
 <li><p><code>sports['PlayersPerTeam'].loc['basketball']</code>:<br/>
 Selecting the column <code>'PlayersPerTeam'</code> as a Series and then using <code>.loc['basketball']</code> accesses the value for the <code>'basketball'</code> index, returning <code>5</code>.</p></li>
 <li><p><code>sports['PlayersPerTeam'].iloc[1]</code>:<br/>
 Selecting the column <code>'PlayersPerTeam'</code> as a Series and using <code>.iloc[1]</code> accesses the second value (index <code>1</code>) in the Series, which corresponds to <code>'basketball'</code>. This will also return <code>5</code>.</p></li>
 <li><p><code>sports.loc['PlayersPerTeam']['basketball']</code>:<br/>
 This throws a KeyError because <code>'PlayersPerTeam'</code> is not a valid index label in the DataFrame. The <code>sports</code> DataFrame is indexed by <code>'Sport'</code>, so attempting to locate a row labeled <code>'PlayersPerTeam'</code> is invalid.</p></li>
+<li><p><code>sports.loc['basketball']</code>: While this syntax is valid, it retrieves the entire row corresponding to the index <code>'basketball'</code>. The result will be a Series, not just the single value.</p></li>
+<li><p><code>sports.iloc[1]</code>: In this case, <code>sports.iloc[1]</code> retrieves the entire second row of the DataFrame.</p></li>
 </ul>
-<p>Thus, the correct choices are the first three options, and the last one is incorrect due to an indexing error.</p>
 </div>
 </div>
 </div>
