@@ -2,7 +2,7 @@
 
 Suppose we create a DataFrame called `midwest` containing Nishant's flights departing from DTW, ORD, and MKE. `midwest` has 10 rows; the bar chart below shows how many of these 10 flights departed from each airport.
 
-<center><img src='../assets/images/disc03/midwest.png' width=30%></center>
+<center><img src='../assets/images/disc04_new/midwest.png' width=30%></center>
 <br>
 
 Consider the DataFrame that results from merging `midwest` with itself, as follows:

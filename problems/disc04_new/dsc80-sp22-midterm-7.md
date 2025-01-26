@@ -12,8 +12,8 @@ with 3 rows and 2 columns shown below `small_students`.
 </p> -->
 
 <p align="center">
-    <img src='../assets/images/disc03/small_students.png' width=30% style="display:inline-block; margin-right:20px;">
-    <img src='../assets/images/disc03/districts.png' width=30% style="display:inline-block;">
+    <img src='../assets/images/disc04_new/small_students.png' width=30% style="display:inline-block; margin-right:20px;">
+    <img src='../assets/images/disc04_new/districts.png' width=30% style="display:inline-block;">
 </p>
 
 Consider the DataFrame `merged`, defined below.

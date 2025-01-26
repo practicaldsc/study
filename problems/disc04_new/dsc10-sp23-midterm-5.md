@@ -5,7 +5,7 @@ start flipping a Michigan-themed coin, with a picture of the Michigan Union
 on the heads side and a picture of the Shapiro Undergraduate Library (aka
 the UgLi) on the tails side.
 
-<center><img src='../assets/images/disc03/michigan_union.png' width=400></center>
+<center><img src='../assets/images/disc04_new/michigan_union.png' width=400></center>
 <br>
 
 Kyle flips the coin 21 times and sees 13 heads and 8 tails. He stores
