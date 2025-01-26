@@ -8,8 +8,9 @@ problems:
   - disc04_new/dsc10-wi24-quiz2-5 # groupby
   - disc04_new/dsc10-disc3-4 # groupby
   - disc04_new/dsc10-fa23-quiz2-2 # merge
-  - disc04_new/dsc10-fa21-midterm-5 # merge
+  - disc04/dsc80-sp22-mid-q3-6 # pivot
   - disc04_new/dsc80-wi24-midterm-5 # double val counts
+  - disc04_new/dsc10-fa21-midterm-5 # merge
   - disc04_new/dsc10-sp23-midterm-5 # merge
   - disc04_new/dsc80-sp24-midterm-1 # groupby
   - disc04_new/dsc80-sp22-midterm-7 # merge
@@ -17,3 +18,5 @@ problems:
   - disc04_new/dsc80-wi23-midterm-6 
   - disc04_new/dsc10-wi24-quiz3-3 
   - disc04_new/dsc80-wi23-midterm-5 
+  - disc04/dsc80-sp22-final-q1
+
