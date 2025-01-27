@@ -50,12 +50,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <th scope="row">3</th>
       <td>Thursday, January 23rd</td>
       <td><a href="disc03/index.html">DataFrames and Querying</a></td>
-    <!-- <tr>
-      <th scope="row">3</th>
-      <td>Friday, September 13th</td>
-      <td><a href="disc03/index.html">Grouping, Merging, and Pivoting</a></td>
-    </tr>
     <tr>
+      <th scope="row">3</th>
+      <td>Thursday, January 30th</td>
+      <td><a href="disc04/index.html">Grouping, Merging, and Pivoting</a></td>
+    </tr>
+    <!--<tr>
       <th scope="row">4</th>
       <td>Friday, September 20th</td>
       <td><a href="disc04/index.html">Visualization, Missing Values, More Practice</a></td>

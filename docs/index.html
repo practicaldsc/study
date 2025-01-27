@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="assets/theme.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -26,7 +31,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- add after bootstrap.min.css -->
-<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
 <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
 <!-- for difficulty gauges-->
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
@@ -41,16 +47,29 @@
 </script>
 <!-- <h1><a href=''>🧠 Study Problems</a></h1> -->
 <h3>
-<a href='https://practicaldsc.org'>EECS 398: Practical Data Science at the University of Michigan</a>
+<a href='https://practicaldsc.org'>EECS 398: Practical Data Science at
+the University of Michigan</a>
 </h3>
 <hr />
-<p>Welcome to the <strong>Study Site</strong>! This site contains practice problems taken from prior offerings of <em>Practical Data Science</em> and related courses taught at UC San Diego. The problems here will be similar in style to the problems on our exams, but they will not be identical – expect to be challenged!</p>
+<p>Welcome to the <strong>Study Site</strong>! This site contains
+practice problems taken from prior offerings of <em>Practical Data
+Science</em> and related courses taught at UC San Diego. The problems
+here will be similar in style to the problems on our exams, but they
+will not be identical – expect to be challenged!</p>
 <p>Problems are organized in two ways:</p>
 <ul>
-<li>Most problems are organized into <strong>discussion worksheets</strong>. Each discussion problem set contains problems about a particular topic. Come to discussions to work on these problem sets in groups, with the help of our course staff. Solutions will be made available each week after all discussion sections have concluded.</li>
-<li>You can find the exams for this class specifically in the second table. (There’s only one exam here so far – the Fall 2024 Midterm Exam – but its detailed solutions are available, too.)</li>
+<li>Most problems are organized into <strong>discussion
+worksheets</strong>. Each discussion problem set contains problems about
+a particular topic. Come to discussions to work on these problem sets in
+groups, with the help of our course staff. Solutions will be made
+available each week after all discussion sections have concluded.</li>
+<li>You can find the exams for this class specifically in the second
+table. (There’s only one exam here so far – the Fall 2024 Midterm Exam –
+but its detailed solutions are available, too.)</li>
 </ul>
-<p>You should work on these problems <strong>on paper</strong>, since your exams will also be on paper. Even though you will see some multiple choice bubbles, you intentionally cannot select them.</p>
+<p>You should work on these problems <strong>on paper</strong>, since
+your exams will also be on paper. Even though you will see some multiple
+choice bubbles, you intentionally cannot select them.</p>
 <hr />
 <h3 id="discussions-in-winter-2025">💯 Discussions in Winter 2025</h3>
 <center>
@@ -106,12 +125,18 @@ Thursday, January 23rd
 <td>
 <a href="disc03/index.html">DataFrames and Querying</a>
 </td>
-<!-- <tr>
-      <th scope="row">3</th>
-      <td>Friday, September 13th</td>
-      <td><a href="disc03/index.html">Grouping, Merging, and Pivoting</a></td>
-    </tr>
-    <tr>
+<tr>
+<th scope="row">
+3
+</th>
+<td>
+Thursday, January 30th
+</td>
+<td>
+<a href="disc04/index.html">Grouping, Merging, and Pivoting</a>
+</td>
+</tr>
+<!--<tr>
       <th scope="row">4</th>
       <td>Friday, September 20th</td>
       <td><a href="disc04/index.html">Visualization, Missing Values, More Practice</a></td>
@@ -191,7 +216,10 @@ Thursday, January 23rd
 <p><br></p>
 <hr />
 <h3 id="exams">🧪 Exams</h3>
-<p><b>Note: We recommend setting aside these exams as complete “practice exams” that you can work on in their entirety. That is, DON’T look at them until you’ve already studied for the exams, using the discussion problems above!</b></p>
+<p><b>Note: We recommend setting aside these exams as complete “practice
+exams” that you can work on in their entirety. That is, DON’T look at
+them until you’ve already studied for the exams, using the discussion
+problems above!</b></p>
 <center>
 <table class="table" style="width:60%">
 <colgroup>
@@ -221,7 +249,8 @@ Fall 2024
 Suraj Rampure
 </td>
 <td>
-<a href='fa24-midterm/index.html'>Midterm</a><br> <a href='fa24-final/index.html'>Final</a>
+<a href='fa24-midterm/index.html'>Midterm</a><br>
+<a href='fa24-final/index.html'>Final</a>
 </td>
 </tr>
 </tbody>
@@ -229,7 +258,10 @@ Suraj Rampure
 </center>
 <p><br></p>
 <hr />
-<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
 <hr />
 </body>
 </html>

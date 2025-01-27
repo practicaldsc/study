@@ -34,7 +34,7 @@ an integer.
 
 `merged` is shown below.
 
-<center><img src='../assets/images/disc03/merge-ans-1.png' width=45%></center>
+<center><img src='../assets/images/disc04/merge-ans-1.png' width=45%></center>
 
 # END SOLN
 
