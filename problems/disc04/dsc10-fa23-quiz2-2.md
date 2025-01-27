@@ -11,7 +11,7 @@ For each item, we have:
 
 The first 6 rows of `items` are below, though `items` has more rows than are shown here.
 
-<center><img src="../assets/images/disc04_new/items.png" width=500></center>
+<center><img src="../assets/images/disc04/items.png" width=500></center>
 
 
 The DataFrame `keepers` has 5 rows, each of which represent a different
@@ -19,7 +19,7 @@ shopkeeper in the *Animal Crossing: New Horizons* universe.
 
 `keepers` is shown below in its entirety.
 
-<center><img src="../../assets/images/disc04_new/keepers1.png" width=350></center>
+<center><img src="../../assets/images/disc04/keepers1.png" width=350></center>
 
 <br>
 

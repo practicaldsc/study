@@ -8,7 +8,7 @@ For each item, we have:
 
 The first 6 rows of `items` are below, though `items` has more rows than are shown here.
 
-<center><img src="../assets/images/disc04_new/items.png" width=600></center>
+<center><img src="../assets/images/disc04/items.png" width=600></center>
 
 # BEGIN PROB
 

@@ -5,7 +5,7 @@ The `h` table records addresses within San Diego. Only 50 addresses are recorded
 - `"number" (int)`: Street address number
 - `"street" (str)`: Street name
 
-<center><img src="../assets/images/disc04_new/h.png" width=400></center>
+<center><img src="../assets/images/disc04/h.png" width=400></center>
 
 Fill in the Python code to create a DataFrame containing the proportion of 4-digit address numbers for each unique street in `h`.
 
