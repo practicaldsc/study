@@ -1,4 +1,4 @@
-title: "Visualization, Missing Values, More Practice"
+title: "Web Scraping"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -6,17 +6,6 @@ context: >
 show_solution: true
 problems:
   # Earlier problems
-  - disc04/dsc10-wi23-final-q3.3
-  - disc04/dsc10-fa22-mid-q2
-  - disc04/dsc10-fa21-mid-q7
-  - disc04/dsc80-wi24-final-q3
-  - disc04/dsc80-wi24-mid-q6
-  - disc04/dsc80-wi24-final-q1
-  - disc04/dsc80-sp22-mid-q8
-  - disc04/dsc10-sp24-mid-q6
-
-  # Later problems
-  # - disc04/dsc80-sp22-mid-q3-6
-  # - disc04/dsc80-sp22-final-q1
-  - disc04/dsc80-sp22-final-q2
-  - disc04/dsc10-fa22-mid-q7
+  - disc05_old/dsc80-fa21-final-q2 #p1
+  - disc05_old/dsc80-sp22-final-q06 #p3
+  - disc05_old/dsc80-sp23-final-q04 #p4

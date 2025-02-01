@@ -49,7 +49,7 @@ support@thebookclub.com</a>.
 
 Which is the equivalent Document Object Model (DOM) tree of this HTML file?
 
-<center><img  src='../assets/images/disc05/q4.png'  width=100%></center>
+<center><img  src='../assets/images/disc05/q4.png'  width=40%></center>
 
 ( ) Tree A
 ( ) Tree B

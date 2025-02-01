@@ -1,4 +1,4 @@
-title: "Web Scraping"
+title: "Visualization, Imputation, and Web Scraping"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -6,7 +6,27 @@ context: >
 show_solution: true
 problems:
   # Earlier problems
-  - disc05/dsc80-fa21-final-q2 #p1
-  - disc05/dsc80-wi23-final-q05 #p2
-  - disc05/dsc80-sp22-final-q06 #p3
+  - disc05/dsc10-fa22-mid-q2 # vis
+  - disc05/dsc80-wi24-final-q3 # conceptual mean imputation
+  - disc05/dsc80-wi24-mid-q6
+  # - disc05/dsc80-wi24-final-q1
+  # - disc05/dsc80-sp22-mid-q8
+  # - disc05/dsc10-sp24-mid-q6
+
+  # Later problems
+
+  - disc05/dsc80-wi23-final-q05 # bs
+  - disc05/dsc80-sp22-final-q06 # bs
   - disc05/dsc80-sp23-final-q04 #p4
+  - disc05/dsc80-fa21-final-q2 #p1
+  - disc05/dsc10-fa21-mid-q7 # vis
+
+  # - disc05/dsc80-sp22-mid-q3-6
+  # - disc05/dsc80-sp22-final-q1
+  # - disc05/dsc80-sp22-final-q2
+  # - disc05/dsc10-fa22-mid-q7
+
+
+
+
+

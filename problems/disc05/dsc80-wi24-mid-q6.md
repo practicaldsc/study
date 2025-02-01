@@ -10,12 +10,12 @@ in a new `"class"` column of `dogs`.
 The following bar chart shows the distribution of breed classes by
 missingness of age:
 
-<center><img src="../../assets/images/disc04/dist-missingness.png" width=400></center>
+<center><img src="../../assets/images/disc05/dist-missingness.png" width=400></center>
 
 The following bar chart shows the mean observed
 age for each breed class:
 
-<center><img src="../../assets/images/disc04/mean-ages.png" width=400></center>
+<center><img src="../../assets/images/disc05/mean-ages.png" width=400></center>
 
 
 # BEGIN SUBPROB
@@ -67,7 +67,7 @@ In one sentence, describe this imputation strategy.
 
 `small_dogs` is a subset of `dogs` shown in its entirety below.
 
-<center><img src="../../assets/images/disc04/with-miss.png" width=200></center>
+<center><img src="../../assets/images/disc05/with-miss.png" width=200></center>
 
 If we call `fill_missing` on `small_dogs`, what values would the four
 null values in the `"age"` column of `small_dogs` be replaced with?

@@ -3,7 +3,7 @@
 In September 2020, Governor Gavin Newsom announced that by 2035, all new vehicles sold in California must be zero-emissions vehicles. Electric vehicles (EVs) are among the most popular zero-emissions vehicles (though other examples include plug-in hybrids and hydrogen
 fuel cell vehicles).
 
-<center><img src='../assets/images/disc04/data22.png' width=20%></center>
+<center><img src='../assets/images/disc05/data22.png' width=20%></center>
 <br>
 
 The DataFrame `evs` consists of **32** rows, each of which contains information about a different EV model.
@@ -17,7 +17,7 @@ The DataFrame `evs` consists of **32** rows, each of which contains information 
 
 The first few rows of `evs` are shown below (though remember, `evs` has 32 rows total).
 
-<center><img src='../assets/images/disc04/form22.png' width=60%></center>
+<center><img src='../assets/images/disc05/form22.png' width=60%></center>
 <br>
 
 **Throughout this problem, we will refer to `evs` repeatedly.**

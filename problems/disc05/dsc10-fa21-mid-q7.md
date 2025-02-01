@@ -6,7 +6,7 @@ The seat-back TV on one of Biff the Wolverine's more recent flights was very dir
 fingerprints.plot(kind='scatter', x='x', y='y')
 ```
 
-<center><img src='../assets/images/disc04/mt-hist.png' width=20%></center>
+<center><img src='../assets/images/disc05/mt-hist.png' width=20%></center>
 
 
 # BEGIN SUBPROB
@@ -43,7 +43,7 @@ Both histograms use the same bins: `bins=np.arange(0, 8, 2)`. This means the bin
 
 Let's look at the `x`-values first. If we divide the scatterplot into nine equally-sized regions, as shown below, note that eight of the nine regions have a very similar number of data points. 
 
-<center><img src='../assets/images/disc04/regions.png' width=20%></center>
+<center><img src='../assets/images/disc05/regions.png' width=20%></center>
 
 Aside from the middle region, about $\frac{1}{8}$ of the data falls in each region. That means $\frac{3}{8}$ of the data has an `x`-value in the first bin $[0, 2)$, $\frac{2}{8}$ of the data has an `x`-value in the middle bin $[2, 4)$, and $\frac{3}{8}$ of the data has an `x`-value in the rightmost bin $[4, 6]$. This distribution of `x`-values into bins determines what the histogram will look like.
 
@@ -67,7 +67,7 @@ fingerprints.plot(kind='hist',
 
 However, our Jupyter Notebook was corrupted, and so the resulting histogram doesn't quite look right. While the height of the first bar is correct, the histogram doesn't contain the second or third bars, and the y-axis is replaced with letters.
 
-<center><img src='../assets/images/disc04/mt-hist-2.png' width=30%></center>
+<center><img src='../assets/images/disc05/mt-hist-2.png' width=30%></center>
 
 Which of the four options on the y-axis is closest to where the height of the middle bar should be?
 
