@@ -110,8 +110,4 @@ In which option was probabilistic imputation conditional on
 
 # END SUBPROB
 
-In parts (e) and (f), suppose we want to run a permutation test to
-determine whether the missingness of `"genre rank"` depends on
-`"genre"`.
-
 # END PROB
