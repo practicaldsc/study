@@ -55,12 +55,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, January 30th</td>
       <td><a href="disc04/index.html">Grouping, Merging, and Pivoting</a></td>
     </tr>
-    <!--<tr>
-      <th scope="row">4</th>
-      <td>Friday, September 20th</td>
-      <td><a href="disc04/index.html">Visualization, Missing Values, More Practice</a></td>
-    </tr>
     <tr>
+      <th scope="row">5</th>
+      <td>Thursday, February 6th</td>
+      <td><a href="disc05/index.html">Visualization, Imputation, and Web Scraping</a></td>
+    </tr>
+    <!--<tr>
       <th scope="row">5</th>
       <td>Friday, September 27th</td>
       <td><a href="disc05/index.html">Web Scraping</a></td>
