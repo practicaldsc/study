@@ -122,8 +122,6 @@ What is the purpose of the `alt` attribute in the `img` tag?
 # BEGIN SOLN
 **Answer: ** Option D
 
-^pretty self-explanatory.
-
 
 # END SOLN
 

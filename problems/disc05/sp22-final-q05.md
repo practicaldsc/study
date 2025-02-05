@@ -30,7 +30,6 @@ In which option was unconditional mean imputation used?
 
 Explanation given in part d) below
 
-<average>99</average>
 
 # END SOLN
 
@@ -47,7 +46,6 @@ used?
 
 Explanation given in part d) below
 
-<average>96</average>
 
 # END SOLN
 
@@ -64,7 +62,6 @@ used?
 
 Explanation given in part d) below
 
-<average>92</average>
 
 # END SOLN
 
@@ -104,7 +101,6 @@ In which option was probabilistic imputation conditional on
     and thus probabilistic imputation conditional on `"genre"` must have
     been used in Option A.
 
-<average>92</average>
 
 # END SOLN
 

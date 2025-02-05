@@ -186,37 +186,6 @@ the distribution of <code>"Range"</code>? Select all that apply.</p>
 <li><p><input type="checkbox" disabled="" /> Box plot</p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_1" class="accordion-collapse collapse"
-aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Histogram or box plot</p>
-<p><code>"Range"</code> is a numerical (i.e. quantitative) variable, and
-we use histograms and box plots to visualize the distribution of
-numerical features.</p>
-<ul>
-<li>A bar chart couldn’t work here. Bar charts can show the distribution
-of a categorical feature, but <code>"Range"</code> is not
-categorical.</li>
-<li>A scatter plot visualizes the relationship between two numerical
-features, but we are only dealing with one numerical feature here
-(<code>"Range"</code>).</li>
-<li>Similarly, a line plot visualizes the relationship between two
-numerical features, but we only have one here.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Teslas, on average, tend to have higher <code>"Range"</code>s than
@@ -230,52 +199,6 @@ this pattern? Select all that apply.</p>
 <code>"Range"</code> for each <code>"Brand"</code></p></li>
 <li><p><input type="checkbox" disabled="" /> A scatter plot with <code>"TopSpeed"</code> on the <span class="math inline">x</span>-axis and <code>"Range"</code> on the <span class="math inline">y</span>-axis</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_2" class="accordion-collapse collapse"
-aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<ul>
-<li>A bar chart that shows the average <code>"Range"</code> for each
-<code>"Brand"</code></li>
-<li>An overlaid histogram showing the distribution of
-<code>"Range"</code> for each <code>"Brand"</code></li>
-</ul>
-<p>Let’s look at each option more closely.</p>
-<ul>
-<li><p><strong>Option 1:</strong> A bar chart showing the distribution
-of <code>"Brand"</code> would only show us how many cars of each
-<code>"Brand"</code> there are. It would not tell us anything about the
-average <code>"Range"</code> of each <code>"Brand"</code>.</p></li>
-<li><p><strong>Option 2:</strong> A bar chart showing the average range
-for each <code>"Brand"</code> would help us directly visualize how the
-average range of each <code>"Brand"</code> compares to one
-another.</p></li>
-<li><p><strong>Option 3:</strong> An overlaid histogram, although
-perhaps a bit messy, would also give us a general idea of the average
-range of each <code>"Brand"</code> by giving us the distribution of the
-<code>"Range"</code> of each brand. In the scenario mentioned in the
-question, we’d expect to see that the Tesla distribution is further
-right than the BMW distribution.</p></li>
-<li><p><strong>Option 4:</strong> A scatter plot of
-<code>"TopSpeed"</code> against <code>"Range"</code> would only
-illustrate the relationship between <code>"TopSpeed"</code> and
-<code>"Range"</code>, but would contain no information about the
-<code>"Brand"</code> of each EV.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>Kyle thinks <code>"Seats"</code> is a categorical feature because it
@@ -289,37 +212,71 @@ large.</p>
 </ul>
 <p>Justify your answer in <strong>one sentence</strong>. Your answer
 must fit in the box below.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_3" class="accordion-collapse collapse"
-aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> No</p>
-<p><code>"Seats"</code> is a numerical feature, since it makes sense to
-do arithmetic with the values. For instance, we can find the average
-number of <code>"Seats"</code> that a group of cars has. Kyle’s argument
-could apply to any numerical feature; just because we can place
-numerical features into “bins” doesn’t make them categorical.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p>Pranavi proposes the following imputation scheme.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> impute(s):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s.fillna(np.random.choice(s[s.notna()]))</span></code></pre></div>
+<p>The seat-back TV on one of Biff the Wolverine’s more recent flights
+was very dirty and was full of fingerprints. The fingerprints made an
+interesting pattern. We’ve stored the x and y positions of each
+fingerprint in the DataFrame <code>fingerprints</code>, and created the
+following scatterplot using</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;scatter&#39;</span>, x<span class="op">=</span><span class="st">&#39;x&#39;</span>, y<span class="op">=</span><span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<center><img src='../assets/images/disc05/mt-hist.png' width=20%></center>
 <p><br></p>
 <h3 id="problem-2.1">Problem 2.1</h3>
+<p>True or False: The histograms that result from the following two
+lines of code will look very similar.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># When we say bins=np.arange(0, 8, 2),</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we mean that the bins are [0, 2), [2, 4), [4, 6].</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;x&#39;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
+<p>and</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;y&#39;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>Below, we’ve drawn a histogram using the line of code</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;x&#39;</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
+<p>However, our Jupyter Notebook was corrupted, and so the resulting
+histogram doesn’t quite look right. While the height of the first bar is
+correct, the histogram doesn’t contain the second or third bars, and the
+y-axis is replaced with letters.</p>
+<center><img src='../assets/images/disc05/mt-hist-2.png' width=30%></center>
+<p>Which of the four options on the y-axis is closest to where the
+height of the middle bar should be?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+</ul>
+<p>Which of the four options on the y-axis is closest to where the
+height of the rightmost bar should be?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> A</p></li>
+<li><p><input type="radio" disabled="" /> B</p></li>
+<li><p><input type="radio" disabled="" /> C</p></li>
+<li><p><input type="radio" disabled="" /> D</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Pranavi proposes the following imputation scheme.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> impute(s):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> s.fillna(np.random.choice(s[s.notna()]))</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
 <p><strong>True or False:</strong> <code>impute</code> performs
 probabilistic imputation, using the same definition of probabilistic
 imputation we learned about in class.</p>
@@ -327,33 +284,8 @@ imputation we learned about in class.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> False</p>
-<p>In <code>impute</code>, <code>np.random.choice</code> will return a
-single non-null value from <code>s</code>, and <code>.fillna()</code>
-will fill every null value with this single value. Meanwhile,
-probabilistic imputation draws a different value from a specified
-distribution to fill each missing value, making it such that there won’t
-be a single “spike” in the imputed distribution at a single chosen
-value.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-2.2">Problem 2.2</h3>
+<h3 id="problem-3.2">Problem 3.2</h3>
 <p>Consider the following expressions and values.</p>
 <pre><code>    &gt;&gt;&gt; vals.isna().mean()
     0.2
@@ -365,35 +297,8 @@ value.</p>
 <p>Given the above, what is the <strong>maximum</strong> possible value
 of <code>impute(vals).mean()</code>? Give your answer as a number
 rounded to one decimal place.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> 4.6</p>
-<p>The maximum possible value of <code>impute(vals).mean()</code> would
-occur when every single missing value in <code>vals</code> is filled in
-with the highest possible non-null value in <code>vals</code>. (As
-discussed in the previous solution, <code>impute</code> selects only one
-value from <code>s</code> to fill into every missing space.)</p>
-<p>If this occurs, then the mean of the imputed Series will be weighted
-mean of the available data and the filled data, and given the numbers in
-the question, this is <span class="math inline">0.8 \cdot 4 + 0.2 \cdot
-7</span>, or 4.6.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-2.3">Problem 2.3</h3>
+<h3 id="problem-3.3">Problem 3.3</h3>
 <p>Which of the following statements below will always evaluate to
 <code>True</code>?</p>
 <ul class="task-list">
@@ -404,37 +309,9 @@ the question, this is <span class="math inline">0.8 \cdot 4 + 0.2 \cdot
 <li><p><input type="radio" disabled="" /> <code>vals.std() &gt; impute(vals).std()</code></p></li>
 <li><p><input type="radio" disabled="" /> None of the above</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse"
-aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> None of the above</p>
-<p>Since the value which <code>impute</code> will choose to impute with
-is random, the effect that it has on the standard deviation of
-<code>vals</code> is unknown. If the missing values are filled with a
-value close to the mean, this could reduce standard deviation; if they
-are filled with a value far from the mean, this could increase standard
-deviation. (Of course, the imputation will also shift the mean, so
-without knowing details of the Series, it’s impossible to come up with
-thresholds.) In any case, since the value for imputation is chosen at
-random, none of these statements will <em>always</em> be true, and so
-the correct answer is “none of the above.”</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
-<h2 id="problem-3">Problem 3</h2>
+<h2 id="problem-4">Problem 4</h2>
 <p>Suppose we have a DataFrame, <code>dogs</code>, in which each row
 corresponds to a different dog owned by someone in Ann Arbor. There are
 several columns in the DataFrame, including <code>"birth_year"</code>
@@ -454,7 +331,7 @@ missingness of age:</p>
 class:</p>
 <center><img src="../../assets/images/disc05/mean-ages.png" width=400></center>
 <p><br></p>
-<h3 id="problem-3.1">Problem 3.1</h3>
+<h3 id="problem-4.1">Problem 4.1</h3>
 <p>Let <span class="math inline">O</span> be the mean of the observed
 ages in <code>dogs</code>, that is, the mean of the ages that aren’t
 missing. Let <span class="math inline">T</span> be the true mean of the
@@ -468,61 +345,18 @@ and <span class="math inline">T</span>?</p>
 <li><p><input type="radio" disabled="" /> <span class="math inline">O = T</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">O &gt; T</span></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">O &lt;
-T</span></p>
-<p>In the ages we get to observe (that is, when age is not missing), we
-have way fewer terrier values than in the ages we don’t get to observe.
-Terriers are older on average than the other breed classes. This means
-we’re missing values that are larger, so when we take the average of the
-values we have access to, it’ll be lower than the true mean.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p>Consider the following strategy for imputing missing ages.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_missing(dogs):</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> dogs.assign(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    age<span class="op">=</span>dogs.groupby(<span class="st">&quot;class&quot;</span>)[<span class="st">&quot;age&quot;</span>]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            .transform(<span class="kw">lambda</span> x: x.fillna(x.value_counts().idxmax()))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fill_missing(dogs):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> dogs.assign(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    age<span class="op">=</span>dogs.groupby(<span class="st">&quot;class&quot;</span>)[<span class="st">&quot;age&quot;</span>]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            .transform(<span class="kw">lambda</span> x: x.fillna(x.value_counts().idxmax()))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p><br></p>
-<h3 id="problem-3.2">Problem 3.2</h3>
+<h3 id="problem-4.2">Problem 4.2</h3>
 <p>In one sentence, describe this imputation strategy.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: This is filling in missing ages in each
-breed class with the most common observed age in that breed class.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-3.3">Problem 3.3</h3>
+<h3 id="problem-4.3">Problem 4.3</h3>
 <p><code>small_dogs</code> is a subset of <code>dogs</code> shown in its
 entirety below.</p>
 <center><img src="../../assets/images/disc05/with-miss.png" width=200></center>
@@ -535,37 +369,9 @@ values would the four null values in the <code>"age"</code> column of
 <li>row 4: ___</li>
 <li>row 7: ___</li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<ul>
-<li>row 2: 5. The most common observed age for the <code>"Other"</code>
-breed class is 5.</li>
-<li>row 3: 5. The most common observed age for the <code>"Other"</code>
-breed class is 5.</li>
-<li>row 4: 12. The most common observed age for the
-<code>"Terrier"</code> breed class is 12.</li>
-<li>row 7: 7. The most common observed age for the
-<code>"Retriever"</code> breed class is 7.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
-<h2 id="problem-4">Problem 4</h2>
+<h2 id="problem-5">Problem 5</h2>
 <p>The DataFrame <code>random_10</code> contains the
 <code>"track_name"</code> and <code>"genre"</code> of 10 randomly-chosen
 songs in Spotify’s Top 200 today, along with their
@@ -584,142 +390,22 @@ options to the imputation technique that was used in the option.</p>
 <p>Note that each option (A, B, C, D) should be used exactly once
 between parts (a) and (d).</p>
 <p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
+<h3 id="problem-5.1">Problem 5.1</h3>
 <p>In which option was unconditional mean imputation used?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B</p>
-<p>Explanation given in part d) below</p>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 99%.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
+<h3 id="problem-5.2">Problem 5.2</h3>
 <p>In which option was mean imputation conditional on
 <code>"genre"</code> used?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option D</p>
-<p>Explanation given in part d) below</p>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 96%.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-4.3">Problem 4.3</h3>
+<h3 id="problem-5.3">Problem 5.3</h3>
 <p>In which option was unconditional probabilistic imputation used?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_3" class="accordion-collapse collapse"
-aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option C</p>
-<p>Explanation given in part d) below</p>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 92%.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-4.4">Problem 4.4</h3>
+<h3 id="problem-5.4">Problem 5.4</h3>
 <p>In which option was probabilistic imputation conditional on
 <code>"genre"</code> used?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_4" class="accordion-collapse collapse"
-aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option A</p>
-<ul>
-<li><p>First, note that in Option B, all three missing values are filled
-in with the same number, 7. The mean of the observed values in
-<code>random_10["genre rank"]</code> is 7, so we must have performed
-unconditional mean imputation in Option B. (Technically, it’s possible
-for Option B to be the result of unconditional probabilistic imputation,
-but we stated that each option could only be used once, and there is
-another option that can only be unconditional probabilistic
-imputation.)</p></li>
-<li><p>Then note that in Option C, the very last missing value (in the
-<code>"Pop"</code> <code>"genre"</code>) is filled in with a 7, which is
-not the mean of the observed <code>"Pop"</code> values, but rather a
-value from the <code>"Alternative"</code> <code>"genre"</code>. This
-must mean that unconditional probabilistic imputation was used in Option
-C, since that’s the only way a value from a different group can be used
-for imputation (if we are not performing some sort of mean
-imputation).</p></li>
-<li><p>This leaves Option A and Option D. The last two missing values
-(the two in the <code>"Pop"</code> <code>"genre"</code>) are both filled
-in with the same value, 2 in Option A and 5 in Option D. The mean of the
-observed values for the <code>"Pop"</code> <code>"genre"</code> is <span class="math inline">\frac{9+2+4}{3} = 5</span>, so mean imputation
-conditional on <code>"genre"</code> must have been used in Option D and
-thus probabilistic imputation conditional on <code>"genre"</code> must
-have been used in Option A.</p></li>
-</ul>
-<hr/>
-<h5>Difficulty: ⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 92%.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
-<h2 id="problem-5">Problem 5</h2>
+<h2 id="problem-6">Problem 6</h2>
 <p>After taking the SAT, Nicole wants to check the College Board’s
 website to see her score. However, the College Board recently updated
 their website to use non-standard HTML tags and Nicole’s browser can’t
@@ -747,7 +433,7 @@ using the following HTML document.</p>
   &lt;/scorelist&gt;
 &lt;/sat&gt;</code></pre>
 <p><br></p>
-<h3 id="problem-5.1">Problem 5.1</h3>
+<h3 id="problem-6.1">Problem 6.1</h3>
 <p>Which of the following expressions evaluate to <code>"verbal"</code>?
 Select all that apply.</p>
 <ul class="task-list">
@@ -758,235 +444,95 @@ Select all that apply.</p>
 <li><p><input type="checkbox" disabled="" /> <code>soup.find("scorelist", attrs={"listtype":"scores"}).get("kind")</code></p></li>
 <li><p><input type="checkbox" disabled="" /> None of the above</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_1" class="accordion-collapse collapse"
-aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option 1, Option 3, Option 4</p>
-<p>Correct options:</p>
-<ul>
-<li>Option 1 finds the first <code>&lt;scorerow&gt;</code> element and
-retrieves its <code>"kind"</code> attribute, which is
-<code>"verbal"</code> for the first <code>&lt;scorerow&gt;</code>
-encountered in the HTML document.</li>
-<li>Option 2 finds the first <code>&lt;scorerow&gt;</code> tag,
-retrieves its text <code>("Verbal: 84")</code>, splits this text by “:”,
-and takes the first element of the resulting list
-<code>("Verbal")</code>, converting it to lowercase to match
-<code>"verbal"</code>.</li>
-<li>Option 3 creates a list of <code>"kind"</code> attributes for all
-<code>&lt;scorerow&gt;</code> elements. The second to last (-2) element
-in this list corresponds to the <code>"kind"</code> attribute of the
-first <code>&lt;scorerow&gt;</code> in the second
-<code>&lt;scorelist&gt;</code> tag, which is also
-<code>"verbal"</code>.</li>
-</ul>
-<p>Incorrect options:</p>
-<ul>
-<li>Option 2 attempts to get an attribute ready from the
-<code>&lt;sat&gt;</code> tag, which does not exist as an attribute.</li>
-<li>Option 5 tries to retrieve a <code>"kind"</code> attribute from a
-<code>&lt;scorelist&gt;</code> tag, but <code>&lt;scorelist&gt;</code>
-does not have a <code>"kind"</code> attribute.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-5.2">Problem 5.2</h3>
+<h3 id="problem-6.2">Problem 6.2</h3>
 <p>Consider the following function.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summer(tree):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(tree, <span class="bu">list</span>):</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> subtree <span class="kw">in</span> tree:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> s <span class="kw">in</span> subtree.find_all(<span class="st">&quot;scorenum&quot;</span>):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                total <span class="op">+=</span> <span class="bu">int</span>(s.text)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> total</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>([<span class="bu">int</span>(s.text) <span class="cf">for</span> s <span class="kw">in</span> tree.find_all(<span class="st">&quot;scorenum&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summer(tree):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(tree, <span class="bu">list</span>):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> subtree <span class="kw">in</span> tree:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> s <span class="kw">in</span> subtree.find_all(<span class="st">&quot;scorenum&quot;</span>):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                total <span class="op">+=</span> <span class="bu">int</span>(s.text)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> total</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">sum</span>([<span class="bu">int</span>(s.text) <span class="cf">for</span> s <span class="kw">in</span> tree.find_all(<span class="st">&quot;scorenum&quot;</span>)])</span></code></pre></div>
 <p>For each of the following values, fill in the blanks to assign
 <code>tree</code> such that <code>summer(tree)</code> evaluates to the
 desired value. The first example has been done for you.</p>
 <ul>
 <li>Desired value: <code>84</code></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(<span class="st">&quot;scorerow&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(<span class="st">&quot;scorerow&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Desired value: <code>183</code></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(__a__)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(__a__)</span></code></pre></div>
 <ul>
 <li>Desired value: <code>1480</code></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(__b__)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find(__b__)</span></code></pre></div>
 <ul>
 <li>Desired value: <code>899</code></li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find_all(__c__)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_2" class="accordion-collapse collapse"
-aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> a: <code>"scorelist"</code>, b:
-<code>"scorelist", attrs={"listtype":"scores"}</code>, c:
-<code>"scorerow", attrs={"kind":"math"}</code></p>
-<p><code>soup.find("scorelist")</code> selects the first
-<code>&lt;scorelist&gt;</code> tag, which includes both verbal and math
-percentiles <code>(84 and 99)</code>. The function
-<code>summer(tree)</code> sums these values to get <code>183</code>.</p>
-<p>This selects the <code>&lt;scorelist&gt;</code> tag with
-<code>listtype="scores"</code>, which contains the actual scores of
-verbal <code>(680)</code> and math <code>(800)</code>. The function sums
-these to get <code>1480</code>.</p>
-<p>This selects all <code>&lt;scorerow&gt;</code>elements with
-<code>kind="math"</code>, capturing both the percentile
-<code>(99)</code> and the actual score <code>(800)</code>. Since tree is
-now a list, <code>summer(tree)</code> iterates through each
-<code>&lt;scorerow&gt;</code> in the list, summing their
-<code>&lt;scorenum&gt;</code> values to reach <code>899</code>.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    tree <span class="op">=</span> soup.find_all(__c__)</span></code></pre></div>
 <p><br></p>
 <hr />
-<h2 id="problem-6">Problem 6</h2>
+<h2 id="problem-7">Problem 7</h2>
 <p>Consider the following HTML document, which represents a webpage
 containing the top few songs with the most streams on Spotify today in
 Canada.</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>3*Canada-2022-06-04<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Spotify Top 3 - Canada<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">&#39;heading&#39;</span><span class="dt">&gt;</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Rank<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Artist(s)<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Song<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">1</span><span class="dt">&gt;</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>1<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Harry Styles<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>As It Was<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">2</span><span class="dt">&gt;</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Jack Harlow<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>First Class<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">3</span><span class="dt">&gt;</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>3<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Kendrick Lamar<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>N95<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>3*Canada-2022-06-04<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Spotify Top 3 - Canada<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">&#39;heading&#39;</span><span class="dt">&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Rank<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Artist(s)<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">th</span><span class="dt">&gt;</span>Song<span class="dt">&lt;/</span><span class="kw">th</span><span class="dt">&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">1</span><span class="dt">&gt;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>1<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Harry Styles<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>As It Was<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">2</span><span class="dt">&gt;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>2<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Jack Harlow<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>First Class<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">tr</span><span class="ot"> class</span><span class="op">=</span><span class="st">3</span><span class="dt">&gt;</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>3<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Kendrick Lamar<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span> </span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>N95<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>Suppose we define <code>soup</code> to be a
 <code>BeautifulSoup</code> object that is instantiated using the
 document above.</p>
 <p><br></p>
-<h3 id="problem-6.1">Problem 6.1</h3>
+<h3 id="problem-7.1">Problem 7.1</h3>
 <p>How many leaf nodes are there in the DOM tree of the previous
 document — that is, how many nodes have no children?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_1" class="accordion-collapse collapse"
-aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 14</p>
-<p>There’s 1 <code>&lt;title&gt;</code>, 1 <code>&lt;h1&gt;</code>, 3
-<code>&lt;th&gt;</code>s, and 9 <code>&lt;td&gt;</code>s, adding up to
-14.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-6.2">Problem 6.2</h3>
+<h3 id="problem-7.2">Problem 7.2</h3>
 <p>What does the following line of code evaluate to?</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(soup.find_all(<span class="st">&quot;td&quot;</span>))</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_2" class="accordion-collapse collapse"
-aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 9</p>
-<p>As mentioned in the solution to the part above, there are 9
-<code>&lt;td&gt;</code> nodes, and <code>soup.find_all</code> finds them
-all.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(soup.find_all(<span class="st">&quot;td&quot;</span>))</span></code></pre></div>
 <p><br></p>
-<h3 id="problem-6.3">Problem 6.3</h3>
+<h3 id="problem-7.3">Problem 7.3</h3>
 <p>What does the following line of code evaluate to?</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>soup.find(<span class="st">&quot;tr&quot;</span>).get(<span class="st">&quot;class&quot;</span>)</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_3" class="accordion-collapse collapse"
-aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <code>["heading"]</code> or
-<code>"heading"</code></p>
-<p><code>soup.find("tr")</code> finds the first occurrence of a
-<code>&lt;tr&gt;</code> node, and <code>get("class")</code> accesses the
-value of its <code>"class"</code> attribute.</p>
-<p>Note that technically the answer is <code>["heading"]</code>, but
-<code>"heading"</code> received full credit too.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>soup.find(<span class="st">&quot;tr&quot;</span>).get(<span class="st">&quot;class&quot;</span>)</span></code></pre></div>
 <p><br></p>
-<h3 id="problem-6.4">Problem 6.4</h3>
+<h3 id="problem-7.4">Problem 7.4</h3>
 <p>Complete the implementation of the function <code>top_nth</code>,
 which takes in a positive integer <code>n</code> and returns the
 <strong>name of the <span class="math inline">n</span>-th ranked
@@ -995,37 +541,13 @@ song</strong> in the HTML document. For instance,
 (<code>n=1</code> corresponds to the top song).</p>
 <p><strong>Note:</strong> Your implementation should work in the case
 that the page contains more than 3 songs.</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> top_nth(n):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> soup.find(<span class="st">&quot;tr&quot;</span>, attrs<span class="op">=</span>__(a)__).find_all(<span class="st">&quot;td&quot;</span>)__(b)__</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> top_nth(n):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> soup.find(<span class="st">&quot;tr&quot;</span>, attrs<span class="op">=</span>__(a)__).find_all(<span class="st">&quot;td&quot;</span>)__(b)__</span></code></pre></div>
 <p>What goes in blank (a)?</p>
 <p>What goes in blank (b)?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_4" class="accordion-collapse collapse"
-aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> a) <code>{'class' : n}</code> b)
-<code>[2].text</code> or <code>[-1].text</code></p>
-<p>The logic is to find the <code>&lt;tr&gt;</code> node with the
-correct class attribute (which we do by setting attr to
-<code>{'class' : 2}</code>), then access the text of the node’s last
-<code>&lt;td&gt;</code> child (since that’s where the song titles are
-stored).</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-6.5">Problem 6.5</h3>
+<h3 id="problem-7.5">Problem 7.5</h3>
 <p>Suppose we run the line of code <code>r = requests.get(url)</code>,
 where <code>url</code> is a string containing a URL to some online data
 source.</p>
@@ -1036,31 +558,11 @@ the HTML source code of the site at <code>url</code>.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_5" aria-expanded="true" aria-controls="collapse6_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_5" class="accordion-collapse collapse"
-aria-labelledby="heading6_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B: False</p>
-<p>A status code of 200 means that the request has succeeded. Hence, the
-response could be JSON, it is not necessarily HTML.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
-<h2 id="problem-7">Problem 7</h2>
+<h2 id="problem-8">Problem 8</h2>
 <p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
+<h3 id="problem-8.1">Problem 8.1</h3>
 <p>Rahul is trying to scrape the website of an online bookstore ‘The
 Book Club’.</p>
 <pre><code>&lt;HTML&gt;
@@ -1112,249 +614,106 @@ file?</p>
 <li><p><input type="radio" disabled="" /> Tree C</p></li>
 <li><p><input type="radio" disabled="" /> Tree D</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Tree D</p>
-<p>Following tree D in the image from top to bottom, we can follow the
-nesting of tags in the HTML file to verify that the DOM tree D matches
-the syntax of the HTML file.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
+<h3 id="problem-8.2">Problem 8.2</h3>
 <p>Rahul wants to extract the <code>‘instock availability’</code> status
 of the book titled ‘A Light in the Attic’. Which of the following
 expressions will evaluate to <code>"In Stock"</code>? Assume that Rahul
 has already parsed the HTML into a BeautifulSoup object stored in the
 variable named <code>soup</code>.</p>
 <p>Code Snippet A</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    .get(<span class="st">&#39;icon-ok&#39;</span>).strip()</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    .get(<span class="st">&#39;icon-ok&#39;</span>).strip()</span></code></pre></div>
 <p>Code Snippet B</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).text.strip()</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).text.strip()</span></code></pre></div>
 <p>Code Snippet C</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).find(<span class="st">&#39;i&#39;</span>)<span class="op">\</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    .text.strip()</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).find(<span class="st">&#39;i&#39;</span>)<span class="op">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    .text.strip()</span></code></pre></div>
 <p>Code Snippet D</p>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;div&#39;</span>, attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>:<span class="st">&#39;product_price&#39;</span>})<span class="op">\</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;i&#39;</span>).text.strip()</span></code></pre></div>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Code Snippet B</p>
-<p>Code Snippet B is the only option that finds the tag <code>p</code>
-with the attribute <code>class</code> being equal to
-<code>instock availability</code> and then getting the text contained in
-that tag, which is equal to <code>‘instock availability’</code>.</p>
-<p>Option A will cause an error because of <code>.get('icon-ok')</code>
-since <code>'icon-ok'</code> is not the name of the attribute, but is
-instead the value of the <code>class</code> attribute.</p>
-<p>Option C and D will both get the text of the <code>i</code> tag,
-which is <code>''</code> and is therefore incorrect.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;div&#39;</span>, attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>:<span class="st">&#39;product_price&#39;</span>})<span class="op">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;i&#39;</span>).text.strip()</span></code></pre></div>
 <p><br></p>
-<h3 id="problem-7.3">Problem 7.3</h3>
+<h3 id="problem-8.3">Problem 8.3</h3>
 <p>Rahul also wants to extract the number of stars that the book titled
 ‘A Light in the Attic’ received. If you look at the HTML file, you will
 notice that the book received a star rating of three. Which code snippet
 will evaluate to <code>"Three"</code>?</p>
 <p>Code Snippet A</p>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;article&#39;</span>).get(<span class="st">&#39;class&#39;</span>).strip()</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;article&#39;</span>).get(<span class="st">&#39;class&#39;</span>).strip()</span></code></pre></div>
 <p>Code Snippet B</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).text.split(<span class="st">&#39; &#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).text.split(<span class="st">&#39; &#39;</span>)</span></code></pre></div>
 <p>Code Snippet C</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).get(<span class="st">&#39;class&#39;</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).get(<span class="st">&#39;class&#39;</span>)[<span class="dv">1</span>]</span></code></pre></div>
 <p>None of the above</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_3" class="accordion-collapse collapse"
-aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Code Snippet C</p>
-<p>Code Snippet C finds the first occurence of the tag <code>p</code>,
-gets the contents of its <code>class</code> attribute as a list, and
-returns the last element, which is the rating <code>'Three'</code> as
-desired.</p>
-<p>Option A will error because <code>.get('class')</code> returns
-<code>['product_pod']</code> and strip cannot be used on a list, but
-also the content of the list does not bring us closer to the desired
-result.</p>
-<p>Option B gets the text contained within the first <code>p</code> tag
-as a list, which is <code>['']</code>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
-<h2 id="problem-8">Problem 8</h2>
+<h2 id="problem-9">Problem 9</h2>
 <p>For this problem, consider the HTML document shown below:</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Data Science Courses<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Welcome to the World of Data Science!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Current Courses<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;course_list&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;Course Banner&quot;</span><span class="er">,</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;courses.png&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>                Here are the courses available to take:</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Machine Learning<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Design of Experiments<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Driving Business Value with DS<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span> </span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>                For last quarter&#39;s classes, see <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;./2021-sp.html&quot;</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>.</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>News<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;news&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;news&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>                New course on <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Visualization<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> is launched.</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>                See <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;https://http.cat/301.png&quot;</span><span class="ot"> target</span><span class="op">=</span><span class="st">&quot;_blank&quot;</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Data Science Courses<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Welcome to the World of Data Science!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>Current Courses<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;course_list&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> alt</span><span class="op">=</span><span class="st">&quot;Course Banner&quot;</span><span class="er">,</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;courses.png&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>                Here are the courses available to take:</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">ul</span><span class="dt">&gt;</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Machine Learning<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Design of Experiments<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>                <span class="dt">&lt;</span><span class="kw">li</span><span class="dt">&gt;</span>Driving Business Value with DS<span class="dt">&lt;/</span><span class="kw">li</span><span class="dt">&gt;</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">ul</span><span class="dt">&gt;</span> </span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>                For last quarter&#39;s classes, see <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;./2021-sp.html&quot;</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span>.</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span>News<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;news&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;news&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>                New course on <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>Visualization<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> is launched.</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>                See <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;https://http.cat/301.png&quot;</span><span class="ot"> target</span><span class="op">=</span><span class="st">&quot;_blank&quot;</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>            <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
 <p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
+<h3 id="problem-9.1">Problem 9.1</h3>
 <p>How many children does the <code>div</code> node with class
 <code>course_list</code> contain in the Document Object Model (DOM)?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_1" class="accordion-collapse collapse"
-aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 4 children</p>
-<p>Looking at the code, we could see that the <code>div</code> with
-class <code>course_list</code> has 4 children, namely: a
-<code>img</code> node, <code>p</code> node, <code>ul</code> node and
-<code>p</code> node.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
+<h3 id="problem-9.2">Problem 9.2</h3>
 <p>Suppose the HTML document has been parsed using
 <code>doc = bs4.BeautifulSoup(html)</code>. Write a line of code to get
 the <code>h1</code> header text in the form of a string.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_2" class="accordion-collapse collapse"
-aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <code>doc.find('h1').text</code></p>
-<p>Since there’s only one <code>h1</code> element in the html code, we
-could simply do <code>doc.find('h1')</code> to get the <code>h1</code>
-element. Then simply adding <code>.text</code> will get the text of the
-<code>h1</code> element in the form of a string.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
+<h3 id="problem-9.3">Problem 9.3</h3>
 <p>Suppose the HTML document has been parsed using
 <code>doc = bs4.BeautifulSoup(html)</code>. Write a piece of code that
 scrapes the course names from the HTML. The value returned by your code
 should be a list of strings.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_3" class="accordion-collapse collapse"
-aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>
-<code>[x.text for x in doc.find_all('li')]</code></p>
-<p>Doing <code>doc.find_all('li')</code> will find all <code>li</code>
-elements and return it is the form of a list. Simply performing some
-basic list comprehension combined <code>.text</code> to get the text of
-each <code>li</code> element will yield the desired result.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-8.4">Problem 8.4</h3>
+<h3 id="problem-9.4">Problem 9.4</h3>
 <p>There are two links in the document. Which of the following will
 return the URL of the link contained in the <code>div</code> with class
 <code>news</code>? Mark all that apply.</p>
@@ -1365,48 +724,8 @@ return the URL of the link contained in the <code>div</code> with class
 <li><p><input type="checkbox" disabled="" /> <code>doc.find('div', attrs={'class': 'news'}).find('a').attrs['href']</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>doc.find('href', attrs={'class': 'news'})</code></p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_4" aria-expanded="true" aria-controls="collapse8_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_4" class="accordion-collapse collapse"
-aria-labelledby="heading8_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option A and Option D</p>
-<ul>
-<li>Option A: This option works because <code>doc.find_all('a')</code>
-will return a list of all the <code>a</code> elements in the order that
-it appears in the HTML document, and since the <code>a</code> with class
-<code>news</code> is the second <code>a</code> element appearing in the
-HTML doc, we do <code>[1]</code> to select it (as we would in any other
-list). Finally, we return the URL of the <code>a</code> element by
-getting the <code>'href'</code> attribute using
-<code>.attrs['href']</code></li>
-<li>Option B: This does not work because <code>.find</code> will only
-find the first instance of <code>a</code>, which is not the one we’re
-looking for.</li>
-<li>Option C: This does not work because there are no quotations around
-the <code>a</code>.</li>
-<li>Option D: This option works becuase
-<code>doc.find('div', attrs={'class': 'news'})</code> will first find
-the <code>div</code> element with <code>class='news'</code>, and then
-find the <code>a</code> element within that element and get the
-<code>href</code> attribute of that, which is what we want.</li>
-<li>Option E: This does not work because there is no <code>href</code>
-element in the HTML document.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-8.5">Problem 8.5</h3>
+<h3 id="problem-9.5">Problem 9.5</h3>
 <p>What is the purpose of the <code>alt</code> attribute in the
 <code>img</code> tag?</p>
 <ul class="task-list">
@@ -1417,27 +736,8 @@ random</p></li>
 <li><p><input type="radio" disabled="" /> It provides text that should be shown in the case that the image
 cannot be displayed</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_5" aria-expanded="true" aria-controls="collapse8_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_5" class="accordion-collapse collapse"
-aria-labelledby="heading8_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option D</p>
-<p>^pretty self-explanatory.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
-<h3 id="problem-8.6">Problem 8.6</h3>
+<h3 id="problem-9.6">Problem 9.6</h3>
 <p>You are scraping a web page using the <code>requests</code> module.
 Your code works fine and returns the desired result, but suddenly you
 find that when you run your code it starts but never finishes – it does
@@ -1452,183 +752,6 @@ cannot parse</p></li>
 <li><p><input type="radio" disabled="" /> The page has suddenly changed and has caused <code>requests</code> to
 enter an infinite loop</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_6" aria-expanded="true" aria-controls="collapse8_6">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_6" class="accordion-collapse collapse"
-aria-labelledby="heading8_6" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B</p>
-<ul>
-<li>Option A: We can pretty confidentely (I hope) rule this option out
-since whether or not a GIF has stopped playing or not shouldn’t affect
-our web scraping.</li>
-<li>Option B: This answer is right because a server will time you out
-(and potentially block you) if you make too many requests to the
-server.</li>
-<li>Option C: This shouldn’t cause your code to never finish, rather,
-it’s more likely that the request module just doesn’t process said
-Unicode character correctly or it throws an error.</li>
-<li>Option D: Again, this shouldn’t cause your code to never finish,
-rather, the request module will just parse the older version of the
-website at the time you called it.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>The seat-back TV on one of Biff the Wolverine’s more recent flights
-was very dirty and was full of fingerprints. The fingerprints made an
-interesting pattern. We’ve stored the x and y positions of each
-fingerprint in the DataFrame <code>fingerprints</code>, and created the
-following scatterplot using</p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;scatter&#39;</span>, x<span class="op">=</span><span class="st">&#39;x&#39;</span>, y<span class="op">=</span><span class="st">&#39;y&#39;</span>)</span></code></pre></div>
-<center><img src='../assets/images/disc05/mt-hist.png' width=20%></center>
-<p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
-<p>True or False: The histograms that result from the following two
-lines of code will look very similar.</p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># When we say bins=np.arange(0, 8, 2),</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we mean that the bins are [0, 2), [2, 4), [4, 6].</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;x&#39;</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
-<p>and</p>
-<div class="sourceCode" id="cb25"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;y&#39;</span>,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> True</p></li>
-<li><p><input type="radio" disabled="" /> False</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> True</p>
-<p>The only difference between the two code snippets is the data values
-used. The first creates a histogram of the <code>x</code>-values in
-<code>fingerprints</code>, and the second creates a histogram of the
-<code>y</code>-values in <code>fingerprints</code>.</p>
-<p>Both histograms use the same bins:
-<code>bins=np.arange(0, 8, 2)</code>. This means the bin endpoints are
-<code>[0, 2, 4, 6]</code>, so there are three distinct bins: <span class="math inline">[0, 2)</span>, <span class="math inline">[2,
-4)</span>, and <span class="math inline">[4, 6]</span>. Remember the
-right-most bin of a histogram includes both endpoints, whereas others
-include the left endpoint only.</p>
-<p>Let’s look at the <code>x</code>-values first. If we divide the
-scatterplot into nine equally-sized regions, as shown below, note that
-eight of the nine regions have a very similar number of data points.</p>
-<center><img src="../assets/images/disc05/regions.png" width="20%"/></center>
-<p>Aside from the middle region, about <span class="math inline">\frac{1}{8}</span> of the data falls in each region.
-That means <span class="math inline">\frac{3}{8}</span> of the data has
-an <code>x</code>-value in the first bin <span class="math inline">[0,
-2)</span>, <span class="math inline">\frac{2}{8}</span> of the data has
-an <code>x</code>-value in the middle bin <span class="math inline">[2,
-4)</span>, and <span class="math inline">\frac{3}{8}</span> of the data
-has an <code>x</code>-value in the rightmost bin <span class="math inline">[4, 6]</span>. This distribution of
-<code>x</code>-values into bins determines what the histogram will look
-like.</p>
-<p>Now, if we look at the <code>y</code>-values, we’ll find that <span class="math inline">\frac{3}{8}</span> of the data has a
-<code>y</code>-value in the first bin <span class="math inline">[0,
-2)</span>, <span class="math inline">\frac{2}{8}</span> of the data has
-a <code>y</code>-value in the middle bin <span class="math inline">[2,
-4)</span>, and <span class="math inline">\frac{3}{8}</span> of the data
-has a <code>y</code>-value in the last bin <span class="math inline">[4,
-6]</span>. That’s the same distribution of data into bins as the
-<code>x</code>-values had, so the histogram of <code>y</code>-values
-will look just like the histogram of <code>y</code>-values.</p>
-<p>Alternatively, an easy way to see this is to use the fact that the
-scatterplot is symmetric over the line <span class="math inline">y=x</span>, the line that makes a 45 degree angle
-with the origin. In other words, interchanging the <code>x</code> and
-<code>y</code> values doesn’t change the scatterplot noticeably, so the
-<code>x</code> and <code>y</code> values have very similar
-distributions, and their histograms will be very similar as a
-result.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
-<p>Below, we’ve drawn a histogram using the line of code</p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fingerprints.plot(kind<span class="op">=</span><span class="st">&#39;hist&#39;</span>, </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                  y<span class="op">=</span><span class="st">&#39;x&#39;</span>,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                  density<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                  bins<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">2</span>))</span></code></pre></div>
-<p>However, our Jupyter Notebook was corrupted, and so the resulting
-histogram doesn’t quite look right. While the height of the first bar is
-correct, the histogram doesn’t contain the second or third bars, and the
-y-axis is replaced with letters.</p>
-<center><img src='../assets/images/disc05/mt-hist-2.png' width=30%></center>
-<p>Which of the four options on the y-axis is closest to where the
-height of the middle bar should be?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> A</p></li>
-<li><p><input type="radio" disabled="" /> B</p></li>
-<li><p><input type="radio" disabled="" /> C</p></li>
-<li><p><input type="radio" disabled="" /> D</p></li>
-</ul>
-<p>Which of the four options on the y-axis is closest to where the
-height of the rightmost bar should be?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> A</p></li>
-<li><p><input type="radio" disabled="" /> B</p></li>
-<li><p><input type="radio" disabled="" /> C</p></li>
-<li><p><input type="radio" disabled="" /> D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_2" class="accordion-collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> B, then C</p>
-<p>We’ve already determined that the first bin should contain <span class="math inline">\frac{3}{8}</span> of the values, the middle bin
-should contain <span class="math inline">\frac{2}{8}</span> of the
-values, and the rightmost bin should contain <span class="math inline">\frac{3}{8}</span> of the values. The middle bar of
-the histogram should therefore be two-thirds as tall as the first bin,
-and the rightmost bin should be equally as tall as the first bin. The
-only reasonable height for the middle bin is B, as it’s closest to
-two-thirds of the height of the first bar. Similarly, the rightmost bar
-must be at height C, as it’s the only one close to the height of the
-first bar.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>

@@ -7,6 +7,8 @@ show_solution: false
 problems:
   # Earlier problems
   - disc05/dsc10-fa22-mid-q2 # vis
+  - disc05/dsc10-fa21-mid-q7 # vis
+
   - disc05/dsc80-wi24-final-q3 # conceptual mean imputation
   - disc05/dsc80-wi24-mid-q6
   - disc05/sp22-final-q05
@@ -20,7 +22,6 @@ problems:
   - disc05/dsc80-sp22-final-q06 # bs
   - disc05/dsc80-sp23-final-q04 #p4
   - disc05/dsc80-fa21-final-q2 #p1
-  - disc05/dsc10-fa21-mid-q7 # vis
 
   # - disc05/dsc80-sp22-mid-q3-6
   # - disc05/dsc80-sp22-final-q1
