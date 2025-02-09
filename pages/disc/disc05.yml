@@ -12,8 +12,7 @@ problems:
   - disc05/dsc80-wi24-final-q3 # conceptual mean imputation
   - disc05/dsc80-wi24-mid-q6
   - disc05/sp22-final-q05
-  # - disc05/dsc80-wi24-final-q1
-  # - disc05/dsc80-sp22-mid-q8
+
 
   - disc05/dsc80-wi23-final-q05 # bs
   - disc05/dsc80-sp22-final-q06 # bs
@@ -24,6 +23,8 @@ problems:
   # - disc05/dsc80-sp22-final-q1
   # - disc05/dsc80-sp22-final-q2
   # - disc05/dsc10-fa22-mid-q7
+  # - disc05/dsc80-wi24-final-q1
+  # - disc05/dsc80-sp22-mid-q8
 
 
 
