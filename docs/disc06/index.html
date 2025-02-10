@@ -257,338 +257,6 @@ and two more digits, which is how we get our solution.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p>In this question, you will be asked to determine which strings are
-matched by various regular expression patterns when
-<code>re.search</code> is used. For these questions, remember that
-<code>re.search(pattern, s)</code> matches <code>s</code> if the pattern
-can be found anywhere in <code>s</code> (not necessarily at the
-beginning). For example,
-<code>re.search("name", "my name is pranavi")</code> matches, while
-<code>re.search("foo", "my name is pranavi")</code> does not.</p>
-<p><br></p>
-<h3 id="problem-2.1">Problem 2.1</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'a+'</code>? Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option A, B, C and D</p>
-<p>The regex pattern <code>r'a+'</code> searches for any string that
-contains at least one substring consisting of the character
-<code>a</code> one or more times. Clearly all of these strings contain a
-substring og the character <code>a</code> one or more times.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.2">Problem 2.2</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'a+ b+'</code>? Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option A and B</p>
-<p>The regex pattern <code>r'a+ b+'</code> searches for any string that
-contains at least one substring consisting of the character
-<code>a</code> one or more times followed by a space followed by the
-character <code>b</code> one or more times. The only strings that have
-this pattern are Options A and B.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.3">Problem 2.3</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'\baa\b'</code>?</p>
-<p>Recall that the <code>r</code> at the front of the pattern string
-above makes it a “raw” string; this is used so that <code>\b</code> is
-not interpreted by Python as a special backspace character.</p>
-<p>Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse"
-aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option A</p>
-<p>The regex pattern <code>r'\b'</code> matches for the boundary of a
-word (so like the start and end of a word which could seperated by
-spaces). Thus the regex pattern searches for the substring
-<code>'aa'</code> that is its own standalone word. The only string that
-has this pattern is Option A.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.4">Problem 2.4</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'(aba){2,}'</code>? Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_4" class="accordion-collapse collapse"
-aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option C</p>
-<p>The regex pattern <code>r'(aba){2,}'</code> searches the substring
-consisting of <code>aba</code> 2 or more times. The only string that has
-this pattern is Option C.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.5">Problem 2.5</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'a..a'</code>? Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_5" aria-expanded="true" aria-controls="collapse2_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_5" class="accordion-collapse collapse"
-aria-labelledby="heading2_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option C</p>
-<p>The regex pattern <code>r'a..a'</code> searches the substring
-consisting of <code>a</code> followed by any two characters followed by
-<code>a</code>. The only string that has this pattern is Option C.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.6">Problem 2.6</h3>
-<p>Which of the below strings are matched by <code>re.search</code>
-using the pattern <code>r'.*'</code>? Select all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_6" aria-expanded="true" aria-controls="collapse2_6">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_6" class="accordion-collapse collapse"
-aria-labelledby="heading2_6" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>**Answer: Option A, B, C and D</p>
-<p>The regex pattern <code>r'.*'</code> searches the substring
-consisting of any character 0 or more times. Clearly all of the strings
-contain that pattern.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-3">Problem 3</h2>
-<p><br></p>
-<h3 id="problem-3.1">Problem 3.1</h3>
-<p>You are creating a new programming language called IDK. In this
-language, all variable names must satisfy the following constraints:</p>
-<ul>
-<li>They must start with <code>Um</code>, <code>Umm</code>,
-<code>Ummm</code>, etc. That is, a capital <code>U</code> followed by
-one or more <code>m</code>’s.</li>
-<li>Following this may be any string of one or more letters. The first
-letter must be capitalized.</li>
-<li>The variable name must end with a single question mark.</li>
-<li>Numbers or other special characters are not allowed.</li>
-</ul>
-<p>Examples of valid variable names: <code>UmmmX?</code>,
-<code>UmTest?</code>, <code>UmmmmPendingQueue?</code> Examples of
-invalid variable names: <code>ummX?</code>, <code>Um?</code>,
-<code>Ummhello?</code>, <code>UmTest</code></p>
-<p>Write a regular expression pattern string <code>pat</code> to
-validate variable names in this new language. Your pattern should work
-when <code>re.match(pat, s)</code> is called.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <code>'U(m+)[A-Z]([A-z]*)(\?)'</code></p>
-<p>Starting our regular expression, it’s not too difficult to see that
-we need a <code>'U'</code> followed by <code>(m+)</code> which will
-match with a singular capital <code>'U'</code> followed by at least one
-lowercase <code>'m'</code>. Next it is required that we follow that up
-with any string of letters, where the first letter is capitalized. we do
-this with <code>'[A-Z]([A-z]*)'</code>, where <code>'[A-Z]'</code> will
-match with any capital letter and <code>'([A-z]*)'</code> will match
-with lowercase and uppercase letters 0 or more times. Finally we end the
-regex with <code>'\?'</code> which matches with a question mark.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.2">Problem 3.2</h3>
-<p>Which of the following strings will be matched by the regex pattern
-<code>\$\s*\d{1,3}(\.\d{2})?</code>? Note that it should match the
-complete string given. Mark all that apply.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> $ 100</p></li>
-<li><p><input type="checkbox" disabled="" /> $10.12</p></li>
-<li><p><input type="checkbox" disabled="" /> $1340.89</p></li>
-<li><p><input type="checkbox" disabled="" /> $1456.8</p></li>
-<li><p><input type="checkbox" disabled="" /> $478.23</p></li>
-<li><p><input type="checkbox" disabled="" /> $.99</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option A, Option B and Option E</p>
-<p>Let’s dissect what the regex in the question actually means. First,
-the <code>'\$'</code> simply matches with any question mark. Next,
-<code>'\s*'</code> matches with whitespace characters 0 or more times,
-and <code>'\d{1,3}'</code> will match with any digits 1-3 times
-inclusive. Finally, <code>'(\.\d{2})?'</code> will match with any
-expression consisting of a period and any two digits following that
-period 0 or 1 times (due to the <code>'?'</code> mark). With those rules
-in mind, it’s not too difficult to check that Options A, B and E
-work.</p>
-<p>Options C, D and F don’t work because none of those expressions have
-1-3 digits before the period.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.3">Problem 3.3</h3>
-<p>“borough”, “brough”, and “burgh” are all common suffixes among
-English towns. Write a single regular expression pattern string
-<code>pat</code> that will match any town name ending with one of these
-suffixes. Your pattern should work when <code>re.match(pat, s)</code> is
-called.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong>
-<code>'(.*)((borough$)|(brough$)|(burgh$))'</code></p>
-<p>We will assume that the question wants us to create a regex that
-matches with any string that ends with the strings described in the
-problem. First, <code>'(.*)'</code> will match with anything 0 or more
-times at the start of the expression. Then
-<code>'((borough$)|(brough$)|(burgh$))'</code> will match with any of
-the described strings in the problem , since <code>'$'</code> indicates
-the end of string and <code>'|'</code> is just <code>or</code> in
-regex.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-4">Problem 4</h2>
 <p>To prepare for the verbal component of the SAT, Yutong decides to
 read research papers on data science. While reading these papers, she
 notices that there are many citations interspersed that refer to other
@@ -614,7 +282,7 @@ Consider the following four extracted lists.</p>
 <p>For each expression below, select the list it evaluates to, or select
 “None of the above.”</p>
 <p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
+<h3 id="problem-2.1">Problem 2.1</h3>
 <p><code>re.findall(r'\d+', s)</code></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>list1</code></p></li>
@@ -626,13 +294,13 @@ Consider the following four extracted lists.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -653,7 +321,7 @@ text.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
+<h3 id="problem-2.2">Problem 2.2</h3>
 <p><code>re.findall(r'[\d+]', s)</code></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>list1</code></p></li>
@@ -665,13 +333,13 @@ text.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -691,7 +359,7 @@ elements.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-4.3">Problem 4.3</h3>
+<h3 id="problem-2.3">Problem 2.3</h3>
 <p><code>re.findall(r'\[(\d+)\]', s)</code></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>list1</code></p></li>
@@ -703,13 +371,13 @@ elements.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_3" class="accordion-collapse collapse"
-aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -728,7 +396,7 @@ citation numbers from a text formatted in the verbose numeric style.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-4.4">Problem 4.4</h3>
+<h3 id="problem-2.4">Problem 2.4</h3>
 <p><code>re.findall(r'(\[\d+\])', s)</code></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>list1</code></p></li>
@@ -740,13 +408,13 @@ citation numbers from a text formatted in the verbose numeric style.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading4_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
+<h2 class="accordion-header" id="heading2_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_4" class="accordion-collapse collapse"
-aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
+<div id="collapse2_4" class="accordion-collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -760,6 +428,338 @@ parentheses around the entire pattern ensure that the match includes the
 brackets. This results in <code>list4</code>, which contains all the
 citation markers found in <code>s</code>, preserving the brackets to
 clearly denote them as citations.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>In this question, you will be asked to determine which strings are
+matched by various regular expression patterns when
+<code>re.search</code> is used. For these questions, remember that
+<code>re.search(pattern, s)</code> matches <code>s</code> if the pattern
+can be found anywhere in <code>s</code> (not necessarily at the
+beginning). For example,
+<code>re.search("name", "my name is pranavi")</code> matches, while
+<code>re.search("foo", "my name is pranavi")</code> does not.</p>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'a+'</code>? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option A, B, C and D</p>
+<p>The regex pattern <code>r'a+'</code> searches for any string that
+contains at least one substring consisting of the character
+<code>a</code> one or more times. Clearly all of these strings contain a
+substring og the character <code>a</code> one or more times.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'a+ b+'</code>? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option A and B</p>
+<p>The regex pattern <code>r'a+ b+'</code> searches for any string that
+contains at least one substring consisting of the character
+<code>a</code> one or more times followed by a space followed by the
+character <code>b</code> one or more times. The only strings that have
+this pattern are Options A and B.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.3">Problem 3.3</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'\baa\b'</code>?</p>
+<p>Recall that the <code>r</code> at the front of the pattern string
+above makes it a “raw” string; this is used so that <code>\b</code> is
+not interpreted by Python as a special backspace character.</p>
+<p>Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option A</p>
+<p>The regex pattern <code>r'\b'</code> matches for the boundary of a
+word (so like the start and end of a word which could seperated by
+spaces). Thus the regex pattern searches for the substring
+<code>'aa'</code> that is its own standalone word. The only string that
+has this pattern is Option A.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.4">Problem 3.4</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'(aba){2,}'</code>? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option C</p>
+<p>The regex pattern <code>r'(aba){2,}'</code> searches the substring
+consisting of <code>aba</code> 2 or more times. The only string that has
+this pattern is Option C.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.5">Problem 3.5</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'a..a'</code>? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_5" aria-expanded="true" aria-controls="collapse3_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_5" class="accordion-collapse collapse"
+aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option C</p>
+<p>The regex pattern <code>r'a..a'</code> searches the substring
+consisting of <code>a</code> followed by any two characters followed by
+<code>a</code>. The only string that has this pattern is Option C.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.6">Problem 3.6</h3>
+<p>Which of the below strings are matched by <code>re.search</code>
+using the pattern <code>r'.*'</code>? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>"aa bb cc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"aaa bbb ccc"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abaaba"</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>"abacaba"</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_6" aria-expanded="true" aria-controls="collapse3_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_6" class="accordion-collapse collapse"
+aria-labelledby="heading3_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>**Answer: Option A, B, C and D</p>
+<p>The regex pattern <code>r'.*'</code> searches the substring
+consisting of any character 0 or more times. Clearly all of the strings
+contain that pattern.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>You are creating a new programming language called IDK. In this
+language, all variable names must satisfy the following constraints:</p>
+<ul>
+<li>They must start with <code>Um</code>, <code>Umm</code>,
+<code>Ummm</code>, etc. That is, a capital <code>U</code> followed by
+one or more <code>m</code>’s.</li>
+<li>Following this may be any string of one or more letters. The first
+letter must be capitalized.</li>
+<li>The variable name must end with a single question mark.</li>
+<li>Numbers or other special characters are not allowed.</li>
+</ul>
+<p>Examples of valid variable names: <code>UmmmX?</code>,
+<code>UmTest?</code>, <code>UmmmmPendingQueue?</code> Examples of
+invalid variable names: <code>ummX?</code>, <code>Um?</code>,
+<code>Ummhello?</code>, <code>UmTest</code></p>
+<p>Write a regular expression pattern string <code>pat</code> to
+validate variable names in this new language. Your pattern should work
+when <code>re.match(pat, s)</code> is called.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <code>'U(m+)[A-Z]([A-z]*)(\?)'</code></p>
+<p>Starting our regular expression, it’s not too difficult to see that
+we need a <code>'U'</code> followed by <code>(m+)</code> which will
+match with a singular capital <code>'U'</code> followed by at least one
+lowercase <code>'m'</code>. Next it is required that we follow that up
+with any string of letters, where the first letter is capitalized. we do
+this with <code>'[A-Z]([A-z]*)'</code>, where <code>'[A-Z]'</code> will
+match with any capital letter and <code>'([A-z]*)'</code> will match
+with lowercase and uppercase letters 0 or more times. Finally we end the
+regex with <code>'\?'</code> which matches with a question mark.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>Which of the following strings will be matched by the regex pattern
+<code>\$\s*\d{1,3}(\.\d{2})?</code>? Note that it should match the
+complete string given. Mark all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> $ 100</p></li>
+<li><p><input type="checkbox" disabled="" /> $10.12</p></li>
+<li><p><input type="checkbox" disabled="" /> $1340.89</p></li>
+<li><p><input type="checkbox" disabled="" /> $1456.8</p></li>
+<li><p><input type="checkbox" disabled="" /> $478.23</p></li>
+<li><p><input type="checkbox" disabled="" /> $.99</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option A, Option B and Option E</p>
+<p>Let’s dissect what the regex in the question actually means. First,
+the <code>'\$'</code> simply matches with any question mark. Next,
+<code>'\s*'</code> matches with whitespace characters 0 or more times,
+and <code>'\d{1,3}'</code> will match with any digits 1-3 times
+inclusive. Finally, <code>'(\.\d{2})?'</code> will match with any
+expression consisting of a period and any two digits following that
+period 0 or 1 times (due to the <code>'?'</code> mark). With those rules
+in mind, it’s not too difficult to check that Options A, B and E
+work.</p>
+<p>Options C, D and F don’t work because none of those expressions have
+1-3 digits before the period.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>“borough”, “brough”, and “burgh” are all common suffixes among
+English towns. Write a single regular expression pattern string
+<code>pat</code> that will match any town name ending with one of these
+suffixes. Your pattern should work when <code>re.match(pat, s)</code> is
+called.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong>
+<code>'(.*)((borough$)|(brough$)|(burgh$))'</code></p>
+<p>We will assume that the question wants us to create a regex that
+matches with any string that ends with the strings described in the
+problem. First, <code>'(.*)'</code> will match with anything 0 or more
+times at the start of the expression. Then
+<code>'((borough$)|(brough$)|(burgh$))'</code> will match with any of
+the described strings in the problem , since <code>'$'</code> indicates
+the end of string and <code>'|'</code> is just <code>or</code> in
+regex.</p>
 </div>
 </div>
 </div>
@@ -1173,19 +1173,14 @@ cannot be included in any future matches. Thus the answer is 1.</p></li>
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
+<p>Nishant decides to look at reviews for the Catamaran Resort Hotel and
+Spa. TripAdvisor has 96 reviews for the hotel; of those 96, Nishant’s
+favorite review was:</p>
+<pre><code>    &quot;close to the beach but far from the beach beach&quot;</code></pre>
 <p><br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
-<p>Consider the following four sentences:</p>
-<ul>
-<li>“this is one”</li>
-<li>“this is two”</li>
-<li>“this is the third”</li>
-<li>“and this is the fourth”</li>
-</ul>
-<p>Suppose these sentences are encoded into a “bag of words” feature
-representation. The result is a Data Frame with four rows (one for each
-sentence). How many columns are in this Data Frame? Your answer should
-be in the form of a number.</p>
+<p>What is the TF of <code>"beach"</code> in Nishant’s favorite review?
+Give your answer as a simplified fraction.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_1">
@@ -1199,103 +1194,6 @@ aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer: </strong> 8</p>
-<p>Recall that bag of word creates a new column for each unique word.
-Thus the problem boils down to “how many unique words are there in the
-following four sentences”, which we count 8: “this”, “is”, “one”, “two”,
-“the”, “third”, “and”, “fourth”.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
-<p>Again consider the same four sentences shown above.</p>
-<p>What is the TF-IDF score for the word “this” in the first sentence?
-Use base-2 logarithm.</p>
-<p>Your answer should be in the form of a number.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_2" class="accordion-collapse collapse"
-aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 0</p>
-<p>Recall that TF is calculated as the number of terms that appear in
-that sentence divided by the total number of terms in the sentence. In
-this case the TF value of “this” in the first sentence is <span class="math inline">\frac{1}{3}</span>.</p>
-<p>IDF is calculated as the log of the number of sentences divided by
-the number of sentences in which that term appears in. In this case, the
-IDF value of “this” in the first sentence is <span class="math inline">\log_{2}(\frac{4}{4}) = 0</span>.</p>
-<p>Thus the TF-IDF is just <span class="math inline">\frac{1}{3} * 0 =
-0</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
-<p>Again consider the same four sentences shown above.</p>
-<p>What is the TF-IDF score for the word “and” in the last sentence? Use
-base-2 logarithm.</p>
-<p>Your answer should be in the form of a number.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_3" class="accordion-collapse collapse"
-aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 0.4</p>
-<p>Recall that TF is calculated as the number of terms that appear in
-that sentence divided by the total number of terms in the sentence. In
-this case the TF value of “and” in the last sentence is <span class="math inline">\frac{1}{5}</span>.</p>
-<p>IDF is calculated as the log of the number of sentences divided by
-the number of sentences in which that term appears in. In this case, the
-IDF value of “and” in the last sentence is <span class="math inline">\log_{2}(\frac{4}{1}) = 2</span>.</p>
-<p>Thus the TF-IDF is just <span class="math inline">\frac{1}{5} * 2 =
-0.4</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>Nishant decides to look at reviews for the Catamaran Resort Hotel and
-Spa. TripAdvisor has 96 reviews for the hotel; of those 96, Nishant’s
-favorite review was:</p>
-<pre><code>    &quot;close to the beach but far from the beach beach&quot;</code></pre>
-<p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
-<p>What is the TF of <code>"beach"</code> in Nishant’s favorite review?
-Give your answer as a simplified fraction.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
 <p><strong>Answer:</strong> <span class="math inline">\frac{3}{10}</span></p>
 <p>The answer is simply the proportion of words in the sentence that are
 the word <code>"beach"</code>. There are 10 words in the sentence, 3 of
@@ -1305,7 +1203,7 @@ which are <code>"beach"</code>.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
+<h3 id="problem-8.2">Problem 8.2</h3>
 <p>The TF-IDF of <code>"beach"</code> in Nishant’s favorite review is
 <span class="math inline">\frac{9}{10}</span>, when using a base-2
 logarithm to compute the IDF. How many of the reviews on TripAdvisor for
@@ -1321,13 +1219,13 @@ this hotel contain the term <code>"beach"</code>?</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_2" class="accordion-collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1352,7 +1250,279 @@ containing "beach"}}</span></p>
 </div>
 <p><br></p>
 <hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>The DataFrame below contains a corpus of four song titles, labeled
+from 0 to 3.</p>
+<center><img src='../assets/images/disc06/love_songs.png' width=35%></center>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>What is the TF-IDF of the word <code>"hate"</code> in Song 0’s title?
+Use base 2 in your logarithm, and give your answer as a simplified
+fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{1}{6}</span></p>
+<p>There are 12 words in Song 0’s title, and 2 of them are
+<code>"hate"</code>, so the term frequency of <code>"hate"</code> in
+Song 0’s title is <span class="math inline">\frac{2}{12} =
+\frac{1}{6}</span>.</p>
+<p>There are 4 documents total, and 2 of them contain
+<code>"hate"</code> (Song 0’s title and Song 3’s title), so the inverse
+document frequency of <code>"hate"</code> in the corpus is <span class="math inline">\log_2 \left( \frac{4}{2} \right) = \log_2 (2) =
+1</span>.</p>
+<p>Then, the TF-IDF of <code>"hate"</code> in Song 0’s title is</p>
+<p><span class="math display">\text{TF-IDF} = \frac{1}{6} \cdot 1 =
+\frac{1}{6}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>Which word in Song 0’s title has the highest TF-IDF?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>"i"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"hate"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"you"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"love"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"that"</code></p></li>
+<li><p><input type="radio" disabled="" /> Two or more words are tied for the highest TF-IDF in Song 0’s
+title</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option A: <code>"i"</code></p>
+<p>It was not necessary to compute the TF-IDFs of all words in Song 0’s
+title to determine the answer. <span class="math inline">\text{tfidf}(t,
+d)</span> is high when <span class="math inline">t</span> occurs often
+in <span class="math inline">d</span> but rarely overall. That is the
+case with <code>"i"</code> — it is the most common word in Song 0’s
+title (with 4 appearances), but it does not appear in any other
+document. As such, it must be the word with the highest TF-IDF in Song
+0’s title.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>Let <span class="math inline">\text{tfidf}(t, d)</span> be the TF-IDF
+of term <span class="math inline">t</span> in document <span
+class="math inline">d</span>, and let <span
+class="math inline">\text{bow}(t, d)</span> be the number of occurrences
+of term <span class="math inline">t</span> in document <span
+class="math inline">d</span>.</p>
+<p><strong>Select all</strong> correct answers below.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> If <span class="math inline">\text{tfidf}(t, d) = 0</span>, then
+<span class="math inline">\text{bow}(t, d) = 0</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> If <span class="math inline">\text{bow}(t, d) = 0</span>, then <span class="math inline">\text{tfidf}(t, d) = 0</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> Neither of the above statements are necessarily true.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_3" class="accordion-collapse collapse"
+aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>Recall that <span class="math inline">\text{tfidf}(t, d) =
+\text{tf}(t, d) \cdot \text{idf}(t)</span>, and note that <span class="math inline">\text{tf}(t, d)</span> is just $ (t, d) <span class="math inline">. Thus,</span>(t, d)$ is 0 is if either <span class="math inline">\text{bow}(t, d) = 0</span> or <span class="math inline">\text{idf}(t) = 0</span>.</p>
+<p>So, if <span class="math inline">\text{bow}(t, d) = 0</span>, then
+<span class="math inline">\text{tf}(t, d) = 0</span> and <span class="math inline">\text{tfidf}(t, d) = 0</span>, so the second option
+is true. However, if <span class="math inline">\text{tfidf}(t, d) =
+0</span>, it could be the case that <span class="math inline">\text{bow}(t, d) &gt; 0</span> and <span class="math inline">\text{idf}(t) = 0</span> (which happens when term
+<span class="math inline">t</span> is in every document), so the first
+option is not necessarily true.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.4">Problem 9.4</h3>
+<p>Below, we’ve encoded the corpus from the previous page using the
+bag-of-words model.</p>
+<center><img src='../assets/images/disc06/bag-words.png' width=40%></center>
+<p>Note that in the above DataFrame, each row has been normalized to
+have a length of 1 (i.e. <span class="math inline">|\vec{v}| = 1</span>
+for all four row vectors).</p>
+<p>Which song’s title has the highest cosine similarity with Song 0’s
+title?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Song 1</p></li>
+<li><p><input type="radio" disabled="" /> Song 2</p></li>
+<li><p><input type="radio" disabled="" /> Song 3</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_4" class="accordion-collapse collapse"
+aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B: Song 2</p>
+<p>Recall, the cosine similarity between two vectors <span class="math inline">\vec{a}, \vec{b}</span> is computed as</p>
+<p><span class="math display">\cos \theta = \frac{\vec{a} \cdot
+\vec{b}}{| \vec{a} | | \vec{b}|}</span></p>
+<p>We are told that each row vector is already normalized to have a
+length of 1, so to compute the similarity between two songs’ titles, we
+can compute dot products directly.</p>
+<ul>
+<li><p>Song 0 and Song 1: <span class="math inline">0.47 \cdot
+0.76</span></p></li>
+<li><p>Song 0 and Song 2: <span class="math inline">0.47 \cdot 0.58 +
+0.71 \cdot 0.58</span></p></li>
+<li><p>Song 0 and Song 3: <span class="math inline">0.47 \cdot
+0.71</span></p></li>
+</ul>
+<p>Without using a calculator (which students did not have access to
+during the exam), it is clear that the dot product between Song 0’s
+title and Song 2’s title is the highest, hence Song 2’s title is the
+most similar to Song 0’s.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
 <h2 id="problem-10">Problem 10</h2>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>Consider the following four sentences:</p>
+<ul>
+<li>“this is one”</li>
+<li>“this is two”</li>
+<li>“this is the third”</li>
+<li>“and this is the fourth”</li>
+</ul>
+<p>Suppose these sentences are encoded into a “bag of words” feature
+representation. The result is a DataFrame with four rows (one for each
+sentence). How many columns are in this DataFrame? Your answer should be
+in the form of a number.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 8</p>
+<p>Recall that bag of word creates a new column for each unique word.
+Thus the problem boils down to “how many unique words are there in the
+following four sentences”, which we count 8: “this”, “is”, “one”, “two”,
+“the”, “third”, “and”, “fourth”.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>Again consider the same four sentences shown above.</p>
+<p>What is the TF-IDF score for the word “this” in the first sentence?
+Use base-2 logarithm.</p>
+<p>Your answer should be in the form of a number.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 0</p>
+<p>Recall that TF is calculated as the number of terms that appear in
+that sentence divided by the total number of terms in the sentence. In
+this case the TF value of “this” in the first sentence is <span class="math inline">\frac{1}{3}</span>.</p>
+<p>IDF is calculated as the log of the number of sentences divided by
+the number of sentences in which that term appears in. In this case, the
+IDF value of “this” in the first sentence is <span class="math inline">\log_{2}(\frac{4}{4}) = 0</span>.</p>
+<p>Thus the TF-IDF is just <span class="math inline">\frac{1}{3} * 0 =
+0</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.3">Problem 10.3</h3>
+<p>Again consider the same four sentences shown above.</p>
+<p>What is the TF-IDF score for the word “and” in the last sentence? Use
+base-2 logarithm.</p>
+<p>Your answer should be in the form of a number.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 0.4</p>
+<p>Recall that TF is calculated as the number of terms that appear in
+that sentence divided by the total number of terms in the sentence. In
+this case the TF value of “and” in the last sentence is <span class="math inline">\frac{1}{5}</span>.</p>
+<p>IDF is calculated as the log of the number of sentences divided by
+the number of sentences in which that term appears in. In this case, the
+IDF value of “and” in the last sentence is <span class="math inline">\log_{2}(\frac{4}{1}) = 2</span>.</p>
+<p>Thus the TF-IDF is just <span class="math inline">\frac{1}{5} * 2 =
+0.4</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-11">Problem 11</h2>
 <p>Tahseen decides to look at reviews for the same hotel, but he
 modifies them so that the only terms they contain are
 <code>"taco"</code> and <code>"sand"</code>. The bag-of-words
@@ -1368,13 +1538,13 @@ most similar, select them all.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading10">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">
+<h2 class="accordion-header" id="heading11">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10" class="accordion-collapse collapse"
-aria-labelledby="heading10" data-bs-parent="#accordionExample">
+<div id="collapse11" class="accordion-collapse collapse"
+aria-labelledby="heading11" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1438,7 +1608,7 @@ vectors have the same cosine similarity, and thus the same angle!</li>
 </div>
 </div>
 <hr />
-<h2 id="problem-11">Problem 11</h2>
+<h2 id="problem-12">Problem 12</h2>
 <p>You create a table called <code>gums</code> that only contains the
 chewing gum purchases of <code>df</code>, then you create a bag-of-words
 matrix called <code>bow</code> from the <code>name</code> column of
@@ -1460,17 +1630,17 @@ expression (no need to simplify fractions or logarithms) in the space
 provided, or write “Need more information” if there is not enough
 information provided to answer the question.</p>
 <p><br></p>
-<h3 id="problem-11.1">Problem 11.1</h3>
+<h3 id="problem-12.1">Problem 12.1</h3>
 <p>What is the TF-IDF for the word “pur” in document 0?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading11_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
+<h2 class="accordion-header" id="heading12_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_1" class="accordion-collapse collapse"
-aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div id="collapse12_1" class="accordion-collapse collapse"
+aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1508,17 +1678,17 @@ be 0.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-11.2">Problem 11.2</h3>
+<h3 id="problem-12.2">Problem 12.2</h3>
 <p>What is the TF-IDF for the word “gum” in document 0?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading11_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
+<h2 class="accordion-header" id="heading12_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_2" class="accordion-collapse collapse"
-aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div id="collapse12_2" class="accordion-collapse collapse"
+aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1548,17 +1718,17 @@ contain “gum”. So, we need more information.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-11.3">Problem 11.3</h3>
+<h3 id="problem-12.3">Problem 12.3</h3>
 <p>What is the TF-IDF for the word “paperboard” in document 1?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading11_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_3" aria-expanded="true" aria-controls="collapse11_3">
+<h2 class="accordion-header" id="heading12_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_3" class="accordion-collapse collapse"
-aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
+<div id="collapse12_3" class="accordion-collapse collapse"
+aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1590,9 +1760,9 @@ containing "paperboard"}} \right)
 </div>
 <p><br></p>
 <hr />
-<h2 id="problem-12">Problem 12</h2>
+<h2 id="problem-13">Problem 13</h2>
 <p><br></p>
-<h3 id="problem-12.1">Problem 12.1</h3>
+<h3 id="problem-13.1">Problem 13.1</h3>
 <p>Consider the following five sentences.</p>
 <ul>
 <li><pre><code>&quot;of the college board the&quot;</code></pre></li>
@@ -1616,13 +1786,13 @@ values.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
+<h2 class="accordion-header" id="heading13_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_1" aria-expanded="true" aria-controls="collapse13_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_1" class="accordion-collapse collapse"
-aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div id="collapse13_1" class="accordion-collapse collapse"
+aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1642,7 +1812,7 @@ zeros in the TF-IDF matrix for “the”.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-12.2">Problem 12.2</h3>
+<h3 id="problem-13.2">Problem 13.2</h3>
 <p>In which of the following sentences is “college” the word with the
 highest TF-IDF?</p>
 <ul class="task-list">
@@ -1654,13 +1824,13 @@ highest TF-IDF?</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
+<h2 class="accordion-header" id="heading13_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_2" aria-expanded="true" aria-controls="collapse13_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_2" class="accordion-collapse collapse"
-aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
+<div id="collapse13_2" class="accordion-collapse collapse"
+aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1681,7 +1851,7 @@ than in any other sentence.) As such, the answer is Sentence 4.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-12.3">Problem 12.3</h3>
+<h3 id="problem-13.3">Problem 13.3</h3>
 <p>As an alternative to TF-IDF, Suraj proposes the DF-ITF, or “document
 frequency-inverse term frequency”. The DF-ITF of term <span
 class="math inline">t</span> in document <span
@@ -1699,13 +1869,13 @@ document <span class="math inline">d</span> is the term with ____.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
+<h2 class="accordion-header" id="heading13_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_3" aria-expanded="true" aria-controls="collapse13_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_3" class="accordion-collapse collapse"
-aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div id="collapse13_3" class="accordion-collapse collapse"
+aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1726,176 +1896,6 @@ which $t$ appears}}{\text{total \# of documents}}</span> is small.</p>
 <p>Putting the above two pieces together, we have that <span class="math inline">\text{df-itf}(t, d)</span> is small when <span class="math inline">t</span> occurs commonly in <span class="math inline">d</span> but rarely overall, which means that the
 term <span class="math inline">t</span> that best summarizes <span class="math inline">d</span> is the term with the smallest DF-IDF in
 <span class="math inline">d</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-13">Problem 13</h2>
-<p>The DataFrame below contains a corpus of four song titles, labeled
-from 0 to 3.</p>
-<center><img src='../assets/images/disc06/love_songs.png' width=35%></center>
-<p><br></p>
-<h3 id="problem-13.1">Problem 13.1</h3>
-<p>What is the TF-IDF of the word <code>"hate"</code> in Song 0’s title?
-Use base 2 in your logarithm, and give your answer as a simplified
-fraction.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading13_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_1" aria-expanded="true" aria-controls="collapse13_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse13_1" class="accordion-collapse collapse"
-aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <span class="math inline">\frac{1}{6}</span></p>
-<p>There are 12 words in Song 0’s title, and 2 of them are
-<code>"hate"</code>, so the term frequency of <code>"hate"</code> in
-Song 0’s title is <span class="math inline">\frac{2}{12} =
-\frac{1}{6}</span>.</p>
-<p>There are 4 documents total, and 2 of them contain
-<code>"hate"</code> (Song 0’s title and Song 3’s title), so the inverse
-document frequency of <code>"hate"</code> in the corpus is <span class="math inline">\log_2 \left( \frac{4}{2} \right) = \log_2 (2) =
-1</span>.</p>
-<p>Then, the TF-IDF of <code>"hate"</code> in Song 0’s title is</p>
-<p><span class="math display">\text{TF-IDF} = \frac{1}{6} \cdot 1 =
-\frac{1}{6}</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-13.2">Problem 13.2</h3>
-<p>Which word in Song 0’s title has the highest TF-IDF?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>"i"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"hate"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"you"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"love"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"that"</code></p></li>
-<li><p><input type="radio" disabled="" /> Two or more words are tied for the highest TF-IDF in Song 0’s
-title</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading13_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_2" aria-expanded="true" aria-controls="collapse13_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse13_2" class="accordion-collapse collapse"
-aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option A: <code>"i"</code></p>
-<p>It was not necessary to compute the TF-IDFs of all words in Song 0’s
-title to determine the answer. <span class="math inline">\text{tfidf}(t,
-d)</span> is high when <span class="math inline">t</span> occurs often
-in <span class="math inline">d</span> but rarely overall. That is the
-case with <code>"i"</code> — it is the most common word in Song 0’s
-title (with 4 appearances), but it does not appear in any other
-document. As such, it must be the word with the highest TF-IDF in Song
-0’s title.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-13.3">Problem 13.3</h3>
-<p>Let <span class="math inline">\text{tfidf}(t, d)</span> be the TF-IDF
-of term <span class="math inline">t</span> in document <span
-class="math inline">d</span>, and let <span
-class="math inline">\text{bow}(t, d)</span> be the number of occurrences
-of term <span class="math inline">t</span> in document <span
-class="math inline">d</span>.</p>
-<p><strong>Select all</strong> correct answers below.</p>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> If <span class="math inline">\text{tfidf}(t, d) = 0</span>, then
-<span class="math inline">\text{bow}(t, d) = 0</span>.</p></li>
-<li><p><input type="checkbox" disabled="" /> If <span class="math inline">\text{bow}(t, d) = 0</span>, then <span class="math inline">\text{tfidf}(t, d) = 0</span>.</p></li>
-<li><p><input type="checkbox" disabled="" /> Neither of the above statements are necessarily true.</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading13_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_3" aria-expanded="true" aria-controls="collapse13_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse13_3" class="accordion-collapse collapse"
-aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B</p>
-<p>Recall that <span class="math inline">\text{tfidf}(t, d) =
-\text{tf}(t, d) \cdot \text{idf}(t)</span>, and note that <span class="math inline">\text{tf}(t, d)</span> is just $ (t, d) <span class="math inline">. Thus,</span>(t, d)$ is 0 is if either <span class="math inline">\text{bow}(t, d) = 0</span> or <span class="math inline">\text{idf}(t) = 0</span>.</p>
-<p>So, if <span class="math inline">\text{bow}(t, d) = 0</span>, then
-<span class="math inline">\text{tf}(t, d) = 0</span> and <span class="math inline">\text{tfidf}(t, d) = 0</span>, so the second option
-is true. However, if <span class="math inline">\text{tfidf}(t, d) =
-0</span>, it could be the case that <span class="math inline">\text{bow}(t, d) &gt; 0</span> and <span class="math inline">\text{idf}(t) = 0</span> (which happens when term
-<span class="math inline">t</span> is in every document), so the first
-option is not necessarily true.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-13.4">Problem 13.4</h3>
-<p>Below, we’ve encoded the corpus from the previous page using the
-bag-of-words model.</p>
-<center><img src='../assets/images/disc06/bag-words.png' width=40%></center>
-<p>Note that in the above DataFrame, each row has been normalized to
-have a length of 1 (i.e. <span class="math inline">|\vec{v}| = 1</span>
-for all four row vectors).</p>
-<p>Which song’s title has the highest cosine similarity with Song 0’s
-title?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Song 1</p></li>
-<li><p><input type="radio" disabled="" /> Song 2</p></li>
-<li><p><input type="radio" disabled="" /> Song 3</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading13_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_4" aria-expanded="true" aria-controls="collapse13_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse13_4" class="accordion-collapse collapse"
-aria-labelledby="heading13_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> Option B: Song 2</p>
-<p>Recall, the cosine similarity between two vectors <span class="math inline">\vec{a}, \vec{b}</span> is computed as</p>
-<p><span class="math display">\cos \theta = \frac{\vec{a} \cdot
-\vec{b}}{| \vec{a} | | \vec{b}|}</span></p>
-<p>We are told that each row vector is already normalized to have a
-length of 1, so to compute the similarity between two songs’ titles, we
-can compute dot products directly.</p>
-<ul>
-<li><p>Song 0 and Song 1: <span class="math inline">0.47 \cdot
-0.76</span></p></li>
-<li><p>Song 0 and Song 2: <span class="math inline">0.47 \cdot 0.58 +
-0.71 \cdot 0.58</span></p></li>
-<li><p>Song 0 and Song 3: <span class="math inline">0.47 \cdot
-0.71</span></p></li>
-</ul>
-<p>Without using a calculator (which students did not have access to
-during the exam), it is clear that the dot product between Song 0’s
-title and Song 2’s title is the highest, hence Song 2’s title is the
-most similar to Song 0’s.</p>
 </div>
 </div>
 </div>

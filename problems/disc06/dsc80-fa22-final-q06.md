@@ -8,7 +8,7 @@ Consider the following four sentences:
  - "this is the third"
  - "and this is the fourth"
 
-Suppose these sentences are encoded into a "bag of words" feature representation. The result is a Data Frame with four rows (one for each sentence). How many columns are in this Data Frame? Your answer should be in the form of a number.
+Suppose these sentences are encoded into a "bag of words" feature representation. The result is a DataFrame with four rows (one for each sentence). How many columns are in this DataFrame? Your answer should be in the form of a number.
 
 # BEGIN SOLN
 **Answer: ** 8
