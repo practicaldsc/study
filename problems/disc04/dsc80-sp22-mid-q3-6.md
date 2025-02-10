@@ -160,7 +160,7 @@ pivoted = students.assign(Admit=students["Admit"] == "Y") \
 
 Some of the rows and columns of `pivoted` are shown below.
 
-<center><img src='../assets/images/disc04/pivot.png' width=40%></center>
+<center><img src='../assets/images/disc04/pivot_school.png' width=40%></center>
 
 No students from Warren High were admitted to Columbia or Stanford.
 However,\
