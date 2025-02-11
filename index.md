@@ -60,12 +60,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, February 6th</td>
       <td><a href="disc05/index.html">Visualization, Imputation, and Web Scraping</a></td>
     </tr>
-    <!--<tr>
-      <th scope="row">5</th>
-      <td>Friday, September 27th</td>
-      <td><a href="disc05/index.html">Web Scraping</a></td>
-    </tr>
     <tr>
+      <th scope="row">6</th>
+      <td>Thursday, February 13th</td>
+      <td><a href="disc06/index.html">Regular Expressions and Text Features</a></td>
+    </tr>
+    <!--<tr>
       <th scope="row">6</th>
       <td>Friday, October 4th</td>
       <td><a href="disc06/index.html">Regular Expressions and Text Features</a></td>
