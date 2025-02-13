@@ -971,7 +971,7 @@ Click to view the solution.
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The variance of the data</p>
-<p><span class="math inline">R_2(h)</span> represents the mean squared error of the constant prediction, h. In the previous part, we discussed that <span class="math inline">h_2^*</span>, the minimizer of R_2(h), is the mean, <span class="math inline">\bar{y}</span>. So, <span class="math inline">R_2(h_2^*)</span> is then:</p>
+<p><span class="math inline">R_2(h)</span> represents the mean squared error of the constant prediction, h. In the previous part, we discussed that <span class="math inline">h_2^*</span>, the minimizer of <span class="math inline">R_2(h)</span>, is the mean, <span class="math inline">\bar{y}</span>. So, <span class="math inline">R_2(h_2^*)</span> is then:</p>
 <p><span class="math display">R_2(h_2^*) = \frac{1}{n} \sum_{i = 1}^n (y_i - h_2^*)^2 = \frac{1}{n} \sum_{i = 1}^n (y_i - \bar{y})^2</span></p>
 <p>This is the definition of the variance of y.</p>
 <hr/>
@@ -1051,8 +1051,7 @@ Click to view the solution.
 <p>Rearrange terms:</p>
 <p><span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i^2 = h \left( \frac{1}{n} \sum_{i = 1}^n y_i + \lambda \right) </span></p>
 <p>Step 3: Solve for <span class="math inline">h</span></p>
-<p>Divide both sides by<br/>
-<span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i + \lambda: </span></p>
+<p>Divide both sides by <span class="math inline">\frac{1}{n} \sum_{i = 1}^n y_i + \lambda:</span></p>
 <p><span class="math display"> h^* = \frac{\frac{1}{n} \sum_{i = 1}^n y_i^2}{\frac{1}{n} \sum_{i = 1}^n y_i + \lambda} </span></p>
 <p>Step 4: Multiply by <span class="math inline">\frac{n}{n}</span></p>
 <p><span class="math display"> h^* = \frac{\sum_{i = 1}^n y_i^2}{\sum_{i = 1}^n y_i + n\lambda} </span></p>
@@ -1095,8 +1094,8 @@ Click to view the solution.
 <p>Substitute <span class="math inline">w_0^* = 11</span>, <span class="math inline">w_1^* = \frac{1}{10}</span>, and <span class="math inline">x = 40</span>:<br/>
 <span class="math display"> H(40) = 11 + \frac{1}{10} \cdot 40 = 11 + 4 = 15 </span></p>
 <p>The squared loss is:<br/>
-<span class="math display"> L = (y - \hat{y})^2 </span></p>
-<p>Substituting <span class="math inline">y = 11</span> (actual) and <span class="math inline">\hat{y} = 15</span> (predicted):<br/>
+<span class="math display"> L = (y - H(x_i))^2 </span></p>
+<p>Substituting <span class="math inline">y = 11</span> (actual) and <span class="math inline">H(x_i) = 15</span> (predicted):<br/>
 <span class="math display"> L = (11 - 15)^2 = (-4)^2 = 16 </span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -1111,8 +1110,8 @@ Click to view the solution.
 <h3 id="problem-8.2">Problem 8.2</h3>
 <p>Is it possible to answer part (a) above <strong>just</strong> by knowing <span class="math inline">\bar x</span> and <span class="math inline">\bar y</span>, i.e. <strong>without</strong> knowing the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to</p></li>
-<li><p><input type="radio" disabled="" /> No; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> are necessary to answer part</p></li>
+<li><p><input type="radio" disabled="" /> Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to part (a).</p></li>
+<li><p><input type="radio" disabled="" /> No; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> are necessary to answer part (a).</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1140,10 +1139,16 @@ Click to view the solution.
 <p>Suppose <span class="math inline">x_i</span> represents the price of product <span class="math inline">i</span>, and suppose <span class="math inline">u_i</span> represents the <strong>negative price</strong> of product <span class="math inline">i</span>. In other words, for <span class="math inline">i = 1, 2, ..., n</span>, where <span class="math inline">n</span> is the number of points in our dataset:</p>
 <p><span class="math display">u_i = - x_i</span></p>
 <p>Suppose <span class="math inline">U</span> is the design matrix for the simple linear regression model that uses <strong>negative</strong> price to predict number of ingredients. Which of the following matrices could be <span class="math inline">U^TU</span>?</p>
-<p>( ) <span class="math inline">\begin{bmatrix} -15 &amp; 600 \\ 600 &amp; -30000 \end{bmatrix}</span></p>
-<p>( ) <span class="math inline">\begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span></p>
-<p>( ) <span class="math inline">\begin{bmatrix} -15 &amp; 450 \\ 450 &amp; -30000 \end{bmatrix}</span></p>
-<p>( ) <span class="math inline">\begin{bmatrix} 15 &amp; -450 \\ -450 &amp; 30000 \end{bmatrix}</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 600 \\ 600 &amp; -30000 \end{bmatrix}</span><br/>
+</p></li>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span><br/>
+</p></li>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 450 \\ 450 &amp; -30000 \end{bmatrix}</span><br/>
+</p></li>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -450 \\ -450 &amp; 30000 \end{bmatrix}</span><br/>
+</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_3">
