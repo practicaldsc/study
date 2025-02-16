@@ -1000,6 +1000,546 @@ out the <span class="math inline">w_1</span> to get <span class="math inline">\s
 </div>
 <p><br></p>
 <hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>Billy decides to take on a part-time job as a waiter at the Panda
+Express in Pierpont. For two months, he kept track of all of the total
+bills he gave out to customers along with the tips they then gave him,
+all in dollars. Below is a scatter plot of Billy’s tips and total
+bills.</p>
+<!-- TODO -->
+<center><img src="../assets/images/disc07/dirtybirds.png" width="600" height="330"></center>
+<p>Throughout this question, assume we are trying to fit a linear
+prediction rule <span class="math inline">H(x) = w_0 + w_1x</span> that
+uses total bills to predict tips, and assume we are finding optimal
+parameters by minimizing mean squared error.</p>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>Which of these is the most likely value for <span
+class="math inline">r</span>, the correlation between total bill and
+tips? Why?</p>
+<div class="center">
+<p><span class="math display">-1 \qquad -0.75 \qquad -0.25 \qquad 0
+\qquad 0.25 \qquad 0.75 \qquad 1</span></p>
+</div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>0.75.</p>
+<p>It seems like there is a pretty strong, but not perfect, linear
+association between total bills and tips.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>The variance of the tip amounts is 2.1. Let <span
+class="math inline">M</span> be the mean squared error of the best
+linear prediction rule on this dataset (under squared loss). Is <span
+class="math inline">M</span> less than, equal to, or greater than 2.1?
+How can you tell?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">M</span> is less than 2.1. The variance is
+equal to the MSE of the constant prediction rule.</p>
+<p>Note that the MSE of the best linear prediction rule will always be
+less than or equal to the MSE of the best constant prediction rule <span class="math inline">h</span>. The only case in which these two MSEs are
+the same is when the best linear prediction rule is a flat line with
+slope 0, which is the same as a constant prediction. In all other cases,
+the linear prediction rule will make better predictions and hence have a
+lower MSE than the constant prediction rule.</p>
+<p>In this case, the best linear prediction rule is clearly not flat, so
+<span class="math inline">M &lt; 2.1</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.3">Problem 10.3</h3>
+<p>Suppose we use the formulas from class on Billy’s dataset and
+calculate the optimal slope <span class="math inline">w_1^*</span> and
+intercept <span class="math inline">w_0^*</span> for this prediction
+rule.</p>
+<p>Suppose we add the value of 1 to every total bill <span
+class="math inline">x</span>, effectively shifting the scatter plot 1
+unit to the right. <strong>Note that doing this does not change the
+value of <span class="math inline">w_1^*</span>.</strong> What amount
+should we add to each tip <span class="math inline">y</span> so that the
+value of <span class="math inline">w_0^*</span> also does not change?
+Your answer should involve one or more of <span
+class="math inline">\bar{x}, \bar{y}, w_0^*, w_1^*,</span> and any
+constants.</p>
+<p><em>Note: To receive full points, you must provide a rigorous
+explanation, though this explanation only takes a few lines. However, we
+will award partial credit to solutions with the correct answer, and it’s
+possible to arrive at the correct answer by drawing a picture and
+thinking intuitively about what happens.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>We should add <span class="math inline">w_1^*</span> to each tip
+<span class="math inline">y</span>.</p>
+<p>First, we present the rigorous solution.</p>
+<p>Let <span class="math inline">\bar{x}_\text{old}</span> represent the
+previous mean of the <span class="math inline">x</span>’s and <span class="math inline">\bar{x}_\text{new}</span> represent the new mean of
+the <span class="math inline">x</span>’s. Then, we know that <span class="math inline">\bar{x}_\text{new} = \bar{x}_\text{old} +
+1</span>.</p>
+<p>Also, let <span class="math inline">\bar{y}_\text{old}</span> and
+<span class="math inline">\bar{y}_\text{new}</span> represent the old
+and new mean of the <span class="math inline">y</span>’s. We will try
+and find a relationship between these two quantities.</p>
+<p>We want the two intercepts to be the same. The intercept for the old
+line is <span class="math inline">\bar{y}_\text{old} - w_1^*
+\bar{x}_\text{old}</span> and the intercept for the new line is <span class="math inline">\bar{y}_\text{new} - w_1^*
+\bar{x}_\text{new}</span>. Setting these equal yields</p>
+<p><span class="math display">
+\begin{aligned}
+    \bar{y}_\text{new} - w_1^* \bar{x}_\text{new} &amp;=
+\bar{y}_\text{old} - w_1^* \bar{x}_\text{old} \\
+     \bar{y}_\text{new} - w_1^* (\bar{x}_\text{old} + 1) &amp;=
+\bar{y}_\text{old} - w_1^* \bar{x}_\text{old} \\
+     \bar{y}_\text{new} &amp;= \bar{y}_\text{old} - w_1^*
+\bar{x}_\text{old} + w_1^* (\bar{x}_\text{old} + 1) \\
+     \bar{y}_{\text{new}} &amp;= \bar{y}_\text{old} + w_1^*
+\end{aligned}
+</span></p>
+<p>Thus, in order for the intercepts to be equal, we need the mean of
+the new <span class="math inline">y</span>’s to be <span class="math inline">w_1^*</span> greater than the mean of the old <span class="math inline">y</span>’s. Since we’re told we’re adding the same
+constant to each <span class="math inline">y</span> that constant is
+<span class="math inline">w_1^*</span>.</p>
+<p>Another way to approach the question is as follows: consider any
+point that lies directly on a line with slope <span class="math inline">w_1^*</span> and intercept <span class="math inline">w_0^*</span>. Consider how the slope between two
+points on a line is calculated: <span class="math inline">\text{slope} =
+\frac{y_2 - y_1}{x_2 - x_1}</span>. If <span class="math inline">x_2 -
+x_1 = 1</span>, in order for the slope to remain fixed we must have that
+<span class="math inline">y_2 - y_1 = \text{slope}</span>. For a
+concrete example, think of the line <span class="math inline">y = 5x +
+2</span>. The point <span class="math inline">(1, 7)</span> is on the
+line, as is the point <span class="math inline">(1 + 1, 7 + 5) = (2,
+12)</span>.</p>
+<p>In our case, none of our points are guaranteed to be
+<strong>on</strong> the line defined by slope <span class="math inline">w_1^*</span> and intercept <span class="math inline">w_0^*</span>. Instead, we just want to be guaranteed
+that the points have the same regression line after being shifted. If we
+follow the same principle, though, and add 1 to every <span class="math inline">x</span> and <span class="math inline">w_1^*</span>
+to every <span class="math inline">y</span>, the points’ relative
+positions to the line will not change (i.e. the vertical distance from
+each point to the line will not change), and so that will remain the
+line with the lowest MSE, and hence <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> won’t change.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-11">Problem 11</h2>
+<p>Suppose we’re given a dataset of <span class="math inline">n</span>
+points, <span class="math inline">(x_1, y_1), (x_2, y_2), ..., (x_n,
+y_n)</span>, where <span class="math inline">\bar{x}</span> is the mean
+of <span class="math inline">x_1, x_2, ..., x_n</span> and <span
+class="math inline">\bar{y}</span> is the mean of <span
+class="math inline">y_1, y_2, ..., y_n</span>.</p>
+<p>Using this dataset, we create a <em>transformed</em> dataset of <span
+class="math inline">n</span> points, <span
+class="math inline">(x_1&#39;, y_1&#39;), (x_2&#39;, y_2&#39;), ...,
+(x_n&#39;, y_n&#39;)</span>, where:</p>
+<p><span class="math display">x_i&#39; = 4x_i - 3 \qquad y_i&#39; = y_i
++ 24</span></p>
+<p>That is, the transformed dataset is of the form <span
+class="math inline">(4x_1 - 3, y_1 + 24), ..., (4x_n - 3, y_n +
+24)</span>.</p>
+<p>We decide to fit a simple linear hypothesis function <span
+class="math inline">H(x&#39;) = w_0 + w_1x&#39;</span> on the
+transformed dataset using squared loss. We find that <span
+class="math inline">w_0^* = 7</span> and <span class="math inline">w_1^*
+= 2</span>, so <span class="math inline">H^*(x&#39;) = 7 +
+2x&#39;</span>.</p>
+<p><br></p>
+<h3 id="problem-11.1">Problem 11.1</h3>
+<p>Suppose we were to fit a simple linear hypothesis function through
+the original dataset, <span class="math inline">(x_1, y_1), (x_2, y_2),
+..., (x_n, y_n)</span>, again using squared loss. What would the optimal
+slope be?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">2</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">4</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">8</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">24</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_1" class="accordion-collapse collapse"
+aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">8.</span></p>
+<p>Relative to the dataset with <span class="math inline">x'</span>,
+the dataset with <span class="math inline">x</span> has an <span class="math inline">x</span>-variable that’s “compressed” by a factor of
+4, so the slope increases by a factor of 4 to <span class="math inline">2 \cdot 4 = 8</span>.</p>
+<p>Concretely, this can be shown by looking at the formula <span class="math inline">2 = r\frac{SD(y')}{SD(x')}</span>,
+recognizing that <span class="math inline">SD(y') = SD(y)</span>
+since the <span class="math inline">y</span> values have the same spread
+in both datasets, and that <span class="math inline">SD(x') = 4
+SD(x)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-11.2">Problem 11.2</h3>
+<p>Recall, the hypothesis function <span class="math inline">H^*</span>
+was fit on the transformed dataset,</p>
+<p><span class="math inline">(x_1&#39;, y_1&#39;), (x_2&#39;, y_2&#39;),
+..., (x_n&#39;, y_n&#39;)</span>. <span class="math inline">H^*</span>
+happens to pass through the point <span class="math inline">(\bar{x},
+\bar{y})</span>. What is the value of <span
+class="math inline">\bar{x}</span>? Give your answer as an integer with
+no variables.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_2" class="accordion-collapse collapse"
+aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">5</span>.</p>
+<p>The key idea is that the regression line always passes through <span class="math inline">(\text{mean } x, \text{mean } y)</span> in the
+dataset we used to fit it. So, we know that: <span class="math inline">2
+\bar{x'} + 7 = \bar{y'}</span>. This first equation can be
+rewritten as: <span class="math inline">2 \cdot (4\bar{x} - 3) + 7 =
+\bar{y} + 24</span>.</p>
+<p>We’re also told this line passes through <span class="math inline">(\bar{x}, \bar{y})</span>, which means that it’s
+also true that: <span class="math inline">2 \bar{x} + 7 =
+\bar{y}</span>.</p>
+<p>Now we have a system of two equations:</p>
+<p><span class="math inline">\begin{cases}
+2 \cdot (4\bar{x} - 3) + 7 = \bar{y} + 24 \\
+2 \bar{x} + 7 = \bar{y}
+\end{cases}</span></p>
+<p><span class="math inline">\dots</span> and solving our system of two
+equations gives: <span class="math display">\bar{x} = 5</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-12">Problem 12</h2>
+<p>For a given dataset <span class="math inline">\{y_1, y_2, \dots,
+y_n\}</span>, let <span class="math inline">M_{abs}(h)</span> represent
+the <strong>median</strong> absolute error of the constant prediction
+<span class="math inline">h</span> on that dataset (as opposed to the
+mean absolute error <span class="math inline">R_{abs}(h)</span>).</p>
+<p><br></p>
+<h3 id="problem-12.1">Problem 12.1</h3>
+<p>For the dataset <span class="math inline">\{4, 9, 10, 14,
+15\}</span>, what is <span class="math inline">M_{abs}(9)</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_1" class="accordion-collapse collapse"
+aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">5</span></p>
+<p>The first step is to calculate the absolute errors (<span class="math inline">|y_i - h|</span>).</p>
+<p><span class="math display">
+\begin{align*}
+\text{Absolute Errors} &amp;= \{|4-9|, |9-9|, |10-9|, |14-9|, |15-9|\}
+\\
+\text{Absolute Errors} &amp;= \{|-5|, |0|, |1|, |5|, |6|\} \\
+\text{Absolute Errors} &amp;= \{5, 0, 1, 5, 6\}
+\end{align*}
+</span></p>
+<p>Now we have to order the values inside of the absolute errors: <span class="math inline">\{0, 1, 5, 5, 6\}</span>. We can see the median is
+<span class="math inline">5</span>, so <span class="math inline">M_{abs}(9) =5</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-12.2">Problem 12.2</h3>
+<p>For the same dataset <span class="math inline">\{4, 9, 10, 14,
+15\}</span>, find another integer <span class="math inline">h</span>
+such that <span class="math inline">M_{abs}(9) = M_{abs}(h)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_2" class="accordion-collapse collapse"
+aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">5</span> or <span class="math inline">15</span></p>
+<p>Our goal is to find another number that will give us the same median
+of absolute errors as in part (a).</p>
+<p>One way to do this is to plug in a number and guess. Another way
+requires noticing you can modify <span class="math inline">10</span>
+(the middle element) to become <span class="math inline">5</span> in
+either direction (negative or positive) because of the absolute
+value.</p>
+<p>We can solve this equation to get <span class="math inline">|10-x| =
+5 \rightarrow x = 15 \text{ and } x = 5</span>.</p>
+<p>We can then test this by following the same steps as we did in part
+(a).</p>
+<p><strong>For <span class="math inline">x = 15</span>:</strong></p>
+<p><span class="math display">
+\begin{align*}
+\text{Absolute Errors} &amp;= \{|4-15|, |9-15|, |10-15|, |14-15|,
+|15-15|\} \\
+\text{Absolute Errors} &amp;= \{|-11|, |-6|, |-5|, |-1|, |0|\} \\
+\text{Absolute Errors} &amp;= \{11, 6, 5, 1, 0\}
+\end{align*}
+</span></p>
+<p>Then we order the elements to get the absolute errors: <span class="math inline">\{0, 1, 5, 6, 11\}</span>. We can see the median is
+<span class="math inline">5</span>, so <span class="math inline">M_{abs}(15) =5</span>.</p>
+<p><strong>For <span class="math inline">x = 5</span>:</strong></p>
+<p><span class="math display">
+\begin{align*}
+\text{Absolute Errors} &amp;= \{|4-5|, |9-5|, |10-5|, |14-5|, |15-5|\}
+\\
+\text{Absolute Errors} &amp;= \{|-1|, |4|, |5|, |9|, |10|\} \\
+\text{Absolute Errors} &amp;= \{1, 4, 5, 9, 10\}
+\end{align*}
+</span></p>
+<p>We do not have to re-order the elements because they are in order
+already. We can see the median is <span class="math inline">5</span>, so
+<span class="math inline">M_{abs}(5) =5</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-12.3">Problem 12.3</h3>
+<p>Based on your answers to parts (a) and (b), discuss in <strong>at
+most two sentences</strong> what is problematic about using the median
+absolute error to make predictions.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading12_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse12_3" class="accordion-collapse collapse"
+aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>The numbers <span class="math inline">5</span> and <span class="math inline">15</span> are clearly bad predictions (close to the
+extreme values in the dataset), yet they are considered just as good a
+prediction by this metric as the number <span class="math inline">9</span>, which is roughly in the center of the
+dataset. Intuitively, <span class="math inline">9</span> is a much
+better prediction, but this way of measuring the quality of a prediction
+does not recognize that.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-13">Problem 13</h2>
+<p>Suppose we are given a dataset of points <span
+class="math inline">\{(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)\}</span>
+and for some reason, we want to make predictions using a prediction rule
+of the form <span class="math display">H(x) = 17 + w_1x.</span></p>
+<p><br></p>
+<h3 id="problem-13.1">Problem 13.1</h3>
+<p>Write down an expression for the mean squared error of a prediction
+rule of this form, as a function of the parameter <span
+class="math inline">w_1</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_1" aria-expanded="true" aria-controls="collapse13_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_1" class="accordion-collapse collapse"
+aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">MSE(w_1) = \dfrac1n
+\displaystyle\sum_{i=1}^n (y_i - (17 + w_1x_i))^2</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.2">Problem 13.2</h3>
+<p>Minimize the function <span class="math inline">MSE(w_1)</span> to
+find the parameter <span class="math inline">w_1^*</span> which defines
+the optimal prediction rule <span class="math inline">H^*(x) = 17 +
+w_1^*x</span>. Show all your work and explain your steps.</p>
+<p>Fill in your final answer below:</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_2" aria-expanded="true" aria-controls="collapse13_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_2" class="accordion-collapse collapse"
+aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">w_1^* = \dfrac{\displaystyle\sum_{i=1}^n
+x_i(y_i - 17)}{\displaystyle\sum_{i=1}^n x_i^2}</span></p>
+<p>To minimize a function of one variable, we need to take the
+derivative, set it equal to zero, and solve. <span class="math display">\begin{aligned} MSE(w_1) &amp;= \dfrac1n
+\displaystyle\sum_{i=1}^n (y_i - 17 - w_1x_i)^2 \\ MSE'(w_1) &amp;=
+\dfrac1n \displaystyle\sum_{i=1}^n -2x_i(y_i - 17 - w_1x_i)) \qquad
+\text{using the chain rule} \\ 0 &amp;= \dfrac1n
+\displaystyle\sum_{i=1}^n -2x_i(y_i - 17) + \dfrac1n
+\displaystyle\sum_{i=1}^n 2x_i^2w_1 \qquad \text{splitting up the sum}
+\\ 0 &amp;=  \displaystyle\sum_{i=1}^n -x_i(y_i - 17)
++  \displaystyle\sum_{i=1}^n x_i^2w_1 \qquad \text{multiplying through
+by } \frac{n}{2} \\ w_1 \displaystyle\sum_{i=1}^n x_i^2
+&amp;=  \displaystyle\sum_{i=1}^n x_i(y_i - 17)   \qquad
+\text{rearranging terms and pulling out } w_1 \\ w_1 &amp; =
+\dfrac{\displaystyle\sum_{i=1}^n x_i(y_i -
+17)}{\displaystyle\sum_{i=1}^n x_i^2} \end{aligned}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.3">Problem 13.3</h3>
+<p>True or False: For an arbitrary dataset, the prediction rule <span
+class="math inline">H^*(x) = 17 + w_1^*x</span> goes through the point
+<span class="math inline">(\bar x, \bar y)</span>.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_3" aria-expanded="true" aria-controls="collapse13_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_3" class="accordion-collapse collapse"
+aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>False.</p>
+<p>When we fit a prediction rule of the form <span class="math inline">H(x) = w_0+w_1x</span> using simple linear
+regression, the formula for the intercept <span class="math inline">w_0</span> is designed to make sure the regression
+line passes through the point <span class="math inline">(\bar x, \bar
+y)</span>. Here, we don’t have the freedom to control our intercept, as
+it’s forced to be <span class="math inline">17</span>. This means we
+can’t guarantee that the prediction rule <span class="math inline">H^*(x) = 17 + w_1^*x</span> goes through the point
+<span class="math inline">(\bar x, \bar y)</span>.</p>
+<p>A simple example shows that this is the case. Consider the dataset
+<span class="math inline">(-2, 0)</span> and <span class="math inline">(2, 0)</span>. The point <span class="math inline">(\bar x, \bar y)</span> is the origin, but the
+prediction rule <span class="math inline">H^*(x)</span> does not pass
+through the origin because it has an intercept of <span class="math inline">17</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-13.4">Problem 13.4</h3>
+<p>True or False: For an arbitrary dataset, the mean squared error
+associated with <span class="math inline">H^*(x)</span> is greater than
+or equal to the mean squared error associated with the regression
+line.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> True</p></li>
+<li><p><input type="radio" disabled="" /> False</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading13_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_4" aria-expanded="true" aria-controls="collapse13_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse13_4" class="accordion-collapse collapse"
+aria-labelledby="heading13_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>True.</p>
+<p>The regression line is the prediction rule of the form <span class="math inline">H(x) = w_0+w_1x</span> with the smallest mean
+squared error (MSE). <span class="math inline">H^*(x)</span> is one
+example of a prediction rule of that form so unless it happens to be the
+regression line itself, the regression line will have lower MSE because
+it was designed to have the lowest possible MSE. This means the MSE
+associated with <span class="math inline">H^*(x)</span> is greater than
+or equal to the MSE associated with the regression line.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
 <h2 id="section"><span class="math display"> </span></h2>
 <h4
 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
