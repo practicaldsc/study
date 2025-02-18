@@ -65,12 +65,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, February 13th</td>
       <td><a href="disc06/index.html">Regular Expressions and Text Features</a></td>
     </tr>
-    <!--<tr>
-      <th scope="row">6</th>
-      <td>Friday, October 4th</td>
-      <td><a href="disc06/index.html">Regular Expressions and Text Features</a></td>
-    </tr>
     <tr>
+      <th scope="row">7</th>
+      <td>Thursday, February 20th</td>
+      <td><a href="disc07/index.html">Regular Expressions and Text Features</a></td>
+    </tr>
+    <!--<tr>
       <th scope="row" rowspan=2>7</th>
       <td>Monday, October 7th</td>
       <td><a href="mt-review-monday/index.html">Midterm Review: Grouping, Pivoting, Imputation, and Web Scraping</a></td>
