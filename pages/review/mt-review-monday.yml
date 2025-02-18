@@ -1,4 +1,4 @@
-title: "Midterm Review: Grouping, Pivoting, Imputation, and Web Scraping"
+title: "Midterm Review"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to attempt these problems **before** Monday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
@@ -6,8 +6,16 @@ context: >
 show_solution: true
 problems:
   # Problems
-  - mt-review-monday/dsc80-wi23-mid-1 #p1
-  - mt-review-monday/dsc80-sp22-mid-q3-6 #p2
-  - mt-review-monday/dsc80-wi23-final-q05 #p3
-  - mt-review-monday/dsc80-wi24-final-q1 #p4
-  - mt-review-monday/dsc80-wi24-final-q3 #p5
+  - mt-review-monday/dsc80-wi24-final-q1
+  - mt-review-monday/q2-sports # iloc index etc.
+  - mt-review-monday/dsc80-fa23-final-q08
+  - mt-review-monday/dsc80-sp22-mid-q3-6 # grouping pivoting
+  - mt-review-monday/dsc80-wi24-final-q3 # impute
+  - mt-review-monday/dsc80-sp22-final-q2 #merge
+  - mt-review-monday/dsc80-sp23-final-q04
+  - mt-review-monday/dsc80-sp22-final-q07 # regex
+  - mt-review-monday/sp23-final-pt1-q01
+  - mt-review-monday/fa22-midterm-q04 # loss
+  - mt-review-monday/dsc10-wi24-quiz3-3 # merge
+  - mt-review-monday/dsc10-sp23-midterm-5 
+

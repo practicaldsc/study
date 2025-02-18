@@ -11,7 +11,7 @@ Each row of `hotels` contains information about a different hotel in San Diego. 
 
 The first few rows of `hotels` are shown below, but hotels has many more rows than are shown.
 
-<center><img src="../../assets/images/disc04/hotels.png" width=750></center>
+<center><img src="../../assets/images/mt-review-monday/hotels.png" width=750></center>
 
 Now, consider the variable `summed`, defined below.
 
