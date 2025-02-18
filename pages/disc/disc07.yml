@@ -5,9 +5,12 @@ context: >
   Solutions will be made available after all discussion sections have concluded. You don't need to submit your answers anywhere.<br><br><b>Note: We do not plan to cover all problems here in the live discussion section</b>; the problems we don't cover can be used for extra practice.
 show_solution: true
 problems:
-  - disc07/dsc40a-fa21-final-q01 # 3
-  - disc07/dsc40a-fa21-final-q04 # Problem 5
-  - disc07/dsc40a-fa21-midterm-q01 # 1
+  - disc07/dsc40a-fa21-midterm-q01
+  - disc07/dsc40a-fa21-final-q04 
+  - disc07/fa21-midterm-q04 #
+  - disc08/fa21-final-q05
+
+  - disc07/dsc40a-fa21-final-q01 # 
   - disc07/dsc40a-sp23-midterm1-q02 # 9
   - disc07/dsc40a-wi24-midterm1-q01 # 16
   - disc07/dsc40a-sp24-final-q01 # 18
@@ -16,9 +19,12 @@ problems:
   - disc07/dsc40a-sp24-midterm-q03 # Problem 3
 
   # from linear regression
-  - disc07/fa21-midterm-q04 # 3
   - disc07/sp24-final-q03 # 1
   - disc07/sp23-final-pt1-q01
   - disc07/sp23-midterm1-q04
+  - disc07/wi22-midterm1-q03
+  - disc07/wi24-midterm1-q04
+  - disc07/fa22-midterm-q04
+  - disc07/sp23-final-pt1-q01
 
 
