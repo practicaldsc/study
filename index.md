@@ -68,7 +68,7 @@ You should work on these problems **on paper**, since your exams will also be on
     <tr>
       <th scope="row">7</th>
       <td>Thursday, February 20th</td>
-      <td><a href="disc07/index.html">Regular Expressions and Text Features</a></td>
+      <td><a href="disc07/index.html">Loss Functions and Simple Linear Regression</a></td>
     </tr>
     <!--<tr>
       <th scope="row" rowspan=2>7</th>
