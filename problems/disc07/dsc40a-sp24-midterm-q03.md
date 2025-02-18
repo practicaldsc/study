@@ -24,7 +24,6 @@ Note that $(y_i^2 -h^2)^2$ is the area we care about inside of $L_\text{wolverin
 
 This tells us the derivative is: $\frac{\partial L}{\partial h} = (w_i) * 2(y_i^2 -h^2) * (-2h)$, which can be simplified to $\frac{\partial L}{\partial h} = -4w_ih(y_i^2 -h^2)$.
 
-<average>88</average>
 
 # END SOLUTION
 
@@ -57,7 +56,6 @@ h^2 &= \frac{\sum_{i = 1}^n w_iy_i^2}{\sum_{i = 1}^n w_i}\\
 h^* &= \sqrt{\frac{\sum_{i = 1}^n w_iy_i^2}{\sum_{i = 1}^n w_i}}
 \end{align*}
 
-<average>77</average>
 
 # END SOLUTION
 
@@ -84,7 +82,6 @@ The problem is asking us $\lim_{w_1 \rightarrow \infty} \sqrt{\frac{\sum_{i = 1}
 
 We can further rewrite the problem to get something like this: $\lim_{w_1 \rightarrow \infty} \sqrt{\frac{w_1 y_1^2 + \sum_{i=1}^{n-1}y_i^2}{w_1 + (n-1)}}$. Note that $\frac{\sum_{i=1}^{n-1}y_i^2}{n-1}$ is insignificant because it is a constant. Constants compared to infinity can be ignored. We now have something like $\sqrt{\frac{w_1y_1^2}{w_1}}$. We can cancel out the $w_1$ to get $\sqrt{y_1^2}$, which becomes $y_1$.
 
-<average>48</average>
 
 # END SOLUTION
 
