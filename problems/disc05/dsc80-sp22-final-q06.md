@@ -1,5 +1,7 @@
 # BEGIN PROB
 
+[🎥 Walkthrough Available](https://youtu.be/aHtlISTIvL8)
+
 Consider the following HTML document, which represents a webpage
 containing the top few songs with the most streams on Spotify today in
 Canada.
@@ -49,6 +51,8 @@ document --- that is, how many nodes have no children?
 
 There's 1 `<title>`, 1 `<h1>`, 3 `<th>`s, and 9 `<td>`s, adding up to
 14.
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/aHtlISTIvL8?si=7FeCZZ-vT8dYCwBm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
 # END SOLN
 
