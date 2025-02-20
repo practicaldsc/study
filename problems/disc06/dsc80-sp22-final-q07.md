@@ -83,7 +83,7 @@ Let's first dissect the regular expression into manageable groups:
 -   `"\/"` matches the `"/"` character
 -   `"[^A-Z5]{1,}"` matches any character that isn't (A-Z or 5) at least once.
 
-Thus using these rules, it's not hard to verify that Options B, C and E are matches.
+Thus using these rules, we can verify that Options B, C and E are matches.
 
 # END SOLN
 
