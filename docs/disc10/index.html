@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -426,10 +427,11 @@ which matches the previous explanation.</p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
 <p>Consider the least squares regression model, <span
-class="math inline">\vec{y} = X \vec{w}</span>. Assume that <span
+class="math inline">\vec{h} = X \vec{w}</span>. Assume that <span
 class="math inline">X</span> and <span
-class="math inline">\vec{y}</span> refer to the design matrix and true
-response vector for our training data.</p>
+class="math inline">\vec{h}</span> refer to the design matrix and
+hypothesis vector for our training data, and <span
+class="math inline">\vec y</span> is the true observation vector.</p>
 <p>Let <span class="math inline">\vec{w}_\text{OLS}^*</span> be the
 parameter vector that minimizes mean squared error without
 regularization. Specifically:</p>
@@ -442,15 +444,15 @@ class="math inline">L_2</span> regularization, using a non-negative
 regularization hyperparameter <span class="math inline">\lambda</span>
 (i.e. ridge regression). Specifically:</p>
 <p><span class="math inline">\vec{w}_\text{ridge}^*</span> = <span
-class="math inline">\arg\underset{\vec{w}}{\min} \frac{1}{n} \| y - X
-\vec{w} \|^2_2 + \lambda \sum_{j=1}^{p} w_j^2</span></p>
+class="math inline">\arg\underset{\vec{w}}{\min} \frac{1}{n} \| \vec y -
+X \vec{w} \|^2_2 + \lambda \sum_{j=1}^{p} w_j^2</span></p>
 <p>For each of the following problems, fill in the blank.</p>
 <p><br></p>
 <h3 id="problem-3.1">Problem 3.1</h3>
 <p>If we set <span class="math inline">\lambda</span> = 0, then <span
 class="math inline">\Vert \vec{w}_\text{OLS}^* \Vert^2_2</span> is
-________ <span class="math inline">\Vert \vec{w}_\text{ridge}^*
-\Vert^2_2</span></p>
+<strong>____</strong> <span class="math inline">\Vert
+\vec{w}_\text{ridge}^* \Vert^2_2</span></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -480,13 +482,13 @@ aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>For each of the remaining parts, you can assume that <span
 class="math inline">\lambda</span> is set such that the predicted
-response vectors for our two models (<span class="math inline">\vec{y}^*
-= X \vec{w}_\text{OLS}^*</span> and <span class="math inline">\vec{y}^*
-= X \vec{w}_\text{ridge}^*</span>) is different.</p>
+response vectors for our two models (<span class="math inline">\vec{h} =
+X \vec{w}_\text{OLS}^*</span> and <span class="math inline">\vec{h} = X
+\vec{w}_\text{ridge}^*</span>) is different.</p>
 <p>The <strong>training</strong> MSE of the model <span
-class="math inline">\vec{y}^* = X \vec{w}_\text{OLS}^*</span> is
-________ than the model <span class="math inline">\vec{y}^* = X
-\vec{w}_\text{ridge}^*</span>.</p>
+class="math inline">\vec{h} = X \vec{w}_\text{OLS}^*</span> is
+<strong>____</strong> than the model <span class="math inline">\vec{h} =
+X \vec{w}_\text{ridge}^*</span>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -517,9 +519,9 @@ aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <p>Now, assume we’ve fit both models using our training data, and
 evaluate both models on some unseen testing data.</p>
 <p>The <strong>test</strong> MSE of the model <span
-class="math inline">\vec{y}^* = X \vec{w}_\text{OLS}^*</span> is
-________ than the model <span class="math inline">\vec{y}^* = X
-\vec{w}_\text{ridge}^*</span>.</p>
+class="math inline">\vec{h} = X \vec{w}_\text{OLS}^*</span> is
+<strong>____</strong> than the model <span class="math inline">\vec{h} =
+X \vec{w}_\text{ridge}^*</span>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> less than</p></li>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
@@ -549,8 +551,8 @@ aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
 <h3 id="problem-3.4">Problem 3.4</h3>
 <p>Assume that our design matrix <span class="math inline">X</span>
 contains a column of all ones. The sum of the residuals of our model
-<span class="math inline">\vec{y}^* = X \vec{w}_\text{ridge}^*</span>
-________.</p>
+<span class="math inline">\vec{h} = X \vec{w}_\text{ridge}^*</span>
+<strong>____</strong>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> equal to 0</p></li>
 <li><p><input type="radio" disabled="" /> not necessarily equal to 0</p></li>
@@ -577,8 +579,8 @@ aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
 <p><br></p>
 <h3 id="problem-3.5">Problem 3.5</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the bias of
-the model <span class="math inline">\vec{y}^* = X
-\vec{w}_\text{ridge}^*</span> tends to ________.</p>
+the model <span class="math inline">\vec{h} = X
+\vec{w}_\text{ridge}^*</span> tends to <strong>____</strong>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
@@ -606,8 +608,8 @@ aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
 <p><br></p>
 <h3 id="problem-3.6">Problem 3.6</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the model
-variance of the model <span class="math inline">\vec{y}^* = X
-\vec{w}_\text{ridge}^*</span> tends to ________.</p>
+variance of the model <span class="math inline">\vec{h} = X
+\vec{w}_\text{ridge}^*</span> tends to <strong>____</strong>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
@@ -635,8 +637,8 @@ aria-labelledby="heading3_6" data-bs-parent="#accordionExample">
 <p><br></p>
 <h3 id="problem-3.7">Problem 3.7</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the
-observation variance of the model <span class="math inline">\vec{y}^* =
-X \vec{w}_\text{ridge}^*</span> tends to ________.</p>
+observation variance of the model <span class="math inline">\vec{h} = X
+\vec{w}_\text{ridge}^*</span> tends to <strong>____</strong>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> increase</p></li>
 <li><p><input type="radio" disabled="" /> stay the same</p></li>

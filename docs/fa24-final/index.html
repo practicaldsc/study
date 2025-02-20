@@ -8,10 +8,20 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +60,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -63,7 +73,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -77,31 +87,35 @@
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../assets/theme.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
-   var mathElements = document.getElementsByClassName("math");
-   var macros = [];
-   for (var i = 0; i < mathElements.length; i++) {
-    var texText = mathElements[i].firstChild;
-    if (mathElements[i].tagName == "SPAN") {
-     katex.render(texText.data, mathElements[i], {
-      displayMode: mathElements[i].classList.contains('display'),
-      throwOnError: false,
-      macros: macros,
-      fleqn: false
-     });
-  }}});
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Fall 2024 Final Exam</h1>
 </header>
-<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!-- add after bootstrap.min.css --> <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/> <!-- add after bootstrap.min.js or bootstrap.bundle.min.js --> <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
 <!-- for difficulty gauges-->
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -116,27 +130,51 @@
 <p><a href="../index.html">← return to study.practicaldsc.org</a></p>
 <hr />
 <p><strong>Instructor(s):</strong> Suraj Rampure</p>
-<p>This exam was administered in-person. The exam was closed-notes, except students were allowed to bring two double-sided notes sheets. No calculators were allowed. Students had 120 minutes to take this exam. <br><br>Access the original exam PDF <a href="../assets/pdf/fa24-final.pdf">here</a>. <br> <strong>Note</strong>: Questions 1-6 were used for “Midterm Redemption”, which during the Fall 2024 semester allowed students to improve their midterm grade. <strong>Starting in Winter 2025, there is no redemption policy, Starting Winter 2025, and Final Exam questions will look more like Questions 7-15</strong>.</p>
+<p>This exam was administered in-person. The exam was closed-notes,
+except students were allowed to bring two double-sided notes sheets. No
+calculators were allowed. Students had 120 minutes to take this exam.
+<br><br>Access the original exam PDF
+<a href="../assets/pdf/fa24-final.pdf">here</a>. <br>
+<strong>Note</strong>: The Fall 2024 Final Exam was cumulative, but the
+Winter 2025 Final Exam will not be cumulative. <ul> <li>Winter 2025
+Final Exam questions will look more like Questions 8.3-15.</li>
+<li>Questions 1-8.2 are in scope for the Winter 2025 Midterm Exam
+(except for Question 2, about SQL).</li> </ul></p>
 <hr />
-<p>As it gets colder outside, it’s important to make sure we’re taking care of our skin! In this exam, we’ll work with the DataFrame skin, which contains information about various skincare products for sale at Sephora, a popular retailer that sells skincare products. The first few rows of skin are shown below, but skin has many more rows than are shown.</p>
+<p>As it gets colder outside, it’s important to make sure we’re taking
+care of our skin! In this exam, we’ll work with the DataFrame skin,
+which contains information about various skincare products for sale at
+Sephora, a popular retailer that sells skincare products. The first few
+rows of skin are shown below, but skin has many more rows than are
+shown.</p>
 <center><img src="../assets/images/fa24-final/df.png" width=800></center>
 <p>The columns in skin are as follows:</p>
 <ul>
-<li><p><code>"Type" (str)</code>: The type of product. There are six different possible types, three of which are shown above.</p></li>
-<li><p><code>"Brand" (str)</code>: The brand of the product. As shown above, brands can have multiple products.</p></li>
-<li><p><code>"Name" (str)</code>: The name of product. Assume that product names are unique.</p></li>
-<li><p><code>"Price" (int)</code>: The price of the product, in a whole number of dollars.</p></li>
-<li><p><code>"Rating" (float)</code>: The rating of the product on sephora.com; ranges from 0.0 to 5.0.</p></li>
-<li><p><code>"Num Ingredients" (int)</code>: The number of ingredients in the product.</p></li>
-<li><p><code>"Sensitive" (int)</code>: 1 if the product is made for individuals with sensitive skin, and 0 otherwise.</p></li>
+<li><p><code>"Type" (str)</code>: The type of product. There are six
+different possible types, three of which are shown above.</p></li>
+<li><p><code>"Brand" (str)</code>: The brand of the product. As shown
+above, brands can have multiple products.</p></li>
+<li><p><code>"Name" (str)</code>: The name of product. Assume that
+product names are unique.</p></li>
+<li><p><code>"Price" (int)</code>: The price of the product, in a whole
+number of dollars.</p></li>
+<li><p><code>"Rating" (float)</code>: The rating of the product on
+sephora.com; ranges from 0.0 to 5.0.</p></li>
+<li><p><code>"Num Ingredients" (int)</code>: The number of ingredients
+in the product.</p></li>
+<li><p><code>"Sensitive" (int)</code>: 1 if the product is made for
+individuals with sensitive skin, and 0 otherwise.</p></li>
 </ul>
-<p><strong>Throughout the exam</strong>, assume we have already run all necessary import statements.</p>
+<p><strong>Throughout the exam</strong>, assume we have already run all
+necessary import statements.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
-<p>An expensive product is one that costs <strong>at least $100</strong>.</p>
+<p>An expensive product is one that costs <strong>at least
+$100</strong>.</p>
 <p><br></p>
 <h3 id="problem-1.1">Problem 1.1</h3>
-<p>Write an expression that evaluates to the <strong>proportion</strong> of products in <code>skin</code> that are expensive.</p>
+<p>Write an expression that evaluates to the <strong>proportion</strong>
+of products in <code>skin</code> that are expensive.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading1_1">
@@ -144,23 +182,37 @@
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1_1" class="accordion-collapse collapse collapse" aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>:<br/>
-<code>np.mean(skin['Price'] &gt;= 100)</code> or equivalent expressions such as <code>skin['Price'].ge(100).mean()</code> or <code>(skin['Price'] &gt;= 100).sum() / skin.shape[0]</code>.</p>
-<p>To calculate the proportion of products in <code>skin</code> that are expensive (price at least 100), we first evaluate the condition <code>skin['Price'] &gt;= 100</code>. This generates a Boolean series where:</p>
+<code>np.mean(skin['Price'] &gt;= 100)</code> or equivalent expressions
+such as <code>skin['Price'].ge(100).mean()</code> or
+<code>(skin['Price'] &gt;= 100).sum() / skin.shape[0]</code>.</p>
+<p>To calculate the proportion of products in <code>skin</code> that are
+expensive (price at least 100), we first evaluate the condition
+<code>skin['Price'] &gt;= 100</code>. This generates a Boolean series
+where:</p>
 <ul>
-<li><p>Each <code>True</code> represents a product with a price greater than or equal to 100.</p></li>
-<li><p>Each <code>False</code> represents a product with a price below 100.</p></li>
+<li><p>Each <code>True</code> represents a product with a price greater
+than or equal to 100.</p></li>
+<li><p>Each <code>False</code> represents a product with a price below
+100.</p></li>
 </ul>
-<p>When we call <code>np.mean</code> on this Boolean series, Python internally treats <code>True</code> as 1 and <code>False</code> as 0. The mean of this series therefore gives the proportion of <code>True</code> values, which corresponds to the proportion of products that meet the “expensive” criteria.</p>
+<p>When we call <code>np.mean</code> on this Boolean series, Python
+internally treats <code>True</code> as 1 and <code>False</code> as 0.
+The mean of this series therefore gives the proportion of
+<code>True</code> values, which corresponds to the proportion of
+products that meet the “expensive” criteria.</p>
 <p>Alternatively, we can:</p>
 <ul>
-<li>Count the total number of “expensive” products using <code>(skin['Price'] &gt;= 100).sum()</code>.</li>
-<li>Divide this count by the total number of products in the dataset (<code>skin.shape[0]</code>).</li>
+<li>Count the total number of “expensive” products using
+<code>(skin['Price'] &gt;= 100).sum()</code>.</li>
+<li>Divide this count by the total number of products in the dataset
+(<code>skin.shape[0]</code>).</li>
 </ul>
 <p>Both approaches yield the same result.</p>
 <hr/>
@@ -174,7 +226,9 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
-<p>Fill in the blanks so that the expression below evaluates to the number of brands that sell <strong>fewer than 5</strong> expensive products.</p>
+<p>Fill in the blanks so that the expression below evaluates to the
+number of brands that sell <strong>fewer than 5</strong> expensive
+products.</p>
 <pre><code>skin.groupby(__(i)__).__(ii)__(__(iii)__)[&quot;Brand&quot;].nunique()</code></pre>
 <p><code>(i)</code>:</p>
 <ul class="task-list">
@@ -190,7 +244,7 @@ Click to view the solution.
 <li><p><input type="radio" disabled="" /> <code>filter</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>value_counts</code></p></li>
 </ul>
-<p><code>(iii)</code>: Fill in the blanks so that the expression below <em>also</em> evaluates to the number of brands that sell at least 5 expensive products.</p>
+<p><code>(iii)</code>: (Free response)</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading1_2">
@@ -198,22 +252,47 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1_2" class="accordion-collapse collapse collapse" aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>:<br/>
-<code>(i)</code>: <code>"Brand"</code><br/>
-<code>(ii)</code>: <code>filter</code><br/>
-<code>(iii)</code>: <code>lambda x: (x['Price'] &gt;= 100).sum() &lt; 5</code></p>
-<p>The expression filters the grouped DataFrame to include only groups where the number of expensive products (those costing at least $100) is fewer than 5. Here’s how the expression works:</p>
+<p><strong>Answer</strong>:</p>
+<ul>
+<li><code>(i)</code>: <code>"Brand"</code><br/>
+</li>
+<li><code>(ii)</code>: <code>filter</code><br/>
+</li>
+<li><code>(iii)</code>:
+<code>lambda x: (x['Price'] &gt;= 100).sum() &lt; 5</code></li>
+</ul>
+<p>The expression filters the grouped DataFrame to include only groups
+where the number of expensive products (those costing at least $100) is
+fewer than 5. Here’s how the expression works:</p>
 <ol type="1">
-<li><strong><code>groupby('Brand')</code></strong>: Groups the <code>skin</code> DataFrame by the unique values in the <code>"Brand"</code> column, creating subgroups for each brand. Now, when we apply the next step, it will perform the action on each <code>Brand</code> group.</li>
-<li><strong><code>filter</code></strong>: We use <strong><code>filter</code></strong> instead of <strong><code>agg</code></strong> (or other options) because <strong><code>filter</code></strong> is designed to evaluate a condition on the entire group and decide whether to include or exclude the group in the final result. In this case, we want to include only groups (brands) where the number of expensive products is fewer than 5.</li>
-<li><strong><code>(lambda x: (x['Price'] &gt;= 100).sum() &lt; 5)</code></strong>: This lambda function runs on each <strong>group</strong> (in this case, x is a dataframe). It calculates the number of products in the group where the price is greater than or equal to $100 (i.e., expensive products). If this count is less than 5, the group is kept. Otherwise, the group is excluded from our final result.</li>
+<li><strong><code>groupby('Brand')</code></strong>: Groups the
+<code>skin</code> DataFrame by the unique values in the
+<code>"Brand"</code> column, creating subgroups for each brand. Now,
+when we apply the next step, it will perform the action on each
+<code>Brand</code> group.</li>
+<li><strong><code>filter</code></strong>: We use
+<strong><code>filter</code></strong> instead of
+<strong><code>agg</code></strong> (or other options) because
+<strong><code>filter</code></strong> is designed to evaluate a condition
+on the entire group and decide whether to include or exclude the group
+in the final result. In this case, we want to include only groups
+(brands) where the number of expensive products is fewer than 5.</li>
+<li><strong><code>(lambda x: (x['Price'] &gt;= 100).sum() &lt; 5)</code></strong>:
+This lambda function runs on each <strong>group</strong> (in this case,
+x is a dataframe). It calculates the number of products in the group
+where the price is greater than or equal to $100 (i.e., expensive
+products). If this count is less than 5, the group is kept. Otherwise,
+the group is excluded from our final result.</li>
 </ol>
-<p>Since we have an <code>.nunique()</code> at the end of our original expression, we will return the <strong>number</strong> (<code>n</code> in <code>nunique</code>) of unique brands.</p>
+<p>Since we have an <code>.nunique()</code> at the end of our original
+expression, we will return the <strong>number</strong> (<code>n</code>
+in <code>nunique</code>) of unique brands.</p>
 <p>Alternative forms for <code>(iii)</code> include:<br/>
 - <code>lambda x: np.sum(x['Price'] &gt;= 100) &lt; 5</code><br/>
 - <code>lambda x: x[x['Price'] &gt;= 100].shape[0] &lt; 5</code><br/>
@@ -230,8 +309,12 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p>Fill in each blank with <strong>one word</strong> to complete the sentence below.</p>
-<p>The SQL keyword for filtering after grouping is __(i)__, and the SQL keyword for querying is __(ii)__.</p>
+<p><span style="color:red">This question is not in scope for Winter
+2025.</span></p>
+<p>Fill in each blank with <strong>one word</strong> to complete the
+sentence below.</p>
+<p>The SQL keyword for filtering after grouping is __(i)__, and the SQL
+keyword for querying is __(ii)__.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2">
@@ -239,7 +322,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse2" class="accordion-collapse collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -247,7 +331,11 @@ Click to view the solution.
 <p><strong>Answer</strong>:</p>
 <p>(i): HAVING<br/>
 (ii): WHERE</p>
-<p>An important distinction to make for part <code>(ii)</code> is that we’re asking about the keyword for <strong>querying</strong>. <code>SELECT</code> is incorrect, as <code>SELECT</code> is for specifying a subset of <strong>columns</strong>, whereas querying is for specifying a subset of <strong>rows</strong>.</p>
+<p>An important distinction to make for part <code>(ii)</code> is that
+we’re asking about the keyword for <strong>querying</strong>.
+<code>SELECT</code> is incorrect, as <code>SELECT</code> is for
+specifying a subset of <strong>columns</strong>, whereas querying is for
+specifying a subset of <strong>rows</strong>.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -259,11 +347,14 @@ Click to view the solution.
 </div>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>Consider the Series <code>small_prices</code> and <code>vc</code>, both of which are defined below.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    small_prices <span class="op">=</span> pd.Series([<span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">18</span>, <span class="dv">100</span>, <span class="dv">18</span>, <span class="dv">36</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">36</span>])</span>
+<p>Consider the Series <code>small_prices</code> and <code>vc</code>,
+both of which are defined below.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    small_prices <span class="op">=</span> pd.Series([<span class="dv">36</span>, <span class="dv">36</span>, <span class="dv">18</span>, <span class="dv">100</span>, <span class="dv">18</span>, <span class="dv">36</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">36</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    vc <span class="op">=</span> small_prices.value_counts().sort_values(ascending<span class="op">=</span><span class="va">False</span>)`</span></code></pre></div>
-<p>In each of the parts below, select the value that the provided expression evaluates to. If the expression errors, select “Error”.</p>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    vc <span class="op">=</span> small_prices.value_counts().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<p>In each of the parts below, select the value that the provided
+expression evaluates to. If the expression errors, select “Error”.</p>
 <p><br></p>
 <h3 id="problem-3.1">Problem 3.1</h3>
 <p><code>vc.iloc[0]</code></p>
@@ -286,16 +377,22 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_1" class="accordion-collapse collapse collapse" aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: 4</p>
-<p><code>vc</code> computes the frequency of each value in small_prices, sorts the counts in descending order, and stores the result in vc. The resulting vc will look like this, where 36, 1, 18, and 100 are the indices and 4, 3, 2, and 1 are the values:</p>
+<p><code>vc</code> computes the frequency of each value in small_prices,
+sorts the counts in descending order, and stores the result in vc. The
+resulting vc will look like this, where 36, 1, 18, and 100 are the
+indices and 4, 3, 2, and 1 are the values:</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>iloc[0]</code> retrieves the <strong>value</strong> at <strong>integer position</strong> 0 in <code>vc</code>. The result is 4.</li>
+<li><code>iloc[0]</code> retrieves the <strong>value</strong> at
+<strong>integer position</strong> 0 in <code>vc</code>. The result is
+4.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
@@ -328,7 +425,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_2" class="accordion-collapse collapse collapse" aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -336,8 +434,10 @@ Click to view the solution.
 <p><strong>Answer</strong>: Error</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>loc[0]</code> attempts to retrieve the <strong>value</strong> associated with the <strong>index</strong> 0 in <code>vc</code>.</li>
-<li>Since <code>vc</code> has indices 36, 1, 18, 10, and 0 is not a valid index, this operation results in an error.</li>
+<li><code>loc[0]</code> attempts to retrieve the <strong>value</strong>
+associated with the <strong>index</strong> 0 in <code>vc</code>.</li>
+<li>Since <code>vc</code> has indices 36, 1, 18, 10, and 0 is not a
+valid index, this operation results in an error.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -370,7 +470,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_3" class="accordion-collapse collapse collapse" aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -378,7 +479,8 @@ Click to view the solution.
 <p><strong>Answer</strong>: 36</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>index[0]</code> retrieves the first <strong>index</strong> in <code>vc</code>, which corresponds to the value 36.</li>
+<li><code>index[0]</code> retrieves the first <strong>index</strong> in
+<code>vc</code>, which corresponds to the value 36.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
@@ -411,7 +513,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_4" class="accordion-collapse collapse collapse" aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -419,7 +522,8 @@ Click to view the solution.
 <p><strong>Answer</strong>: 3</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>iloc[1]</code> retrieves the <strong>value</strong> at <strong>integer position</strong> 1 in <code>vc</code>, which is 3.</li>
+<li><code>iloc[1]</code> retrieves the <strong>value</strong> at
+<strong>integer position</strong> 1 in <code>vc</code>, which is 3.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
@@ -452,7 +556,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_5" class="accordion-collapse collapse collapse" aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
+<div id="collapse3_5" class="accordion-collapse collapse"
+aria-labelledby="heading3_5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -460,7 +565,10 @@ Click to view the solution.
 <p><strong>Answer</strong>: 3</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>loc[1]</code> retrieves the <strong>value</strong> associated with the <strong>index</strong> 1 in <code>vc</code>, which corresponds to the frequency of the value 1 in <code>small_prices</code>. The result is 3.</li>
+<li><code>loc[1]</code> retrieves the <strong>value</strong> associated
+with the <strong>index</strong> 1 in <code>vc</code>, which corresponds
+to the frequency of the value 1 in <code>small_prices</code>. The result
+is 3.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -493,7 +601,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse3_6" class="accordion-collapse collapse collapse" aria-labelledby="heading3_6" data-bs-parent="#accordionExample">
+<div id="collapse3_6" class="accordion-collapse collapse"
+aria-labelledby="heading3_6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -501,7 +610,8 @@ Click to view the solution.
 <p><strong>Answer</strong>: 1</p>
 <center><img src="../assets/images/fa24-final/vc.png" width="300"/></center>
 <ul>
-<li><code>index[1]</code> retrieves the positionally second index in <code>vc</code>. The result is 1.</li>
+<li><code>index[1]</code> retrieves the positionally second index in
+<code>vc</code>. The result is 1.</li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
@@ -515,8 +625,11 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
-<p>Consider the DataFrames <code>type_pivot</code>, <code>clinique</code>, <code>fresh</code>, and <code>boscia</code>, defined below.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    type_pivot <span class="op">=</span> skin.pivot_table(index<span class="op">=</span><span class="st">&quot;Type&quot;</span>,</span>
+<p>Consider the DataFrames <code>type_pivot</code>,
+<code>clinique</code>, <code>fresh</code>, and <code>boscia</code>,
+defined below.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    type_pivot <span class="op">=</span> skin.pivot_table(index<span class="op">=</span><span class="st">&quot;Type&quot;</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                  columns<span class="op">=</span><span class="st">&quot;Brand&quot;</span>, </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                  values<span class="op">=</span><span class="st">&quot;Sensitive&quot;</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                  aggfunc<span class="op">=</span><span class="kw">lambda</span> s: s.shape[<span class="dv">0</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -524,14 +637,16 @@ Click to view the solution.
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    clinique <span class="op">=</span> skin[skin[<span class="st">&quot;Brand&quot;</span>] <span class="op">==</span> <span class="st">&quot;clinique&quot;</span>]</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    fresh <span class="op">=</span> skin[skin[<span class="st">&quot;Brand&quot;</span>] <span class="op">==</span> <span class="st">&quot;fresh&quot;</span>]</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    boscia <span class="op">=</span> skin[skin[<span class="st">&quot;Brand&quot;</span>] <span class="op">==</span> <span class="st">&quot;BOSCIA&quot;</span>]</span></code></pre></div>
-<p>Three columns of <code>type_pivot</code> are shown below <strong>in their entirety</strong>.</p>
+<p>Three columns of <code>type_pivot</code> are shown below <strong>in
+their entirety</strong>.</p>
 <center><img src="..\assets\images\fa24-final\type-pivot.png" width=400 height=250></center>
-<p>In each of the parts below, give your answer as an <strong>integer</strong>.</p>
+<p>In each of the parts below, give your answer as an
+<strong>integer</strong>.</p>
 <p><br></p>
 <h3 id="problem-4.1">Problem 4.1</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>How many rows are <span class="kw">in</span> the following DataFrame?</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    clinique.merge(fresh, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;inner&quot;</span>)</span></code></pre></div>
+<p>How many rows are in the following DataFrame?</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    clinique.merge(fresh, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;inner&quot;</span>)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4_1">
@@ -539,27 +654,47 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_1" class="accordion-collapse collapse collapse" aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: 10</p>
-<p>The expression <code>clinique.merge(fresh, on="Type", how="inner")</code> performs an <strong>inner join</strong> on the <code>"Type"</code> column between the <code>clinique</code> and <code>fresh</code> DataFrames. An inner join includes only rows where the <code>"Type"</code> values are present in both DataFrames.</p>
-<p>From the provided <code>type_pivot</code> table, we know that the overlapping <code>”Type”</code> values between clinique and fresh are:</p>
+<p>The expression
+<code>clinique.merge(fresh, on="Type", how="inner")</code> performs an
+<strong>inner join</strong> on the <code>"Type"</code> column between
+the <code>clinique</code> and <code>fresh</code> DataFrames. An inner
+join includes only rows where the <code>"Type"</code> values are present
+in both DataFrames.</p>
+<p>From the provided <code>type_pivot</code> table, we know that the
+overlapping <code>”Type”</code> values between clinique and fresh
+are:</p>
 <ul>
-<li><p>Face Mask (3.0 for <code>clinique</code>, 4.0 for <code>fresh</code>)</p></li>
-<li><p>Moisturizer (3.0 for <code>clinique</code>, 3.0 for <code>fresh</code>)</p></li>
+<li><p>Face Mask (3.0 for <code>clinique</code>, 4.0 for
+<code>fresh</code>)</p></li>
+<li><p>Moisturizer (3.0 for <code>clinique</code>, 3.0 for
+<code>fresh</code>)</p></li>
 </ul>
-<p>However, we must notice that the <code>aggfunc</code> for our original pivot table is <code>lambda s: s.shape[0] + 1</code>. Thus, we know that the values in the pivot table include an additional count of 1 for each group. This means the raw counts are actually:</p>
+<p>However, we must notice that the <code>aggfunc</code> for our
+original pivot table is <code>lambda s: s.shape[0] + 1</code>. Thus, we
+know that the values in the pivot table include an additional count of 1
+for each group. This means the raw counts are actually:</p>
 <ul>
-<li><p>Face Mask: 2 rows in <code>clinique</code>, 3 rows in <code>fresh</code></p></li>
-<li><p>Moisturizer: 2 rows in <code>clinique</code>, 2 rows in <code>fresh</code></p></li>
+<li><p>Face Mask: 2 rows in <code>clinique</code>, 3 rows in
+<code>fresh</code></p></li>
+<li><p>Moisturizer: 2 rows in <code>clinique</code>, 2 rows in
+<code>fresh</code></p></li>
 </ul>
-<p>The inner join will match these rows based on <code>"Type"</code>. Since there are 2 rows in <code>clinique</code> for both Face Mask and Moisturizer, and 3 and 2 rows in <code>fresh</code> respectively, the result will have:</p>
+<p>The inner join will match these rows based on <code>"Type"</code>.
+Since there are 2 rows in <code>clinique</code> for both Face Mask and
+Moisturizer, and 3 and 2 rows in <code>fresh</code> respectively, the
+result will have:</p>
 <ul>
-<li><p>Face Mask: 2 (from <code>clinique</code>) × 3 (from <code>fresh</code>) = 6 rows</p></li>
-<li><p>Moisturizer: 2 (from <code>clinique</code>) × 2 (from <code>fresh</code>) = 4 rows</p></li>
+<li><p>Face Mask: 2 (from <code>clinique</code>) × 3 (from
+<code>fresh</code>) = 6 rows</p></li>
+<li><p>Moisturizer: 2 (from <code>clinique</code>) × 2 (from
+<code>fresh</code>) = 4 rows</p></li>
 </ul>
 <p>The total number of rows in the resulting DataFrame is <span class="math display">6 + 4 = 10</span>.</p>
 <hr/>
@@ -573,10 +708,10 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>How many rows are <span class="kw">in</span> the following DataFrame?</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    (clinique.merge(fresh, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             .merge(boscia, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;outer&quot;</span>))</span></code></pre></div>
+<p>How many rows are in the following DataFrame?</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    (clinique.merge(fresh, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;outer&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>             .merge(boscia, on<span class="op">=</span><span class="st">&quot;Type&quot;</span>, how<span class="op">=</span><span class="st">&quot;outer&quot;</span>))</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4_2">
@@ -584,14 +719,20 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse4_2" class="accordion-collapse collapse collapse" aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: 31</p>
-<p>An <strong>outer join</strong> includes all rows from all DataFrames, filling in missing values (<code>NaN</code>) for any <code>Type</code> not present in one of them. From the table, the counts are calculated as follows:</p>
-<p>Remember that our pivot_table <code>aggfunc</code> is calculating <code>lambda s: s.shape[0] + 1</code> (so we need to subtract one from the pivot table entry to get the actual number of rows).</p>
+<p>An <strong>outer join</strong> includes all rows from all DataFrames,
+filling in missing values (<code>NaN</code>) for any <code>Type</code>
+not present in one of them. From the table, the counts are calculated as
+follows:</p>
+<p>Remember that our pivot_table <code>aggfunc</code> is calculating
+<code>lambda s: s.shape[0] + 1</code> (so we need to subtract one from
+the pivot table entry to get the actual number of rows).</p>
 <ul>
 <li>Cleanser: <span class="math inline">5 \cdot 1</span>
 <ul>
@@ -620,7 +761,8 @@ Click to view the solution.
 </li>
 </ul></li>
 </ul>
-<p>Final Calculation: <span class="math display">5 \cdot 1 + 3 \cdot 1 + 2 \cdot 3 \cdot 3 + 2 \cdot 2 + 1 = 31</span></p>
+<p>Final Calculation: <span class="math display">5 \cdot 1 + 3 \cdot 1 +
+2 \cdot 3 \cdot 3 + 2 \cdot 2 + 1 = 31</span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️⭐️⭐️</h5>
 <p>
@@ -633,16 +775,29 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p>Consider a sample of 60 skincare products. The name of one product from the sample is given below:</p>
-<p>"our <strong>drops</strong> cream is the best <strong>drops</strong> <strong>drops</strong> for eye <strong>drops</strong> <strong>drops</strong> proven formula..."</p>
-<p>The total number of terms in the product name above is unknown, but we know that the term <strong>drops</strong> only appears in the name 5 times.</p>
-<p>Suppose the TF-IDF of <strong>drops</strong> in the product name above is <span class="math inline">\frac{2}{3}</span>. Which of the following statements are <strong>NOT possible</strong>, assuming we use a base-2 logarithm? Select all that apply.</p>
+<p>Consider a sample of 60 skincare products. The name of one product
+from the sample is given below:</p>
+<p>“our <strong>drops</strong> cream is the best <strong>drops</strong>
+<strong>drops</strong> for eye <strong>drops</strong>
+<strong>drops</strong> proven formula..."</p>
+<p>The total number of terms in the product name above is unknown, but
+we know that the term <strong>drops</strong> only appears in the name 5
+times.</p>
+<p>Suppose the TF-IDF of <strong>drops</strong> in the product name
+above is <span class="math inline">\frac{2}{3}</span>. Which of the
+following statements are <strong>NOT possible</strong>, assuming we use
+a base-2 logarithm? Select all that apply.</p>
 <ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <strong>All</strong> 60 product names contain the term <strong>drops</strong>, <strong>including</strong> the one above.</p></li>
-<li><p><input type="checkbox" disabled="" /> 14 <strong>other</strong> product names contain the term <strong>drops</strong>, in addition to the one above.</p></li>
-<li><p><input type="checkbox" disabled="" /> None of the 59 <strong>other</strong> product names contain the term <strong>drops</strong>.</p></li>
-<li><p><input type="checkbox" disabled="" /> There are 15 terms in the product name above <strong>in total</strong>.</p></li>
-<li><p><input type="checkbox" disabled="" /> There are 25 terms in the product name above <strong>in total</strong>.</p></li>
+<li><p><input type="checkbox" disabled="" /> <strong>All</strong> 60 product names contain the term
+<strong>drops</strong>, <strong>including</strong> the one above.</p></li>
+<li><p><input type="checkbox" disabled="" /> 14 <strong>other</strong> product names contain the term
+<strong>drops</strong>, in addition to the one above.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the 59 <strong>other</strong> product names contain the term
+<strong>drops</strong>.</p></li>
+<li><p><input type="checkbox" disabled="" /> There are 15 terms in the product name above <strong>in
+total</strong>.</p></li>
+<li><p><input type="checkbox" disabled="" /> There are 25 terms in the product name above <strong>in
+total</strong>.</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -651,70 +806,96 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse5" class="accordion-collapse collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div id="collapse5" class="accordion-collapse collapse"
+aria-labelledby="heading5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>:</p>
 <ul>
-<li><strong>All</strong> 60 product names contain the term <strong>drops</strong>.<br/>
+<li><strong>All</strong> 60 product names contain the term
+<strong>drops</strong>.<br/>
 </li>
-<li>None of the 59 <strong>other</strong> product names contain the term <strong>drops</strong>.<br/>
+<li>None of the 59 <strong>other</strong> product names contain the term
+<strong>drops</strong>.<br/>
 </li>
-<li>There are 25 terms in the product name above <strong>in total</strong>.</li>
+<li>There are 25 terms in the product name above <strong>in
+total</strong>.</li>
 </ul>
 <p>The TF-IDF score of a term is calculated as: <span class="math display">
 \text{tf-idf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t)
-                    = \frac{\# \text{ of occurrences of } t \text{ in } d }{\text{total } \# \text{ of terms in } d} \cdot \log_2\left(\frac{\text{total } \# \text{ of documents}}{\# \text{ of documents in which } t \text{ appears}}\right)
+                    = \frac{\# \text{ of occurrences of } t \text{ in }
+d }{\text{total } \# \text{ of terms in } d} \cdot
+\log_2\left(\frac{\text{total } \# \text{ of documents}}{\# \text{ of
+documents in which } t \text{ appears}}\right)
 </span></p>
 <p>We know:</p>
 <ul>
 <li><p><span class="math inline">t</span> appears 5 times in <span class="math inline">d</span></p></li>
 <li><p>Total number of documents = 60</p></li>
-<li><p><span class="math inline">\text{TF-IDF} = \frac{2}{3}</span></p></li>
+<li><p><span class="math inline">\text{TF-IDF} =
+\frac{2}{3}</span></p></li>
 </ul>
-<p>Let T be the total number of terms in d (d refers to the sentence at the top) and n refer to number of documents in which t appears, then substituting this into our formula gives us: <span class="math display">
+<p>Let T be the total number of terms in d (d refers to the sentence at
+the top) and n refer to number of documents in which t appears, then
+substituting this into our formula gives us: <span class="math display">
 \frac{5}{T} \cdot \log_2\left(\frac{60}{n}\right) = \frac{2}{3}
 </span></p>
-<p>The problem then boils down to checking whether the above equation holds true in each of the five options</p>
+<p>The problem then boils down to checking whether the above equation
+holds true in each of the five options</p>
 <ul>
-<li><p><strong>Option 1: All 60 product names contain the term </strong>drops<strong>.</strong></p>
+<li><p><strong>Option 1: All 60 product names contain the term
+</strong>drops<strong>.</strong></p>
 <ul>
 <li>If <span class="math inline">n = 60</span>, then <span class="math inline">\log_2(60/60) = 0</span></li>
 <li>This makes TF-IDF = 0, contradicting <span class="math inline">\frac{2}{3}</span><br/>
 </li>
 </ul>
 <p><strong>This is NOT possible.</strong></p></li>
-<li><p><strong>Option 2: 14 other product names contain the term </strong>drops<strong>.</strong></p>
+<li><p><strong>Option 2: 14 other product names contain the term
+</strong>drops<strong>.</strong></p>
 <ul>
-<li>If <span class="math inline">n = 15</span> (original document + 14 others), <span class="math inline">\log_2(60/15) = 2</span></li>
-<li><span class="math inline">\frac{5}{T} \cdot 2 = \frac{2}{3}</span> implies <span class="math inline">T = 15</span><br/>
+<li>If <span class="math inline">n = 15</span> (original document + 14
+others), <span class="math inline">\log_2(60/15) = 2</span></li>
+<li><span class="math inline">\frac{5}{T} \cdot 2 = \frac{2}{3}</span>
+implies <span class="math inline">T = 15</span><br/>
 </li>
 </ul>
 <p><strong>This is possible.</strong></p></li>
-<li><p><strong>Option 3: None of the 59 other product names contain the term </strong>drops<strong>.</strong></p>
+<li><p><strong>Option 3: None of the 59 other product names contain the
+term </strong>drops<strong>.</strong></p>
 <ul>
 <li>If <span class="math inline">n = 1</span>, <span class="math inline">\log_2(60/1) \approx 5.91</span></li>
 <li>This leads to a non-integer total terms <span class="math inline">T</span></li>
-<li>Since <span class="math inline">T</span> must be an integer, this is not consistent with the problem’s constraints.<br/>
+<li>Since <span class="math inline">T</span> must be an integer, this is
+not consistent with the problem’s constraints.<br/>
 </li>
 </ul>
 <p><strong>This is NOT possible.</strong></p></li>
-<li><p><strong>Option 4: There are 15 terms in the product name above in total.</strong> If <span class="math inline">T = 15</span>, substituting into the TF equation, we get:</p>
-<p><span class="math inline">\text{TF} = \frac{5}{15} = \frac{1}{3}</span> $  =   = 2 $ Substituting <span class="math inline">\text{IDF} = 2</span> into the IDF formula: <span class="math display">
+<li><p><strong>Option 4: There are 15 terms in the product name above in
+total.</strong> If <span class="math inline">T = 15</span>, substituting
+into the TF equation, we get:</p>
+<p><span class="math inline">\text{TF} = \frac{5}{15} =
+\frac{1}{3}</span> $ = = 2 $ Substituting <span class="math inline">\text{IDF} = 2</span> into the IDF formula: <span class="math display">
 2 = \log_2\left(\frac{60}{n}\right)
 </span> <span class="math display">
 2 = \log_2(4) \implies \frac{60}{n} = 4 \implies n = 14
 </span> This is consistent with the problem’s constraints.</p>
 <p><strong>This is possible.</strong></p></li>
-<li><p><strong>Option 5: There are 25 terms in the product name above in total.</strong> If <span class="math inline">T = 25</span>, substituting into the TF equation: <span class="math display">
+<li><p><strong>Option 5: There are 25 terms in the product name above in
+total.</strong> If <span class="math inline">T = 25</span>, substituting
+into the TF equation: <span class="math display">
 \text{TF} = \frac{5}{25} = \frac{1}{5}
-</span> Substituting <span class="math inline">\text{TF} = \frac{1}{5}</span> into the TF-IDF equation: <span class="math display">
-\frac{1}{5} \cdot \text{IDF} = \frac{2}{3} \implies \text{IDF} = \frac{10}{3}
-</span> Substituting <span class="math inline">\text{IDF} = \frac{10}{3}</span> into the IDF formula: <span class="math display">
+</span> Substituting <span class="math inline">\text{TF} =
+\frac{1}{5}</span> into the TF-IDF equation: <span class="math display">
+\frac{1}{5} \cdot \text{IDF} = \frac{2}{3} \implies \text{IDF} =
+\frac{10}{3}
+</span> Substituting <span class="math inline">\text{IDF} =
+\frac{10}{3}</span> into the IDF formula: <span class="math display">
 \frac{10}{3} = \log_2\left(\frac{60}{n}\right)
-</span> This results in a value for <span class="math inline">n</span> that is not an integer.</p>
+</span> This results in a value for <span class="math inline">n</span>
+that is not an integer.</p>
 <p><strong>This is NOT possible.</strong></p></li>
 </ul>
 <hr/>
@@ -728,10 +909,14 @@ Click to view the solution.
 </div>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
-<p>Suppose <code>soup</code> is a BeautifulSoup object representing the homepage of a Sephora competitor.</p>
-<p>Furthermore, suppose <code>prods</code>, defined below, is a list of strings containing the name of every product on the site.</p>
+<p>Suppose <code>soup</code> is a BeautifulSoup object representing the
+homepage of a Sephora competitor.</p>
+<p>Furthermore, suppose <code>prods</code>, defined below, is a list of
+strings containing the name of every product on the site.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    prods <span class="op">=</span> [row.get(<span class="st">&quot;prod&quot;</span>) <span class="cf">for</span> row <span class="kw">in</span> soup.find_all(<span class="st">&quot;row&quot;</span>, class_<span class="op">=</span><span class="st">&quot;thing&quot;</span>)]</span></code></pre></div>
-<p>Given that <code>prods[1]</code> evaluates to <code>"Cleansifier"</code>, which of the following options describes the source code of the site?</p>
+<p>Given that <code>prods[1]</code> evaluates to
+<code>"Cleansifier"</code>, which of the following options describes the
+source code of the site?</p>
 <ul>
 <li><p>Option 1:</p>
 <pre><code>&lt;row class=&quot;thing&quot;&gt;prod: Facial Treatment Essence&lt;/row&gt;
@@ -767,7 +952,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse6" class="accordion-collapse collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+<div id="collapse6" class="accordion-collapse collapse"
+aria-labelledby="heading6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -777,16 +963,29 @@ Click to view the solution.
 <div id="cb1" class="sourceCode">
 <pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>prods <span class="op">=</span> [row.get(<span class="st">"prod"</span>) <span class="cf">for</span> row <span class="kw">in</span> soup.find_all(<span class="st">"row"</span>, class_<span class="op">=</span><span class="st">"thing"</span>)]</span></code></pre>
 </div>
-<p>retrieves all <code>&lt;row&gt;</code> elements with the class <code>"thing"</code> and extracts the value of the <code>"prod"</code> attribute for each.</p>
+<p>retrieves all <code>&lt;row&gt;</code> elements with the class
+<code>"thing"</code> and extracts the value of the <code>"prod"</code>
+attribute for each.</p>
 <ul>
 <li><p><strong>Option 1</strong>:<br/>
-In this structure, the product names appear as text content within the <code>&lt;row&gt;</code> tags, not as an attribute. <code>row.get("prod")</code> would return <code>None</code>.</p></li>
+In this structure, the product names appear as text content within the
+<code>&lt;row&gt;</code> tags, not as an attribute.
+<code>row.get("prod")</code> would return <code>None</code>.</p></li>
 <li><p><strong>Option 2</strong>:<br/>
-Here, the product names are stored as the value of the <code>"prod"</code> attribute. <code>row.get("prod")</code> successfully retrieves these values.</p></li>
+Here, the product names are stored as the value of the
+<code>"prod"</code> attribute. <code>row.get("prod")</code> successfully
+retrieves these values.</p></li>
 <li><p><strong>Option 3</strong>:<br/>
-In this structure, the <code>"prod"</code> attribute contains the value <code>"thing"</code>, and the product names are stored as the value of the <code>"class"</code> attribute. <code>soup.find_all("row", class_="thing")</code> will not retrieve any of these tags since there are no tags with <code>class="thing"</code>.</p></li>
+In this structure, the <code>"prod"</code> attribute contains the value
+<code>"thing"</code>, and the product names are stored as the value of
+the <code>"class"</code> attribute.
+<code>soup.find_all("row", class_="thing")</code> will not retrieve any
+of these tags since there are no tags with
+<code>class="thing"</code>.</p></li>
 <li><p><strong>Option 4</strong>:<br/>
-In this structure, the product names are part of the text content inside the <code>&lt;row&gt;</code> tags. <code>row.get("prod")</code> would return <code>None</code>.</p></li>
+In this structure, the product names are part of the text content inside
+the <code>&lt;row&gt;</code> tags. <code>row.get("prod")</code> would
+return <code>None</code>.</p></li>
 </ul>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -799,11 +998,23 @@ In this structure, the product names are part of the text content inside the <co
 </div>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
-<p>Consider a dataset of <span class="math inline">n</span> values, <span class="math inline">y_1, y_2, ..., y_n</span>, all of which are <strong>positive</strong>. We want to fit a constant model, <span class="math inline">H(x) = h</span>, to the data.</p>
-<p>Let <span class="math inline">h_p^*</span> be the optimal constant prediction that minimizes average degree-<span class="math inline">p</span> loss, <span class="math inline">R_p(h)</span>, defined below.</p>
-<p><span class="math display">R_p(h) = \frac{1}{n} \sum_{i = 1}^n | y_i - h |^p</span></p>
-<p>For example, <span class="math inline">h_2^*</span> is the optimal constant prediction that minimizes <span class="math inline">\displaystyle R_2(h) = \frac{1}{n} \sum_{i = 1}^n |y_i - h|^2</span>.</p>
-<p>In each of the parts below, determine the value of the quantity provided. By "the data", we are referring to <span class="math inline">y_1, y_2, ..., y_n</span>.</p>
+<p>Consider a dataset of <span class="math inline">n</span> values,
+<span class="math inline">y_1, y_2, ..., y_n</span>, all of which are
+<strong>positive</strong>. We want to fit a constant model, <span
+class="math inline">H(x) = h</span>, to the data.</p>
+<p>Let <span class="math inline">h_p^*</span> be the optimal constant
+prediction that minimizes average degree-<span
+class="math inline">p</span> loss, <span
+class="math inline">R_p(h)</span>, defined below.</p>
+<p><span class="math display">R_p(h) = \frac{1}{n} \sum_{i = 1}^n | y_i
+- h |^p</span></p>
+<p>For example, <span class="math inline">h_2^*</span> is the optimal
+constant prediction that minimizes <span
+class="math inline">\displaystyle R_2(h) = \frac{1}{n} \sum_{i = 1}^n
+|y_i - h|^2</span>.</p>
+<p>In each of the parts below, determine the value of the quantity
+provided. By “the data", we are referring to <span
+class="math inline">y_1, y_2, ..., y_n</span>.</p>
 <p><br></p>
 <h3 id="problem-7.1">Problem 7.1</h3>
 <p><span class="math inline">h_0^*</span></p>
@@ -823,13 +1034,16 @@ In this structure, the product names are part of the text content inside the <co
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_1" class="accordion-collapse collapse collapse" aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The mode of the data</p>
-<p><span class="math inline">R_0(h)</span> counts the number of incorrect predictions for each prediction, so choosing the most frequent value (mode) minimizes this count.</p>
+<p><span class="math inline">R_0(h)</span> counts the number of
+incorrect predictions for each prediction, so choosing the most frequent
+value (mode) minimizes this count.</p>
 <hr/>
 <h5>Difficulty: ⭐️</h5>
 <p>
@@ -858,13 +1072,15 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_2" class="accordion-collapse collapse collapse" aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The median of the data</p>
-<p>As seen in lecture, the minimizer of empirical risk for the constant model when using absolute loss is the median.</p>
+<p>As seen in lecture, the minimizer of empirical risk for the constant
+model when using absolute loss is the median.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -893,15 +1109,22 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_3" class="accordion-collapse collapse collapse" aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: None of the above</p>
-<p>As we discussed in the previous subpart, <span class="math inline">h_1^*</span>, the minimizer of mean absolute error, is the median. So, <span class="math inline">R_1(h_1^*)</span> is the mean absolute difference (or deviation) between all values and the median. This is not any of the answer choices, and in general, is not a quantity we studied in detail in class.</p>
-<p><span class="math inline">R_1(h_1^*)</span> represents the sum of absolute deviations from the median divided by <span class="math inline">n</span>:</p>
-<p><span class="math display">R_1(h_1^*) = \frac{1}{n} \sum_{i=1}^n |y_i - h_1^*|</span></p>
+<p>As we discussed in the previous subpart, <span class="math inline">h_1^*</span>, the minimizer of mean absolute error,
+is the median. So, <span class="math inline">R_1(h_1^*)</span> is the
+mean absolute difference (or deviation) between all values and the
+median. This is not any of the answer choices, and in general, is not a
+quantity we studied in detail in class.</p>
+<p><span class="math inline">R_1(h_1^*)</span> represents the sum of
+absolute deviations from the median divided by <span class="math inline">n</span>:</p>
+<p><span class="math display">R_1(h_1^*) = \frac{1}{n} \sum_{i=1}^n |y_i
+- h_1^*|</span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
 <p>
@@ -930,13 +1153,15 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_4" class="accordion-collapse collapse collapse" aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The mean of the data</p>
-<p>The minimizer of empirical risk for the constant model when using squared loss is the mean.</p>
+<p>The minimizer of empirical risk for the constant model when using
+squared loss is the mean.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -965,14 +1190,19 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_5" class="accordion-collapse collapse collapse" aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
+<div id="collapse7_5" class="accordion-collapse collapse"
+aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The variance of the data</p>
-<p><span class="math inline">R_2(h)</span> represents the mean squared error of the constant prediction, h. In the previous part, we discussed that <span class="math inline">h_2^*</span>, the minimizer of <span class="math inline">R_2(h)</span>, is the mean, <span class="math inline">\bar{y}</span>. So, <span class="math inline">R_2(h_2^*)</span> is then:</p>
-<p><span class="math display">R_2(h_2^*) = \frac{1}{n} \sum_{i = 1}^n (y_i - h_2^*)^2 = \frac{1}{n} \sum_{i = 1}^n (y_i - \bar{y})^2</span></p>
+<p><span class="math inline">R_2(h)</span> represents the mean squared
+error of the constant prediction, h. In the previous part, we discussed
+that <span class="math inline">h_2^*</span>, the minimizer of <span class="math inline">R_2(h)</span>, is the mean, <span class="math inline">\bar{y}</span>. So, <span class="math inline">R_2(h_2^*)</span> is then:</p>
+<p><span class="math display">R_2(h_2^*) = \frac{1}{n} \sum_{i = 1}^n
+(y_i - h_2^*)^2 = \frac{1}{n} \sum_{i = 1}^n (y_i -
+\bar{y})^2</span></p>
 <p>This is the definition of the variance of y.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
@@ -984,11 +1214,16 @@ Click to view the solution.
 </div>
 </div>
 <p><br></p>
-<p>Now, suppose we want to find the optimal constant prediction, <span class="math inline">h_\text{U}^*</span>, using the "Ulta" loss function, defined below.</p>
+<p>Now, suppose we want to find the optimal constant prediction, <span
+class="math inline">h_\text{U}^*</span>, using the “Ulta" loss function,
+defined below.</p>
 <p><span class="math display">L_U(y_i, h) = y_i (y_i - h)^2</span></p>
 <p><br></p>
 <h3 id="problem-7.6">Problem 7.6</h3>
-<p>To find <span class="math inline">h_\text{U}^*</span>, suppose we minimize average Ulta loss (with no regularization). How does <span class="math inline">h_\text{U}^*</span> compare to the mean of the data, <span class="math inline">M</span>?</p>
+<p>To find <span class="math inline">h_\text{U}^*</span>, suppose we
+minimize average Ulta loss (with no regularization). How does <span
+class="math inline">h_\text{U}^*</span> compare to the mean of the data,
+<span class="math inline">M</span>?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">h_\text{U}^* &gt; M</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">h_\text{U}^* \geq M</span></p></li>
@@ -1003,15 +1238,22 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_6" class="accordion-collapse collapse collapse" aria-labelledby="heading7_6" data-bs-parent="#accordionExample">
+<div id="collapse7_6" class="accordion-collapse collapse"
+aria-labelledby="heading7_6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">h_\text{U}^* \geq M</span></p>
-<p>Minimizing the average Ulta loss means minimizing the empirical risk:</p>
-<p><span class="math display"> R_U(h) = \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h)^2. </span></p>
-<p>This resembles minimizing mean squared error, except each <span class="math inline">y_i</span> is given a weight of <span class="math inline">y_i</span>. Since larger <span class="math inline">y_i</span> values contribute more to the loss, the minimizer is pulled toward higher values to reduce their impact. This results in <span class="math inline">h_\text{U}^*</span> being <strong>greater than</strong> the mean of the data.</p>
+<p><strong>Answer</strong>: <span class="math inline">h_\text{U}^* \geq
+M</span></p>
+<p>Minimizing the average Ulta loss means minimizing the empirical
+risk:</p>
+<p><span class="math display"> R_U(h) = \frac{1}{n} \sum_{i = 1}^n y_i
+(y_i - h)^2. </span></p>
+<p>This resembles minimizing mean squared error, except each <span class="math inline">y_i</span> is given a weight of <span class="math inline">y_i</span>. Since larger <span class="math inline">y_i</span> values contribute more to the loss, the
+minimizer is pulled toward higher values to reduce their impact. This
+results in <span class="math inline">h_\text{U}^*</span> being
+<strong>greater than</strong> the mean of the data.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
 <p>
@@ -1022,13 +1264,29 @@ Click to view the solution.
 </div>
 </div>
 <p><br></p>
-<p>Now, to find the optimal constant prediction, we will instead minimize <strong>regularized</strong> average Ulta loss, <span class="math inline">R_\lambda(h)</span>, where <span class="math inline">\lambda</span> is a non-negative regularization hyperparameter:</p>
-<p><span class="math display">R_\lambda(h) = \left( \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h)^2 \right) + \lambda h^2</span></p>
-<p>It can be shown that <span class="math inline">\displaystyle \frac{\partial R_\lambda(h)}{\partial h}</span>, the derivative of <span class="math inline">R_\lambda(h)</span> with respect to <span class="math inline">h</span>, is:</p>
-<p><span class="math display">\frac{\partial R_\lambda(h)}{\partial h} = -2 \left( \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h) - \lambda h \right)</span></p>
+<p>Now, to find the optimal constant prediction, we will instead
+minimize <strong>regularized</strong> average Ulta loss, <span
+class="math inline">R_\lambda(h)</span>, where <span
+class="math inline">\lambda</span> is a non-negative regularization
+hyperparameter:</p>
+<p><span class="math display">R_\lambda(h) = \left( \frac{1}{n} \sum_{i
+= 1}^n y_i (y_i - h)^2 \right) + \lambda h^2</span></p>
+<p>It can be shown that <span class="math inline">\displaystyle
+\frac{\partial R_\lambda(h)}{\partial h}</span>, the derivative of <span
+class="math inline">R_\lambda(h)</span> with respect to <span
+class="math inline">h</span>, is:</p>
+<p><span class="math display">\frac{\partial R_\lambda(h)}{\partial h} =
+-2 \left( \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h) - \lambda h
+\right)</span></p>
 <p><br></p>
 <h3 id="problem-7.7">Problem 7.7</h3>
-<p>Find <span class="math inline">h^*</span>, the constant prediction that minimizes <span class="math inline">R_\lambda(h)</span>. Show your work, and put a <span class="math inline">\boxed{\text{box}}</span> around your final answer, which should be an <strong>expression in terms of <span class="math inline">y_i</span>, <span class="math inline">n</span>, and/or <span class="math inline">\lambda</span></strong>.</p>
+<p>Find <span class="math inline">h^*</span>, the constant prediction
+that minimizes <span class="math inline">R_\lambda(h)</span>. Show your
+work, and put a <span class="math inline">\boxed{\text{box}}</span>
+around your final answer, which should be an <strong>expression in terms
+of <span class="math inline">y_i</span>, <span
+class="math inline">n</span>, and/or <span
+class="math inline">\lambda</span></strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading7_7">
@@ -1036,25 +1294,35 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse7_7" class="accordion-collapse collapse collapse" aria-labelledby="heading7_7" data-bs-parent="#accordionExample">
+<div id="collapse7_7" class="accordion-collapse collapse"
+aria-labelledby="heading7_7" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">h^* = \frac{\sum_{i = 1}^n y_i^2}{\sum_{i = 1}^n y_i + n\lambda}</span></p>
+<p><strong>Answer</strong>: <span class="math inline">h^* =
+\frac{\sum_{i = 1}^n y_i^2}{\sum_{i = 1}^n y_i + n\lambda}</span></p>
 <p>To minimize the regularized average Ulta loss, we solve for <span class="math inline">h</span> by setting<br/>
-<span class="math display"> \frac{\partial R_\lambda(h)}{\partial h} = 0. </span></p>
+<span class="math display"> \frac{\partial R_\lambda(h)}{\partial h} =
+0. </span></p>
 <p>Step 1: Compute the derivative and set it to zero</p>
-<p><span class="math display"> \frac{\partial R_\lambda(h)}{\partial h} = -2 \left( \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h) \right) + 2\lambda h = 0 </span></p>
+<p><span class="math display"> \frac{\partial R_\lambda(h)}{\partial h}
+= -2 \left( \frac{1}{n} \sum_{i = 1}^n y_i (y_i - h) \right) + 2\lambda
+h = 0 </span></p>
 <p>Step 2: Expand and simplify</p>
-<p><span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i^2 - \frac{1}{n} \sum_{i = 1}^n y_i h - \lambda h = 0 </span></p>
+<p><span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i^2 -
+\frac{1}{n} \sum_{i = 1}^n y_i h - \lambda h = 0 </span></p>
 <p>Rearrange terms:</p>
-<p><span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i^2 = h \left( \frac{1}{n} \sum_{i = 1}^n y_i + \lambda \right) </span></p>
+<p><span class="math display"> \frac{1}{n} \sum_{i = 1}^n y_i^2 = h
+\left( \frac{1}{n} \sum_{i = 1}^n y_i + \lambda \right) </span></p>
 <p>Step 3: Solve for <span class="math inline">h</span></p>
-<p>Divide both sides by <span class="math inline">\frac{1}{n} \sum_{i = 1}^n y_i + \lambda:</span></p>
-<p><span class="math display"> h^* = \frac{\frac{1}{n} \sum_{i = 1}^n y_i^2}{\frac{1}{n} \sum_{i = 1}^n y_i + \lambda} </span></p>
+<p>Divide both sides by <span class="math inline">\frac{1}{n} \sum_{i =
+1}^n y_i + \lambda:</span></p>
+<p><span class="math display"> h^* = \frac{\frac{1}{n} \sum_{i = 1}^n
+y_i^2}{\frac{1}{n} \sum_{i = 1}^n y_i + \lambda} </span></p>
 <p>Step 4: Multiply by <span class="math inline">\frac{n}{n}</span></p>
-<p><span class="math display"> h^* = \frac{\sum_{i = 1}^n y_i^2}{\sum_{i = 1}^n y_i + n\lambda} </span></p>
+<p><span class="math display"> h^* = \frac{\sum_{i = 1}^n y_i^2}{\sum_{i
+= 1}^n y_i + n\lambda} </span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1067,15 +1335,24 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
-<p>Suppose we want to fit a simple linear regression model (using squared loss) that predicts the number of ingredients in a product given its price. We’re given that:</p>
+<p>Suppose we want to fit a simple linear regression model (using
+squared loss) that predicts the number of ingredients in a product given
+its price. We’re given that:</p>
 <ul>
-<li><p>The average cost of a product in our dataset is $40, i.e. <span class="math inline">\bar x = 40</span>.</p></li>
-<li><p>The average number of ingredients in a product in our dataset is 15, i.e. <span class="math inline">\bar y = 15</span>.</p></li>
+<li><p>The average cost of a product in our dataset is $40, i.e. <span
+class="math inline">\bar x = 40</span>.</p></li>
+<li><p>The average number of ingredients in a product in our dataset is
+15, i.e. <span class="math inline">\bar y = 15</span>.</p></li>
 </ul>
-<p>The intercept and slope of the regression line are <span class="math inline">w_0^* = 11</span> and <span class="math inline">w_1^* = \frac{1}{10}</span>, respectively.</p>
+<p>The intercept and slope of the regression line are <span
+class="math inline">w_0^* = 11</span> and <span
+class="math inline">w_1^* = \frac{1}{10}</span>, respectively.</p>
 <p><br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
-<p>Suppose Victors’ Veil (a skincare product) costs $40 and has 11 ingredients. What is the squared loss of our model’s predicted number of ingredients for Victors’ Veil? Give your answer as a <strong>number</strong>.</p>
+<p>Suppose Victors’ Veil (a skincare product) costs $40 and has 11
+ingredients. What is the squared loss of our model’s predicted number of
+ingredients for Victors’ Veil? Give your answer as a
+<strong>number</strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_1">
@@ -1083,19 +1360,23 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_1" class="accordion-collapse collapse collapse" aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: <span class="math inline">16</span></p>
-<p>Using the equation of the regression model we have seen in class:<br/>
+<p>Using the equation of the regression model we have seen in
+class:<br/>
 <span class="math display"> H(x) = w_0^* + w_1^* x </span></p>
 <p>Substitute <span class="math inline">w_0^* = 11</span>, <span class="math inline">w_1^* = \frac{1}{10}</span>, and <span class="math inline">x = 40</span>:<br/>
-<span class="math display"> H(40) = 11 + \frac{1}{10} \cdot 40 = 11 + 4 = 15 </span></p>
+<span class="math display"> H(40) = 11 + \frac{1}{10} \cdot 40 = 11 + 4
+= 15 </span></p>
 <p>The squared loss is:<br/>
 <span class="math display"> L = (y - H(x_i))^2 </span></p>
-<p>Substituting <span class="math inline">y = 11</span> (actual) and <span class="math inline">H(x_i) = 15</span> (predicted):<br/>
+<p>Substituting <span class="math inline">y = 11</span> (actual) and
+<span class="math inline">H(x_i) = 15</span> (predicted):<br/>
 <span class="math display"> L = (11 - 15)^2 = (-4)^2 = 16 </span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -1108,9 +1389,14 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
-<p>Is it possible to answer part (a) above <strong>just</strong> by knowing <span class="math inline">\bar x</span> and <span class="math inline">\bar y</span>, i.e. <strong>without</strong> knowing the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span>?</p>
+<p>Is it possible to answer part (a) above <strong>just</strong> by
+knowing <span class="math inline">\bar x</span> and <span
+class="math inline">\bar y</span>, i.e. <strong>without</strong> knowing
+the values of <span class="math inline">w_0^*</span> and <span
+class="math inline">w_1^*</span>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to part (a).</p></li>
+<li><p><input type="radio" disabled="" /> Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to part
+(a).</p></li>
 <li><p><input type="radio" disabled="" /> No; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> are necessary to answer part (a).</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1120,33 +1406,54 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_2" class="accordion-collapse collapse collapse" aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to part (a).</p>
-<p>A fact from lecture is that the regression line always passes through the point <span class="math inline">(\bar{x}, \bar{y})</span>, meaning that for an average x, we always predict an average y. We’re given that <span class="math inline">\bar{x}</span> = 40 and <span class="math inline">\bar{y}</span> = 15, meaning that for a product that costs $40 we will predict that it has 15 ingredients, no matter what the slope and intercept end up being. </p>
+<p><strong>Answer</strong>: Yes; the values of <span class="math inline">w_0^*</span> and <span class="math inline">w_1^*</span> don’t impact the answer to part
+(a).</p>
+<p>A fact from lecture is that the regression line always passes through
+the point <span class="math inline">(\bar{x}, \bar{y})</span>, meaning
+that for an average x, we always predict an average y. We’re given that
+<span class="math inline">\bar{x}</span> = 40 and <span class="math inline">\bar{y}</span> = 15, meaning that for a product that
+costs $40 we will predict that it has 15 ingredients, no matter what the
+slope and intercept end up being. </p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>The average score on this problem was 56%.</p>
+<p>The
+average score on this problem was 56%.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-8.3">Problem 8.3</h3>
-<p>Suppose <span class="math inline">x_i</span> represents the price of product <span class="math inline">i</span>, and suppose <span class="math inline">u_i</span> represents the <strong>negative price</strong> of product <span class="math inline">i</span>. In other words, for <span class="math inline">i = 1, 2, ..., n</span>, where <span class="math inline">n</span> is the number of points in our dataset:</p>
+<p>Suppose <span class="math inline">x_i</span> represents the price of
+product <span class="math inline">i</span>, and suppose <span
+class="math inline">u_i</span> represents the <strong>negative
+price</strong> of product <span class="math inline">i</span>. In other
+words, for <span class="math inline">i = 1, 2, ..., n</span>, where
+<span class="math inline">n</span> is the number of points in our
+dataset:</p>
 <p><span class="math display">u_i = - x_i</span></p>
-<p>Suppose <span class="math inline">U</span> is the design matrix for the simple linear regression model that uses <strong>negative</strong> price to predict number of ingredients. Which of the following matrices could be <span class="math inline">U^TU</span>?</p>
+<p>Suppose <span class="math inline">U</span> is the design matrix for
+the simple linear regression model that uses <strong>negative</strong>
+price to predict number of ingredients. Which of the following matrices
+could be <span class="math inline">U^TU</span>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 600 \\ 600 &amp; -30000 \end{bmatrix}</span><br/>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 600 \\ 600 &amp;
+-30000 \end{bmatrix}</span><br/>
 </p></li>
-<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span><br/>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -600 \\ -600
+&amp; 30000 \end{bmatrix}</span><br/>
 </p></li>
-<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 450 \\ 450 &amp; -30000 \end{bmatrix}</span><br/>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} -15 &amp; 450 \\ 450 &amp;
+-30000 \end{bmatrix}</span><br/>
 </p></li>
-<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -450 \\ -450 &amp; 30000 \end{bmatrix}</span><br/>
+<li><p><input type="radio" disabled="" />  <span class="math inline">\begin{bmatrix} 15 &amp; -450 \\ -450
+&amp; 30000 \end{bmatrix}</span><br/>
 </p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1156,13 +1463,16 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse8_3" class="accordion-collapse collapse collapse" aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
+<div id="collapse8_3" class="accordion-collapse collapse"
+aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math display">\begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span></p>
-<p>The design matrix <span class="math inline">U</span> is defined as: <span class="math display">
+<p><strong>Answer</strong>: <span class="math display">\begin{bmatrix}
+15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}</span></p>
+<p>The design matrix <span class="math inline">U</span> is defined as:
+<span class="math display">
 U =
 \begin{bmatrix}
 1 &amp; -x_1 \\
@@ -1170,7 +1480,8 @@ U =
 \vdots &amp; \vdots \\
 1 &amp; -x_n
 \end{bmatrix}
-</span> where 1 represents the intercept term, and <span class="math inline">-x_i</span> represents the negative price of product <span class="math inline">i</span>. Thus:</p>
+</span> where 1 represents the intercept term, and <span class="math inline">-x_i</span> represents the negative price of product
+<span class="math inline">i</span>. Thus:</p>
 <p><span class="math display">
 U^T U =
 \begin{bmatrix}
@@ -1194,14 +1505,18 @@ n &amp; -\sum_{i = 1}^n x_i \\
 <p>Conceptually, this matrix represents:<br/>
 <span class="math display">
 \begin{bmatrix}
-\text{Number of elements} &amp; \text{Sum of the negative values of the data} \\
-\text{Sum of the negative values of the data} &amp; \text{Sum of squared values of the data}
+\text{Number of elements} &amp; \text{Sum of the negative values of the
+data} \\
+\text{Sum of the negative values of the data} &amp; \text{Sum of squared
+values of the data}
 \end{bmatrix}.
 </span></p>
-<p>We know that the sum of all elements in a series is equal to the mean of the series multiplied by the number of elements in the series. <span class="math display">
+<p>We know that the sum of all elements in a series is equal to the mean
+of the series multiplied by the number of elements in the series. <span class="math display">
 \sum_{i = 1}^n x_i = n \cdot \bar{x}
 </span></p>
-<p><span class="math inline">\bar{x}</span> is equal to <span class="math inline">40</span>. The first element in the matrix, <span class="math inline">15</span>, represents the number of elements in the series. Thus,<br/>
+<p><span class="math inline">\bar{x}</span> is equal to <span class="math inline">40</span>. The first element in the matrix, <span class="math inline">15</span>, represents the number of elements in the
+series. Thus,<br/>
 <span class="math display">
 \displaystyle \sum_{i = 1}^n x_i = 40 \cdot 15 = 600
 </span><br/>
@@ -1210,7 +1525,7 @@ and the solution must be as follows:</p>
 \begin{bmatrix}
 n &amp; -\sum_{i = 1}^n x_i \\
 -\sum_{i = 1}^n x_i &amp; \sum_{i = 1}^n x_i^2
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix} 15 &amp; -600 \\ -600 &amp; 30000 \end{bmatrix}
 </span></p>
 <hr/>
@@ -1225,11 +1540,24 @@ n &amp; -\sum_{i = 1}^n x_i \\
 <p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
-<p>Suppose we want to fit a multiple linear regression model (using squared loss) that predicts the number of ingredients in a product given its price and various other information.</p>
-<p>From the Data Overview page, we know that there are <strong>6</strong> different <strong>types</strong> of products. Assume in this question that there are <strong>20</strong> different product <strong>brands</strong>. Consider the models defined in the table below.</p>
+<p>Suppose we want to fit a multiple linear regression model (using
+squared loss) that predicts the number of ingredients in a product given
+its price and various other information.</p>
+<p>From the Data Overview page, we know that there are
+<strong>6</strong> different <strong>types</strong> of products. Assume
+in this question that there are <strong>20</strong> different product
+<strong>brands</strong>. Consider the models defined in the table
+below.</p>
 <table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 27%" />
+<col style="width: 31%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><strong>Model Name</strong></th>
 <th><strong>Intercept</strong></th>
 <th><strong>Price</strong></th>
@@ -1238,91 +1566,91 @@ n &amp; -\sum_{i = 1}^n x_i \\
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>Model A</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>No</td>
 <td>One hot encoded</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td><strong>without</strong> <code>drop="first"</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Model B</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>No</td>
 <td>No</td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Model C</strong></td>
 <td>Yes</td>
 <td>Yes</td>
 <td>One hot encoded</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td><strong>without</strong> <code>drop="first"</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Model D</strong></td>
 <td>No</td>
 <td>Yes</td>
 <td>One hot encoded</td>
 <td>One hot encoded</td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td><strong>with</strong> <code>drop="first"</code></td>
 <td><strong>with</strong> <code>drop="first"</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Model E</strong></td>
 <td>No</td>
 <td>Yes</td>
 <td>One hot encoded</td>
 <td>One hot encoded</td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -1331,8 +1659,15 @@ n &amp; -\sum_{i = 1}^n x_i \\
 </tr>
 </tbody>
 </table>
-<p>For instance, Model A above includes an intercept term, price as a feature, one hot encodes brand names, and doesn’t use <code>drop="first"</code> as an argument to <code>OneHotEncoder</code> in <code>sklearn</code>.</p>
-<p>In parts 1 through 3, you are given a model. For each model provided, state the <strong>number</strong> of columns and the rank (i.e. number of linearly independent columns) of the design matrix, <span class="math inline">X</span>. Some of part 1 is already done for you as an example.</p>
+<p>For instance, Model A above includes an intercept term, price as a
+feature, one hot encodes brand names, and doesn’t use
+<code>drop="first"</code> as an argument to <code>OneHotEncoder</code>
+in <code>sklearn</code>.</p>
+<p>In parts 1 through 3, you are given a model. For each model provided,
+state the <strong>number</strong> of columns and the rank (i.e. number
+of linearly independent columns) of the design matrix, <span
+class="math inline">X</span>. Some of part 1 is already done for you as
+an example.</p>
 <p><br></p>
 <h3 id="problem-9.1">Problem 9.1</h3>
 <p><strong>Model A</strong></p>
@@ -1345,15 +1680,25 @@ Rank of <span class="math inline">X</span>: <strong>21</strong></p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_1" class="accordion-collapse collapse collapse" aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>: <strong>22</strong></p>
-<p>Model A includes an intercept, the price feature, and a one-hot encoding of the 20 brands without dropping the first category. The intercept adds 1 column, the price adds 1 column, and the one-hot encoding for brands adds 20 columns. The rank is <strong>21</strong> because one of the brand categories can be predicted by the others (i.e., the columns are linearly dependent).</p>
-<p>The rank is 21 because when encoding categorical variables (such as brands), dropping the first category avoids introducing perfect multicollinearity. By not dropping a category, we increase the rank by 1, but this still maintains linear dependence among the columns.</p>
+<p>Number of columns in <span class="math inline">X</span>:
+<strong>22</strong></p>
+<p>Model A includes an intercept, the price feature, and a one-hot
+encoding of the 20 brands without dropping the first category. The
+intercept adds 1 column, the price adds 1 column, and the one-hot
+encoding for brands adds 20 columns. The rank is <strong>21</strong>
+because one of the brand categories can be predicted by the others
+(i.e., the columns are linearly dependent).</p>
+<p>The rank is 21 because when encoding categorical variables (such as
+brands), dropping the first category avoids introducing perfect
+multicollinearity. By not dropping a category, we increase the rank by
+1, but this still maintains linear dependence among the columns.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1375,15 +1720,20 @@ Rank of <span class="math inline">X</span>:</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_2" class="accordion-collapse collapse collapse" aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>: <strong>2</strong><br/>
+<p>Number of columns in <span class="math inline">X</span>:
+<strong>2</strong><br/>
 Rank of <span class="math inline">X</span>: <strong>2</strong></p>
-<p>Model B includes an intercept and the price feature, but no one-hot encoding for the brands or product types. The intercept and price are linearly independent, resulting in both the number of columns and the rank being 2.</p>
+<p>Model B includes an intercept and the price feature, but no one-hot
+encoding for the brands or product types. The intercept and price are
+linearly independent, resulting in both the number of columns and the
+rank being 2.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1405,16 +1755,25 @@ Rank of <span class="math inline">X</span>:</p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_3" class="accordion-collapse collapse collapse" aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div id="collapse9_3" class="accordion-collapse collapse"
+aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>: <strong>8</strong><br/>
+<p>Number of columns in <span class="math inline">X</span>:
+<strong>8</strong><br/>
 Rank of <span class="math inline">X</span>: <strong>7</strong></p>
-<p>Model C includes an intercept, the price feature, and a one-hot encoding of the 6 product types without dropping the first category. The intercept adds 1 column, the price adds 1 column, and the one-hot encoding for the product types adds 6 columns. However, one column is linearly dependent because we didn’t drop one of the one-hot encoded columns, reducing the rank to 7.</p>
-<p>This happens because if we have 6 product types, one of the columns can always be written as a linear combination of the other five. Thus, we lose one degree of freedom in the matrix, and the rank is 7.</p>
+<p>Model C includes an intercept, the price feature, and a one-hot
+encoding of the 6 product types without dropping the first category. The
+intercept adds 1 column, the price adds 1 column, and the one-hot
+encoding for the product types adds 6 columns. However, one column is
+linearly dependent because we didn’t drop one of the one-hot encoded
+columns, reducing the rank to 7.</p>
+<p>This happens because if we have 6 product types, one of the columns
+can always be written as a linear combination of the other five. Thus,
+we lose one degree of freedom in the matrix, and the rank is 7.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1426,8 +1785,11 @@ Rank of <span class="math inline">X</span>: <strong>7</strong></p>
 </div>
 <p><br></p>
 <h3 id="problem-9.4">Problem 9.4</h3>
-<p>Which of the following models are <strong>NOT guaranteed</strong> to have residuals that sum to 0?</p>
-<p><em>Hint: Remember, the residuals of a fit model are the differences between actual and predicted <span class="math inline">y</span>-values, among the data points in the training set.</em></p>
+<p>Which of the following models are <strong>NOT guaranteed</strong> to
+have residuals that sum to 0?</p>
+<p><em>Hint: Remember, the residuals of a fit model are the differences
+between actual and predicted <span class="math inline">y</span>-values,
+among the data points in the training set.</em></p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> Model A</p></li>
 <li><p><input type="checkbox" disabled="" /> Model B</p></li>
@@ -1442,15 +1804,34 @@ Rank of <span class="math inline">X</span>: <strong>7</strong></p>
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_4" class="accordion-collapse collapse collapse" aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
+<div id="collapse9_4" class="accordion-collapse collapse"
+aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: Model D</p>
-<p>For residuals to sum to zero in a linear regression model, the design matrix must include either an intercept term (Models A - C) or equivalent redundancy in the encoded variables to act as a substitute for the intercept (Model E). Models that lack both an intercept and equivalent redundancy, such as Model D, are not guaranteed to have residuals sum to zero.</p>
-<p>For a linear model, the residual vector <span class="math inline">\vec{e}</span> is chosen such that it is orthogonal to the column space of the design matrix <span class="math inline">X</span>. If one of the columns of <span class="math inline">X</span> is a column of all ones (as in the case with an intercept term), it ensures that the sum of the residuals is zero. This is because the error vector <span class="math inline">\vec{e}</span> is orthogonal to the span of <span class="math inline">X</span>, and hence <span class="math inline">X^T \vec{e} = 0</span>. If there isn’t a column of all ones, but we can create such a column using a linear combination of the other columns in <span class="math inline">X</span>, the residuals will still sum to zero. Model D lacks this structure, so the residuals are not guaranteed to sum to zero.</p>
-<p>In contrast, one-hot encoding without dropping any category can behave like an intercept because it introduces a column for each category, allowing the model to adjust its predictions as if it had an intercept term. The sum of the indicator variables in such a setup equals 1 for every row, creating a similar effect to an intercept, which is why residuals may sum to zero in these cases.</p>
+<p>For residuals to sum to zero in a linear regression model, the design
+matrix must include either an intercept term (Models A - C) or
+equivalent redundancy in the encoded variables to act as a substitute
+for the intercept (Model E). Models that lack both an intercept and
+equivalent redundancy, such as Model D, are not guaranteed to have
+residuals sum to zero.</p>
+<p>For a linear model, the residual vector <span class="math inline">\vec{e}</span> is chosen such that it is orthogonal
+to the column space of the design matrix <span class="math inline">X</span>. If one of the columns of <span class="math inline">X</span> is a column of all ones (as in the case
+with an intercept term), it ensures that the sum of the residuals is
+zero. This is because the error vector <span class="math inline">\vec{e}</span> is orthogonal to the span of <span class="math inline">X</span>, and hence <span class="math inline">X^T
+\vec{e} = 0</span>. If there isn’t a column of all ones, but we can
+create such a column using a linear combination of the other columns in
+<span class="math inline">X</span>, the residuals will still sum to
+zero. Model D lacks this structure, so the residuals are not guaranteed
+to sum to zero.</p>
+<p>In contrast, one-hot encoding without dropping any category can
+behave like an intercept because it introduces a column for each
+category, allowing the model to adjust its predictions as if it had an
+intercept term. The sum of the indicator variables in such a setup
+equals 1 for every row, creating a similar effect to an intercept, which
+is why residuals may sum to zero in these cases.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1463,9 +1844,16 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-10">Problem 10</h2>
-<p>Suppose we want to create polynomial features and use ridge regression (i.e. minimize mean squared error with <span class="math inline">L_2</span> regularization) to fit a linear model that predicts the number of ingredients in a product given its price.</p>
-<p>To choose the polynomial degree and regularization hyperparameter, we use cross-validation through <code>GridSearchCV</code> in <code>sklearn</code> using the code below.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    searcher <span class="op">=</span> GridSearchCV(</span>
+<p>Suppose we want to create polynomial features and use ridge
+regression (i.e. minimize mean squared error with <span
+class="math inline">L_2</span> regularization) to fit a linear model
+that predicts the number of ingredients in a product given its
+price.</p>
+<p>To choose the polynomial degree and regularization hyperparameter, we
+use cross-validation through <code>GridSearchCV</code> in
+<code>sklearn</code> using the code below.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    searcher <span class="op">=</span> GridSearchCV(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        make_pipeline(PolynomialFeatures(include_bias<span class="op">=</span><span class="va">False</span>), </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                      Ridge()),</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        </span>
@@ -1475,11 +1863,19 @@ Click to view the solution.
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        cv<span class="op">=</span>K <span class="co"># K-fold cross-validation.</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    ) </span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    searcher.fit(X_train, y_train)</span></code></pre></div>
-<p>Assume that there are <span class="math inline">N</span> rows in <code>X_train</code>, where <span class="math inline">N</span> is a multiple of <span class="math inline">K</span> (the number of folds used for cross-validation).</p>
-<p>In each of the parts below, give your answer as an <strong>expression involving <span class="math inline">D</span>, <span class="math inline">L</span>, <span class="math inline">K</span>, and/or <span class="math inline">N</span></strong>. Part (a) is done for you as an example.</p>
+<p>Assume that there are <span class="math inline">N</span> rows in
+<code>X_train</code>, where <span class="math inline">N</span> is a
+multiple of <span class="math inline">K</span> (the number of folds used
+for cross-validation).</p>
+<p>In each of the parts below, give your answer as an <strong>expression
+involving <span class="math inline">D</span>, <span
+class="math inline">L</span>, <span class="math inline">K</span>, and/or
+<span class="math inline">N</span></strong>. Part (a) is done for you as
+an example.</p>
 <p><br></p>
 <h3 id="problem-10.1">Problem 10.1</h3>
-<p>How many combinations of hyperparameters are being considered? <strong>Answer</strong>: <span class="math inline">LD</span></p>
+<p>How many combinations of hyperparameters are being considered?
+<strong>Answer</strong>: <span class="math inline">LD</span></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_1">
@@ -1487,7 +1883,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_1" class="accordion-collapse collapse collapse" aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1500,7 +1897,8 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-10.2">Problem 10.2</h3>
-<p><strong>Each time</strong> a model is trained, how many points are being used to train the model?</p>
+<p><strong>Each time</strong> a model is trained, how many points are
+being used to train the model?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_2">
@@ -1508,13 +1906,21 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_2" class="accordion-collapse collapse collapse" aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">N \cdot \frac{K-1}{K}</span></p>
-<p>In <span class="math inline">K</span>-fold cross-validation, the data is split into <span class="math inline">K</span> folds. Each time a model is trained, one fold is used for validation, and the remaining <span class="math inline">K-1</span> folds are used for training. Since <span class="math inline">N</span> is evenly split among <span class="math inline">K</span> folds, each fold contains <span class="math inline">\frac{N}{K}</span> points. The training data, therefore, consists of <span class="math inline">N - \frac{N}{K} = N \cdot \frac{K-1}{K}</span> points.</p>
+<p><strong>Answer</strong>: <span class="math inline">N \cdot
+\frac{K-1}{K}</span></p>
+<p>In <span class="math inline">K</span>-fold cross-validation, the data
+is split into <span class="math inline">K</span> folds. Each time a
+model is trained, one fold is used for validation, and the remaining
+<span class="math inline">K-1</span> folds are used for training. Since
+<span class="math inline">N</span> is evenly split among <span class="math inline">K</span> folds, each fold contains <span class="math inline">\frac{N}{K}</span> points. The training data,
+therefore, consists of <span class="math inline">N - \frac{N}{K} = N
+\cdot \frac{K-1}{K}</span> points.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1526,7 +1932,10 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-10.3">Problem 10.3</h3>
-<p><strong>In total</strong>, how many times are <code>X_train.iloc[1]</code> and <code>X_train.iloc[-1]</code> <strong>both</strong> used for training a model <strong>at the same time</strong>? Assume that these two points are in different folds.</p>
+<p><strong>In total</strong>, how many times are
+<code>X_train.iloc[1]</code> and <code>X_train.iloc[-1]</code>
+<strong>both</strong> used for training a model <strong>at the same
+time</strong>? Assume that these two points are in different folds.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_3">
@@ -1534,13 +1943,20 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_3" class="accordion-collapse collapse collapse" aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">LD \times (K-2)</span></p>
-<p>In K-fold cross-validation, <code>X_train.iloc[1]</code> and <code>X_train.iloc[-1]</code> are in different folds and can only be used together for training when neither of their respective folds is the validation set. This happens in <span class="math inline">(K-2)</span> folds for each combination of polynomial degree (<span class="math inline">D</span>) and regularization hyperparameter (<span class="math inline">L</span>). Since there are <span class="math inline">L \times D</span> total combinations in the grid search, the two points are used together for training <span class="math inline">LD \times (K-2)</span> times.</p>
+<p><strong>Answer</strong>: <span class="math inline">LD \times
+(K-2)</span></p>
+<p>In K-fold cross-validation, <code>X_train.iloc[1]</code> and
+<code>X_train.iloc[-1]</code> are in different folds and can only be
+used together for training when neither of their respective folds is the
+validation set. This happens in <span class="math inline">(K-2)</span>
+folds for each combination of polynomial degree (<span class="math inline">D</span>) and regularization hyperparameter (<span class="math inline">L</span>). Since there are <span class="math inline">L \times D</span> total combinations in the grid
+search, the two points are used together for training <span class="math inline">LD \times (K-2)</span> times.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1553,12 +1969,20 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-11">Problem 11</h2>
-<p>Suppose we want to use LASSO (i.e. minimize mean squared error with <span class="math inline">L_1</span> regularization) to fit a linear model that predicts the number of ingredients in a product given its price and rating.</p>
-<p>Let <span class="math inline">\lambda</span> be a non-negative regularization hyperparameter. Using cross-validation, we determine the average validation mean squared error — which we’ll refer to as AVMSE in this question — for several different choices of <span class="math inline">\lambda</span>. The results are given below.</p>
+<p>Suppose we want to use LASSO (i.e. minimize mean squared error with
+<span class="math inline">L_1</span> regularization) to fit a linear
+model that predicts the number of ingredients in a product given its
+price and rating.</p>
+<p>Let <span class="math inline">\lambda</span> be a non-negative
+regularization hyperparameter. Using cross-validation, we determine the
+average validation mean squared error — which we’ll refer to as AVMSE in
+this question — for several different choices of <span
+class="math inline">\lambda</span>. The results are given below.</p>
 <center><img src="../assets/images/fa24-final/avmse.png" width=600></center>
 <p><br></p>
 <h3 id="problem-11.1">Problem 11.1</h3>
-<p>As <span class="math inline">\lambda</span> increases, what happens to model complexity and model variance?</p>
+<p>As <span class="math inline">\lambda</span> increases, what happens
+to model complexity and model variance?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Model complexity and model variance both increase.</p></li>
 <li><p><input type="radio" disabled="" /> Model complexity increases while model variance decreases.</p></li>
@@ -1572,13 +1996,20 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_1" class="accordion-collapse collapse collapse" aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div id="collapse11_1" class="accordion-collapse collapse"
+aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: Model complexity and model variance both decrease.</p>
-<p>As <span class="math inline">\lambda</span> increases, the <span class="math inline">L_1</span> regularization penalizes larger coefficient values more heavily, forcing the model to forget the details in the training data and focus on the bigger picture. This effectively reduces the number of non-zero coefficients, decreasing model complexity. Since model complexity and model variance are the same thing, variance also decreases.</p>
+<p><strong>Answer</strong>: Model complexity and model variance both
+decrease.</p>
+<p>As <span class="math inline">\lambda</span> increases, the <span class="math inline">L_1</span> regularization penalizes larger
+coefficient values more heavily, forcing the model to forget the details
+in the training data and focus on the bigger picture. This effectively
+reduces the number of non-zero coefficients, decreasing model
+complexity. Since model complexity and model variance are the same
+thing, variance also decreases.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1590,9 +2021,11 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-11.2">Problem 11.2</h3>
-<p>What does the value <span class="math inline">A</span> on the graph above correspond to?</p>
+<p>What does the value <span class="math inline">A</span> on the graph
+above correspond to?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
@@ -1603,13 +2036,18 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_2" class="accordion-collapse collapse collapse" aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div id="collapse11_2" class="accordion-collapse collapse"
+aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: The AVMSE of an unregularized multiple linear regression model.</p>
-<p>Point <span class="math inline">A</span> represents the case where <span class="math inline">\lambda = 0</span>, meaning no regularization is applied. This corresponds to an unregularized multiple linear regression model.</p>
+<p><strong>Answer</strong>: The AVMSE of an unregularized multiple
+linear regression model.</p>
+<p>Point <span class="math inline">A</span> represents the case where
+<span class="math inline">\lambda = 0</span>, meaning no regularization
+is applied. This corresponds to an unregularized multiple linear
+regression model.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1621,9 +2059,11 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-11.3">Problem 11.3</h3>
-<p>What does the value <span class="math inline">B</span> on the graph above correspond to?</p>
+<p>What does the value <span class="math inline">B</span> on the graph
+above correspond to?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
@@ -1634,13 +2074,18 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_3" class="accordion-collapse collapse collapse" aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
+<div id="collapse11_3" class="accordion-collapse collapse"
+aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a model.</p>
-<p>Point <span class="math inline">B</span> is the minimum point on the graph, indicating the optimal <span class="math inline">\lambda</span> value that minimizes the AVMSE. This is because we don’t typically regularize the intercept term’s coefficient, <span class="math inline">w_0^*</span>.</p>
+<p><strong>Answer</strong>: The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a
+model.</p>
+<p>Point <span class="math inline">B</span> is the minimum point on the
+graph, indicating the optimal <span class="math inline">\lambda</span>
+value that minimizes the AVMSE. This is because we don’t typically
+regularize the intercept term’s coefficient, <span class="math inline">w_0^*</span>.</p>
 <hr/>
 <h5>Difficulty: ⭐️</h5>
 <p>
@@ -1652,9 +2097,11 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-11.4">Problem 11.4</h3>
-<p>What does the value <span class="math inline">C</span> on the graph above correspond to?</p>
+<p>What does the value <span class="math inline">C</span> on the graph
+above correspond to?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
@@ -1665,13 +2112,17 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse11_4" class="accordion-collapse collapse collapse" aria-labelledby="heading11_4" data-bs-parent="#accordionExample">
+<div id="collapse11_4" class="accordion-collapse collapse"
+aria-labelledby="heading11_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: The AVMSE of the constant model.</p>
-<p>Point <span class="math inline">C</span> represents the AVMSE when <span class="math inline">\lambda</span> is very large, effectively forcing all coefficients to zero. This corresponds to the constant model.</p>
+<p>Point <span class="math inline">C</span> represents the AVMSE when
+<span class="math inline">\lambda</span> is very large, effectively
+forcing all coefficients to zero. This corresponds to the constant
+model.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1684,7 +2135,12 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-12">Problem 12</h2>
-<p>Suppose we fit five different classifiers that predict whether a product is designed for sensitive skin, given its price and number of ingredients. In the five decision boundaries below, the gray-shaded regions represent areas in which the classifier would predict that the product <strong>is</strong> designed for sensitive skin (i.e. predict class 1).</p>
+<p>Suppose we fit five different classifiers that predict whether a
+product is designed for sensitive skin, given its price and number of
+ingredients. In the five decision boundaries below, the gray-shaded
+regions represent areas in which the classifier would predict that the
+product <strong>is</strong> designed for sensitive skin (i.e. predict
+class 1).</p>
 <figure style="display: flex; flex-wrap: wrap; gap: 10px;">
     <div class="minipage">
         <img src="../assets/images/fa24-final/db1.png" width="300"/>
@@ -1708,8 +2164,10 @@ Click to view the solution.
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 3</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 15</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1719,13 +2177,17 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_1" class="accordion-collapse collapse collapse" aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div id="collapse12_1" class="accordion-collapse collapse"
+aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: Logistic regression</p>
-<p>Logistic regression is a linear classification technique, meaning it creates a single linear decision boundary between classes. Among the five decision boundaries, only Decision Boundary 1 is linear, making it the correct answer.</p>
+<p>Logistic regression is a linear classification technique, meaning it
+creates a single linear decision boundary between classes. Among the
+five decision boundaries, only Decision Boundary 1 is linear, making it
+the correct answer.</p>
 <hr/>
 <h5>Difficulty: ⭐️</h5>
 <p>
@@ -1741,8 +2203,10 @@ Click to view the solution.
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 3</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 15</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1752,14 +2216,21 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_2" class="accordion-collapse collapse collapse" aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
+<div id="collapse12_2" class="accordion-collapse collapse"
+aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: Decision tree with <span class="math inline">\text{max depth} = 15</span></p>
-<p>We know that Decision Boundaries 2 and 5 are decision trees, since the decision boundaries are parallel to the axes. Decision boundaries for decision trees are parallel to axes because the tree splits the feature space based on one feature at a time, creating partitions aligned with that feature’s axis (e.g., “Price ≤ 100” results in a vertical split).</p>
-<p>Decision Boundary 2 is more complicated than Decision Boundary 5, so we can assume there are more levels.</p>
+<p>We know that Decision Boundaries 2 and 5 are decision trees, since
+the decision boundaries are parallel to the axes. Decision boundaries
+for decision trees are parallel to axes because the tree splits the
+feature space based on one feature at a time, creating partitions
+aligned with that feature’s axis (e.g., “Price ≤ 100” results in a
+vertical split).</p>
+<p>Decision Boundary 2 is more complicated than Decision Boundary 5, so
+we can assume there are more levels.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1775,8 +2246,10 @@ Click to view the solution.
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 3</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 15</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1786,15 +2259,25 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_3" class="accordion-collapse collapse collapse" aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div id="collapse12_3" class="accordion-collapse collapse"
+aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p>
-<p><span class="math inline">k</span>-nearest neighbors decision boundaries don’t follow straight lines like logistic regression or decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
-<p>A lower value of <span class="math inline">k</span> means the model is more sensitive to local variations in the data. Since Decision Boundary 3 has more complex and irregular regions than Decision Boundary 4, it corresponds to <span class="math inline">k = 3</span>, where the model closely follows the training data.</p>
-<p>For example, if in our training data we had 3 points in the group represented by the light-shaded region at <span class="math inline">(300, 150)</span>, the decision boundary for <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span> would be light-shaded at <span class="math inline">(300, 150)</span>, whereas it may be dark-shaded for <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span>.</p>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 3</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p>A lower value of <span class="math inline">k</span> means the model
+is more sensitive to local variations in the data. Since Decision
+Boundary 3 has more complex and irregular regions than Decision Boundary
+4, it corresponds to <span class="math inline">k = 3</span>, where the
+model closely follows the training data.</p>
+<p>For example, if in our training data we had 3 points in the group
+represented by the light-shaded region at <span class="math inline">(300, 150)</span>, the decision boundary for <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span> would be light-shaded at <span class="math inline">(300, 150)</span>, whereas it may be dark-shaded for
+<span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span>.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1810,8 +2293,10 @@ Click to view the solution.
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 3</span></p></li>
-<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} = 15</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
@@ -1821,15 +2306,25 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_4" class="accordion-collapse collapse collapse" aria-labelledby="heading12_4" data-bs-parent="#accordionExample">
+<div id="collapse12_4" class="accordion-collapse collapse"
+aria-labelledby="heading12_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p>
-<p><span class="math inline">k</span>-nearest neighbors decision boundaries don’t follow straight lines like logistic regression or decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
-<p><span class="math inline">k</span>-nearest neighbors decision boundaries adapt to the training data, but increasing <span class="math inline">k</span> makes the model less sensitive to local variations.</p>
-<p>Since Decision Boundary 4 is smoother and has fewer regions than Decision Boundary 3, it corresponds to <span class="math inline">k = 100</span>, where predictions are averaged over a larger number of neighbors, making the boundary less sensitive to individual data points.</p>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 100</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries adapt to the training data, but increasing <span class="math inline">k</span> makes the model less sensitive to local
+variations.</p>
+<p>Since Decision Boundary 4 is smoother and has fewer regions than
+Decision Boundary 3, it corresponds to <span class="math inline">k =
+100</span>, where predictions are averaged over a larger number of
+neighbors, making the boundary less sensitive to individual data
+points.</p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️⭐️</h5>
 <p>
@@ -1842,17 +2337,33 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-13">Problem 13</h2>
-<p>Suppose we fit a logistic regression model that predicts whether a product is designed for sensitive skin, given its price, <span class="math inline">x^{(1)}</span>, number of ingredients, <span class="math inline">x^{(2)}</span>, and rating, <span class="math inline">x^{(3)}</span>. After minimizing average cross-entropy loss, the optimal parameter vector is as follows:</p>
-<p><span class="math display">\vec{w}^* = \begin{bmatrix} -1 \\ 1 / 5 \\ - 3 / 5 \\ 0 \end{bmatrix}</span></p>
-<p>In other words, the intercept term is <span class="math inline">-1</span>, the coefficient on price is <span class="math inline">\frac{1}{5}</span>, the coefficient on the number of ingredients is <span class="math inline">-\frac{3}{5}</span>, and the coefficient on rating is <span class="math inline">0</span>.</p>
+<p>Suppose we fit a logistic regression model that predicts whether a
+product is designed for sensitive skin, given its price, <span
+class="math inline">x^{(1)}</span>, number of ingredients, <span
+class="math inline">x^{(2)}</span>, and rating, <span
+class="math inline">x^{(3)}</span>. After minimizing average
+cross-entropy loss, the optimal parameter vector is as follows:</p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix} -1 \\ 1 / 5 \\
+- 3 / 5 \\ 0 \end{bmatrix}</span></p>
+<p>In other words, the intercept term is <span
+class="math inline">-1</span>, the coefficient on price is <span
+class="math inline">\frac{1}{5}</span>, the coefficient on the number of
+ingredients is <span class="math inline">-\frac{3}{5}</span>, and the
+coefficient on rating is <span class="math inline">0</span>.</p>
 <p>Consider the following four products:</p>
 <ul>
-<li><p><strong>Wolfcare</strong>: Costs $15, made of 20 ingredients, 4.5 rating</p></li>
-<li><p><strong>Go Blue Glow</strong>: Costs $25, made of 5 ingredients, 4.9 rating</p></li>
-<li><p><strong>DataSPF</strong>: Costs $50, made of 15 ingredients, 3.6 rating</p></li>
-<li><p><strong>Maize Mist</strong>: Free, made of 1 ingredient, 5.0 rating</p></li>
+<li><p><strong>Wolfcare</strong>: Costs $15, made of 20 ingredients, 4.5
+rating</p></li>
+<li><p><strong>Go Blue Glow</strong>: Costs $25, made of 5 ingredients,
+4.9 rating</p></li>
+<li><p><strong>DataSPF</strong>: Costs $50, made of 15 ingredients, 3.6
+rating</p></li>
+<li><p><strong>Maize Mist</strong>: Free, made of 1 ingredient, 5.0
+rating</p></li>
 </ul>
-<p>Which of the following products have a predicted probability of being designed for sensitive skin of <strong>at least 0.5 (50%)</strong>? For each product, select Yes or No.</p>
+<p>Which of the following products have a predicted probability of being
+designed for sensitive skin of <strong>at least 0.5 (50%)</strong>? For
+each product, select Yes or No.</p>
 <p><strong>Wolfcare:</strong></p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Yes</p></li>
@@ -1880,49 +2391,66 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse13" class="accordion-collapse collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionExample">
+<div id="collapse13" class="accordion-collapse collapse"
+aria-labelledby="heading13" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>Using the sigmoid function, we can predict the probabliity using this general formula -</p>
-<p><span class="math display"> P(y = 1 | \vec{x}) = \sigma(\vec{w}^T \vec{x}) </span></p>
-<p>where <span class="math inline">\sigma(x) = \frac{1}{1 + e^{-x}}</span> is the sigmoid function.</p>
-<p>We calculate <span class="math inline">z = \vec{w}^T \vec{x}</span> for each product and then apply the sigmoid function to find the probability <span class="math inline">P(y = 1 | \vec{x})</span>. If the probability is greater than or equal to 0.5, the product is predicted to be designed for sensitive skin.</p>
+<p>Using the sigmoid function, we can predict the probabliity using this
+general formula -</p>
+<p><span class="math display"> P(y = 1 | \vec{x}) = \sigma(\vec{w}^T
+\vec{x}) </span></p>
+<p>where <span class="math inline">\sigma(x) = \frac{1}{1 +
+e^{-x}}</span> is the sigmoid function.</p>
+<p>We calculate <span class="math inline">z = \vec{w}^T \vec{x}</span>
+for each product and then apply the sigmoid function to find the
+probability <span class="math inline">P(y = 1 | \vec{x})</span>. If the
+probability is greater than or equal to 0.5, the product is predicted to
+be designed for sensitive skin.</p>
 <p><strong>Wolfcare</strong>:</p>
 <p><span class="math display">
-z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 15 \\ 20 \\ 4.5 \end{bmatrix}
+z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 15 \\ 20 \\ 4.5 \end{bmatrix}
 </span> <span class="math display">
 z = -1 + \frac{1}{5}(15) - \frac{3}{5}(20) + 0 = -1 + 3 - 12 = -10
 </span> <span class="math display">
 P = \frac{1}{1 + e^{-(-10)}} = \frac{1}{1 + e^{10}} \approx 0
 </span></p>
-<p><strong>Decision: No</strong>, as <span class="math inline">P &lt; 0.5</span></p>
+<p><strong>Decision: No</strong>, as <span class="math inline">P &lt;
+0.5</span></p>
 <p><strong>Go Blue Glow</strong>:</p>
 <p><span class="math display">
-z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 25 \\ 5 \\ 4.9 \end{bmatrix}
+z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 25 \\ 5 \\ 4.9 \end{bmatrix}
 </span> <span class="math display">
 z = -1 + \frac{1}{5}(25) - \frac{3}{5}(5) + 0 = -1 + 5 - 3 = 1
 </span> <span class="math display">
 P = \frac{1}{1 + e^{-1}} \approx \frac{1}{1 + 0.3679} \approx 0.73
 </span></p>
-<p><strong>Decision: Yes</strong>, as <span class="math inline">P \geq 0.5</span>.</p>
+<p><strong>Decision: Yes</strong>, as <span class="math inline">P \geq
+0.5</span>.</p>
 <p><strong>DataSPF</strong>:</p>
 <p><span class="math display">
-z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 50 \\ 15 \\ 3.6 \end{bmatrix}
+z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 50 \\ 15 \\ 3.6 \end{bmatrix}
 </span> <span class="math display">
 z = -1 + \frac{1}{5}(50) - \frac{3}{5}(15) + 0 = -1 + 10 - 9 = 0
 </span> <span class="math display">
 P = \frac{1}{1 + e^{-0}} = \frac{1}{2} = 0.5
 </span></p>
-<p><strong>Decision: Yes</strong>, as <span class="math inline">P \geq 0.5</span>.</p>
+<p><strong>Decision: Yes</strong>, as <span class="math inline">P \geq
+0.5</span>.</p>
 <p><strong>Maize Mist</strong>: <span class="math display">
-z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 0 \\ 1 \\ 5.0 \end{bmatrix}
+z = \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix}^T \cdot \begin{bmatrix} 1 \\ 0 \\ 1 \\ 5.0 \end{bmatrix}
 </span> <span class="math display">
 z = -1 + \frac{1}{5}(0) - \frac{3}{5}(1) + 0 = -1 - 0.6 = -1.6
 </span> <span class="math display">
-P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1 + 4.953} \approx 0.17
-</span> <strong>Decision: No</strong>, as <span class="math inline">P &lt; 0.5</span></p>
+P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1
++ 4.953} \approx 0.17
+</span> <strong>Decision: No</strong>, as <span class="math inline">P
+&lt; 0.5</span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>
@@ -1934,8 +2462,16 @@ P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1 + 4.953
 </div>
 <hr />
 <h2 id="problem-14">Problem 14</h2>
-<p>Suppose, again, that we fit a logistic regression model that predicts whether a product is designed for sensitive skin. We’re deciding between three thresholds, <span class="math inline">A</span>, <span class="math inline">B</span>, and <span class="math inline">C</span>, all of which are real numbers between 0 and 1 (inclusive). If a product’s predicted probability of being designed for sensitive skin is above our chosen threshold, we predict they belong to class 1 (yes); otherwise, we predict class 0 (no).</p>
-<p>The confusion matrices of our model on the test set for all three thresholds are shown below.</p>
+<p>Suppose, again, that we fit a logistic regression model that predicts
+whether a product is designed for sensitive skin. We’re deciding between
+three thresholds, <span class="math inline">A</span>, <span
+class="math inline">B</span>, and <span class="math inline">C</span>,
+all of which are real numbers between 0 and 1 (inclusive). If a
+product’s predicted probability of being designed for sensitive skin is
+above our chosen threshold, we predict they belong to class 1 (yes);
+otherwise, we predict class 0 (no).</p>
+<p>The confusion matrices of our model on the test set for all three
+thresholds are shown below.</p>
 <p><span class="math display">\begin{array}{ccc}
 \textbf{$A$} &amp; \textbf{$B$} &amp; \textbf{$C$} \\
 \begin{array}{|l|c|c|}
@@ -1970,7 +2506,10 @@ P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1 + 4.953
 \end{array}</span></p>
 <p><br></p>
 <h3 id="problem-14.1">Problem 14.1</h3>
-<p>Suppose we choose threshold <span class="math inline">A</span>, i.e. the <strong>leftmost</strong> confusion matrix. What is the precision of the resulting predictions? Give your answer as an <strong>unsimplified fraction</strong>.</p>
+<p>Suppose we choose threshold <span class="math inline">A</span>,
+i.e. the <strong>leftmost</strong> confusion matrix. What is the
+precision of the resulting predictions? Give your answer as an
+<strong>unsimplified fraction</strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_1">
@@ -1978,7 +2517,8 @@ P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1 + 4.953
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse14_1" class="accordion-collapse collapse collapse" aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
+<div id="collapse14_1" class="accordion-collapse collapse"
+aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1986,7 +2526,8 @@ Click to view the solution.
 <p><strong>Answer</strong>: <span class="math inline">\frac{35}{40}</span></p>
 <p>The precision of a binary classification model is calculated as:</p>
 <p><span class="math display">
-\text{Precision} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)}}
+\text{Precision} = \frac{\text{True Positives (TP)}}{\text{True
+Positives (TP)} + \text{False Positives (FP)}}
 </span></p>
 <p>From the confusion matrix for threshold <span class="math inline">A</span>:</p>
 <p><span class="math display">
@@ -2000,7 +2541,8 @@ Click to view the solution.
 \hline
 \end{array}
 </span></p>
-<p>The number of true positives (TP) is <span class="math inline">35</span>, and the number of false positives (FP) is <span class="math inline">5</span>. Substituting into the formula:</p>
+<p>The number of true positives (TP) is <span class="math inline">35</span>, and the number of false positives (FP) is
+<span class="math inline">5</span>. Substituting into the formula:</p>
 <p><span class="math display">
 \text{Precision} = \frac{35}{35 + 5} = \frac{35}{40}
 </span></p>
@@ -2015,7 +2557,9 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-14.2">Problem 14.2</h3>
-<p>What is the missing value (???) in the confusion matrix for threshold <span class="math inline">B</span>? Give your answer as an <strong>integer</strong>.</p>
+<p>What is the missing value (???) in the confusion matrix for threshold
+<span class="math inline">B</span>? Give your answer as an
+<strong>integer</strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_2">
@@ -2023,7 +2567,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse14_2" class="accordion-collapse collapse collapse" aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
+<div id="collapse14_2" class="accordion-collapse collapse"
+aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -2041,11 +2586,14 @@ Click to view the solution.
 \hline
 \end{array}
 </span></p>
-<p>The sum of all entries in a confusion matrix must equal the total number of samples. For thresholds <span class="math inline">A</span> and <span class="math inline">C</span>, the total number of samples is:</p>
+<p>The sum of all entries in a confusion matrix must equal the total
+number of samples. For thresholds <span class="math inline">A</span> and
+<span class="math inline">C</span>, the total number of samples is:</p>
 <p><span class="math display">
 40 + 5 + 35 + 35 = 115
 </span></p>
-<p>Using this total, for threshold <span class="math inline">B</span>, the entries provided are:</p>
+<p>Using this total, for threshold <span class="math inline">B</span>,
+the entries provided are:</p>
 <p><span class="math display">
 5  + 40  + 10  + ??? = 115
 </span></p>
@@ -2068,7 +2616,9 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-14.3">Problem 14.3</h3>
-<p>Using the information in the three confusion matrices, arrange the thresholds from <strong>largest to smallest</strong>. Remember that <span class="math inline">0 \leq A, B, C \leq 1</span>.</p>
+<p>Using the information in the three confusion matrices, arrange the
+thresholds from <strong>largest to smallest</strong>. Remember that
+<span class="math inline">0 \leq A, B, C \leq 1</span>.</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">A</span> <span class="math inline">&gt;</span> <span class="math inline">B</span> <span class="math inline">&gt;</span> <span class="math inline">C</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">A</span> <span class="math inline">&gt;</span> <span class="math inline">C</span> <span class="math inline">&gt;</span> <span class="math inline">B</span></p></li>
@@ -2084,13 +2634,20 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse14_3" class="accordion-collapse collapse collapse" aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
+<div id="collapse14_3" class="accordion-collapse collapse"
+aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">A &gt; C &gt; B</span></p>
-<p>Thresholds can be arranged based on their strictness. The higher a model’s threshold is, the fewer positive predictions and the more negative predictions it has. Model A made 40 negative predictions, Model B made 5 negative predictions and Model C made 10 negative predictions. Sorting these in descending order with more negative predictions implying a stricter threshold we get -</p>
+<p><strong>Answer</strong>: <span class="math inline">A &gt; C &gt;
+B</span></p>
+<p>Thresholds can be arranged based on their strictness. The higher a
+model’s threshold is, the fewer positive predictions and the more
+negative predictions it has. Model A made 40 negative predictions, Model
+B made 5 negative predictions and Model C made 10 negative predictions.
+Sorting these in descending order with more negative predictions
+implying a stricter threshold we get -</p>
 <p><span class="math display">
 A &gt; C &gt; B
 </span></p>
@@ -2105,7 +2662,12 @@ A &gt; C &gt; B
 </div>
 <p><br></p>
 <h3 id="problem-14.4">Problem 14.4</h3>
-<p>Remember that in our classification problem, class 1 means the product <strong>is</strong> designed for sensitive skin, and class 0 means the product <strong>is not</strong> designed for sensitive skin. In one or two English sentences, explain which is <strong>worse</strong> in this context and <strong>why</strong>: a false positive or a false negative.</p>
+<p>Remember that in our classification problem, class 1 means the
+product <strong>is</strong> designed for sensitive skin, and class 0
+means the product <strong>is not</strong> designed for sensitive skin.
+In one or two English sentences, explain which is <strong>worse</strong>
+in this context and <strong>why</strong>: a false positive or a false
+negative.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_4">
@@ -2113,13 +2675,16 @@ A &gt; C &gt; B
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse14_4" class="accordion-collapse collapse collapse" aria-labelledby="heading14_4" data-bs-parent="#accordionExample">
+<div id="collapse14_4" class="accordion-collapse collapse"
+aria-labelledby="heading14_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong>: False positive</p>
-<p>A false positive is worse, as it would mean we predict a product is safe when it isn’t; someone with sensitive skin may use it and it could harm them.</p>
+<p>A false positive is worse, as it would mean we predict a product is
+safe when it isn’t; someone with sensitive skin may use it and it could
+harm them.</p>
 <hr/>
 <h5>Difficulty: ⭐️</h5>
 <p>
@@ -2132,12 +2697,21 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="problem-15">Problem 15</h2>
-<p>Let <span class="math inline">\vec{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}</span>. Consider the function <span class="math inline">\displaystyle Q(\vec x) = x_1^2 - 2x_1x_2 + 3x_2^2 - 1</span>.</p>
+<p>Let <span class="math inline">\vec{x} = \begin{bmatrix} x_1 \\ x_2
+\end{bmatrix}</span>. Consider the function <span
+class="math inline">\displaystyle Q(\vec x) = x_1^2 - 2x_1x_2 + 3x_2^2 -
+1</span>.</p>
 <p><br></p>
 <h3 id="problem-15.1">Problem 15.1</h3>
-<p>Fill in the blank to complete the definition of <span class="math inline">\nabla Q(\vec x)</span>, the gradient of <span class="math inline">Q</span>.</p>
-<p><span class="math display">\nabla Q(\vec x) = \begin{bmatrix} 2(x_1 - x_2) \\ \\ \_\_\_\_ \end{bmatrix}</span></p>
-<p>What goes in the blank? Show your work, and put a your final answer, which should be an <strong>expression involving <span class="math inline">x_1</span> and/or <span class="math inline">x_2</span></strong>.</p>
+<p>Fill in the blank to complete the definition of <span
+class="math inline">\nabla Q(\vec x)</span>, the gradient of <span
+class="math inline">Q</span>.</p>
+<p><span class="math display">\nabla Q(\vec x) = \begin{bmatrix} 2(x_1 -
+x_2) \\ \\ \_\_\_\_ \end{bmatrix}</span></p>
+<p>What goes in the blank? Show your work, and put a your final answer,
+which should be an <strong>expression involving <span
+class="math inline">x_1</span> and/or <span
+class="math inline">x_2</span></strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading15_1">
@@ -2145,21 +2719,28 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse15_1" class="accordion-collapse collapse collapse" aria-labelledby="heading15_1" data-bs-parent="#accordionExample">
+<div id="collapse15_1" class="accordion-collapse collapse"
+aria-labelledby="heading15_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">-2x_1 + 6x_2</span></p>
-<p>The gradient of <span class="math inline">Q(\vec{x})</span> is given by: <span class="math display">
-\nabla Q(\vec{x}) = \begin{bmatrix} \frac{\partial Q}{\partial x_1} \\ \frac{\partial Q}{\partial x_2} \end{bmatrix}
+<p><strong>Answer</strong>: <span class="math inline">-2x_1 +
+6x_2</span></p>
+<p>The gradient of <span class="math inline">Q(\vec{x})</span> is given
+by: <span class="math display">
+\nabla Q(\vec{x}) = \begin{bmatrix} \frac{\partial Q}{\partial x_1} \\
+\frac{\partial Q}{\partial x_2} \end{bmatrix}
 </span></p>
-<p>First, calculate the partial derivative: Partial derivative with respect to <span class="math inline">x_1</span> is provided to us in the question: <span class="math inline">2x_1 - 2x_2</span></p>
+<p>First, calculate the partial derivative: Partial derivative with
+respect to <span class="math inline">x_1</span> is provided to us in the
+question: <span class="math inline">2x_1 - 2x_2</span></p>
 <p>Partial derivative with respect to <span class="math inline">x_2</span>: <span class="math display">
 \frac{\partial Q}{\partial x_2} = -2x_1 + 6x_2
 </span></p>
 <p>Thus, the gradient is: <span class="math display">
-\nabla Q(\vec{x}) = \begin{bmatrix} 2(x_1 - x_2) \\ -2x_1 + 6x_2 \end{bmatrix}
+\nabla Q(\vec{x}) = \begin{bmatrix} 2(x_1 - x_2) \\ -2x_1 + 6x_2
+\end{bmatrix}
 </span></p>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
@@ -2172,8 +2753,15 @@ Click to view the solution.
 </div>
 <p><br></p>
 <h3 id="problem-15.2">Problem 15.2</h3>
-<p>We decide to use gradient descent to minimize <span class="math inline">Q</span>, using an initial guess of <span class="math inline">\vec x^{(0)} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}</span> and a learning rate/step size of <span class="math inline">\alpha</span>.</p>
-<p>If after one iteration of gradient descent, we have <span class="math inline">\vec{x}^{(1)} = \begin{bmatrix} 1 \\ -4 \end{bmatrix}</span>, what is <span class="math inline">\alpha</span>?</p>
+<p>We decide to use gradient descent to minimize <span
+class="math inline">Q</span>, using an initial guess of <span
+class="math inline">\vec x^{(0)} = \begin{bmatrix} 1 \\ 1
+\end{bmatrix}</span> and a learning rate/step size of <span
+class="math inline">\alpha</span>.</p>
+<p>If after one iteration of gradient descent, we have <span
+class="math inline">\vec{x}^{(1)} = \begin{bmatrix} 1 \\ -4
+\end{bmatrix}</span>, what is <span
+class="math inline">\alpha</span>?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <span class="math inline">\displaystyle \frac{1}{4}</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">\displaystyle \frac{1}{2}</span></p></li>
@@ -2189,7 +2777,8 @@ Click to view the solution.
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse15_2" class="accordion-collapse collapse collapse" aria-labelledby="heading15_2" data-bs-parent="#accordionExample">
+<div id="collapse15_2" class="accordion-collapse collapse"
+aria-labelledby="heading15_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -2199,13 +2788,18 @@ Click to view the solution.
 \vec{x}^{(t+1)} = \vec{x}^{(t)} - \alpha \nabla Q(\vec{x}^{(t)})
 </span></p>
 <p>From the question we know that: <span class="math display">
-\vec{x}^{(0)} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad \vec{x}^{(1)} = \begin{bmatrix} 1 \\ -4 \end{bmatrix}
+\vec{x}^{(0)} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad
+\vec{x}^{(1)} = \begin{bmatrix} 1 \\ -4 \end{bmatrix}
 </span></p>
-<p>We can use <span class="math inline">\vec{x}^{(0)}</span> to first calculate what is the gradient of Q at <span class="math inline">\vec{x}^{(0)}</span> <span class="math display">
-\nabla Q(\vec{x}^{(0)}) = \begin{bmatrix} 2(1 - 1) \\ -2(1) + 6(1) \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
+<p>We can use <span class="math inline">\vec{x}^{(0)}</span> to first
+calculate what is the gradient of Q at <span class="math inline">\vec{x}^{(0)}</span> <span class="math display">
+\nabla Q(\vec{x}^{(0)}) = \begin{bmatrix} 2(1 - 1) \\ -2(1) + 6(1)
+\end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 </span></p>
-<p>We can now substitute this value for the gradient of Q at <span class="math inline">\vec{x}^{(0)}</span> into the update rule. This gives us - <span class="math display">
-\begin{bmatrix} 1 \\ -4 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix} - \alpha \begin{bmatrix} 0 \\ 4 \end{bmatrix}
+<p>We can now substitute this value for the gradient of Q at <span class="math inline">\vec{x}^{(0)}</span> into the update rule. This
+gives us - <span class="math display">
+\begin{bmatrix} 1 \\ -4 \end{bmatrix} = \begin{bmatrix} 1 \\ 1
+\end{bmatrix} - \alpha \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 </span></p>
 <p>Next, we can solve each separate component to find the value of <span class="math inline">\alpha</span> - <span class="math display">
 1 = 1 - \alpha(0) \quad \text{(satisfied for any $\alpha$)},
@@ -2227,7 +2821,10 @@ Click to view the solution.
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
-<h4 id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
 <hr />
 </body>
 </html>

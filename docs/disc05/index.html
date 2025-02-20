@@ -1486,7 +1486,7 @@ each <code>li</code> element will yield the desired result.</p>
 <h3 id="problem-9.4">Problem 9.4</h3>
 <p>There are two links in the document. Which of the following will
 return the URL of the link contained in the <code>div</code> with class
-<code>news</code>? Mark all that apply.</p>
+<code>news</code>? Select all that apply.</p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> <code>doc.find_all('a')[1].attrs['href']</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>doc.find('a')[1].attrs['href']</code></p></li>
@@ -1522,7 +1522,7 @@ find the first instance of <code>a</code>, which is not the one we’re
 looking for.</li>
 <li>Option C: This does not work because there are no quotations around
 the <code>a</code>.</li>
-<li>Option D: This option works becuase
+<li>Option D: This option works because
 <code>doc.find('div', attrs={'class': 'news'})</code> will first find
 the <code>div</code> element with <code>class='news'</code>, and then
 find the <code>a</code> element within that element and get the
@@ -1565,12 +1565,14 @@ aria-labelledby="heading9_5" data-bs-parent="#accordionExample">
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-9.6">Problem 9.6</h3>
-<p>You are scraping a web page using the <code>requests</code> module.
-Your code works fine and returns the desired result, but suddenly you
-find that when you run your code it starts but never finishes – it does
-not raise an error or return anything. What is the most likely cause of
-the issue?</p>
+<!-- <br>
+
+### Problem 9.6
+
+
+
+You are scraping a web page using the `requests` module. Your code works fine and returns the desired result, but suddenly you find that when you run your code it starts but never finishes -- it does not raise an error or return anything. What is the most likely cause of the issue?
+
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> The page has a very large GIF that hasn’t stopped playing</p></li>
 <li><p><input type="radio" disabled="" /> You have made too many requests to the server in too short of a time,
@@ -1580,16 +1582,22 @@ cannot parse</p></li>
 <li><p><input type="radio" disabled="" /> The page has suddenly changed and has caused <code>requests</code> to
 enter an infinite loop</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
+
+
+
+
+
+
+<div class="accordion" id="accordionExample">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading9_6">
 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_6" aria-expanded="true" aria-controls="collapse9_6">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse9_6" class="accordion-collapse collapse"
-aria-labelledby="heading9_6" data-bs-parent="#accordionExample">
+<div id="collapse9_6" class="accordion-collapse collapse collapse" aria-labelledby="heading9_6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
+
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
@@ -1608,11 +1616,17 @@ Unicode character correctly or it throws an error.</li>
 rather, the request module will just parse the older version of the
 website at the time you called it.</li>
 </ul>
+
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
+
+
+
+
+    
+<br> -->
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
 <h4

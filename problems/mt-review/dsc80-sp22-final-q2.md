@@ -17,7 +17,7 @@ Spotify that day. The columns in `streams` are as follows:
 The first few rows of `streams` are shown below. Since there were 31
 days in May and 200 songs per day, `streams` has 6200 rows in total.
 
-<center><img src='../assets/images/disc04/streams.png' width=50%></center>
+<center><img src='../assets/images/disc04/streams.png' width=400></center>
 
 Note that:
 
@@ -37,7 +37,7 @@ row for `"olivia rodrigo"` and `"drivers license"`, and one row for
 
 Another DataFrame, `genres`, is shown below in its entirety.
 
-<center><img src='../assets/images/disc04/genres.png' width=25%></center>
+<center><img src='../assets/images/disc04/genres.png' width=300></center>
 
 # BEGIN SUBPROB
 

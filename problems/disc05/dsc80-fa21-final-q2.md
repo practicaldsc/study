@@ -88,7 +88,7 @@ Doing `doc.find_all('li')` will find all `li` elements and return it is the form
 
 # BEGIN SUBPROB
 
-There are two links in the document. Which of the following will return the URL of the link contained in the `div` with class `news`? Mark all that apply.
+There are two links in the document. Which of the following will return the URL of the link contained in the `div` with class `news`? Select all that apply.
 
 [ ] `doc.find_all('a')[1].attrs['href']`
 [ ] `doc.find('a')[1].attrs['href']`
@@ -102,7 +102,7 @@ There are two links in the document. Which of the following will return the URL 
 - Option A: This option works because `doc.find_all('a')` will return a list of all the `a` elements in the order that it appears in the HTML document, and since the `a` with class `news` is the second `a` element appearing in the HTML doc, we do `[1]` to select it (as we would in any other list). Finally, we return the URL of the `a` element by getting the `'href'` attribute using `.attrs['href']`
 - Option B: This does not work because `.find` will only find the first instance of `a`, which is not the one we're looking for.
 - Option C: This does not work because there are no quotations around the `a`.
-- Option D: This option works becuase `doc.find('div', attrs={'class': 'news'})` will first find the `div` element with `class='news'`, and then find the `a` element within that element and get the `href` attribute of that, which is what we want.
+- Option D: This option works because `doc.find('div', attrs={'class': 'news'})` will first find the `div` element with `class='news'`, and then find the `a` element within that element and get the `href` attribute of that, which is what we want.
 - Option E: This does not work because there is no `href` element in the HTML document.
 
 
@@ -127,7 +127,7 @@ What is the purpose of the `alt` attribute in the `img` tag?
 
 # END SUBPROB
 
-# BEGIN SUBPROB
+<!-- # BEGIN SUBPROB
 
 You are scraping a web page using the `requests` module. Your code works fine and returns the desired result, but suddenly you find that when you run your code it starts but never finishes -- it does not raise an error or return anything. What is the most likely cause of the issue?
 
@@ -146,6 +146,6 @@ You are scraping a web page using the `requests` module. Your code works fine an
 
 # END SOLN
 
-# END SUBPROB
+# END SUBPROB -->
 
 # END PROB

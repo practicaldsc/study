@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Midterm Review, Day 1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Midterm Review, Day 1</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper. <br><br>We encourage you to
+attempt these problems <strong>before</strong> Sunday’s exam review
+session, so that we have enough time to walk through the solutions to
+all of the problems. <br><br>We will enable the solutions here after the
+review session, though you can find the written solutions to these
+problems in other discussion worksheets.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>The EECS 398 staff are looking into hotels — some in San Diego, for
+their family to stay at for graduation (and to eat Mexican food), and
+some elsewhere, for summer trips.</p>
+<p>Each row of <code>hotels</code> contains information about a
+different hotel in San Diego. Specifically, for each hotel, we have:</p>
+<ul>
+<li><code>"Hotel Name" (str)</code>: The name of the hotel.
+<strong>Assume hotel names are unique.</strong></li>
+<li><code>"Location" (str):</code> The hotel’s neighborhood in San
+Diego.</li>
+<li><code>"Chain" (str):</code> The chain the hotel is a part of; either
+<code>"Hilton", "Marriott", "Hyatt", or "Other".</code> A hotel chain is
+a group of hotels owned or operated by a shared company.</li>
+<li><code>"Number of Rooms" (int)</code>: The number of rooms the hotel
+has.</li>
+</ul>
+<p>The first few rows of <code>hotels</code> are shown below, but hotels
+has many more rows than are shown.</p>
+<center><img src="../../assets/images/mt-review-monday/hotels.png" width=500></center>
+<p>Now, consider the variable <code>summed</code>, defined below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>summed <span class="op">=</span> hotels.groupby(<span class="st">&quot;Chain&quot;</span>)[<span class="st">&quot;Number of Rooms&quot;</span>].<span class="bu">sum</span>().idxmax()</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>What is <code>type(summed)</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>int</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>str</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Series</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>DataFrame</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>DataFrameGroupBy</code></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>In one sentence, explain what the value of <code>summed</code> means.
+Phrase your explanation as if you had to give it to someone who is not a
+data science major; that is, don’t say something like “it is the result
+of grouping <code>hotels</code> by <code>"Chain"</code>, selecting the
+<code>"Number of Rooms"</code> column, …”, but instead, give the value
+context.</p>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>Consider the variable <code>curious</code>, defined below.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>curious <span class="op">=</span> frame[<span class="st">&quot;Chain&quot;</span>].value_counts().idxmax()</span></code></pre></div>
+<p>Fill in the blank: <code>curious</code> is guaranteed to be equal to
+<code>summed</code> only if <code>frame</code> has one row for every
+____ in San Diego.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> hotel</p></li>
+<li><p><input type="radio" disabled="" /> hotel chain</p></li>
+<li><p><input type="radio" disabled="" /> hotel room</p></li>
+<li><p><input type="radio" disabled="" /> neighborhood</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-1.4">Problem 1.4</h3>
+<p>Fill in the blanks so that <code>popular_areas</code> is an array of
+the names of the unique neighborhoods that have at least 5 hotels and at
+least 1000 hotel rooms.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> df: __(i)__</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    popular_areas <span class="op">=</span> (hotels</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    .groupby(__(ii)__)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                    .__(iii)__</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                    __(iv)__)</span></code></pre></div>
+<ol type="1">
+<li><p>What goes in blank (i)?</p></li>
+<li><p>What goes in blank (ii)?</p></li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>"Hotel Name"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Location"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Chain"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Number of Rooms"</code></p></li>
+</ul>
+<ol start="3" type="1">
+<li>What goes in blank (iii)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>agg(f)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>filter(f)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>transform(f)</code></p></li>
+</ul>
+<ol start="4" type="1">
+<li>What goes in blank (iv)?</li>
+</ol>
+<p><br></p>
+<h3 id="problem-1.5">Problem 1.5</h3>
+<p>Consider the code below.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    cond1 <span class="op">=</span> hotels[<span class="st">&quot;Chain&quot;</span>] <span class="op">==</span> <span class="st">&quot;Marriott&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    cond2 <span class="op">=</span> hotels[<span class="st">&quot;Location&quot;</span>] <span class="op">==</span> <span class="st">&quot;Coronado&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    combined <span class="op">=</span> hotels[cond1].merge(hotels[cond2], on<span class="op">=</span><span class="st">&quot;Hotel Name&quot;</span>, how<span class="op">=</span>???)</span></code></pre></div>
+<ol type="1">
+<li>If we replace <code>???</code> with <code>"inner"</code> in the code
+above, which of the following will be equal to
+<code>combined.shape[0]</code>?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>min(cond1.sum(), cond2.sum())</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>(cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + (cond1 &amp; cond2).sum()</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>If we replace <code>???</code> with <code>"outer"</code> in the code
+above, which of the following will be equal to
+<code>combined.shape[0]</code>?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>min(cond1.sum(), cond2.sum())</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>(cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + (cond1 &amp; cond2).sum()</code></p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>Billina Records, a new record company focused on creating new TikTok
+audios, has its offices on the 23rd floor of a skyscraper with 75 floors
+(numbered 1 through 75). The owners of the building promised that 10
+different random floors will be selected to be renovated.</p>
+<p>Below, fill in the blanks to complete a simulation that will estimate
+the probability that Billina Records’ floor will be renovated.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>repetitions <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(repetitions):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    choices <span class="op">=</span> np.random.choice(__(a)__, <span class="dv">10</span>, __(b)__)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> __(c)__:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>prob_renovate <span class="op">=</span> total <span class="op">/</span> repetitions</span></code></pre></div>
+<p>What goes in blank (a)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>np.arange(1, 75)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(10, 75)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(0, 76)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(1, 76)</code></p></li>
+</ul>
+<p>What goes in blank (b)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
+</ul>
+<p>What goes in blank (c)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>choices == 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>choices is 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices == 23) &gt; 0</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices) == 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>choices.str.contains(23)</code></p></li>
+</ul>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>For each day in May 2022, the DataFrame <code>streams</code> contains
+the number of streams for each of the “Top 200" songs on Spotify that
+day — that is, the number of streams for the 200 songs with the most
+streams on Spotify that day. The columns in <code>streams</code> are as
+follows:</p>
+<ul>
+<li><p><code>"date"</code>: the date the song was streamed</p></li>
+<li><p><code>"artist_names"</code>: name(s) of the artists who created
+the song</p></li>
+<li><p><code>"track_name"</code>: name of the song</p></li>
+<li><p><code>"streams"</code>: the number of times the song was streamed
+on Spotify that day</p></li>
+</ul>
+<p>The first few rows of <code>streams</code> are shown below. Since
+there were 31 days in May and 200 songs per day, <code>streams</code>
+has 6200 rows in total.</p>
+<center><img src='../assets/images/disc04/streams.png' width=400></center>
+<p>Note that:</p>
+<ul>
+<li><p><code>streams</code> is already sorted in a very particular way —
+it is sorted by <code>"date"</code> in reverse chronological
+(decreasing) order, and, within each <code>"date"</code>, by
+<code>"streams"</code> in increasing order.</p></li>
+<li><p>Many songs will appear multiple times in <code>streams</code>,
+because many songs were in the Top 200 on more than one day.</p></li>
+</ul>
+<p>Suppose the DataFrame <code>today</code> consists of 15 rows — 3 rows
+for each of 5 different <code>"artist_names"</code>. For each artist, it
+contains the <code>"track_name"</code> for their three most-streamed
+songs today. For instance, there may be one row for
+<code>"olivia rodrigo"</code> and <code>"favorite crime"</code>, one row
+for <code>"olivia rodrigo"</code> and <code>"drivers license"</code>,
+and one row for <code>"olivia rodrigo"</code> and
+<code>"deja vu"</code>.</p>
+<p>Another DataFrame, <code>genres</code>, is shown below in its
+entirety.</p>
+<center><img src='../assets/images/disc04/genres.png' width=300></center>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>Suppose we perform an <strong>inner</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. If the five <code>"artist_names"</code> in
+<code>today</code> are the same as the five <code>"artist_names"</code>
+in <code>genres</code>, what fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<p>Suppose we perform an <strong>inner</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. Furthermore, suppose that the only
+overlapping <code>"artist_names"</code> between <code>today</code> and
+<code>genres</code> are <code>"drake"</code> and
+<code>"olivia rodrigo"</code>. What fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<p><br></p>
+<h3 id="problem-3.3">Problem 3.3</h3>
+<p>Suppose we perform an <strong>outer</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. Furthermore, suppose that the only
+overlapping <code>"artist_names"</code> between <code>today</code> and
+<code>genres</code> are <code>"drake"</code> and
+<code>"olivia rodrigo"</code>. What fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>The DataFrame <code>random_10</code> contains the
+<code>"track_name"</code> and <code>"genre"</code> of 10 randomly-chosen
+songs in Spotify’s Top 200 today, along with their
+<code>"genre_rank"</code>, which is their rank in the Top 200
+<strong>among songs in their <code>"genre"</code></strong>. For
+instance, “the real slim shady" is the 20th-ranked Hip-Hop/Rap song in
+the Top 200 today. <code>random_10</code> is shown below in its
+entirety.</p>
+<center><img src='../assets/images/disc05/imp-with-nan.png' width=35%></center>
+<p>The <code>"genre_rank"</code> column of <code>random_10</code>
+contains missing values. Below, we provide four different imputed
+<code>"genre_rank"</code> columns, each of which was created using a
+different imputation technique. On the next page, match each of the four
+options to the imputation technique that was used in the option.</p>
+<center><img src='../assets/images/disc05/imp-options-grid.png' width=80%></center>
+<p>Note that each option (A, B, C, D) should be used exactly once
+between parts (a) and (d).</p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>In which option was unconditional mean imputation used?</p>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>In which option was mean imputation conditional on
+<code>"genre"</code> used?</p>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>In which option was unconditional probabilistic imputation used?</p>
+<p><br></p>
+<h3 id="problem-4.4">Problem 4.4</h3>
+<p>In which option was probabilistic imputation conditional on
+<code>"genre"</code> used?</p>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>You want to use regular expressions to extract out the number of
+ounces from the 5 product names below.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 58%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>Index</strong></th>
+<th><strong>Product Name</strong></th>
+<th><strong>Expected Output</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Adult Dog Food 18-Count, 3.5 oz Pouches</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Gardetto’s Snack Mix, 1.75 Ounce</td>
+<td>1.75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Colgate Whitening Toothpaste, 3 oz Tube</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Adult Dog Food, 13.2 oz. Cans 24 Pack</td>
+<td>13.2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Keratin Hair Spray 2!6 oz</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>The names are stored in a pandas Series called <code>names</code>.
+For each snippet below, select the indexes for all the product names
+that <strong>will not</strong> be matched correctly.</p>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>For the snippet below, which indexes correspond to products that will
+<strong>not</strong> be matched correctly?</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;([\d.]+) oz&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> 0</p></li>
+<li><p><input type="checkbox" disabled="" /> 1</p></li>
+<li><p><input type="checkbox" disabled="" /> 2</p></li>
+<li><p><input type="checkbox" disabled="" /> 3</p></li>
+<li><p><input type="checkbox" disabled="" /> 4</p></li>
+<li><p><input type="checkbox" disabled="" /> All names will be matched correctly.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>For the snippet below, which indexes correspond to products that will
+<strong>not</strong> be matched correctly?</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;(\d+?.\d+) oz|Ounce&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> 0</p></li>
+<li><p><input type="checkbox" disabled="" /> 1</p></li>
+<li><p><input type="checkbox" disabled="" /> 2</p></li>
+<li><p><input type="checkbox" disabled="" /> 3</p></li>
+<li><p><input type="checkbox" disabled="" /> 4</p></li>
+<li><p><input type="checkbox" disabled="" /> All names will be matched correctly.</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Rahul is trying to scrape the website of an online bookstore ‘The
+Book Club’.</p>
+<pre><code>&lt;HTML&gt;
+&lt;H1&gt;The Book Club&lt;/H1&gt;
+&lt;BODY BGCOLOR=&quot;FFFFFF&quot;&gt;
+Email us at &lt;a href=&quot;mailto:support@thebookclub.com&quot;&gt;
+support@thebookclub.com&lt;/a&gt;.
+
+&lt;div&gt;
+    &lt;ol class=&quot;row&quot;&gt;
+    &lt;li class=&quot;book_list&quot;&gt;
+    
+        &lt;article class=&quot;product_pod&quot;&gt;
+            &lt;div class=&quot;image_container&quot;&gt;
+                    &lt;img src=&quot;pic1.jpeg&quot; alt=&quot;A Light in the Attic&quot; 
+                    class=&quot;thumbnail&quot;&gt;
+            &lt;/div&gt;
+            
+            &lt;p class=&quot;star-rating Three&quot;&gt;&lt;/p&gt;
+            
+            &lt;h3&gt;
+            &lt;a href=&quot;cat/index.html&quot; title=&quot;A Light in the Attic&quot;&gt;
+            A Light in the Attic
+            &lt;/a&gt;
+            &lt;/h3&gt;
+        
+            &lt;div class=&quot;product_price&quot;&gt;
+                &lt;p class=&quot;price_color&quot;&gt;£51.77&lt;/p&gt;
+                
+                &lt;p class=&quot;instock availability&quot;&gt;
+                    &lt;i class=&quot;icon-ok&quot;&gt;&lt;/i&gt;
+                    In stock
+                &lt;/p&gt;
+        
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;/div&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</code></pre>
+<p>Which is the equivalent Document Object Model (DOM) tree of this HTML
+file?</p>
+<center><img  src='../assets/images/disc05/q4.png'  width=100%></center>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Tree A</p></li>
+<li><p><input type="radio" disabled="" /> Tree B</p></li>
+<li><p><input type="radio" disabled="" /> Tree C</p></li>
+<li><p><input type="radio" disabled="" /> Tree D</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>Rahul wants to extract the <code>‘instock availability’</code> status
+of the book titled ‘A Light in the Attic’. Which of the following
+expressions will evaluate to <code>"In Stock"</code>? Assume that Rahul
+has already parsed the HTML into a BeautifulSoup object stored in the
+variable named <code>soup</code>.</p>
+<p>Code Snippet A</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    .get(<span class="st">&#39;icon-ok&#39;</span>).strip()</span></code></pre></div>
+<p>Code Snippet B</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).text.strip()</span></code></pre></div>
+<p>Code Snippet C</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).find(<span class="st">&#39;i&#39;</span>)<span class="op">\</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    .text.strip()</span></code></pre></div>
+<p>Code Snippet D</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;div&#39;</span>, attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>:<span class="st">&#39;product_price&#39;</span>})<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;i&#39;</span>).text.strip()</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>Rahul also wants to extract the number of stars that the book titled
+‘A Light in the Attic’ received. If you look at the HTML file, you will
+notice that the book received a star rating of three. Which code snippet
+will evaluate to <code>"Three"</code>?</p>
+<p>Code Snippet A</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;article&#39;</span>).get(<span class="st">&#39;class&#39;</span>).strip()</span></code></pre></div>
+<p>Code Snippet B</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).text.split(<span class="st">&#39; &#39;</span>)</span></code></pre></div>
+<p>Code Snippet C</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).get(<span class="st">&#39;class&#39;</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<p>None of the above</p>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Tahseen decides to look at reviews for the same hotel, but he
+modifies them so that the only terms they contain are
+<code>"taco"</code> and <code>"sand"</code>. The bag-of-words
+representations of three reviews are shown as vectors below.</p>
+<center><img src="../../assets/images/disc06/sand_taco.png" width=350></center>
+<p>Using cosine similarity to measure similarity, which pair of reviews
+are the most similar? If there are multiple pairs of reviews that are
+most similar, select them all.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_2</span></p></li>
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_3</span></p></li>
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_2</span> and <span class="math inline">\vec{r}_3</span></p></li>
+</ul>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>You create a table called <code>gums</code> that only contains the
+chewing gum purchases of <code>df</code>, then you create a bag-of-words
+matrix called <code>bow</code> from the <code>name</code> column of
+<code>gums</code>. The <code>bow</code> matrix is stored as a DataFrame
+shown below:</p>
+<center><img src="../../assets/images/disc06/bow.png" width=400></center>
+<p>You also have the following outputs:</p>
+<pre><code>&gt;&gt;&gt; bow_df.sum(axis=0)     &gt;&gt;&gt; bow_df.sum(axis=1)     &gt;&gt;&gt; bow_df.loc[0, &#39;pur&#39;]
+pur            5           0     21                   0
+gum           41           1     22
+sugar          2           2     22                   &gt;&gt;&gt; (bow_df[&#39;paperboard&#39;] &gt; 0).sum()
+              ..                 ..                   20
+90             4           37    22
+paperboard    22           38    10                   &gt;&gt;&gt; bow_df[&#39;gum&#39;].sum()
+80            20           39    17                   41
+Length: 139                Length: 40</code></pre>
+<p>For each question below, write your answer as an unsimplified math
+expression (no need to simplify fractions or logarithms) in the space
+provided, or write “Need more information” if there is not enough
+information provided to answer the question.</p>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<p>What is the TF-IDF for the word “pur” in document 0?</p>
+<p><br></p>
+<h3 id="problem-8.2">Problem 8.2</h3>
+<p>What is the TF-IDF for the word “gum” in document 0?</p>
+<p><br></p>
+<h3 id="problem-8.3">Problem 8.3</h3>
+<p>What is the TF-IDF for the word “paperboard” in document 1?</p>
+<p><br></p>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<!--  -->
+<p>Consider a dataset of <span class="math inline">n</span>
+<strong>integers</strong>, <span class="math inline">y_1, y_2, ...,
+y_n</span>, whose histogram is given below:</p>
+<center><img src='../../assets/images/disc07/hist-dist.png' width=900></center>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes:</p>
+<p><span class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n
+\begin{cases} 0 &amp; y_i = h \\ 1 &amp; y_i \neq h
+\end{cases}</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n |y_i -
+h|</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n (y_i -
+h)^2</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-9.4">Problem 9.4</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \lim_{p \rightarrow \infty}
+\frac{1}{n} \sum_{i = 1}^n |y_i - h|^p</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>Consider a dataset that consists of <span class="math inline">y_1,
+\cdots, y_n</span>. In class, we used calculus to minimize mean squared
+error, <span class="math inline">R_{sq}(h) = \frac{1}{n} \sum_{i = 1}^n
+(h - y_i)^2</span>. In this problem, we want you to apply the same
+approach to a slightly different loss function defined below: <span
+class="math display">L_{\text{midterm}}(y,h)=(\alpha y - h)^2+\lambda
+h</span></p>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>Write down the empiricial risk <span
+class="math inline">R_{\text{midterm}}(h)</span> by using the above loss
+function.</p>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>The mean of dataset is <span class="math inline">\bar{y}</span>, i.e.
+<span class="math inline">\bar{y} = \frac{1}{n} \sum_{i = 1}^n
+y_i</span>. Find <span class="math inline">h^*</span> that minimizes
+<span class="math inline">R_{\text{midterm}}(h)</span> using calculus.
+Your result should be in terms of <span
+class="math inline">\bar{y}</span>, <span
+class="math inline">\alpha</span> and <span
+class="math inline">\lambda</span>.</p>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<hr />
+</body>
+</html>

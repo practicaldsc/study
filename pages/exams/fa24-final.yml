@@ -6,7 +6,13 @@ context: >
 
   <br>
 
-  **Note**: Questions 1-6 were used for "Midterm Redemption", which during the Fall 2024 semester allowed students to improve their midterm grade. **Starting in Winter 2025, there is no redemption policy, Starting Winter 2025, and Final Exam questions will look more like Questions 7-15**. 
+  **Note**: The Fall 2024 Final Exam was cumulative, but the Winter 2025 Final Exam will not be cumulative.
+
+  <ul>
+  <li>Winter 2025 Final Exam questions will look more like Questions 8.3-15.</li>
+  <li>Questions 1-8.2 are in scope for the Winter 2025 Midterm Exam (except for Question 2, about SQL).</li>
+  </ul>
+
 show_solution: true 
 data_info: fa24-final/data-info
 problems:
