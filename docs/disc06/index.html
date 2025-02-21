@@ -21,9 +21,8 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -1115,8 +1114,8 @@ the underscore)</li>
 <li><code>"[^A-Z5]{1,}"</code> matches any character that isn’t (A-Z or
 5) at least once.</li>
 </ul>
-<p>Thus using these rules, it’s not hard to verify that Options B, C and
-E are matches.</p>
+<p>Thus using these rules, we can verify that Options B, C and E are
+matches.</p>
 </div>
 </div>
 </div>
@@ -1274,6 +1273,8 @@ aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> <span class="math inline">\frac{1}{6}</span></p>
+<p>This <a href="https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view">video</a>
+explains questions 9.1 through 9.4</p>
 <p>There are 12 words in Song 0’s title, and 2 of them are
 <code>"hate"</code>, so the term frequency of <code>"hate"</code> in
 Song 0’s title is <span class="math inline">\frac{2}{12} =
@@ -1315,6 +1316,8 @@ aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> Option A: <code>"i"</code></p>
+<p>This <a href="https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view">video</a>
+explains questions 9.1 through 9.4</p>
 <p>It was not necessary to compute the TF-IDFs of all words in Song 0’s
 title to determine the answer. <span class="math inline">\text{tfidf}(t,
 d)</span> is high when <span class="math inline">t</span> occurs often
@@ -1356,10 +1359,13 @@ aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> Option B</p>
+<p>This <a href="https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view">video</a>
+explains questions 9.1 through 9.4</p>
 <p>Recall that <span class="math inline">\text{tfidf}(t, d) =
-\text{tf}(t, d) \cdot \text{idf}(t)</span>, and note that <span class="math inline">\text{tf}(t, d)</span> is just $ (t, d) <span class="math inline">. Thus,</span>(t, d)$ is 0 is if either <span class="math inline">\text{bow}(t, d) = 0</span> or <span class="math inline">\text{idf}(t) = 0</span>.</p>
-<p>So, if <span class="math inline">\text{bow}(t, d) = 0</span>, then
-<span class="math inline">\text{tf}(t, d) = 0</span> and <span class="math inline">\text{tfidf}(t, d) = 0</span>, so the second option
+\text{tf}(t, d) \cdot \text{idf}(t)</span>, and note that <span class="math inline">\text{bow}(t, d)</span> is the numerator of <span class="math inline">\text{tf}(t, d)</span>. Thus, <span class="math inline">\text{tfidf}(t, d)</span> is 0 is if either <span class="math inline">\text{bow}(t, d) = 0</span> or <span class="math inline">\text{idf}(t) = 0</span>.</p>
+<p>So, if <span class="math inline">\text{bow}(t, d) = 0</span>, (which
+happens with term <span class="math inline">t</span> is not in document
+<span class="math inline">d</span>) then <span class="math inline">\text{tf}(t, d) = 0</span> and thus <span class="math inline">\text{tfidf}(t, d) = 0</span>, so the second option
 is true. However, if <span class="math inline">\text{tfidf}(t, d) =
 0</span>, it could be the case that <span class="math inline">\text{bow}(t, d) &gt; 0</span> and <span class="math inline">\text{idf}(t) = 0</span> (which happens when term
 <span class="math inline">t</span> is in every document), so the first
@@ -1397,6 +1403,8 @@ aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> Option B: Song 2</p>
+<p>This <a href="https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view">video</a>
+explains questions 9.1 through 9.4</p>
 <p>Recall, the cosine similarity between two vectors <span class="math inline">\vec{a}, \vec{b}</span> is computed as</p>
 <p><span class="math display">\cos \theta = \frac{\vec{a} \cdot
 \vec{b}}{| \vec{a} | | \vec{b}|}</span></p>
