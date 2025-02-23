@@ -1,5 +1,8 @@
 # BEGIN PROB
 
+[🎥 Walkthrough Available](https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view)
+
+
 The DataFrame below contains a corpus of four song titles, labeled from
 0 to 3.
 
@@ -14,7 +17,6 @@ base 2 in your logarithm, and give your answer as a simplified fraction.
 
 **Answer: ** $\frac{1}{6}$
 
-This [video](https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view) explains questions 9.1 through 9.4
 
 There are 12 words in Song 0's title, and 2 of them are `"hate"`, so the
 term frequency of `"hate"` in Song 0's title is
@@ -47,8 +49,6 @@ Which word in Song 0's title has the highest TF-IDF?
 
 **Answer: ** Option A: `"i"`
 
-This [video](https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view) explains questions 9.1 through 9.4
-
 It was not necessary to compute the TF-IDFs of all words in Song 0's
 title to determine the answer. $\text{tfidf}(t, d)$ is high when $t$
 occurs often in $d$ but rarely overall. That is the case with `"i"` ---
@@ -76,7 +76,6 @@ in document $d$.
 
 **Answer: ** Option B
 
-This [video](https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view) explains questions 9.1 through 9.4
 
 Recall that $\text{tfidf}(t, d) = \text{tf}(t, d) \cdot \text{idf}(t)$,
 and note that $\text{bow}(t, d)$ is the numerator of $\text{tf}(t, d)$. Thus,
@@ -113,8 +112,6 @@ title?
 # BEGIN SOLN
 
 **Answer: ** Option B: Song 2
-
-This [video](https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/view) explains questions 9.1 through 9.4
 
 Recall, the cosine similarity between two vectors $\vec{a}, \vec{b}$ is
 computed as
