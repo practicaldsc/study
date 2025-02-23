@@ -1,33 +1,5 @@
 # BEGIN PROB
 
-For each day in May 2022, the DataFrame `streams` contains the number of
-streams for each of the "Top 200\" songs on Spotify that day --- that
-is, the number of streams for the 200 songs with the most streams on
-Spotify that day. The columns in `streams` are as follows:
-
--   `"date"`: the date the song was streamed
-
--   `"artist_names"`: name(s) of the artists who created the song
-
--   `"track_name"`: name of the song
-
--   `"streams"`: the number of times the song was streamed on Spotify
-    that day
-
-The first few rows of `streams` are shown below. Since there were 31
-days in May and 200 songs per day, `streams` has 6200 rows in total.
-
-<center><img src='../assets/images/disc04/streams.png' width=400></center>
-
-Note that:
-
--   `streams` is already sorted in a very particular way --- it is
-    sorted by `"date"` in reverse chronological (decreasing) order, and,
-    within each `"date"`, by `"streams"` in increasing order.
-
--   Many songs will appear multiple times in `streams`, because many
-    songs were in the Top 200 on more than one day.
-
 Suppose the DataFrame `today` consists of 15 rows --- 3 rows for each of
 5 different `"artist_names"`. For each artist, it contains the
 `"track_name"` for their three most-streamed songs today. For instance,
