@@ -837,9 +837,11 @@ documents in which } t \text{ appears}}\right)
 <li><p><span class="math inline">\text{TF-IDF} =
 \frac{2}{3}</span></p></li>
 </ul>
-<p>Let T be the total number of terms in d (d refers to the sentence at
-the top) and n refer to number of documents in which t appears, then
-substituting this into our formula gives us: <span class="math display">
+<p>Let <span class="math inline">T</span> be the total number of terms
+in <span class="math inline">d</span> (<span class="math inline">d</span> refers to the sentence at the top) and
+<span class="math inline">n</span> refer to number of documents in which
+<span class="math inline">t</span> appears, then substituting this into
+our formula gives us: <span class="math display">
 \frac{5}{T} \cdot \log_2\left(\frac{60}{n}\right) = \frac{2}{3}
 </span></p>
 <p>The problem then boils down to checking whether the above equation
@@ -848,8 +850,8 @@ holds true in each of the five options</p>
 <li><p><strong>Option 1: All 60 product names contain the term
 </strong>drops<strong>.</strong></p>
 <ul>
-<li>If <span class="math inline">n = 60</span>, then <span class="math inline">\log_2(60/60) = 0</span></li>
-<li>This makes TF-IDF = 0, contradicting <span class="math inline">\frac{2}{3}</span><br/>
+<li>If <span class="math inline">n = 60</span>, then <span class="math inline">\log_2(60/60) = 0</span>.</li>
+<li>This makes TF-IDF = 0, contradicting <span class="math inline">\frac{2}{3}</span>.<br/>
 </li>
 </ul>
 <p><strong>This is NOT possible.</strong></p></li>
@@ -857,17 +859,17 @@ holds true in each of the five options</p>
 </strong>drops<strong>.</strong></p>
 <ul>
 <li>If <span class="math inline">n = 15</span> (original document + 14
-others), <span class="math inline">\log_2(60/15) = 2</span></li>
+others), <span class="math inline">\log_2(60/15) = 2</span>.</li>
 <li><span class="math inline">\frac{5}{T} \cdot 2 = \frac{2}{3}</span>
-implies <span class="math inline">T = 15</span><br/>
+implies <span class="math inline">T = 15</span>.<br/>
 </li>
 </ul>
 <p><strong>This is possible.</strong></p></li>
 <li><p><strong>Option 3: None of the 59 other product names contain the
 term </strong>drops<strong>.</strong></p>
 <ul>
-<li>If <span class="math inline">n = 1</span>, <span class="math inline">\log_2(60/1) \approx 5.91</span></li>
-<li>This leads to a non-integer total terms <span class="math inline">T</span></li>
+<li>If <span class="math inline">n = 1</span>, <span class="math inline">\log_2(60/1) \approx 5.91</span>.</li>
+<li>This leads to a non-integer total terms <span class="math inline">T</span>.</li>
 <li>Since <span class="math inline">T</span> must be an integer, this is
 not consistent with the problem’s constraints.<br/>
 </li>
@@ -877,11 +879,17 @@ not consistent with the problem’s constraints.<br/>
 total.</strong> If <span class="math inline">T = 15</span>, substituting
 into the TF equation, we get:</p>
 <p><span class="math inline">\text{TF} = \frac{5}{15} =
-\frac{1}{3}</span> $ = = 2 $ Substituting <span class="math inline">\text{IDF} = 2</span> into the IDF formula: <span class="math display">
+\frac{1}{3}</span></p>
+<p><span class="math inline">\frac{1}{3} \cdot \text{IDF} = \frac{2}{3}
+\implies \text{IDF} = 2</span></p>
+<p>Substituting <span class="math inline">\text{IDF} = 2</span> into the
+IDF formula:</p>
+<p><span class="math display">
 2 = \log_2\left(\frac{60}{n}\right)
 </span> <span class="math display">
-2 = \log_2(4) \implies \frac{60}{n} = 4 \implies n = 14
-</span> This is consistent with the problem’s constraints.</p>
+2 = \log_2(4) \implies \frac{60}{n} = 4 \implies n = 15
+</span></p>
+<p>This is consistent with the problem’s constraints.</p>
 <p><strong>This is possible.</strong></p></li>
 <li><p><strong>Option 5: There are 25 terms in the product name above in
 total.</strong> If <span class="math inline">T = 25</span>, substituting
