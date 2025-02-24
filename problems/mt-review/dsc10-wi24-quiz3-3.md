@@ -24,7 +24,7 @@ integer.
 
 **Answer:** 6
 
-We are merging dataframes `flights` and `more_flights` according to the airline each flight belongs to. All the `"United"` flights in `more_flights` will be merged with all the `"United"` flights in `flights`, which we know gives us 108 total flights. We also know that there are 12 `"United"` flights in `more_flights`. To find the number of `"United"` flights in `flights`, we simply need to divide the total number of `"United"` flights in `merged` by the number of `"United"` flights in `more_flights`, which is 108/12 = 9. If `flights` has a total of 15 rows, then the total number of non-United rows is equal to 15 - 9 = 6.
+We are merging DataFrames `flights` and `more_flights` according to the airline each flight belongs to. All the `"United"` flights in `more_flights` will be merged with all the `"United"` flights in `flights`, which we know gives us 108 total flights. We also know that there are 12 `"United"` flights in `more_flights`. To find the number of `"United"` flights in `flights`, we simply need to divide the total number of `"United"` flights in `merged` by the number of `"United"` flights in `more_flights`, which is 108/12 = 9. If `flights` has a total of 15 rows, then the total number of non-United rows is equal to 15 - 9 = 6.
 
 # END SOLUTION
 

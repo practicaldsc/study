@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-The `h` table records addresses within San Diego. Only 50 addresses are recorded. The index of the dataframe contains the numbers 1-50 as unique integers.
+The `h` table records addresses within San Diego. Only 50 addresses are recorded. The index of the DataFrame contains the numbers 1-50 as unique integers.
 
 - `"number" (int)`: Street address number
 - `"street" (str)`: Street name

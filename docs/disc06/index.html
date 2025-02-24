@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -997,7 +998,9 @@ works because the full regex matches the format <code>'1:15pm'</code>,
 while the <code>'?'</code> checks so if there is no <code>':'</code> it
 can still match something formatted like <code>'12pm'</code>. It also
 passes in the group indices 0, 2, and 3 because group 1 will just be
-<code>':'</code> or <code>None</code>, so we want to skip it.</li>
+<code>':digits'</code> or <code>None</code>, so we want to skip it. (By
+<code>digits</code>, we mean the digits that are after the colon, if
+any, like <code>:45</code>.)</li>
 <li>Option D: We use regex to define groups from <code>x</code> and
 return a list of those groups using <code>.groups()</code>. The regex
 matches any character unlimited times with <code>'.+'</code> as the

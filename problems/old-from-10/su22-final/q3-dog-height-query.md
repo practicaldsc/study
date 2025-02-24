@@ -17,7 +17,7 @@ Fill in blank (a).
 
 **Answer: ** `groupby('kind')` 
 
-We start this problem by grouping the dataframe by `'kind'` since we're only 
+We start this problem by grouping the DataFrame by `'kind'` since we're only 
 interested in whether each unique `'kind'` of dog fits some sort of constraint.
 We don't quite perform querying yet since we need to group the DataFrame first. 
 In other words, we first need to group the DataFrame into each 
@@ -102,7 +102,7 @@ Now, which of the following should fill in blank (d)?
 
 **Answer: ** `.get('kind')`
 
-Now that we have reset the index of the dataframe, `'kind'` is once again its
+Now that we have reset the index of the DataFrame, `'kind'` is once again its
 own column so we could simply do `.get('kind')`.
 
 <average>100</average>

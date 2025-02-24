@@ -2,7 +2,7 @@
 
 In this question, we will work with a publicly available forest fire dataset. A preview of the `forest` DataFrame is provided below, along with a description of the column names.
 
-`forest` Dataframe:
+`forest` DataFrame:
 <center><img  src='../assets/images/sp23-final/q6.png'  width=40%> </center>
 
 `"month"` - month of the year: jan to dec
@@ -75,10 +75,10 @@ Now, Hasan wants to fill in the missing values in the `"temp"` column. Which dat
 ( ) Data imputation by random sampling where we randomly sample one value from the observed values in the `"temp"` column for each missing values in the same column
 ( ) Mean imputation where we replace the missing value by mean of the observed values in `"temp"` column
 ( ) Conditional mean imputation based on `"is_julaugsep"` column
-( ) Data imputation can not be performed based on the `forest` dataframe
+( ) Data imputation can not be performed based on the `forest` DataFrame
 
 # BEGIN SOLN
-**Answer:** D - Data imputation can not be performed based on the `forest` dataframe.
+**Answer:** D - Data imputation can not be performed based on the `forest` DataFrame.
 
 Since the missing value depends on itself (NMAR), there is no other data in `forest` that can be used for imputation.
 
@@ -88,7 +88,7 @@ Since the missing value depends on itself (NMAR), there is no other data in `for
 
 # BEGIN SUBPROB
 
-Mark, at first, trains a linear regression model with `"temp"` and `"RH"` columns to predict `"area"`. Later, Mark identifies that dew point temperature `"Td"` is an informative feature for predicting `"area"`. He adds a new column to the `forest` Dataframe called `"Td"` where Td can be expressed by the following equation: $Td = temp - \frac{100-RH}{5}$. Lastly, Mark trains a second linear regression model with `"temp"`, `"RH"`, `"Td"` columns in order to predict `"area"`. Based on this, what can be said about the second model?
+Mark, at first, trains a linear regression model with `"temp"` and `"RH"` columns to predict `"area"`. Later, Mark identifies that dew point temperature `"Td"` is an informative feature for predicting `"area"`. He adds a new column to the `forest` DataFrame called `"Td"` where Td can be expressed by the following equation: $Td = temp - \frac{100-RH}{5}$. Lastly, Mark trains a second linear regression model with `"temp"`, `"RH"`, `"Td"` columns in order to predict `"area"`. Based on this, what can be said about the second model?
 
 [ ] The accuracy of the second model is likely to be lower than the first one.
 [ ] The coefficient of the second model can not be interpreted.

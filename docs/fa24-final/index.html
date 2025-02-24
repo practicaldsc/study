@@ -285,7 +285,7 @@ in the final result. In this case, we want to include only groups
 (brands) where the number of expensive products is fewer than 5.</li>
 <li><strong><code>(lambda x: (x['Price'] &gt;= 100).sum() &lt; 5)</code></strong>:
 This lambda function runs on each <strong>group</strong> (in this case,
-x is a dataframe). It calculates the number of products in the group
+x is a DataFrame). It calculates the number of products in the group
 where the price is greater than or equal to $100 (i.e., expensive
 products). If this count is less than 5, the group is kept. Otherwise,
 the group is excluded from our final result.</li>

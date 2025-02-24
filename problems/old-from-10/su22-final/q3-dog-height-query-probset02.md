@@ -17,7 +17,7 @@ Fill in blank (a).
 
 **Answer: ** `groupby('kind')` 
 
-We start this problem by grouping the dataframe by `'kind'` since we're only 
+We start this problem by grouping the DataFrame by `'kind'` since we're only 
 interested in whether each unique `'kind'` of dog fits some sort of constraint.
 We don't quite perform querying yet since we need to group the DataFrame first. 
 In other words, we first need to group the DataFrame into each 

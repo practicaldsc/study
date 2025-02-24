@@ -6,17 +6,17 @@ Suraj is exploring the relationship between the applied voltage and resulting cu
 
 # BEGIN SUBPROB
 
-In the following code, Suraj implements k-fold cross validation. He stores all the validation root mean squared error (RMSE) values of each fold in `errs_dataframe` Dataframe.
+In the following code, Suraj implements k-fold cross validation. He stores all the validation root mean squared error (RMSE) values of each fold in `errs_DataFrame` DataFrame.
 
 ```py
 errs = cross_val_score(LinearRegression(), diode[['voltage']], diode['current'], cv=5, scoring='neg_root_mean_squared_error')
 
-errs_dataframe = pd.DataFrame(-errs,columns=['rmse'], index=[f'Fold {i}' for i in range(1, 6)])
+errs_DataFrame = pd.DataFrame(-errs,columns=['rmse'], index=[f'Fold {i}' for i in range(1, 6)])
 
-errs_dataframe
+errs_DataFrame
 ```
 
-Based on the information in `errs_dataframe`, which one is a true statement? 
+Based on the information in `errs_DataFrame`, which one is a true statement? 
 
 ( ) The validation RMSE of Fold 5 is the lowest.
 ( ) The validation RMSE of Fold 5 is the highest.

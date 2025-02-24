@@ -1,11 +1,11 @@
-The `h` table records addresses within San Diego. Only 50 addresses are recorded. The index of the dataframe contains the numbers 1-50 as unique integers.
+The `h` table records addresses within San Diego. Only 50 addresses are recorded. The index of the DataFrame contains the numbers 1-50 as unique integers.
 
 - `"number" (int)`: Street address number
 - `"street" (str)`: Street name
 
 <center><img src="../../assets/images/sp24-midterm/h.png" width=400></center>
 
-The `o` table records information on power outages within San Diego in April 2024. Only 100 outages are recorded. The index of the dataframe contains the numbers 1-100 as unique integers.
+The `o` table records information on power outages within San Diego in April 2024. Only 100 outages are recorded. The index of the DataFrame contains the numbers 1-100 as unique integers.
 
 - `"time" (pd.Timestamp)`: When the outage began
 - `"duration" (int)`: How long the outage lasted in minutes

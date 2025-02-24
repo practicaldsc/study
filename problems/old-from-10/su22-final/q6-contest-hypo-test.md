@@ -177,7 +177,7 @@ stat = b - (1 - b)
 
 - Snippet 4: This option is correct. This approach is similar to the one above except we're only considering the probability distribution of toy dogs vs non-toy dogs, which is what we wanted in the first place. The rest of the steps are similar to the ones above.
 
-- Snippet 5: Note that `df` is simple just a dataframe containing information of the dogs, and may or may not reflect the population distribution of dogs that participate in the photo contest. 
+- Snippet 5: Note that `df` is simple just a DataFrame containing information of the dogs, and may or may not reflect the population distribution of dogs that participate in the photo contest. 
 
 <average>72</average>
 

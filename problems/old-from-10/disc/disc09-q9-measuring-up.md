@@ -90,7 +90,7 @@ Select the best answer.
 
 **Answer:** This would not run a valid hypothesis test, as all values in the `stats` array would be exactly the same (Option 2)
 
-Recall, `DataFrame.sample(n, replace = False)` (or `DataFrame.sample(n)` since `replace = False` is by default) returns a DataFrame by randomly sampling `n` rows from the DataFrame, without replacement. Since our `n` is `adelie_chinstrap.shape[0]`, and we are sampling without replacement, we will get the exactly same Dataframe (though the order of rows may be different but the `stats` array would be exactly the same).
+Recall, `DataFrame.sample(n, replace = False)` (or `DataFrame.sample(n)` since `replace = False` is by default) returns a DataFrame by randomly sampling `n` rows from the DataFrame, without replacement. Since our `n` is `adelie_chinstrap.shape[0]`, and we are sampling without replacement, we will get the exactly same DataFrame (though the order of rows may be different but the `stats` array would be exactly the same).
 
 <average>87</average>
 
