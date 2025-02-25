@@ -753,6 +753,8 @@ rows</strong>, but <strong>has a different row order</strong> than
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
+<p><a href="https://youtu.be/mdJXZsS6-AA?si=wokLX_oqJHz1m8N6">🎥
+Walkthrough Available</a></p>
 <p>The bar chart below shows the distribution of the number of reviews
 per <code>"author"</code> in <code>reviews</code>. For instance, it’s
 telling us that approximately 120 <code>"author"</code>s wrote 2
@@ -790,6 +792,9 @@ aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <li><code>value_counts().index[-2]</code>.</li>
 <li><code>value_counts().index[6]</code>.</li>
 </ul>
+<center>
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/mdJXZsS6-AA?si=wokLX_oqJHz1m8N6" width="560"></iframe>
+</center>
 <p><code>reviews["author"].value_counts()</code> is a
 <strong>Series</strong> where: - The index contains all of the unique
 values in <code>reviews["author"]</code>. - The values contain the
@@ -871,6 +876,9 @@ aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>:
 <code>Z = reviews["author"].value_counts().value_counts().index[-1]</code>.</p>
+<center>
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/mdJXZsS6-AA?si=wokLX_oqJHz1m8N6" width="560"></iframe>
+</center>
 <p>In the solution to the previous part, we understood that
 <code>reviews["author"].value_counts()</code> would look something
 like:</p>
@@ -1385,6 +1393,9 @@ and so <code>comp</code> is a Series of
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
+<p><a
+href="https://www.loom.com/share/6e2d55c629b6476888280720c651dc5b?sid=541630ea-1fb1-42d4-979c-c715e64fafc5">🎥
+Walkthrough Available</a></p>
 <p>Consider the DataFrame <code>framer</code>, defined below.</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>framer <span class="op">=</span> reviews.pivot_table(index<span class="op">=</span><span class="st">&quot;airline&quot;</span>,</span>
@@ -1412,6 +1423,7 @@ aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>: The last name, alphabetically, among all
 authors who submitted an Economy Class Emirates review.</p>
+<center><iframe allowfullscreen="" frameborder="0" height="450" mozallowfullscreen="" src="https://www.loom.com/embed/6e2d55c629b6476888280720c651dc5b?sid=9216403b-2144-496f-a85c-5a9087abaeed" webkitallowfullscreen="" width="800"></iframe></center>
 <p><code>framer</code> might look something like this:</p>
 <center>
 <img src="../assets/images/fa24-midterm/q8-framer.png" width="500"/>
@@ -1558,6 +1570,8 @@ we’re looking for – is:</p>
 <p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
+<p><a href="https://youtu.be/49GwpDaaC0c?si=lrHgGh4AxZ4n42Ev">🎥
+Walkthrough Available</a></p>
 <p>Consider the DataFrame <code>lines</code>, created by keeping the
 rows in <code>reviews</code> corresponding to reviews written between
 2015-11-24 and 2015-11-28. Remember, each row in <code>lines</code>
@@ -1604,6 +1618,7 @@ aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
 <code>array(["2015-11-26", "2015-11-27", "2015-11-28"])</code>, we know
 that none of the values in <code>ports["date"]</code> are
 <code>"2015-11-24"</code>.</p>
+<center><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/49GwpDaaC0c?si=lrHgGh4AxZ4n42Ev" title="YouTube video player" width="560"></iframe></center>
 <hr/>
 <h5>Difficulty: ⭐️⭐️</h5>
 <p>

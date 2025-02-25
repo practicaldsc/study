@@ -1,4 +1,7 @@
 # BEGIN PROB
+
+[🎥 Walkthrough Available](https://www.loom.com/share/037504d266e7409bbd0151bbbc2d4774?sid=1119064d-59f8-4440-a572-1d0f2e21c920)
+
 Neeru wants to work with the `'time'` column in `bus`, but the times aren't consistently formatted. He writes the following code:
 ```py
 import re
@@ -12,9 +15,9 @@ def parse(x):
 bus['time'].apply(parse)
 ```
 
-Neeru wants the last line of his code to output a Series containing tuples with parsed information from the `'time'` column. Each tuple should have three elements: the hour, minute, and either `'am'` or `'pm'` for each time. For example, the first two values in the `'time'` column are `'12pm'` and `'1:15pm'`, so the first two tuplies in the Series should be: `(12, 0, 'pm')` and `(1, 15, 'pm')`.
+Neeru wants the last line of his code to output a Series containing tuples with parsed information from the `'time'` column. Each tuple should have three elements: the hour, minute, and either `'am'` or `'pm'` for each time. For example, the first two values in the `'time'` column are `'12pm'` and `'1:15pm'`, so the first two tuples in the Series should be: `(12, 0, 'pm')` and `(1, 15, 'pm')`.
 
-Select **all** the correct implementations of the function `parse`. Assume that each value in the `'time'` column starts with aone or two digits for the hour, followed by an optional colon and an optional two digits for the minute, followed by either "am" or "pm".
+Select **all** the correct implementations of the function `parse`. Assume that each value in the `'time'` column starts with one or two digits for the hour, followed by an optional colon and an optional two digits for the minute, followed by either "am" or "pm".
 
 *Hint:* Calling `.groups()` on a regular expression match object returns the groups of the match as a tuple. For nested groups, the outermost group is returned first. For example:
 ```py
@@ -47,6 +50,8 @@ def parse(x):
 ```
 # BEGIN SOLN
 **Answer**: Options A and C
+
+<center><iframe width="800" height="450" src="https://www.loom.com/embed/037504d266e7409bbd0151bbbc2d4774?sid=c36c4875-7f21-4dd7-8004-d3113c35dfbc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>
 
 - Option A: First, we grab everything but `'am'` / `'pm'` with `x[:-2]`. Then splitting on `':'` means that values such as `'1:15'` become a list like `['1', '15']`, while single numbers such as `'12'` become a list like `['12']`. We then pass in the hour value, the minute value or `0` if there is none, and then the `'am'` / `'pm'` value by grabbing just the last two indices of `x`.
 - Option B: We use regex to define groups from `x` and return a list of those groups using `.groups()`. The regex matches to any number of integers `'(\d+)'` as the first group, then a colon `':'`, another group of any number of integers `'(\d+)'`, then a final group that matches exactly twice to characters from "apm", which can be "am" or "pm" with `'([apm]{2})'`. The problem with this solution is that while it does correctly match to input such as `'1:15pm'`, it would not match to `'12pm'` because there is no `':'` character.

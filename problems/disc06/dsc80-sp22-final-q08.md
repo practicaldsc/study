@@ -30,6 +30,9 @@ Then, the TF-IDF of `"hate"` in Song 0's title is
 
 $$\text{TF-IDF} = \frac{1}{6} \cdot 1 = \frac{1}{6}$$
 
+<center><iframe src="https://drive.google.com/file/d/1t7sWgtGdtOpgxR5X901IhppmY21KHBak/preview" width="640" height="480" allow="autoplay"></iframe></center>
+
+
 # END SOLN
 
 # END SUBPROB
