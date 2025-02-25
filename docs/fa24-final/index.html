@@ -1052,6 +1052,16 @@ aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <p><span class="math inline">R_0(h)</span> counts the number of
 incorrect predictions for each prediction, so choosing the most frequent
 value (mode) minimizes this count.</p>
+<p><strong>Note</strong>: This was our intended answer, as the idea here
+was to mirror 0-1 loss from discussion (and briefly mentioned in
+lecture). 0-1 loss is defined as:</p>
+<p><span class="math display">L_{0-1}(y_i, h) = \begin{cases} 0 &amp;
+\text{if } y_i = h \\ 1 &amp; \text{if } y_i \neq h
+\end{cases}</span></p>
+<p>But, we posed the question in a way that’s a little too vague, as
+<span class="math display">0^0</span> is undefined, and we need it to be
+<span class="math display">0</span> for this interpretation to hold. So,
+we gave everyone credit for this part.</p>
 <hr/>
 <h5>Difficulty: ⭐️</h5>
 <p>
