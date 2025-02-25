@@ -30,7 +30,7 @@ def parse(x):
 Option B:
 ```py
 def parse(x):
-	res = re.match(r'(\d+):(\d+)([apm]{2}', x).groups()
+	res = re.match(r'(\d+):(\d+)([apm]{2})', x).groups()
 	return convert(res[0], res[1], res[2])
 ```
 Option C:
