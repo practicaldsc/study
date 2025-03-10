@@ -15,7 +15,7 @@ Consider the dataset shown below.
 
 We want to use multiple regression to fit a prediction rule
 of the form
-$$H(x^{(1)}, x^{(2)}, x^{(3)}) = w_0 + w_1 x^{(1)}x^{(3)} + w_2 (x^{(2)}-x^{(3)})^2.$$
+$$H(x_i^{(1)}, x_i^{(2)}, x_i^{(3)}) = w_0 + w_1 x_i^{(1)} x_i^{(3)} + w_2 (x_i^{(2)} - x_i^{(3)})^2.$$
 Write down the design matrix $X$ and observation vector $\vec{y}$ for
 this scenario. No justification needed.
 

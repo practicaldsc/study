@@ -79,17 +79,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Monday, February 24th</td>
       <td><a href="fa24-final/index.html">Midterm Review, Day 2: Fall 2024 Final Exam, Questions 1-8</a></td>
     </tr>
-    <!--<tr>
-      <th scope="row">8</th>
-      <td>Friday, October 18th</td>
-      <td><a href="disc07/index.html">Summary Statistics and the Constant Model</a></td>
-    </tr>
     <tr>
-      <th scope="row">9</th>
+      <th scope="row">10</th>
       <td>Friday, October 25th</td>
-      <td><a href="disc08/index.html">Linear Regression</a></td>
+      <td><a href="disc08/index.html"> Multiple Linear Regression</a></td>
     </tr>
-    <tr>
+    <!--<tr>
       <th scope="row">10</th>
       <td>Friday, November 1st</td>
       <td><a href="disc09/index.html">Multiple Linear Regression and Feature Engineering</a></td>

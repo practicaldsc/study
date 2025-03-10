@@ -16,7 +16,10 @@ collect the following 5 pieces of information:
 - **runtime**: number of seconds for the notebook to run on Datahub
 
 Then we use multiple regression to fit a prediction rule of the form
-$$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}$$
+<!-- $$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}$$ -->
+
+$$H_i(\text{cells}_i, \text{lines}_i, \text{max iterations}_i, \text{variables}_i) =  
+w_0 + w_1 \cdot \text{cells}_i \cdot \text{lines}_i + w_2 \cdot (\text{max iterations}_i)^{\text{variables}_i - 10}$$
 
 # BEGIN SUBPROB
 
