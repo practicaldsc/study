@@ -81,7 +81,7 @@ You should work on these problems **on paper**, since your exams will also be on
     </tr>
     <tr>
       <th scope="row">10</th>
-      <td>Friday, October 25th</td>
+      <td>Thursday, March 13th</td>
       <td><a href="disc08/index.html"> Multiple Linear Regression</a></td>
     </tr>
     <!--<tr>
