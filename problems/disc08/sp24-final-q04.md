@@ -17,10 +17,18 @@ $\text{span}(\vec u, \vec v)$. Give your answer as a constant with no
 variables.
 
 # BEGIN SOLUTION
+**Answer**:
 
 $252$.
 
-Vectors in $\text{span}(\vec u, \vec v)$ must have an equal 2nd and 3rd component, and the third component is 252, so the second must be as well.
+Vectors in $\text{span}(\vec u, \vec v)$ are all linear combinations of $\vec{u}$ and $\vec{v}$, meaning they have the form:
+
+$$
+a \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + b \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} a \\ b \\ b \end{bmatrix}
+$$
+
+From this, any vector in the span must have its second and third components equal. Since $\vec{y}$ has its third component as 252, so k must equal to 252.
+
 
 # END SOLUTION
 
@@ -35,6 +43,7 @@ _Hint: If $A = \begin{bmatrix} a_1 & 0 \\ 0 & a_2 \end{bmatrix}$, then
 $A^{-1} = \begin{bmatrix} \frac{1}{a_1} & 0 \\ 0 & \frac{1}{a_2} \end{bmatrix}$._
 
 # BEGIN SOLUTION
+**Answer**:
 
 We can construct the following series of matrices to get $(X^TX)^{-1}X^T$.
 
@@ -58,6 +67,7 @@ in $\text{span}(\vec u, \vec v)$ that is as close to $\vec{y}$ as
 possible. Give your answers as constants with no variables.
 
 # BEGIN SOLUTION
+**Answer**:
 
 $a = 4$, $b = 5$.
 
@@ -84,6 +94,7 @@ What is $\lVert \vec{e} \rVert$?
 ( ) $2\sqrt{21}$
 
 # BEGIN SOLUTION
+**Answer**:
 
 $3 \sqrt{2}$.
 
@@ -109,6 +120,7 @@ $\begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^T$.
 ( ) No, but for a reason that isn't listed here.
 
 # BEGIN SOLUTION
+**Answer**:
 
 Yes, but for a reason that isn't listed here.
 
@@ -141,6 +153,7 @@ $$\vec{s}^T Q \vec{f}$$
 ( ) undefined
 
 # BEGIN SOLUTION
+**Answer**:
 
 Correct: Scalar.
 

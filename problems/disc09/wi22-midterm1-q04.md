@@ -24,27 +24,28 @@ this scenario. No justification needed.
 The design matrix $X$ and observation vector $\vec{y}$ are given by:
 
 $$
-\begin{align*}
-X &=
+X = 
 \begin{bmatrix}
 1 & 0 & 4\\
 1 & 15 & 1\\
 1 & -15 & 4\\
 1 & 0 & 1
-\end{bmatrix} \\
-\vec{y} &= \begin{bmatrix}
+\end{bmatrix}
+$$
+
+$$
+\vec{y} = 
+\begin{bmatrix}
 -5\\
 7\\
 4\\
 2
 \end{bmatrix}
-\end{align*}
 $$
 
-We got $\vec{y}$ by looking at our dataset and seeing the $y$ column.
+The observation vector $\vec{y}$ contains the target values from the dataset.
 
-The matrix $X$ was found by looking at the equation $H(x)$. You can think of each row of $X$ being: $\begin{bmatrix}1 & x^{(1)}x^{(3)} & (x^{(2)}-x^{(3)})^2\end{bmatrix}$. Recall our bias term here is not affected by $x^{(i)}$, but it still exists! So we will always have the first element in our row be $1$. We can then easily calculate the other elements in the matrix.
-
+For the design matrix $X$, each row corresponds to one data point in our dataset, where $x_i^{(1)}$, $x_i^{(2)}$, and $x_i^{(3)}$ represent three separate features for the $i$-th data point. Each row of $X$ has the form $\begin{bmatrix}1 & x_i^{(1)}x_i^{(3)} & (x_i^{(2)}-x_i^{(3)})^2\end{bmatrix}$. The first column consists of all 1's for the bias term $w_0$, which is not affected by the feature values.
 # END SOLUTION
 
 # END SUBPROB
@@ -59,14 +60,11 @@ The key to this problem is the fact that the error vector, $\vec{e}$, is orthogo
 
 We can rewrite the normal equation ($X^TX\vec{w}=X^T\vec{y}$) to allow substitution for $\vec{e} = \vec{y} - X \vec{w}$.
 
-$$
-\begin{align*}
-X^TX\vec{w}&=X^T\vec{y} \\ 
-0 &= X^T\vec{y} - X^TX\vec{w} \\
-0 &= X^T(\vec{y}-X\vec{w}) \\
-0 &= X^T\vec{e}
-\end{align*}
-$$
+
+$$X^TX\vec{w}=X^T\vec{y}$$
+$$0 = X^T\vec{y} - X^TX\vec{w}$$
+$$0 = X^T(\vec{y}-X\vec{w})$$
+$$0 = X^T\vec{e}$$
 
 The first step is to find $X^T$, which is easy because we found $X$ above:
 $$
@@ -76,25 +74,15 @@ $$
 $$
 
 And now we can plug $X^T$ and $\vec e$ into our equation $0 = X^T\vec{e}$. It might be easiest to find the right side first:
-$$
-\begin{align*}
-X^T\vec{e} &= 
-\begin{bmatrix}
-1 & 1 & 1 & 1 \\ 0 & 15 & -15 & 0 \\ 4 & 1 & 4 & 1
-\end{bmatrix} \cdot \begin{bmatrix} e_1 \\ e_2 \\ e_3 \\ e_4\end{bmatrix} \\
-&= \begin{bmatrix} e_1 + e_2 + e_3 + e_4 \\
-15e_2 - 15e_3 \\ 4e_1 + e_2 + 4e_3 + e_4\end{bmatrix}
-\end{align*}
-$$
+
+$$X^T\vec{e} = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 0 & 15 & -15 & 0 \\ 4 & 1 & 4 & 1 \end{bmatrix} \cdot \begin{bmatrix} e_1 \\ e_2 \\ e_3 \\ e_4\end{bmatrix}$$
+
+$$= \begin{bmatrix} e_1 + e_2 + e_3 + e_4 \\ 15e_2 - 15e_3 \\ 4e_1 + e_2 + 4e_3 + e_4\end{bmatrix}$$
 
 Finally, we set it equal to zero!
-$$
-\begin{align*}
-0 &= e_1 + e_2 + e_3 + e_4 \\
-0 &= 15e_2 - 15e_3 \\
-0 &= 4e_1 + e_2 + 4e_3 + e_4
-\end{align*}
-$$
+$$0 = e_1 + e_2 + e_3 + e_4$$
+$$0 = 15e_2 - 15e_3$$
+$$0 = 4e_1 + e_2 + 4e_3 + e_4$$
 
 With this we have shown that $4e_1+e_2+4e_3+e_4=0$.
 

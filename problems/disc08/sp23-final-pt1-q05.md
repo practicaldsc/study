@@ -18,7 +18,7 @@ collect the following 5 pieces of information:
 Then we use multiple regression to fit a prediction rule of the form
 <!-- $$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}$$ -->
 
-$$H_i(\text{cells}_i, \text{lines}_i, \text{max iterations}_i, \text{variables}_i) =  
+$$H(\text{cells}_i, \text{lines}_i, \text{max iterations}_i, \text{variables}_i) =  
 w_0 + w_1 \cdot \text{cells}_i \cdot \text{lines}_i + w_2 \cdot (\text{max iterations}_i)^{\text{variables}_i - 10}$$
 
 # BEGIN SUBPROB
@@ -36,10 +36,11 @@ $$
 So, what should $r$ and $c$ be for: $r$ rows $\times$ $c$ columns.
 
 # BEGIN SOLUTION
+**Answer**:
 
 $100 \text{ rows} \times 3 \text{ columns}$
 
-There should be $100$ rows because there are $100$ different Jupyter notebooks with different information within them. There should be $3$ columns, one for each $w_i$. In this case we have $w_0$, which means $X$ will have a column of ones, $w_1$, which means $X$ will have a second column of $\text{cells} \cdot \text{lines}$, and $w_2$, which will be the last column in $X$ containing $\text{max iterations})^{\text{variables} - 10}$.
+There should be $100$ rows because there are $100$ different Jupyter notebooks with different information within them. There should be $3$ columns, one for each $w_i$. In this case we have $w_0$, which means $X$ will have a column of ones, $w_1$, which means $X$ will have a second column of $\text{cells} \cdot \text{lines}$, and $w_2$, which will be the last column in $X$ containing $(\text{max iterations}_i)^{\text{variables}_i - 10}$.
 
 # END SOLUTION
 
@@ -52,6 +53,7 @@ of the design matrix X represent? (Count rows and columns starting at 1,
 not 0).
 
 # BEGIN SOLUTION
+**Answer**:
 
 This entry represents the product of the number of cells and number of lines of code for the third Jupyter notebook in the training dataset.
 
