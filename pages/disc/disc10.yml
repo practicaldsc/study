@@ -6,10 +6,10 @@ context: >
 show_solution: true
 problems:
   - disc10/wi24-final-q12
-  - disc10/fa23-final-q09 
+  # - disc10/fa23-final-q09 
   - disc10/su20-midterm-q03 
-  - disc10/wi23-final-q09 
-  - disc10/su20-midterm-q04
+  # - disc10/wi23-final-q09 
+  # - disc10/su20-midterm-q04
   - disc10/wi23-final-q08 
   - disc10/sp22-final-q11
 
