@@ -17,7 +17,7 @@ For each of the following regression models, use the visualizations shown above 
 
 # BEGIN SUBPROB
 
-`boot` = $w_0$
+$\text{boot}_i = w_0$
 
 $w_0$:
 
@@ -38,7 +38,7 @@ $w_0$:
 
 # BEGIN SUBPROB
 
-`boot` $= w_0 + w_1 \cdot \text{sandals}$
+$\text{boot}_i = w_0 + w_1 \cdot \text{sandals}_i$
 
 $w_0$:
 
@@ -73,7 +73,7 @@ $w_1$: -1
 
 # BEGIN SUBPROB
 
-`boot` = $w_0 + w_1 \cdot (\text{summer=1})$
+$\text{boot}_i  = w_0 + w_1 \cdot (\text{summer=1})_i$
 
 $w_0$:
 
@@ -109,7 +109,7 @@ $w_1$: -80
 
 # BEGIN SUBPROB
 
-`sandal` = $w_0 + w_1 \cdot (\text{summer=1})$
+$\text{sandal}_i  = w_0 + w_1 \cdot (\text{summer=1})_i$
 
 $w_0$:
 
@@ -145,7 +145,7 @@ $w_1$: 80
 
 # BEGIN SUBPROB
 
-`sandal` = $w_0 + w_1 \cdot (\text{summer=1}) + w_2 \cdot (\text{winter=1})$
+$\text{sandal}_i  = w_0 + w_1 \cdot (\text{summer=1})_i + w_2 \cdot (\text{winter=1})_i$
 
 $w_0$:
 

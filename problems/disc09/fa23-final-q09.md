@@ -8,11 +8,12 @@ Suppose we fit the following linear regression models to predict `'total'` using
 
 For example, in part (iv), you'll need to provide three answers: one for $w_0^*$ (either positive, negative, or 0), one for $w_1^*$ (either positive, negative, or 0), and one for $w_2^*$ (either positive, negative, or 0).
 
-i. $H(x) = w_0$
-ii. $H(x) = w_0 + w_1 \cdot \text{veg}$
-iii. $H(x) = w_0 + w_1 \cdot \text{(meat=chicken)}$
-iv. $H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}$
-v. $H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot \text{(meat=fish)}$
+i. $H(x_i) = w_0$
+ii. $H(x_i) = w_0 + w_1 \cdot \text{veg}_i$
+iii. $H(x_i) = w_0 + w_1 \cdot (\text{meat=chicken})_i$
+iv. $H(x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i$
+v. $H(x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i + w_3 \cdot (\text{meat=fish})_i$
+
 
 # BEGIN SOLN
 
@@ -80,7 +81,7 @@ Then, $w_0^* = -10, w_1^* = 22, w_2^* = 18, w_3^* = 25$ and $w_0^* = 20, w_1^* =
 
 # BEGIN SUBPROB
 
-Suppose we fit the model $H(x) = w_0 + w_1 \cdot \text{veg} + w_2 \cdot \text{(meat=beef)} + w_3 \cdot \text{(meat=fish)}$.
+Suppose we fit the model $H(x_i) = w_0 + w_1 \cdot \text{veg}_i + w_2 \cdot (\text{meat=beef})_i + w_3 \cdot (\text{meat=fish})_i$.
 After fitting, we find that $\vec{w^*}=[-3, 5, 8, 12]$
 
 What is the prediction of this model on the **first** point in our dataset?
@@ -126,54 +127,6 @@ Following the same model $H(x)$ and weights from the previous problem, what is t
 **Answer**: 25
 
 The squared loss for a single point is $(\text{actual} - \text{predicted})^2$. Here, our actual `'total'` value is 19, and our predicted value `'total'` value is $-3 + 5(3) + 8(0) + 12(1) = -3 + 15 + 12 = 24$, so the squared loss is $(19 - 24)^2 = (-5)^2 = 25$.
-
-# END SOLN
-# END SUBPROB
-# BEGIN SUBPROB
-
-Determine how each change below affects model bias and variance compared to the model $H(x)$ described at the top of this page. **For each change (i., ii., iii., iv.), choose all of the following that apply: increase bias, decrease bias, increase variance, decrease variance.**
-
-i. Add degree $3$ polynomial features.
-ii. Add a feature of numbers chosen at random between $0$ and $1$.
-iii. Collect $100$ more points for the training set.
-iv. Don't use the `'veg'` feature.
-
-# BEGIN SOLN
-
-- i. **Answer: Decrease bias, increase variance**. Note that adding degree 3 polynomial features will increase the complexity of our model. Increasing model complexity decreases model bias, but increases model variance (because the fitted model will vary more from training set to training set than it would without the degree 3 feature).
-- ii. **Answer: Increase variance**. We're adding a new feature that will contribute nothing of quality to our model's predictions, other than make them vary more from training set to training set.
-- iii. **Answer: Decrease variance**. Think of our training set as being a sample drawn from some population. The larger our training sets are, the less our model will vary from training set to training set, hence, reducing model variance.
-- iv. **Answer: Increase bias, decrease variance**. Removing the $\text{veg}$ feature would reduce the complexity of our model, which would increase model bias but decrease model complexity.
-
-# END SOLN
-
-# END SUBPROB
-
-# BEGIN SUBPROB
-Suppose we predict `'total'` from `'veg'` using $8$ models with different degree polynomial features (degrees $0$ through $7$). Which of the following plots display the training and validation errors of these models? Assume that we plot the degree of the polynomial features on the x-axis, mean squared error loss on the y-axis, and the plots share y-axes limits.
-
-<center><img src='../../assets/images/disc10/dsc80_final_plots.png' width=65%></center>
-
-Training Error:
-
-( ) A
-( ) B
-( ) C
-( ) D
-
-Validation Error:
-
-( ) A
-( ) B
-( ) C
-( ) D
-
-# BEGIN SOLN
-**Answer**: Training error: C; Validation Error: B
-
-**Training Error**: As we increase the complexity of our model, it will gain the ability to memorize the patterns in our training set to a greater degree, meaning that its performance will get better and better (here, meaning that its MSE will get lower and lower).
-
-**Validation Error**: As we increase the complexity of our model, there will be a point at which it becomes "too complex" and overfits to insignificant patterns in the training set. The second graph from the start of Problem 9 tells us that the relationship between `'total'` and `'veg'` is roughly quadratic, meaning it's best modeled using degree $2$ polynomial features. Using a degree greater than $2$ will lead to overfitting and, therefore, worse validation set performance. Plot B shows MSE decrease until $d = 2$ and increase afterwards, which matches the previous explanation.
 
 # END SOLN
 # END SUBPROB
