@@ -4,37 +4,37 @@ Every week, Lauren goes to her local grocery store and buys a varying amount of 
 <center><img src='../../assets/images/disc09/dsc80_final_q9.png' width=65%></center>
 
 # BEGIN SUBPROB
-Suppose we fit the following linear regression models to predict `'total'` using the squared loss function. Based on the data and visualizations shown above, for each of the following models $H(x)$, determine whether **each fitted model coefficient $w^*$** is positive ($+$), negative ($-$), or exactly 0. The notation $\text{meat=beef}$ refers to the one-hot encoded `'meat'` column with value $1$ if the original value in the `'meat'` column was `'beef'` and $0$ otherwise. Likewise, $\text{meat=chicken}$ and $\text{meat=fish}$ are the one-hot encoded `'meat'` columns for `'chicken'` and `'fish'`, respectively.
+Suppose we fit the following linear regression models to predict `'total'` using the squared loss function. Based on the data and visualizations shown above, for each of the following models $H(x_i)$, determine whether **each fitted model coefficient $w^*$** is positive ($+$), negative ($-$), or exactly 0. The notation $\text{meat=beef}$ refers to the one-hot encoded `'meat'` column with value $1$ if the original value in the `'meat'` column was `'beef'` and $0$ otherwise. Likewise, $\text{meat=chicken}$ and $\text{meat=fish}$ are the one-hot encoded `'meat'` columns for `'chicken'` and `'fish'`, respectively.
 
 For example, in part (iv), you'll need to provide three answers: one for $w_0^*$ (either positive, negative, or 0), one for $w_1^*$ (either positive, negative, or 0), and one for $w_2^*$ (either positive, negative, or 0).
 
 i. $H(x_i) = w_0$
 ii. $H(x_i) = w_0 + w_1 \cdot \text{veg}_i$
 iii. $H(x_i) = w_0 + w_1 \cdot (\text{meat=chicken})_i$
-iv. $H(x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i$
-v. $H(x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i + w_3 \cdot (\text{meat=fish})_i$
+iv. $H(\vec x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i$
+v. $H(\vec x_i) = w_0 + w_1 \cdot (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i + w_3 \cdot (\text{meat=fish})_i$
 
 
 # BEGIN SOLN
 
-**Model i. $H(x) = w_0$**
+**Model i. $H(x_i) = w_0$**
 <br>**Answer**: $w_0^*$ must be positive
 
-If $H(x) = w_0$, then $w_0^*$ will be the mean `'total'` value in our dataset, and since all of our observed `'total'` values are positive, their mean – and hence, $w_0^*$ – must also be positive.
+If $H(x_i) = w_0$, then $w_0^*$ will be the mean `'total'` value in our dataset, and since all of our observed `'total'` values are positive, their mean – and hence, $w_0^*$ – must also be positive.
 
 <br>
 
-**Model ii. $H(x) = w_0 + w_1 \cdot \text{veg}$**
+**Model ii. $H(x_i) = w_0 + w_1 \cdot \text{veg}_i$**
 <br>**Answer**: $w_0^*$ must be positive; $w_1^*$ must be positive
 
 Of the three graphs provided, the middle one shows the relationship between `'total'` and `'veg'`. We see that if we were to draw a line of best fit, the $y$-intercept ($w_0^*$) would be positive, and so would the slope ($w_1^*$).
 
 <br>
 
-**Model iii. $H(x) = w_0 + w_1 \cdot \text{(meat=chicken)}$**
+**Model iii. $H(x_i) = w_0 + w_1 \cdot \text{(meat=chicken)}_i$**
 <br>**Answer**: $w_0^*$ must be positive; $w_1^*$ must be negative
 
-Here's the key to solving this part (and the following few): the input $x$ has a `'meat'` of `'chicken'`, $H(x) = w_0 + w_1$. If the input $x$ has a `'meat'` of something other than `'chicken'`, then $H(x) = w_0$. So:
+Here's the key to solving this part (and the following few): the input $x$ has a `'meat'` of `'chicken'`, $H(x_i) = w_0 + w_1$. If the input $x$ has a `'meat'` of something other than `'chicken'`, then $H(x_i) = w_0$. So:
 
 - $w_0^*$, the optimal $w_0$, should be a constant `'total'` prediction that makes sense for non-chicken inputs, and
 - $w_1^*$, the optimal $w_1$, should be a number we add to $w_0^*$ to adjust the constant `'total'` prediction for chickens.
@@ -43,10 +43,10 @@ For all three `'meat'` categories, the average observed `'total'` value is posit
 
 <br>
 
-**Model iv. $H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}$**
+**Model iv. $H(\vec x_i) = w_0 + w_1 \cdot \text{(meat=beef)}_i + w_2 \cdot \text{(meat=chicken)}_i$**
 <br>**Answer**: $w_0^*$ must be positive; $w_1^*$ must be negative; $w_2^*$ must be negative
 
-$H(x)$ makes one of three predictions:
+$H(\vec x_i)$ makes one of three predictions:
 
 - If $x$ has a `'meat'` value of `'chicken'`, then it predicts $w_0 + w_2$.
 - If $x$ has a `'meat'` value of `'beef'`, then it predicts $w_0 + w_1$.
@@ -56,10 +56,10 @@ Think of $w_1^*$ and $w_2^*$ – the optimal $w_1$ and $w_2$ – as being adjust
 
 <br>
 
-**Model v. $H(x) = w_0 + w_1 \cdot \text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot \text{(meat=fish)}$**
+**Model v. $H(\vec x_i) = w_0 + w_1 \cdot \text{(meat=beef)}_i + w_2 \cdot \text{(meat=chicken)}_i + w_3 \cdot \text{(meat=fish)}_i$**
 <br>**Answer**: Not enough information for any of the four coefficients!
 
-Like in the previous part, $H(x)$ makes one of three predictions:
+Like in the previous part, $H(\vec x_i)$ makes one of three predictions:
 
 - If $x$ has a `'meat'` value of `'chicken'`, then it predicts $w_0 + w_2$.
 - If $x$ has a `'meat'` value of `'beef'`, then it predicts $w_0 + w_1$.
@@ -81,8 +81,8 @@ Then, $w_0^* = -10, w_1^* = 22, w_2^* = 18, w_3^* = 25$ and $w_0^* = 20, w_1^* =
 
 # BEGIN SUBPROB
 
-Suppose we fit the model $H(x_i) = w_0 + w_1 \cdot \text{veg}_i + w_2 \cdot (\text{meat=beef})_i + w_3 \cdot (\text{meat=fish})_i$.
-After fitting, we find that $\vec{w^*}=[-3, 5, 8, 12]$
+Suppose we fit the model $H(\vec x_i) = w_0 + w_1 \cdot \text{veg}_i + w_2 \cdot (\text{meat=beef})_i + w_3 \cdot (\text{meat=fish})_i$.
+After fitting, we find that $\vec{w^*}=[-3, 5, 8, 12]$.
 
 What is the prediction of this model on the **first** point in our dataset?
 
@@ -97,7 +97,7 @@ What is the prediction of this model on the **first** point in our dataset?
 # BEGIN SOLN
 **Answer**: 10
 
-Plugging in our weights $\vec{w}^*$ to the model $H(x)$ and filling in data from the row
+Plugging in our weights $\vec{w}^*$ to the model $H(\vec x_i)$ and filling in data from the row
 
 | veg | meat | total |
 |-----|------|-------|
@@ -112,7 +112,7 @@ gives us $-3 + 5(1) + 8(1) + 12(0) = 10$.
 
 # BEGIN SUBPROB
 
-Following the same model $H(x)$ and weights from the previous problem, what is the loss of this model on the **second** point in our dataset, using squared error loss?
+Following the same model $H(\vec x_i)$ and weights from the previous problem, what is the loss of this model on the **second** point in our dataset, using squared loss?
 
 ( ) 0
 ( ) 1

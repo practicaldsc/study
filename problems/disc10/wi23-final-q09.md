@@ -32,10 +32,10 @@ and `pl.named_steps["ohe"].get_feature_names()` evaluates to the following array
 array(["x0_low", "x0_med"], dtype=object)
 ```
 
-Fill in the blanks: Given the above information, we can conclude that `lunch_props` has __(a)__ value(s) equal to `"low"`, __(b)__ value(s) equal to `"medium"`, and __(c)__ value(s) equal to `"high"`. *(Note: You should write one positive integer in each box such that the numbers add up to 8.)*
+Given the above information, we can conclude that `lunch_props` has __(a)__ value(s) equal to `"low"`, __(b)__ value(s) equal to `"medium"`, and __(c)__ value(s) equal to `"high"`. *(Note: You should write one positive integer in each box such that the numbers add up to 8.)*
 
 
-What goes in the blanks?
+What are (a), (b), and (c)? Give you answers as positive integers. 
 
 # BEGIN SOLN
 **Answer: ** 3, 1, 4

@@ -4,20 +4,21 @@
 
 Reggie and Essie are given a dataset of real features
 $x_i \in \mathbb{R}$ and observations $y_i$. Essie proposes the
-following linear prediction rule:
-$$H_1(\alpha_0,\alpha_1) = \alpha_0 + \alpha_1 x_i.$$ and Reggie
-proposes to use $v_i=(x_i)^2$ and the prediction rule
-$$H_2(\gamma_0,\gamma_1) = \gamma_0 + \gamma_1 v_i.$$
+following hypothesis function:
+$$F(x_i) = \alpha_0 + \alpha_1 x_i$$ and Reggie
+proposes to the following linear prediction rule:
+$$G(x_i) = \gamma_0 + \gamma_1 x_i^2$$
 
 # BEGIN SUBPROB
 
-Give an example of a dataset $\{(x_i,y_i)\}_{i=1}^n$ for
-which minimum MSE$(H_2) <$ minimum MSE$(H_1)$. Explain.
+Let MMSE$(F)$ be the minimum value of mean squared error that $F$ achieves on a given dataset, and let MMSE$(G)$ be the minimum value of mean squared error that $G$ achieves on a given dataset. Give an example of a dataset $(x_1, y_1), (x_2, y_2), …, (x_n, y_n)$ for which MMSE$(F)$ > MMSE$(G)$. 
+
+
 
 # BEGIN SOLUTION
 Example: If the datapoints follow a quadratic form
-$y_i=x_i^2$ for all $i$, then the $H_2$ prediction rule will achieve a
-zero error while $H_1>0$ since the data do not follow a linear form.
+$y_i=x_i^2$ for all $i$, then the $F$ prediction rule will achieve a
+zero error while $G>0$ since the data do not follow a linear form.
 
 # END SOLUTION
 
@@ -25,8 +26,7 @@ zero error while $H_1>0$ since the data do not follow a linear form.
 
 # BEGIN SUBPROB
 
-Give an example of a dataset $\{(x_i,y_i)\}_{i=1}^n$ for
-which minimum MSE$(H_2) =$ minimum MSE$(H_1)$. Explain.
+Let MMSE$(F)$ be the minimum value of mean squared error that $F$ achieves on a given dataset, and let MMSE$(G)$ be the minimum value of mean squared error that $G$ achieves on a given dataset. Give an example of a dataset $(x_1, y_1), (x_2, y_2), …, (x_n, y_n)$ for which MMSE$(F)$ = MMSE$(G)$. 
 
 
 # BEGIN SOLUTION
@@ -45,28 +45,22 @@ parameters of both prediction rules will be the same, as will the MSE.
 
 # BEGIN SUBPROB
 
-A new feature $z$ has been added to the dataset.
 
-Essie proposes a linear regression model using two predictor variables
-$x,z$ as $$H_3(w_0,w_1,w_2) = w_0 + w_1 x_i +w_2 z_i.$$
-
-Explain if the following statement is **True or False** (prove or provide
-counter-example).
-
-Reggie claims that having more features will lead to a smaller error,
-therefore the following prediction rule will give a smaller MSE:
-$$H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0 + \alpha_1 x_i +\alpha_2 z_i + \alpha_3 (2x_i-z_i)$$
+Reggie adds a new feature $x^{(2)}$, to his dataset and creates two new hypothesis functions, J and K:
+$$J(\vec x_i) = w_0 + w_1 x_i^{(1)} + w_2 x_i^{(2)}$$
+$$K(\vec x_i) = \beta_0 + \beta_1 x_i^{(1)} + \beta_2 x_i^{(2)} + \beta_3 (2 x_i^{(1)} - x_i^{(2)})$$
+Reggie argues that having more features is better, so MMSE(K) < MMSE(J). Is Reggie correct? Why or why not?
 
 # BEGIN SOLUTION
 
-$H_4$ can be rewritten as
-$$H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0 + (\alpha_1+2\alpha_3) x_i +(\alpha_2 - \alpha_3)z_i$$
-By setting $\tilde{\alpha}_1=\alpha_1+2\alpha_3$ and
-$\tilde{\alpha_2}= \alpha_2 - \alpha_3$ then
+$K(\vec x_i)$ can be rewritten as
+$$K(\vec x_i) = \beta_0 + (\beta_1+2\beta_3) x_i^{(1)} +(\beta_2 - \beta_3)x_i^{(2)}$$
+By setting $\tilde{\beta}_1=\beta_1+2\beta_3$ and
+$\tilde{\beta_2}= \beta_2 - \beta_3$ then
 
-$$H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = H_4(\alpha_0,\tilde{\alpha}_1,\tilde{\alpha}_2) = \alpha_0 + \tilde{\alpha_1} x_i +\tilde{\alpha}_2 z_i$$
+$$K(\vec x_i) = K(\beta_0,\tilde{\beta}_1,\tilde{\beta}_2) = \beta_0 + \tilde{\beta_1} x_i^{(1)} +\tilde{\beta}_2 x_i^{(2)}$$
 
-Thus $H_4$ and $H_3$ have the same normal equations and therefore the
+Thus $J$ and $K$ have the same normal equations and therefore the
 same minimum MSE.
 
 # END SOLUTION

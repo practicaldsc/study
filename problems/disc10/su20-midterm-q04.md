@@ -17,9 +17,17 @@ Say we train a linear model $m_1$ on these data. Then, we replace all of the 1 v
 
 **Answers:**
 
-The answer is `equal to`.
+The answer is equal to. 
 
-Note that we can just re-scale our weights accordingly. Any model we can get with $m_1$ we can also get with $m_2$ (and vice versa).
+Because we can simply adjust the weights in the opposite way that we rescale the one-hot columns, any model obtainable with the original encoding can also be obtained with the rescaled encoding. This guarantees that the training loss remains unchanged.
+
+When one-hot encoding is used, each category is represented by a column that typically contains only 0s and 1s. Rescaling these columns means multiplying the 1s by a constant (for example, turning 1 into 2 or 3). However, if we also adjust the corresponding weights in the model by dividing by that same constant, the product of the rescaled column value and its weight remains the same. Since the model’s predictions are based on these products, the predictions will not change, and as a result, the average squared loss on the training data will also remain unchanged.
+
+Imagine a categorical variable "Color" with three levels: Red, Green, and Blue. We one-hot encode this variable into three columns. For an observation:
+- If the color is Red, the encoded values might be: Red = 1, Green = 0, Blue = 0.
+
+Now, suppose we decide to multiply the column for Red by 2. The new value for a Red observation becomes 2 instead of 1. To keep the prediction the same, we can simply use half the weight for this column in the model. This inverse adjustment ensures that the final product (column value multiplied by weight) remains unchanged. Thus, the model's prediction and the average squared loss on the training data stay the same.
+
 
 # END SOLUTION
 
@@ -38,28 +46,9 @@ To account for the intercept term, we add a column of all ones to our design mat
 
 **Answers:**
 
-The answer is `3`.
+The answer is 3.
 
 Note that the column **c** = intercept column −$\frac{1}{3}$**a** + $\frac{1}{2}$**b**. Hence, there is a linear dependence relationship, meaning that one of the columns is redundant and that the rank of the new design matrix is 3.
-
-# END SOLUTION
-
-# END SUBPROB
-
-# BEGIN SUBPROB
-
-Suppose we divide our sampling frame into three clusters of people, numbered 1, 2, and 3. After we survey people, along with our survey results, we save their cluster number as a new feature in our design matrix. Before training a model, what should we do with the cluster column? (Note: This part is independent of parts a and b.)
-
-( ) Leave as is
-( ) One-hot encode it
-( ) Normalize it
-( ) Use bag of words
-
-# BEGIN SOLUTION
-
-**Answers:**
-
-The cluster number is a categorical variable, so it should be one-hot encoded.
 
 # END SOLUTION
 

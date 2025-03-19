@@ -151,7 +151,7 @@ the entire training set.</p>
 <p>Suppose we fit the following linear regression models to predict
 <code>'total'</code> using the squared loss function. Based on the data
 and visualizations shown above, for each of the following models <span
-class="math inline">H(x)</span>, determine whether <strong>each fitted
+class="math inline">H(x_i)</span>, determine whether <strong>each fitted
 model coefficient <span class="math inline">w^*</span></strong> is
 positive (<span class="math inline">+</span>), negative (<span
 class="math inline">-</span>), or exactly 0. The notation <span
@@ -175,9 +175,9 @@ negative, or 0), and one for <span class="math inline">w_2^*</span>
 \text{veg}_i</span></li>
 <li><span class="math inline">H(x_i) = w_0 + w_1 \cdot
 (\text{meat=chicken})_i</span></li>
-<li><span class="math inline">H(x_i) = w_0 + w_1 \cdot
+<li><span class="math inline">H(\vec x_i) = w_0 + w_1 \cdot
 (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i</span></li>
-<li><span class="math inline">H(x_i) = w_0 + w_1 \cdot
+<li><span class="math inline">H(\vec x_i) = w_0 + w_1 \cdot
 (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i + w_3 \cdot
 (\text{meat=fish})_i</span></li>
 </ol>
@@ -194,28 +194,28 @@ aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Model i. <span class="math inline">H(x) = w_0</span></strong>
-<br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must
-be positive</p>
-<p>If <span class="math inline">H(x) = w_0</span>, then <span class="math inline">w_0^*</span> will be the mean <code>'total'</code>
+<p><strong>Model i. <span class="math inline">H(x_i) =
+w_0</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive</p>
+<p>If <span class="math inline">H(x_i) = w_0</span>, then <span class="math inline">w_0^*</span> will be the mean <code>'total'</code>
 value in our dataset, and since all of our observed <code>'total'</code>
 values are positive, their mean – and hence, <span class="math inline">w_0^*</span> – must also be positive.</p>
 <p><br/></p>
-<p><strong>Model ii. <span class="math inline">H(x) = w_0 + w_1 \cdot
-\text{veg}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be positive</p>
+<p><strong>Model ii. <span class="math inline">H(x_i) = w_0 + w_1 \cdot
+\text{veg}_i</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be positive</p>
 <p>Of the three graphs provided, the middle one shows the relationship
 between <code>'total'</code> and <code>'veg'</code>. We see that if we
 were to draw a line of best fit, the <span class="math inline">y</span>-intercept (<span class="math inline">w_0^*</span>) would be positive, and so would the
 slope (<span class="math inline">w_1^*</span>).</p>
 <p><br/></p>
-<p><strong>Model iii. <span class="math inline">H(x) = w_0 + w_1 \cdot
-\text{(meat=chicken)}</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative</p>
+<p><strong>Model iii. <span class="math inline">H(x_i) = w_0 + w_1 \cdot
+\text{(meat=chicken)}_i</span></strong> <br/><strong>Answer</strong>:
+<span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative</p>
 <p>Here’s the key to solving this part (and the following few): the
 input <span class="math inline">x</span> has a <code>'meat'</code> of
-<code>'chicken'</code>, <span class="math inline">H(x) = w_0 +
+<code>'chicken'</code>, <span class="math inline">H(x_i) = w_0 +
 w_1</span>. If the input <span class="math inline">x</span> has a
 <code>'meat'</code> of something other than <code>'chicken'</code>, then
-<span class="math inline">H(x) = w_0</span>. So:</p>
+<span class="math inline">H(x_i) = w_0</span>. So:</p>
 <ul>
 <li><span class="math inline">w_0^*</span>, the optimal <span class="math inline">w_0</span>, should be a constant
 <code>'total'</code> prediction that makes sense for non-chicken inputs,
@@ -235,12 +235,11 @@ if the input <span class="math inline">x</span> is a
 want <code>w_0^* + w_1^*</code> to be less than <span class="math inline">w_0^*</span>, <span class="math inline">w_1^*</span>
 must then be negative.</p>
 <p><br/></p>
-<p><strong>Model iv. <span class="math inline">H(x) = w_0 + w_1 \cdot
-\text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)}</span></strong>
-<br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must
-be positive; <span class="math inline">w_1^*</span> must be negative;
-<span class="math inline">w_2^*</span> must be negative</p>
-<p><span class="math inline">H(x)</span> makes one of three
+<p><strong>Model iv. <span class="math inline">H(\vec x_i) = w_0 + w_1
+\cdot \text{(meat=beef)}_i + w_2 \cdot
+\text{(meat=chicken)}_i</span></strong> <br/><strong>Answer</strong>:
+<span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative; <span class="math inline">w_2^*</span> must be negative</p>
+<p><span class="math inline">H(\vec x_i)</span> makes one of three
 predictions:</p>
 <ul>
 <li>If <span class="math inline">x</span> has a <code>'meat'</code>
@@ -258,12 +257,12 @@ highest mean <code>'total'</code> amount of the three
 should be positive while <span class="math inline">w_1^*</span> and
 <span class="math inline">w_2^*</span> should be negative.</p>
 <p><br/></p>
-<p><strong>Model v. <span class="math inline">H(x) = w_0 + w_1 \cdot
-\text{(meat=beef)} + w_2 \cdot \text{(meat=chicken)} + w_3 \cdot
-\text{(meat=fish)}</span></strong> <br/><strong>Answer</strong>: Not
-enough information for any of the four coefficients!</p>
-<p>Like in the previous part, <span class="math inline">H(x)</span>
-makes one of three predictions:</p>
+<p><strong>Model v. <span class="math inline">H(\vec x_i) = w_0 + w_1
+\cdot \text{(meat=beef)}_i + w_2 \cdot \text{(meat=chicken)}_i + w_3
+\cdot \text{(meat=fish)}_i</span></strong> <br/><strong>Answer</strong>:
+Not enough information for any of the four coefficients!</p>
+<p>Like in the previous part, <span class="math inline">H(\vec
+x_i)</span> makes one of three predictions:</p>
 <ul>
 <li>If <span class="math inline">x</span> has a <code>'meat'</code>
 value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
@@ -295,10 +294,10 @@ are inconsistent. As such, it’s impossible to tell!</p>
 </div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
-<p>Suppose we fit the model <span class="math inline">H(x_i) = w_0 + w_1
-\cdot \text{veg}_i + w_2 \cdot (\text{meat=beef})_i + w_3 \cdot
+<p>Suppose we fit the model <span class="math inline">H(\vec x_i) = w_0
++ w_1 \cdot \text{veg}_i + w_2 \cdot (\text{meat=beef})_i + w_3 \cdot
 (\text{meat=fish})_i</span>. After fitting, we find that <span
-class="math inline">\vec{w^*}=[-3, 5, 8, 12]</span></p>
+class="math inline">\vec{w^*}=[-3, 5, 8, 12]</span>.</p>
 <p>What is the prediction of this model on the <strong>first</strong>
 point in our dataset?</p>
 <ul class="task-list">
@@ -325,8 +324,8 @@ aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>: 10</p>
 <p>Plugging in our weights <span class="math inline">\vec{w}^*</span> to
-the model <span class="math inline">H(x)</span> and filling in data from
-the row</p>
+the model <span class="math inline">H(\vec x_i)</span> and filling in
+data from the row</p>
 <table>
 <thead>
 <tr>
@@ -352,9 +351,9 @@ the row</p>
 </div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
-<p>Following the same model <span class="math inline">H(x)</span> and
-weights from the previous problem, what is the loss of this model on the
-<strong>second</strong> point in our dataset, using squared error
+<p>Following the same model <span class="math inline">H(\vec x_i)</span>
+and weights from the previous problem, what is the loss of this model on
+the <strong>second</strong> point in our dataset, using squared
 loss?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> 0</p></li>
@@ -934,10 +933,31 @@ aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answers:</strong></p>
-<p>The answer is <code>equal to</code>.</p>
-<p>Note that we can just re-scale our weights accordingly. Any model we
-can get with <span class="math inline">m_1</span> we can also get with
-<span class="math inline">m_2</span> (and vice versa).</p>
+<p>The answer is equal to.</p>
+<p>Because we can simply adjust the weights in the opposite way that we
+rescale the one-hot columns, any model obtainable with the original
+encoding can also be obtained with the rescaled encoding. This
+guarantees that the training loss remains unchanged.</p>
+<p>When one-hot encoding is used, each category is represented by a
+column that typically contains only 0s and 1s. Rescaling these columns
+means multiplying the 1s by a constant (for example, turning 1 into 2 or
+3). However, if we also adjust the corresponding weights in the model by
+dividing by that same constant, the product of the rescaled column value
+and its weight remains the same. Since the model’s predictions are based
+on these products, the predictions will not change, and as a result, the
+average squared loss on the training data will also remain
+unchanged.</p>
+<p>Imagine a categorical variable “Color” with three levels: Red, Green,
+and Blue. We one-hot encode this variable into three columns. For an
+observation: - If the color is Red, the encoded values might be: Red =
+1, Green = 0, Blue = 0.</p>
+<p>Now, suppose we decide to multiply the column for Red by 2. The new
+value for a Red observation becomes 2 instead of 1. To keep the
+prediction the same, we can simply use half the weight for this column
+in the model. This inverse adjustment ensures that the final product
+(column value multiplied by weight) remains unchanged. Thus, the model’s
+prediction and the average squared loss on the training data stay the
+same.</p>
 </div>
 </div>
 </div>
@@ -969,43 +989,10 @@ aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answers:</strong></p>
-<p>The answer is <code>3</code>.</p>
+<p>The answer is 3.</p>
 <p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
 is a linear dependence relationship, meaning that one of the columns is
 redundant and that the rank of the new design matrix is 3.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-4.3">Problem 4.3</h3>
-<p>Suppose we divide our sampling frame into three clusters of people,
-numbered 1, 2, and 3. After we survey people, along with our survey
-results, we save their cluster number as a new feature in our design
-matrix. Before training a model, what should we do with the cluster
-column? (Note: This part is independent of parts a and b.)</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Leave as is</p></li>
-<li><p><input type="radio" disabled="" /> One-hot encode it</p></li>
-<li><p><input type="radio" disabled="" /> Normalize it</p></li>
-<li><p><input type="radio" disabled="" /> Use bag of words</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_3" class="accordion-collapse collapse"
-aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The cluster number is a categorical variable, so it should be one-hot
-encoded.</p>
 </div>
 </div>
 </div>
@@ -1043,13 +1030,14 @@ array:</p>
 <p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
 to the following array:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
-<p>Fill in the blanks: Given the above information, we can conclude that
+<p>Given the above information, we can conclude that
 <code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
 <code>"low"</code>, <strong>(b)</strong> value(s) equal to
 <code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
 <code>"high"</code>. <em>(Note: You should write one positive integer in
 each box such that the numbers add up to 8.)</em></p>
-<p>What goes in the blanks?</p>
+<p>What are (a), (b), and (c)? Give you answers as positive
+integers.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5">
@@ -1089,18 +1077,20 @@ being <code>"high"</code> must therefore be <span class="math inline">8
 <!-- Regression Question -->
 <p>Reggie and Essie are given a dataset of real features <span
 class="math inline">x_i \in \mathbb{R}</span> and observations <span
-class="math inline">y_i</span>. Essie proposes the following linear
-prediction rule: <span class="math display">H_1(\alpha_0,\alpha_1) =
-\alpha_0 + \alpha_1 x_i.</span> and Reggie proposes to use <span
-class="math inline">v_i=(x_i)^2</span> and the prediction rule <span
-class="math display">H_2(\gamma_0,\gamma_1) = \gamma_0 + \gamma_1
-v_i.</span></p>
+class="math inline">y_i</span>. Essie proposes the following hypothesis
+function: <span class="math display">F(x_i) = \alpha_0 + \alpha_1
+x_i</span> and Reggie proposes to the following linear prediction rule:
+<span class="math display">G(x_i) = \gamma_0 + \gamma_1 x_i^2</span></p>
 <p><br></p>
 <h3 id="problem-6.1">Problem 6.1</h3>
-<p>Give an example of a dataset <span
-class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum
-MSE<span class="math inline">(H_2) &lt;</span> minimum MSE<span
-class="math inline">(H_1)</span>. Explain.</p>
+<p>Let MMSE<span class="math inline">(F)</span> be the minimum value of
+mean squared error that <span class="math inline">F</span> achieves on a
+given dataset, and let MMSE<span class="math inline">(G)</span> be the
+minimum value of mean squared error that <span
+class="math inline">G</span> achieves on a given dataset. Give an
+example of a dataset <span class="math inline">(x_1, y_1), (x_2, y_2),
+…, (x_n, y_n)</span> for which MMSE<span class="math inline">(F)</span>
+&gt; MMSE<span class="math inline">(G)</span>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_1">
@@ -1114,8 +1104,8 @@ aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>Example: If the datapoints follow a quadratic form <span class="math inline">y_i=x_i^2</span> for all <span class="math inline">i</span>, then the <span class="math inline">H_2</span> prediction rule will achieve a zero error
-while <span class="math inline">H_1&gt;0</span> since the data do not
+<p>Example: If the datapoints follow a quadratic form <span class="math inline">y_i=x_i^2</span> for all <span class="math inline">i</span>, then the <span class="math inline">F</span> prediction rule will achieve a zero error
+while <span class="math inline">G&gt;0</span> since the data do not
 follow a linear form.</p>
 </div>
 </div>
@@ -1123,10 +1113,14 @@ follow a linear form.</p>
 </div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
-<p>Give an example of a dataset <span
-class="math inline">\{(x_i,y_i)\}_{i=1}^n</span> for which minimum
-MSE<span class="math inline">(H_2) =</span> minimum MSE<span
-class="math inline">(H_1)</span>. Explain.</p>
+<p>Let MMSE<span class="math inline">(F)</span> be the minimum value of
+mean squared error that <span class="math inline">F</span> achieves on a
+given dataset, and let MMSE<span class="math inline">(G)</span> be the
+minimum value of mean squared error that <span
+class="math inline">G</span> achieves on a given dataset. Give an
+example of a dataset <span class="math inline">(x_1, y_1), (x_2, y_2),
+…, (x_n, y_n)</span> for which MMSE<span class="math inline">(F)</span>
+= MMSE<span class="math inline">(G)</span>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_2">
@@ -1153,18 +1147,13 @@ will the MSE.</p>
 </div>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
-<p>A new feature <span class="math inline">z</span> has been added to
-the dataset.</p>
-<p>Essie proposes a linear regression model using two predictor
-variables <span class="math inline">x,z</span> as <span
-class="math display">H_3(w_0,w_1,w_2) = w_0 + w_1 x_i +w_2
-z_i.</span></p>
-<p>Explain if the following statement is <strong>True or False</strong>
-(prove or provide counter-example).</p>
-<p>Reggie claims that having more features will lead to a smaller error,
-therefore the following prediction rule will give a smaller MSE: <span
-class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0
-+ \alpha_1 x_i +\alpha_2 z_i + \alpha_3 (2x_i-z_i)</span></p>
+<p>Reggie adds a new feature <span class="math inline">x^{(2)}</span>,
+to his dataset and creates two new hypothesis functions, J and K: <span
+class="math display">J(\vec x_i) = w_0 + w_1 x_i^{(1)} + w_2
+x_i^{(2)}</span> <span class="math display">K(\vec x_i) = \beta_0 +
+\beta_1 x_i^{(1)} + \beta_2 x_i^{(2)} + \beta_3 (2 x_i^{(1)} -
+x_i^{(2)})</span> Reggie argues that having more features is better, so
+MMSE(K) &lt; MMSE(J). Is Reggie correct? Why or why not?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_3">
@@ -1178,15 +1167,13 @@ aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math inline">H_4</span> can be rewritten as <span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) = \alpha_0
-+ (\alpha_1+2\alpha_3) x_i +(\alpha_2 - \alpha_3)z_i</span> By setting
-<span class="math inline">\tilde{\alpha}_1=\alpha_1+2\alpha_3</span> and
-<span class="math inline">\tilde{\alpha_2}= \alpha_2 - \alpha_3</span>
-then</p>
-<p><span class="math display">H_4(\alpha_0,\alpha_1,\alpha_2,\alpha_3) =
-H_4(\alpha_0,\tilde{\alpha}_1,\tilde{\alpha}_2) = \alpha_0 +
-\tilde{\alpha_1} x_i +\tilde{\alpha}_2 z_i</span></p>
-<p>Thus <span class="math inline">H_4</span> and <span class="math inline">H_3</span> have the same normal equations and
+<p><span class="math inline">K(\vec x_i)</span> can be rewritten as
+<span class="math display">K(\vec x_i) = \beta_0 + (\beta_1+2\beta_3)
+x_i^{(1)} +(\beta_2 - \beta_3)x_i^{(2)}</span> By setting <span class="math inline">\tilde{\beta}_1=\beta_1+2\beta_3</span> and <span class="math inline">\tilde{\beta_2}= \beta_2 - \beta_3</span> then</p>
+<p><span class="math display">K(\vec x_i) =
+K(\beta_0,\tilde{\beta}_1,\tilde{\beta}_2) = \beta_0 + \tilde{\beta_1}
+x_i^{(1)} +\tilde{\beta}_2 x_i^{(2)}</span></p>
+<p>Thus <span class="math inline">J</span> and <span class="math inline">K</span> have the same normal equations and
 therefore the same minimum MSE.</p>
 </div>
 </div>
@@ -1205,18 +1192,20 @@ shown above to select the value that is <strong>closest</strong> to the
 fitted model weights. If it is not possible to determine the model
 weight, select “Not enough info”. For the models below:</p>
 <ul>
-<li>The notation <code>boot</code> refers to the number of boots
-sold.</li>
-<li>The notation <code>sandal</code> refers to the number of sandals
-sold.</li>
-<li><code>summer=1</code> is a column with value 1 if the month is
-between March (03) and August (08), inclusive.</li>
-<li><code>winter=1</code> is a column with value 1 if the month is
-between September (09) and February (02), inclusive.</li>
+<li>The notation <span class="math inline">\text{boot}</span> refers to
+the number of boots sold.</li>
+<li>The notation <span class="math inline">\text{sandal}</span> refers
+to the number of sandals sold.</li>
+<li><span class="math inline">\text{summer}=1</span> is a column with
+value 1 if the month is between March (03) and August (08),
+inclusive.</li>
+<li><span class="math inline">\text{winter}=1</span> is a column with
+value 1 if the month is between September (09) and February (02),
+inclusive.</li>
 </ul>
 <p><br></p>
 <h3 id="problem-7.1">Problem 7.1</h3>
-<p><span class="math inline">\text{boot}_i = w_0</span></p>
+<p><span class="math inline">\text{predicted boot}_i = w_0</span></p>
 <p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> 0</p></li>
@@ -1237,7 +1226,11 @@ aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer:</strong> 50</p>
+<p><strong>Answer:</strong> <span class="math inline">w_0 =
+50</span></p>
+<p>The model predicts a constant value for boots. The intercept <span class="math inline">w_0</span> represents the average boots sold across
+all months. Since the boot count plot shows data points centered around
+50, this is the best estimate.</p>
 </div>
 </div>
 </div>
@@ -1245,7 +1238,7 @@ aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
-<p><span class="math inline">\text{boot}_i = w_0 + w_1 \cdot
+<p><span class="math inline">\text{predicted boot}_i = w_0 + w_1 \cdot
 \text{sandals}_i</span></p>
 <p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
@@ -1279,7 +1272,17 @@ aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer:</strong></p>
 <p><span class="math inline">w_0</span>: 100</p>
+<p>The intercept <span class="math inline">w_0</span> represents the
+predicted boot sales when sandal sales are zero. Since the boot plot
+shows a baseline of ~100 units during months with minimal sandal sales
+(e.g., winter), this justifies <span class="math inline">w_0 =
+100</span></p>
 <p><span class="math inline">w_1</span>: -1</p>
+<p>The coefficient <span class="math inline">w_1 = −1</span> indicates
+an inverse relationship: for every additional sandal sold, boot sales
+decrease by 1 unit. This aligns with seasonal trends (e.g., sandals
+dominate in summer, boots in winter), and the plots likely show a
+consistent negative slope of -1 between the variables.</p>
 </div>
 </div>
 </div>
@@ -1287,7 +1290,7 @@ aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
-<p><span class="math inline">\text{boot}_i  = w_0 + w_1 \cdot
+<p><span class="math inline">\text{predicted boot}_i  = w_0 + w_1 \cdot
 (\text{summer=1})_i</span></p>
 <p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
@@ -1322,7 +1325,14 @@ aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer:</strong></p>
 <p><span class="math inline">w_0</span>: 100</p>
+<p>The intercept represents the average boot sales when <span class="math inline">\text{summer}=0</span> (winter months). Since the
+boot plot shows consistent sales of ~100 units during winter, this value
+is justified.</p>
 <p><span class="math inline">w_1</span>: -80</p>
+<p>The coefficient for <span class="math inline">\text{summer}=1</span>
+reflects the change in boot sales during summer. If boot sales drop
+sharply by ~80 units in summer (e.g., from 100 in winter to 20 in
+summer), this negative offset matches the seasonal trend.</p>
 </div>
 </div>
 </div>
@@ -1330,8 +1340,8 @@ aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.4">Problem 7.4</h3>
-<p><span class="math inline">\text{sandal}_i  = w_0 + w_1 \cdot
-(\text{summer=1})_i</span></p>
+<p><span class="math inline">\text{predicted sandal}_i  = w_0 + w_1
+\cdot (\text{summer=1})_i</span></p>
 <p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -20</p></li>
@@ -1365,7 +1375,14 @@ aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer:</strong></p>
 <p><span class="math inline">w_0</span>: 20</p>
+<p>The intercept represents baseline sandal sales when <span class="math inline">\text{summer}=0</span> (winter months). Since the
+sandal plot shows consistent sales of ~20 units during winter, this
+value aligns with the seasonal low.</p>
 <p><span class="math inline">w_1</span>: 80</p>
+<p>The coefficient reflects the increase in sandal sales during summer.
+If sales rise sharply by ~80 units in summer (e.g., from 20 in winter to
+100 in summer), this positive seasonal effect matches the trend shown in
+the visualization.</p>
 </div>
 </div>
 </div>
@@ -1373,8 +1390,8 @@ aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.5">Problem 7.5</h3>
-<p><span class="math inline">\text{sandal}_i  = w_0 + w_1 \cdot
-(\text{summer=1})_i + w_2 \cdot (\text{winter=1})_i</span></p>
+<p><span class="math inline">\text{predicted sandal}_i  = w_0 + w_1
+\cdot (\text{summer=1})_i + w_2 \cdot (\text{winter=1})_i</span></p>
 <p><span class="math inline">w_0</span>:</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> -20</p></li>
@@ -1419,6 +1436,14 @@ aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
 <p><span class="math inline">w_0</span>: Not enough info</p>
 <p><span class="math inline">w_1</span>: Not enough info</p>
 <p><span class="math inline">w_2</span>: Not enough info</p>
+<p>The model includes both summer and winter dummy variables, which
+likely cover all months. This creates perfect multicollinearity (since
+summer + winter = 1 always). The intercept and coefficients cannot be
+uniquely determined without a reference category or additional
+constraints. For example, increasing the intercept and decreasing both
+seasonal coefficients equally would yield the same predictions. The
+visualizations do not provide enough information to resolve this
+ambiguity.</p>
 </div>
 </div>
 </div>
