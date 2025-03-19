@@ -46,10 +46,10 @@ parameters of both prediction rules will be the same, as will the MSE.
 # BEGIN SUBPROB
 
 
-Reggie adds a new feature $x^{(2)}$, to his dataset and creates two new hypothesis functions, J and K:
+Reggie adds a new feature $x^{(2)}$, to his dataset and creates two new hypothesis functions, $J$ and $K$:
 $$J(\vec x_i) = w_0 + w_1 x_i^{(1)} + w_2 x_i^{(2)}$$
 $$K(\vec x_i) = \beta_0 + \beta_1 x_i^{(1)} + \beta_2 x_i^{(2)} + \beta_3 (2 x_i^{(1)} - x_i^{(2)})$$
-Reggie argues that having more features is better, so MMSE(K) < MMSE(J). Is Reggie correct? Why or why not?
+Reggie argues that having more features is better, so MMSE($K$) < MMSE($J$). Is Reggie correct? Why or why not?
 
 # BEGIN SOLUTION
 

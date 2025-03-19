@@ -1,4 +1,4 @@
-title: "Feature Engineering and Generalization"
+title: "Feature Engineering and Pipelines"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -32,8 +32,8 @@ problems:
   - disc09/fa23-final-q09 # q1
   - disc09/q09
   - disc09/sp22-final-q10 # q3
+  - disc10/wi23-final-q09
   - disc10/su20-midterm-q04 # q5
-  - disc10/wi23-final-q09 # q6
   - disc09/wi23-final-q04 # q4
   - disc09/sp24-final-q10 # q2
 

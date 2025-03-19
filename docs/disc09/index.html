@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Feature Engineering and Generalization</title>
+  <title>Feature Engineering and Pipelines</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Feature Engineering and Generalization</h1>
+<h1 class="title">Feature Engineering and Pipelines</h1>
 </header>
 <p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -549,11 +549,6 @@ because one of the brand categories can be predicted by the others
 brands), dropping the first category avoids introducing perfect
 multicollinearity. By not dropping a category, we increase the rank by
 1, but this still maintains linear dependence among the columns.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 80%.</p>
 </div>
 </div>
 </div>
@@ -584,11 +579,6 @@ Rank of <span class="math inline">X</span>: <strong>2</strong></p>
 encoding for the brands or product types. The intercept and price are
 linearly independent, resulting in both the number of columns and the
 rank being 2.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 82%.</p>
 </div>
 </div>
 </div>
@@ -624,11 +614,6 @@ columns, reducing the rank to 7.</p>
 <p>This happens because if we have 6 product types, one of the columns
 can always be written as a linear combination of the other five. Thus,
 we lose one degree of freedom in the matrix, and the rank is 7.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 81%.</p>
 </div>
 </div>
 </div>
@@ -682,11 +667,6 @@ category, allowing the model to adjust its predictions as if it had an
 intercept term. The sum of the indicator variables in such a setup
 equals 1 for every row, creating a similar effect to an intercept, which
 is why residuals may sum to zero in these cases.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 60%.</p>
 </div>
 </div>
 </div>
@@ -898,108 +878,6 @@ Billy’s prediction are the same, other than the coefficients on
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
-<p>Suppose we have one qualitative variable that that we convert to
-numerical values using one- hot encoding. We’ve shown the first four
-rows of the resulting design matrix below:</p>
-<center><img src='../assets/images/disc10/matrix.png' width=400></center>
-<p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
-<p>Say we train a linear model <span class="math inline">m_1</span> on
-these data. Then, we replace all of the 1 values in column
-<strong>a</strong> with 3’s and all of the 1 values in column
-<strong>b</strong> with 2’s and train a new linear model <span
-class="math inline">m_2</span>. Neither <span
-class="math inline">m_1</span> nor <span class="math inline">m_2</span>
-have an intercept term. On the training data, the average squared loss
-for <span class="math inline">m_1</span> will be ________ that of <span
-class="math inline">m_2</span>.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> greater than</p></li>
-<li><p><input type="radio" disabled="" /> less than</p></li>
-<li><p><input type="radio" disabled="" /> equal to</p></li>
-<li><p><input type="radio" disabled="" /> impossible to tell</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The answer is equal to.</p>
-<p>Because we can simply adjust the weights in the opposite way that we
-rescale the one-hot columns, any model obtainable with the original
-encoding can also be obtained with the rescaled encoding. This
-guarantees that the training loss remains unchanged.</p>
-<p>When one-hot encoding is used, each category is represented by a
-column that typically contains only 0s and 1s. Rescaling these columns
-means multiplying the 1s by a constant (for example, turning 1 into 2 or
-3). However, if we also adjust the corresponding weights in the model by
-dividing by that same constant, the product of the rescaled column value
-and its weight remains the same. Since the model’s predictions are based
-on these products, the predictions will not change, and as a result, the
-average squared loss on the training data will also remain
-unchanged.</p>
-<p>Imagine a categorical variable “Color” with three levels: Red, Green,
-and Blue. We one-hot encode this variable into three columns. For an
-observation: - If the color is Red, the encoded values might be: Red =
-1, Green = 0, Blue = 0.</p>
-<p>Now, suppose we decide to multiply the column for Red by 2. The new
-value for a Red observation becomes 2 instead of 1. To keep the
-prediction the same, we can simply use half the weight for this column
-in the model. This inverse adjustment ensures that the final product
-(column value multiplied by weight) remains unchanged. Thus, the model’s
-prediction and the average squared loss on the training data stay the
-same.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
-<p>To account for the intercept term, we add a column of all ones to our
-design matrix from part a. That is, the resulting design matrix has four
-columns: <strong>a</strong> with 3’s instead of 1’s, <strong>b</strong>
-with 2’s instead of 1’s, <strong>c</strong>, and a column of all ones.
-What is the rank of the new design matrix with these four columns?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 2</p></li>
-<li><p><input type="radio" disabled="" /> 3</p></li>
-<li><p><input type="radio" disabled="" /> 4</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The answer is 3.</p>
-<p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
-is a linear dependence relationship, meaning that one of the columns is
-redundant and that the rank of the new design matrix is 3.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-5">Problem 5</h2>
 <p>One piece of information that may be useful as a feature is the
 proportion of SAT test takers in a state in a given year that qualify
 for free lunches in school. The Series <code>lunch_props</code> contains
@@ -1040,13 +918,13 @@ each box such that the numbers add up to 8.)</em></p>
 integers.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
+<h2 class="accordion-header" id="heading4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse5" class="accordion-collapse collapse"
-aria-labelledby="heading5" data-bs-parent="#accordionExample">
+<div id="collapse4" class="accordion-collapse collapse"
+aria-labelledby="heading4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1072,6 +950,108 @@ being <code>"high"</code> must therefore be <span class="math inline">8
 </div>
 </div>
 </div>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Suppose we have one qualitative variable that that we convert to
+numerical values using one- hot encoding. We’ve shown the first four
+rows of the resulting design matrix below:</p>
+<center><img src='../assets/images/disc10/matrix.png' width=400></center>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>Say we train a linear model <span class="math inline">m_1</span> on
+these data. Then, we replace all of the 1 values in column
+<strong>a</strong> with 3’s and all of the 1 values in column
+<strong>b</strong> with 2’s and train a new linear model <span
+class="math inline">m_2</span>. Neither <span
+class="math inline">m_1</span> nor <span class="math inline">m_2</span>
+have an intercept term. On the training data, the average squared loss
+for <span class="math inline">m_1</span> will be ________ that of <span
+class="math inline">m_2</span>.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> greater than</p></li>
+<li><p><input type="radio" disabled="" /> less than</p></li>
+<li><p><input type="radio" disabled="" /> equal to</p></li>
+<li><p><input type="radio" disabled="" /> impossible to tell</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>The answer is equal to.</p>
+<p>Because we can simply adjust the weights in the opposite way that we
+rescale the one-hot columns, any model obtainable with the original
+encoding can also be obtained with the rescaled encoding. This
+guarantees that the training loss remains unchanged.</p>
+<p>When one-hot encoding is used, each category is represented by a
+column that typically contains only 0s and 1s. Rescaling these columns
+means multiplying the 1s by a constant (for example, turning 1 into 2 or
+3). However, if we also adjust the corresponding weights in the model by
+dividing by that same constant, the product of the rescaled column value
+and its weight remains the same. Since the model’s predictions are based
+on these products, the predictions will not change, and as a result, the
+average squared loss on the training data will also remain
+unchanged.</p>
+<p>For example, let us say we have categorical variable “Color” with
+three levels: Red, Green, and Blue. We one-hot encode this variable into
+three columns. For an observation: - If the color is Red, the encoded
+values might be: Red = 1, Green = 0, Blue = 0.</p>
+<p>Now, suppose we decide to multiply the column for Red by 2. The new
+value for a Red observation becomes 2 instead of 1. To keep the
+prediction the same, we can simply use half the weight for this column
+in the model. This inverse adjustment ensures that the final product
+(column value multiplied by weight) remains unchanged. Thus, the model’s
+prediction and the average squared loss on the training data stay the
+same.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>To account for the intercept term, we add a column of all ones to our
+design matrix from part a. That is, the resulting design matrix has four
+columns: <strong>a</strong> with 3’s instead of 1’s, <strong>b</strong>
+with 2’s instead of 1’s, <strong>c</strong>, and a column of all ones.
+What is the rank of the new design matrix with these four columns?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 1</p></li>
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>The answer is 3.</p>
+<p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
+is a linear dependence relationship, meaning that one of the columns is
+redundant and that the rank of the new design matrix is 3.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
 <!-- Regression Question -->
@@ -1148,12 +1128,14 @@ will the MSE.</p>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
 <p>Reggie adds a new feature <span class="math inline">x^{(2)}</span>,
-to his dataset and creates two new hypothesis functions, J and K: <span
-class="math display">J(\vec x_i) = w_0 + w_1 x_i^{(1)} + w_2
+to his dataset and creates two new hypothesis functions, <span
+class="math inline">J</span> and <span class="math inline">K</span>:
+<span class="math display">J(\vec x_i) = w_0 + w_1 x_i^{(1)} + w_2
 x_i^{(2)}</span> <span class="math display">K(\vec x_i) = \beta_0 +
 \beta_1 x_i^{(1)} + \beta_2 x_i^{(2)} + \beta_3 (2 x_i^{(1)} -
 x_i^{(2)})</span> Reggie argues that having more features is better, so
-MMSE(K) &lt; MMSE(J). Is Reggie correct? Why or why not?</p>
+MMSE(<span class="math inline">K</span>) &lt; MMSE(<span
+class="math inline">J</span>). Is Reggie correct? Why or why not?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_3">
@@ -1281,8 +1263,8 @@ shows a baseline of ~100 units during months with minimal sandal sales
 <p>The coefficient <span class="math inline">w_1 = −1</span> indicates
 an inverse relationship: for every additional sandal sold, boot sales
 decrease by 1 unit. This aligns with seasonal trends (e.g., sandals
-dominate in summer, boots in winter), and the plots likely show a
-consistent negative slope of -1 between the variables.</p>
+dominate in summer, boots in winter), and the plots show a consistent
+negative slope of -1 between the variables.</p>
 </div>
 </div>
 </div>
@@ -1331,7 +1313,7 @@ is justified.</p>
 <p><span class="math inline">w_1</span>: -80</p>
 <p>The coefficient for <span class="math inline">\text{summer}=1</span>
 reflects the change in boot sales during summer. If boot sales drop
-sharply by ~80 units in summer (e.g., from 100 in winter to 20 in
+sharply by ~80 units in summer (e.g., from 100 in winter to 20 in the
 summer), this negative offset matches the seasonal trend.</p>
 </div>
 </div>
@@ -1436,9 +1418,8 @@ aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
 <p><span class="math inline">w_0</span>: Not enough info</p>
 <p><span class="math inline">w_1</span>: Not enough info</p>
 <p><span class="math inline">w_2</span>: Not enough info</p>
-<p>The model includes both summer and winter dummy variables, which
-likely cover all months. This creates perfect multicollinearity (since
-summer + winter = 1 always). The intercept and coefficients cannot be
+<p>The model includes both () and () variables, which cover all months.
+This creates multicollinearity. The intercept and coefficients cannot be
 uniquely determined without a reference category or additional
 constraints. For example, increasing the intercept and decreasing both
 seasonal coefficients equally would yield the same predictions. The

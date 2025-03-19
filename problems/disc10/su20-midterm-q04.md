@@ -23,7 +23,7 @@ Because we can simply adjust the weights in the opposite way that we rescale the
 
 When one-hot encoding is used, each category is represented by a column that typically contains only 0s and 1s. Rescaling these columns means multiplying the 1s by a constant (for example, turning 1 into 2 or 3). However, if we also adjust the corresponding weights in the model by dividing by that same constant, the product of the rescaled column value and its weight remains the same. Since the model’s predictions are based on these products, the predictions will not change, and as a result, the average squared loss on the training data will also remain unchanged.
 
-Imagine a categorical variable "Color" with three levels: Red, Green, and Blue. We one-hot encode this variable into three columns. For an observation:
+For example, let us say we have categorical variable "Color" with three levels: Red, Green, and Blue. We one-hot encode this variable into three columns. For an observation:
 - If the color is Red, the encoded values might be: Red = 1, Green = 0, Blue = 0.
 
 Now, suppose we decide to multiply the column for Red by 2. The new value for a Red observation becomes 2 instead of 1. To keep the prediction the same, we can simply use half the weight for this column in the model. This inverse adjustment ensures that the final product (column value multiplied by weight) remains unchanged. Thus, the model's prediction and the average squared loss on the training data stay the same.
