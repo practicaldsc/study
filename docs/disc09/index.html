@@ -181,117 +181,6 @@ negative, or 0), and one for <span class="math inline">w_2^*</span>
 (\text{meat=beef})_i + w_2 \cdot (\text{meat=chicken})_i + w_3 \cdot
 (\text{meat=fish})_i</span></li>
 </ol>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_1" class="accordion-collapse collapse"
-aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Model i. <span class="math inline">H(x_i) =
-w_0</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive</p>
-<p>If <span class="math inline">H(x_i) = w_0</span>, then <span class="math inline">w_0^*</span> will be the mean <code>'total'</code>
-value in our dataset, and since all of our observed <code>'total'</code>
-values are positive, their mean – and hence, <span class="math inline">w_0^*</span> – must also be positive.</p>
-<p><br/></p>
-<p><strong>Model ii. <span class="math inline">H(x_i) = w_0 + w_1 \cdot
-\text{veg}_i</span></strong> <br/><strong>Answer</strong>: <span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be positive</p>
-<p>Of the three graphs provided, the middle one shows the relationship
-between <code>'total'</code> and <code>'veg'</code>. We see that if we
-were to draw a line of best fit, the <span class="math inline">y</span>-intercept (<span class="math inline">w_0^*</span>) would be positive, and so would the
-slope (<span class="math inline">w_1^*</span>).</p>
-<p><br/></p>
-<p><strong>Model iii. <span class="math inline">H(x_i) = w_0 + w_1 \cdot
-\text{(meat=chicken)}_i</span></strong> <br/><strong>Answer</strong>:
-<span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative</p>
-<p>Here’s the key to solving this part (and the following few): the
-input <span class="math inline">x</span> has a <code>'meat'</code> of
-<code>'chicken'</code>, <span class="math inline">H(x_i) = w_0 +
-w_1</span>. If the input <span class="math inline">x</span> has a
-<code>'meat'</code> of something other than <code>'chicken'</code>, then
-<span class="math inline">H(x_i) = w_0</span>. So:</p>
-<ul>
-<li><span class="math inline">w_0^*</span>, the optimal <span class="math inline">w_0</span>, should be a constant
-<code>'total'</code> prediction that makes sense for non-chicken inputs,
-and</li>
-<li><span class="math inline">w_1^*</span>, the optimal <span class="math inline">w_1</span>, should be a number we add to <span class="math inline">w_0^*</span> to adjust the constant
-<code>'total'</code> prediction for chickens.</li>
-</ul>
-<p>For all three <code>'meat'</code> categories, the average observed
-<code>'total'</code> value is positive, so it would make sense that for
-non-chickens, the constant prediction <span class="math inline">w_0^*</span> is positive. Based on the third graph,
-it seems that <code>'chicken'</code>s tend to have a lower
-<code>'total'</code> value on average than the other two categories, so
-if the input <span class="math inline">x</span> is a
-<code>'chicken'</code> (that is, if <span class="math inline">\text{meat=chicken} = 1</span>), then the constant
-<code>'total'</code> prediction should be less than the constant
-<code>'total'</code> prediction for other <code>'meat'</code>s. Since we
-want <code>w_0^* + w_1^*</code> to be less than <span class="math inline">w_0^*</span>, <span class="math inline">w_1^*</span>
-must then be negative.</p>
-<p><br/></p>
-<p><strong>Model iv. <span class="math inline">H(\vec x_i) = w_0 + w_1
-\cdot \text{(meat=beef)}_i + w_2 \cdot
-\text{(meat=chicken)}_i</span></strong> <br/><strong>Answer</strong>:
-<span class="math inline">w_0^*</span> must be positive; <span class="math inline">w_1^*</span> must be negative; <span class="math inline">w_2^*</span> must be negative</p>
-<p><span class="math inline">H(\vec x_i)</span> makes one of three
-predictions:</p>
-<ul>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'fish'</code>, then it predicts <span class="math inline">w_0</span>.</li>
-</ul>
-<p>Think of <span class="math inline">w_1^*</span> and <span class="math inline">w_2^*</span> – the optimal <span class="math inline">w_1</span> and <span class="math inline">w_2</span>
-– as being adjustments to the mean <code>'total'</code> amount for
-<code>'fish'</code>. Per the third graph, <code>'fish'</code> have the
-highest mean <code>'total'</code> amount of the three
-<code>'meat'</code> types, so <span class="math inline">w_0^*</span>
-should be positive while <span class="math inline">w_1^*</span> and
-<span class="math inline">w_2^*</span> should be negative.</p>
-<p><br/></p>
-<p><strong>Model v. <span class="math inline">H(\vec x_i) = w_0 + w_1
-\cdot \text{(meat=beef)}_i + w_2 \cdot \text{(meat=chicken)}_i + w_3
-\cdot \text{(meat=fish)}_i</span></strong> <br/><strong>Answer</strong>:
-Not enough information for any of the four coefficients!</p>
-<p>Like in the previous part, <span class="math inline">H(\vec
-x_i)</span> makes one of three predictions:</p>
-<ul>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'chicken'</code>, then it predicts <span class="math inline">w_0 + w_2</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'beef'</code>, then it predicts <span class="math inline">w_0 + w_1</span>.</li>
-<li>If <span class="math inline">x</span> has a <code>'meat'</code>
-value of <code>'fish'</code>, then it predicts <span class="math inline">w_0 + w_3</span>.</li>
-</ul>
-<p>Since the mean minimizes mean squared error for the constant model,
-we’d expect <span class="math inline">w_0^* + w_2^*</span> to be the
-mean <code>'total'</code> for <code>'chicken'</code>, <span class="math inline">w_0^* + w_1^*</span> to be the mean
-<code>'total'</code> for <code>'beef'</code>, and <span class="math inline">w_0^* + w_3^*</span> to be the mean total for
-<code>'fish'</code>. The issue is that there are infinitely many
-combinations of <span class="math inline">w_0^*, w_1^*, w_2^*,
-w_3^*</span> that allow this to happen!</p>
-<p>Pretend, for example, that:</p>
-<ul>
-<li>The mean <code>'total'</code> for <code>'chicken</code> is 8.</li>
-<li>The mean <code>'total'</code> for <code>'beef'</code> is 12.</li>
-<li>The mean <code>'total'</code> for <code>'fish'</code> is 15.</li>
-</ul>
-<p>Then, <span class="math inline">w_0^* = -10, w_1^* = 22, w_2^* = 18,
-w_3^* = 25</span> and <span class="math inline">w_0^* = 20, w_1^* = -8,
-w_2^* = -12, w_3^* = -5</span> work, but the signs of the coefficients
-are inconsistent. As such, it’s impossible to tell!</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Suppose we fit the model <span class="math inline">H(\vec x_i) = w_0
@@ -309,46 +198,6 @@ point in our dataset?</p>
 <li><p><input type="radio" disabled="" /> 22</p></li>
 <li><p><input type="radio" disabled="" /> 25</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_2" class="accordion-collapse collapse"
-aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 10</p>
-<p>Plugging in our weights <span class="math inline">\vec{w}^*</span> to
-the model <span class="math inline">H(\vec x_i)</span> and filling in
-data from the row</p>
-<table>
-<thead>
-<tr>
-<th>veg</th>
-<th>meat</th>
-<th>total</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>beef</td>
-<td>13</td>
-</tr>
-</tbody>
-</table>
-<p><br/></p>
-<p>gives us <span class="math inline">-3 + 5(1) + 8(1) + 12(0) =
-10</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>Following the same model <span class="math inline">H(\vec x_i)</span>
@@ -365,28 +214,6 @@ loss?</p>
 <li><p><input type="radio" disabled="" /> 25</p></li>
 <li><p><input type="radio" disabled="" /> 169</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading1_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse1_3" class="accordion-collapse collapse"
-aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 25</p>
-<p>The squared loss for a single point is <span class="math inline">(\text{actual} - \text{predicted})^2</span>. Here,
-our actual <code>'total'</code> value is 19, and our predicted value
-<code>'total'</code> value is <span class="math inline">-3 + 5(3) + 8(0)
-+ 12(1) = -3 + 15 + 12 = 24</span>, so the squared loss is <span class="math inline">(19 - 24)^2 = (-5)^2 = 25</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -523,101 +350,16 @@ an example.</p>
 <p><strong>Model A</strong></p>
 <p>Number of columns in <span class="math inline">X</span>:<br />
 Rank of <span class="math inline">X</span>: <strong>21</strong></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>:
-<strong>22</strong></p>
-<p>Model A includes an intercept, the price feature, and a one-hot
-encoding of the 20 brands without dropping the first category. The
-intercept adds 1 column, the price adds 1 column, and the one-hot
-encoding for brands adds 20 columns. The rank is <strong>21</strong>
-because one of the brand categories can be predicted by the others
-(i.e., the columns are linearly dependent).</p>
-<p>The rank is 21 because when encoding categorical variables (such as
-brands), dropping the first category avoids introducing perfect
-multicollinearity. By not dropping a category, we increase the rank by
-1, but this still maintains linear dependence among the columns.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p><strong>Model B</strong></p>
 <p>Number of columns in <span class="math inline">X</span>:<br />
 Rank of <span class="math inline">X</span>:</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>:
-<strong>2</strong><br/>
-Rank of <span class="math inline">X</span>: <strong>2</strong></p>
-<p>Model B includes an intercept and the price feature, but no one-hot
-encoding for the brands or product types. The intercept and price are
-linearly independent, resulting in both the number of columns and the
-rank being 2.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p><strong>Model C</strong></p>
 <p>Number of columns in <span class="math inline">X</span>:<br />
 Rank of <span class="math inline">X</span>:</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse"
-aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>:</p>
-<p>Number of columns in <span class="math inline">X</span>:
-<strong>8</strong><br/>
-Rank of <span class="math inline">X</span>: <strong>7</strong></p>
-<p>Model C includes an intercept, the price feature, and a one-hot
-encoding of the 6 product types without dropping the first category. The
-intercept adds 1 column, the price adds 1 column, and the one-hot
-encoding for the product types adds 6 columns. However, one column is
-linearly dependent because we didn’t drop one of the one-hot encoded
-columns, reducing the rank to 7.</p>
-<p>This happens because if we have 6 product types, one of the columns
-can always be written as a linear combination of the other five. Thus,
-we lose one degree of freedom in the matrix, and the rank is 7.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
 <p>Which of the following models are <strong>NOT guaranteed</strong> to
@@ -632,45 +374,6 @@ among the data points in the training set.</em></p>
 <li><p><input type="checkbox" disabled="" /> Model D</p></li>
 <li><p><input type="checkbox" disabled="" /> Model E</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_4" class="accordion-collapse collapse"
-aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: Model D</p>
-<p>For residuals to sum to zero in a linear regression model, the design
-matrix must include either an intercept term (Models A - C) or
-equivalent redundancy in the encoded variables to act as a substitute
-for the intercept (Model E). Models that lack both an intercept and
-equivalent redundancy, such as Model D, are not guaranteed to have
-residuals sum to zero.</p>
-<p>For a linear model, the residual vector <span class="math inline">\vec{e}</span> is chosen such that it is orthogonal
-to the column space of the design matrix <span class="math inline">X</span>. If one of the columns of <span class="math inline">X</span> is a column of all ones (as in the case
-with an intercept term), it ensures that the sum of the residuals is
-zero. This is because the error vector <span class="math inline">\vec{e}</span> is orthogonal to the span of <span class="math inline">X</span>, and hence <span class="math inline">X^T
-\vec{e} = 0</span>. If there isn’t a column of all ones, but we can
-create such a column using a linear combination of the other columns in
-<span class="math inline">X</span>, the residuals will still sum to
-zero. Model D lacks this structure, so the residuals are not guaranteed
-to sum to zero.</p>
-<p>In contrast, one-hot encoding without dropping any category can
-behave like an intercept because it introduces a column for each
-category, allowing the model to adjust its predictions as if it had an
-intercept term. The sum of the indicator variables in such a setup
-equals 1 for every row, creating a similar effect to an intercept, which
-is why residuals may sum to zero in these cases.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -720,33 +423,6 @@ and <code>"speechiness"</code> only.</p></li>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">500000</span> <span class="co"># five hundred thousand</span></span></code></pre></div>
 <p>What is Model 2 (<code>lr_two</code>)’s training RMSE (square root of
 mean squared error)? Give your answer as an integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_1" class="accordion-collapse collapse"
-aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 100</p>
-<p>We are given that there are <span class="math inline">n=50</span>
-data points, and that the sum of squared errors <span class="math inline">\sum_{i = 1}^n (y_i - H(x_i))^2</span> is <span class="math inline">500{,}000</span>. Then:</p>
-<p><span class="math display">\begin{aligned}
-    \text{RMSE} &amp;= \sqrt{\frac{1}{n} \sum_{i = 1}^n (y_i -
-H(x_i))^2} \\
-    &amp;= \sqrt{\frac{1}{50} \cdot 500{,}000} \\
-    &amp;= \sqrt{10{,}000}
-    \\
-    &amp;= 100\end{aligned}</span></p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p>Now, suppose we fit two more linear models (with intercept terms) to
 the training data:</p>
@@ -774,32 +450,6 @@ include the already-quantitative features.</em></p>
 =</p>
 <p>number of one-hot encoded columns in Model 4
 (<code>lr_no_drop</code>) =</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_2" class="accordion-collapse collapse"
-aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 7 and 9</p>
-<p>There are 5 unique values of <code>"genre"</code> and 4 unique values
-of <code>"rec_label"</code>, so if we create a single one-hot encoded
-column for each one, there would be <span class="math inline">5 + 4 =
-9</span> one-hot encoded columns (which there are in
-<code>lr_no_drop</code>).</p>
-<p>If we drop one one-hot-encoded column per category, which is what
-<code>drop="first"</code> does, then we only have <span class="math inline">(5 - 1) + (4 - 1) = 7</span> one-hot encoded columns
-(which there are in <code>lr_drop</code>).</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
 <p>Recall, in Model 4 (<code>lr_no_drop</code>) we one-hot encoded
@@ -824,57 +474,6 @@ same <code>"first_month"</code> streams. What is the <strong>absolute
 difference</strong> between Daisy’s song’s <code>"danceability"</code>
 and Billy’s song’s <code>"danceability"</code>? Give your answer as a
 simplified fraction.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> <span class="math inline">\frac{1}{1000}</span></p>
-<p>“My favorite problem on the exam!" -Suraj</p>
-<p>Model 4 is made up of 11 features, i.e. 11 columns.</p>
-<ul>
-<li><p>4 of the columns correspond to the different values of
-<code>"rec_label"</code>. Since Daisy and Billy have the same
-<code>"rec_label"</code>, their values in these four columns are all the
-same.</p></li>
-<li><p>One of the columns corresponds to <code>"speechiness"</code>.
-Since Daisy’s song and Billy’s song have the same
-<code>"speechiness"</code>, their values in this column are the
-same.</p></li>
-<li><p>5 of the columns correspond to the different values of
-<code>"genre"</code>. Daisy is a <code>"Pop"</code> artist, so she has a
-1 in the <code>"genre_Pop"</code> column and a 0 in the other four
-<code>"genre_"</code> columns, and similarly Billy has a 1 in the
-<code>"genre_Country"</code> column and 0s in the others.</p></li>
-<li><p>One of the columns corresponds to <code>"danceability"</code>,
-and Daisy and Billy have different quantitative values in this
-column.</p></li>
-</ul>
-<p>Let <span class="math inline">d_1</span> and <span class="math inline">d_2</span>.</p>
-<p>The key is in recognizing that all features in Daisy’s prediction and
-Billy’s prediction are the same, other than the coefficients on
-<code>"genre_Pop"</code>, <code>"genre_Country"</code>, and
-<code>"danceability"</code>. Let’s let <span class="math inline">d_1</span> be Daisy’s song’s
-<code>"danceability"</code>, and let <span class="math inline">d_2</span> be Billy’s song’s
-<code>"danceability"</code>. Then:</p>
-<p><span class="math display">\begin{aligned}
-    2000 + 10^{6} \cdot d_1 = 1000 + 10^{6} \cdot d_2 \\
-    1000 &amp;= 10^{6} (d_2 - d_1) \\
-    \frac{1}{1000} &amp;= d_2 - d_1\end{aligned}</span></p>
-<p>Thus, the absolute difference between their songs’
-<code>"danceability"</code>s is <span class="math inline">\frac{1}{1000}</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -916,40 +515,6 @@ to the following array:</p>
 each box such that the numbers add up to 8.)</em></p>
 <p>What are (a), (b), and (c)? Give you answers as positive
 integers.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4" class="accordion-collapse collapse"
-aria-labelledby="heading4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer: </strong> 3, 1, 4</p>
-<p>The first column of the transformed array corresponds to the
-standardized one-hot-encoded <code>low</code> column. There are 3 values
-that are positive, which means there are 3 values that were originally
-<code>1</code> in that column pre-standardization. This means that 3 of
-the values in <code>lunch_props</code> were originally
-<code>"low"</code>.</p>
-<p>The second column of the transformed array corresponds to the
-standardized one-hot-encoded <code>med</code> column. There is only 1
-value in the transformed column that is positive, which means only 1 of
-the values in <code>lunch_props</code> was originally
-<code>"medium"</code>.</p>
-<p>The Series <code>lunch_props</code> has 8 values, 3 of which were
-identified as <code>"low"</code> in subpart 1, and 1 of which was
-identified as <code>"medium"</code> in subpart 2. The number of values
-being <code>"high"</code> must therefore be <span class="math inline">8
-- 3 - 1 = 4</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>Suppose we have one qualitative variable that that we convert to
@@ -973,49 +538,6 @@ class="math inline">m_2</span>.</p>
 <li><p><input type="radio" disabled="" /> equal to</p></li>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_1" class="accordion-collapse collapse"
-aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The answer is equal to.</p>
-<p>Because we can simply adjust the weights in the opposite way that we
-rescale the one-hot columns, any model obtainable with the original
-encoding can also be obtained with the rescaled encoding. This
-guarantees that the training loss remains unchanged.</p>
-<p>When one-hot encoding is used, each category is represented by a
-column that typically contains only 0s and 1s. Rescaling these columns
-means multiplying the 1s by a constant (for example, turning 1 into 2 or
-3). However, if we also adjust the corresponding weights in the model by
-dividing by that same constant, the product of the rescaled column value
-and its weight remains the same. Since the model’s predictions are based
-on these products, the predictions will not change, and as a result, the
-average squared loss on the training data will also remain
-unchanged.</p>
-<p>For example, let us say we have categorical variable “Color” with
-three levels: Red, Green, and Blue. We one-hot encode this variable into
-three columns. For an observation: - If the color is Red, the encoded
-values might be: Red = 1, Green = 0, Blue = 0.</p>
-<p>Now, suppose we decide to multiply the column for Red by 2. The new
-value for a Red observation becomes 2 instead of 1. To keep the
-prediction the same, we can simply use half the weight for this column
-in the model. This inverse adjustment ensures that the final product
-(column value multiplied by weight) remains unchanged. Thus, the model’s
-prediction and the average squared loss on the training data stay the
-same.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>To account for the intercept term, we add a column of all ones to our
@@ -1029,28 +551,6 @@ What is the rank of the new design matrix with these four columns?</p>
 <li><p><input type="radio" disabled="" /> 3</p></li>
 <li><p><input type="radio" disabled="" /> 4</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_2" class="accordion-collapse collapse"
-aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The answer is 3.</p>
-<p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
-is a linear dependence relationship, meaning that one of the columns is
-redundant and that the rank of the new design matrix is 3.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
@@ -1071,26 +571,6 @@ class="math inline">G</span> achieves on a given dataset. Give an
 example of a dataset <span class="math inline">(x_1, y_1), (x_2, y_2),
 …, (x_n, y_n)</span> for which MMSE<span class="math inline">(F)</span>
 &gt; MMSE<span class="math inline">(G)</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_1" class="accordion-collapse collapse"
-aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Example: If the datapoints follow a quadratic form <span class="math inline">y_i=x_i^2</span> for all <span class="math inline">i</span>, then the <span class="math inline">F</span> prediction rule will achieve a zero error
-while <span class="math inline">G&gt;0</span> since the data do not
-follow a linear form.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
 <p>Let MMSE<span class="math inline">(F)</span> be the minimum value of
@@ -1101,30 +581,6 @@ class="math inline">G</span> achieves on a given dataset. Give an
 example of a dataset <span class="math inline">(x_1, y_1), (x_2, y_2),
 …, (x_n, y_n)</span> for which MMSE<span class="math inline">(F)</span>
 = MMSE<span class="math inline">(G)</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_2" class="accordion-collapse collapse"
-aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Example 1: If the response variables are constant <span class="math inline">y_i=c</span> for all <span class="math inline">i</span>, then for both prediciton rules by setting
-<span class="math inline">\alpha_0=\gamma_0=c</span> and <span class="math inline">\alpha_1=\gamma_1=0</span>, both predictors will
-achieve MSE=0.</p>
-<p>Example 2: when every single value of the features <span class="math inline">x_i</span> and <span class="math inline">x^2_
-i</span> coincide in the dataset (this occurs when <span class="math inline">x = 0</span> or <span class="math inline">x =
-1</span>), the parameters of both prediction rules will be the same, as
-will the MSE.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
 <p>Reggie adds a new feature <span class="math inline">x^{(2)}</span>,
@@ -1136,31 +592,6 @@ x_i^{(2)}</span> <span class="math display">K(\vec x_i) = \beta_0 +
 x_i^{(2)})</span> Reggie argues that having more features is better, so
 MMSE(<span class="math inline">K</span>) &lt; MMSE(<span
 class="math inline">J</span>). Is Reggie correct? Why or why not?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_3" class="accordion-collapse collapse"
-aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">K(\vec x_i)</span> can be rewritten as
-<span class="math display">K(\vec x_i) = \beta_0 + (\beta_1+2\beta_3)
-x_i^{(1)} +(\beta_2 - \beta_3)x_i^{(2)}</span> By setting <span class="math inline">\tilde{\beta}_1=\beta_1+2\beta_3</span> and <span class="math inline">\tilde{\beta_2}= \beta_2 - \beta_3</span> then</p>
-<p><span class="math display">K(\vec x_i) =
-K(\beta_0,\tilde{\beta}_1,\tilde{\beta}_2) = \beta_0 + \tilde{\beta_1}
-x_i^{(1)} +\tilde{\beta}_2 x_i^{(2)}</span></p>
-<p>Thus <span class="math inline">J</span> and <span class="math inline">K</span> have the same normal equations and
-therefore the same minimum MSE.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
@@ -1195,28 +626,6 @@ inclusive.</li>
 <li><p><input type="radio" disabled="" /> 100</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> <span class="math inline">w_0 =
-50</span></p>
-<p>The model predicts a constant value for boots. The intercept <span class="math inline">w_0</span> represents the average boots sold across
-all months. Since the boot count plot shows data points centered around
-50, this is the best estimate.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
@@ -1239,36 +648,6 @@ all months. Since the boot count plot shows data points centered around
 <li><p><input type="radio" disabled="" /> 100</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<p><span class="math inline">w_0</span>: 100</p>
-<p>The intercept <span class="math inline">w_0</span> represents the
-predicted boot sales when sandal sales are zero. Since the boot plot
-shows a baseline of ~100 units during months with minimal sandal sales
-(e.g., winter), this justifies <span class="math inline">w_0 =
-100</span></p>
-<p><span class="math inline">w_1</span>: -1</p>
-<p>The coefficient <span class="math inline">w_1 = −1</span> indicates
-an inverse relationship: for every additional sandal sold, boot sales
-decrease by 1 unit. This aligns with seasonal trends (e.g., sandals
-dominate in summer, boots in winter), and the plots show a consistent
-negative slope of -1 between the variables.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
@@ -1292,33 +671,6 @@ negative slope of -1 between the variables.</p>
 <li><p><input type="radio" disabled="" /> 80</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_3" class="accordion-collapse collapse"
-aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<p><span class="math inline">w_0</span>: 100</p>
-<p>The intercept represents the average boot sales when <span class="math inline">\text{summer}=0</span> (winter months). Since the
-boot plot shows consistent sales of ~100 units during winter, this value
-is justified.</p>
-<p><span class="math inline">w_1</span>: -80</p>
-<p>The coefficient for <span class="math inline">\text{summer}=1</span>
-reflects the change in boot sales during summer. If boot sales drop
-sharply by ~80 units in summer (e.g., from 100 in winter to 20 in the
-summer), this negative offset matches the seasonal trend.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.4">Problem 7.4</h3>
@@ -1342,33 +694,6 @@ summer), this negative offset matches the seasonal trend.</p>
 <li><p><input type="radio" disabled="" /> 80</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_4" class="accordion-collapse collapse"
-aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<p><span class="math inline">w_0</span>: 20</p>
-<p>The intercept represents baseline sandal sales when <span class="math inline">\text{summer}=0</span> (winter months). Since the
-sandal plot shows consistent sales of ~20 units during winter, this
-value aligns with the seasonal low.</p>
-<p><span class="math inline">w_1</span>: 80</p>
-<p>The coefficient reflects the increase in sandal sales during summer.
-If sales rise sharply by ~80 units in summer (e.g., from 20 in winter to
-100 in summer), this positive seasonal effect matches the trend shown in
-the visualization.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-7.5">Problem 7.5</h3>
@@ -1401,34 +726,6 @@ the visualization.</p>
 <li><p><input type="radio" disabled="" /> 80</p></li>
 <li><p><input type="radio" disabled="" /> Not enough info</p></li>
 </ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_5" aria-expanded="true" aria-controls="collapse7_5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_5" class="accordion-collapse collapse"
-aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<p><span class="math inline">w_0</span>: Not enough info</p>
-<p><span class="math inline">w_1</span>: Not enough info</p>
-<p><span class="math inline">w_2</span>: Not enough info</p>
-<p>The model includes both () and () variables, which cover all months.
-This creates multicollinearity. The intercept and coefficients cannot be
-uniquely determined without a reference category or additional
-constraints. For example, increasing the intercept and decreasing both
-seasonal coefficients equally would yield the same predictions. The
-visualizations do not provide enough information to resolve this
-ambiguity.</p>
-</div>
-</div>
-</div>
-</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
