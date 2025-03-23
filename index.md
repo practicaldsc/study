@@ -84,7 +84,7 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, March 13th</td>
       <td><a href="disc08/index.html"> Multiple Linear Regression</a></td>
     </tr>
-    <<tr>
+    <tr>
       <th scope="row">11</th>
       <td>Thursday, March 20th</td>
       <td><a href="disc09/index.html">Feature Engineering and Pipelines</a></td>
