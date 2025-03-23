@@ -1,4 +1,4 @@
-title: Generalization, Cross-Validation, and Regularization
+title:  Cross-Validation and Regularization
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -12,4 +12,7 @@ problems:
   # - disc10/su20-midterm-q04
   - disc10/wi23-final-q08 
   - disc10/sp22-final-q11
+  - disc10/q11
+  - disc10/sp24-final-q11
+  
 
