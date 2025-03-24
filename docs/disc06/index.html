@@ -819,7 +819,7 @@ that <strong>will not</strong> be matched correctly.</p>
 <p>For the snippet below, which indexes correspond to products that will
 <strong>not</strong> be matched correctly?</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;([\d.]+) oz&#39;</span></span>
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;</span><span class="kw">(</span><span class="pp">[</span><span class="dv">\d</span><span class="pp">.]</span><span class="op">+</span><span class="kw">)</span><span class="vs"> oz&#39;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> 0</p></li>
@@ -855,7 +855,7 @@ link</a> for an illustration.</p>
 <p>For the snippet below, which indexes correspond to products that will
 <strong>not</strong> be matched correctly?</p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;(\d+?.\d+) oz|Ounce&#39;</span></span>
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+?</span><span class="dv">.\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> oz</span><span class="cf">|</span><span class="vs">Ounce&#39;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> 0</p></li>
@@ -932,7 +932,7 @@ followed by either “am” or “pm”.</p>
 match object returns the groups of the match as a tuple. For nested
 groups, the outermost group is returned first. For example:</p>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.match(<span class="vs">r&#39;(..(...))&#39;</span>, <span class="st">&#39;hello&#39;</span>).groups()</span>
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">..</span><span class="kw">(</span><span class="dv">...</span><span class="kw">))</span><span class="vs">&#39;</span>, <span class="st">&#39;hello&#39;</span>).groups()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;hello&#39;</span>, <span class="st">&#39;llo&#39;</span>)</span></code></pre></div>
 <p>Option A:</p>
 <div class="sourceCode" id="cb11"><pre
@@ -942,17 +942,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <p>Option B:</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(\d+):(\d+)([apm]</span><span class="sc">{2}</span><span class="vs">)&#39;</span>, x).groups()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">:</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)(</span><span class="pp">[apm]</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">1</span>], res[<span class="dv">2</span>])</span></code></pre></div>
 <p>Option C:</p>
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(\d+)(:(\d+))?(am|pm)&#39;</span>, x).groups()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)(</span><span class="vs">:</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">))</span><span class="op">?</span><span class="kw">(</span><span class="vs">am</span><span class="cf">|</span><span class="vs">pm</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">2</span>], res[<span class="dv">3</span>])</span></code></pre></div>
 <p>Option D:</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(.+(.</span><span class="sc">{3}</span><span class="vs">)?)(..)&#39;</span>, x).groups()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">.</span><span class="op">+</span><span class="kw">(</span><span class="dv">.</span><span class="op">{3}</span><span class="kw">)</span><span class="op">?</span><span class="kw">)(</span><span class="dv">..</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">1</span>], res[<span class="dv">2</span>])</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1848,16 +1848,17 @@ aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> Sentence 4</p>
-<p>Remember, the IDF of a word is the same for all documents, since $(t)
-= ( )$. This means that the sentence where “college” is the word with
-the highest TF-IDF is the same as the sentence where “college” is the
-word with the highest TF, or term frequency. Sentence 4 is the only
-sentence where “college” appears twice; in all other sentences,
-“college” appears at most once. (Since all of these sentences have the
-same length, we know that if “college” appears more times in Sentence 4
-than it does in other sentences, then “college”’s term frequency in
-Sentence 4, <span class="math inline">\frac{2}{5}</span>, is also larger
-than in any other sentence.) As such, the answer is Sentence 4.</p>
+<p>Remember, the IDF of a word is the same for all documents, since
+<span class="math inline">\text{idf}(t) = \log \left( \frac{\text{number
+of documents}}{\text{number of documents containing } t} \right)</span>.
+This means that the sentence where “college” is the word with the
+highest TF-IDF is the same as the sentence where “college” is the word
+with the highest TF, or term frequency. Sentence 4 is the only sentence
+where “college” appears twice; in all other sentences, “college” appears
+at most once. (Since all of these sentences have the same length, we
+know that if “college” appears more times in Sentence 4 than it does in
+other sentences, then “college”’s term frequency in Sentence 4, <span class="math inline">\frac{2}{5}</span>, is also larger than in any other
+sentence.) As such, the answer is Sentence 4.</p>
 </div>
 </div>
 </div>

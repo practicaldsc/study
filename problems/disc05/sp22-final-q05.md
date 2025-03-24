@@ -78,7 +78,7 @@ In which option was probabilistic imputation conditional on
 
 -   First, note that in Option B, all three missing values are filled in
     with the same number, 7. The mean of the observed values in
-    `random_10["genre rank"]` is 7, so we must have performed
+    `random_10["genre_rank"]` is 7, so we must have performed
     unconditional mean imputation in Option B. (Technically, it's
     possible for Option B to be the result of unconditional
     probabilistic imputation, but we stated that each option could only
