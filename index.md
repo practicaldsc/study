@@ -89,12 +89,12 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, March 20th</td>
       <td><a href="disc09/index.html">Feature Engineering and Pipelines</a></td>
     </tr>
-    <!--tr>
-      <th scope="row">11</th>
-      <td>Friday, November 8th</td>
-      <td><a href="disc10/index.html">Generalization, Cross-Validation, and Regularization</a></td>
-    </tr>
     <tr>
+      <th scope="row">12</th>
+      <td>Thursday, March 27th</td>
+      <td><a href="disc10/index.html">Cross-Validation and Regularization</a></td>
+    </tr>
+    <!--tr>
       <th scope="row">12</th>
       <td>Friday, November 15th</td>
       <td><a href="disc11/index.html">Gradient Descent and Convexity</a></td>
