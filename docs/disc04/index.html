@@ -485,8 +485,9 @@ took.</li>
 <li><code>'University' (str)</code>: the name of the university that the
 student applied to.</li>
 <li><code>'Admit' (str)</code>: the acceptance status of the student
-(where ‘Y’ denotes that they were accepted to the university and ‘N’
-denotes that they were not).</li>
+(where ‘Y’ denotes that they were accepted to the university, ‘N’
+denotes that they were not and ‘W’ denotes that they were
+waitlisted).</li>
 </ul>
 <p>The rows of <code>'student'</code> are arranged in no particular
 order. The first eight rows of <code>'student'</code> are shown above
@@ -779,7 +780,7 @@ and 12 in the second, there are <span class="math inline">12 \cdot 12 =
 positive integer.</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dogs.groupby(<span class="st">&quot;district&quot;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">==</span> <span class="dv">3</span>).shape[<span class="dv">0</span>]</span></code></pre></div>
-<p><em>Hint: Unlike in 5.1, your answer to 5.2 depends on the values in
+<p><em>Hint: Unlike in 6.1, your answer to 6.2 depends on the values in
 <code>square</code>.</em></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -800,7 +801,7 @@ aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <li>There are 5500 districts that appeared just 1x in
 <code>dogs</code>.</li>
 <li>There are 215 districts that appeared 2x in <code>dogs</code> (2x,
-not 4x, because of the logic explained in the 5a rubric item).</li>
+not 4x, because of the logic explained in the solution for 6.1).</li>
 <li>There are 40 districts that appeared 3x in <code>dogs</code>.</li>
 </ul>
 <p>The expression given in this question is keeping all of the rows
@@ -1482,7 +1483,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href=
 the significance of the number 5 in the context of the
 <code>streams</code> dataset. For instance, a correctly formatted but
 incorrect answer is “There are 5 unique artists in
-<code>streams</code>." Your answer should not include the word”row".</p>
+<code>streams</code>." Your answer should not include the word”row”.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading13_4">
@@ -1497,7 +1498,7 @@ aria-labelledby="heading13_4" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer: </strong> See below.</p>
-<p>1in Since <code>streams</code> is sorted by <code>"date"</code> in
+<p>Since <code>streams</code> is sorted by <code>"date"</code> in
 descending order and, within each <code>"date"</code>, by
 <code>"streams"</code> in ascending order,
 <code>streams.groupby("date").last()</code> is a DataFrame containing

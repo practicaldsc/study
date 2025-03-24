@@ -143,13 +143,13 @@ another_mystery = (streams.groupby("date").last()
 `another_mystery` has 5 rows. In one sentence, describe the significance
 of the number 5 in the context of the `streams` dataset. For instance, a
 correctly formatted but incorrect answer is "There are 5 unique artists
-in `streams`.\" Your answer should not include the word "row\".
+in `streams`.\" Your answer should not include the word "row".
 
 # BEGIN SOLN
 
 **Answer: ** See below.
 
-1in Since `streams` is sorted by `"date"` in descending order and,
+Since `streams` is sorted by `"date"` in descending order and,
 within each `"date"`, by `"streams"` in ascending order,
 `streams.groupby("date").last()` is a DataFrame containing the song with
 the most `"streams"` on each day in May. In other words, we found the

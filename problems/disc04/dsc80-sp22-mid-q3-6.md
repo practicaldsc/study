@@ -12,7 +12,7 @@ The columns are:
  - `'GPA' (float)`: the GPA of the student.
  - `'AP' (int)`: the number of AP exams that the student took.
  - `'University' (str)`: the name of the university that the student applied to.
- - `'Admit' (str)`: the acceptance status of the student (where 'Y' denotes that they were accepted to the university and 'N' denotes that they were not).
+ - `'Admit' (str)`: the acceptance status of the student (where 'Y' denotes that they were accepted to the university, 'N' denotes that they were not and 'W' denotes that they were waitlisted).
 
  The rows of `'student'` are arranged in no particular order. The first eight rows of `'student'` are shown above (though `'student'` has many more rows than pictured here).
 

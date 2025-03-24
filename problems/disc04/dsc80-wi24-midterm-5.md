@@ -64,7 +64,7 @@ positive integer.
 dogs.groupby("district").filter(lambda df: df.shape[0] == 3).shape[0]
 ```
 
-*Hint: Unlike in 5.1, your answer to 5.2 depends on the values
+*Hint: Unlike in 6.1, your answer to 6.2 depends on the values
 in `square`.*
 
 # BEGIN SOLUTION
@@ -74,7 +74,7 @@ in `square`.*
 `square` is telling us that:
 
 - There are 5500 districts that appeared just 1x in `dogs`.
-- There are 215 districts that appeared 2x in `dogs` (2x, not 4x, because of the logic explained in the 5a rubric item).
+- There are 215 districts that appeared 2x in `dogs` (2x, not 4x, because of the logic explained in the solution for 6.1).
 - There are 40 districts that appeared 3x in `dogs`.
 
 The expression given in this question is keeping all of the rows corresponding to districts that appear 3 times. There are 40 districts that appear 3 times. So, the total number of rows in this DataFrame is $40 \cdot 3 = 120$.

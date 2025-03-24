@@ -49,7 +49,7 @@ In which of the following sentences is "college" the word with the highest TF-ID
 
 **Answer: ** Sentence 4
 
-Remember, the IDF of a word is the same for all documents, since $\text{idf}(t) = \log \left( \frac{\text{number of documents}}{number of documents containing $t$} \right)$. This means that the sentence where "college" is the word with the highest TF-IDF is the same as the sentence where "college" is the word with the highest TF, or term frequency. Sentence 4 is the only sentence where "college" appears twice; in all other sentences, "college" appears at most once. (Since all of these sentences have the same length, we know that if "college" appears more times in Sentence 4 than it does in other sentences, then "college"'s term frequency in Sentence 4, $\frac{2}{5}$, is also larger than in any other sentence.) As such, the answer is Sentence 4.
+Remember, the IDF of a word is the same for all documents, since $\text{idf}(t) = \log \left( \frac{\text{number of documents}}{\text{number of documents containing } t} \right)$. This means that the sentence where "college" is the word with the highest TF-IDF is the same as the sentence where "college" is the word with the highest TF, or term frequency. Sentence 4 is the only sentence where "college" appears twice; in all other sentences, "college" appears at most once. (Since all of these sentences have the same length, we know that if "college" appears more times in Sentence 4 than it does in other sentences, then "college"'s term frequency in Sentence 4, $\frac{2}{5}$, is also larger than in any other sentence.) As such, the answer is Sentence 4.
 
 # END SOLN
 
