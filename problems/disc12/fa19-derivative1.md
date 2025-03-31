@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-# BEGIN SUBPROB
-
 For a given classifier, suppose the first 10 predictions of our classifier and 10 true observations are as follows:
 $$
 \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
@@ -30,6 +28,5 @@ $$
 
 # END SOLN
 
-# END SUBPROB
 
 # END PROB

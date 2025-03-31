@@ -264,14 +264,41 @@ respectively, both of which are greater than or equal to 0.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p>Remember to show your work and justify your answers.</p>
-<p>Suppose we want to minimize the function</p>
-<p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
+<p>Suppose we fit five different classifiers that predict whether a
+product is designed for sensitive skin, given its price and number of
+ingredients. In the five decision boundaries below, the gray-shaded
+regions represent areas in which the classifier would predict that the
+product <strong>is</strong> designed for sensitive skin (i.e. predict
+class 1).</p>
+<figure style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <div class="minipage">
+        <img src="../assets/images/fa24-final/db1.png" width="300"/>
+    </div>
+    <div class="minipage">
+        <img src="../assets/images/fa24-final/db2.png" width="300"/>
+    </div>
+    <div class="minipage">
+        <img src="../assets/images/fa24-final/db3.png" width="300"/>
+    </div>
+    <div class="minipage">
+        <img src="../assets/images/fa24-final/db4.png" width="300"/>
+    </div>
+    <div class="minipage">
+        <img src="../assets/images/fa24-final/db5.png" width="300"/>
+    </div>
+</figure>
 <p><br></p>
 <h3 id="problem-2.1">Problem 2.1</h3>
-<p>Without using gradient descent or calculus, what is the value <span
-class="math inline">h^*</span> that minimizes <span
-class="math inline">R(h)</span>?</p>
+<p>Which model does Decision Boundary 1 correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
+<li><p><input type="radio" disabled="" /> Logistic regression</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_1">
@@ -285,23 +312,27 @@ aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">h^* = -1</span></p>
-<p>The minimum possible value of the exponent is <span class="math inline">0</span>, since anything squared is non-negative.
-The exponent is 0 when <span class="math inline">(x+1)^2 = 0</span>,
-i.e. when <span class="math inline">x = -1</span>. Since <span class="math inline">e^{(x+1)^2}</span> gets larger as <span class="math inline">(x+1)^2</span> gets larger, the minimizing input
-<span class="math inline">h^*</span> is <span class="math inline">-1</span>.</p>
+<p><strong>Answer</strong>: Logistic regression</p>
+<p>Logistic regression is a linear classification technique, meaning it
+creates a single linear decision boundary between classes. Among the
+five decision boundaries, only Decision Boundary 1 is linear, making it
+the correct answer.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
-<p>Now, suppose we want to use gradient descent to minimize <span
-class="math inline">R(h)</span>. Assume we use an initial guess of <span
-class="math inline">h_0 = 0</span>. What is <span
-class="math inline">h_1</span>? Give your answer in terms of a generic
-step size, <span class="math inline">\alpha</span>, and other constants.
-(<span class="math inline">e</span> is a constant.)</p>
+<p>Which model does Decision Boundary 2 correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
+<li><p><input type="radio" disabled="" /> Logistic regression</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_2">
@@ -315,26 +346,31 @@ aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
-<p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
-<p><span class="math display">\frac{dR}{dh}(h) = 2(x+1)
-e^{(x+1)^2}</span></p>
-<p>Then, we know that</p>
-<p><span class="math display">h_1 = h_0 - \alpha \frac{dR}{dh}(h_0) = 0
-- \alpha \frac{dR}{dh}(0)</span></p>
-<p>In our case, <span class="math inline">\frac{dR}{dh}(0) = 2(0 + 1)
-e^{(0+1)^2} = 2e</span>, so</p>
-<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
+<p><strong>Answer</strong>: Decision tree with <span class="math inline">\text{max depth} = 15</span></p>
+<p>We know that Decision Boundaries 2 and 5 are decision trees, since
+the decision boundaries are parallel to the axes. Decision boundaries
+for decision trees are parallel to axes because the tree splits the
+feature space based on one feature at a time, creating partitions
+aligned with that feature’s axis (e.g., “Price ≤ 100” results in a
+vertical split).</p>
+<p>Decision Boundary 2 is more complicated than Decision Boundary 5, so
+we can assume there are more levels.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
-<p>Using your answers from the previous two parts, what should we set
-the value of <span class="math inline">\alpha</span> to be if we want to
-ensure that gradient descent finds <span class="math inline">h^*</span>
-after just one iteration?</p>
+<p>Which model does Decision Boundary 3 correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
+<li><p><input type="radio" disabled="" /> Logistic regression</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_3">
@@ -348,26 +384,35 @@ aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">\alpha = \frac{1}{2e}</span></p>
-<p>We know from the part (b) that <span class="math inline">h_1 =
--\alpha \cdot 2e</span>, and we know from part (a) that <span class="math inline">h^* = -1</span>. If gradient descent converges in
-one iteration, that means that <span class="math inline">h_1 =
-h^*</span>; solving this yields</p>
-<p><span class="math display">-\alpha \cdot 2e = -1 \implies \alpha =
-\frac{1}{2e}</span></p>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 3</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p>A lower value of <span class="math inline">k</span> means the model
+is more sensitive to local variations in the data. Since Decision
+Boundary 3 has more complex and irregular regions than Decision Boundary
+4, it corresponds to <span class="math inline">k = 3</span>, where the
+model closely follows the training data.</p>
+<p>For example, if in our training data we had 3 points in the group
+represented by the light-shaded region at <span class="math inline">(300, 150)</span>, the decision boundary for <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span> would be light-shaded at <span class="math inline">(300, 150)</span>, whereas it may be dark-shaded for
+<span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
-<p>Below is a graph of <span class="math inline">R(h)</span> with no
-axis labels.</p>
-<!-- TODO -->
-<center><img src="../assets/images/disc11/graph.png" width="500" height="350"></center>
-<p>True or False: Given an appropriate choice of step size, <span
-class="math inline">\alpha</span>, gradient descent is guaranteed to
-find the minimizer of <span class="math inline">R(h)</span>.</p>
+<p>Which model does Decision Boundary 4 correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+3</span></p></li>
+<li><p><input type="radio" disabled="" /> Decision tree with <span class="math inline">\text{max depth} =
+15</span></p></li>
+<li><p><input type="radio" disabled="" /> Logistic regression</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading2_4">
@@ -381,13 +426,19 @@ aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>True.</p>
-<p><span class="math inline">R(h)</span> is convex, since the graph is
-bowl shaped. (It can also be proved that <span class="math inline">R(h)</span> is convex using the second derivative
-test.) It is also differentiable, as we saw in part (b). As a result,
-since it’s both convex and differentiable, gradient descent is
-guaranteed to be able to minimize it given an appropriate choice of step
-size.</p>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 100</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries adapt to the training data, but increasing <span class="math inline">k</span> makes the model less sensitive to local
+variations.</p>
+<p>Since Decision Boundary 4 is smoother and has fewer regions than
+Decision Boundary 3, it corresponds to <span class="math inline">k =
+100</span>, where predictions are averaged over a larger number of
+neighbors, making the boundary less sensitive to individual data
+points.</p>
 </div>
 </div>
 </div>
@@ -395,694 +446,23 @@ size.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<!-- Convexity Problem -->
-Let <span class="math inline">f(x):\mathbb{R}\to\mathbb{R}</span> be a
-convex function. <span class="math inline">f(x)</span> is not
-necessarily differentiable. Use the definition of convexity to prove the
-following:
-<span class="math display">\begin{aligned}
-            2f(2) \leq f(1)+f(3)
-\end{aligned}</span>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3" class="accordion-collapse collapse"
-aria-labelledby="heading3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Here is the definition of convexity:</p>
-<p><span class="math display">f(tx_{1}+(1-t)x_{2})\leq
-tf(x_{1})+(1-t)f(x_{2})</span></p>
-<p>Since <span class="math inline">f(x)</span> is a convex function, we
-know that this inequality is satisfied for all choices of <span class="math inline">x_1</span> and <span class="math inline">x_2</span>
-on the real number line and all choices of <span class="math inline">t
-\in [0, 1]</span>. This problem boils down to finding a choice of <span class="math inline">x_1</span>, <span class="math inline">x_2</span>,
-and <span class="math inline">t</span> to morph the definition of
-convexity into our desired inequality.</p>
-<p>One such successful combination is <span class="math inline">x_1=1</span>, <span class="math inline">x_2=3</span>, and <span class="math inline">t=0.5</span>. This makes <span class="math inline">tx_{1}+(1-t)x_{2}=0.5\cdot 1 + (1 - 0.5)\cdot
-3=2</span>. Therefore: <span class="math display">f(tx_{1}+(1-t)x_{2})=f(2) \leq
-0.5f(x_{1})+f(x_{2})=0.5 (f(1)+f(3))</span> <span class="math display">2f(2) \leq f(1)+f(3)</span>.</p>
-<p>The strategy for these variable choices boils down to trying to make
-the left side of the definition of convexity “look more” like the left
-side of our desired inequality, and trying to make the right side of the
-definition of convexity “look more” like the right side of our desired
-inequality.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-4">Problem 4</h2>
-<p>Consider the function <span class="math inline">R(h) = \sqrt{(h -
-3)^2 + 1} = ((h - 3)^2 + 1)^{\frac{1}{2}}</span>, which is a convex and
-differentiable function with only one local minimum.</p>
-<p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
-<p>Perform by hand two iterations of the gradient descent algorithm on
-this function, using an initial prediction of <span
-class="math inline">h_0 = 2</span> and a learning rate of <span
-class="math inline">\alpha = 2\sqrt{2}</span>. Show your work and your
-final answers, <span class="math inline">h_1</span> and <span
-class="math inline">h_2</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_1" class="accordion-collapse collapse"
-aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math display">h_1 = 4, h_2 = 2</span></p>
-<p>The updating rule for gradient descent in the one-dimensional case
-is: <span class="math display">h_{i+1} = h_{i} - \alpha \cdot
-\frac{dR}{dh}(h_i)</span></p>
-<p>We can find <span class="math inline">\frac{dR}{dh}</span> by taking
-the derivative of <span class="math inline">R(h)</span>: <span class="math display">\frac{d}{dh}R(h) = \frac{d}{dh}(\sqrt{(h - 3)^2 +
-1}) = \dfrac{h-3}{\sqrt{\left(h-3\right)^2+1}}</span></p>
-<p>Now we can use <span class="math inline">\alpha = 2\sqrt{2}</span>
-and <span class="math inline">h_0 = 2</span> to begin updating:</p>
-<p><span class="math display">\begin{align*}
-h_{1} &amp;= h_{0} - \alpha \cdot \frac{dR}{dh}(h_0) \\
-h_{1} &amp;= 2 - 2\sqrt{2} \cdot
-\left(\dfrac{2-3}{\sqrt{\left(2-3\right)^2+1}}\right) \\
-h_{1} &amp;= 2 - 2\sqrt{2} \cdot (\dfrac{-1}{\sqrt{2}}) \\
-h_{1} &amp;= 4
-\end{align*}</span> <br/> <span class="math display">\begin{align*}
-h_{2} &amp;= h_{1} - \alpha \cdot \frac{dR}{dh}(h_1) \\
-h_{2} &amp;= 4 - 2\sqrt{2} \cdot
-\left(\dfrac{4-3}{\sqrt{\left(4-3\right)^2+1}}\right) \\
-h_{2} &amp;= 4 - 2\sqrt{2} \cdot (\dfrac{1}{\sqrt{2}}) \\
-h_{2} &amp;= 2
-\end{align*}</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
-<p>With more iterations, will we eventually converge to the minimizer?
-Explain.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading4_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse4_2" class="accordion-collapse collapse"
-aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>No, this algorithm will not converge to the minimizer because if we
-do more iterations, we’ll keep oscillating back and forth between
-predictions of 2 and 4. We showed the first two iterations of the
-algorithm in part 1, but the next two would be exactly the same, and the
-two after that, and so on. This happens because the learning rate is too
-big, resulting in steps that are too big, and we keep jumping over the
-true minimizer at <span class="math inline">h = 3</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-5">Problem 5</h2>
-<p>In general, the logarithm of a convex function is not convex. Give an
-example of a function <span class="math inline">f(x)</span> such that
-<span class="math inline">f(x)</span> is convex, but <span
-class="math inline">\log_{10}(f(x))</span> is not convex.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5" class="accordion-collapse collapse"
-aria-labelledby="heading5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>There are many correct answers to this question. Some simple answers
-are <span class="math inline">f(x) = x</span> and <span class="math inline">f(x) = x^2</span>. The logarithms of these function
-are <span class="math inline">\log_{10}(x)</span> and <span class="math inline">2\log_{10}(x)</span>, both of which are nonconvex
-because there are pairs of points such that the line connecting them
-goes below the function.</p>
-<center><img height="333" src="../assets/images/disc11/log.png" width="500"/></center>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-6">Problem 6</h2>
-<!-- **Gradient Descent** Problem -->
-Consider the following function <span class="math inline">f(x)</span>
-defined below
-<span class="math display">\begin{aligned}
-f(x)=\max(0,1-x).
-
-\end{aligned}</span>
-<p><br></p>
-<h3 id="problem-6.1">Problem 6.1</h3>
-<p>Plot <span class="math inline">f(x)</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_1" class="accordion-collapse collapse"
-aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<center><img src="../assets/images/disc11/plot.png" width="500"/></center>
-<p>The plot should have a y-intercept at <span class="math inline">(0,1)</span> with slope of <span class="math inline">-1</span> until <span class="math inline">(1,0)</span>, where it plateaus to zero.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-6.2">Problem 6.2</h3>
-Consider the following smoothed version of <span
-class="math inline">f(x)</span>.
-<span class="math display">\begin{aligned}
-f_s(x)=\begin{cases}
-0 &amp; \text{ if } x\geq 1\\
-\frac12(1-x)^2 &amp; \text{ if } 0 &lt; x &lt; 1\\
-0.5-x &amp; \text{ if } x\leq 0
-\end{cases}.
-
-\end{aligned}</span>
-<p>Is the global minima of <span class="math inline">f_s(x)</span>
-unique?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_2" class="accordion-collapse collapse"
-aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>The minima is not unique since the minimum value is 0 and any <span class="math inline">x \geq 1</span> achieves <span class="math inline">f_s(x)=0</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-6.3">Problem 6.3</h3>
-<p>Perform two steps of gradient descent with step size <span
-class="math inline">\alpha=1</span> for <span
-class="math inline">f_s(x)</span> starting from the point <span
-class="math inline">x_0=-0.5</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_3" class="accordion-collapse collapse"
-aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>For <span class="math inline">x_0=-0.5</span>, our point lies on the
-linear part of the function (<span class="math inline">f_s(x)=0.5-x</span>), therefore <span class="math inline">{f'}_s(x)=-1</span>. Our update is then: <span class="math display">x_1=x_0 - \alpha
-{f'}_s(x_0)=-0.5+1=0.5</span></p>
-<p>For <span class="math inline">x_1=0.5</span>, our point lies on the
-quadratic part of the function (<span class="math inline">f_s(x)=0.5(1-x)^2</span>), therefore <span class="math inline">{f'}_s(x)=-(1-x)</span>. The update is then
-<span class="math display">x_2=x_1 - \alpha
-{f'}_s(x_1)=0.5+(1-0.5)=1</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-7">Problem 7</h2>
-<p>Suppose there is a dataset contains four values: <span
-class="math inline">-2</span>, <span class="math inline">-1</span>,
-<span class="math inline">2</span>, <span class="math inline">4</span>.
-You would like to use gradient descent to minimize the mean square error
-over this dataset.</p>
-<p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
-<p>Write down the expression of mean square error and its derivative
-given this dataset.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math display">R_{sq}(h) =
-\dfrac{1}{4}\sum_{i=1}^{4}(y_i-h)^2</span></p>
-<p>Recall the equation for <span class="math inline">R_{sq}(h) =
-\frac{1}{n}\sum_{i=1}^{n}(y_i-h)^2</span>, so we simply need to replace
-<span class="math inline">n</span> with <span class="math inline">4</span> because there are <span class="math inline">4</span> elements in our dataset.</p>
-<p><span class="math inline">\frac{dR_{sq}(h)}{dh} =
-\frac{1}{2}\sum_{i=1}^{4}(h-y_i)</span></p>
-<p>Since we have the equation for <span class="math inline">R_{sq}(h)</span> we can calculate the
-derivative:</p>
-<p><span class="math display">
-\begin{align*}
-\frac{dR_{sq}(h)}{dh} &amp;=
-\frac{dR_{sq}(h)}{dh}(\frac{1}{4}\sum_{i=1}^{4}(y_i-h)^2) \\
-&amp;= \frac{1}{4}\sum_{i=1}^{4}\frac{dR_{sq}(h)}{dh}((y_i-h)^2) \\
-\end{align*}
-</span> We can use the chain rule to find the derivative of <span class="math inline">(y_i-h)^2</span>. Recall the chain rule is: <span class="math inline">\frac{df(x)}{dx}[(f(x))^n] = n(f(x))^{n-1} \cdot
-f'(x)</span>.</p>
-<p><span class="math display">
-\begin{align*}
-&amp;= \frac{1}{4}\sum_{i=1}^{4}2(y_i-h) \cdot -1 \\
-&amp;= \frac{1}{4}\sum_{i=1}^{4} 2(h - y_i) \\
-&amp;= \frac{1}{2}\sum_{i=1}^{4} (h-y_i)
-\end{align*}
-</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
-<p>Suppose you choose the initial position to be <span
-class="math inline">h_0</span> and the learning rate to be <span
-class="math inline">\frac{1}{4}</span>. After two gradient descent
-steps, <span class="math inline">h_2=\frac{1}{4}</span>. What is the
-value of <span class="math inline">h_0</span>?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math display">h_{0} = -\frac{5}{4}</span></p>
-<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
-    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
-\end{aligned}</span> Recall the learning rate is equal to <span class="math inline">\alpha</span>. We can plug in <span class="math inline">\alpha = \frac{1}{4}</span>, <span class="math inline">h_2 = \frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that case we obtain: <span class="math display">\begin{aligned}
-    \frac{1}{4} &amp;= h_{1} - \alpha \frac{dR_{sq}(h_{1})}{dh}\\
-    &amp;= h_{1} - \alpha \frac{1}{2}\sum_{i=1}^{4}(h_1-y_i)\\
-        &amp;= h_{1} - \frac{1}{8}(h_{1} + 2 + h_{1} + 1 + h_{1} - 2 +
-h_{1} - 4)\\
-        &amp;= h_{1} - \frac{1}{8}(4h_{1} -3)\\
-\end{aligned}</span> Solving this equation, we obtain that <span class="math inline">h_{1} = -\frac{1}{4}</span>. We can then repeat this
-step once more to obtain <span class="math inline">h_0</span>: <span class="math display">\begin{aligned}
-    -\frac{1}{4} &amp;= h_{0} - \alpha \frac{dR_{sq}(h_{0})}{dh}\\
-        &amp;= h_{0} - \frac{1}{4}(h_{0} + 2 + h_{0} + 1 + h_{0} - 2 +
-h_{0} - 4)\\
-        &amp;= h_{0} - \frac{1}{8}(4h_{0} -3)\\
-\end{aligned}</span> Solving this equation, we obtain that <span class="math inline">h_{0} = -\frac{5}{4}</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-7.3">Problem 7.3</h3>
-<p>Given that we set the tolerance of gradient descent to be <span
-class="math inline">0.1</span>. How many <strong>additional
-steps</strong> beyond <span class="math inline">h_2</span> do we need to
-take to reach convergence?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 2</p></li>
-<li><p><input type="radio" disabled="" /> 3</p></li>
-<li><p><input type="radio" disabled="" /> 4</p></li>
-<li><p><input type="radio" disabled="" /> It will never converge</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_3" class="accordion-collapse collapse"
-aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">2</span> or <span class="math inline">3</span> additional steps (both are correct).</p>
-<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
-    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
-\end{aligned}</span> Now we start from <span class="math inline">\alpha
-= \frac{1}{4}</span>, <span class="math inline">h_2 =
-\frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that
-case we obtain: <span class="math display">\begin{aligned}
-    h_{3} &amp;= h_{2} - \alpha \frac{dR_{sq}(h_{2})}{dh}\\
-    &amp;= h_{2} - \frac{1}{8}(4h_{2} -3)\\
-    &amp;= \frac{1}{4} - \frac{1}{8}(1 -3)\\
-    &amp;= \frac{1}{2}\\
-\end{aligned}</span> Iteratively, we have: <span class="math display">\begin{aligned}
-    h_{4} &amp;= h_{3} - \alpha \frac{dR_{sq}(h_{3})}{dh}\\
-    &amp;= h_{3} - \frac{1}{8}(4h_{3} -3)\\
-    &amp;= \frac{1}{2} - \frac{1}{8}(2 -3)\\
-    &amp;= \frac{5}{8}\\
-\end{aligned}</span> <span class="math display">\begin{aligned}
-    h_{5} &amp;= h_{4} - \alpha \frac{dR_{sq}(h_{4})}{dh}\\
-    &amp;= h_{3} - \frac{1}{8}(4h_{4} -3)\\
-    &amp;= \frac{5}{8} - \frac{1}{8}(\frac{5}{2}-3)\\
-    &amp;= \frac{11}{16}\\
-\end{aligned}</span> from <span class="math inline">h_4</span> to <span class="math inline">h_5</span>, the change is smaller than the
-tolerance. That means we need additional <span class="math inline">2</span> or <span class="math inline">3</span> steps
-to reach convergence (depending on if you actually perform <span class="math inline">h_4</span> to <span class="math inline">h_5</span>,
-so both <span class="math inline">2</span> and <span class="math inline">3</span> are considered correct answer).</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
-<p>The hyperbolic cosine function is defined as <span
-class="math inline">cosh(x) = \frac{1}{2}(e^{x} + e^{-x})</span>. In
-this problem, we aim to prove the convexity of this function using power
-series expansion.</p>
-<p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
-<p>Prove that <span class="math inline">f(x) = x^{n}</span> is convex if
-n is an even integer.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_1" class="accordion-collapse collapse"
-aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Take the second derivative of f:</p>
-<p><span class="math display">\begin{align*}
-        f'(x) &amp;= nx^{n-1}\\
-        f''(x) &amp;= n(n-1)x^{n-2}
-\end{align*}</span></p>
-<p>If <span class="math inline">n</span> is even, then <span class="math inline">n-2</span> must also be even, therefore <span class="math inline">f''(x) = n(n-1)x^{n-2}</span> will always be
-a positive number. This means the second derivative of <span class="math inline">f(x)</span> is always larger than <span class="math inline">0</span> and therefore passes the second derivative
-test.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
-<p>Power series expansion is a powerful tool to analyze complicated
-functions. In power series expansion, a function can be written as an
-infinite sum of polynomial functions with certain coefficients. For
-example, the exponential function can be written as: <span
-class="math display">\begin{align*}
-        e^{x} = \sum_{n=0}^{\infty}\frac{x^{n}}{n!} = 1 + x +
-\frac{x^{2}}{2} + \frac{x^{3}}{6} + \frac{x^{4}}{24} + ...
-\end{align*}</span></p>
-<p>where <span class="math inline">n!</span> denotes the factorial of
-<span class="math inline">n</span>, defined as the product of all
-positive integers up to <span class="math inline">n</span>, i.e. <span
-class="math inline">n! = 1\cdot 2\cdot 3\cdot  ... \cdot
-(n-1)\cdot  n</span>. Given the power series expansion of <span
-class="math inline">e^{x}</span> above, write the power series expansion
-of <span class="math inline">e^{-x}</span> and explicitly specify the
-first 5 terms, i.e., similar to the format of the equation above. <!-- 
-Equation [\[exp_expand\]](#exp_expand){reference-type="ref"
-reference="exp_expand"}: --></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_2" class="accordion-collapse collapse"
-aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>By plugging <span class="math inline">-x</span> in for each <span class="math inline">x</span>, we get:</p>
-<p><span class="math inline">e^{-x} =
-\displaystyle\sum_{n=0}^{\infty}\frac{(-x)^{n}}{n!}=1-x+\frac{x^{2}}{2}
-- \frac{x^{3}}{6}+\frac{x^{4}}{24}+ ...</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
-<p>Using the conclusions you reached in part (a) and part (b), prove
-that <span class="math inline">cosh(x) = \frac{1}{2}(e^{x} +
-e^{-x})</span> is convex.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_3" class="accordion-collapse collapse"
-aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Given that:</p>
-<p><span class="math display">\begin{align*}
-        e^{x} &amp;= \sum_{n=0}^{\infty}\frac{x^{n}}{n!} = 1 + x +
-\frac{x^{2}}{2} + \frac{x^{3}}{6} + \frac{x^{4}}{24} + ....\\
-        e^{-x} &amp;= \sum_{n=0}^{\infty}\frac{(-x)^{n}}{n!} = 1 - x +
-\frac{x^{2}}{2} - \frac{x^{3}}{6} + \frac{x^{4}}{24} + ....
-\end{align*}</span></p>
-<p>We can add their power series expansion together, and we will
-obtain:</p>
-<p><span class="math display">\begin{align*}
-        e^{x} + e^{-x} &amp;= \sum_{n=0}^{\infty}\frac{x^{n}}{n!} +
-\sum_{n=0}^{\infty}\frac{x^{n}}{n!}\\
-        &amp;=\sum_{n=0}^{\infty}\frac{(x)^{n} + (-x)^{n}}{n!}
-\end{align*}</span></p>
-<p>Within this infinite sum, if n is even, then the negative sign in
-<span class="math inline">(-x)^{n}</span> will disappear; if n is odd,
-then the negative sign in <span class="math inline">(-x)^{n}</span> will
-be kept and travel out of the parenthesis. Therefore we have:</p>
-<p><span class="math display">\begin{align*}
-        e^{x} + e^{-x} &amp;= \sum_{n=0}^{\infty}\frac{x^{n}+x^{n}}{n!}
-\mathrm{(for\; even\; n)} +
-\sum_{n=0}^{\infty}\frac{x^{n}-x^{n}}{n!}\mathrm{(for\; odd\; n)}\\
-        &amp;=\sum_{n=0}^{\infty}\frac{2x^{n}}{n!} \mathrm{(for\; even\;
-n)}
-\end{align*}</span></p>
-<p>Therefore, <span class="math inline">cosh(x)=\displaystyle\frac{e^{x}+e^{-x}}{2}</span>
-is a sum of <span class="math inline">x^{n}</span>, where <span class="math inline">n</span> is even. Since we have already proved in
-part (a) that <span class="math inline">x^{n}</span> are always convex
-for even <span class="math inline">n</span>, <span class="math inline">cosh(x)</span> is an infinite sum of convex
-functions and therefore also convex.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-9">Problem 9</h2>
-<p>Suppose that we are given <span class="math inline">f(x) = x^3 +
-x^2</span> and learning rate <span class="math inline">\alpha =
-1/4</span>.</p>
-<p><br></p>
-<h3 id="problem-9.1">Problem 9.1</h3>
-<p>Write down the updating rule for gradient descent in general, then
-write down the updating rule for gradient descent for the function <span
-class="math inline">f(x)</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_1" class="accordion-collapse collapse"
-aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>In general, the updating rule for gradient descent is: <span class="math display">x_{i + 1} = x_i - \alpha \nabla f(x_i) = x_i -
-\alpha \frac{\partial f}{\partial x}(x_i),</span> where <span class="math inline">\alpha \in \mathbb{R}_+</span> is the learning rate
-or step size. For this function, since <span class="math inline">f</span> is a single-variable function, we can write
-down the updating rule as: <span class="math display">x_{i + 1} = x_i -
-\alpha \frac{df}{dx}(x_i) = x_i - \alpha f'(x_i).</span> We also
-have: <span class="math display">\frac{df}{dx} = f'(x) = 3x^2 +
-2x,</span> thus the updating rule can be written down as: <span class="math display">x_{i + 1} = x_i - \alpha(3x_i^2 + 2x_i) =
--\frac{3}{4} x_i^2 + \frac{1}{2}x_i.</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-9.2">Problem 9.2</h3>
-<p>If we start at <span class="math inline">x_0 = -1</span>, should we
-go left or right? Can you verify this mathematically? What is <span
-class="math inline">x_1</span>? Can gradient descent converge? If so,
-where it might converge to, given appropriate step size?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_2" class="accordion-collapse collapse"
-aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>We have <span class="math display">f'(x_0) = f'(-1) = 3(-1)^2
-+ 2(-1) = 1 &gt; 0,</span> so we go <strong>left</strong>, and <span class="math display">x_1 = x_0 - \alpha f'(x_0) = -1 - \frac{1}{4} =
--\frac{5}{4}.</span> Intuitively, the gradient descent <strong>cannot
-converge in this case</strong> because <span class="math display">\text{lim}_{x \rightarrow -\infty} f(x) =
--\infty,</span></p>
-<p>We need to find all local minimums and local maximums. First, we
-solve the equation <span class="math inline">f'(x) = 0</span> to
-find all critical points.</p>
-<p>We have: <span class="math display">f'(x) = 0 \Leftrightarrow
-3x^2 + 2x = 0 \Leftrightarrow x = -\frac{2}{3} \ \ \text{and} \ \ x =
-0.</span></p>
-<p>Now, we consider the second-order derivative: <span class="math display">f''(x) = \frac{d^2f}{dx^2} = 6x +
-2.</span></p>
-<p>We have <span class="math inline">f''(x) = 0</span> only when
-<span class="math inline">x = -1/3</span>. Thus, for <span class="math inline">x &lt; -1/3</span>, <span class="math inline">f''(x)</span> is negative or the slope <span class="math inline">f'(x)</span> decreases; and for <span class="math inline">x &gt; -1/3</span>, <span class="math inline">f''(x)</span> is positive or the slope <span class="math inline">f'(x)</span> increases. Keep in mind that <span class="math inline">-1 &lt; -2/3 &lt; -1/3 &lt; 0 &lt; 1</span>.</p>
-<p>Therefore, <span class="math inline">f</span> has a local maximum at
-<span class="math inline">x = -2/3</span> and a local minimum at <span class="math inline">x = 0</span>. If the gradient descent starts at
-<span class="math inline">x_0 = -1</span> and it always goes left then
-it will never meet the local minimum at <span class="math inline">x =
-0</span>, and it will go left infinitely. We say the gradient descent
-cannot converge, or is divergent.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-9.3">Problem 9.3</h3>
-<p>If we start at <span class="math inline">x_0 = 1</span>, should we go
-left or right? Can you verify this mathematically? What is <span
-class="math inline">x_1</span>? Can gradient descent converge? If so,
-where it might converge to, given appropriate step size?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_3" class="accordion-collapse collapse"
-aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>We have <span class="math display">f'(x_0) = f'(-1) = 3 \cdot
-1^2 + 2 \cdot 1 = 5 &gt; 0,</span> so we go <strong>left</strong>, and
-<span class="math display">x_1 = x_0 - \alpha f'(x_0) = 1 -
-\frac{1}{4} \cdot 5 = -\frac{1}{4}.</span></p>
-<p>From the previous part, function <span class="math inline">f</span>
-has a local minimum at <span class="math inline">x = 0</span>, so the
-gradient descent <strong>can converge</strong> (given appropriate step
-size) at this local minimum.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-9.4">Problem 9.4</h3>
-<p>Write down <span class="math inline">1</span> condition to terminate
-the gradient descent algorithm (in general).</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading9_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse9_4" class="accordion-collapse collapse"
-aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>There are several ways to terminate the gradient descent
-algorithm:</p>
-<ul>
-<li><p>If the change in the optimization objective is too small, i.e.
-<span class="math inline">|f(x_i) - f(x_{i + 1})| &lt; \epsilon</span>
-where <span class="math inline">\epsilon</span> is a small
-constant,</p></li>
-<li><p>If the gradient is close to zero or the norm of the gradient is
-very small, i.e. <span class="math inline">\|\nabla f(x_i)\| &lt;
-\lambda</span> where <span class="math inline">\lambda</span> is a small
-constant.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-10">Problem 10</h2>
 <p>After fitting a <code>BillyClassifier</code> on our training set, we
 use it to make predictions on an unseen test set. Our results are
 summarized in the following confusion matrix.</p>
 <center><img src='../assets/images/old-from-80/sp22-final/confusion-2.png' width=50%></center>
 <p><br></p>
-<h3 id="problem-10.1">Problem 10.1</h3>
+<h3 id="problem-3.1">Problem 3.1</h3>
 <p>What is the recall of our classifier? Give your answer as a fraction
 (it does not need to be simplified).</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading10_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_1" class="accordion-collapse collapse"
-aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1096,20 +476,20 @@ recall is <span class="math inline">\frac{105}{105 + 66} =
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-10.2">Problem 10.2</h3>
+<h3 id="problem-3.2">Problem 3.2</h3>
 <p>The accuracy of our classifier is <span
 class="math inline">\frac{69}{117}</span>. How many <strong>true
 negatives</strong> did our classifier have? Give your answer as an
 integer.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading10_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_2" class="accordion-collapse collapse"
-aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1131,7 +511,7 @@ our classifier has is 33.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-10.3">Problem 10.3</h3>
+<h3 id="problem-3.3">Problem 3.3</h3>
 <p>True or False: In order for a binary classifier’s precision and
 recall to be equal, the number of mistakes it makes must be an even
 number.</p>
@@ -1141,13 +521,13 @@ number.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading10_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_3" class="accordion-collapse collapse"
-aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1170,7 +550,7 @@ mistakes must be even.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-10.4">Problem 10.4</h3>
+<h3 id="problem-3.4">Problem 3.4</h3>
 <p>Suppose we are building a classifier that listens to an audio source
 (say, from your phone’s microphone) and predicts whether or not it is
 Soulja Boy’s 2008 classic “Kiss Me thru the Phone”. Our classifier is
@@ -1186,13 +566,13 @@ are also “Kiss Me thru the Phone”.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading10_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_4" aria-expanded="true" aria-controls="collapse10_4">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse10_4" class="accordion-collapse collapse"
-aria-labelledby="heading10_4" data-bs-parent="#accordionExample">
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1213,56 +593,7 @@ its precision is low.</p>
 </div>
 <p><br></p>
 <hr />
-<h2 id="problem-11">Problem 11</h2>
-<p><br></p>
-<h3 id="problem-11.1">Problem 11.1</h3>
-<p>For a given classifier, suppose the first 10 predictions of our
-classifier and 10 true observations are as follows: <span
-class="math display">
-\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-\textbf{Predictions} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
-&amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ \hline
-\textbf{True Label} &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0
-&amp; 0 &amp; 1 &amp; 1 &amp; 1 \\ \hline
-\end{array}
-</span></p>
-<ol type="1">
-<li><p>What is the accuracy of our classifier on these 10
-predictions?</p></li>
-<li><p>What is the precision on these 10 predictions?</p></li>
-<li><p>What is the recall on these 10 predictions?</p></li>
-</ol>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading11_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse11_1" class="accordion-collapse collapse"
-aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong></p>
-<ol type="1">
-<li><p><span class="math inline">\frac{7}{10}</span></p></li>
-<li><p>We have 6 true positive and 3 false positives, so the precision
-evaluates to: <span class="math display">\frac{6}{6+3} =
-\frac{2}{3}</span></p></li>
-<li><p>From the solution to (2) above, we know true positives = 6. The
-number of false negatives is 0 (we only predicted 0 once and the true
-value actually was 0). Thus the recall is: <span class="math display">\frac{6}{6+0} = 1</span></p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-12">Problem 12</h2>
+<h2 id="problem-4">Problem 4</h2>
 <p>We decide to build a classifier that takes in a state’s demographic
 information and predicts whether, in a given year:</p>
 <ul>
@@ -1272,7 +603,7 @@ score (1), or</p></li>
 verbal score (0).</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-12.1">Problem 12.1</h3>
+<h3 id="problem-4.1">Problem 4.1</h3>
 <p>The simplest possible classifier we could build is one that predicts
 the same label (1 or 0) every time, independent of all other
 features.</p>
@@ -1303,13 +634,13 @@ above statement <strong>not guaranteed</strong> to be true?</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_1" aria-expanded="true" aria-controls="collapse12_1">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_1" class="accordion-collapse collapse"
-aria-labelledby="heading12_1" data-bs-parent="#accordionExample">
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1364,7 +695,7 @@ this question.)</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-12.2">Problem 12.2</h3>
+<h3 id="problem-4.2">Problem 4.2</h3>
 <p>Suppose we train a classifier, named Classifier 1, and it achieves an
 accuracy of <span class="math inline">\frac{5}{9}</span> on our training
 set.</p>
@@ -1376,13 +707,13 @@ well.</p>
 answer as a <strong>simplified fraction</strong>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_2" aria-expanded="true" aria-controls="collapse12_2">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_2" class="accordion-collapse collapse"
-aria-labelledby="heading12_2" data-bs-parent="#accordionExample">
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1405,7 +736,7 @@ that <span class="math inline">\frac{4}{9}</span> of the time, <span class="math
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-12.3">Problem 12.3</h3>
+<h3 id="problem-4.3">Problem 4.3</h3>
 <p>While Classifier 1’s accuracy on our training set is <span
 class="math inline">\frac{5}{9}</span>, its accuracy on our test set is
 <span class="math inline">\frac{1}{4}</span>. Which of the following
@@ -1422,13 +753,13 @@ complexity.</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_3" aria-expanded="true" aria-controls="collapse12_3">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_3" class="accordion-collapse collapse"
-aria-labelledby="heading12_3" data-bs-parent="#accordionExample">
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1452,7 +783,7 @@ below. Note that the columns of the confusion matrix have been
 separately normalized so that each has a sum of 1.</p>
 <center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
 <p><br></p>
-<h3 id="problem-12.4">Problem 12.4</h3>
+<h3 id="problem-4.4">Problem 4.4</h3>
 <p>Suppose <code>conf</code> is the DataFrame above. Which of the
 following evaluates to a Series of length 2 whose only unique value is
 the number <code>1</code>?</p>
@@ -1462,13 +793,13 @@ the number <code>1</code>?</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_4" aria-expanded="true" aria-controls="collapse12_4">
+<h2 class="accordion-header" id="heading4_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_4" class="accordion-collapse collapse"
-aria-labelledby="heading12_4" data-bs-parent="#accordionExample">
+<div id="collapse4_4" class="accordion-collapse collapse"
+aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1484,7 +815,7 @@ which we can do using <code>conf.sum(axis=0)</code>.
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-12.5">Problem 12.5</h3>
+<h3 id="problem-4.5">Problem 4.5</h3>
 <p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
 0.6.</p>
 <ul class="task-list">
@@ -1493,13 +824,13 @@ which we can do using <code>conf.sum(axis=0)</code>.
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_5" aria-expanded="true" aria-controls="collapse12_5">
+<h2 class="accordion-header" id="heading4_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_5" aria-expanded="true" aria-controls="collapse4_5">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_5" class="accordion-collapse collapse"
-aria-labelledby="heading12_5" data-bs-parent="#accordionExample">
+<div id="collapse4_5" class="accordion-collapse collapse"
+aria-labelledby="heading4_5" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1530,7 +861,7 @@ from the previous page below. You will need to use the specific numbers
 in this matrix when answering the following subpart.</p>
 <center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
 <p><br></p>
-<h3 id="problem-12.6">Problem 12.6</h3>
+<h3 id="problem-4.6">Problem 4.6</h3>
 <p>Suppose a fraction <span class="math inline">\alpha</span> of the
 labels in the training set are actually 1 and the remaining <span
 class="math inline">1 - \alpha</span> are actually 0. The accuracy of
@@ -1553,13 +884,13 @@ calculation for the accuracy in the previous step?</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading12_6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12_6" aria-expanded="true" aria-controls="collapse12_6">
+<h2 class="accordion-header" id="heading4_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_6" aria-expanded="true" aria-controls="collapse4_6">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse12_6" class="accordion-collapse collapse"
-aria-labelledby="heading12_6" data-bs-parent="#accordionExample">
+<div id="collapse4_6" class="accordion-collapse collapse"
+aria-labelledby="heading4_6" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1586,11 +917,562 @@ accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
 </div>
 <p><br></p>
 <hr />
-<h2 id="problem-13">Problem 13</h2>
+<h2 id="problem-5">Problem 5</h2>
+<p>Suppose there is a dataset contains four values: <span
+class="math inline">-2</span>, <span class="math inline">-1</span>,
+<span class="math inline">2</span>, <span class="math inline">4</span>.
+You would like to use gradient descent to minimize the mean square error
+over this dataset.</p>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>Write down the expression of mean square error and its derivative
+given this dataset.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">R_{sq}(h) =
+\dfrac{1}{4}\sum_{i=1}^{4}(y_i-h)^2</span></p>
+<p>Recall the equation for <span class="math inline">R_{sq}(h) =
+\frac{1}{n}\sum_{i=1}^{n}(y_i-h)^2</span>, so we simply need to replace
+<span class="math inline">n</span> with <span class="math inline">4</span> because there are <span class="math inline">4</span> elements in our dataset.</p>
+<p><span class="math inline">\frac{dR_{sq}(h)}{dh} =
+\frac{1}{2}\sum_{i=1}^{4}(h-y_i)</span></p>
+<p>Since we have the equation for <span class="math inline">R_{sq}(h)</span> we can calculate the
+derivative:</p>
+<p><span class="math display">
+\begin{align*}
+\frac{dR_{sq}(h)}{dh} &amp;=
+\frac{dR_{sq}(h)}{dh}(\frac{1}{4}\sum_{i=1}^{4}(y_i-h)^2) \\
+&amp;= \frac{1}{4}\sum_{i=1}^{4}\frac{dR_{sq}(h)}{dh}((y_i-h)^2) \\
+\end{align*}
+</span> We can use the chain rule to find the derivative of <span class="math inline">(y_i-h)^2</span>. Recall the chain rule is: <span class="math inline">\frac{df(x)}{dx}[(f(x))^n] = n(f(x))^{n-1} \cdot
+f'(x)</span>.</p>
+<p><span class="math display">
+\begin{align*}
+&amp;= \frac{1}{4}\sum_{i=1}^{4}2(y_i-h) \cdot -1 \\
+&amp;= \frac{1}{4}\sum_{i=1}^{4} 2(h - y_i) \\
+&amp;= \frac{1}{2}\sum_{i=1}^{4} (h-y_i)
+\end{align*}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>Suppose you choose the initial position to be <span
+class="math inline">h_0</span> and the learning rate to be <span
+class="math inline">\frac{1}{4}</span>. After two gradient descent
+steps, <span class="math inline">h_2=\frac{1}{4}</span>. What is the
+value of <span class="math inline">h_0</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h_{0} = -\frac{5}{4}</span></p>
+<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
+    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
+\end{aligned}</span> Recall the learning rate is equal to <span class="math inline">\alpha</span>. We can plug in <span class="math inline">\alpha = \frac{1}{4}</span>, <span class="math inline">h_2 = \frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that case we obtain: <span class="math display">\begin{aligned}
+    \frac{1}{4} &amp;= h_{1} - \alpha \frac{dR_{sq}(h_{1})}{dh}\\
+    &amp;= h_{1} - \alpha \frac{1}{2}\sum_{i=1}^{4}(h_1-y_i)\\
+        &amp;= h_{1} - \frac{1}{8}(h_{1} + 2 + h_{1} + 1 + h_{1} - 2 +
+h_{1} - 4)\\
+        &amp;= h_{1} - \frac{1}{8}(4h_{1} -3)\\
+\end{aligned}</span> Solving this equation, we obtain that <span class="math inline">h_{1} = -\frac{1}{4}</span>. We can then repeat this
+step once more to obtain <span class="math inline">h_0</span>: <span class="math display">\begin{aligned}
+    -\frac{1}{4} &amp;= h_{0} - \alpha \frac{dR_{sq}(h_{0})}{dh}\\
+        &amp;= h_{0} - \frac{1}{4}(h_{0} + 2 + h_{0} + 1 + h_{0} - 2 +
+h_{0} - 4)\\
+        &amp;= h_{0} - \frac{1}{8}(4h_{0} -3)\\
+\end{aligned}</span> Solving this equation, we obtain that <span class="math inline">h_{0} = -\frac{5}{4}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>Given that we set the tolerance of gradient descent to be <span
+class="math inline">0.1</span>. How many <strong>additional
+steps</strong> beyond <span class="math inline">h_2</span> do we need to
+take to reach convergence?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 0</p></li>
+<li><p><input type="radio" disabled="" /> 1</p></li>
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+<li><p><input type="radio" disabled="" /> It will never converge</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">2</span> or <span class="math inline">3</span> additional steps (both are correct).</p>
+<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
+    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
+\end{aligned}</span> Now we start from <span class="math inline">\alpha
+= \frac{1}{4}</span>, <span class="math inline">h_2 =
+\frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that
+case we obtain: <span class="math display">\begin{aligned}
+    h_{3} &amp;= h_{2} - \alpha \frac{dR_{sq}(h_{2})}{dh}\\
+    &amp;= h_{2} - \frac{1}{8}(4h_{2} -3)\\
+    &amp;= \frac{1}{4} - \frac{1}{8}(1 -3)\\
+    &amp;= \frac{1}{2}\\
+\end{aligned}</span> Iteratively, we have: <span class="math display">\begin{aligned}
+    h_{4} &amp;= h_{3} - \alpha \frac{dR_{sq}(h_{3})}{dh}\\
+    &amp;= h_{3} - \frac{1}{8}(4h_{3} -3)\\
+    &amp;= \frac{1}{2} - \frac{1}{8}(2 -3)\\
+    &amp;= \frac{5}{8}\\
+\end{aligned}</span> <span class="math display">\begin{aligned}
+    h_{5} &amp;= h_{4} - \alpha \frac{dR_{sq}(h_{4})}{dh}\\
+    &amp;= h_{3} - \frac{1}{8}(4h_{4} -3)\\
+    &amp;= \frac{5}{8} - \frac{1}{8}(\frac{5}{2}-3)\\
+    &amp;= \frac{11}{16}\\
+\end{aligned}</span> from <span class="math inline">h_4</span> to <span class="math inline">h_5</span>, the change is smaller than the
+tolerance. That means we need additional <span class="math inline">2</span> or <span class="math inline">3</span> steps
+to reach convergence (depending on if you actually perform <span class="math inline">h_4</span> to <span class="math inline">h_5</span>,
+so both <span class="math inline">2</span> and <span class="math inline">3</span> are considered correct answer).</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose that we are given <span class="math inline">f(x) = x^3 +
+x^2</span> and learning rate <span class="math inline">\alpha =
+1/4</span>.</p>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Write down the updating rule for gradient descent in general, then
+write down the updating rule for gradient descent for the function <span
+class="math inline">f(x)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>In general, the updating rule for gradient descent is: <span class="math display">x_{i + 1} = x_i - \alpha \nabla f(x_i) = x_i -
+\alpha \frac{\partial f}{\partial x}(x_i),</span> where <span class="math inline">\alpha \in \mathbb{R}_+</span> is the learning rate
+or step size. For this function, since <span class="math inline">f</span> is a single-variable function, we can write
+down the updating rule as: <span class="math display">x_{i + 1} = x_i -
+\alpha \frac{df}{dx}(x_i) = x_i - \alpha f'(x_i).</span> We also
+have: <span class="math display">\frac{df}{dx} = f'(x) = 3x^2 +
+2x,</span> thus the updating rule can be written down as: <span class="math display">x_{i + 1} = x_i - \alpha(3x_i^2 + 2x_i) =
+-\frac{3}{4} x_i^2 + \frac{1}{2}x_i.</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>If we start at <span class="math inline">x_0 = -1</span>, should we
+go left or right? Can you verify this mathematically? What is <span
+class="math inline">x_1</span>? Can gradient descent converge? If so,
+where it might converge to, given appropriate step size?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>We have <span class="math display">f'(x_0) = f'(-1) = 3(-1)^2
++ 2(-1) = 1 &gt; 0,</span> so we go <strong>left</strong>, and <span class="math display">x_1 = x_0 - \alpha f'(x_0) = -1 - \frac{1}{4} =
+-\frac{5}{4}.</span> Intuitively, the gradient descent <strong>cannot
+converge in this case</strong> because <span class="math display">\text{lim}_{x \rightarrow -\infty} f(x) =
+-\infty,</span></p>
+<p>We need to find all local minimums and local maximums. First, we
+solve the equation <span class="math inline">f'(x) = 0</span> to
+find all critical points.</p>
+<p>We have: <span class="math display">f'(x) = 0 \Leftrightarrow
+3x^2 + 2x = 0 \Leftrightarrow x = -\frac{2}{3} \ \ \text{and} \ \ x =
+0.</span></p>
+<p>Now, we consider the second-order derivative: <span class="math display">f''(x) = \frac{d^2f}{dx^2} = 6x +
+2.</span></p>
+<p>We have <span class="math inline">f''(x) = 0</span> only when
+<span class="math inline">x = -1/3</span>. Thus, for <span class="math inline">x &lt; -1/3</span>, <span class="math inline">f''(x)</span> is negative or the slope <span class="math inline">f'(x)</span> decreases; and for <span class="math inline">x &gt; -1/3</span>, <span class="math inline">f''(x)</span> is positive or the slope <span class="math inline">f'(x)</span> increases. Keep in mind that <span class="math inline">-1 &lt; -2/3 &lt; -1/3 &lt; 0 &lt; 1</span>.</p>
+<p>Therefore, <span class="math inline">f</span> has a local maximum at
+<span class="math inline">x = -2/3</span> and a local minimum at <span class="math inline">x = 0</span>. If the gradient descent starts at
+<span class="math inline">x_0 = -1</span> and it always goes left then
+it will never meet the local minimum at <span class="math inline">x =
+0</span>, and it will go left infinitely. We say the gradient descent
+cannot converge, or is divergent.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>If we start at <span class="math inline">x_0 = 1</span>, should we go
+left or right? Can you verify this mathematically? What is <span
+class="math inline">x_1</span>? Can gradient descent converge? If so,
+where it might converge to, given appropriate step size?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>We have <span class="math display">f'(x_0) = f'(-1) = 3 \cdot
+1^2 + 2 \cdot 1 = 5 &gt; 0,</span> so we go <strong>left</strong>, and
+<span class="math display">x_1 = x_0 - \alpha f'(x_0) = 1 -
+\frac{1}{4} \cdot 5 = -\frac{1}{4}.</span></p>
+<p>From the previous part, function <span class="math inline">f</span>
+has a local minimum at <span class="math inline">x = 0</span>, so the
+gradient descent <strong>can converge</strong> (given appropriate step
+size) at this local minimum.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.4">Problem 6.4</h3>
+<p>Write down <span class="math inline">1</span> condition to terminate
+the gradient descent algorithm (in general).</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_4" class="accordion-collapse collapse"
+aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>There are several ways to terminate the gradient descent
+algorithm:</p>
+<ul>
+<li><p>If the change in the optimization objective is too small, i.e.
+<span class="math inline">|f(x_i) - f(x_{i + 1})| &lt; \epsilon</span>
+where <span class="math inline">\epsilon</span> is a small
+constant,</p></li>
+<li><p>If the gradient is close to zero or the norm of the gradient is
+very small, i.e. <span class="math inline">\|\nabla f(x_i)\| &lt;
+\lambda</span> where <span class="math inline">\lambda</span> is a small
+constant.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Remember to show your work and justify your answers.</p>
+<p>Suppose we want to minimize the function</p>
+<p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>Without using gradient descent or calculus, what is the value <span
+class="math inline">h^*</span> that minimizes <span
+class="math inline">R(h)</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^* = -1</span></p>
+<p>The minimum possible value of the exponent is <span class="math inline">0</span>, since anything squared is non-negative.
+The exponent is 0 when <span class="math inline">(x+1)^2 = 0</span>,
+i.e. when <span class="math inline">x = -1</span>. Since <span class="math inline">e^{(x+1)^2}</span> gets larger as <span class="math inline">(x+1)^2</span> gets larger, the minimizing input
+<span class="math inline">h^*</span> is <span class="math inline">-1</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>Now, suppose we want to use gradient descent to minimize <span
+class="math inline">R(h)</span>. Assume we use an initial guess of <span
+class="math inline">h_0 = 0</span>. What is <span
+class="math inline">h_1</span>? Give your answer in terms of a generic
+step size, <span class="math inline">\alpha</span>, and other constants.
+(<span class="math inline">e</span> is a constant.)</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
+<p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
+<p><span class="math display">\frac{dR}{dh}(h) = 2(x+1)
+e^{(x+1)^2}</span></p>
+<p>Then, we know that</p>
+<p><span class="math display">h_1 = h_0 - \alpha \frac{dR}{dh}(h_0) = 0
+- \alpha \frac{dR}{dh}(0)</span></p>
+<p>In our case, <span class="math inline">\frac{dR}{dh}(0) = 2(0 + 1)
+e^{(0+1)^2} = 2e</span>, so</p>
+<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.3">Problem 7.3</h3>
+<p>Using your answers from the previous two parts, what should we set
+the value of <span class="math inline">\alpha</span> to be if we want to
+ensure that gradient descent finds <span class="math inline">h^*</span>
+after just one iteration?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\alpha = \frac{1}{2e}</span></p>
+<p>We know from the part (b) that <span class="math inline">h_1 =
+-\alpha \cdot 2e</span>, and we know from part (a) that <span class="math inline">h^* = -1</span>. If gradient descent converges in
+one iteration, that means that <span class="math inline">h_1 =
+h^*</span>; solving this yields</p>
+<p><span class="math display">-\alpha \cdot 2e = -1 \implies \alpha =
+\frac{1}{2e}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.4">Problem 7.4</h3>
+<p>Below is a graph of <span class="math inline">R(h)</span> with no
+axis labels.</p>
+<!-- TODO -->
+<center><img src="../assets/images/disc11/graph.png" width="500" height="350"></center>
+<p>True or False: Given an appropriate choice of step size, <span
+class="math inline">\alpha</span>, gradient descent is guaranteed to
+find the minimizer of <span class="math inline">R(h)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>True.</p>
+<p><span class="math inline">R(h)</span> is convex, since the graph is
+bowl shaped. (It can also be proved that <span class="math inline">R(h)</span> is convex using the second derivative
+test.) It is also differentiable, as we saw in part (b). As a result,
+since it’s both convex and differentiable, gradient descent is
+guaranteed to be able to minimize it given an appropriate choice of step
+size.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>Consider the function <span class="math inline">R(h) = \sqrt{(h -
+3)^2 + 1} = ((h - 3)^2 + 1)^{\frac{1}{2}}</span>, which is a convex and
+differentiable function with only one local minimum.</p>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<p>Perform by hand two iterations of the gradient descent algorithm on
+this function, using an initial prediction of <span
+class="math inline">h_0 = 2</span> and a learning rate of <span
+class="math inline">\alpha = 2\sqrt{2}</span>. Show your work and your
+final answers, <span class="math inline">h_1</span> and <span
+class="math inline">h_2</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h_1 = 4, h_2 = 2</span></p>
+<p>The updating rule for gradient descent in the one-dimensional case
+is: <span class="math display">h_{i+1} = h_{i} - \alpha \cdot
+\frac{dR}{dh}(h_i)</span></p>
+<p>We can find <span class="math inline">\frac{dR}{dh}</span> by taking
+the derivative of <span class="math inline">R(h)</span>: <span class="math display">\frac{d}{dh}R(h) = \frac{d}{dh}(\sqrt{(h - 3)^2 +
+1}) = \dfrac{h-3}{\sqrt{\left(h-3\right)^2+1}}</span></p>
+<p>Now we can use <span class="math inline">\alpha = 2\sqrt{2}</span>
+and <span class="math inline">h_0 = 2</span> to begin updating:</p>
+<p><span class="math display">\begin{align*}
+h_{1} &amp;= h_{0} - \alpha \cdot \frac{dR}{dh}(h_0) \\
+h_{1} &amp;= 2 - 2\sqrt{2} \cdot
+\left(\dfrac{2-3}{\sqrt{\left(2-3\right)^2+1}}\right) \\
+h_{1} &amp;= 2 - 2\sqrt{2} \cdot (\dfrac{-1}{\sqrt{2}}) \\
+h_{1} &amp;= 4
+\end{align*}</span> <br/> <span class="math display">\begin{align*}
+h_{2} &amp;= h_{1} - \alpha \cdot \frac{dR}{dh}(h_1) \\
+h_{2} &amp;= 4 - 2\sqrt{2} \cdot
+\left(\dfrac{4-3}{\sqrt{\left(4-3\right)^2+1}}\right) \\
+h_{2} &amp;= 4 - 2\sqrt{2} \cdot (\dfrac{1}{\sqrt{2}}) \\
+h_{2} &amp;= 2
+\end{align*}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.2">Problem 8.2</h3>
+<p>With more iterations, will we eventually converge to the minimizer?
+Explain.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>No, this algorithm will not converge to the minimizer because if we
+do more iterations, we’ll keep oscillating back and forth between
+predictions of 2 and 4. We showed the first two iterations of the
+algorithm in part 1, but the next two would be exactly the same, and the
+two after that, and so on. This happens because the learning rate is too
+big, resulting in steps that are too big, and we keep jumping over the
+true minimizer at <span class="math inline">h = 3</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>For a given classifier, suppose the first 10 predictions of our
+classifier and 10 true observations are as follows: <span
+class="math display">
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{Predictions} &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+&amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ \hline
+\textbf{True Label} &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0
+&amp; 0 &amp; 1 &amp; 1 &amp; 1 \\ \hline
+\end{array}
+</span></p>
+<ol type="1">
+<li><p>What is the accuracy of our classifier on these 10
+predictions?</p></li>
+<li><p>What is the precision on these 10 predictions?</p></li>
+<li><p>What is the recall on these 10 predictions?</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9" class="accordion-collapse collapse"
+aria-labelledby="heading9" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\frac{7}{10}</span></p></li>
+<li><p>We have 6 true positive and 3 false positives, so the precision
+evaluates to: <span class="math display">\frac{6}{6+3} =
+\frac{2}{3}</span></p></li>
+<li><p>From the solution to (2) above, we know true positives = 6. The
+number of false negatives is 0 (we only predicted 0 once and the true
+value actually was 0). Thus the recall is: <span class="math display">\frac{6}{6+0} = 1</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
 <p>Consider three classifiers with the following confusion matrices:
 <center><img src='../assets/images/old-from-80/fa23-final/dsc80_final_models.png' width=65%></center></p>
 <p><br></p>
-<h3 id="problem-13.1">Problem 13.1</h3>
+<h3 id="problem-10.1">Problem 10.1</h3>
 <p>Which model has the highest accuracy?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Model A</p></li>
@@ -1599,13 +1481,13 @@ accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading13_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_1" aria-expanded="true" aria-controls="collapse13_1">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse13_1" class="accordion-collapse collapse"
-aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1622,7 +1504,7 @@ such that the sum of all values is 100 in all three cases.)</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-13.2">Problem 13.2</h3>
+<h3 id="problem-10.2">Problem 10.2</h3>
 <p>Which model has the highest precision?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Model A</p></li>
@@ -1631,13 +1513,13 @@ such that the sum of all values is 100 in all three cases.)</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading13_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_2" aria-expanded="true" aria-controls="collapse13_2">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse13_2" class="accordion-collapse collapse"
-aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1654,7 +1536,7 @@ sum of the Yes column. We see that Model C has the highest precision,
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-13.3">Problem 13.3</h3>
+<h3 id="problem-10.3">Problem 10.3</h3>
 <p>Which model has the highest recall?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Model A</p></li>
@@ -1663,13 +1545,13 @@ sum of the Yes column. We see that Model C has the highest precision,
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading13_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse13_3" aria-expanded="true" aria-controls="collapse13_3">
+<h2 class="accordion-header" id="heading10_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse13_3" class="accordion-collapse collapse"
-aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1687,144 +1569,24 @@ is the sum of the Yes row. We see that Model B has the highest recall,
 </div>
 <p><br></p>
 <hr />
-<h2 id="problem-14">Problem 14</h2>
-<p>Suppose you fit four different models to predict whether someone has
-an income greater than $100,000 a year using their purchase history. You
-split the data into a training and test set and use 3-fold
-cross-validation. The table below shows all the calculated accuracies
-for each model (higher accuracy is better).</p>
-<center><img src="../assets/images/old-from-80/sp24-final/train-valid-test.png" style="width: 40%; height: auto;"></center>
-<p><br></p>
-<h3 id="problem-14.1">Problem 14.1</h3>
-<p>Which model has the lowest model bias?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Model A</p></li>
-<li><p><input type="radio" disabled="" /> Model B</p></li>
-<li><p><input type="radio" disabled="" /> Model C</p></li>
-<li><p><input type="radio" disabled="" /> Model D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading14_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_1" aria-expanded="true" aria-controls="collapse14_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse14_1" class="accordion-collapse collapse"
-aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Model D</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-14.2">Problem 14.2</h3>
-<p>Which model most severely underfits the data?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Model A</p></li>
-<li><p><input type="radio" disabled="" /> Model B</p></li>
-<li><p><input type="radio" disabled="" /> Model C</p></li>
-<li><p><input type="radio" disabled="" /> Model D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading14_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_2" aria-expanded="true" aria-controls="collapse14_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse14_2" class="accordion-collapse collapse"
-aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Model A</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-14.3">Problem 14.3</h3>
-<p>Which model most severely overfits the data?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Model A</p></li>
-<li><p><input type="radio" disabled="" /> Model B</p></li>
-<li><p><input type="radio" disabled="" /> Model C</p></li>
-<li><p><input type="radio" disabled="" /> Model D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading14_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_3" aria-expanded="true" aria-controls="collapse14_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse14_3" class="accordion-collapse collapse"
-aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Model D</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-14.4">Problem 14.4</h3>
-<p>Which model should you pick overall?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Model A</p></li>
-<li><p><input type="radio" disabled="" /> Model B</p></li>
-<li><p><input type="radio" disabled="" /> Model C</p></li>
-<li><p><input type="radio" disabled="" /> Model D</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading14_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse14_4" aria-expanded="true" aria-controls="collapse14_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse14_4" class="accordion-collapse collapse"
-aria-labelledby="heading14_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer:</strong> Model B</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-15">Problem 15</h2>
+<h2 id="problem-11">Problem 11</h2>
 <p>Suppose Yutong builds a classifier that predicts whether or not a
 hotel provides free parking. The confusion matrix for her classifier,
 when evaluated on our training set, is given below.</p>
 <center><img src="../assets/images/old-from-80/wi24-final/confusion.png" width=350></center>
 <p><br></p>
-<h3 id="problem-15.1">Problem 15.1</h3>
+<h3 id="problem-11.1">Problem 11.1</h3>
 <p>What is the precision of Yutong’s classifier? Give your answer as a
 simplified fraction.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading15_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15_1" aria-expanded="true" aria-controls="collapse15_1">
+<h2 class="accordion-header" id="heading11_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse15_1" class="accordion-collapse collapse"
-aria-labelledby="heading15_1" data-bs-parent="#accordionExample">
+<div id="collapse11_1" class="accordion-collapse collapse"
+aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1837,7 +1599,7 @@ positives. So, given this confusion matrix, that value is <span class="math inli
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-15.2">Problem 15.2</h3>
+<h3 id="problem-11.2">Problem 11.2</h3>
 <p>Fill in the blanks: In order for Yutong’s classifier’s recall to be
 equal to its precision, <code>__(i)__</code> must be equal to
 <code>__(ii)__</code>.</p>
@@ -1867,13 +1629,13 @@ equal to its precision, <code>__(i)__</code> must be equal to
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading15_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15_2" aria-expanded="true" aria-controls="collapse15_2">
+<h2 class="accordion-header" id="heading11_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse15_2" class="accordion-collapse collapse"
-aria-labelledby="heading15_2" data-bs-parent="#accordionExample">
+<div id="collapse11_2" class="accordion-collapse collapse"
+aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -1893,7 +1655,7 @@ be 5.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-15.3">Problem 15.3</h3>
+<h3 id="problem-11.3">Problem 11.3</h3>
 <p>Now, suppose both <span class="math inline">A</span> and <span
 class="math inline">B</span> are unknown. Fill in the blanks: In order
 for Yutong’s classifier’s recall to be equal to its accuracy,
@@ -1932,13 +1694,13 @@ accuracy. Do the specific A and B you find satisfy your answer
 above?</em></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading15_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse15_3" aria-expanded="true" aria-controls="collapse15_3">
+<h2 class="accordion-header" id="heading11_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_3" aria-expanded="true" aria-controls="collapse11_3">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse15_3" class="accordion-collapse collapse"
-aria-labelledby="heading15_3" data-bs-parent="#accordionExample">
+<div id="collapse11_3" class="accordion-collapse collapse"
+aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
