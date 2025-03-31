@@ -92,7 +92,7 @@ You should work on these problems **on paper**, since your exams will also be on
     <tr>
       <th scope="row">12</th>
       <td>Thursday, March 27th</td>
-      <td><a href="disc10/index.html">Cross-Validation and Regularization</a></td>
+      <td><a href="disc10/index.html">Cross-Validation and Regularization </a></td>
     </tr>
     <!--tr>
       <th scope="row">12</th>
