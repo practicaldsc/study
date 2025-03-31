@@ -181,6 +181,42 @@ subpart.</li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">240(k − 1)</span></p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">6000(k − 1)</span></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<ol type="1">
+<li><span class="math inline">5k</span></li>
+<li><span class="math inline">6000(k-1)</span></li>
+</ol>
+<p>When we do <span class="math inline">k</span>-fold cross-validation
+for one single hyperparameter value, we split the dataset into <span class="math inline">k</span> folds, and in each iteration <span class="math inline">i</span>, train the model on the remaining <span class="math inline">k-1</span> folds and evaluate on fold <span class="math inline">i</span>. Since every fold is left out and evaluated
+on once, the model is fit in total <span class="math inline">k</span>
+times. We do this once for every hyperparameter value we want to test,
+so the total number of model fits required is <span class="math inline">5k</span>.</p>
+<p>In part 2, we can note that each model fit is performed on the same
+size of data – the size of the remaining <span class="math inline">k-1</span> folds when we hold out a single fold.
+This size is <span class="math inline">1 - \frac{1}{k} =
+\frac{k-1}{k}</span> times the size of the entire dataset, in this case,
+<span class="math inline">1200 \cdot \frac{k-1}{k}</span>, and we fit a
+model on a dataset of this size <span class="math inline">5k</span>
+times. So, the sum of the training sizes for each model fit is:</p>
+<p><span class="math display">5k \cdot \frac{k-1}{k} \cdot 1200 =
+6000(k-1)</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>The average training error and validation error for all 5 candidate
@@ -217,6 +253,46 @@ complexity <code>__(i)__</code>. The optimal choice of
 <li><p><input type="radio" disabled="" /> overfit the training data and have low bias</p></li>
 <li><p><input type="radio" disabled="" /> underfit the training data and have low bias</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<ol type="1">
+<li>decreases</li>
+<li>100</li>
+<li>underfit the training data and have high bias</li>
+</ol>
+<p>In part 1, we can see that as <code>context_length</code> increases,
+the training error increases, and the model performs worse. In general,
+higher model complexity leads to better model performance, so here,
+increasing <code>context_length</code> is <em>reducing</em> model
+complexity.</p>
+<p>In part 2, we will choose a <code>context_length</code> of 100, since
+this parameterization leads to the best validation performance. If we
+increase <code>context_length</code> further, the validation error
+increases.</p>
+<p>In part 3, since increased <code>context_length</code> indicates
+<em>less</em> complexity and worse training performance, increasing the
+<code>context_length</code> further would lead to underfitting, as the
+model would lack the expressiveness or number of parameters required to
+capture the data. Since training error represents model bias, and since
+high variance is associated with <em>over</em>fitting, a further
+increase in <code>context_length</code> would mean a more biased
+model.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -253,6 +329,25 @@ class="math inline">\Vert \vec{w}_\text{OLS}^* \Vert^2_2</span> is
 <li><p><input type="radio" disabled="" /> greater than</p></li>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>equal to</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>For each of the remaining parts, you can assume that <span
@@ -270,6 +365,25 @@ X \vec{w}_\text{ridge}^*</span>.</p>
 <li><p><input type="radio" disabled="" /> greater than</p></li>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>less than</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p>Now, assume we’ve fit both models using our training data, and
@@ -284,6 +398,25 @@ X \vec{w}_\text{ridge}^*</span>.</p>
 <li><p><input type="radio" disabled="" /> greater than</p></li>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>impossible to tell</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
 <p>Assume that our design matrix <span class="math inline">X</span>
@@ -294,6 +427,25 @@ contains a column of all ones. The sum of the residuals of our model
 <li><p><input type="radio" disabled="" /> equal to 0</p></li>
 <li><p><input type="radio" disabled="" /> not necessarily equal to 0</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_4" class="accordion-collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>not necessarily equal to 0</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.5">Problem 2.5</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the bias of
@@ -304,6 +456,25 @@ the model <span class="math inline">\vec{h} = X
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
 <li><p><input type="radio" disabled="" /> decrease</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_5" aria-expanded="true" aria-controls="collapse2_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_5" class="accordion-collapse collapse"
+aria-labelledby="heading2_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>increase</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.6">Problem 2.6</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the model
@@ -314,6 +485,25 @@ variance of the model <span class="math inline">\vec{h} = X
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
 <li><p><input type="radio" disabled="" /> decrease</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_6" aria-expanded="true" aria-controls="collapse2_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_6" class="accordion-collapse collapse"
+aria-labelledby="heading2_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>decrease</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.7">Problem 2.7</h3>
 <p>As we increase <span class="math inline">\lambda</span>, the
@@ -324,6 +514,25 @@ observation variance of the model <span class="math inline">\vec{h} = X
 <li><p><input type="radio" disabled="" /> stay the same</p></li>
 <li><p><input type="radio" disabled="" /> decrease</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_7">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_7" aria-expanded="true" aria-controls="collapse2_7">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_7" class="accordion-collapse collapse"
+aria-labelledby="heading2_7" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>stay the same</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -347,6 +556,31 @@ to model complexity and model variance?</p>
 <li><p><input type="radio" disabled="" /> Model complexity decreases while model variance increases.</p></li>
 <li><p><input type="radio" disabled="" /> Model complexity and model variance both decrease.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model complexity and model variance both
+decrease.</p>
+<p>As <span class="math inline">\lambda</span> increases, the <span class="math inline">L_1</span> regularization penalizes larger
+coefficient values more heavily, forcing the model to forget the details
+in the training data and focus on the bigger picture. This effectively
+reduces the number of non-zero coefficients, decreasing model
+complexity. Since model complexity and model variance are the same
+thing, variance also decreases.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>What does the value <span class="math inline">A</span> on the graph
@@ -357,6 +591,29 @@ to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of an unregularized multiple
+linear regression model.</p>
+<p>Point <span class="math inline">A</span> represents the case where
+<span class="math inline">\lambda = 0</span>, meaning no regularization
+is applied. This corresponds to an unregularized multiple linear
+regression model.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
 <p>What does the value <span class="math inline">B</span> on the graph
@@ -367,6 +624,29 @@ to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a
+model.</p>
+<p>Point <span class="math inline">B</span> is the minimum point on the
+graph, indicating the optimal <span class="math inline">\lambda</span>
+value that minimizes the AVMSE. This is because we don’t typically
+regularize the intercept term’s coefficient, <span class="math inline">w_0^*</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.4">Problem 3.4</h3>
 <p>What does the value <span class="math inline">C</span> on the graph
@@ -377,6 +657,28 @@ to use to train a model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
 <li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of the constant model.</p>
+<p>Point <span class="math inline">C</span> represents the AVMSE when
+<span class="math inline">\lambda</span> is very large, effectively
+forcing all coefficients to zero. This corresponds to the constant
+model.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -406,12 +708,62 @@ class="math inline">k=4</span>.</p>
 <p>When we call <code>GridSearchCV</code>, how many times is a
 <code>BillyClassifier</code> instance trained in total? Give your answer
 as an integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 2400</p>
+<p>There are <span class="math inline">12 \cdot 10 \cdot 5 = 600</span>
+combinations of hyperparameters. For each combination of
+hyperparameters, we will train a <code>BillyClassifier</code> with that
+combination of hyperparameters <span class="math inline">k = 4</span>
+times. So, the total number of <code>BillyClassifier</code> instances
+that will be trained is <span class="math inline">600 \cdot 4 =
+2400</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>In each of the 4 folds of the data, how large is the training set,
 and how large is the validation set? Give your answers as integers.</p>
 <p>size of training set =</p>
 <p>size of validation set =</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 600, 200</p>
+<p>Since we performed <span class="math inline">k=4</span>
+cross-validation, we must divide the training set into four disjoint
+groups each of the same size. <span class="math inline">\frac{800}{4} =
+200</span>, so each group is of size 200. Each time we perform cross
+validation, one group is used for validation, and the other three are
+used for training, so the validation set size is 200 and the training
+set size is <span class="math inline">200 \cdot 3 = 600</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>Suppose that after fitting a <code>GridSearchCV</code> instance, its
@@ -438,6 +790,29 @@ combination of hyperparameters in <code>best_params_</code> is
 guaranteed to have the best accuracy on unseen testing data among all
 combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>When performing cross validation, we select the combination of
+hyperparameters that had the highest <strong>average validation
+accuracy</strong> across all four folds of the data. That is, by
+definition, how <code>best_params_</code> came to be. None of the other
+options are guaranteed to be true.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
@@ -479,6 +854,38 @@ vs. <code>height</code></strong>?</p>
 <li><p><input type="radio" disabled="" /> Option 2</p></li>
 <li><p><input type="radio" disabled="" /> Option 3</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2 depicts training accuracy
+vs. <code>height</code>; Option 3 depicts testing accuract
+vs. <code>height</code></p>
+<p>We are told that as <code>height</code> increases, the model variance
+(complexity) also increases.</p>
+<p>As we increase the complexity of our classifier, it will do a better
+job of fitting to the training set because it’s able to “memorize” the
+patterns in the training set. As such, as <code>height</code> increases,
+training accuracy increases, which we see in Option 2.</p>
+<p>However, after a certain point, increasing <code>height</code> will
+make our classifier overfit too closely to our training set and not
+general enough to match the patterns in other similar datasets, meaning
+that after a certain point, increasing <code>height</code> will actually
+decrease our classifier’s accuracy on our testing set. The only option
+that shows accuracy increase and then decrease is Option 3.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><code>ChickenClassifier</code>s have another hyperparameter,
 <code>color</code>, for which there are four possible values:
@@ -498,6 +905,27 @@ accuracy?</p>
 <li><p><input type="radio" disabled="" /> <code>"red"</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>"orange"</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <code>"red"</code></p>
+<p>From looking at the results of the k-fold cross validation, we see
+that the color red has the highest, and therefore the best, validation
+accuracy as it has the highest row mean (across all 4 folds).</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-5.3">Problem 5.3</h3>
 <p>True or False: It is possible for a hyperparameter value to have the
@@ -507,6 +935,81 @@ validation accuracy in any one particular fold.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> True</p>
+<p>An example is shown below:</p>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th>Fold 1</th>
+<th>Fold 2</th>
+<th>Fold 3</th>
+<th>Fold 4</th>
+<th>average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color 1</td>
+<td>0.8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>color 2</td>
+<td>0</td>
+<td>0.6</td>
+<td>0</td>
+<td>0</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>color 3</td>
+<td>0</td>
+<td>0</td>
+<td>0.1</td>
+<td>0</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>color 4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>color 5</td>
+<td>0.7</td>
+<td>0.5</td>
+<td>0.01</td>
+<td>0.1</td>
+<td>0.3275</td>
+</tr>
+</tbody>
+</table>
+<p>In the example, color 5 has the highest average validation accuracy
+across all folds, but is not the best in any one fold.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-5.4">Problem 5.4</h3>
 <p>Now, instead of finding the best <code>height</code> and best
@@ -544,6 +1047,43 @@ validation?</li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">\frac{nh_1h_2}{k}</span></p></li>
 <li><p><input type="radio" disabled="" /> None of the above</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_4" aria-expanded="true" aria-controls="collapse5_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_4" class="accordion-collapse collapse"
+aria-labelledby="heading5_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> A: Option 3 (<span class="math inline">\frac{n}{k}</span>), B: Option 6 (<span class="math inline">h_1h_2(k-1)</span>), C: Option 8 (None of the
+above)</p>
+<p><br/></p>
+<h5 id="a.-what-is-the-size-of-each-fold">A. What is the size of each
+fold?</h5>
+<p>The training set is divided into <span class="math inline">k</span>
+folds of equal size, resulting in <span class="math inline">k</span>
+folds with size <span class="math inline">\frac{n}{k}</span>.</p>
+<p><br/></p>
+<h5 id="b.-how-many-times-is-row-5-in-the-training-set-used-for-training">B.
+How many times is row 5 in the training set used for training?</h5>
+<p>For each combination of hyperparameters, row 5 is <span class="math inline">k - 1</span> times for training and <span class="math inline">1</span> time for validation. There are <span class="math inline">h_1 \cdot h_2</span> combinations of
+hyperparameters, so row 5 is used for training <span class="math inline">h_1 \cdot h_2 \cdot (k-1)</span> times.</p>
+<p><br/></p>
+<h5 id="c.-how-many-times-is-row-5-in-the-training-set-used-for-validation">C.
+How many times is row 5 in the training set used for validation?</h5>
+<p>Building off of the explanation for the previous subpart, row 5 is
+used for validation 1 times for each combination of hyperparameters, so
+the correct expression would be <span class="math inline">h_1 \cdot
+h_2</span>, which is not a provided option.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
@@ -562,6 +1102,24 @@ for each model (higher accuracy is better).</p>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 <li><p><input type="radio" disabled="" /> Model D</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model D</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
@@ -572,6 +1130,24 @@ for each model (higher accuracy is better).</p>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 <li><p><input type="radio" disabled="" /> Model D</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model A</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
@@ -582,6 +1158,24 @@ for each model (higher accuracy is better).</p>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 <li><p><input type="radio" disabled="" /> Model D</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model D</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-6.4">Problem 6.4</h3>
@@ -592,6 +1186,24 @@ for each model (higher accuracy is better).</p>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 <li><p><input type="radio" disabled="" /> Model D</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_4" class="accordion-collapse collapse"
+aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Model B</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
