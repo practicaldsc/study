@@ -400,12 +400,13 @@ drove the most minutes.</p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
 <p>Consider the DataFrame <code>C</code>, defined below.</p>
-<pre><code>C = orders.pivot_table(
-  index=&quot;type&quot;, # Possible values: &quot;Buffet&quot;, &quot;Drinks&quot;, &quot;Meal&quot;, &quot;Snacks&quot;
-  columns=&quot;traffic&quot;, # Possible values: &quot;High&quot;, &quot;Low&quot;, &quot;Moderate&quot;, &quot;Very Low&quot;
-  values=&quot;minutes&quot;,
-  aggfunc=&quot;count&quot;
-)</code></pre>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> orders.pivot_table(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      index<span class="op">=</span><span class="st">&quot;type&quot;</span>, <span class="co"># Possible values: &quot;Buffet&quot;, &quot;Drinks&quot;, &quot;Meal&quot;, &quot;Snacks&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      columns<span class="op">=</span><span class="st">&quot;traffic&quot;</span>, <span class="co"># Possible values: &quot;High&quot;, &quot;Low&quot;, &quot;Moderate&quot;, &quot;Very Low&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      values<span class="op">=</span><span class="st">&quot;minutes&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      aggfunc<span class="op">=</span><span class="st">&quot;count&quot;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p>Throughout this question, assume that after defining <code>C</code>
 above, <strong>we sort <code>C</code> such that both its index and
 columns are in ascending alphabetical order</strong> (as shown
@@ -416,8 +417,8 @@ above).</p>
 <strong>proportion of <code>"Snack"</code> deliveries that were made in
 <code>"Moderate"</code> traffic</strong>. Each blank should be filled
 with a single integer, float, string, or Boolean value.</p>
-<pre><code>C.iloc[__(i)__, __(ii)__] / C.loc[__(iii)__].sum()</code></pre>
-<p><code>(i)</code>: <code>(ii)</code>: <code>(iii)</code>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    C.iloc[__(i)__, __(ii)__] <span class="op">/</span> C.loc[__(iii)__].<span class="bu">sum</span>()</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5_1">
@@ -431,6 +432,20 @@ aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong>: There are multiple possible answers</p>
+<ul>
+<li><p><code>(i)</code> <code>3 or -1</code> - The index of C is sorted
+alphabetically, meaning the row order follows “Buffet”, “Drinks”,
+“Meal”, “Snacks”. Since “Snacks” is the last item in this order, its
+index is 3 (0-based) or -1 (negative indexing).</p></li>
+<li><p><code>(ii)</code> <code>2 or -2</code> - Similarly, the columns
+are sorted alphabetically: “High”, “Low”, “Moderate”, “Very Low”.
+“Moderate” appears third in this order, making its index 2 (0-based) or
+-2 (negative indexing).</p></li>
+<li><p><code>(iii)</code> <code>Snacks</code> - To get the total number
+of “Snacks” deliveries across all traffic levels, we use .loc[“Snacks”].
+The .sum() function then adds up all values in that row.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -442,23 +457,17 @@ aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
 were for <code>"Buffet"</code>s</strong>. Blanks (i) and (ii) should
 each be filled with a single integer, float, string, or Boolean
 value.</p>
-<pre><code>C.loc[__(i)__, __(ii)__] / __(iii)__.sum()</code></pre>
-<p><code>(i)</code>: <code>(ii)</code>:</p>
-<p><code>(iii)</code>:</p>
-<table>
-<tbody>
-<tr>
-<td style="text-align: left;">( ) <code>C.iloc[:, -1]</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;">( ) <code>C.iloc[-1, :]</code></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    C.loc[__(i)__, __(ii)__] <span class="op">/</span> __(iii)__.<span class="bu">sum</span>()</span></code></pre></div>
+<p>(iii):</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>C.iloc[:, -1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>C.iloc[:, 0]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>C.iloc[:, 1]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>C.iloc[-1, :]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>C.iloc[0, :]</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>C.iloc[1, :]</code></p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5_2">
@@ -472,29 +481,25 @@ aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-5.3">Problem 5.3</h3>
-<p>In one English sentence, describe what the following expression
-computes. Your sentence should be understandable by someone who has
-never written code before, i.e. it should not use any technical
-terms.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_3" class="accordion-collapse collapse"
-aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
+<ul>
+<li><p><code>(i)``Buffet</code> - when using <code>.loc[]</code>, we
+reference labels instead of numerical indices. Since the index
+represents order <code>"type"</code> and is sorted alphabetically
+(“Buffet”, “Drinks”, “Meal”, “Snacks”), “Buffet” is the correct label
+for selecting the row corresponding to buffet orders.</p></li>
+<li><p><code>(ii)</code> <code>Low</code> - similarly, the column order
+is sorted alphabetically as “High”, “Low”, “Moderate”, “Very Low”,
+making “Low” the correct column label to select deliveries in “Low”
+traffic.</p></li>
+<li><p><code>(iii)</code> <code>C.iloc[:, 1]</code> - Here, we are using
+<code>.iloc[]</code>, which is integer-location based indexing. The
+<code>[:, 1]</code> part means we are selecting all rows (:) in the
+second column (index 1), which corresponds to “Low” traffic, since the
+columns are sorted alphabetically as “High”, “Low”, “Moderate”, “Very
+Low”. By selecting <code>C.iloc[:, 1]</code>, we are referencing all the
+values in the “Low” column, and .sum() will give the total number of
+deliveries made in “Low” traffic, across all order types.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -504,10 +509,10 @@ aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
 <h2 id="problem-6">Problem 6</h2>
 <p>Consider the DataFrames <code>A</code> and <code>B</code>, shown
 below in their entirety.</p>
-<div class="center">
-<p><img src="midterm-images/A.png" style="width:40.0%" alt="image" />
-<img src="midterm-images/B.png" style="width:40.0%" alt="image" /></p>
-</div>
+<center>
+<img src="../assets/images/wn25-midterm/A.png" width=40%>
+<img src="../assets/images/wn25-midterm/B.png" width=40%>
+</center>
 <p>Note that the <code>"type"</code> value in row <strong>3</strong> of
 DataFrame <code>B</code> is unknown. Remember from the Data Overview
 page that the only possible values in the <code>"type"</code> column are
@@ -518,8 +523,13 @@ page that the only possible values in the <code>"type"</code> column are
 <p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has
 <code>7</code> rows.</p>
 <p>What must the unknown value, <span
-class="math inline">\boxed{\text{???}}</span>, be? ( ) Drinks ( ) Buffet
-( ) Meal ( ) Snack</p>
+class="math inline">\boxed{\text{???}}</span>, be?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>"Drinks"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Buffet"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Meal"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Snack"</code></p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_1">
@@ -533,6 +543,38 @@ aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <code>Drinks</code></p>
+<p>When performing a merge operation on DataFrames A and B using the
+<code>"type"</code> column as the key, the number of rows in the result
+depends on the number of matching entries between A and B for each value
+in the <code>"type"</code> column. The possible values for
+<code>"type"</code> are <code>"Buffet"</code>, <code>"Drinks"</code>,
+<code>"Meal"</code>, and <code>"Snack"</code>. Also, when the type of
+merge is not specified, the default merge type to consider is an
+<strong>inner merge</strong>.</p>
+<p>Given that the resulting DataFrame after the merge has 7 rows, this
+means that there are 7 matches between the rows in A and B based on the
+<code>"type"</code> column. The value in the third row of DataFrame B is
+unknown. We need to figure out which value for <code>"type"</code> will
+give exactly 7 matches when merged with A.</p>
+<p>Since merging on <code>"type"</code> generates rows where both
+DataFrames have the same <code>"type"</code>, we need to look at the
+counts of each type in A and B to deduce which value the unknown
+<code>"type"</code> should be. We can see that there are 5 rows with
+type <code>"Buffet"</code> in DataFrame A and 1 row with type
+<code>"Buffet"</code> in DataFrame B. This means in our merged dataset
+we will have at least 5 rows of <code>"Buffet"</code>.</p>
+<p>We can then go through each of the different options to see which
+option will give us exactly 7 rows in our merged dataset. If the unknown
+value is:</p>
+<ul>
+<li><strong>Drinks</strong>: We have 2 rows with type
+<code>"Drinks"</code> in DataFrame A and 1 row with type
+<code>"Drinks"</code> (unknown value replaced) in DataFrame B, which
+gives us <span class="math inline">2 \times 1 = 2</span> rows in our
+merged dataset. This is the correct answer because now we will have 5
+(Buffet rows) + 2 (Drinks rows) = 7 rows in the merged dataset.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -542,10 +584,12 @@ aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has
 <code>10</code> rows.</p>
 <p>What must the unknown value, <span
-class="math inline">\boxed{\text{???}}</span>, be?</p>
+class="math inline">\boxed{\text{???}}</span> be?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>"Drinks"</code> ( ) <code>"Buffet"</code> ( )
-<code>"Meal"</code> ( ) <code>"Snack"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Drinks"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Buffet"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Meal"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Snack"</code></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -560,6 +604,22 @@ aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <code>Buffet</code></p>
+<p>Using similar logic to part a, we can then go through each of the
+different options to see which option will give us exactly 10 rows in
+our merged dataset. If the unknown value is:</p>
+<ul>
+<li><p><strong>Drinks</strong>: We have 2 rows with type
+<code>"Drinks"</code> in DataFrame A and 1 row with type
+<code>"Drinks"</code> (unknown value replaced) in DataFrame B, which
+gives us <span class="math inline">2 \times 1 = 2</span> rows in our
+merged dataset. This gives us 5 (Buffet rows) + 2 (Drinks rows) = 7 rows
+in the merged dataset, not 10.</p></li>
+<li><p><strong>Buffet</strong>: We have 5 rows of <code>"Buffet"</code>
+in DataFrame A and 2 rows in DataFrame B, which gives us <span class="math inline">2 \times 5 = 10</span> rows in our merged dataset.
+This is the correct answer because now we will have exactly 10 rows (all
+Buffet rows) in total.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -567,13 +627,16 @@ aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
 <p>Suppose the DataFrame <code>A.merge(B, on="type", how="outer")</code>
-has <span class="math inline">k</span> rows. The value of <span
-class="math inline">k</span> depends on the unknown value, <span
-class="math inline">\boxed{\text{???}}</span>.</p>
+has <span class="math inline">k</span> rows.<br />
+The value of <span class="math inline">k</span> depends on the unknown
+value, <span class="math inline">\boxed{\text{???}}</span>.</p>
 <p>Which integer below <strong>cannot</strong> be <span
 class="math inline">k</span>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> 11 ( ) 12 ( ) 14 ( ) 16</p></li>
+<li><p><input type="radio" disabled="" /> 11</p></li>
+<li><p><input type="radio" disabled="" /> 12</p></li>
+<li><p><input type="radio" disabled="" /> 14</p></li>
+<li><p><input type="radio" disabled="" /> 16</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -588,6 +651,29 @@ aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> 14</p>
+<p>An outer merge combines all rows from both A and B. If a row in A
+does not have a corresponding match in B (or vice versa), the resulting
+merged DataFrame will contain that row, with missing values filled as
+NaN.</p>
+<p>We can replace the unknown value with each type and compute how many
+rows we expect to see in the final dataset after an outer merge:</p>
+<ul>
+<li>If the unknown value is <strong>Drinks</strong>: We will have 2
+(Drinks rows) + 5 (Buffet rows) + 2 (Meal rows) + 2 (Snack rows) = 11
+rows.</li>
+<li>If the unknown value is <strong>Buffet</strong>: We will have 10
+(Buffet rows) + 2 (Drink rows from DataFrame A) + 2 (Meal rows) + 2
+(Snack rows) = 16 rows.</li>
+<li>If the unknown value is <strong>Meal</strong>: We will have 3 (Meal
+rows) + 5 (Buffet rows) + 2 (Drink rows) + 2 (Snack rows) = 12
+rows.</li>
+<li>If the unknown value is <strong>Snack</strong>: We will have 3
+(Snack rows) + 5 (Buffet rows) + 2 (Meal rows) + 2 (Meal rows) = 12
+rows.</li>
+</ul>
+<p>Thus, the only possible number of rows that <strong>cannot</strong>
+occur is <strong>14</strong>.</p>
 </div>
 </div>
 </div>
@@ -600,7 +686,14 @@ class="math inline">\boxed{\text{???}}</span>, is
 <p>How many rows are in the DataFrame
 <code>A.merge(B, on=["type", "rating"])</code>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> 0 ( ) 1 ( ) 2 ( ) 3 ( ) 4 ( ) 5 ( ) 6 ( ) 7</p></li>
+<li><p><input type="radio" disabled="" /> 0</p></li>
+<li><p><input type="radio" disabled="" /> 1</p></li>
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+<li><p><input type="radio" disabled="" /> 5</p></li>
+<li><p><input type="radio" disabled="" /> 6</p></li>
+<li><p><input type="radio" disabled="" /> 7</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -615,6 +708,23 @@ aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> 2</p>
+<p>We are asked to perform a merge on two columns: <code>"type"</code>
+and <code>"rating"</code>. This means that for each row in the merged
+DataFrame, the <code>"type"</code> and <code>"rating"</code> must match
+between A and B for the row to appear in the result. Also, the type of
+merge is <strong>inner</strong> since the type of merge is not
+specified.</p>
+<p>Given that the unknown value is <code>"Buffet"</code>, let’s analyze
+the possible matches:</p>
+<ul>
+<li>We can see that only <strong>type <code>"Buffet"</code> with rating
+4.6</strong> has a match in both DataFrames. The total number of rows
+with <code>"Buffet"</code> and rating 4.6 is <strong>2</strong> (1 from
+A and 1 from B).</li>
+</ul>
+<p>Thus, the total number of rows in the merged DataFrame is
+<strong>2</strong>.</p>
 </div>
 </div>
 </div>
@@ -635,25 +745,26 @@ a driver cannot be selected more than once.</p></li>
 <p>Driver <code>"WOLVAA01"</code> asks ChatGPT to write code that
 simulates the probability that he wins a gift card, and it gives him
 back the following:</p>
-<pre><code>drivers = orders[&quot;driver&quot;].unique()
-
-def choose_k():
-    return np.random.choice(np.arange(1, 11))
-
-def one_sim(k):
-    selected = np.array([])
-    for i in range(k):
-        selectee = np.random.choice(drivers, 1, replace=False)
-        selected = np.append(selected, selectee)
-    return &quot;WOLVAA01&quot; in selected
-
-def simulation():
-    k = choose_k()
-    N = 100_000
-    total = 0
-    for i in range(N):
-        total = total + one_sim(k)
-    return total / N</code></pre>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    drivers <span class="op">=</span> orders[<span class="st">&quot;driver&quot;</span>].unique()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> choose_k():</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.random.choice(np.arange(<span class="dv">1</span>, <span class="dv">11</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> one_sim(k):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        selected <span class="op">=</span> np.array([])</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(k):</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            selectee <span class="op">=</span> np.random.choice(drivers, <span class="dv">1</span>, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            selected <span class="op">=</span> np.append(selected, selectee)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;WOLVAA01&quot;</span> <span class="kw">in</span> selected</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> simulation():</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> choose_k()</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        N <span class="op">=</span> <span class="dv">100_000</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            total <span class="op">=</span> total <span class="op">+</span> one_sim(k)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> total <span class="op">/</span> N</span></code></pre></div>
 <p><code>simulation()</code> <em>should</em> return an estimate of the
 probability that <code>"WOLVAA01"</code> wins a gift card, but some of
 the code is potentially buggy. <strong>Select all issues</strong> with
@@ -673,8 +784,8 @@ replacement, instead of with replacement.</p></li>
 <code>selected</code> is always an empty array.</p></li>
 <li><p><input type="checkbox" disabled="" /> <code>simulation</code> only picks one value of <code>k</code>, when
 it should select a new <code>k</code> on each iteration.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
 </ul>
-<p>[ ] None of the above.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading7">
@@ -688,6 +799,25 @@ aria-labelledby="heading7" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong></p>
+<p><strong><code>one_sim</code> draws <code>k</code> drivers with
+replacement, instead of without replacement</strong> - Because
+<code>np.random.choice()</code> is called separately each time within
+the for loop, there is no guarantee that all k chosen drivers will be
+distinct across iterations. Which means that some drivers might be
+picked more than once, violating the “unique drivers” requirement.The
+correct way to choose the k drivers would be -</p>
+<div id="cb1" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>np.random.choice(drivers, k, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<p><strong><code>simulation</code> only picks one value of
+<code>k</code>, when it should select a new <code>k</code> on each
+iteration</strong> - The code defines k once at the beginning of
+simulation() using <code>choose_k()</code>. This means that the same
+value of k is used for all iterations of the simulation. However, as per
+the problem statement, k should be chosen anew on each iteration of the
+simulation. Therefore, the function <code>choose_k()</code> should be
+called within the loop to select a random k for each iteration.</p>
 </div>
 </div>
 </div>
@@ -709,10 +839,11 @@ value, <strong>before and after</strong> the imputation code is run. The
 first part is done for you.</p>
 <p><br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
-<pre><code>t = lambda x: x.fillna(x.mean())
-D[&quot;minutes&quot;] = t(D[&quot;minutes&quot;])</code></pre>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
 <ul>
-<li><code>D["minutes"].isna().sum()</code></li>
+<li><code>D.shape[0]</code></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -727,14 +858,20 @@ aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><code>D.shape[0]</code> is guaranteed to evaluate to the same value
+before and after the imputation code is run because it represents the
+total number of rows in the DataFrame, which is unaffected by filling in
+missing values. The imputation modifies the “minutes” column but does
+not alter the number of rows.</p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
-<pre><code>t = lambda x: x.fillna(x.mean())
-D[&quot;minutes&quot;] = t(D[&quot;minutes&quot;])</code></pre>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
 <li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
@@ -754,6 +891,17 @@ aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> In this imputation code we are performing
+mean imputation by filling the missing values with the mean of the whole
+dataset</p>
+<p><code>D["minutes"].mean()</code> - This expression will remain the
+same before and after the imputation because we are filling the missing
+values in “minutes” with the mean of the column. Thus, the overall mean
+of the column will remain unchanged.</p>
+<p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
+Since the imputation does not affect the rows where “traffic” is
+“Moderate” (i.e., these rows already have no missing values), the mean
+for this subset of the data will remain unchanged as well.</p>
 </div>
 </div>
 </div>
@@ -781,6 +929,19 @@ aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> In this imputation code we are performing
+conditional mean imputation by filling the missing values with the
+minutes of each group of traffic.</p>
+<p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
+Since the imputation only fills in missing values for the “minutes”
+column based on the mean of the “minutes” values within each traffic
+group, the mean for “Moderate” traffic will remain unchanged.</p>
+<p><code>D.groupby("traffic")["minutes"].mean()</code> - The imputation
+groups by the “traffic” column and fills missing values using the mean
+of “minutes” within each group. Since “Moderate” traffic already had no
+missing values, the mean for this group will not be affected, and
+neither will the means for other groups, assuming the missing values are
+only filled within their respective groups.</p>
 </div>
 </div>
 </div>
@@ -809,6 +970,13 @@ aria-labelledby="heading8_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> In this imputation code we are performing
+unconditional probabalistic imputation by filling the missing values by
+randomly sampling from the present values in the “minutes” column</p>
+<p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
+Since “Moderate” traffic rows have no missing values, the imputation
+does not affect them. Therefore, the mean for this subset of data will
+remain unchanged.</p>
 </div>
 </div>
 </div>
@@ -841,9 +1009,6 @@ same.</p></li>
 class="math inline">y</span>-axis should have numerical
 labels.)</em></p></li>
 </ul>
-<div class="responsebox">
-<p>4in</p>
-</div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading9">
@@ -863,7 +1028,6 @@ aria-labelledby="heading9" data-bs-parent="#accordionExample">
 </div>
 <hr />
 <h2 id="problem-10">Problem 10</h2>
-<p>[(10 pts)]</p>
 <p>Consider the following corpus of two documents:</p>
 <ol type="1">
 <li><p>butter chicken <span class="math inline">\underbrace{\text{naan
@@ -883,7 +1047,14 @@ representations of the two documents is <span
 class="math inline">\displaystyle \frac{5}{9}</span>, what is the value
 of <span class="math inline">k</span>?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> 3 ( ) 4 ( ) 5 ( ) 6 ( ) 7 ( ) 8 ( ) 9 ( ) 10</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+<li><p><input type="radio" disabled="" /> 5</p></li>
+<li><p><input type="radio" disabled="" /> 6</p></li>
+<li><p><input type="radio" disabled="" /> 7</p></li>
+<li><p><input type="radio" disabled="" /> 8</p></li>
+<li><p><input type="radio" disabled="" /> 9</p></li>
+<li><p><input type="radio" disabled="" /> 10</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -898,6 +1069,35 @@ aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> 5</p>
+<p>The vector for Document 1 is: <span class="math inline">\vec{d_1} =
+(1, 1, k, 0, 0)</span></p>
+<p>The vector for Document 2 is: <span class="math inline">\vec{d_2} =
+(0, 0, 1, 1, 1)</span></p>
+<p>For the two vectors <span class="math inline">\vec{d_1} = (1, 1, k,
+0, 0)</span> and <span class="math inline">\vec{d_2} = (0, 0, 1, 1,
+1)</span>, the dot product is: <span class="math display">
+\text{Dot product} = (1)(0) + (1)(0) + (k)(1) + (0)(1) + (0)(1) = k
+</span></p>
+<p>Next, we need to calculate the magnitudes (or norms) of the two
+vectors. <span class="math display">
+\|\vec{d_1}\| = \sqrt{1^2 + 1^2 + k^2 + 0^2 + 0^2} = \sqrt{2 + k^2}
+</span></p>
+<p><span class="math display">
+\|\vec{d_2}\| = \sqrt{0^2 + 0^2 + 1^2 + 1^2 + 1^2} = \sqrt{3}
+</span></p>
+<p>Now we can calculate the cosine similarity using the formula: <span class="math display">
+\text{Cosine similarity} = \frac{\text{Dot product}}{\|\vec{d_1}\| \cdot
+\|\vec{d_2}\|}
+</span></p>
+<p>Substitute the values we calculated: <span class="math display">
+\text{Cosine similarity} = \frac{k}{\sqrt{2 + k^2} \cdot \sqrt{3}}
+</span></p>
+<p>We are given that the cosine similarity is <span class="math inline">\frac{5}{9}</span>. So, we set up the equation:
+<span class="math display">
+\frac{k}{\sqrt{2 + k^2} \cdot \sqrt{3}} = \frac{5}{9}
+</span></p>
+<p>Solving for k gives us 5.</p>
 </div>
 </div>
 </div>
@@ -905,6 +1105,28 @@ aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <p><br></p>
 <h3 id="problem-10.2">Problem 10.2</h3>
 <p>In this part, assume we are using a base-2 logarithm.</p>
+<ol type="i">
+<li>Which term in <strong>document 1</strong> has the largest TF-IDF? If
+there are ties select them all</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>butter</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>chicken</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>naan</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>curry</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>with</code></p></li>
+</ul>
+<ol type="i">
+<li>Which term in <strong>document 2</strong> has the largest TF-IDF? If
+there are ties select them all</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>butter</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>chicken</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>naan</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>curry</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>with</code></p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading10_2">
@@ -918,6 +1140,47 @@ aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> - <code>(i)</code> <code>butter</code> and
+<code>chicken</code> - <code>(i)</code> <code>curry</code> and
+<code>with</code></p>
+<p>The TF-IDF score of a term in a document is given by: <span class="math display">
+\text{tf-idf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t)
+                    = \frac{\# \text{ of occurrences of } t \text{ in }
+d }{\text{total } \# \text{ of terms in } d} \cdot
+\log_2\left(\frac{\text{total } \# \text{ of documents}}{\# \text{ of
+documents in which } t \text{ appears}}\right)
+</span></p>
+<p><strong>Document 1</strong>:</p>
+<ul>
+<li><code>butter</code>: Appears 1 time in the document, so the TF is
+<span class="math inline">\frac{1}{k+2}</span>.</li>
+<li><code>chicken</code>: Appears 1 time in the document, so the TF is
+<span class="math inline">\frac{1}{k+2}</span>.</li>
+<li><code>naan</code>: Appears <span class="math inline">k</span> times,
+so the TF is <span class="math inline">\frac{k}{k+2}</span>.</li>
+<li><code>curry</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{k+2}</span>.</li>
+<li><code>with</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{k+2}</span>.</li>
+</ul>
+<p><strong>Document 2</strong>:</p>
+<ul>
+<li><code>curry</code>: Appears 1 time in the document, so the TF is
+<span class="math inline">\frac{1}{3}</span>.</li>
+<li><code>with</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{3}</span>.</li>
+<li><code>naan</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{3}</span>.</li>
+</ul>
+<p>The IDF for terms is computed based on their presence across both
+documents:</p>
+<ul>
+<li>For terms like <code>butter</code>, <code>chicken</code>, and
+<code>naan</code> in document 1, the IDF will be based on their presence
+across both documents.</li>
+<li>For terms like <code>curry</code> and <code>with</code> in document
+2, they will have a higher IDF.</li>
+</ul>
+<p>The terms <code>butter</code>, <code>chicken</code> in document 1 and
+<code>curry</code>, <code>with</code> in document 2 have the largest
+TF-IDF scores, respectively, due to their unique occurrences in each
+document.</p>
 </div>
 </div>
 </div>
@@ -932,13 +1195,15 @@ to the TF-IDF that also tries to quantify the importance of a term <span
 class="math inline">t</span> to a document <span
 class="math inline">d</span>, given a corpus of documents <span
 class="math inline">d_1, d_2, ..., d_n</span>.</p>
-<p><span class="math display">\text{WS}(t, d) = \left( \frac{\text{total
-# of terms in $d$}}{\text{# of occurrences of $t$ in $d$}} \right)
-\cdot   \left( \frac{\sum_{i=1}^n \text{# of occurrences of $t$ in
-$d_i$}}{\sum_{i=1}^n \text{total # of terms in $d_i$}}\right)</span></p>
+<p><span class="math display">
+\text{WS}(t, d) = \left( \frac{\text{total \# of terms in } d}{\text{\#
+of occurrences of } t \text{ in } d} \right) \cdot \left(
+\frac{\sum_{i=1}^n \text{\# of occurrences of } t \text{ in }
+d_i}{\sum_{i=1}^n \text{total \# of terms in } d_i} \right)
+</span></p>
 <p>Fill in the blank to complete the statement below.</p>
-<p>“If <code>____</code>, then term <span class="math inline">t</span>
-is more common in document <span class="math inline">d</span> than it is
+<p>“If <code>___</code>, then term <span class="math inline">t</span> is
+more common in document <span class="math inline">d</span> than it is
 across the entire corpus, and so <span class="math inline">t</span> is
 likely an important term in <span class="math inline">d</span>."</p>
 <p>What goes in the blank?</p>
@@ -967,6 +1232,17 @@ aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <span class="math inline">\text{WS}(t, d)
+&lt; 1</span></p>
+<p>The <strong>Wolverine Score (WS)</strong> compares the occurrence of
+a term <span class="math inline">t</span> within a document <span class="math inline">d</span> relative to its occurrence across the
+entire corpus. If the value of WS for a term is less than 1, it
+indicates that the term <span class="math inline">t</span> is more
+common in document <span class="math inline">d</span> than it is in the
+overall corpus. This implies that the term is likely an important term
+for document <span class="math inline">d</span>.</p>
+<p>The WS formula suggests that if the term <span class="math inline">t</span> occurs more frequently in document <span class="math inline">d</span> relative to its occurrence in the entire
+corpus, the WS score will be less than 1, making <span class="math inline">t</span> a significant term for document <span class="math inline">d</span>.</p>
 </div>
 </div>
 </div>
@@ -1003,26 +1279,11 @@ more, as indicated by the ellipses <code>...</code></p>
 is instantiated using the HTML document above. Fill in the blanks below
 so that <code>low_cals</code> contains the names of the menu items with
 less than 500 calories.</p>
-<pre><code>low_cals = []
-for x in __(i)__:
-    if __(ii)__:
-        low_cals.append(__(iii)__)</code></pre>
-<table>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>(i)</code>:</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>(ii)</code>:</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>(iii)</code>:</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    low_cals <span class="op">=</span> []</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> __(i)__:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> __(ii)__:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            low_cals.append(__(iii)__)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading11">
@@ -1036,6 +1297,37 @@ aria-labelledby="heading11" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong></p>
+<ul>
+<li><code>(i)</code>
+<code>python soup.find_all("div", class_="menu-item") or soup.find_all("div", attrs={"class": "menu-item"}).</code></li>
+</ul>
+<p>We want to extract all the menu items from the HTML. Each menu item
+is contained within a div tag with the class menu-item. So, we need to
+find all the div elements that have this class. In BeautifulSoup, we can
+do this with the <code>find_all()</code> method, which searches the
+document for all elements matching a specific condition.</p>
+<ul>
+<li><code>(ii)</code>
+<code>python float(x.get("data-calories")) &lt; 500</code></li>
+</ul>
+<p>This code is used to check whether the number of calories in each
+menu item is less than 500. We first use
+<code>x.get("data-calories")</code> to retrieve the calorie count as a
+string. We then convert that string to a floating-point number using
+float() so we can compare it with 500. If the calorie count is less than
+500, we extract the name of the menu item from the
+<code>&lt;h2&gt;</code> tag and add it to the low_cals list.</p>
+<ul>
+<li><code>(iii)</code> <code>python x.find("h2").text</code></li>
+</ul>
+<p>Lastly, we want to extract the name of the menu item from each
+selected div element. The find(“h2”) method is called on x.
+<code>.find</code> searches for the first occurrence of a
+<code>&lt;h2&gt;</code> tag within the x element. Once we have the
+<code>&lt;h2&gt;</code> element (in this case,
+<code>Chana Masala</code>), we use .text to extract the text content
+inside the <code>&lt;h2&gt;</code> tag.</p>
 </div>
 </div>
 </div>
@@ -1074,18 +1366,6 @@ digits between the middle two decimals.</p>
 def clean_minutes(s):   
     p = split_pieces(s)
     return __(ii)__</code></pre>
-<table>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>(i)</code>: <code>r"</code></td>
-<td style="text-align: left;"><code>"</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>(ii)</code>:</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading12">
@@ -1099,6 +1379,33 @@ aria-labelledby="heading12" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong></p>
+<ul>
+<li><p><code>(i)</code> <code>(\d+)\.(\d{3})</code></p>
+<ul>
+<li><code>(\d+)</code>: This part matches one or more digits before the
+first decimal point. The parentheses around capture this part into a
+group, allowing us to extract the digits before the first decimal.</li>
+<li><code>\.</code>: This matches the literal decimal point. The
+backslash  is necessary because the dot . is a special character in
+regular expressions that usually matches any character, so we need to
+escape it with a backslash to match an actual period.</li>
+<li><code>(\d{3})</code>: This matches exactly three digits after the
+first decimal and before the second decimal. The parentheses around
+capture these digits into another group, allowing us to extract them
+separately.</li>
+</ul></li>
+<li><p><code>(ii)</code> <code>python int(p[0] + p[1]) / 100</code></p>
+<p>p is a tuple returned by the split_pieces(s) function, where p[0] is
+the first part (before the first decimal point) and p[1] is the part
+between the two decimals.</p>
+<p>For example, if the input string is “8.334.108”, p would be (“8”,
+“334”). The expression <code>python p[0] + p[1]</code> concatenates
+these two parts together, creating the string “83334”. This represents
+the combined value of the minutes, but it’s not in the correct format.
+We can wrap this around the int function which will convert the
+concatenated string “83334” into an integer.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -1127,8 +1434,13 @@ class="math inline">L_{\alpha \beta}(y_i, h) = (3y_i - 3h)^2</span>.</p>
 class="math inline">h^*</span>, that minimizes average <span
 class="math inline">\alpha \beta</span>-balanced loss?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">\bar{y}</span> ( ) <span class="math inline">\frac{1}{2} \bar{y}</span> ( ) <span class="math inline">2 \bar{y}</span> ( )</p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">3 \bar{y}</span> ( ) <span class="math inline">\frac{1}{6} \bar{y}</span> ( )</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{2} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">2 \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{3} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">3 \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{6} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6 \bar{y}</span></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1143,6 +1455,45 @@ aria-labelledby="heading13_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <span class="math inline">\bar{y}</span></p>
+<p>To find the optimal parameter, we have to minimize the average loss
+function. The loss function is given as: <span class="math inline">L_{\alpha \beta}(y_i, h) = (3y_i - 3h)^2</span></p>
+<p>To minimize this, we need to find the value of <span class="math inline">h</span> that minimizes the sum of squared errors
+for all <span class="math inline">y_{i}</span>. We do this by taking the
+derivative of the loss function and solving it by setting it to
+zero.</p>
+<p>Expanding the squared term: <span class="math display">
+\sum_{i=1}^{n} (9y_i^2 - 18y_i h + 9h^2)</span></p>
+<p>Using summation properties: <span class="math display">
+9 \sum_{i=1}^{n} y_i^2 - 18h \sum_{i=1}^{n} y_i + 9h^2 n
+</span></p>
+<p>Differentiating: <span class="math display">
+\frac{d}{dh} \left( 9 \sum_{i=1}^{n} y_i^2 - 18h \sum_{i=1}^{n} y_i +
+9h^2 n \right)
+</span></p>
+<p>Since the first term <span class="math inline">9 \sum_{i=1}^{n}
+y_i^2</span> does not depend on <span class="math inline">h</span>, its
+derivative is zero.</p>
+<p>Differentiating the remaining terms: <span class="math display">
+\frac{d}{dh} (-18h \sum_{i=1}^{n} y_i) = -18 \sum_{i=1}^{n} y_i
+</span></p>
+<p><span class="math display">
+\frac{d}{dh} (9h^2 n) = 18h n
+</span></p>
+<p>Thus, the derivative of the total loss is: <span class="math display">
+-18 \sum_{i=1}^{n} y_i + 18h n
+</span></p>
+<p>Setting the derivative equal to zero: <span class="math display">
+-18 \sum_{i=1}^{n} y_i + 18h n = 0
+</span></p>
+<p>Dividing both sides by 18: <span class="math display">
+- \sum_{i=1}^{n} y_i + h n = 0
+</span></p>
+<p>Solving for <span class="math inline">h</span>: <span class="math display">
+h = \frac{\sum_{i=1}^{n} y_i}{n}
+</span></p>
+<p>This is equivalent to mean of <span class="math inline">\bar{y}</span>. Thus, the optimal constant
+prediction is the mean of the delivery times.</p>
 </div>
 </div>
 </div>
@@ -1156,8 +1507,13 @@ class="math inline">L_{\alpha \beta}(y_i, h) = (6y_i - 3h)^2</span>.</p>
 class="math inline">h^*</span>, that minimizes average <span
 class="math inline">\alpha \beta</span>-balanced loss?</p>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">\bar{y}</span> ( ) <span class="math inline">\frac{1}{2} \bar{y}</span> ( ) <span class="math inline">2 \bar{y}</span> ( )</p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">3 \bar{y}</span> ( ) <span class="math inline">\frac{1}{6} \bar{y}</span> ( )</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{2} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">2 \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{3} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">3 \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{6} \bar{y}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6 \bar{y}</span></p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1172,6 +1528,48 @@ aria-labelledby="heading13_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <span class="math inline">2
+\bar{y}</span></p>
+<p>To find the optimal parameter, we have to minimize the average loss
+function. The loss function is given as:<br/>
+<span class="math display">L_{\alpha \beta}(y_i, h) = (6y_i -
+3h)^2</span></p>
+<p>To minimize this, we need to find the value of <span class="math inline">h</span> that minimizes the sum of squared errors
+for all <span class="math inline">y_i</span>. We do this by taking the
+derivative of the loss function and solving it by setting it to
+zero.</p>
+<p>Expanding the squared term: <span class="math display">
+\sum_{i=1}^{n} (36y_i^2 - 36y_i h + 9h^2) </span></p>
+<p>Using summation properties: <span class="math display">
+36 \sum_{i=1}^{n} y_i^2 - 36h \sum_{i=1}^{n} y_i + 9h^2 n
+</span></p>
+<p>Differentiating: <span class="math display">
+\frac{d}{dh} \left( 36 \sum_{i=1}^{n} y_i^2 - 36h \sum_{i=1}^{n} y_i +
+9h^2 n \right)
+</span></p>
+<p>Since the first term <span class="math inline">36 \sum_{i=1}^{n}
+y_i^2</span> does not depend on <span class="math inline">h</span>, its
+derivative is zero.</p>
+<p>Differentiating the remaining terms: <span class="math display">
+\frac{d}{dh} (-36h \sum_{i=1}^{n} y_i) = -36 \sum_{i=1}^{n} y_i
+</span></p>
+<p><span class="math display">
+\frac{d}{dh} (9h^2 n) = 18h n
+</span></p>
+<p>Thus, the derivative of the total loss is: <span class="math display">
+-36 \sum_{i=1}^{n} y_i + 18h n
+</span></p>
+<p>Setting the derivative equal to zero: <span class="math display">
+-36 \sum_{i=1}^{n} y_i + 18h n = 0
+</span></p>
+<p>Dividing both sides by 18: <span class="math display">
+-2 \sum_{i=1}^{n} y_i + h n = 0
+</span></p>
+<p>Solving for <span class="math inline">h</span>: <span class="math display">
+h = \frac{2 \sum_{i=1}^{n} y_i}{n} = 2 \bar{y}
+</span></p>
+<p>Thus, the optimal constant prediction is <span class="math inline">2
+\bar{y}</span>.</p>
 </div>
 </div>
 </div>
@@ -1189,9 +1587,6 @@ should be an expression involving <span
 class="math inline">\bar{y}</span>, <span
 class="math inline">\alpha</span>, <span
 class="math inline">\beta</span>, and/or other constants.</p>
-<div class="responsebox">
-<p>4in</p>
-</div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading13_3">
@@ -1205,6 +1600,54 @@ aria-labelledby="heading13_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <span class="math inline">\frac{\alpha}{\beta} \bar{y}</span></p>
+<p>To find the optimal parameter, we have to minimize the average loss
+function. The loss function is given as:<br/>
+<span class="math display">L_{\alpha \beta}(y_i, h) = (\alpha y_i -
+\beta h)^2</span></p>
+<p>To minimize this, we need to find the value of <span class="math inline">h</span> that minimizes the sum of squared errors
+for all <span class="math inline">y_i</span>. We do this by taking the
+derivative of the loss function and solving it by setting it to
+zero.</p>
+<p>Expanding the squared term: <span class="math display">
+\sum_{i=1}^{n} (\alpha^2 y_i^2 - 2\alpha\beta y_i h + \beta^2 h^2)
+</span></p>
+<p>Using summation properties: <span class="math display">
+\alpha^2 \sum_{i=1}^{n} y_i^2 - 2\alpha\beta h \sum_{i=1}^{n} y_i +
+\beta^2 h^2 n
+</span></p>
+<p>Differentiating: <span class="math display">
+\frac{d}{dh} \left( \alpha^2 \sum_{i=1}^{n} y_i^2 - 2\alpha\beta h
+\sum_{i=1}^{n} y_i + \beta^2 h^2 n \right)
+</span></p>
+<p>Since the first term <span class="math inline">\alpha^2
+\sum_{i=1}^{n} y_i^2</span> does not depend on <span class="math inline">h</span>, its derivative is zero.</p>
+<p>Differentiating the remaining terms: <span class="math display">
+\frac{d}{dh} (-2\alpha\beta h \sum_{i=1}^{n} y_i) = -2\alpha\beta
+\sum_{i=1}^{n} y_i
+</span></p>
+<p><span class="math display">
+\frac{d}{dh} (\beta^2 h^2 n) = 2\beta^2 h n
+</span></p>
+<p>Thus, the derivative of the total loss is: <span class="math display">
+-2\alpha\beta \sum_{i=1}^{n} y_i + 2\beta^2 h n
+</span></p>
+<p>Setting the derivative equal to zero: <span class="math display">
+-2\alpha\beta \sum_{i=1}^{n} y_i + 2\beta^2 h n = 0
+</span></p>
+<p>Dividing both sides by 2: <span class="math display">
+- \alpha\beta \sum_{i=1}^{n} y_i + \beta^2 h n = 0
+</span></p>
+<p>Solving for <span class="math inline">h</span>: <span class="math display">
+h = \frac{\alpha\beta \sum_{i=1}^{n} y_i}{\beta^2 n}
+</span></p>
+<p>We substitute <span class="math inline">\sum_{i=1}^{n} y_i =
+n\bar{y}</span> into the equation: <span class="math display">
+h = \frac{\alpha\beta (n\bar{y})}{\beta^2 n}
+</span></p>
+<p>This simplified gives us <span class="math display">
+h^* = \frac{\alpha}{\beta} \bar{y}
+</span></p>
 </div>
 </div>
 </div>
@@ -1242,12 +1685,17 @@ class="math inline">b_1</span> are unique.</p></li>
 </ul>
 <p><br></p>
 <h3 id="problem-14.1">Problem 14.1</h3>
-<p>Fill in the : <span class="math display">\displaystyle \sum_{i = 1}^n
-(y_i - G(x_i))^2 \:\:\: \boxed{???} \:\:\: \sum_{i = 1}^n (y_i -
-F(x_i))^2</span> ( ) <span class="math inline">\geq</span> ( ) <span
-class="math inline">&gt;</span> ( ) <span class="math inline">=</span> (
-) <span class="math inline">&lt;</span> ( ) <span
-class="math inline">\leq</span> ( ) Impossible to tell</p>
+<p>Fill in the <span class="math inline">\boxed{\text{???}}</span>:
+<span class="math display">\displaystyle \sum_{i = 1}^n (y_i - G(x_i))^2
+\:\:\: \boxed{???} \:\:\: \sum_{i = 1}^n (y_i - F(x_i))^2</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">\geq</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">&gt;</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">=</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">&lt;</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\leq</span></p></li>
+<li><p><input type="radio" disabled="" /> Impossible to tell</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_1">
@@ -1261,19 +1709,37 @@ aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <code>&gt;</code></p>
+<p>The function <span class="math inline">F(x)</span> is the line that
+minimizes mean squared error (MSE), while <span class="math inline">G(x)</span> is the line that minimizes mean absolute
+error (MAE).</p>
+<p>The sum of squared errors (SSE) is the total squared difference
+between actual and predicted values, which is closely tied to MSE. Since
+<span class="math inline">F</span> is specifically chosen to minimize
+MSE, its SSE must be strictly smaller than that of any other line,
+including <span class="math inline">G</span>.</p>
+<p>Thus, the sum of squared errors for <span class="math inline">G</span> is greater than the sum of squared errors
+for <span class="math inline">F</span>, making the correct answer:<br/>
+<span class="math display"> \sum_{i = 1}^{n} (y_i - G(x_i))^2 &gt;
+\sum_{i = 1}^{n} (y_i - F(x_i))^2 </span></p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-14.2">Problem 14.2</h3>
-<p>Fill in the : <span class="math display">\displaystyle \left( \sum_{i
-= 1}^n \big| y_i - G(x_i) \big| \right)^2 \:\:\: \boxed{???} \:\:\:
-\left( \sum_{i = 1}^n \big| y_i - F(x_i) \big| \right)^2</span> ( )
-<span class="math inline">\geq</span> ( ) <span
-class="math inline">&gt;</span> ( ) <span class="math inline">=</span> (
-) <span class="math inline">&lt;</span> ( ) <span
-class="math inline">\leq</span> ( ) Impossible to tell</p>
+<p>Fill in the <span class="math inline">\boxed{\text{???}}</span>:
+<span class="math display">\displaystyle \left( \sum_{i = 1}^n \big| y_i
+- G(x_i) \big| \right)^2 \:\:\: \boxed{???} \:\:\: \left( \sum_{i = 1}^n
+\big| y_i - F(x_i) \big| \right)^2</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">\geq</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">&gt;</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">=</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">&lt;</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">\leq</span></p></li>
+<li><p><input type="radio" disabled="" /> Impossible to tell</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_2">
@@ -1287,6 +1753,20 @@ aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <code>&lt;</code></p>
+<p>The function <span class="math inline">G(x)</span> is the line that
+minimizes mean absolute error (MAE), meaning it has the smallest sum of
+absolute errors (SAE), which is given by:<br/>
+<span class="math display"> \sum_{i=1}^{n} | y_i - G(x_i) | </span></p>
+<p>Since <span class="math inline">G</span> minimizes MAE, its SAE must
+be smaller than the SAE of any other line, including <span class="math inline">F</span>.</p>
+<p>Now, note that the expression given in the problem <strong>squares
+the entire SAE</strong>. Since <span class="math inline">G</span> has
+the smallest SAE, its squared SAE will also be smaller than that of
+<span class="math inline">F</span>:<br/>
+<span class="math display"> \left( \sum_{i = 1}^{n} | y_i - G(x_i) |
+\right)^2 &lt; \left( \sum_{i = 1}^{n} | y_i - F(x_i) | \right)^2
+</span></p>
 </div>
 </div>
 </div>
@@ -1296,15 +1776,15 @@ aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
 <p>Below, we’ve drawn both lines, <span class="math inline">F</span>,
 and <span class="math inline">G</span>, along with a scatter plot of the
 original <span class="math inline">n</span> deliveries.</p>
-<div class="center">
-<figure>
-<img src="midterm-images/regression.png" style="width:50.0%"
-alt="image" />
-<figcaption aria-hidden="true">image</figcaption>
-</figure>
-</div>
+<center>
+<img src="../assets/images/wn25-midterm/regression.png" width=50%>
+</center>
 <p>Which line corresponds to line <strong><span
-class="math inline">F</span></strong>? ( ) Line 1 ( ) Line 2</p>
+class="math inline">F</span></strong>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Line 1</p></li>
+<li><p><input type="radio" disabled="" /> Line 2</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading14_3">
@@ -1318,6 +1798,18 @@ aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <code>Line 1</code></p>
+<p>The key idea is that models trained with squared loss (MSE) are more
+sensitive to outliers than models trained with absolute loss (MAE).</p>
+<p>Since Line 1 appears to be “pulled up” more strongly by an outlier,
+it suggests that this line was influenced more heavily by extreme
+values. This behavior aligns with how MSE-based regression works:
+outliers have a greater impact on the overall loss because squaring the
+errors makes large deviations even more significant.</p>
+<p>In contrast, MAE-based regression (Line 2) is less sensitive to
+outliers because absolute differences do not grow as quickly.</p>
+<p>Therefore, Line 1 corresponds to <span class="math inline">F</span>,
+the MSE-minimizing line.</p>
 </div>
 </div>
 </div>
@@ -1325,16 +1817,12 @@ aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
 <p><br></p>
 <hr />
 <h2 id="problem-15">Problem 15</h2>
-<p>[(0.5 pts; extra credit)]</p>
 <p>In Question 7, assuming that there are 100 unique drivers, what is
 the true, theoretical probability that <code>"WOLVAA01"</code> wins a
 free gift card? Show your work, and your final answer, which should be a
 <strong>fraction</strong>.</p>
 <p>Don’t spend time on this question if you haven’t attempted all other
 questions, as it is purely for (very little) extra credit.</p>
-<div class="responsebox">
-<p>3in</p>
-</div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading15">
@@ -1348,6 +1836,28 @@ aria-labelledby="heading15" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong> <span class="math inline">\frac{55}{100}</span></p>
+<p>We have 100 unique drivers and 10 different groups. The probability
+that <code>"WOLVAA01"</code> wins is calculated by adding up the chances
+that it is chosen in each group.</p>
+<p>For each group, the probability of winning depends on how many
+drivers are in that group. For example:</p>
+<ul>
+<li>In the first group, the probability that <code>"WOLVAA01"</code>
+wins is <span class="math inline">\frac{1}{10} \times
+\frac{1}{100}</span>.</li>
+<li>In the second group, the probability is <span class="math inline">\frac{1}{10} \times \frac{2}{100}</span>.</li>
+<li>This continues until the tenth group, where the probability is <span class="math inline">\frac{1}{10} \times \frac{10}{100}</span>.</li>
+</ul>
+<p>The total probability is the sum of these individual probabilities:
+<span class="math display">
+\text{Total Probability} = \frac{1}{10} \times \frac{1}{100} +
+\frac{1}{10} \times \frac{2}{100} + \cdots + \frac{1}{10} \times
+\frac{10}{100}
+</span> which simplifies to: <span class="math display">
+\text{Total Probability} = \frac{1}{1000} (1 + 2 + \cdots + 10) =
+\frac{1}{1000} \times 55 = \frac{55}{1000} = \frac{55}{100}.
+</span></p>
 </div>
 </div>
 </div>
