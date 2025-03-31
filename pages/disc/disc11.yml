@@ -1,4 +1,4 @@
-title: Gradient Descent and Convexity
+title: Gradient Descent and Classification
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to complete this worksheet in a live discussion section. 
@@ -15,7 +15,7 @@ problems:
   - disc11/wi24-final-pt1-q03 # 10
   - disc11/wi24-midterm1-q03 # 11 (convexity)
   - disc11/fa22-midterm-q01 # 6 (old)
-  
+
   - disc12/sp22-final-q12
   - disc12/fa19-derivative1
   - disc12/wi23-final-q07
