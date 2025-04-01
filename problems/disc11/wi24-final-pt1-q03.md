@@ -43,24 +43,31 @@ Suppose you choose an initial guess of $h^{(0)}$ and a learning rate of $\alpha 
 
 # BEGIN SOLUTION
 
-$$h_{0} = -\frac{5}{4}$$
+$$h^{(0)} = -\frac{5}{4}$$
 
-The gradient descent equation is given by: $$\begin{aligned}
-    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
-\end{aligned}$$ Recall the learning rate is equal to $\alpha$. We can plug in $\alpha = \frac{1}{4}$, $h_2 = \frac{1}{4}$, and $i=2$,
-in that case we obtain: $$\begin{aligned}
-    \frac{1}{4} &= h_{1} - \alpha \frac{dR_{sq}(h_{1})}{dh}\\
-    &= h_{1} - \alpha \frac{1}{2}\sum_{i=1}^{4}(h_1-y_i)\\
-        &= h_{1} - \frac{1}{8}(h_{1} + 2 + h_{1} + 1 + h_{1} - 2 + h_{1} - 4)\\
-        &= h_{1} - \frac{1}{8}(4h_{1} -3)\\
-\end{aligned}$$ Solving this equation, we obtain that
-$h_{1} = -\frac{1}{4}$. We can then repeat this step once more to obtain
-$h_0$: $$\begin{aligned}
-    -\frac{1}{4} &= h_{0} - \alpha \frac{dR_{sq}(h_{0})}{dh}\\
-        &= h_{0} - \frac{1}{4}(h_{0} + 2 + h_{0} + 1 + h_{0} - 2 + h_{0} - 4)\\
-        &= h_{0} - \frac{1}{8}(4h_{0} -3)\\
-\end{aligned}$$ Solving this equation, we obtain that
-$h_{0} = -\frac{5}{4}$.
+The gradient descent equation is given by: 
+$$\begin{aligned}
+    h^{(t)} &= h^{(t-1)} - \alpha \frac{dR_{sq}(h^{(t-1)})}{dh}
+\end{aligned}$$ 
+
+Recall the learning rate is equal to $\alpha$. We can plug in $\alpha = \frac{1}{4}$, $h^{(2)} = \frac{1}{4}$, and $i=2$,
+in that case we obtain: 
+$$\begin{aligned}
+    \frac{1}{4} &= h^{(1)} - \alpha \frac{dR_{sq}(h^{(1)})}{dh}\\
+    &= h^{(1)} - \alpha \frac{1}{2}\sum_{i=1}^{4}(h^{(1)}-y^{(i)})\\
+    &= h^{(1)} - \frac{1}{4} \cdot \frac{1}{2}(h^{(1)} + 2 + h^{(1)} + 1 + h^{(1)} - 2 + h^{(1)} - 4)\\
+    &= h^{(1)} - \frac{1}{8}(4h^{(1)} - 3)\\
+\end{aligned}$$ 
+
+Solving this equation, we obtain that $h^{(1)} = -\frac{1}{4}$. We can then repeat this step once more to obtain
+$h^{(0)}$: 
+$$\begin{aligned}
+    -\frac{1}{4} &= h^{(0)} - \alpha \frac{dR_{sq}(h^{(0)})}{dh}\\
+    &= h^{(0)} - \frac{1}{4} \cdot \frac{1}{2}(h^{(0)} + 2 + h^{(0)} + 1 + h^{(0)} - 2 + h^{(0)} - 4)\\
+    &= h^{(0)} - \frac{1}{8}(4h^{(0)} - 3)\\
+\end{aligned}$$ 
+
+Solving this equation, we obtain that $h^{(0)} = -\frac{5}{4}$.
 
 # END SOLUTION
 

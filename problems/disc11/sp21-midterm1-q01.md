@@ -11,7 +11,7 @@ Perform by hand two iterations of the gradient descent algorithm on this functio
 $$h^{(1)} = 4, h^{(2)} = 2$$
 
 The updating rule for gradient descent in the one-dimensional case is:
-$$h^{(i+1)} = h^{(i)} - \alpha \cdot \frac{dR}{dh}(h^{(i)})$$
+$$h^{(t+1)} = h^{(t)} - \alpha \cdot \frac{dR}{dh}(h^{(t)})$$
 
 We can find $\frac{dR}{dh}$ by taking the derivative of $R(h)$:
 $$\frac{d}{dh}R(h) = \frac{d}{dh}(\sqrt{(h - 3)^2 + 1}) = \dfrac{h-3}{\sqrt{\left(h-3\right)^2+1}}$$
