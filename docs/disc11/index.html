@@ -918,11 +918,11 @@ accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p>Suppose there is a dataset contains four values: <span
-class="math inline">-2</span>, <span class="math inline">-1</span>,
-<span class="math inline">2</span>, <span class="math inline">4</span>.
-You would like to use gradient descent to minimize the mean square error
-over this dataset.</p>
+<p>Consider the dataset of four values, <span class="math inline">y_1 =
+-2, y_2 = -1, y_3 = 2, y_4 = 4</span>. Suppose we’d like to use gradient
+descent to find the constant prediction, <span
+class="math inline">h^*</span>, that minimizes mean squared error on
+this dataset.</p>
 <p><br></p>
 <h3 id="problem-5.1">Problem 5.1</h3>
 <p>Write down the expression of mean square error and its derivative
@@ -940,20 +940,20 @@ aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">R_{sq}(h) =
+<p><span class="math display">R_\text{sq}(h) =
 \dfrac{1}{4}\sum_{i=1}^{4}(y_i-h)^2</span></p>
-<p>Recall the equation for <span class="math inline">R_{sq}(h) =
+<p>Recall the equation for <span class="math inline">R_\text{sq}(h) =
 \frac{1}{n}\sum_{i=1}^{n}(y_i-h)^2</span>, so we simply need to replace
 <span class="math inline">n</span> with <span class="math inline">4</span> because there are <span class="math inline">4</span> elements in our dataset.</p>
-<p><span class="math inline">\frac{dR_{sq}(h)}{dh} =
+<p><span class="math inline">\frac{dR_\text{sq}(h)}{dh} =
 \frac{1}{2}\sum_{i=1}^{4}(h-y_i)</span></p>
-<p>Since we have the equation for <span class="math inline">R_{sq}(h)</span> we can calculate the
+<p>Since we have the equation for <span class="math inline">R_\text{sq}(h)</span> we can calculate the
 derivative:</p>
 <p><span class="math display">
 \begin{align*}
-\frac{dR_{sq}(h)}{dh} &amp;=
-\frac{dR_{sq}(h)}{dh}(\frac{1}{4}\sum_{i=1}^{4}(y_i-h)^2) \\
-&amp;= \frac{1}{4}\sum_{i=1}^{4}\frac{dR_{sq}(h)}{dh}((y_i-h)^2) \\
+\frac{dR_\text{sq}(h)}{dh} &amp;=
+\frac{dR_\text{sq}(h)}{dh}(\frac{1}{4}\sum_{i=1}^{4}(y_i-h)^2) \\
+&amp;= \frac{1}{4}\sum_{i=1}^{4}\frac{dR_\text{sq}(h)}{dh}((y_i-h)^2) \\
 \end{align*}
 </span> We can use the chain rule to find the derivative of <span class="math inline">(y_i-h)^2</span>. Recall the chain rule is: <span class="math inline">\frac{df(x)}{dx}[(f(x))^n] = n(f(x))^{n-1} \cdot
 f'(x)</span>.</p>
@@ -970,11 +970,11 @@ f'(x)</span>.</p>
 </div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
-<p>Suppose you choose the initial position to be <span
-class="math inline">h_0</span> and the learning rate to be <span
-class="math inline">\frac{1}{4}</span>. After two gradient descent
-steps, <span class="math inline">h_2=\frac{1}{4}</span>. What is the
-value of <span class="math inline">h_0</span>?</p>
+<p>Suppose you choose an initial guess of <span
+class="math inline">h^{(0)}</span> and a learning rate of <span
+class="math inline">\alpha = \frac{1}{4}</span>. After two gradient
+descent steps, <span class="math inline">h^{(2)} = \frac{1}{4}</span>.
+What is the value of <span class="math inline">h^{(0)}</span>?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5_2">
@@ -1009,72 +1009,23 @@ h_{0} - 4)\\
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-5.3">Problem 5.3</h3>
-<p>Given that we set the tolerance of gradient descent to be <span
-class="math inline">0.1</span>. How many <strong>additional
-steps</strong> beyond <span class="math inline">h_2</span> do we need to
-take to reach convergence?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 2</p></li>
-<li><p><input type="radio" disabled="" /> 3</p></li>
-<li><p><input type="radio" disabled="" /> 4</p></li>
-<li><p><input type="radio" disabled="" /> It will never converge</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5_3" class="accordion-collapse collapse"
-aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">2</span> or <span class="math inline">3</span> additional steps (both are correct).</p>
-<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
-    h_i = h_{i-1} - \alpha \frac{dR_{sq}(h_{i-1})}{dh}
-\end{aligned}</span> Now we start from <span class="math inline">\alpha
-= \frac{1}{4}</span>, <span class="math inline">h_2 =
-\frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that
-case we obtain: <span class="math display">\begin{aligned}
-    h_{3} &amp;= h_{2} - \alpha \frac{dR_{sq}(h_{2})}{dh}\\
-    &amp;= h_{2} - \frac{1}{8}(4h_{2} -3)\\
-    &amp;= \frac{1}{4} - \frac{1}{8}(1 -3)\\
-    &amp;= \frac{1}{2}\\
-\end{aligned}</span> Iteratively, we have: <span class="math display">\begin{aligned}
-    h_{4} &amp;= h_{3} - \alpha \frac{dR_{sq}(h_{3})}{dh}\\
-    &amp;= h_{3} - \frac{1}{8}(4h_{3} -3)\\
-    &amp;= \frac{1}{2} - \frac{1}{8}(2 -3)\\
-    &amp;= \frac{5}{8}\\
-\end{aligned}</span> <span class="math display">\begin{aligned}
-    h_{5} &amp;= h_{4} - \alpha \frac{dR_{sq}(h_{4})}{dh}\\
-    &amp;= h_{3} - \frac{1}{8}(4h_{4} -3)\\
-    &amp;= \frac{5}{8} - \frac{1}{8}(\frac{5}{2}-3)\\
-    &amp;= \frac{11}{16}\\
-\end{aligned}</span> from <span class="math inline">h_4</span> to <span class="math inline">h_5</span>, the change is smaller than the
-tolerance. That means we need additional <span class="math inline">2</span> or <span class="math inline">3</span> steps
-to reach convergence (depending on if you actually perform <span class="math inline">h_4</span> to <span class="math inline">h_5</span>,
-so both <span class="math inline">2</span> and <span class="math inline">3</span> are considered correct answer).</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
-<p>Suppose that we are given <span class="math inline">f(x) = x^3 +
-x^2</span> and learning rate <span class="math inline">\alpha =
-1/4</span>.</p>
+<p>Suppose we’d like to use gradient descent to minimize the function
+<span class="math inline">f(x) = x^3 + x^2</span>. Suppose we choose a
+learning rate of <span class="math inline">\alpha =
+\frac{1}{4}</span>.</p>
 <p><br></p>
 <h3 id="problem-6.1">Problem 6.1</h3>
-<p>Write down the updating rule for gradient descent in general, then
-write down the updating rule for gradient descent for the function <span
-class="math inline">f(x)</span>.</p>
+<p>Suppose <span class="math inline">x^{(t)}</span> is our guess of the
+minimizing input <span class="math inline">x^{*}</span> at timestep
+<span class="math inline">t</span>, i.e. <span
+class="math inline">x^{(t)}</span> is the result of performing <span
+class="math inline">t</span> iterations of gradient descent, given some
+initial guess. Write an expression for <span
+class="math inline">x^{(t+1)}</span>. Your answer should be an
+expression involving <span class="math inline">x^{(t)}</span> and some
+constants.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_1">
@@ -1088,24 +1039,23 @@ aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>In general, the updating rule for gradient descent is: <span class="math display">x_{i + 1} = x_i - \alpha \nabla f(x_i) = x_i -
-\alpha \frac{\partial f}{\partial x}(x_i),</span> where <span class="math inline">\alpha \in \mathbb{R}_+</span> is the learning rate
-or step size. For this function, since <span class="math inline">f</span> is a single-variable function, we can write
-down the updating rule as: <span class="math display">x_{i + 1} = x_i -
-\alpha \frac{df}{dx}(x_i) = x_i - \alpha f'(x_i).</span> We also
-have: <span class="math display">\frac{df}{dx} = f'(x) = 3x^2 +
-2x,</span> thus the updating rule can be written down as: <span class="math display">x_{i + 1} = x_i - \alpha(3x_i^2 + 2x_i) =
--\frac{3}{4} x_i^2 + \frac{1}{2}x_i.</span></p>
+<p>In general, the update rule for gradient descent is: <span class="math display">x^{(t+1)} = x^{(t)} - \alpha \nabla f(x^{(t)}) =
+x^{(t)} - \alpha \frac{df}{dx}(x^{(t)}),</span> where <span class="math inline">\alpha</span> is the learning rate or step size. We
+know that the derivative of <span class="math inline">f</span> is as
+follows: <span class="math display">\frac{df}{dx} = f'(x) = 3x^2 +
+2x,</span> thus the update rule can be written down as: <span class="math display">x^{(t+1)} = x^{(t)} - \alpha(3x^{(t)^2} + 2x^{(t)})
+= -\frac{3}{4}x^{(t)^2} + \frac{1}{2}x^{(t)}.</span></p>
 </div>
 </div>
 </div>
 </div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
-<p>If we start at <span class="math inline">x_0 = -1</span>, should we
-go left or right? Can you verify this mathematically? What is <span
-class="math inline">x_1</span>? Can gradient descent converge? If so,
-where it might converge to, given appropriate step size?</p>
+<p>Suppose <span class="math inline">x^{(0)} = -1</span>. - What is the
+value of <span class="math inline">x^{(1)}</span>? - Will gradient
+descent eventually converge, given the initial guess <span
+class="math inline">x^{(0)} = -1</span> and step size <span
+class="math inline">\alpha = \frac{1}{4}</span>?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_2">
@@ -1119,10 +1069,11 @@ aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>We have <span class="math display">f'(x_0) = f'(-1) = 3(-1)^2
-+ 2(-1) = 1 &gt; 0,</span> so we go <strong>left</strong>, and <span class="math display">x_1 = x_0 - \alpha f'(x_0) = -1 - \frac{1}{4} =
--\frac{5}{4}.</span> Intuitively, the gradient descent <strong>cannot
-converge in this case</strong> because <span class="math display">\text{lim}_{x \rightarrow -\infty} f(x) =
+<p>We have <span class="math display">f'(x^{(0)}) = f'(-1) =
+3(-1)^2 + 2(-1) = 1 &gt; 0,</span> so we go <strong>left</strong>, and
+<span class="math display">x^{(1)} = x^{(0)} - \alpha f'(x^{(0)}) =
+-1 - \frac{1}{4} = -\frac{5}{4}.</span> Intuitively, the gradient
+descent <strong>cannot converge in this case</strong> because <span class="math display">\text{lim}_{x \rightarrow -\infty} f(x) =
 -\infty,</span></p>
 <p>We need to find all local minimums and local maximums. First, we
 solve the equation <span class="math inline">f'(x) = 0</span> to
@@ -1136,9 +1087,9 @@ find all critical points.</p>
 <span class="math inline">x = -1/3</span>. Thus, for <span class="math inline">x &lt; -1/3</span>, <span class="math inline">f''(x)</span> is negative or the slope <span class="math inline">f'(x)</span> decreases; and for <span class="math inline">x &gt; -1/3</span>, <span class="math inline">f''(x)</span> is positive or the slope <span class="math inline">f'(x)</span> increases. Keep in mind that <span class="math inline">-1 &lt; -2/3 &lt; -1/3 &lt; 0 &lt; 1</span>.</p>
 <p>Therefore, <span class="math inline">f</span> has a local maximum at
 <span class="math inline">x = -2/3</span> and a local minimum at <span class="math inline">x = 0</span>. If the gradient descent starts at
-<span class="math inline">x_0 = -1</span> and it always goes left then
-it will never meet the local minimum at <span class="math inline">x =
-0</span>, and it will go left infinitely. We say the gradient descent
+<span class="math inline">x^{(0)} = -1</span> and it always goes left
+then it will never meet the local minimum at <span class="math inline">x
+= 0</span>, and it will go left infinitely. We say the gradient descent
 cannot converge, or is divergent.</p>
 </div>
 </div>
@@ -1146,10 +1097,11 @@ cannot converge, or is divergent.</p>
 </div>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
-<p>If we start at <span class="math inline">x_0 = 1</span>, should we go
-left or right? Can you verify this mathematically? What is <span
-class="math inline">x_1</span>? Can gradient descent converge? If so,
-where it might converge to, given appropriate step size?</p>
+<p>Suppose <span class="math inline">x^{(0)} = 1</span>. - What is the
+value of <span class="math inline">x^{(1)}</span>? - Will gradient
+descent eventually converge, given the initial guess <span
+class="math inline">x^{(0)} = 1</span> and step size <span
+class="math inline">\alpha = \frac{1}{4}</span>?</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading6_3">
@@ -1163,10 +1115,10 @@ aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p>We have <span class="math display">f'(x_0) = f'(-1) = 3 \cdot
-1^2 + 2 \cdot 1 = 5 &gt; 0,</span> so we go <strong>left</strong>, and
-<span class="math display">x_1 = x_0 - \alpha f'(x_0) = 1 -
-\frac{1}{4} \cdot 5 = -\frac{1}{4}.</span></p>
+<p>We have <span class="math display">f'(x^{(0)}) = f'(-1) = 3
+\cdot 1^2 + 2 \cdot 1 = 5 &gt; 0,</span> so we go <strong>left</strong>,
+and <span class="math display">x^{(1)} = x^{(0)} - \alpha
+f'(x^{(0)}) = 1 - \frac{1}{4} \cdot 5 = -\frac{1}{4}.</span></p>
 <p>From the previous part, function <span class="math inline">f</span>
 has a local minimum at <span class="math inline">x = 0</span>, so the
 gradient descent <strong>can converge</strong> (given appropriate step
@@ -1176,42 +1128,8 @@ size) at this local minimum.</p>
 </div>
 </div>
 <p><br></p>
-<h3 id="problem-6.4">Problem 6.4</h3>
-<p>Write down <span class="math inline">1</span> condition to terminate
-the gradient descent algorithm (in general).</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6_4" class="accordion-collapse collapse"
-aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>There are several ways to terminate the gradient descent
-algorithm:</p>
-<ul>
-<li><p>If the change in the optimization objective is too small, i.e.
-<span class="math inline">|f(x_i) - f(x_{i + 1})| &lt; \epsilon</span>
-where <span class="math inline">\epsilon</span> is a small
-constant,</p></li>
-<li><p>If the gradient is close to zero or the norm of the gradient is
-very small, i.e. <span class="math inline">\|\nabla f(x_i)\| &lt;
-\lambda</span> where <span class="math inline">\lambda</span> is a small
-constant.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
-<p>Remember to show your work and justify your answers.</p>
 <p>Suppose we want to minimize the function</p>
 <p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
 <p><br></p>
@@ -1245,10 +1163,10 @@ i.e. when <span class="math inline">x = -1</span>. Since <span class="math inli
 <h3 id="problem-7.2">Problem 7.2</h3>
 <p>Now, suppose we want to use gradient descent to minimize <span
 class="math inline">R(h)</span>. Assume we use an initial guess of <span
-class="math inline">h_0 = 0</span>. What is <span
-class="math inline">h_1</span>? Give your answer in terms of a generic
-step size, <span class="math inline">\alpha</span>, and other constants.
-(<span class="math inline">e</span> is a constant.)</p>
+class="math inline">h^{(1)} = 0</span>. What is <span
+class="math inline">h^{(1)}</span>? Give your answer in terms of a
+generic step size, <span class="math inline">\alpha</span>, and other
+constants. (<span class="math inline">e</span> is a constant.)</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading7_2">
@@ -1262,16 +1180,16 @@ aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
 <p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
 <p><span class="math display">\frac{dR}{dh}(h) = 2(x+1)
 e^{(x+1)^2}</span></p>
 <p>Then, we know that</p>
-<p><span class="math display">h_1 = h_0 - \alpha \frac{dR}{dh}(h_0) = 0
-- \alpha \frac{dR}{dh}(0)</span></p>
+<p><span class="math display">h^{(1)} = h^{(0)} - \alpha
+\frac{dR}{dh}(h^{(0)}) = 0 - \alpha \frac{dR}{dh}(0)</span></p>
 <p>In our case, <span class="math inline">\frac{dR}{dh}(0) = 2(0 + 1)
 e^{(0+1)^2} = 2e</span>, so</p>
-<p><span class="math display">h_1 = -\alpha \cdot 2e</span></p>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
 </div>
 </div>
 </div>
@@ -1296,9 +1214,9 @@ aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><span class="math display">\alpha = \frac{1}{2e}</span></p>
-<p>We know from the part (b) that <span class="math inline">h_1 =
--\alpha \cdot 2e</span>, and we know from part (a) that <span class="math inline">h^* = -1</span>. If gradient descent converges in
-one iteration, that means that <span class="math inline">h_1 =
+<p>We know from the part 2 that <span class="math inline">h^{(1)} =
+-\alpha \cdot 2e</span>, and we know from part 1 that <span class="math inline">h^* = -1</span>. If gradient descent converges in
+one iteration, that means that <span class="math inline">h^{(1)} =
 h^*</span>; solving this yields</p>
 <p><span class="math display">-\alpha \cdot 2e = -1 \implies \alpha =
 \frac{1}{2e}</span></p>
@@ -1331,7 +1249,7 @@ aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
 <p>True.</p>
 <p><span class="math inline">R(h)</span> is convex, since the graph is
 bowl shaped. (It can also be proved that <span class="math inline">R(h)</span> is convex using the second derivative
-test.) It is also differentiable, as we saw in part (b). As a result,
+test.) It is also differentiable, as we saw in part 2. As a result,
 since it’s both convex and differentiable, gradient descent is
 guaranteed to be able to minimize it given an appropriate choice of step
 size.</p>
@@ -1349,10 +1267,10 @@ differentiable function with only one local minimum.</p>
 <h3 id="problem-8.1">Problem 8.1</h3>
 <p>Perform by hand two iterations of the gradient descent algorithm on
 this function, using an initial prediction of <span
-class="math inline">h_0 = 2</span> and a learning rate of <span
+class="math inline">h^{(0)} = 2</span> and a learning rate of <span
 class="math inline">\alpha = 2\sqrt{2}</span>. Show your work and your
-final answers, <span class="math inline">h_1</span> and <span
-class="math inline">h_2</span>.</p>
+final answers, <span class="math inline">h^{(1)}</span> and <span
+class="math inline">h^{(2)}</span>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_1">
@@ -1366,27 +1284,27 @@ aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math display">h_1 = 4, h_2 = 2</span></p>
+<p><span class="math display">h^{(1)} = 4, h^{(2)} = 2</span></p>
 <p>The updating rule for gradient descent in the one-dimensional case
-is: <span class="math display">h_{i+1} = h_{i} - \alpha \cdot
-\frac{dR}{dh}(h_i)</span></p>
+is: <span class="math display">h^{(i+1)} = h^{(i)} - \alpha \cdot
+\frac{dR}{dh}(h^{(i)})</span></p>
 <p>We can find <span class="math inline">\frac{dR}{dh}</span> by taking
 the derivative of <span class="math inline">R(h)</span>: <span class="math display">\frac{d}{dh}R(h) = \frac{d}{dh}(\sqrt{(h - 3)^2 +
 1}) = \dfrac{h-3}{\sqrt{\left(h-3\right)^2+1}}</span></p>
 <p>Now we can use <span class="math inline">\alpha = 2\sqrt{2}</span>
-and <span class="math inline">h_0 = 2</span> to begin updating:</p>
+and <span class="math inline">h^{(0)} = 2</span> to begin updating:</p>
 <p><span class="math display">\begin{align*}
-h_{1} &amp;= h_{0} - \alpha \cdot \frac{dR}{dh}(h_0) \\
-h_{1} &amp;= 2 - 2\sqrt{2} \cdot
+h^{(1)} &amp;= h^{(0)} - \alpha \cdot \frac{dR}{dh}(h^{(0)}) \\
+h^{(1)} &amp;= 2 - 2\sqrt{2} \cdot
 \left(\dfrac{2-3}{\sqrt{\left(2-3\right)^2+1}}\right) \\
-h_{1} &amp;= 2 - 2\sqrt{2} \cdot (\dfrac{-1}{\sqrt{2}}) \\
-h_{1} &amp;= 4
+h^{(1)} &amp;= 2 - 2\sqrt{2} \cdot (\dfrac{-1}{\sqrt{2}}) \\
+h^{(1)} &amp;= 4
 \end{align*}</span> <br/> <span class="math display">\begin{align*}
-h_{2} &amp;= h_{1} - \alpha \cdot \frac{dR}{dh}(h_1) \\
-h_{2} &amp;= 4 - 2\sqrt{2} \cdot
+h^{(2)} &amp;= h^{(1)} - \alpha \cdot \frac{dR}{dh}(h^{(1)}) \\
+h^{(2)} &amp;= 4 - 2\sqrt{2} \cdot
 \left(\dfrac{4-3}{\sqrt{\left(4-3\right)^2+1}}\right) \\
-h_{2} &amp;= 4 - 2\sqrt{2} \cdot (\dfrac{1}{\sqrt{2}}) \\
-h_{2} &amp;= 2
+h^{(2)} &amp;= 4 - 2\sqrt{2} \cdot (\dfrac{1}{\sqrt{2}}) \\
+h^{(2)} &amp;= 2
 \end{align*}</span></p>
 </div>
 </div>
@@ -1415,7 +1333,7 @@ predictions of 2 and 4. We showed the first two iterations of the
 algorithm in part 1, but the next two would be exactly the same, and the
 two after that, and so on. This happens because the learning rate is too
 big, resulting in steps that are too big, and we keep jumping over the
-true minimizer at <span class="math inline">h = 3</span>.</p>
+true minimizer at <span class="math inline">h^* = 3</span>.</p>
 </div>
 </div>
 </div>
@@ -1454,14 +1372,54 @@ aria-labelledby="heading9" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer:</strong></p>
+<p>Let’s first identify all elements of the confusion matrix by
+comparing predictions with true labels:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True Positives (TP)</td>
+<td>6</td>
+<td>Prediction=1 and True Label=1</td>
+</tr>
+<tr>
+<td>False Positives (FP)</td>
+<td>3</td>
+<td>Prediction=1 and True Label=0</td>
+</tr>
+<tr>
+<td>True Negatives (TN)</td>
+<td>1</td>
+<td>Prediction=0 and True Label=0</td>
+</tr>
+<tr>
+<td>False Negatives (FN)</td>
+<td>0</td>
+<td>Prediction=0 and True Label=1</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>10</td>
+<td>Total number of predictions</td>
+</tr>
+</tbody>
+</table>
 <ol type="1">
-<li><p><span class="math inline">\frac{7}{10}</span></p></li>
-<li><p>We have 6 true positive and 3 false positives, so the precision
-evaluates to: <span class="math display">\frac{6}{6+3} =
-\frac{2}{3}</span></p></li>
-<li><p>From the solution to (2) above, we know true positives = 6. The
-number of false negatives is 0 (we only predicted 0 once and the true
-value actually was 0). Thus the recall is: <span class="math display">\frac{6}{6+0} = 1</span></p></li>
+<li><p><strong>Accuracy</strong>: The proportion of correct predictions
+(TP + TN) among the total number of predictions. <span class="math display">\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+= \frac{6 + 1}{10} = \frac{7}{10} = 0.7</span></p></li>
+<li><p><strong>Precision</strong>: The proportion of true positives
+among all positive predictions. <span class="math display">\text{Precision} = \frac{TP}{TP + FP} = \frac{6}{6
++ 3} = \frac{6}{9} = \frac{2}{3} \approx 0.67</span></p></li>
+<li><p><strong>Recall</strong>: The proportion of true positives among
+all actual positives. <span class="math display">\text{Recall} =
+\frac{TP}{TP + FN} = \frac{6}{6 + 0} = \frac{6}{6} = 1</span></p></li>
 </ol>
 </div>
 </div>

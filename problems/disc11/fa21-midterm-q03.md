@@ -1,7 +1,5 @@
 # BEGIN PROB
 
-Remember to show your work and justify your answers.
-
 Suppose we want to minimize the function
 
 $$R(h) = e^{(h + 1)^2}$$
@@ -27,13 +25,13 @@ minimizing input $h^*$ is $-1$.
 # BEGIN SUBPROB
 
 Now, suppose we want to use gradient descent to minimize
-$R(h)$. Assume we use an initial guess of $h_0 = 0$. What is $h_1$? Give
+$R(h)$. Assume we use an initial guess of $h^{(1)} = 0$. What is $h^{(1)}$? Give
 your answer in terms of a generic step size, $\alpha$, and other
 constants. ($e$ is a constant.)
 
 # BEGIN SOLUTION
 
-$$h_1 = -\alpha \cdot 2e$$
+$$h^{(1)} = -\alpha \cdot 2e$$
 
 First, we find $\frac{dR}{dh}(h)$:
 
@@ -41,11 +39,11 @@ $$\frac{dR}{dh}(h) = 2(x+1) e^{(x+1)^2}$$
 
 Then, we know that
 
-$$h_1 = h_0 - \alpha \frac{dR}{dh}(h_0) = 0 - \alpha \frac{dR}{dh}(0)$$
+$$h^{(1)} = h^{(0)} - \alpha \frac{dR}{dh}(h^{(0)}) = 0 - \alpha \frac{dR}{dh}(0)$$
 
 In our case, $\frac{dR}{dh}(0) = 2(0 + 1) e^{(0+1)^2} = 2e$, so
 
-$$h_1 = -\alpha \cdot 2e$$
+$$h^{(1)} = -\alpha \cdot 2e$$
 
 # END SOLUTION
 
@@ -61,9 +59,9 @@ gradient descent finds $h^*$ after just one iteration?
 
 $$\alpha = \frac{1}{2e}$$
 
-We know from the part (b) that $h_1 = -\alpha \cdot 2e$, and we know from part
-(a) that $h^* = -1$. If gradient descent converges in one iteration, that
-means that $h_1 = h^*$; solving this yields
+We know from the part 2 that $h^{(1)} = -\alpha \cdot 2e$, and we know from part
+1 that $h^* = -1$. If gradient descent converges in one iteration, that
+means that $h^{(1)} = h^*$; solving this yields
 
 $$-\alpha \cdot 2e = -1 \implies \alpha = \frac{1}{2e}$$
 
@@ -88,7 +86,7 @@ True.
 
 $R(h)$ is convex, since the graph is bowl shaped. (It can also
 be proved that $R(h)$ is convex using the second derivative test.) It is
-also differentiable, as we saw in part (b). As a result, since it's both
+also differentiable, as we saw in part 2. As a result, since it's both
 convex and differentiable, gradient descent is guaranteed to be able to
 minimize it given an appropriate choice of step size.
 
