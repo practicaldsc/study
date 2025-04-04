@@ -149,6 +149,35 @@ of <span class="math inline">g(\vec{x})</span>, and use it to show that
 <span class="math inline">\nabla g\left( \begin{bmatrix} -1 \\ 1
 \end{bmatrix} \right) = \begin{bmatrix} -8 \\ 0
 \end{bmatrix}</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\nabla g(\vec{x}) = \begin{bmatrix} 2x_1
+-6 + 4x_1(x_1^2 - x_2) \\ -2(x_1^2 - x_2) \end{bmatrix}</span></p>
+<p>We can find <span class="math inline">\nabla g(\vec{x})</span> by
+finding the partial derivatives of <span class="math inline">g(\vec{x})</span>:</p>
+<p><span class="math display">\frac{\partial g}{\partial x_1} = 2(x_1 -
+3) + 2(x_1^2 - x_2)(2 x_1)</span> <span class="math display">\frac{\partial g}{\partial x_2} = 2(x_1^2 -
+x_2)(-1)</span> <span class="math display">\nabla g(\vec{x}) =
+\begin{bmatrix} 2(x_1 - 3) + 2(x_1^2 - x_2)(2 x_1) \\ 2(x_1^2 - x_2)(-1)
+\end{bmatrix}</span> <span class="math display">\nabla
+g\left(\begin{bmatrix} - 1 \\ 1 \end{bmatrix}\right) = \begin{bmatrix}
+2(-1 - 4) + 2((-1)^2 - 1)(2(-1)) \\ 2((-1)^2 - 1) \end{bmatrix} =
+\begin{bmatrix} -8 \\ 0 \end{bmatrix}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>We’d like to find the vector <span
@@ -159,6 +188,36 @@ class="math inline">\vec{x}^{(0)} = \begin{bmatrix} -1 \\ 1
 \end{bmatrix}</span> and the learning rate <span
 class="math inline">\alpha = \frac{1}{2}</span>. In other words, what is
 <span class="math inline">\vec{x}^{(1)}</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\vec x^{(1)} = \begin{bmatrix} 3 \\ 1
+\end{bmatrix}</span></p>
+<p>Here’s the general form of gradient descent: <span class="math display">\vec x^{(1)} = \vec{x}^{(0)} - \alpha \nabla
+g(\vec{x}^{(0)})</span></p>
+<p>We can substitute <span class="math inline">\alpha =
+\frac{1}{2}</span> and <span class="math inline">x^{(0)} =
+\begin{bmatrix} -1 \\ 1 \end{bmatrix}</span> to get: <span class="math display">\vec x^{(1)} = \begin{bmatrix} -1 \\ 1
+\end{bmatrix} - \frac{1}{2} \nabla g(\vec x ^{(0)})</span> <span class="math display">\vec x^{(1)} = \begin{bmatrix} -1 \\ 1
+\end{bmatrix} - \frac{1}{2} \begin{bmatrix} -8 \\ 0
+\end{bmatrix}</span></p>
+<p><span class="math display">\vec{x}^{(1)} = \begin{bmatrix} -1 \\ 1
+\end{bmatrix} - \frac{1}{2} \begin{bmatrix} -8 \\ 0 \end{bmatrix} =
+\begin{bmatrix} 3 \\ 1 \end{bmatrix}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>Consider the function <span class="math inline">f(t) = (t - 3)^2 +
@@ -173,6 +232,35 @@ global minimum.</p></li>
 <li><p><input type="radio" disabled="" /> <span class="math inline">f(t)</span> is not convex and doesn’t have
 a global minimum.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">f(t)</span> is not convex, but has a global
+minimum.</p>
+<p>It is seen that <span class="math inline">f(t)</span> isn’t convex,
+which can be verified using the second derivative test: <span class="math display">f'(t) = 2(t - 3) + 2(t^2 - 1) 2t = 2t - 6 +
+4t^3 - 4t = 4t^3 - 2t - 6</span> <span class="math display">f''(t) = 12t^2 - 2</span></p>
+<p>Clearly, <span class="math inline">f''(t) &lt; 0</span> for
+many values of <span class="math inline">t</span> (e.g. <span class="math inline">t = 0</span>), so <span class="math inline">f(t)</span> is not always convex.</p>
+<p>However, <span class="math inline">f(t)</span> does have a global
+minimum – its output is never less than 0. This is because it can be
+expressed as the sum of two squares, <span class="math inline">(t -
+3)^2</span> and <span class="math inline">(t^2 - 1)^2</span>,
+respectively, both of which are greater than or equal to 0.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -211,6 +299,28 @@ class 1).</p>
 15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Logistic regression</p>
+<p>Logistic regression is a linear classification technique, meaning it
+creates a single linear decision boundary between classes. Among the
+five decision boundaries, only Decision Boundary 1 is linear, making it
+the correct answer.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.2">Problem 2.2</h3>
 <p>Which model does Decision Boundary 2 correspond to?</p>
@@ -223,6 +333,32 @@ class 1).</p>
 15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Decision tree with <span class="math inline">\text{max depth} = 15</span></p>
+<p>We know that Decision Boundaries 2 and 5 are decision trees, since
+the decision boundaries are parallel to the axes. Decision boundaries
+for decision trees are parallel to axes because the tree splits the
+feature space based on one feature at a time, creating partitions
+aligned with that feature’s axis (e.g., “Price ≤ 100” results in a
+vertical split).</p>
+<p>Decision Boundary 2 is more complicated than Decision Boundary 5, so
+we can assume there are more levels.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.3">Problem 2.3</h3>
 <p>Which model does Decision Boundary 3 correspond to?</p>
@@ -235,6 +371,36 @@ class 1).</p>
 15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 3</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p>A lower value of <span class="math inline">k</span> means the model
+is more sensitive to local variations in the data. Since Decision
+Boundary 3 has more complex and irregular regions than Decision Boundary
+4, it corresponds to <span class="math inline">k = 3</span>, where the
+model closely follows the training data.</p>
+<p>For example, if in our training data we had 3 points in the group
+represented by the light-shaded region at <span class="math inline">(300, 150)</span>, the decision boundary for <span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 3</span> would be light-shaded at <span class="math inline">(300, 150)</span>, whereas it may be dark-shaded for
+<span class="math inline">k</span>-nearest neighbors with <span class="math inline">k = 100</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-2.4">Problem 2.4</h3>
 <p>Which model does Decision Boundary 4 correspond to?</p>
@@ -247,6 +413,36 @@ class 1).</p>
 15</span></p></li>
 <li><p><input type="radio" disabled="" /> Logistic regression</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_4" class="accordion-collapse collapse"
+aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">k</span>-nearest
+neighbors with <span class="math inline">k = 100</span></p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries don’t follow straight lines like logistic regression or
+decision trees. Thus, boundaries 3 and 4 are <span class="math inline">k</span>-nearest neighbors.</p>
+<p><span class="math inline">k</span>-nearest neighbors decision
+boundaries adapt to the training data, but increasing <span class="math inline">k</span> makes the model less sensitive to local
+variations.</p>
+<p>Since Decision Boundary 4 is smoother and has fewer regions than
+Decision Boundary 3, it corresponds to <span class="math inline">k =
+100</span>, where predictions are averaged over a larger number of
+neighbors, making the boundary less sensitive to individual data
+points.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
@@ -258,12 +454,62 @@ summarized in the following confusion matrix.</p>
 <h3 id="problem-3.1">Problem 3.1</h3>
 <p>What is the recall of our classifier? Give your answer as a fraction
 (it does not need to be simplified).</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{35}{57}</span></p>
+<p>There are 105 true positives and 66 false negatives. Hence, the
+recall is <span class="math inline">\frac{105}{105 + 66} =
+\frac{105}{171} = \frac{35}{57}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.2">Problem 3.2</h3>
 <p>The accuracy of our classifier is <span
 class="math inline">\frac{69}{117}</span>. How many <strong>true
 negatives</strong> did our classifier have? Give your answer as an
 integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 33</p>
+<p>Let <span class="math inline">x</span> be the number of true
+negatives. The number of correctly classified data points is <span class="math inline">105 + x</span>, and the total number of data points
+is <span class="math inline">105 + 30 + 66 + x = 201 + x</span>. Hence,
+this boils down to solving for <span class="math inline">x</span> in
+<span class="math inline">\frac{69}{117} = \frac{105 + x}{201 +
+x}</span>.</p>
+<p>It may be tempting to cross-multiply here, but that’s not necessary
+(in fact, we picked the numbers specifically so you would not have to)!
+Multiply <span class="math inline">\frac{69}{117}</span> by <span class="math inline">\frac{2}{2}</span> to yield <span class="math inline">\frac{138}{234}</span>. Then, conveniently, setting
+<span class="math inline">x = 33</span> in <span class="math inline">\frac{105 + x}{201 + x}</span> also yields <span class="math inline">\frac{138}{234}</span>, so <span class="math inline">x = 33</span> and hence the number of true negatives
+our classifier has is 33.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.3">Problem 3.3</h3>
 <p>True or False: In order for a binary classifier’s precision and
@@ -273,6 +519,36 @@ number.</p>
 <li><p><input type="radio" disabled="" /> True</p></li>
 <li><p><input type="radio" disabled="" /> False</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> True</p>
+<p>Remember that <span class="math inline">\text{precision} =
+\frac{TP}{TP + FP}</span> and <span class="math inline">\text{recall} =
+\frac{TP}{TP + FN}</span>. In order for precision to be the same as
+recall, it must be the case that <span class="math inline">FP =
+FN</span>, i.e. that our classifier makes the same number of false
+positives and false negatives. The only kinds of “errors" or”mistakes" a
+classifier can make are false positives and false negatives; thus, we
+must have</p>
+<p><span class="math display">\text{mistakes} = FP + FN = FP + FP = 2
+\cdot FP</span></p>
+<p>2 times any integer must be an even integer, so the number of
+mistakes must be even.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-3.4">Problem 3.4</h3>
 <p>Suppose we are building a classifier that listens to an audio source
@@ -288,6 +564,33 @@ are also “Kiss Me thru the Phone”.</p>
 <li><p><input type="radio" disabled="" /> high precision and low recall.</p></li>
 <li><p><input type="radio" disabled="" /> high precision and high recall.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_4" aria-expanded="true" aria-controls="collapse3_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_4" class="accordion-collapse collapse"
+aria-labelledby="heading3_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B: low precision and high
+recall.</p>
+<p>Our classifier is good at identifying when the input stream is “Kiss
+Me thru the Phone”, i.e. it is good at identifying true positives
+amongst all positives. This means it has high recall.</p>
+<p>Since our classifier makes many false positive predictions – in other
+words, it often incorrectly predicts “Kiss Me thru the Phone” when
+that’s not what the input stream is – it has many false positives, so
+its precision is low.</p>
+<p>Thus, our classifier has low precision and high recall.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
@@ -329,6 +632,68 @@ above statement <strong>not guaranteed</strong> to be true?</p>
 <li><p><input type="radio" disabled="" /> Option 3</p></li>
 <li><p><input type="radio" disabled="" /> Option 4</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Conceptually, we’re looking for a combination of <code>a</code> and
+<code>b</code> such that when <code>a &gt; b</code>, it’s true that
+<strong>in more than 50% of states, the <code>"Math"</code> value is
+larger than the <code>"Verbal"</code> value</strong>. Let’s look at all
+four options through this lens:</p>
+<ul>
+<li>Option 1: <code>sat['Math'] &gt; sat['Verbal']</code> is a Series of
+Boolean values, containing <code>True</code> for all states where the
+<code>"Math"</code> value is larger than the <code>"Verbal"</code> value
+and <code>False</code> for all other states. The mean of this series,
+then, is the proportion of states satisfying this criteria, and since
+<code>b</code> is <code>0.5</code>, <code>a &gt; b</code> is
+<code>True</code> only when the bolded condition above is
+<code>True</code>.</li>
+<li>Option 3 is the same as Option 1 – note that <span class="math inline">x &gt; y</span> is equivalent to <span class="math inline">x - y &gt; 0</span>.</li>
+<li>Option 4: <code>sat['Math'] / sat['Verbal']</code> is a Series that
+contains values greater than 1 whenever a state’s <code>"Math"</code>
+value is larger than its <code>"Verbal"</code> value and less than or
+equal to 1 in all other cases. As in the other options that work,
+<code>(sat['Math'] / sat['Verbal']) &gt; 1</code> is a Boolean Series
+with <code>True</code> for all states with a larger <code>"Math"</code>
+value than <code>"Verbal"</code> values; <code>a &gt; b</code> compares
+the proportion of <code>True</code> values in this Series to 0.5. (Here,
+<span class="math inline">p - 0.5 &gt; 0</span> is the same as <span class="math inline">p &gt; 0.5</span>.)</li>
+</ul>
+<p>Then, by process of elimination, Option 2 must be the correct option
+– that is, it must be the only option that <strong>doesn’t</strong>
+work. But why? <code>sat['Math'] - sat['Verbal']</code> is a Series
+containing the difference between each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values, and <code>.mean()</code> computes the mean
+of these differences. The issue is that here, we don’t care about
+<em>how different</em> each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values are; rather, we just care about the
+proportion of states with a bigger <code>"Math"</code> value than
+<code>"Verbal"</code> value. It could be the case that 90% of states
+have a larger <code>"Math"</code> value than <code>"Verbal"</code>
+value, but one state has such a big <code>"Verbal"</code> value that it
+makes the mean difference between <code>"Math"</code> and
+<code>"Verbal"</code> scores negative. (A property you’ll learn about in
+future probability courses is that this is equal to the difference in
+the mean <code>"Math"</code> value for all states and the mean
+<code>"Verbal"</code> value for all states – this is called the
+“linearity of expectation” – but you don’t need to know that to answer
+this question.)</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>Suppose we train a classifier, named Classifier 1, and it achieves an
@@ -340,6 +705,36 @@ from using it as a performance metric for classification models as
 well.</p>
 <p>What is the RMSE of Classifier 1 on our training set? Give your
 answer as a <strong>simplified fraction</strong>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{3}</span></p>
+<p>An accuracy of <span class="math inline">\frac{5}{9}</span> means
+that the model is such that out of 9 values, 5 are labeled correctly. By
+extension, this means that 4 out of 9 are not labeled correctly as 0 or
+1.</p>
+<p>Remember, RMSE is defined as</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i =
+1}^n (y_i - H(x_i))^2}</span></p>
+<p>where <span class="math inline">y_i</span> represents the <span class="math inline">i</span>th actual value and <span class="math inline">H(x_i)</span> represents the <span class="math inline">i</span>th prediction. Here, <span class="math inline">y_i</span> is either 0 or 1 and $H(x_i) is also
+either 0 or 1. We’re told that <span class="math inline">\frac{5}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are the same; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 0^2 = 0</span>. We’re also told
+that <span class="math inline">\frac{4}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are different; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 1</span>. So,</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{5}{9} \cdot 0 +
+\frac{4}{9} \cdot 1} = \sqrt{\frac{4}{9}} = \frac{2}{3}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>While Classifier 1’s accuracy on our training set is <span
@@ -356,6 +751,30 @@ complexity.</p></li>
 <li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to decrease its
 complexity.</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Since the accuracy of Classifier 1 is much higher on the dataset used
+to train it than the dataset it was tested on, it’s likely Classifer 1
+overfit to the training set because it was too complex. To fix the
+issue, we need to decrease its complexity, so that it focuses on
+learning the general structure of the data in the training set and not
+too much on the random noise in the training set.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p>For the remainder of this question, suppose we train another
 classifier, named Classifier 2, again on our training set. Its
@@ -372,6 +791,29 @@ the number <code>1</code>?</p>
 <li><p><input type="radio" disabled="" /> <code>conf.sum(axis=0)</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>conf.sum(axis=1)</code></p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_4" class="accordion-collapse collapse"
+aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 1</p>
+<p>Note that the columns of <code>conf</code> sum to 1 – <span class="math inline">0.9 + 0.1 = 1</span>, and <span class="math inline">0.4 + 0.6 = 1</span>. To create a Series with just
+the value 1, then, we need to sum the columns of <code>conf</code>,
+which we can do using <code>conf.sum(axis=0)</code>.
+<code>conf.sum(axis=1)</code> would sum the rows of
+<code>conf</code>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.5">Problem 4.5</h3>
 <p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
@@ -380,6 +822,39 @@ the number <code>1</code>?</p>
 <li><p><input type="radio" disabled="" /> precision</p></li>
 <li><p><input type="radio" disabled="" /> recall</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_5" aria-expanded="true" aria-controls="collapse4_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_5" class="accordion-collapse collapse"
+aria-labelledby="heading4_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> recall</p>
+<p>The number 0.6 appears in the bottom-right corner of
+<code>conf</code>. Since <code>conf</code> is column-normalized, the
+value 0.6 represents the proportion of values in the second column that
+were predicted to be 1. The second column contains values that were
+actually 1, so 0.6 is really <strong>the proportion of values that were
+actually 1 that were predicted to be 1</strong>, that is, <span class="math inline">\frac{\text{actually 1 and predicted
+1}}{\text{actually 1}}</span>. This is the definition of recall!</p>
+<p>If you’d like to think in terms of true positives, etc., then
+remember that: - True Positives (TP) are values that were actually 1 and
+were predicted to be 1. - True Negatives (TN) are values that were
+actually 0 and were predicted to be 0. - False Positives (FP) are values
+that were actually 0 and were predicted to be 1. - False Negatives (FN)
+are values that were actually 1 and were predicted to be 0.</p>
+<p>Recall is <span class="math inline">\frac{\text{TP}}{\text{TP} +
+\text{FN}}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p>For your convenience, we show the column-normalized confusion matrix
 from the previous page below. You will need to use the specific numbers
@@ -407,6 +882,39 @@ class="math inline">A</span>, <span class="math inline">B</span>, and
 <span class="math inline">\alpha</span>? How does it simplify your
 calculation for the accuracy in the previous step?</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_6" aria-expanded="true" aria-controls="collapse4_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_6" class="accordion-collapse collapse"
+aria-labelledby="heading4_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{5}{6}</span></p>
+<p>Here is one way to solve this problem:</p>
+<p>accuracy = <span class="math inline">\frac{TP + TN}{TP + TN + FP +
+FN}</span></p>
+<p>Given the values from the confusion matrix:</p>
+<p>accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9
+\cdot (1 - \alpha)}{\alpha + (1 - \alpha)}</span><br/>
+accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9 - 0.9
+\cdot \alpha}{1}</span><br/>
+accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
+<p>Therefore:</p>
+<p>0.65 = <span class="math inline">0.9 - 0.3 \cdot \alpha</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.9 - 0.65</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.25</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{0.25}{0.3}</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{5}{6}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
@@ -419,6 +927,47 @@ this dataset.</p>
 <h3 id="problem-5.1">Problem 5.1</h3>
 <p>Write down the expression of mean square error and its derivative
 given this dataset.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">R_\text{sq}(h) =
+\dfrac{1}{4}\sum_{i=1}^{4}(y_i-h)^2</span></p>
+<p>Recall the equation for <span class="math inline">R_\text{sq}(h) =
+\frac{1}{n}\sum_{i=1}^{n}(y_i-h)^2</span>, so we simply need to replace
+<span class="math inline">n</span> with <span class="math inline">4</span> because there are <span class="math inline">4</span> elements in our dataset.</p>
+<p><span class="math inline">\frac{dR_\text{sq}(h)}{dh} =
+\frac{1}{2}\sum_{i=1}^{4}(h-y_i)</span></p>
+<p>Since we have the equation for <span class="math inline">R_\text{sq}(h)</span> we can calculate the
+derivative:</p>
+<p><span class="math display">
+\begin{align*}
+\frac{dR_\text{sq}(h)}{dh} &amp;=
+\frac{dR_\text{sq}(h)}{dh}(\frac{1}{4}\sum_{i=1}^{4}(y_i-h)^2) \\
+&amp;= \frac{1}{4}\sum_{i=1}^{4}\frac{dR_\text{sq}(h)}{dh}((y_i-h)^2) \\
+\end{align*}
+</span> We can use the chain rule to find the derivative of <span class="math inline">(y_i-h)^2</span>. Recall the chain rule is: <span class="math inline">\frac{df(x)}{dx}[(f(x))^n] = n(f(x))^{n-1} \cdot
+f'(x)</span>.</p>
+<p><span class="math display">
+\begin{align*}
+&amp;= \frac{1}{4}\sum_{i=1}^{4}2(y_i-h) \cdot -1 \\
+&amp;= \frac{1}{4}\sum_{i=1}^{4} 2(h - y_i) \\
+&amp;= \frac{1}{2}\sum_{i=1}^{4} (h-y_i)
+\end{align*}
+</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>Suppose you choose an initial guess of <span
@@ -426,6 +975,43 @@ class="math inline">h^{(0)}</span> and a learning rate of <span
 class="math inline">\alpha = \frac{1}{4}</span>. After two gradient
 descent steps, <span class="math inline">h^{(2)} = \frac{1}{4}</span>.
 What is the value of <span class="math inline">h^{(0)}</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^{(0)} = -\frac{5}{4}</span></p>
+<p>The gradient descent equation is given by: <span class="math display">\begin{aligned}
+    h^{(t)} &amp;= h^{(t-1)} - \alpha \frac{dR_{sq}(h^{(t-1)})}{dh}
+\end{aligned}</span></p>
+<p>Recall the learning rate is equal to <span class="math inline">\alpha</span>. We can plug in <span class="math inline">\alpha = \frac{1}{4}</span>, <span class="math inline">h^{(2)} = \frac{1}{4}</span>, and <span class="math inline">i=2</span>, in that case we obtain: <span class="math display">\begin{aligned}
+    \frac{1}{4} &amp;= h^{(1)} - \alpha \frac{dR_{sq}(h^{(1)})}{dh}\\
+    &amp;= h^{(1)} - \alpha \frac{1}{2}\sum_{i=1}^{4}(h^{(1)}-y^{(i)})\\
+    &amp;= h^{(1)} - \frac{1}{4} \cdot \frac{1}{2}(h^{(1)} + 2 + h^{(1)}
++ 1 + h^{(1)} - 2 + h^{(1)} - 4)\\
+    &amp;= h^{(1)} - \frac{1}{8}(4h^{(1)} - 3)\\
+\end{aligned}</span></p>
+<p>Solving this equation, we obtain that <span class="math inline">h^{(1)} = -\frac{1}{4}</span>. We can then repeat
+this step once more to obtain <span class="math inline">h^{(0)}</span>:
+<span class="math display">\begin{aligned}
+    -\frac{1}{4} &amp;= h^{(0)} - \alpha \frac{dR_{sq}(h^{(0)})}{dh}\\
+    &amp;= h^{(0)} - \frac{1}{4} \cdot \frac{1}{2}(h^{(0)} + 2 + h^{(0)}
++ 1 + h^{(0)} - 2 + h^{(0)} - 4)\\
+    &amp;= h^{(0)} - \frac{1}{8}(4h^{(0)} - 3)\\
+\end{aligned}</span></p>
+<p>Solving this equation, we obtain that <span class="math inline">h^{(0)} = -\frac{5}{4}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-6">Problem 6</h2>
@@ -444,6 +1030,29 @@ initial guess. Write an expression for <span
 class="math inline">x^{(t+1)}</span>. Your answer should be an
 expression involving <span class="math inline">x^{(t)}</span> and some
 constants.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>In general, the update rule for gradient descent is: <span class="math display">x^{(t+1)} = x^{(t)} - \alpha \nabla f(x^{(t)}) =
+x^{(t)} - \alpha \frac{df}{dx}(x^{(t)}),</span> where <span class="math inline">\alpha</span> is the learning rate or step size. We
+know that the derivative of <span class="math inline">f</span> is as
+follows: <span class="math display">\frac{df}{dx} = f'(x) = 3x^2 +
+2x,</span> thus the update rule can be written down as: <span class="math display">x^{(t+1)} = x^{(t)} - \alpha(3x^{(t)^2} + 2x^{(t)})
+= -\frac{3}{4}x^{(t)^2} + \frac{1}{2}x^{(t)}.</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
 <p>Suppose <span class="math inline">x^{(0)} = -1</span>. - What is the
@@ -451,6 +1060,45 @@ value of <span class="math inline">x^{(1)}</span>? - Will gradient
 descent eventually converge, given the initial guess <span
 class="math inline">x^{(0)} = -1</span> and step size <span
 class="math inline">\alpha = \frac{1}{4}</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>We have <span class="math display">f'(x^{(0)}) = f'(-1) =
+3(-1)^2 + 2(-1) = 1 &gt; 0,</span> so we go <strong>left</strong>, and
+<span class="math display">x^{(1)} = x^{(0)} - \alpha f'(x^{(0)}) =
+-1 - \frac{1}{4} = -\frac{5}{4}.</span> Intuitively, the gradient
+descent <strong>cannot converge in this case</strong> because <span class="math display">\text{lim}_{x \rightarrow -\infty} f(x) =
+-\infty,</span></p>
+<p>We need to find all local minimums and local maximums. First, we
+solve the equation <span class="math inline">f'(x) = 0</span> to
+find all critical points.</p>
+<p>We have: <span class="math display">f'(x) = 0 \Leftrightarrow
+3x^2 + 2x = 0 \Leftrightarrow x = -\frac{2}{3} \ \ \text{and} \ \ x =
+0.</span></p>
+<p>Now, we consider the second-order derivative: <span class="math display">f''(x) = \frac{d^2f}{dx^2} = 6x +
+2.</span></p>
+<p>We have <span class="math inline">f''(x) = 0</span> only when
+<span class="math inline">x = -1/3</span>. Thus, for <span class="math inline">x &lt; -1/3</span>, <span class="math inline">f''(x)</span> is negative or the slope <span class="math inline">f'(x)</span> decreases; and for <span class="math inline">x &gt; -1/3</span>, <span class="math inline">f''(x)</span> is positive or the slope <span class="math inline">f'(x)</span> increases. Keep in mind that <span class="math inline">-1 &lt; -2/3 &lt; -1/3 &lt; 0 &lt; 1</span>.</p>
+<p>Therefore, <span class="math inline">f</span> has a local maximum at
+<span class="math inline">x = -2/3</span> and a local minimum at <span class="math inline">x = 0</span>. If the gradient descent starts at
+<span class="math inline">x^{(0)} = -1</span> and it always goes left
+then it will never meet the local minimum at <span class="math inline">x
+= 0</span>, and it will go left infinitely. We say the gradient descent
+cannot converge, or is divergent.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-6.3">Problem 6.3</h3>
 <p>Suppose <span class="math inline">x^{(0)} = 1</span>. - What is the
@@ -458,6 +1106,31 @@ value of <span class="math inline">x^{(1)}</span>? - Will gradient
 descent eventually converge, given the initial guess <span
 class="math inline">x^{(0)} = 1</span> and step size <span
 class="math inline">\alpha = \frac{1}{4}</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>We have <span class="math display">f'(x^{(0)}) = f'(-1) = 3
+\cdot 1^2 + 2 \cdot 1 = 5 &gt; 0,</span> so we go <strong>left</strong>,
+and <span class="math display">x^{(1)} = x^{(0)} - \alpha
+f'(x^{(0)}) = 1 - \frac{1}{4} \cdot 5 = -\frac{1}{4}.</span></p>
+<p>From the previous part, function <span class="math inline">f</span>
+has a local minimum at <span class="math inline">x = 0</span>, so the
+gradient descent <strong>can converge</strong> (given appropriate step
+size) at this local minimum.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-7">Problem 7</h2>
@@ -468,6 +1141,28 @@ class="math inline">\alpha = \frac{1}{4}</span>?</p>
 <p>Without using gradient descent or calculus, what is the value <span
 class="math inline">h^*</span> that minimizes <span
 class="math inline">R(h)</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^* = -1</span></p>
+<p>The minimum possible value of the exponent is <span class="math inline">0</span>, since anything squared is non-negative.
+The exponent is 0 when <span class="math inline">(x+1)^2 = 0</span>,
+i.e. when <span class="math inline">x = -1</span>. Since <span class="math inline">e^{(x+1)^2}</span> gets larger as <span class="math inline">(x+1)^2</span> gets larger, the minimizing input
+<span class="math inline">h^*</span> is <span class="math inline">-1</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-7.2">Problem 7.2</h3>
 <p>Now, suppose we want to use gradient descent to minimize <span
@@ -476,12 +1171,63 @@ class="math inline">h^{(1)} = 0</span>. What is <span
 class="math inline">h^{(1)}</span>? Give your answer in terms of a
 generic step size, <span class="math inline">\alpha</span>, and other
 constants. (<span class="math inline">e</span> is a constant.)</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
+<p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
+<p><span class="math display">\frac{dR}{dh}(h) = 2(x+1)
+e^{(x+1)^2}</span></p>
+<p>Then, we know that</p>
+<p><span class="math display">h^{(1)} = h^{(0)} - \alpha
+\frac{dR}{dh}(h^{(0)}) = 0 - \alpha \frac{dR}{dh}(0)</span></p>
+<p>In our case, <span class="math inline">\frac{dR}{dh}(0) = 2(0 + 1)
+e^{(0+1)^2} = 2e</span>, so</p>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-7.3">Problem 7.3</h3>
 <p>Using your answers from the previous two parts, what should we set
 the value of <span class="math inline">\alpha</span> to be if we want to
 ensure that gradient descent finds <span class="math inline">h^*</span>
 after just one iteration?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\alpha = \frac{1}{2e}</span></p>
+<p>We know from the part 2 that <span class="math inline">h^{(1)} =
+-\alpha \cdot 2e</span>, and we know from part 1 that <span class="math inline">h^* = -1</span>. If gradient descent converges in
+one iteration, that means that <span class="math inline">h^{(1)} =
+h^*</span>; solving this yields</p>
+<p><span class="math display">-\alpha \cdot 2e = -1 \implies \alpha =
+\frac{1}{2e}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-7.4">Problem 7.4</h3>
 <p>Below is a graph of <span class="math inline">R(h)</span> with no
@@ -491,6 +1237,30 @@ axis labels.</p>
 <p>True or False: Given an appropriate choice of step size, <span
 class="math inline">\alpha</span>, gradient descent is guaranteed to
 find the minimizer of <span class="math inline">R(h)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>True.</p>
+<p><span class="math inline">R(h)</span> is convex, since the graph is
+bowl shaped. (It can also be proved that <span class="math inline">R(h)</span> is convex using the second derivative
+test.) It is also differentiable, as we saw in part 2. As a result,
+since it’s both convex and differentiable, gradient descent is
+guaranteed to be able to minimize it given an appropriate choice of step
+size.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
@@ -505,10 +1275,73 @@ class="math inline">h^{(0)} = 2</span> and a learning rate of <span
 class="math inline">\alpha = 2\sqrt{2}</span>. Show your work and your
 final answers, <span class="math inline">h^{(1)}</span> and <span
 class="math inline">h^{(2)}</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^{(1)} = 4, h^{(2)} = 2</span></p>
+<p>The updating rule for gradient descent in the one-dimensional case
+is: <span class="math display">h^{(t+1)} = h^{(t)} - \alpha \cdot
+\frac{dR}{dh}(h^{(t)})</span></p>
+<p>We can find <span class="math inline">\frac{dR}{dh}</span> by taking
+the derivative of <span class="math inline">R(h)</span>: <span class="math display">\frac{d}{dh}R(h) = \frac{d}{dh}(\sqrt{(h - 3)^2 +
+1}) = \dfrac{h-3}{\sqrt{\left(h-3\right)^2+1}}</span></p>
+<p>Now we can use <span class="math inline">\alpha = 2\sqrt{2}</span>
+and <span class="math inline">h^{(0)} = 2</span> to begin updating:</p>
+<p><span class="math display">\begin{align*}
+h^{(1)} &amp;= h^{(0)} - \alpha \cdot \frac{dR}{dh}(h^{(0)}) \\
+h^{(1)} &amp;= 2 - 2\sqrt{2} \cdot
+\left(\dfrac{2-3}{\sqrt{\left(2-3\right)^2+1}}\right) \\
+h^{(1)} &amp;= 2 - 2\sqrt{2} \cdot (\dfrac{-1}{\sqrt{2}}) \\
+h^{(1)} &amp;= 4
+\end{align*}</span> <br/> <span class="math display">\begin{align*}
+h^{(2)} &amp;= h^{(1)} - \alpha \cdot \frac{dR}{dh}(h^{(1)}) \\
+h^{(2)} &amp;= 4 - 2\sqrt{2} \cdot
+\left(\dfrac{4-3}{\sqrt{\left(4-3\right)^2+1}}\right) \\
+h^{(2)} &amp;= 4 - 2\sqrt{2} \cdot (\dfrac{1}{\sqrt{2}}) \\
+h^{(2)} &amp;= 2
+\end{align*}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
 <p>With more iterations, will we eventually converge to the minimizer?
 Explain.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>No, this algorithm will not converge to the minimizer because if we
+do more iterations, we’ll keep oscillating back and forth between
+predictions of 2 and 4. We showed the first two iterations of the
+algorithm in part 1, but the next two would be exactly the same, and the
+two after that, and so on. This happens because the learning rate is too
+big, resulting in steps that are too big, and we keep jumping over the
+true minimizer at <span class="math inline">h^* = 3</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
@@ -529,6 +1362,73 @@ predictions?</p></li>
 <li><p>What is the precision on these 10 predictions?</p></li>
 <li><p>What is the recall on these 10 predictions?</p></li>
 </ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9" class="accordion-collapse collapse"
+aria-labelledby="heading9" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<p>Let’s first identify all elements of the confusion matrix by
+comparing predictions with true labels:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True Positives (TP)</td>
+<td>6</td>
+<td>Prediction=1 and True Label=1</td>
+</tr>
+<tr>
+<td>False Positives (FP)</td>
+<td>3</td>
+<td>Prediction=1 and True Label=0</td>
+</tr>
+<tr>
+<td>True Negatives (TN)</td>
+<td>1</td>
+<td>Prediction=0 and True Label=0</td>
+</tr>
+<tr>
+<td>False Negatives (FN)</td>
+<td>0</td>
+<td>Prediction=0 and True Label=1</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>10</td>
+<td>Total number of predictions</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p><strong>Accuracy</strong>: The proportion of correct predictions
+(TP + TN) among the total number of predictions. <span class="math display">\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+= \frac{6 + 1}{10} = \frac{7}{10} = 0.7</span></p></li>
+<li><p><strong>Precision</strong>: The proportion of true positives
+among all positive predictions. <span class="math display">\text{Precision} = \frac{TP}{TP + FP} = \frac{6}{6
++ 3} = \frac{6}{9} = \frac{2}{3} \approx 0.67</span></p></li>
+<li><p><strong>Recall</strong>: The proportion of true positives among
+all actual positives. <span class="math display">\text{Recall} =
+\frac{TP}{TP + FN} = \frac{6}{6 + 0} = \frac{6}{6} = 1</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 <hr />
 <h2 id="problem-10">Problem 10</h2>
 <p>Consider three classifiers with the following confusion matrices:
@@ -541,6 +1441,30 @@ predictions?</p></li>
 <li><p><input type="radio" disabled="" /> Model B</p></li>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model B</p>
+<p>Accuracy is defined as <span class="math inline">\frac{\text{number\;of\;correct\;predictions}}{\text{number\;of\;total\;predictions}}</span>,
+so we sum the (Yes, Yes) and (No, No) cells to get the number of correct
+predictions and divide that by the sum of all cells as the number of
+total predictions. We see that Model B has the highest accuracy of 0.9
+with that formula. (Note that for simplicity, the confusion matrices are
+such that the sum of all values is 100 in all three cases.)</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-10.2">Problem 10.2</h3>
 <p>Which model has the highest precision?</p>
@@ -549,6 +1473,30 @@ predictions?</p></li>
 <li><p><input type="radio" disabled="" /> Model B</p></li>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model C</p>
+<p>Precision is defined as <span class="math inline">\frac{\text{number
+of correctly predicted yes values}}{\text{total number of yes
+predictions}}</span>, so the number of correctly predicted yes values is
+the (Yes, Yes) cell, while the total number of yes predictions is the
+sum of the Yes column. We see that Model C has the highest precision,
+<span class="math inline">\frac{80}{85}</span>, with that formula.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-10.3">Problem 10.3</h3>
 <p>Which model has the highest recall?</p>
@@ -557,6 +1505,30 @@ predictions?</p></li>
 <li><p><input type="radio" disabled="" /> Model B</p></li>
 <li><p><input type="radio" disabled="" /> Model C</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_3" aria-expanded="true" aria-controls="collapse10_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_3" class="accordion-collapse collapse"
+aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model B</p>
+<p>Recall is defined as <span class="math inline">\frac{\text{number of
+correctly predicted yes values}}{\text{total number of values actually
+yes}}</span>, so the number of correctly predicted yes values is the
+(Yes, Yes) cell, while the total number of values that are actually yes
+is the sum of the Yes row. We see that Model B has the highest recall,
+<span class="math inline">1</span>, with that formula.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-11">Problem 11</h2>
@@ -568,6 +1540,26 @@ when evaluated on our training set, is given below.</p>
 <h3 id="problem-11.1">Problem 11.1</h3>
 <p>What is the precision of Yutong’s classifier? Give your answer as a
 simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_1" aria-expanded="true" aria-controls="collapse11_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_1" class="accordion-collapse collapse"
+aria-labelledby="heading11_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\frac{8}{13}</span></p>
+<p>Precision is the proportion of predicted positives that actually were
+positives. So, given this confusion matrix, that value is <span class="math inline">\frac{8}{8 + 5}</span>, or <span class="math inline">\frac{8}{13}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-11.2">Problem 11.2</h3>
 <p>Fill in the blanks: In order for Yutong’s classifier’s recall to be
@@ -597,6 +1589,33 @@ equal to its precision, <code>__(i)__</code> must be equal to
 <li><p><input type="radio" disabled="" /> 50</p></li>
 <li><p><input type="radio" disabled="" /> 80</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_2" aria-expanded="true" aria-controls="collapse11_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_2" class="accordion-collapse collapse"
+aria-labelledby="heading11_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ol type="1">
+<li><span class="math inline">B</span></li>
+<li>5</li>
+</ol>
+<p>We already know that the precision is <span class="math inline">\frac{8}{13}</span>. Recall is the proportion of
+true positives that were indeed classified positives, which in this
+matrix is <span class="math inline">\frac{8}{B + 8}</span>. So, in order
+for precision to equal recall, <span class="math inline">B</span> must
+be 5.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-11.3">Problem 11.3</h3>
 <p>Now, suppose both <span class="math inline">A</span> and <span
@@ -635,6 +1654,37 @@ for Yutong’s classifier’s recall to be equal to its accuracy,
 = 10, and solve for the B that sets the model’s recall equal to its
 accuracy. Do the specific A and B you find satisfy your answer
 above?</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading11_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11_3" aria-expanded="true" aria-controls="collapse11_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse11_3" class="accordion-collapse collapse"
+aria-labelledby="heading11_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong></p>
+<ol type="1">
+<li><span class="math inline">A \cdot B</span></li>
+<li>40</li>
+</ol>
+<p>We can solve this problem by simply stating recall and accuracy in
+terms of the values in the confusion matrix. As we already found, recall
+is <span class="math inline">\frac{8}{B+8}</span>. Accuracy is the sum
+of correct predictions over total number of predictions, or <span class="math inline">\frac{A + 8}{A + B + 13}</span>. Then, we simply set
+these equal to each other, and solve.</p>
+<p><span class="math display">\frac{8}{B+8} = \frac{A + 8}{A + B +
+13}</span> <span class="math display">8(A + B + 13) = (A + 8)(B +
+8)</span> <span class="math display">8A + 8B + 104 = AB + 8A + 8B +
+64</span> <span class="math display">104 = AB + 64</span> <span class="math display">AB = 40</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>
