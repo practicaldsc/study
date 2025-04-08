@@ -20,11 +20,19 @@ Suppose after training our logistic regression model we get $\vec{w}^* = \begin{
 Consider Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak, a 20 year old female. What chance did she have to survive the sinking of the Titanic according to our model? Give your answer as a probability in terms of $\sigma$. If there is not enough information, write "not enough information."
 # BEGIN SOLN
 
-**Answer**: $P(y = 1 | \text{age} = 20, \text{female} = 1) = \sigma(1.2)$
+**Answer**: $P(y_i = 1 | \text{age}_i = 20, \text{female}_i = 1) = \sigma(1.2)$
 
-Our augmented feature vector is of the form $\text{Aug}(\vec{x}) = \begin{bmatrix} 1 \\ 20 \\ 1 \end{bmatrix}$. Then $\vec{w}^* \cdot \text{Aug}(\vec x) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2$, so:
+Recall, the logistic regression model predicts the probability of surviving the Titanic as:
 
-$$P(y = 1 | \vec{x}) = \sigma \left( \vec{w}^* \cdot \text{Aug}(\vec x) \right) = \boxed{\sigma (1.2)}$$
+$$P(y_i = 1 | \vec x_i) = \sigma(\vec w^* \cdot \text{Aug}(\vec x_i))$$
+
+where $\sigma(\cdot)$ represents the logistic function, $\sigma(t) = \frac{1}{1 + e^{-t}}$.
+
+Here, our augmented feature vector is of the form $\text{Aug}(\vec{x}_i) = \begin{bmatrix} 1 \\ 20 \\ 1 \end{bmatrix}$. Then $\vec{w}^* \cdot \text{Aug}(\vec x_i) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2$.
+
+Putting this all together, we have:
+
+$$P(y_i = 1 | \vec{x}_i) = \sigma \left( \vec{w}^* \cdot \text{Aug}(\vec x_i) \right) = \boxed{\sigma (1.2)}$$
 
 # END SOLN
 
@@ -50,7 +58,7 @@ $$L_\text{ce}(y_i, p_i) = -y_i\log (p_i) - (1 - y_i)\log (1 - p_i) = \boxed{-\lo
 
 At what age would we predict that a female passenger is more likely to have survived the Titanic than not? In other words, at what age is the probability of survival for a female passenger greater than 0.5?
 
-_Hint: Since $\sigma(0) = 0.5$, we have that $\sigma \left( \vec{w}^* \cdot \text{Aug}(\vec x) \right) = 0.5 \implies \vec{w}^* \cdot \text{Aug}(\vec x) = 0$._
+_Hint: Since $\sigma(0) = 0.5$, we have that $\sigma \left( \vec{w}^* \cdot \text{Aug}(\vec x_i) \right) = 0.5 \implies \vec{w}^* \cdot \text{Aug}(\vec x_i) = 0$._
 
 # BEGIN SOLN
 
@@ -58,7 +66,7 @@ _Hint: Since $\sigma(0) = 0.5$, we have that $\sigma \left( \vec{w}^* \cdot \tex
 
 The probability that a female passenger of age $a$ survives the Titanic is:
 
-$$P(y = 1 | \text{age} = a, \text{female} = 1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 - 0.005a)$$
+$$P(y_i = 1 | \text{age}_i = a, \text{female}_i = 1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 - 0.005a)$$
 
 In order for $\sigma(1.3 - 0.005a) = 0.5$, we need $1.3 - 0.005a = 0$. This means that:
 
@@ -84,10 +92,10 @@ $$p_m = \sigma(-1.2 - 0.005 \cdot \text{age} + 2.5 \cdot 0)$$
 
 $$p_f = \sigma(-1.2 - 0.005 \cdot \text{age} + 2.5 \cdot 1)$$
 
-Now, recall from [Lecture 24](https://practicaldsc.org/resources/lectures/lec24/lec24-filled.html#Aside:-Odds) that:
+Now, recall from [Lecture 22](https://practicaldsc.org/resources/lectures/lec22/lec22-filled.html#Aside:-Odds) that:
 
 - If $p_i$ is the probability of an event, then the odds of the event are $\frac{p_i}{1 - p_i}$.
-- If $p_i = \sigma(t)$, then $t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 - p_i} \right)$. In other words, **the inverse of $p_i = \sigma(t)$ is the log odds of $p_i$, i.e. $\sigma^{-1}(p_i) = \log \left( \text{odds}(p_i) \right)**.
+- If $p_i = \sigma(t)$, then $t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 - p_i} \right)$. In other words, **the inverse of $p_i = \sigma(t)$ is the log odds of $p_i$, i.e. $\sigma^{-1}(p_i) = \log \left( \text{odds}(p_i) \right)$**.
 
 What does this all have to do with the question? Well, we can take the two equations at the start of the solution and apply $\sigma^{-1}$ to both sides, yielding:
 

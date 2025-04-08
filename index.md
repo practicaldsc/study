@@ -99,6 +99,11 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, April 3rd</td>
       <td><a href="disc11/index.html">Gradient Descent and Classification</a></td>
     </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>Thursday, April 10th</td>
+      <td><a href="disc12/index.html">Logistic Regression</a></td>
+    </tr>
     <!--tr>
       <th scope="row">13</th>
       <td>Friday, November 22nd</td>
