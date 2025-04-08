@@ -6,18 +6,14 @@ context: >
 show_solution: true
 problems:
   # - disc12/sp22-final-q12
-  - disc12/q13 # 1
-  - disc12/fa19-midterm-q07 # 2
+  - disc12/fa19-midterm-q07
+  - disc12/q13 
   - disc12/fa19-derivative # 3
   # - disc12/wi23-final-q07
   # - disc12/wi24-final-q09 
   # - disc12/sp24-final-q11
   # - disc12/fa23-final-q06
   - disc12/sp24-final-q13 # 4
-  - disc12/sp23-midterm2-q05 # 5
-  - disc12/sp23-final-pt2-q05 # 6
-  - disc12/wi24-final-pt2-q03 # 7
-  - disc12/sp24-final-q09
 
 
 # 2

@@ -74,6 +74,201 @@ cover all problems here in the live discussion section</b>; the problems
 we don’t cover can be used for extra practice.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
+<p>Suppose we want to use logistic regression to classify whether a
+person survived the sinking of the Titanic. The first 5 rows of our
+dataset are given below.</p>
+<p><span class="math display">\begin{array}{|c|c|c|c|}
+\hline
+&amp; \textbf{Age} &amp; \textbf{Survived} &amp; \textbf{Female} \\
+\hline
+0 &amp; 22.0 &amp; 0 &amp; 0 \\ \hline
+1 &amp; 38.0 &amp; 1 &amp; 1 \\ \hline
+2 &amp; 26.0 &amp; 1 &amp; 1 \\ \hline
+3 &amp; 35.0 &amp; 1 &amp; 1 \\ \hline
+4 &amp; 35.0 &amp; 0 &amp; 0 \\ \hline
+\end{array}</span></p>
+<p>Suppose after training our logistic regression model we get <span
+class="math inline">\vec{w}^* = \begin{bmatrix}
+-1.2 \\ -0.005 \\ 2.5
+\end{bmatrix}</span>, where <span class="math inline">-1.2</span> is an
+intercept term, <span class="math inline">-0.005</span> is the optimal
+parameter corresponding to passenger’s age, and <span
+class="math inline">2.5</span> is the optimal parameter corresponding to
+sex (1 if female, 0 otherwise).</p>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>Consider Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak, a 20 year old
+female. What chance did she have to survive the sinking of the Titanic
+according to our model? Give your answer as a probability in terms of
+<span class="math inline">\sigma</span>. If there is not enough
+information, write “not enough information.”</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">P(y = 1 |
+\text{age} = 20, \text{female} = 1) = \sigma(1.2)</span></p>
+<p>Our augmented feature vector is of the form <span class="math inline">\text{Aug}(\vec{x}) = \begin{bmatrix} 1 \\ 20 \\ 1
+\end{bmatrix}</span>. Then <span class="math inline">\vec{w}^* \cdot
+\text{Aug}(\vec x) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2</span>, so:</p>
+<p><span class="math display">P(y = 1 | \vec{x}) = \sigma \left(
+\vec{w}^* \cdot \text{Aug}(\vec x) \right) = \boxed{\sigma
+(1.2)}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak actually survived. What is
+the cross-entropy loss for our prediction in the previous part?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">-\log (\sigma
+(1.2))</span></p>
+<p>Here <span class="math inline">y_i=1</span> and <span class="math inline">p_i = \sigma (1.2)</span>. The formula for cross
+entropy loss is:</p>
+<p><span class="math display">L_\text{ce}(y_i, p_i) = -y_i\log (p_i) -
+(1 - y_i)\log (1 - p_i) = \boxed{-\log (\sigma (1.2))}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>At what age would we predict that a female passenger is more likely
+to have survived the Titanic than not? In other words, at what age is
+the probability of survival for a female passenger greater than 0.5?</p>
+<p><em>Hint: Since <span class="math inline">\sigma(0) = 0.5</span>, we
+have that <span class="math inline">\sigma \left( \vec{w}^* \cdot
+\text{Aug}(\vec x) \right) = 0.5 \implies \vec{w}^* \cdot
+\text{Aug}(\vec x) = 0</span>.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 260 years old</p>
+<p>The probability that a female passenger of age <span class="math inline">a</span> survives the Titanic is:</p>
+<p><span class="math display">P(y = 1 | \text{age} = a, \text{female} =
+1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 - 0.005a)</span></p>
+<p>In order for <span class="math inline">\sigma(1.3 - 0.005a) =
+0.5</span>, we need <span class="math inline">1.3 - 0.005a = 0</span>.
+This means that:</p>
+<p><span class="math display">0.005a = 1.3 \implies a =
+\frac{1.3}{0.005} = 1.3 \cdot 200 = 260</span></p>
+<p>So, a female passenger must be at least 260 years old in order for us
+to predict that they are more likely to survive the Titanic than not.
+Note that <span class="math inline">\text{age} = 260</span> can be
+interpreted as a <strong>decision boundary</strong>; since we’ve fixed a
+value for the <span class="math inline">\text{female}</span> feature,
+there’s only one remaining feature, which is <span class="math inline">\text{age}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.4">Problem 1.4</h3>
+<p>Let <span class="math inline">m</span> be the <strong>odds</strong>
+of a given non-female passenger’s survival according to our logistic
+regression model, i.e., if the passenger had an 80% chance of survival,
+<span class="math inline">m</span> would be 4, since their odds of
+survival are <span class="math inline">\frac{0.8}{0.2} = 4</span>.</p>
+<p>It turns out we can compute <span class="math inline">f</span>, the
+odds of survival for a female passenger of the same age, in terms of
+<span class="math inline">m</span>. Give an expression for <span
+class="math inline">f</span> in terms of <span
+class="math inline">m</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_4" class="accordion-collapse collapse"
+aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Let <span class="math inline">p_m</span> be the probability that the
+non-female passenger survives, and let <span class="math inline">p_f</span> be the probability that the female
+passenger of the same age survives. Then, we have that:</p>
+<p><span class="math display">p_m = \sigma(-1.2 - 0.005 \cdot \text{age}
++ 2.5 \cdot 0)</span></p>
+<p><span class="math display">p_f = \sigma(-1.2 - 0.005 \cdot \text{age}
++ 2.5 \cdot 1)</span></p>
+<p>Now, recall from <a href="https://practicaldsc.org/resources/lectures/lec24/lec24-filled.html#Aside:-Odds">Lecture
+24</a> that:</p>
+<ul>
+<li>If <span class="math inline">p_i</span> is the probability of an
+event, then the odds of the event are <span class="math inline">\frac{p_i}{1 - p_i}</span>.</li>
+<li>If <span class="math inline">p_i = \sigma(t)</span>, then <span class="math inline">t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 -
+p_i} \right)</span>. In other words, <strong>the inverse of <span class="math inline">p_i = \sigma(t)</span> is the log odds of <span class="math inline">p_i</span>, i.e. $^{-1}(p_i) = ( (p_i)
+)</strong>.</li>
+</ul>
+<p>What does this all have to do with the question? Well, we can take
+the two equations at the start of the solution and apply <span class="math inline">\sigma^{-1}</span> to both sides, yielding:</p>
+<p><span class="math display">\sigma^{-1}(p_m) = -1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 0</span></p>
+<p><span class="math display">\sigma^{-1}(p_f) = -1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 1</span></p>
+<p>But, <span class="math inline">\sigma^{-1}(p_m) = \log \left(
+\text{odds}(p_m) \right) = \log(m)</span> (using the definition in the
+problem) and <span class="math inline">\sigma^{-1}(p_f) = \log \left(
+\text{odds}(p_f) \right) = \log(f)</span>, so we have that:</p>
+<p><span class="math display">\log(m) = -1.2 - 0.005 \cdot \text{age} +
+2.5 \cdot 0</span></p>
+<p><span class="math display">\log(f) = -1.2 - 0.005 \cdot \text{age} +
+2.5 \cdot 1</span></p>
+<p>Finally, if we raise both sides to the exponent <span class="math inline">e</span>, we’ll be able to directly write <span class="math inline">f</span> in terms of <span class="math inline">m</span>! Remember that <span class="math inline">e^{\log(m)} = m</span> and <span class="math inline">e^{\log(f)} = f</span>, assuming that we’re using
+the natural logarithm. Then:</p>
+<p><span class="math display">m = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
+\cdot 0}</span></p>
+<p><span class="math display">f = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
+\cdot 1}</span></p>
+<p>So, <span class="math inline">f</span> in terms of <span class="math inline">m</span> is:</p>
+<p><span class="math display">\frac{f}{m} = \frac{e^{-1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 1}}{e^{-1.2 - 0.005 \cdot \text{age} + 2.5 \cdot
+0}} = e^{2.5}</span></p>
+<p>Or, in other words:</p>
+<p><span class="math display">\boxed{f = e^{2.5}m}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
 <p>Suppose we fit a logistic regression model that predicts whether a
 product is designed for sensitive skin, given its price, <span
 class="math inline">x^{(1)}</span>, number of ingredients, <span
@@ -123,13 +318,13 @@ each product, select Yes or No.</p>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
-<h2 class="accordion-header" id="heading1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+<h2 class="accordion-header" id="heading2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
 Click to view the solution.
 </button>
 </h2>
-<div id="collapse1" class="accordion-collapse collapse"
-aria-labelledby="heading1" data-bs-parent="#accordionExample">
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <header id="title-block-header">
 <h1 class="title"> </h1>
@@ -192,201 +387,6 @@ P = \frac{1}{1 + e^{-(-1.6)}} = \frac{1}{1 + e^{1.6}} \approx \frac{1}{1
 </div>
 </div>
 </div>
-<hr />
-<h2 id="problem-2">Problem 2</h2>
-<p>Suppose we want to use logistic regression to classify whether a
-person survived the sinking of the Titanic. The first 5 rows of our
-dataset are given below.</p>
-<p><span class="math display">\begin{array}{|c|c|c|c|}
-\hline
-&amp; \textbf{Age} &amp; \textbf{Survived} &amp; \textbf{Female} \\
-\hline
-0 &amp; 22.0 &amp; 0 &amp; 0 \\ \hline
-1 &amp; 38.0 &amp; 1 &amp; 1 \\ \hline
-2 &amp; 26.0 &amp; 1 &amp; 1 \\ \hline
-3 &amp; 35.0 &amp; 1 &amp; 1 \\ \hline
-4 &amp; 35.0 &amp; 0 &amp; 0 \\ \hline
-\end{array}</span></p>
-<p>Suppose after training our logistic regression model we get <span
-class="math inline">\vec{w}^* = \begin{bmatrix}
--1.2 \\ -0.005 \\ 2.5
-\end{bmatrix}</span>, where <span class="math inline">-1.2</span> is an
-intercept term, <span class="math inline">-0.005</span> is the optimal
-parameter corresponding to passenger’s age, and <span
-class="math inline">2.5</span> is the optimal parameter corresponding to
-sex (1 if female, 0 otherwise).</p>
-<p><br></p>
-<h3 id="problem-2.1">Problem 2.1</h3>
-<p>Consider Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak, a 20 year old
-female. What chance did she have to survive the sinking of the Titanic
-according to our model? Give your answer as a probability in terms of
-<span class="math inline">\sigma</span>. If there is not enough
-information, write “not enough information.”</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_1" class="accordion-collapse collapse"
-aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">P(y = 1 |
-\text{age} = 20, \text{female} = 1) = \sigma(1.2)</span></p>
-<p>Our augmented feature vector is of the form <span class="math inline">\text{Aug}(\vec{x}) = \begin{bmatrix} 1 \\ 20 \\ 1
-\end{bmatrix}</span>. Then <span class="math inline">\vec{w}^* \cdot
-\text{Aug}(\vec x) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2</span>, so:</p>
-<p><span class="math display">P(y = 1 | \vec{x}) = \sigma \left(
-\vec{w}^* \cdot \text{Aug}(\vec x) \right) = \boxed{\sigma
-(1.2)}</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.2">Problem 2.2</h3>
-<p>Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak actually survived. What is
-the cross-entropy loss for our prediction in the previous part?</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_2" class="accordion-collapse collapse"
-aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: <span class="math inline">-\log (\sigma
-(1.2))</span></p>
-<p>Here <span class="math inline">y_i=1</span> and <span class="math inline">p_i = \sigma (1.2)</span>. The formula for cross
-entropy loss is:</p>
-<p><span class="math display">L_\text{ce}(y_i, p_i) = -y_i\log (p_i) -
-(1 - y_i)\log (1 - p_i) = \boxed{-\log (\sigma (1.2))}</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.3">Problem 2.3</h3>
-<p>At what age would we predict that a female passenger is more likely
-to have survived the Titanic than not? In other words, at what age is
-the probability of survival for a female passenger greater than 0.5?</p>
-<p><em>Hint: Since <span class="math inline">\sigma(0) = 0.5</span>, we
-have that <span class="math inline">\sigma \left( \vec{w}^* \cdot
-\text{Aug}(\vec x) \right) = 0.5 \implies \vec{w}^* \cdot
-\text{Aug}(\vec x) = 0</span>.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_3" class="accordion-collapse collapse"
-aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answer</strong>: 260 years old</p>
-<p>The probability that a female passenger of age <span class="math inline">a</span> survives the Titanic is:</p>
-<p><span class="math display">P(y = 1 | \text{age} = a, \text{female} =
-1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 - 0.005a)</span></p>
-<p>In order for <span class="math inline">\sigma(1.3 - 0.005a) =
-0.5</span>, we need <span class="math inline">1.3 - 0.005a = 0</span>.
-This means that:</p>
-<p><span class="math display">0.005a = 1.3 \implies a =
-\frac{1.3}{0.005} = 1.3 \cdot 200 = 260</span></p>
-<p>So, a female passenger must be at least 260 years old in order for us
-to predict that they are more likely to survive the Titanic than not.
-Note that <span class="math inline">\text{age} = 260</span> can be
-interpreted as a <strong>decision boundary</strong>; since we’ve fixed a
-value for the <span class="math inline">\text{female}</span> feature,
-there’s only one remaining feature, which is <span class="math inline">\text{age}</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-2.4">Problem 2.4</h3>
-<p>Let <span class="math inline">m</span> be the <strong>odds</strong>
-of a given non-female passenger’s survival according to our logistic
-regression model, i.e., if the passenger had an 80% chance of survival,
-<span class="math inline">m</span> would be 4, since their odds of
-survival are <span class="math inline">\frac{0.8}{0.2} = 4</span>.</p>
-<p>It turns out we can compute <span class="math inline">f</span>, the
-odds of survival for a female passenger of the same age, in terms of
-<span class="math inline">m</span>. Give an expression for <span
-class="math inline">f</span> in terms of <span
-class="math inline">m</span>.</p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading2_4">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_4" aria-expanded="true" aria-controls="collapse2_4">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse2_4" class="accordion-collapse collapse"
-aria-labelledby="heading2_4" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Let <span class="math inline">p_m</span> be the probability that the
-non-female passenger survives, and let <span class="math inline">p_f</span> be the probability that the female
-passenger of the same age survives. Then, we have that:</p>
-<p><span class="math display">p_m = \sigma(-1.2 - 0.005 \cdot \text{age}
-+ 2.5 \cdot 0)</span></p>
-<p><span class="math display">p_f = \sigma(-1.2 - 0.005 \cdot \text{age}
-+ 2.5 \cdot 1)</span></p>
-<p>Now, recall from <a href="https://practicaldsc.org/resources/lectures/lec24/lec24-filled.html#Aside:-Odds">Lecture
-24</a> that:</p>
-<ul>
-<li>If <span class="math inline">p_i</span> is the probability of an
-event, then the odds of the event are <span class="math inline">\frac{p_i}{1 - p_i}</span>.</li>
-<li>If <span class="math inline">p_i = \sigma(t)</span>, then <span class="math inline">t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 -
-p_i} \right)</span>. In other words, <strong>the inverse of <span class="math inline">p_i = \sigma(t)</span> is the log odds of <span class="math inline">p_i</span>, i.e. $^{-1}(p_i) = ( (p_i)
-)</strong>.</li>
-</ul>
-<p>What does this all have to do with the question? Well, we can take
-the two equations at the start of the solution and apply <span class="math inline">\sigma^{-1}</span> to both sides, yielding:</p>
-<p><span class="math display">\sigma^{-1}(p_m) = -1.2 - 0.005 \cdot
-\text{age} + 2.5 \cdot 0</span></p>
-<p><span class="math display">\sigma^{-1}(p_f) = -1.2 - 0.005 \cdot
-\text{age} + 2.5 \cdot 1</span></p>
-<p>But, <span class="math inline">\sigma^{-1}(p_m) = \log \left(
-\text{odds}(p_m) \right) = \log(m)</span> (using the definition in the
-problem) and <span class="math inline">\sigma^{-1}(p_f) = \log \left(
-\text{odds}(p_f) \right) = \log(f)</span>, so we have that:</p>
-<p><span class="math display">\log(m) = -1.2 - 0.005 \cdot \text{age} +
-2.5 \cdot 0</span></p>
-<p><span class="math display">\log(f) = -1.2 - 0.005 \cdot \text{age} +
-2.5 \cdot 1</span></p>
-<p>Finally, if we raise both sides to the exponent <span class="math inline">e</span>, we’ll be able to directly write <span class="math inline">f</span> in terms of <span class="math inline">m</span>! Remember that <span class="math inline">e^{\log(m)} = m</span> and <span class="math inline">e^{\log(f)} = f</span>, assuming that we’re using
-the natural logarithm. Then:</p>
-<p><span class="math display">m = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
-\cdot 0}</span></p>
-<p><span class="math display">f = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
-\cdot 1}</span></p>
-<p>So, <span class="math inline">f</span> in terms of <span class="math inline">m</span> is:</p>
-<p><span class="math display">\frac{f}{m} = \frac{e^{-1.2 - 0.005 \cdot
-\text{age} + 2.5 \cdot 1}}{e^{-1.2 - 0.005 \cdot \text{age} + 2.5 \cdot
-0}} = e^{2.5}</span></p>
-<p>Or, in other words:</p>
-<p><span class="math display">\boxed{f = e^{2.5}m}</span></p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
 <p>For a given classifier, suppose the first 10 predictions of our
@@ -533,669 +533,6 @@ aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
 <p>If precision is 1, the threshold must be greater than 0.4. Of these
 thresholds, the recall is greatest when the threshold is between 0.4 and
 0.6. In this case, the recall is <span class="math inline">\frac{2}{3}</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-5">Problem 5</h2>
-<p>You have a large historical dataset of all competitors in past years
-of the Avocado Cup chess tournament. Each year, hundreds of chess
-players compete in the tournament, and one person is crowned the winner.
-For each competitor in each year of the competition’s history, you have
-information on their</p>
-<ul>
-<li><p>experience level (beginner, intermediate, advanced),</p></li>
-<li><p>birth month (January through December), and</p></li>
-<li><p>whether or not they won the tournament that year (yes or
-no).</p></li>
-</ul>
-<p>Assume that birthdays of competitors are evenly distributed
-throughout the months.</p>
-<p>You want to predict who will win this year’s Avocado Cup. To do so,
-you use this historical data to train a Naive Bayes classifier and
-classify each competitor as a winner or non-winner, given their
-experience level and birth month. Which of the following reasons best
-explains <strong>why your classifier is ineffective</strong> in
-identifying the winner?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Because it uses a variable (birth month) that likely has nothing to
-do with a person’s chances of winning the tournament.</p></li>
-<li><p><input type="radio" disabled="" /> Because it uses a variable (experience level) that likely has a
-strong connection with a person’s chances of winning the tournament.</p></li>
-<li><p><input type="radio" disabled="" /> Because it uses a dataset where there are many more non-winners than
-winners.</p></li>
-<li><p><input type="radio" disabled="" /> Because it uses a categorical response variable.</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading5">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse5" class="accordion-collapse collapse"
-aria-labelledby="heading5" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>Bubble 3: Because it uses a dataset where there are many more
-non-winners than winners.</p>
-<p>Each year there is only one winner, but then hundreds of non-winners!
-This skews the data and makes it harder to figure out if someone won or
-lost because of their birthday and level.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-6">Problem 6</h2>
-<p>You’re interested in seeing the Milky Way in the night sky, which you
-have sometimes been able to do when conditions are right. For each night
-that you’ve attempted to see the Milky Way, you have a record of:</p>
-<ul>
-<li>the setting (urban, suburban, or rural),</li>
-<li>the season (winter, spring, summer, or fall),</li>
-<li>the time (late night, or early morning), and</li>
-<li>the outcome (successful, or unsuccessful).</li>
-</ul>
-<p>These <span class="math inline">12</span> attempts are recorded in
-the table below.</p>
-<table>
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 22%" />
-<col style="width: 27%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>setting</strong>  </th>
-<th><strong>season</strong>  </th>
-<th><strong>time</strong>      </th>
-<th><strong>outcome</strong>  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>suburban</td>
-<td>winter</td>
-<td>late night</td>
-<td>successful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>spring</td>
-<td>late night</td>
-<td>successful</td>
-</tr>
-<tr>
-<td>urban</td>
-<td>winter</td>
-<td>early morning</td>
-<td>successful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>winter</td>
-<td>early morning</td>
-<td>successful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>summer</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>urban</td>
-<td>winter</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>winter</td>
-<td>early morning</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>spring</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>urban</td>
-<td>fall</td>
-<td>early morning</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>suburban</td>
-<td>summer</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>urban</td>
-<td>winter</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-<tr>
-<td>rural</td>
-<td>winter</td>
-<td>late night</td>
-<td>unsuccessful</td>
-</tr>
-</tbody>
-</table>
-<p>You want to use a Naive Bayes classifier to predict whether you’ll be
-successful in seeing the Milky Way under the following conditions:</p>
-<ul>
-<li>the setting is urban,</li>
-<li>the season is winter, and</li>
-<li>the time is late night.</li>
-</ul>
-<p>Naive Bayes predicts that, under these conditions, the probability
-you are unsuccessful is <span class="math inline">k</span> times the
-probability you are successful, for an integer value of <span
-class="math inline">k</span>. What is <span
-class="math inline">k</span>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">k=1</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">k=2</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">k=3</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">k=4</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading6">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse6" class="accordion-collapse collapse"
-aria-labelledby="heading6" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">k=3</span></p>
-<p>According to the Naive Bayes formula we will be solving these
-equations: <span class="math display">\begin{align*}
-&amp;P(\text{successful}|\text{urban, winter, late night})\\ &amp;=
-P(\text{successful}) * P(\text{urban}|\text{successful}) *
-P(\text{winter}|\text{successful}) * P(\text{late
-night}|\text{successful})
-\end{align*}</span> and <span class="math display">\begin{align*}
-&amp;P(\text{unsuccessful}|\text{urban, winter, late night}) \\
-&amp;= P(\text{unsuccessful}) * P(\text{urban}|\text{unsuccessful}) *
-P(\text{winter}|\text{unsuccessful}) * P(\text{late
-night}|\text{unsuccessful})
-\end{align*}</span></p>
-<p>This means we need to calculate our prior probabilities <span class="math inline">P(\text{successful})</span>, <span class="math inline">P(\text{unsucessful})</span>, <span class="math inline">P(\text{urban}|\text{successful})</span>, <span class="math inline">P(\text{urban}|\text{usuccessful})</span>, <span class="math inline">P(\text{winter}|\text{successful})</span>, <span class="math inline">P(\text{winter}|\text{unsuccessful})</span>, <span class="math inline">P(\text{late night}|\text{successful})</span>, and
-<span class="math inline">P(\text{late
-night}|\text{unsuccessful})</span>.</p>
-<p>We can calculate <span class="math inline">P(\text{successful})</span> by looking at the number
-of successful outcomes from all possible outcomes. We find <span class="math inline">P(\text{successful}) = \frac{4}{12} =
-\frac{1}{3}</span>.</p>
-<p>Similarily we can calculate <span class="math inline">P(\text{unsucessful})</span>. <span class="math inline">P(\text{unsucessful}) = \frac{8}{12} =
-\frac{2}{3}</span>.</p>
-<p>We can now calculate <span class="math inline">P(\text{urban}|\text{successful})</span> by looking
-at how many settings are urban when the outcome is successful. <span class="math inline">P(\text{urban}|\text{successful}) =
-\frac{1}{4}</span>.</p>
-<p>Similarily we can calculate <span class="math inline">P(\text{urban}|\text{unsuccessful})</span>. <span class="math inline">P(\text{urban}|\text{unsuccessful}) =
-\frac{3}{8}</span>.</p>
-<p>Following this same pattern we will find:</p>
-<p><span class="math inline">P(\text{winter}|\text{successful}) =
-\frac{3}{4}</span></p>
-<p><span class="math inline">P(\text{winter}|\text{unsuccessful}) =
-\frac{4}{8} = \frac{1}{2}</span></p>
-<p><span class="math inline">P(\text{late night}|\text{successful}) =
-\frac{2}{4} = \frac{1}{2}</span></p>
-<p><span class="math inline">P(\text{late night}|\text{unsuccessful}) =
-\frac{6}{8} = \frac{3}{4}</span></p>
-<p>From here all we need to do is plug our prior probnabilities into the
-equations we made earlier and solve!</p>
-<p><span class="math display">\begin{align*}
-&amp; P(\text{successful}|\text{urban, winter, late night})\\&amp;=
-P(\text{successful}) * P(\text{urban}|\text{successful}) *
-P(\text{winter}|\text{successful}) * P(\text{late
-night}|\text{successful})\\
-&amp;= \frac{1}{3} * \frac{1}{4} * \frac{3}{4} * \frac{1}{2}\\
-&amp;= \frac{1}{32}
-\end{align*}</span></p>
-<p>and</p>
-<p><span class="math display">\begin{align*}
-&amp; P(\text{unsuccessful}|\text{urban, winter, late night}) \\ &amp;=
-P(\text{unsuccessful}) * P(\text{urban}|\text{unsuccessful}) *
-P(\text{winter}|\text{unsuccessful}) * P(\text{late
-night}|\text{unsuccessful})\\
-&amp;= \frac{2}{3} * \frac{3}{8} * \frac{1}{2} * \frac{3}{4}\\
-&amp;= \frac{3}{32}
-\end{align*}</span></p>
-<p>We are told in the problem that “the probability you are unsuccessful
-is <span class="math inline">k</span> times the probability you are
-successful.”</p>
-<p>This means <span class="math inline">k * \frac{1}{32} =
-\frac{3}{32}</span>, which we can easily see shows <span class="math inline">k = 3</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<hr />
-<h2 id="problem-7">Problem 7</h2>
-<p>With the help of the Alien from Bayesian Galaxy, Issac built a Little
-Hadron Collider in his garage to continue testing some fundamental
-principles of nature. The alien set up a fixed target at one end of the
-collider, and ask Issac to shoot quarks from the other end. Everytime
-the quark hit the target, the Alien will tell Issac whether a new hadron
-is formed or not. Due to the energy limitation in Issac’s garage, he
-could only generate up, down, top, and bottom quarks (Strange and Charm
-quark would have consumed too much energy). For each quark Issac
-created, he has a record of:</p>
-<ul>
-<li><p>the type <code>up</code>, <code>down</code>, <code>top</code>,
-<code>bottom</code></p></li>
-<li><p>the state <code>particle</code>,
-<code>antiparticle</code></p></li>
-<li><p>the color charge <code>red</code>, <code>green</code>,
-<code>blue</code>, and</p></li>
-<li><p>the outcome <code>hadron formed</code>,
-<code>hadron not formed</code></p></li>
-</ul>
-<p>Issac created <span class="math inline">10</span> quarks, and these
-<span class="math inline">10</span> quarks are recorded in the table
-below.</p>
-<div class="center">
-<table>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>type</strong></th>
-<th style="text-align: left;"><strong>state</strong></th>
-<th style="text-align: left;"><strong>color</strong></th>
-<th style="text-align: left;"><strong>Formed Hadron</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">down</td>
-<td style="text-align: left;">particle</td>
-<td style="text-align: left;">green</td>
-<td style="text-align: left;">formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">top</td>
-<td style="text-align: left;">particle</td>
-<td style="text-align: left;">red</td>
-<td style="text-align: left;">formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">top</td>
-<td style="text-align: left;">antiparticle</td>
-<td style="text-align: left;">blue</td>
-<td style="text-align: left;">formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">up</td>
-<td style="text-align: left;">particle</td>
-<td style="text-align: left;">red</td>
-<td style="text-align: left;">formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">up</td>
-<td style="text-align: left;">antiparticle</td>
-<td style="text-align: left;">blue</td>
-<td style="text-align: left;">formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">bottom</td>
-<td style="text-align: left;">antiparticle</td>
-<td style="text-align: left;">red</td>
-<td style="text-align: left;">not formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">down</td>
-<td style="text-align: left;">antiparticle</td>
-<td style="text-align: left;">blue</td>
-<td style="text-align: left;">not formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">down</td>
-<td style="text-align: left;">particle</td>
-<td style="text-align: left;">blue</td>
-<td style="text-align: left;">not formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">top</td>
-<td style="text-align: left;">particle</td>
-<td style="text-align: left;">green</td>
-<td style="text-align: left;">not formed</td>
-</tr>
-<tr>
-<td style="text-align: left;">up</td>
-<td style="text-align: left;">antiparticle</td>
-<td style="text-align: left;">green</td>
-<td style="text-align: left;">not formed</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Since the alien is from Bayesian galaxy, they want Issac to develop a
-Naive Bayes classifier to predict whether he’ll be successful in forming
-a hadron under the following quark conditions:</p>
-<ul>
-<li>the type is <code>up</code></li>
-<li>the state is <code>particle</code></li>
-<li>the color is <code>blue</code></li>
-</ul>
-<p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
-<p>Naive Bayes predicts that, given a <code>up-particle-blue</code>
-quark, the probability a hadron formed is <span
-class="math inline">k</span> times the probability a hadron is not
-formed, for an integer value of <span class="math inline">k</span>. What
-is <span class="math inline">k</span>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">2</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">3</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">4</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_1" class="accordion-collapse collapse"
-aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">k = 3</span></p>
-<p>Following the equation for Naive Bayes we will create the folllowing
-two formulas: <span class="math display">\begin{align*}
-&amp;P(\text{formed hadron}|\text{up, particle, blue})\\
-&amp;=P(\text{formed hadron}) * P(\text{up}|\text{formed hadron}) *
-P(\text{particle}|\text{formed hadron}) * P(\text{blue}|\text{formed
-hadron})
-\end{align*}</span> and <span class="math display">\begin{align*}
-&amp;P(\text{not formed hadron}|\text{up, particle, blue})\\
-&amp;=P(\text{not formed hadron}) * P(\text{up}|\text{not formed
-hadron}) * P(\text{particle}|\text{not formed hadron}) *
-P(\text{blue}|\text{not formed hadron})
-\end{align*}</span></p>
-<p>Now all we have to do is calculate the prior probabilities!</p>
-<p>We can calculate <span class="math inline">P(\text{formed
-hadron})</span> by looking at the number of times a
-<code>formed hadron</code> happens out of the total number of outcomes.
-We can see this probability is <span class="math inline">P(\text{formed
-hadron}) = \frac{5}{10} = \frac{1}{2}</span>.</p>
-<p>Similarily we can calculate for a <code>not formed hadron</code>
-<span class="math inline">P(\text{not formed hadron}) = \frac{5}{10} =
-\frac{1}{2}</span>.</p>
-<p>We can calculate <span class="math inline">P(\text{up}|\text{formed
-hadron})</span> by looking at the number of times <code>up</code>
-appears out of all <code>formed hadron</code>s. This will give us
-something like: <span class="math inline">P(\text{up}|\text{formed
-hadron}) = \frac{2}{5}</span>.</p>
-<p>We can use this same method to calculate <span class="math inline">P(\text{up}|\text{not formed hadron})</span> by
-looking at the number of times <code>up</code> appears out of all
-<code>not formed hadron</code>s. <span class="math inline">P(\text{up}|\text{not formed hadron}) =
-\frac{1}{5}</span></p>
-<p>If you continue finding the conditional probabilities you will
-find:</p>
-<ul>
-<li><span class="math inline">P(\text{particle}|\text{formed hadron}) =
-\frac{3}{5}</span></li>
-<li><span class="math inline">P(\text{particle}|\text{not formed
-hadron}) = \frac{2}{5}</span></li>
-<li><span class="math inline">P(\text{blue}|\text{formed hadron}) =
-\frac{2}{5}</span></li>
-<li><span class="math inline">P(\text{blue}|\text{not formed hadron}) =
-\frac{2}{5}</span></li>
-</ul>
-<p>Now we simply plug and chug using the equations we had before! <span class="math display">\begin{align*}
-&amp;P(\text{formed hadron}|\text{up, particle, blue})\\
-&amp;= P(\text{formed hadron}) * P(\text{up}|\text{formed hadron}) *
-P(\text{particle}|\text{formed hadron}) * P(\text{blue}|\text{formed
-hadron})\\
-&amp;= \frac{1}{2} * \frac{2}{5} * \frac{3}{5} * \frac{2}{5}\\
-&amp;= \frac{6}{125}
-\end{align*}</span> and <span class="math display">\begin{align*}
-&amp;P(\text{not formed hadron}|\text{up, particle, blue})\\
-&amp;= P(\text{not formed hadron}) * P(\text{up}|\text{not formed
-hadron}) * P(\text{particle}|\text{not formed hadron}) *
-P(\text{blue}|\text{not formed hadron})\\
-&amp;= \frac{1}{2} * \frac{1}{5} * \frac{2}{5} * \frac{2}{5}\\
-&amp;= \frac{2}{125}
-\end{align*}</span></p>
-<p>Now the only thing left to do is calculate <span class="math inline">k</span>. We can do this by solving the equation
-<span class="math inline">k * \frac{2}{125} = \frac{6}{125}</span>. You
-should find <span class="math inline">k=3</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
-<p>What would be the value of <span class="math inline">k</span> if you
-change <code>up</code> quark in the previous collision to
-<code>top</code> quark, but keep everything else the same (i.e.
-<code>top-particle-blue</code> quark)?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">2</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">3</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">4</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading7_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse7_2" class="accordion-collapse collapse"
-aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">k = 3</span></p>
-<p>All we have to do for this problem, after completing the first part,
-is to see how <span class="math inline">P(\text{top}|\text{formed
-hadron})</span> and <span class="math inline">P(\text{top}|\text{not
-formed hadron})</span> changes our previous equations.</p>
-<p>We calculate these two probabilites by looking at the number of
-formed/not formed hadrons respectively and counting how many of those
-are in the <code>top</code> position. You will find <span class="math inline">P(\text{top}|\text{formed hadron}) =
-\frac{2}{5}</span> and <span class="math inline">P(\text{top}|\text{not
-formed hadron}) = \frac{1}{5}</span>. These are the same as our
-conditional probabilities when in the <code>up</code> position! Which
-means <span class="math inline">k=3</span> again.</p>
-<p>If you want to go through the entire calculation again it can be
-found below: <span class="math display">\begin{align*}
-&amp;P(\text{formed hadron}|\text{top, particle, blue})\\
-&amp;= P(\text{formed hadron}) * P(\text{top}|\text{formed hadron}) *
-P(\text{particle}|\text{formed hadron}) * P(\text{blue}|\text{formed
-hadron})\\
-&amp;= \frac{1}{2} * \frac{2}{5} * \frac{3}{5} * \frac{2}{5}\\
-&amp;= \frac{6}{125}
-\end{align*}</span> and <span class="math display">\begin{align*}
-&amp;P(\text{not formed hadron}|\text{top, particle, blue})\\
-&amp;= P(\text{not formed hadron}) * P(\text{top}|\text{not formed
-hadron}) * P(\text{particle}|\text{not formed hadron}) *
-P(\text{blue}|\text{not formed hadron})\\
-&amp;= \frac{1}{2} * \frac{1}{5} * \frac{2}{5} * \frac{2}{5}\\
-&amp;= \frac{2}{125}
-\end{align*}</span></p>
-<p>We can do this by solving the equation <span class="math inline">k *
-\frac{2}{125} = \frac{6}{125}</span>. You should find <span class="math inline">k=3</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
-<p>Delta’s flight operations center keeps track of weather conditions,
-as they tend to impact whether or not flights are late. For each flight,
-Delta keeps track of:</p>
-<ul>
-<li><p>Whether or not there was <strong>precipitation</strong> — i.e.,
-rain, snow, or hail.</p></li>
-<li><p>The <strong>wind conditions</strong> — either no winds, light
-winds, moderate winds, or heavy winds.</p></li>
-<li><p>The flight’s <strong>status</strong> — whether it was early, on
-time, or late.</p></li>
-</ul>
-<p>Information about 100 flights is summarized in the table below.</p>
-<center><img src='../assets/images/disc12/image.png' width=900></center>
-<p>For instance, we’re told that 6 flights in moderate winds and no
-precipitation landed late, and that there were 13 total flights in heavy
-winds and precipitation.</p>
-<p>Delta would like to use this information to predict whether a new
-flight will be early, on time, or late, given the weather
-conditions.</p>
-<p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
-<p><strong>Without smoothing</strong>, what is:</p>
-<p><span class="math display">\mathbb{P}(\text{heavy winds} \: | \:
-\text{early})</span></p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{2}{7}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{5}{7}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{3}{8}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{3}{10}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{14}{15}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{3}{28}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{5}{28}</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_1">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_1" class="accordion-collapse collapse"
-aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">\frac{2}{7}</span>.</p>
-<p>There are <span class="math inline">28</span> flights that landed
-early, and of those, <span class="math inline">5 + 3 = 8</span> were in
-heavy winds, which means our estimate is <span class="math inline">\frac{8}{28} = \frac{2}{7}</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
-<p><strong>With smoothing</strong>, what is:</p>
-<p><span class="math display">\mathbb{P}(\text{heavy winds} \: | \:
-\text{early})</span></p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{1}{3}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{3}{8}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{3}{11}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{9}{29}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{9}{32}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{31}{101}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{31}{104}</span></p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_2">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_2" class="accordion-collapse collapse"
-aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><span class="math inline">\frac{9}{32}</span>.</p>
-<p>There are <span class="math inline">28</span> flights that landed
-early, and of those, <span class="math inline">5 + 3 = 8</span> were in
-heavy winds, which means our estimate is <span class="math inline">\displaystyle\frac{8+1}{28+4} = \frac{9}{32}</span>.
-(The denominator is 28 + 4 since there are 4 possible wind conditions –
-none, light, moderate, and heavy.)</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>For your convenience, the table from the previous page is repeated
-again below.</p>
-<center><img src='../assets/images/disc12/image.png' width=900></center>
-<p><br></p>
-<h3 id="problem-8.3">Problem 8.3</h3>
-<p>An airline’s late-to-early ratio, given a set of weather conditions,
-is defined as:</p>
-<p><span class="math display">\frac{\mathbb{P}(\text{late} \: | \:
-\text{conditions})}{\mathbb{P}(\text{early} \: | \:
-\text{conditions})}</span></p>
-<p>Using the assumptions of the Naïve Bayes classifier <strong>without
-smoothing</strong>, show that Delta’s late-early ratio for flights in
-<strong>heavy winds and precipitation</strong> is <span
-class="math inline">\bf{\frac{7}{5}}</span>.</p>
-<p><em>Hint: You’ll end up needing to compute 6 probabilities, one of
-which you already found in <strong>part (a)</strong>.</em></p>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading8_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse8_3" class="accordion-collapse collapse"
-aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p>We can recognize that:</p>
-<p><span class="math display">\displaystyle\frac{P(\text{late |
-conditions})}{P(\text{early | conditions})} \\ =
-\displaystyle\frac{P(\text{late}) \cdot P(\text{heavy winds | late})
-\cdot P(\text{precipitation | late})}{P(\text{early}) \cdot
-P(\text{heavy winds | early}) \cdot P(\text{precipitation |
-early})}</span></p>
-<p>and compute the following:</p>
-<ul>
-<li><p><span class="math inline">P(\text{late}) =
-\frac{32}{100}</span></p></li>
-<li><p><span class="math inline">P(\text{heavy winds | late}) =
-\frac{8}{32}</span></p></li>
-<li><p><span class="math inline">P(\text{precipitation | late}) =
-\frac{16}{32}</span></p></li>
-<li><p><span class="math inline">P(\text{early}) =
-\frac{28}{100}</span></p></li>
-<li><p><span class="math inline">P(\text{heavy winds | early}) =
-\frac{8}{28}</span></p></li>
-<li><p><span class="math inline">P(\text{precipitation | early}) =
-\frac{10}{28}</span></p></li>
-</ul>
-<p>which gives:</p>
-<p><span class="math display">\displaystyle\frac{\displaystyle\frac{32}{100}
-\cdot \displaystyle\frac{8}{32} \cdot
-\displaystyle\frac{16}{32}}{\displaystyle\frac{28}{100} \cdot
-\displaystyle\frac{8}{28} \cdot \displaystyle\frac{10}{28}} =
-\displaystyle\frac{\displaystyle\frac{1}{35}}{\displaystyle\frac{1}{25}}
-= \displaystyle\frac{7}{5}</span>.</p>
 </div>
 </div>
 </div>
