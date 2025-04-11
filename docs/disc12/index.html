@@ -102,10 +102,66 @@ female. What chance did she have to survive the sinking of the Titanic
 according to our model? Give your answer as a probability in terms of
 <span class="math inline">\sigma</span>. If there is not enough
 information, write “not enough information.”</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">P(y_i = 1 |
+\text{age}_i = 20, \text{female}_i = 1) = \sigma(1.2)</span></p>
+<p>Recall, the logistic regression model predicts the probability of
+surviving the Titanic as:</p>
+<p><span class="math display">P(y_i = 1 | \vec x_i) = \sigma(\vec w^*
+\cdot \text{Aug}(\vec x_i))</span></p>
+<p>where <span class="math inline">\sigma(\cdot)</span> represents the
+logistic function, <span class="math inline">\sigma(t) = \frac{1}{1 +
+e^{-t}}</span>.</p>
+<p>Here, our augmented feature vector is of the form <span class="math inline">\text{Aug}(\vec{x}_i) = \begin{bmatrix} 1 \\ 20 \\ 1
+\end{bmatrix}</span>. Then <span class="math inline">\vec{w}^* \cdot
+\text{Aug}(\vec x_i) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2</span>.</p>
+<p>Putting this all together, we have:</p>
+<p><span class="math display">P(y_i = 1 | \vec{x}_i) = \sigma \left(
+\vec{w}^* \cdot \text{Aug}(\vec x_i) \right) = \boxed{\sigma
+(1.2)}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
 <p>Sı̄lānah Iskandar Nāsı̄f Abı̄ Dāghir Yazbak actually survived. What is
 the cross-entropy loss for our prediction in the previous part?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">-\log (\sigma
+(1.2))</span></p>
+<p>Here <span class="math inline">y_i=1</span> and <span class="math inline">p_i = \sigma (1.2)</span>. The formula for cross
+entropy loss is:</p>
+<p><span class="math display">L_\text{ce}(y_i, p_i) = -y_i\log (p_i) -
+(1 - y_i)\log (1 - p_i) = \boxed{-\log (\sigma (1.2))}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.3">Problem 1.3</h3>
 <p>At what age would we predict that a female passenger is more likely
@@ -115,6 +171,41 @@ the probability of survival for a female passenger greater than 0.5?</p>
 have that <span class="math inline">\sigma \left( \vec{w}^* \cdot
 \text{Aug}(\vec x_i) \right) = 0.5 \implies \vec{w}^* \cdot
 \text{Aug}(\vec x_i) = 0</span>.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: 260 years old</p>
+<p>The probability that a female passenger of age <span class="math inline">a</span> survives the Titanic is:</p>
+<p><span class="math display">P(y_i = 1 | \text{age}_i = a,
+\text{female}_i = 1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 -
+0.005a)</span></p>
+<p>In order for <span class="math inline">\sigma(1.3 - 0.005a) =
+0.5</span>, we need <span class="math inline">1.3 - 0.005a = 0</span>.
+This means that:</p>
+<p><span class="math display">0.005a = 1.3 \implies a =
+\frac{1.3}{0.005} = 1.3 \cdot 200 = 260</span></p>
+<p>So, a female passenger must be at least 260 years old in order for us
+to predict that they are more likely to survive the Titanic than not.
+Note that <span class="math inline">\text{age} = 260</span> can be
+interpreted as a <strong>decision boundary</strong>; since we’ve fixed a
+value for the <span class="math inline">\text{female}</span> feature,
+there’s only one remaining feature, which is <span class="math inline">\text{age}</span>. Because the coefficient
+associated with age is negative, any age larger than 260 causes the
+probability of surviving to decrease.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-1.4">Problem 1.4</h3>
 <p>Let <span class="math inline">m</span> be the <strong>odds</strong>
@@ -127,6 +218,65 @@ odds of survival for a female passenger of the same age, in terms of
 <span class="math inline">m</span>. Give an expression for <span
 class="math inline">f</span> in terms of <span
 class="math inline">m</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_4" class="accordion-collapse collapse"
+aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Let <span class="math inline">p_m</span> be the probability that the
+non-female passenger survives, and let <span class="math inline">p_f</span> be the probability that the female
+passenger of the same age survives. Then, we have that:</p>
+<p><span class="math display">p_m = \sigma(-1.2 - 0.005 \cdot \text{age}
++ 2.5 \cdot 0)</span></p>
+<p><span class="math display">p_f = \sigma(-1.2 - 0.005 \cdot \text{age}
++ 2.5 \cdot 1)</span></p>
+<p>Now, recall from <a href="https://practicaldsc.org/resources/lectures/lec22/lec22-filled.html#Aside:-Odds">Lecture
+22</a> that:</p>
+<ul>
+<li>If <span class="math inline">p_i</span> is the probability of an
+event, then the odds of the event are <span class="math inline">\frac{p_i}{1 - p_i}</span>.</li>
+<li>If <span class="math inline">p_i = \sigma(t)</span>, then <span class="math inline">t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 -
+p_i} \right)</span>. In other words, <strong>the inverse of <span class="math inline">p_i = \sigma(t)</span> is the log odds of <span class="math inline">p_i</span>, i.e. <span class="math inline">\sigma^{-1}(p_i) = \log \left( \text{odds}(p_i)
+\right)</span></strong>.</li>
+</ul>
+<p>What does this all have to do with the question? Well, we can take
+the two equations at the start of the solution and apply <span class="math inline">\sigma^{-1}</span> to both sides, yielding:</p>
+<p><span class="math display">\sigma^{-1}(p_m) = -1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 0</span></p>
+<p><span class="math display">\sigma^{-1}(p_f) = -1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 1</span></p>
+<p>But, <span class="math inline">\sigma^{-1}(p_m) = \log \left(
+\text{odds}(p_m) \right) = \log(m)</span> (using the definition in the
+problem) and <span class="math inline">\sigma^{-1}(p_f) = \log \left(
+\text{odds}(p_f) \right) = \log(f)</span>, so we have that:</p>
+<p><span class="math display">\log(m) = -1.2 - 0.005 \cdot \text{age} +
+2.5 \cdot 0</span></p>
+<p><span class="math display">\log(f) = -1.2 - 0.005 \cdot \text{age} +
+2.5 \cdot 1</span></p>
+<p>Finally, if we raise both sides to the exponent <span class="math inline">e</span>, we’ll be able to directly write <span class="math inline">f</span> in terms of <span class="math inline">m</span>! Remember that <span class="math inline">e^{\log(m)} = m</span> and <span class="math inline">e^{\log(f)} = f</span>, assuming that we’re using
+the natural logarithm. Then:</p>
+<p><span class="math display">m = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
+\cdot 0}</span></p>
+<p><span class="math display">f = e^{-1.2 - 0.005 \cdot \text{age} + 2.5
+\cdot 1}</span></p>
+<p>So, <span class="math inline">f</span> in terms of <span class="math inline">m</span> is:</p>
+<p><span class="math display">\frac{f}{m} = \frac{e^{-1.2 - 0.005 \cdot
+\text{age} + 2.5 \cdot 1}}{e^{-1.2 - 0.005 \cdot \text{age} + 2.5 \cdot
+0}} = e^{2.5}</span></p>
+<p>Or, in other words:</p>
+<p><span class="math display">\boxed{f = e^{2.5}m}</span></p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
@@ -177,6 +327,76 @@ each product, select Yes or No.</p>
 <li><p><input type="radio" disabled="" /> Yes</p></li>
 <li><p><input type="radio" disabled="" /> No</p></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Using the logistic function, we can predict the probability that a
+product is designed for sensitive skin using:</p>
+<p><span class="math display"> P(y_i = 1 | \vec{x}_i) = \sigma(\vec w^*
+\cdot \text{Aug} (\vec x_i) ) </span></p>
+<p>where <span class="math inline">\sigma(t) = \frac{1}{1 +
+e^{-t}}</span> is the sigmoid function.</p>
+<p>One of the properties we discussed in Lecture 22 was that <span class="math inline">\sigma(0) = \frac{1}{2}</span>, meaning that if the
+input to <span class="math inline">\sigma(\cdot)</span> is greater than
+or equal to 0, the predicted probability is greater than or equal to
+<span class="math inline">\frac{1}{2}</span>. So, the problem here
+reduces to computing <span class="math inline">\vec w^* \cdot \text{Aug}
+(\vec x_i)</span> for all four products, and checking whether this dot
+product is <span class="math inline">\geq 0</span>.</p>
+<p><strong>Wolfcare</strong>:</p>
+<p><span class="math display">
+\vec w^* \cdot \text{Aug} (\vec x_\text{Wolfcare}) = \begin{bmatrix} -1
+\\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix} \cdot \begin{bmatrix}
+1 \\ 15 \\ 20 \\ 4.5 \end{bmatrix}
+</span> <span class="math display">
+= -1 + \frac{1}{5}(15) - \frac{3}{5}(20) + 0 = -1 + 3 - 12 = -10
+</span></p>
+<p>Since <span class="math inline">-10 &lt; 0</span>, <span class="math inline">P(y_\text{Wolfcare} = 1 | \vec{x}_\text{Wolfcare})
+&lt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{No}}</span>.</p>
+<p><strong>Go Blue Glow</strong>:</p>
+<p><span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{Go Blue Glow})
+&amp;= \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix} \cdot \begin{bmatrix} 1 \\ 25 \\ 5 \\ 4.9 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(25) - \frac{3}{5}(5) + 0 = -1 + 5 - 3 = 1
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">1 &gt; 0</span>, <span class="math inline">P(y_\text{Go Blue Glow} = 1 | \vec{x}_\text{Go Blue
+Glow}) &gt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{Yes}}</span>.</p>
+<p><strong>DataSPF</strong>:</p>
+<p><span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{DataSPF}) &amp;=
+\begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}
+\cdot \begin{bmatrix} 1 \\ 50 \\ 15 \\ 3.6 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(50) - \frac{3}{5}(15) + 0 = -1 + 10 - 9 = 0
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">\vec w^* \cdot \text{Aug} (\vec
+x_\text{DataSPF})= 0</span>, <span class="math inline">P(y_\text{DataSPF} = 1 | \vec{x}_\text{DataSPF}) =
+\frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{Yes}}</span>.</p>
+<p><strong>Maize Mist</strong>: <span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{Maize Mist})
+&amp;= \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix} \cdot \begin{bmatrix} 1 \\ 0 \\ 1 \\ 5.0 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(0) - \frac{3}{5}(1) + 0 = -1 - 0.6 = -1.6
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">-1.6 &lt; 0</span>, <span class="math inline">P(y_\text{Maize Mist} = 1 | \vec{x}_\text{Maize
+Mist}) &lt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{No}}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
 <!-- 
@@ -206,6 +426,54 @@ precision, recall, and accuracy? Select all that apply.</p>
 <li><label><input type="checkbox" />Accuracy can increase.</label></li>
 <li><label><input type="checkbox" />Accuracy can decrease.</label></li>
 </ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3" class="accordion-collapse collapse"
+aria-labelledby="heading3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> All except “Recall can increase” are
+correct.</p>
+<p>As a refresher:</p>
+<p><span class="math display">\begin{align*}
+\text{Precision} &amp;= \frac{TP}{TP + FP} = \frac{TP}{\text{\# points
+predicted positive}} \\
+\text{Recall} &amp;= \frac{TP}{TP + FN} = \frac{TP}{\text{\# points
+actually positive}} \\
+\text{Accuracy} &amp;= \frac{TP + TN}{TP + TN + FP + FN} =
+\frac{\text{\# points correctly predicted}}{\text{\# total points}}
+\end{align*}</span></p>
+<p>Remember that in binary classification, 1 is “positive” and 0 is
+“negative”.</p>
+<p>As we increase our classification threshold, the number of false
+positives decreases, but the number of false negatives (i.e. undetected
+points) increases.</p>
+<p>As a result, our precision increases (more of the points we say are
+positive will actually be positive), but our recall decreases (there
+will be more points that are actually positive that we don’t
+detect).</p>
+<p>However, in some cases precision can also decrease, when increasing a
+threshold lowers the number of true positives but keeps the number of
+true negatives the same. It’s impossible for recall to decrease as we
+increase our threshold, though – the denominator in <span class="math inline">\text{Recall} = \frac{TP}{TP + FN}</span> is just
+the total number of points that are actually 1, which is a constant, and
+as we increase the threshold, the number of true positives will only
+increase or stay the same.</p>
+<p>As seen in Lecture 23, accuracy may increase or decrease as we
+increase the threshold – there typically exists an optimal threshold
+that maximizes accuracy, and if we increase or decrease our threshold
+from that point, accuracy decreases.</p>
+</div>
+</div>
+</div>
+</div>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
 <p>Suppose you fit a logistic regression classifier. The classifier’s
@@ -224,15 +492,77 @@ answers should be a single number.</p>
 <h3 id="problem-4.1">Problem 4.1</h3>
 <p>What is the <strong>lowest</strong> possible precision for any
 threshold <span class="math inline">\tau</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\boxed{\frac{3}{5}}</span></p>
+<p>The lowest precision happens when <span class="math inline">\tau</span> is less than 0.3. In this case, the
+classifier predicts all points are 1, which gives a precision of <span class="math inline">\frac{3}{5}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <p><br></p>
 <h3 id="problem-4.2">Problem 4.2</h3>
 <p>What is the <strong>lowest</strong> possible recall for any threshold
 <span class="math inline">\tau</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\boxed{0}</span></p>
+<p>The lowest recall happens when <span class="math inline">\tau</span>
+is greater than 0.7. In this case, the classifier predicts all points
+are 0, which gives a recall of 0.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <h3 id="problem-4.3">Problem 4.3</h3>
 <p>What is the <strong>highest</strong> possible recall if the
 classifier achieves a precision of 1?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\boxed{\frac{2}{3}}</span></p>
+<p>If precision is 1, the threshold must be greater than 0.4. Of these
+thresholds, the recall is greatest when the threshold is between 0.4 and
+0.6. In this case, the recall is <span class="math inline">\frac{2}{3}</span>.</p>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <hr />
 <h2 id="section"><span class="math display"> </span></h2>

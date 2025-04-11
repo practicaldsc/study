@@ -72,7 +72,7 @@ In order for $\sigma(1.3 - 0.005a) = 0.5$, we need $1.3 - 0.005a = 0$. This mean
 
 $$0.005a = 1.3 \implies a = \frac{1.3}{0.005} = 1.3 \cdot 200 = 260$$
 
-So, a female passenger must be at least 260 years old in order for us to predict that they are more likely to survive the Titanic than not. Note that $\text{age} = 260$ can be interpreted as a **decision boundary**; since we've fixed a value for the $\text{female}$ feature, there's only one remaining feature, which is $\text{age}$.
+So, a female passenger must be at least 260 years old in order for us to predict that they are more likely to survive the Titanic than not. Note that $\text{age} = 260$ can be interpreted as a **decision boundary**; since we've fixed a value for the $\text{female}$ feature, there's only one remaining feature, which is $\text{age}$. Because the coefficient associated with age is negative, any age larger than 260 causes the probability of surviving to decrease. 
 
 # END SOLN
 
