@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Clustering</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Clustering</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper. <br><br>We encourage you to
+complete this worksheet in a live discussion section. Solutions will be
+made available after all discussion sections have concluded. You don’t
+need to submit your answers anywhere.<br><br><b>Note: We do not plan to
+cover all problems here in the live discussion section</b>; the problems
+we don’t cover can be used for extra practice.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>Consider the following dataset of 7 points.</p>
+<center><img src="../assets/images/disc13/graph.png" width="500"></center>
+<p>Suppose we want to identify <span class="math inline">k=2</span>
+clusters in this dataset using <span class="math inline">k</span>-Means
+Clustering.</p>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>Determine the centroids <span class="math inline">\vec{\mu}_1</span>
+and <span class="math inline">\vec{\mu}_2</span> that minimize inertia.
+(Let <span class="math inline">\vec{\mu}_1</span> be the centroid with a
+smaller <span class="math inline">x_1</span> coordinate.) Justify your
+answers.</p>
+<p><em>Note: You don’t have to run the k-Means Clustering algorithm to
+answer this question.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\vec{\mu}_1 = \begin{bmatrix} 3 \\ 9
+\end{bmatrix}, \vec{\mu}_2 = \begin{bmatrix} 8 \\ 2
+\end{bmatrix}</span></p>
+<p>It’s clear that there are two clusters — one in the top left, and one
+in the bottom right.</p>
+<p>To find <span class="math inline">\vec{\mu}_1</span>, the centroid
+for the top-left cluster, we take the mean of four points assigned to
+cluster 1, giving</p>
+<p><span class="math display">\vec{\mu}_1 = \frac{1}{4} \left(
+\begin{bmatrix} 2 \\ 8 \end{bmatrix} + \begin{bmatrix} 4 \\ 8
+\end{bmatrix} + \begin{bmatrix} 2 \\ 10 \end{bmatrix} + \begin{bmatrix}
+4 \\ 10 \end{bmatrix} \right) = \begin{bmatrix} 3 \\ 9
+\end{bmatrix}</span></p>
+<p>You can also arrive at this result without any algebra by taking the
+middle of the ‘square’.</p>
+<p>To find <span class="math inline">\vec{\mu}_2</span>, the centroid
+for the bottom-right cluster, we take the mean of three points assigned
+to cluster 2, giving</p>
+<p><span class="math display">\vec{\mu}_2 = \frac{1}{3} \left(
+\begin{bmatrix} 7 \\ 1 \end{bmatrix} + \begin{bmatrix} 8 \\ 4
+\end{bmatrix} + \begin{bmatrix} 9 \\ 1 \end{bmatrix}  \right) =
+\begin{bmatrix} 8 \\ 2 \end{bmatrix}</span></p>
+<p>Thus,</p>
+<p><span class="math display">\vec{\mu}_1 = \begin{bmatrix} 3 \\ 9
+\end{bmatrix}, \vec{\mu}_2 = \begin{bmatrix} 8 \\ 2
+\end{bmatrix}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>What is the total inertia for the centroids you chose in part (a)?
+Show your work.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">16</span>.</p>
+<p>We’ll proceed by determining the inertia of each cluster individually
+and adding the results together.</p>
+<p>First, let’s consider the top-left cluster, whose centroid is at
+<span class="math inline">\begin{bmatrix} 3 \\ 9 \end{bmatrix}</span>.
+The squared distance between the centroid and each of the four points in
+the cluster individually is <span class="math inline">1^2 + 1^2 =
+2</span>. It’s easiest to see this by drawing a picture, but we can
+calculate all squared distances algebraically as well:</p>
+<ul>
+<li><p><span class="math inline">\begin{bmatrix} 2 \\ 8 \end{bmatrix} -
+\begin{bmatrix} 3 \\ 9 \end{bmatrix} =
+\begin{bmatrix} -1 \\ -1 \end{bmatrix} \implies \text{squared distance}
+= (-1)^2 + (-1)^2 = 2</span></p></li>
+<li><p><span class="math inline">\begin{bmatrix} 4 \\ 8 \end{bmatrix} -
+\begin{bmatrix} 3 \\ 9 \end{bmatrix} =
+\begin{bmatrix} 1 \\ -1 \end{bmatrix} \implies \text{squared distance} =
+(1)^2 + (-1)^2 = 2</span></p></li>
+<li><p><span class="math inline">\begin{bmatrix} 2 \\ 10 \end{bmatrix} -
+\begin{bmatrix} 3 \\ 9 \end{bmatrix} =
+\begin{bmatrix} -1 \\ 1 \end{bmatrix} \implies \text{squared distance} =
+(-1)^2 + (1)^2 = 2</span></p></li>
+<li><p><span class="math inline">\begin{bmatrix} 4 \\ 10 \end{bmatrix} -
+\begin{bmatrix} 3 \\ 9 \end{bmatrix} =
+\begin{bmatrix} 1 \\ 1 \end{bmatrix} \implies \text{squared distance} =
+(1)^2 + (1)^2 = 2</span></p></li>
+</ul>
+<p>Thus, the inertia for cluster 1 is <span class="math inline">2 + 2 +
+2 + 2 = 8</span>.</p>
+<p>We follow a similar procedure for cluster 2:</p>
+<ul>
+<li><p><span class="math inline">\begin{bmatrix} 7 \\ 1 \end{bmatrix} -
+\begin{bmatrix} 8 \\ 2 \end{bmatrix} =
+\begin{bmatrix} -1 \\ -1 \end{bmatrix} \implies \text{squared distance}
+= (-1)^2 + (-1)^2 = 2</span></p></li>
+<li><p><span class="math inline">\begin{bmatrix} 8 \\ 4 \end{bmatrix} -
+\begin{bmatrix} 8 \\ 2 \end{bmatrix} =
+\begin{bmatrix} 0 \\ 2 \end{bmatrix} \implies \text{squared distance} =
+(0)^2 + (2)^2 = 4</span></p></li>
+<li><p><span class="math inline">\begin{bmatrix} 9 \\ 1 \end{bmatrix} -
+\begin{bmatrix} 8 \\ 2 \end{bmatrix} =
+\begin{bmatrix} 1 \\ -1 \end{bmatrix} \implies \text{squared distance} =
+(-1)^2 + (1)^2 = 2</span></p></li>
+</ul>
+<p>Thus, the inertia for cluster 2 is <span class="math inline">2 + 4 +
+2 = 8</span>.</p>
+<p>This means that the total inertia for the whole dataset is <span class="math inline">8 + 8 = 16</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<!-- **k-means Clustering** -->
+<p>Look at the following picture representing where the data are in a 2
+dimensional space. We want to use k-means to cluster them into 3 groups.
+The cross shapes represent positions of the initial centroids (that are
+not data points).</p>
+<p><br></p>
+<h3 id="problem-2.1">Problem 2.1</h3>
+<p>Which of the following facts are true about the cluster assignment
+during the first iteration, as determined by these initial centroids
+(circle all answers that are correct)? All 35 circles are data points.
+All 3 plus-sign shapes are the initial centroids. Explain your selected
+answer(s).</p>
+<center><img src="../assets/images/disc13/image.png" width="500"></center>
+<ol type="1">
+<li><p>Exactly one cluster contains 11 data points.</p></li>
+<li><p>Exactly two clusters contain 11 data points.</p></li>
+<li><p>Exactly one cluster contains at least 12 data points.</p></li>
+<li><p>Exactly two clusters contain at least 12 data points.</p></li>
+<li><p>None of the above.</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_1" class="accordion-collapse collapse"
+aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Option 4 is correct.</p>
+<p>The top cluster will contain 13 points. The left cluster will contain
+10 points. The bottom right cluster will contain 12 points (including
+the outlier since it is closer to the bottom cross than to the left
+one). Therefore option 4 is correct.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.2">Problem 2.2</h3>
+<p>The cross shapes represent positions of the initial centroids (that
+are not data points) before the first iteration. Now the algorithm is
+run for one iteration, where the centroids have been adjusted.</p>
+<p>We are now starting the second iteration. Which of the following
+facts are true about the cluster assignment during the <em>second</em>
+iteration (circle all answers that are correct)? Explain your
+answer.</p>
+<ol type="1">
+<li><p>Exactly one cluster contains 11 data points.</p></li>
+<li><p>Exactly two clusters contain 11 data points.</p></li>
+<li><p>Exactly one cluster contains at least 12 data points.</p></li>
+<li><p>Exactly two clusters contain at least 12 data points.</p></li>
+<li><p>None of the above.</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_2" aria-expanded="true" aria-controls="collapse2_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_2" class="accordion-collapse collapse"
+aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Options 2 and 3 are correct.</p>
+<p>The top cluster will contain 13 points. The left cluster will contain
+11 points (the outlier has now moved to this cluster since it will be
+closer to its centroid). The bottom right cluster will contain 11
+points. Therefore options 2 and 3 are correct.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-2.3">Problem 2.3</h3>
+<p>Compare the loss after the end of the second iteration to the loss at
+the end of the firs iteration. Which of the following facts are true
+(circle all answers that are correct)?</p>
+<ol type="1">
+<li><p>The loss at the end of the second iteration is lower.</p></li>
+<li><p>The loss doesn’t decrease since there are actually 4 clusters in
+the data but we are using k-means with <span
+class="math inline">k=3</span>.</p></li>
+<li><p>The loss doesn’t decrease since there are actually 5 clusters in
+the data but we are using k-means with <span
+class="math inline">k=3</span>.</p></li>
+<li><p>The loss doesn’t decrease since there is an outlier that does not
+belong to any cluster.</p></li>
+<li><p>The loss at the end of the second iteration is the same as at the
+end of the first iteration.</p></li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2_3" aria-expanded="true" aria-controls="collapse2_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2_3" class="accordion-collapse collapse"
+aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>The loss at each iteration of k-means is non-increasing.
+Specifically, at the end of the second iteration the outlier having
+moved from the bottom right cluster to the left cluster will have
+decreased the loss.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Suppose you apply <span class="math inline">k</span>-means clustering
+to the data in your family’s Stringle score spreadsheet by representing
+the entries in each column of the spreadsheet as a vector in <span
+class="math inline">\mathbb{R}^5</span>. If we run the algorithm with
+<span class="math inline">k=2</span>, which of the following is the best
+description of what the clusters represent?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> One cluster represents the Stringle strings that were easier to
+guess, and the other represents the Stringle strings that were harder to
+guess.</p></li>
+<li><p><input type="radio" disabled="" /> One cluster represents the family members who are better Stringle
+players, and the other represents the family members who not as
+good.</p></li>
+<li><p><input type="radio" disabled="" /> One cluster represents the Stringle strings that had duplicated
+letters, and the other represents the Stringle strings that had distinct
+letters.</p></li>
+<li><p><input type="radio" disabled="" /> One cluster represents the family members who play Stringle more
+often, and the other represents the family members who do not play as
+often.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3" class="accordion-collapse collapse"
+aria-labelledby="heading3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Bubble 1: One cluster represents the Stringle strings that were
+easier to guess, and the other represents the Stringle strings that were
+harder to guess.</p>
+<p>The first option is correct. Recall our data is based on Stringle
+strings, so if they were easier or harder to guess they might cluster
+together based on the family member’s scores.</p>
+<p>The second option is incorrect because our data does not represent
+family members. This means we cannot make an assumption based on an
+individual player’s skills.</p>
+<p>The third option is incorrect, but plausible because it would more
+likely contribute to the first option than being correct on it’s own. It
+is possible having duplicated letters or distinct letters play into how
+easy or hard a Stringle string was to guess.</p>
+<p>For similar reasons to the second option the fourth option cannot be
+true. The data represents Stringle strings and not the frequency of play
+for family members.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>You run the <span class="math inline">k</span>-means clustering
+algorithm on a dataset and it converges to a certain clustering with
+associated inertia <span class="math inline">I</span>. You then
+duplicate each data point in the dataset and run <span
+class="math inline">k</span>-means again on this twice-as-big dataset,
+with the same initial centroids as before. Which of the following is
+true? <strong>Select all that apply.</strong></p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The inertia will be the same as before, <span class="math inline">I</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia will be twice as much as before, <span class="math inline">2I</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The centroids found will be the same as before.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4" class="accordion-collapse collapse"
+aria-labelledby="heading4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Bubbles 1 and 3: “The centroids found will be the same as before” and
+“The inertia will be twice as much as before, <span class="math inline">2I</span>.”</p>
+<p>The centroids found will be the same as before because the dataset
+has been duplicated, but they have not moved! This means <span class="math inline">k</span> means clustering will find the same
+clusters as before. You can imagine it like points overlapping each
+other.</p>
+<p>The inertia will be twice as much before <span class="math inline">2I</span> because of how inertia is calculated.
+Recall inertia measures how well a dataset is clustered and is
+calculated by measuring the distance between each data point and its
+centroid, squaring the distance, and summing these squares across a
+cluster. We have doubled our points! Since they did not move otherwise
+the difference does not change, but we have twice as many points, which
+will cause the inertia to double.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<!-- \[**Clustering**\]\[7 Points\] -->
+<p>Given the data on 2-dimensional space:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">x_1</span></th>
+<th style="text-align: center;"><span
+class="math inline">x_2</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">-8</td>
+<td style="text-align: center;">-6</td>
+</tr>
+<tr>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">-2</td>
+</tr>
+<tr>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">-6</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ::: center
+![image](K-Means.png)
+::: -->
+<p>We want to apply K-Means to cluster this data. Suppose that <span
+class="math inline">k = 2</span> (two clusters).<br />
+</p>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>Where should the centroids converge to intuitively? Write down the
+coordinates.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\mu_1^* = \bigg(-6,
+-\frac{14}{3}\bigg)</span> <span class="math display">\mu_2^* = \bigg(4,
+\frac{4}{3}\bigg)</span> <span class="math inline">\mu_1</span> is the
+average of 3 points on the bottom left, and <span class="math inline">\mu_2</span> is the average of 3 points on the top
+right.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>Explain the K-Means algorithm clearly in words. Remember to write
+down a condition to terminate the K-Means algorithm.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Lloyd’s Algorithm:</strong></p>
+<ol type="1">
+<li><p>Pick a value of <span class="math inline">k</span> and randomly
+initialize <span class="math inline">k</span> centroids.</p></li>
+<li><p>Keep the centroids fixed, and update the groups.</p>
+<ul>
+<li>Assign each point to the nearest centroid.</li>
+</ul></li>
+<li><p>Keep the groups fixed, and update the centroids.</p>
+<ul>
+<li>Move each centroid to the center of its group by averaging their
+coordinates.</li>
+</ul></li>
+<li><p>Repeat steps 2 and 3 until the centroids stop changing.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>Now, let’s show few steps of K-Means by filling out these following
+tables. Assume we start with <span class="math inline">\mu_1 = (2,
+1)</span> and <span class="math inline">\mu_2 = (3, 4)</span> as the
+initial centers.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;"><span
+class="math inline">\mu_1</span></th>
+<th style="text-align: center;"><span
+class="math inline">\mu_2</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Iter 0</strong></td>
+<td style="text-align: center;"><span class="math inline">(2,
+1)</span></td>
+<td style="text-align: center;"><span class="math inline">(3,
+4)</span></td>
+</tr>
+<tr>
+<td><strong>Iter 1</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Iter 2</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>Iter 3</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+</div>
+<p>For each step, write down the new centers.</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span
+class="math inline">x_1</span></th>
+<th style="text-align: center;"><span
+class="math inline">x_2</span></th>
+<th style="text-align: center;"><strong>Iter 0</strong></th>
+<th style="text-align: center;"><strong>Iter 1</strong></th>
+<th style="text-align: center;"><strong>Iter 2</strong></th>
+<th style="text-align: center;"><strong>Iter 3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">-8</td>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+</div>
+<p>For each step, write 1 if the point belongs to cluster 1, and write 2
+if the point belongs to cluster 2. The column for Iter 0 is already
+filled.</p>
+<div class="center">
+<p>K-Means at iteration 0.</p>
+</div>
+<p><strong>Note:</strong> You do not have to calculate the distances
+explicitly (i.e. you can use your intuition in determining which points
+belong to which clusters). It is also possible that you might not need
+to use all 3 iterations.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;"><span class="math inline">\mu_1</span></th>
+<th style="text-align: center;"><span class="math inline">\mu_2</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Iter 0</strong></td>
+<td style="text-align: center;"><span class="math inline">(2,
+1)</span></td>
+<td style="text-align: center;"><span class="math inline">(3,
+4)</span></td>
+</tr>
+<tr>
+<td><strong>Iter 1</strong></td>
+<td style="text-align: center;"><span class="math inline">(-2,
+-14/5)</span></td>
+<td style="text-align: center;"><span class="math inline">(4,
+4)</span></td>
+</tr>
+<tr>
+<td><strong>Iter 2</strong></td>
+<td style="text-align: center;"><span class="math inline">(-6,-14/3)</span></td>
+<td style="text-align: center;"><span class="math inline">(4,
+4/3)</span></td>
+</tr>
+<tr>
+<td><strong>Iter 3</strong></td>
+<td style="text-align: center;"><span class="math inline">(-6,
+-14/3)</span></td>
+<td style="text-align: center;"><span class="math inline">(4,
+4/3)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">x_1</span></th>
+<th style="text-align: center;"><span class="math inline">x_2</span></th>
+<th style="text-align: center;"><strong>Iter 0</strong></th>
+<th style="text-align: center;"><strong>Iter 1</strong></th>
+<th style="text-align: center;"><strong>Iter 2</strong></th>
+<th style="text-align: center;"><strong>Iter 3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">-8</td>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">-4</td>
+<td style="text-align: center;">-6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- ::: center
+![image](K-Means_Iter_final.png)
+::: -->
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.4">Problem 5.4</h3>
+<p>Depending on our initial centroids, K-Means may “converge” to a
+clustering that does <strong>not</strong> actually have the lowest
+possible inertia. In other words, like gradient descent, K-Means can get
+caught in a local minimum. Write down a solution to address this
+issue.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_4" aria-expanded="true" aria-controls="collapse5_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_4" class="accordion-collapse collapse"
+aria-labelledby="heading5_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Some solutions:</p>
+<ul>
+<li><p>Run K-Means several times, each with different randomly chosen
+initial centroids. Keep track of the inertia of the final result in each
+attempt. Choose the attempt with the lowest inertia.</p></li>
+<li><p>Choose one initial centroid at random, and choose the remaining
+initial centroids by maximizing distance from all other
+centroids.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="section"><span class="math display"> </span></h2>
+<h4
+id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
+Feedback: Find an error? Still confused? Have a suggestion? Let us know
+<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
+<hr />
+</body>
+</html>

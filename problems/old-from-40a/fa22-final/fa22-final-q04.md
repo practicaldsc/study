@@ -24,7 +24,7 @@ clusters).\
 
 # BEGIN SUBPROB
 
-\[1 Point\] Where should the centroids converge to intuitively? Write
+Where should the centroids converge to intuitively? Write
 down the coordinates.
 
 # BEGIN SOLUTION
@@ -40,7 +40,7 @@ top right.
 
 # BEGIN SUBPROB
 
-\[2 Points\] Explain the K-Means algorithm clearly in words. Remember to
+Explain the K-Means algorithm clearly in words. Remember to
 write down a condition to terminate the K-Means algorithm.
 
 # BEGIN SOLUTION
@@ -67,7 +67,7 @@ write down a condition to terminate the K-Means algorithm.
 
 # BEGIN SUBPROB
 
-\[3 Points\] Now, let's show few steps of K-Means by filling out these
+Now, let's show few steps of K-Means by filling out these
 following tables. Assume we start with $\mu_1 = (2, 1)$ and
 $\mu_2 = (3, 4)$ as the initial centers.
 
@@ -100,9 +100,6 @@ For each step, write down the new centers.
 For each step, write 1 if the point belongs to cluster 1, and write 2 if
 the point belongs to cluster 2. The column for Iter 0 is already filled.
 
-::: center
-![image](K-Means_Iter_0.png)
-:::
 
 ::: center
 K-Means at iteration 0.
@@ -145,7 +142,7 @@ iterations.
 
 # BEGIN SUBPROB
 
-\[1 Point\] Depending on our initial centroids, K-Means may "converge"
+Depending on our initial centroids, K-Means may "converge"
 to a clustering that does **not** actually have the lowest possible
 inertia. In other words, like gradient descent, K-Means can get caught
 in a local minimum. Write down a solution to address this issue.

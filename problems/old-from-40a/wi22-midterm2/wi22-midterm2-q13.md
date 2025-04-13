@@ -1,6 +1,5 @@
 # BEGIN PROB
 
-<i>Source: [Winter 2022 Midterm 2](../wi22-midterm2/index.html), Problem 13</i>
 
 Suppose you apply $k$-means clustering to the data in your
 family's Stringle score spreadsheet by representing the entries in each
