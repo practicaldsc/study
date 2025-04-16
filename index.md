@@ -104,6 +104,11 @@ You should work on these problems **on paper**, since your exams will also be on
       <td>Thursday, April 10th</td>
       <td><a href="disc12/index.html">Logistic Regression</a></td>
     </tr>
+    <tr>
+      <th scope="row">15</th>
+      <td>Thursday, April 17th</td>
+      <td><a href="disc13/index.html">Clustering</a></td>
+    </tr>
     <!--tr>
       <th scope="row">13</th>
       <td>Friday, November 22nd</td>

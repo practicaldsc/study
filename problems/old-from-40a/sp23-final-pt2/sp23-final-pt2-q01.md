@@ -14,11 +14,14 @@ before. Which of the following is true? **Select all that apply.**
 
 # BEGIN SOLUTION
 
-Bubbles 1 and 3: "The centroids found will be the same as before" and "The inertia will be twice as much as before, $2I$."
+**Answers**:
+
+- The centroids found will be the same as before.
+- The inertia will be twice as much as before, $2I$.
 
 The centroids found will be the same as before because the dataset has been duplicated, but they have not moved! This means $k$ means clustering will find the same clusters as before. You can imagine it like points overlapping each other.
 
-The inertia will be twice as much before $2I$ because of how inertia is calculated. Recall inertia measures how well a dataset is clustered and is calculated by measuring the distance between each data point and its centroid, squaring the distance, and summing these squares across a cluster. We have doubled our points! Since they did not move otherwise the difference does not change, but we have twice as many points, which will cause the inertia to double.
+The inertia will be twice as much before $2I$ because of how inertia is calculated. Recall inertia measures how well a dataset is clustered and is calculated by measuring the **total squared distance** from each point to its closest centroid. Since the total number of points has doubled, even though each (unique) point is still assigned to the same centroid, the total squared distance has doubled.
 
 # END SOLUTION
 
