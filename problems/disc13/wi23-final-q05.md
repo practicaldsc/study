@@ -71,14 +71,10 @@ the value of inertia at the end of the first iteration. Which of the following f
 are true? Select all that apply.
 
 [ ] The inertia at the end of the second iteration is lower.
-[ ] The inertia doesn't decrease since there are actually 4 clusters in the
-    data but we are using k-means with $k=3$.
-[ ] The inertia doesn't decrease since there are actually 5 clusters in the
-    data but we are using k-means with $k=3$.
-[ ] The inertia doesn't decrease since there is an outlier that does not
-    belong to any cluster.
-[ ] The inertia at the end of the second iteration is the same as at the
-    end of the first iteration.
+[ ] The inertia doesn't decrease since there are actually 4 clusters in the data but we are using k-means with $k=3$.
+[ ] The inertia doesn't decrease since there are actually 5 clusters in the data but we are using k-means with $k=3$.
+[ ] The inertia doesn't decrease since there is an outlier that does not belong to any cluster.
+[ ] The inertia at the end of the second iteration is the same as at the end of the first iteration.
 
 # BEGIN SOLUTION
 
