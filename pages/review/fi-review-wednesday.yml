@@ -1,9 +1,9 @@
-title: "Final Review: Post-Midterm Content"
+title: "Final Review, Day 1 (Wednesday)"
 context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
-  <br><br>We encourage you to attempt these problems **before** Tuesday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
+  <br><br>We encourage you to attempt these problems **before** Wednesday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
   <br><br>We will enable the solutions here after the review session, though you can find the written solutions to these problems in other discussion worksheets.
-show_solution: true
+show_solution: false
 problems:
   - disc08/sp23-final-pt1-q05 # multiple lineaer regression
   - disc10/q11 # lamda regularization
@@ -13,6 +13,3 @@ problems:
   - disc10/wi23-final-q08 # cv
   - disc09/sp24-final-q10 # feature engineering
   - disc10/su20-midterm-q04 # one-hot encoding/rank
-
-
-
