@@ -21,9 +21,8 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -288,10 +287,10 @@ out the <span class="math inline">w_1</span> to get <span class="math inline">\s
 <hr />
 <h2 id="problem-2">Problem 2</h2>
 <p>Suppose we want to fit a hypothesis function of the form:</p>
-<p><span class="math display">H(x) = w_0 + w_1 x^2</span></p>
+<p><span class="math display">H(x_i) = w_0 + w_1 x_i^2</span></p>
 <p>Note that this is <em>not</em> the simple linear regression
-hypothesis function, <span class="math inline">H(x) = w_0 +
-w_1x</span>.</p>
+hypothesis function, <span class="math inline">H(x_i) = w_0 +
+w_1x_i</span>.</p>
 <p>To do so, we will find the optimal parameter vector <span
 class="math inline">\vec{w}^* = \begin{bmatrix} w_0^* \\ w_1^*
 \end{bmatrix}</span> that satisfies the normal equations. The first 5
@@ -350,19 +349,16 @@ aria-labelledby="heading2_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math inline">X = \begin{bmatrix} 1 &amp; 4 \\ 1 &amp; 1
-\\ 1 &amp; 9 \\ 1 &amp; 49 \\ 1 &amp; 9 \end{bmatrix}</span></p>
-<p>Recall our hypothesis function is <span class="math inline">H(x) =
-w_0 + w_1x^2</span>. Since there is a <span class="math inline">w_0</span> present our <span class="math inline">X</span> matrix should contain a column of ones.
-This means that our first column will be ones. Our second column should
-be <span class="math inline">x^2</span>. This means we take each
-datapoint <span class="math inline">x</span> and square it inside of
-<span class="math inline">X</span>.</p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 84%.</p>
+<p><strong>Answer</strong>: <span class="math inline">X =
+\begin{bmatrix} 1 &amp; 4 \\ 1 &amp; 1 \\ 1 &amp; 9 \\ 1 &amp; 49 \\ 1
+&amp; 9 \end{bmatrix}</span></p>
+<p>Recall our hypothesis function is <span class="math inline">H(x_i) =
+w_0 + w_1x_i^2</span>. Since there is an intercept term present, and
+<span class="math inline">w_0</span> is the first parameter, the first
+column of our design matrix will be all 1s. Our second column should
+contain <span class="math inline">x_1^2, x_2^2, ..., x_n^2</span>. This
+means we take each datapoint <span class="math inline">x_i</span> and
+square it to form the second column of <span class="math inline">X</span>.</p>
 </div>
 </div>
 </div>
@@ -388,11 +384,14 @@ aria-labelledby="heading2_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong>: <span class="math inline">-18</span></p>
 <p><span class="math inline">(2)(1)+(-5)(4)=-18</span></p>
-<p>To find the predicted <span class="math inline">y</span> value all
-you need to do is plug <span class="math inline">x = 2</span> into the
-hypothesis function <span class="math inline">H(x) = w_0 +
-w_1x^2</span>, or take the dot product of <span class="math inline">\vec{w}^*</span> with <span class="math inline">\begin{bmatrix}1 \\ 2^2\end{bmatrix}</span>.</p>
+<p>To find the predicted <span class="math inline">y</span> value, we
+plug in <span class="math inline">x_i = 2</span> into the hypothesis
+function <span class="math inline">H(x_i) = w_0 + w_1x_i^2</span>, or
+take the dot product of <span class="math inline">\vec{w}^*</span> with
+<span class="math inline">\begin{bmatrix}1 \\
+2^2\end{bmatrix}</span>.</p>
 <p><span class="math display">\begin{align*}
 &amp;\begin{bmatrix} 2 \\ -5 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 4
 \end{bmatrix}\\
@@ -400,11 +399,6 @@ w_1x^2</span>, or take the dot product of <span class="math inline">\vec{w}^*</s
 &amp;2 - 20\\
 &amp;-18
 \end{align*}</span></p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 78%.</p>
 </div>
 </div>
 </div>
@@ -431,14 +425,11 @@ aria-labelledby="heading2_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><span class="math inline">126n</span></p>
-<p>To figure out a pattern it can be easier to use variables instead of
-numbers. Like so:</p>
+<p><strong>Answer</strong>: <span class="math inline">126n</span></p>
 <p><span class="math display">
 X = \begin{bmatrix} 1 &amp; x_1^2 \\ 1 &amp; x_2^2 \\ \vdots &amp;
 \vdots \\ 1 &amp; x_n^2 \end{bmatrix}
 </span></p>
-<p>We can now create <span class="math inline">X_{\text{tri}}</span>:</p>
 <p><span class="math display">
 X_{\text{tri}} = \begin{bmatrix} 3 &amp; 3x_1^2 \\ 3 &amp; 3x_2^2 \\
 \vdots &amp; \vdots \\ 3 &amp; 3x_n^2 \end{bmatrix}
@@ -460,22 +451,12 @@ X_\text{tri}^T X_\text{tri} &amp;= \begin{bmatrix} 3 &amp; 3 &amp; ...
 <p>From here we can use the fact given to us in the directions: <span class="math inline">\sum_{i = 1}^n x_i^2 = n \sigma_x^2 + n
 \bar{x}^2</span>.</p>
 <p><span class="math display">\begin{align*}
-&amp;\sum_{i = 1}^n 9x_i^2\\
-&amp;9\sum_{i = 1}^n x_i^2\\
-&amp;\text{Notice now we can replace $\sum_{i = 1}^n x_i^2$ with $n
-\sigma_x^2 + n \bar{x}^2$.}\\
-&amp;9(n \sigma_x^2 + n \bar{x}^2)\\
-&amp;\text{We know that $\sigma_x^2 = 10$ and $\bar x = 2$ fron the
-directions before part a.}\\
-&amp;9(10n + 2^2n)\\
-&amp;9(10n + 4n)\\
-&amp;9(14n) = 126n
+\sum_{i = 1}^n 9x_i^2 &amp;= 9\sum_{i = 1}^n x_i^2\\
+&amp;= 9(n \sigma_x^2 + n \bar{x}^2)\\
+&amp;= 9(10n + 2^2n)\\
+&amp;= 9(10n + 4n)\\
+&amp;= 9(14n) = 126n
 \end{align*}</span></p>
-<hr/>
-<h5>Difficulty: ⭐️⭐️⭐️⭐️</h5>
-<p>
-</p>
-<p>The average score on this problem was 39%.</p>
 </div>
 </div>
 </div>
@@ -518,10 +499,31 @@ aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answers:</strong></p>
-<p>The answer is <code>equal to</code>.</p>
-<p>Note that we can just re-scale our weights accordingly. Any model we
-can get with <span class="math inline">m_1</span> we can also get with
-<span class="math inline">m_2</span> (and vice versa).</p>
+<p>The answer is equal to.</p>
+<p>Because we can simply adjust the weights in the opposite way that we
+rescale the one-hot columns, any model obtainable with the original
+encoding can also be obtained with the rescaled encoding. This
+guarantees that the training loss remains unchanged.</p>
+<p>When one-hot encoding is used, each category is represented by a
+column that typically contains only 0s and 1s. Rescaling these columns
+means multiplying the 1s by a constant (for example, turning 1 into 2 or
+3). However, if we also adjust the corresponding weights in the model by
+dividing by that same constant, the product of the rescaled column value
+and its weight remains the same. Since the model’s predictions are based
+on these products, the predictions will not change, and as a result, the
+average squared loss on the training data will also remain
+unchanged.</p>
+<p>For example, let us say we have categorical variable “Color” with
+three levels: Red, Green, and Blue. We one-hot encode this variable into
+three columns. For an observation: - If the color is Red, the encoded
+values might be: Red = 1, Green = 0, Blue = 0.</p>
+<p>Now, suppose we decide to multiply the column for Red by 2. The new
+value for a Red observation becomes 2 instead of 1. To keep the
+prediction the same, we can simply use half the weight for this column
+in the model. This inverse adjustment ensures that the final product
+(column value multiplied by weight) remains unchanged. Thus, the model’s
+prediction and the average squared loss on the training data stay the
+same.</p>
 </div>
 </div>
 </div>
@@ -553,43 +555,10 @@ aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answers:</strong></p>
-<p>The answer is <code>3</code>.</p>
+<p>The answer is 3.</p>
 <p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
 is a linear dependence relationship, meaning that one of the columns is
 redundant and that the rank of the new design matrix is 3.</p>
-</div>
-</div>
-</div>
-</div>
-<p><br></p>
-<h3 id="problem-3.3">Problem 3.3</h3>
-<p>Suppose we divide our sampling frame into three clusters of people,
-numbered 1, 2, and 3. After we survey people, along with our survey
-results, we save their cluster number as a new feature in our design
-matrix. Before training a model, what should we do with the cluster
-column? (Note: This part is independent of parts a and b.)</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Leave as is</p></li>
-<li><p><input type="radio" disabled="" /> One-hot encode it</p></li>
-<li><p><input type="radio" disabled="" /> Normalize it</p></li>
-<li><p><input type="radio" disabled="" /> Use bag of words</p></li>
-</ul>
-<div id="accordionExample" class="accordion">
-<div class="accordion-item">
-<h2 class="accordion-header" id="heading3_3">
-<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
-Click to view the solution.
-</button>
-</h2>
-<div id="collapse3_3" class="accordion-collapse collapse"
-aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
-<div class="accordion-body">
-<header id="title-block-header">
-<h1 class="title"> </h1>
-</header>
-<p><strong>Answers:</strong></p>
-<p>The cluster number is a categorical variable, so it should be one-hot
-encoded.</p>
 </div>
 </div>
 </div>
@@ -627,13 +596,14 @@ array:</p>
 <p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
 to the following array:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
-<p>Fill in the blanks: Given the above information, we can conclude that
+<p>Given the above information, we can conclude that
 <code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
 <code>"low"</code>, <strong>(b)</strong> value(s) equal to
 <code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
 <code>"high"</code>. <em>(Note: You should write one positive integer in
 each box such that the numbers add up to 8.)</em></p>
-<p>What goes in the blanks?</p>
+<p>What are (a), (b), and (c)? Give you answers as positive
+integers.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4">
@@ -1003,7 +973,7 @@ complexity <code>__(i)__</code>. The optimal choice of
 <li>What goes in blank (i)?</li>
 </ol>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> increases</p></li>
+<li><p><input type="radio" disabled="" /> None</p></li>
 <li><p><input type="radio" disabled="" /> decreases</p></li>
 </ul>
 <ol start="2" type="1">
@@ -1109,13 +1079,21 @@ aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: <span class="math inline">P(y = 1 |
-\text{age} = 20, \text{female} = 1) = \sigma(1.2)</span></p>
-<p>Our augmented feature vector is of the form <span class="math inline">\text{Aug}(\vec{x}) = \begin{bmatrix} 1 \\ 20 \\ 1
+<p><strong>Answer</strong>: <span class="math inline">P(y_i = 1 |
+\text{age}_i = 20, \text{female}_i = 1) = \sigma(1.2)</span></p>
+<p>Recall, the logistic regression model predicts the probability of
+surviving the Titanic as:</p>
+<p><span class="math display">P(y_i = 1 | \vec x_i) = \sigma(\vec w^*
+\cdot \text{Aug}(\vec x_i))</span></p>
+<p>where <span class="math inline">\sigma(\cdot)</span> represents the
+logistic function, <span class="math inline">\sigma(t) = \frac{1}{1 +
+e^{-t}}</span>.</p>
+<p>Here, our augmented feature vector is of the form <span class="math inline">\text{Aug}(\vec{x}_i) = \begin{bmatrix} 1 \\ 20 \\ 1
 \end{bmatrix}</span>. Then <span class="math inline">\vec{w}^* \cdot
-\text{Aug}(\vec x) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2</span>, so:</p>
-<p><span class="math display">P(y = 1 | \vec{x}) = \sigma \left(
-\vec{w}^* \cdot \text{Aug}(\vec x) \right) = \boxed{\sigma
+\text{Aug}(\vec x_i) = 1(-1.2) + 20(-0.005) + 1(2.5) = 1.2</span>.</p>
+<p>Putting this all together, we have:</p>
+<p><span class="math display">P(y_i = 1 | \vec{x}_i) = \sigma \left(
+\vec{w}^* \cdot \text{Aug}(\vec x_i) \right) = \boxed{\sigma
 (1.2)}</span></p>
 </div>
 </div>
@@ -1155,8 +1133,8 @@ to have survived the Titanic than not? In other words, at what age is
 the probability of survival for a female passenger greater than 0.5?</p>
 <p><em>Hint: Since <span class="math inline">\sigma(0) = 0.5</span>, we
 have that <span class="math inline">\sigma \left( \vec{w}^* \cdot
-\text{Aug}(\vec x) \right) = 0.5 \implies \vec{w}^* \cdot
-\text{Aug}(\vec x) = 0</span>.</em></p>
+\text{Aug}(\vec x_i) \right) = 0.5 \implies \vec{w}^* \cdot
+\text{Aug}(\vec x_i) = 0</span>.</em></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading7_3">
@@ -1172,8 +1150,9 @@ aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong>: 260 years old</p>
 <p>The probability that a female passenger of age <span class="math inline">a</span> survives the Titanic is:</p>
-<p><span class="math display">P(y = 1 | \text{age} = a, \text{female} =
-1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 - 0.005a)</span></p>
+<p><span class="math display">P(y_i = 1 | \text{age}_i = a,
+\text{female}_i = 1) = \sigma(-1.2 - 0.005 a + 2.5) = \sigma(1.3 -
+0.005a)</span></p>
 <p>In order for <span class="math inline">\sigma(1.3 - 0.005a) =
 0.5</span>, we need <span class="math inline">1.3 - 0.005a = 0</span>.
 This means that:</p>
@@ -1184,7 +1163,9 @@ to predict that they are more likely to survive the Titanic than not.
 Note that <span class="math inline">\text{age} = 260</span> can be
 interpreted as a <strong>decision boundary</strong>; since we’ve fixed a
 value for the <span class="math inline">\text{female}</span> feature,
-there’s only one remaining feature, which is <span class="math inline">\text{age}</span>.</p>
+there’s only one remaining feature, which is <span class="math inline">\text{age}</span>. Because the coefficient
+associated with age is negative, any age larger than 260 causes the
+probability of surviving to decrease.</p>
 </div>
 </div>
 </div>
@@ -1221,14 +1202,14 @@ passenger of the same age survives. Then, we have that:</p>
 + 2.5 \cdot 0)</span></p>
 <p><span class="math display">p_f = \sigma(-1.2 - 0.005 \cdot \text{age}
 + 2.5 \cdot 1)</span></p>
-<p>Now, recall from <a href="https://practicaldsc.org/resources/lectures/lec24/lec24-filled.html#Aside:-Odds">Lecture
-24</a> that:</p>
+<p>Now, recall from <a href="https://practicaldsc.org/resources/lectures/lec22/lec22-filled.html#Aside:-Odds">Lecture
+22</a> that:</p>
 <ul>
 <li>If <span class="math inline">p_i</span> is the probability of an
 event, then the odds of the event are <span class="math inline">\frac{p_i}{1 - p_i}</span>.</li>
 <li>If <span class="math inline">p_i = \sigma(t)</span>, then <span class="math inline">t = \sigma^{-1}(p_i) = \log \left( \frac{p_i}{1 -
-p_i} \right)</span>. In other words, <strong>the inverse of <span class="math inline">p_i = \sigma(t)</span> is the log odds of <span class="math inline">p_i</span>, i.e. $^{-1}(p_i) = ( (p_i)
-)</strong>.</li>
+p_i} \right)</span>. In other words, <strong>the inverse of <span class="math inline">p_i = \sigma(t)</span> is the log odds of <span class="math inline">p_i</span>, i.e. <span class="math inline">\sigma^{-1}(p_i) = \log \left( \text{odds}(p_i)
+\right)</span></strong>.</li>
 </ul>
 <p>What does this all have to do with the question? Well, we can take
 the two equations at the start of the solution and apply <span class="math inline">\sigma^{-1}</span> to both sides, yielding:</p>
