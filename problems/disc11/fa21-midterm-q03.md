@@ -35,7 +35,7 @@ $$h^{(1)} = -\alpha \cdot 2e$$
 
 First, we find $\frac{dR}{dh}(h)$:
 
-$$\frac{dR}{dh}(h) = 2(x+1) e^{(x+1)^2}$$
+$$\frac{dR}{dh}(h) = 2(h+1) e^{(h+1)^2}$$
 
 Then, we know that
 
