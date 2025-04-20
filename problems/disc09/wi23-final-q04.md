@@ -17,8 +17,8 @@ Let MMSE$(F)$ be the minimum value of mean squared error that $F$ achieves on a 
 
 # BEGIN SOLUTION
 Example: If the datapoints follow a quadratic form
-$y_i=x_i^2$ for all $i$, then the $F$ prediction rule will achieve a
-zero error while $G>0$ since the data do not follow a linear form.
+$y_i=x_i^2$ for all $i$, then the $G$ prediction rule will achieve a
+zero error while $F>0$ since the data do not follow a linear form.
 
 # END SOLUTION
 
