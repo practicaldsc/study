@@ -42,7 +42,7 @@ As a result, our precision increases (more of the points we say are positive wil
 
 However, in some cases precision can also decrease, when
 increasing a threshold lowers the number of true positives but keeps the number of
-true negatives the same. It's impossible for recall to decrease as we increase our threshold, though – the denominator in $\text{Recall} = \frac{TP}{TP + FN}$ is just the total number of points that are actually 1, which is a constant, and as we increase the threshold, the number of true positives will only increase or stay the same.
+true negatives the same. It's impossible for recall to decrease as we increase our threshold, though – the denominator in $\text{Recall} = \frac{TP}{TP + FN}$ is just the total number of points that are actually 1, which is a constant, and as we increase the threshold, the number of true positives will only decrease or stay the same.
 
 As seen in Lecture 23, accuracy may increase or decrease as we increase the threshold – there typically exists an optimal threshold that maximizes accuracy, and if we increase or
 decrease our threshold from that point, accuracy decreases.

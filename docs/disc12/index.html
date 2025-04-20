@@ -21,7 +21,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="..\assets\theme.css" />
   <script defer=""
   src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -465,7 +465,7 @@ true negatives the same. It’s impossible for recall to decrease as we
 increase our threshold, though – the denominator in <span class="math inline">\text{Recall} = \frac{TP}{TP + FN}</span> is just
 the total number of points that are actually 1, which is a constant, and
 as we increase the threshold, the number of true positives will only
-increase or stay the same.</p>
+decrease or stay the same.</p>
 <p>As seen in Lecture 23, accuracy may increase or decrease as we
 increase the threshold – there typically exists an optimal threshold
 that maximizes accuracy, and if we increase or decrease our threshold
