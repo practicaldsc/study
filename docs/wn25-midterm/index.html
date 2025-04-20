@@ -134,15 +134,8 @@
 except students were allowed to bring a single two-sided notes sheet. No
 calculators were allowed. Students had 120 minutes to take this exam.
 <br><br>Access the original exam PDF here:
-<a href="../assets/pdf/fa24-midterm-a.pdf">Version A</a>,
-<a href="../assets/pdf/fa24-midterm-b.pdf">Version B</a>. (This site is
-based on Version A.) <br><br>Note that for the Winter 2025 Midterm Exam,
-all of the questions here (except Question 10 on SQL) are in scope, but
-there are a few questions from the
-<a href="https://study.practicaldsc.org/fa24-final/index.html">Fall 2024
-Final Exam</a> that are also in scope that cover topics that aren’t here
-(like loss functions and regression). See the top of that exam for more
-details.</p>
+<a href="../assets/pdf/wn25-midterm-a.pdf">Version A</a>. show_solution:
+true</p>
 <hr />
 <div class="center">
 <p><strong>Data Overview: Food Deliveries</strong></p>
@@ -222,7 +215,7 @@ as a string as the second input to <code>loc</code>.</p></li>
 <code>.sort_values()</code> method on this Series will give us back
 another Series with the minutes of the orders sorted by default in
 ascending order. Since we are looking for the second fastest order, we
-can then use <code>iloc</code> to extract this value. As python is
+can then use <code>iloc</code> to extract this value. As Python is
 zero-indexed this value will be 1.</p>
 <p>Similarly, if you specify <code>ascending=False</code> as a parameter
 to <code>.sort_values()</code>, the orders will be sorted in descending
@@ -269,25 +262,35 @@ aria-labelledby="heading2" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong></p>
 <ul>
-<li><p><code>(i) "Driver"</code> - we use <code>groupby("Driver")</code>
-because we want to check the consistency of ratings for each individual
-driver. By grouping by “Driver,” we are able to look at each driver’s
-set of ratings across their deliveries.</p></li>
-<li><p><code>(ii) "rating"</code> - we want to check whether all ratings
-for a given driver are the same.</p></li>
-<li><p><code>(iii) agg</code> - The <code>.agg()</code> function allows
-us to apply an aggregation function to each group (driver in this case).
-This is necessary because we are checking a condition (whether the
-ratings are the same) for each driver, and <code>agg</code> allows us to
-apply a function that evaluates this condition across all the ratings of
-a driver.</p></li>
-<li><p><code>(iv) x.max() == x.min() or x.nunique() == 1</code> : This
-is the boolean statement in our <code>f</code> function that checks if a
-driver’s ratings are consistent. <code>x.max() == x.min()</code> checks
-if all ratings are the same because if they are, the maximum and minimum
-will be equal. Alternatively, <code>x.nunique() == 1</code> checks if
-there is only one unique rating, ensuring consistency. Both conditions
-together guarantee that the driver’s ratings haven’t changed.</p></li>
+<li><p>(i): <code>"Driver"</code>. We use <code>groupby("Driver")</code>
+because we want to check the consistency of ratings for <strong>each
+individual driver</strong>. By grouping by <code>"Driver"</code>, we are
+able to look at each driver’s set of ratings across their
+deliveries.</p></li>
+<li><p>(ii): <code>"rating"</code>. We want to check whether all
+<code>"rating"</code> values for a given <code>"Driver"</code> are the
+same. To do so, we’ll need to look at a Series of <code>"rating"</code>
+values for each <code>"Driver"</code>, so that’s the column we extract
+here.</p></li>
+<li><p>(iii): <code>agg</code>. The <code>agg</code> method allows us to
+apply an aggregation function to each group (each <code>"Driver"</code>
+in this case). This is necessary because we are checking a condition
+across an entire group of ratings rather than filtering individual rows.
+It’s also worth noting that since <code>.mean()</code> is used at the
+end, the <code>agg</code> step must be producing a series of Boolean
+values (<code>True</code> or <code>False</code>), one for each
+<code>"Driver"</code>. Each value represents whether that
+<strong>driver’s ratings are consistent</strong>.</p></li>
+<li><p>(iv): <code>x.max() == x.min() or x.nunique() == 1</code>. This
+is the Boolean statement used in the <code>f</code> function to check
+whether a <code>"Driver"</code>’s ratings are consistent.
+<code>x.max() == x.min()</code> confirms that all ratings are identical,
+since both the maximum and minimum must be the same if no variation
+exists. <code>x.nunique() == 1</code> achieves the same goal by checking
+directly whether there is only one unique rating. Either approach is
+valid, and there are several other possibilities too, such as checking
+<code>x.std() == 0</code> or using
+<code>x.eq(x.iloc[0]).all()</code>.</p></li>
 </ul>
 </div>
 </div>
@@ -297,11 +300,11 @@ together guarantee that the driver’s ratings haven’t changed.</p></li>
 <h2 id="problem-3">Problem 3</h2>
 <p>Suppose the expression below evaluates to <code>1</code>.</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    (orders[orders[<span class="st">&quot;type&quot;</span>] <span class="op">==</span> <span class="st">&quot;Snack&quot;</span>][<span class="st">&quot;driver&quot;</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     .value_counts()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     .value_counts()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>     .shape[<span class="dv">0</span>]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(orders[orders[<span class="st">&quot;type&quot;</span>] <span class="op">==</span> <span class="st">&quot;Snack&quot;</span>][<span class="st">&quot;driver&quot;</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> .value_counts()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> .value_counts()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> .shape[<span class="dv">0</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>What can we conclude about <code>orders</code>?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> Every driver made at least 1 <code>"Snack"</code> delivery.</p></li>
@@ -327,28 +330,24 @@ aria-labelledby="heading3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>:
-<code>Every driver made exactly 0 or exactly  k "Snack" deliveries, where k is some positive constant.</code></p>
-<p>The expression filters the <code>orders</code> dataframe to include
-only rows where the <code>type</code> column is equal to
-<code>"Snack"</code>. We are focusing on the drivers who made “Snack”
-deliveries. Then <code>.value_counts()</code> tells us how many “Snack”
-deliveries each driver has made. For example, if Driver A made 3 Snack
-deliveries, Driver A will have a count of 3. After the first
-<code>.value_counts()</code>, the second <code>.value_counts()</code>
-counts how many drivers have made the same number of “Snack”
-deliveries.</p>
-<p>For instance, if three drivers made 2 “Snack” deliveries each, and
-two drivers made 3 “Snack” deliveries each, <code>value_counts()</code>
-will return a series showing the count of drivers per number of
-deliveries (e.g., 3 drivers made 2 deliveries, 2 drivers made 3
-deliveries).</p>
-<p>Lastly, the <code>.shape[0]</code> gets us the number of distinct
-values in the second <code>value_counts()</code> result, which tells us
-how many different numbers of “Snack” deliveries are represented in the
-data. In this case, we know that it evaluates to <code>1</code>, which
-means there is only one distinct number of deliveries made by
-drivers.</p>
+<p><strong>Answer</strong>: Every driver made exactly 0 or exactly <span class="math inline">k</span> <code>"Snack"</code> deliveries, where
+<span class="math inline">k</span> is some positive constant.</p>
+<p>The expression runs a query on the <code>orders</code> DataFrame,
+selecting only rows where the <code>"type"</code> is equal to
+<code>"Snack"</code>. This narrows the focus to the set of deliveries
+that were for <code>"Snack"</code> items. The code then selects the
+<code>"driver"</code> column to identify which driver handled each
+<code>"Snack"</code> delivery.</p>
+<p>The first <code>.value_counts()</code> computes how many
+<code>"Snack"</code> deliveries each <code>"driver"</code> made. The
+second <code>.value_counts()</code> then counts how many drivers made
+each possible number of <code>"Snack"</code> deliveries.</p>
+<p>Finally, <code>.shape[0]</code> measures how many distinct numbers of
+<code>"Snack"</code> deliveries were made by drivers. Since the
+expression evaluates to <code>1</code>, we can conclude that there is
+only one distinct number of <code>"Snack"</code> deliveries made by
+drivers. This implies that every driver either made exactly 0 or exactly
+<span class="math inline">k</span> <code>"Snack"</code> deliveries.</p>
 </div>
 </div>
 </div>
@@ -356,18 +355,18 @@ drivers.</p>
 <hr />
 <h2 id="problem-4">Problem 4</h2>
 <p>In one English sentence, describe what the following expression
-computes. Your sentence should start with “The driver", and should be
+computes. Your sentence should start with “The driver” and should be
 understandable by someone who has never written code before, i.e. it
 should not use any technical terms.</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    (orders</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        .groupby(<span class="st">&quot;driver&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">&gt;=</span> <span class="dv">10</span> <span class="kw">and</span> df[<span class="st">&quot;rating&quot;</span>].<span class="bu">min</span>() <span class="op">&gt;=</span> <span class="fl">4.5</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        .groupby(<span class="st">&quot;driver&quot;</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        [<span class="st">&quot;minutes&quot;</span>]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">sum</span>()</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        .idxmax()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(orders</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">&quot;Driver&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(<span class="kw">lambda</span> df: df.shape[<span class="dv">0</span>] <span class="op">&gt;=</span> <span class="dv">10</span> <span class="kw">and</span> df[<span class="st">&quot;rating&quot;</span>].<span class="bu">min</span>() <span class="op">&gt;=</span> <span class="fl">4.5</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">&quot;Driver&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&quot;minutes&quot;</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    .idxmax()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading4">
@@ -381,18 +380,20 @@ aria-labelledby="heading4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> The driver who has driven the most minutes
-total, among all drivers with at least 10 deliveries and a minimum
-review of 4.5.</p>
-<p>The expression first groups the data by the driver column
-(<code>.groupby("driver")</code>). After which it filters out drivers
-who have made fewer than 10 deliveries or have a minimum rating below
-4.5. Only drivers who meet both conditions (at least 10 deliveries and a
-minimum rating of 4.5) remain in the output df. After filtering, the
-expression groups the data by driver again and sums up the total minutes
-each driver has driven. Lastly, the <code>.idxmax()</code> finds the
-driver who has the maximum total minutes driven. This is the driver who
-drove the most minutes.</p>
+<p><strong>Answer</strong>: The driver who has driven the most minutes
+total, among all <code>"Driver"</code>s with at least 10 deliveries and
+a minimum review rating of 4.5.</p>
+<p>The expression first groups the data by the <code>"Driver"</code>
+column. It then filters the groups to only include those where the
+<code>"Driver"</code> has made at least 10 deliveries and has a minimum
+<code>"rating"</code> of 4.5. Only <code>"Driver"</code>s who meet both
+conditions are kept in the output.</p>
+<p>After filtering, the data is grouped by <code>"Driver"</code> again,
+and the total number of <code>"minutes"</code> each
+<code>"Driver"</code> has driven is calculated. Finally,
+<code>.idxmax()</code> identifies the <code>"Driver"</code> who has
+driven the most <code>"minutes"</code> among all <code>"Driver"</code>s
+that fit the two criteria above.</p>
 </div>
 </div>
 </div>
@@ -401,12 +402,12 @@ drove the most minutes.</p>
 <h2 id="problem-5">Problem 5</h2>
 <p>Consider the DataFrame <code>C</code>, defined below.</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> orders.pivot_table(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      index<span class="op">=</span><span class="st">&quot;type&quot;</span>, <span class="co"># Possible values: &quot;Buffet&quot;, &quot;Drinks&quot;, &quot;Meal&quot;, &quot;Snacks&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      columns<span class="op">=</span><span class="st">&quot;traffic&quot;</span>, <span class="co"># Possible values: &quot;High&quot;, &quot;Low&quot;, &quot;Moderate&quot;, &quot;Very Low&quot;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      values<span class="op">=</span><span class="st">&quot;minutes&quot;</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      aggfunc<span class="op">=</span><span class="st">&quot;count&quot;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> orders.pivot_table(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  index<span class="op">=</span><span class="st">&quot;type&quot;</span>,  <span class="co"># Possible values: &quot;Buffet&quot;, &quot;Drinks&quot;, &quot;Meal&quot;, &quot;Snack&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  columns<span class="op">=</span><span class="st">&quot;traffic&quot;</span>,  <span class="co"># Possible values: &quot;High&quot;, &quot;Low&quot;, &quot;Moderate&quot;, &quot;Very Low&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  values<span class="op">=</span><span class="st">&quot;minutes&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  aggfunc<span class="op">=</span><span class="st">&quot;count&quot;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Throughout this question, assume that after defining <code>C</code>
 above, <strong>we sort <code>C</code> such that both its index and
 columns are in ascending alphabetical order</strong> (as shown
@@ -418,7 +419,7 @@ above).</p>
 <code>"Moderate"</code> traffic</strong>. Each blank should be filled
 with a single integer, float, string, or Boolean value.</p>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    C.iloc[__(i)__, __(ii)__] <span class="op">/</span> C.loc[__(iii)__].<span class="bu">sum</span>()</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>C.iloc[__(i)__, __(ii)__] <span class="op">/</span> C.loc[__(iii)__].<span class="bu">sum</span>()</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading5_1">
@@ -432,19 +433,22 @@ aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong>: There are multiple possible answers</p>
+<p><strong>Answer</strong>: There are multiple possible answers.</p>
 <ul>
-<li><p><code>(i)</code> <code>3 or -1</code> - The index of C is sorted
-alphabetically, meaning the row order follows “Buffet”, “Drinks”,
-“Meal”, “Snacks”. Since “Snacks” is the last item in this order, its
-index is 3 (0-based) or -1 (negative indexing).</p></li>
-<li><p><code>(ii)</code> <code>2 or -2</code> - Similarly, the columns
-are sorted alphabetically: “High”, “Low”, “Moderate”, “Very Low”.
-“Moderate” appears third in this order, making its index 2 (0-based) or
--2 (negative indexing).</p></li>
-<li><p><code>(iii)</code> <code>Snacks</code> - To get the total number
-of “Snacks” deliveries across all traffic levels, we use .loc[“Snacks”].
-The .sum() function then adds up all values in that row.</p></li>
+<li><p>(i): <code>3 or -1</code>. The index of <code>C</code> is sorted
+alphabetically, meaning the row order follows <code>"Buffet"</code>,
+<code>"Drinks"</code>, <code>"Meal"</code>, <code>"Snack"</code>. Since
+<code>"Snack"</code> is the last item in this order, its index is 3
+(0-based) or -1 (negative indexing).</p></li>
+<li><p>(ii): <code>2 or -2</code>. Similarly, the columns are sorted
+alphabetically: <code>"High"</code>, <code>"Low"</code>,
+<code>"Moderate"</code>, <code>"Very Low"</code>.
+<code>"Moderate"</code> appears third in this order, making its index 2
+(0-based) or -2 (negative indexing).</p></li>
+<li><p>(iii): <code>"Snack"</code>. To get the total number of
+<code>"Snack"</code> deliveries across all traffic levels, we use
+<code>C.loc["Snack"]</code>. The <code>.sum()</code> function then adds
+up all values in that row.</p></li>
 </ul>
 </div>
 </div>
@@ -454,12 +458,11 @@ The .sum() function then adds up all values in that row.</p></li>
 <h3 id="problem-5.2">Problem 5.2</h3>
 <p>Fill in the blanks so that the expression below evaluates to the
 <strong>proportion of deliveries made in <code>"Low"</code> traffic that
-were for <code>"Buffet"</code>s</strong>. Blanks (i) and (ii) should
-each be filled with a single integer, float, string, or Boolean
-value.</p>
+were for <code>"Buffet"</code></strong>. Blanks (i) and (ii) should each
+be filled with a single integer, float, string, or Boolean value.</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    C.loc[__(i)__, __(ii)__] <span class="op">/</span> __(iii)__.<span class="bu">sum</span>()</span></code></pre></div>
-<p>(iii):</p>
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>C.loc[__(i)__, __(ii)__] <span class="op">/</span> __(iii)__.<span class="bu">sum</span>()</span></code></pre></div>
+<p>Options for (iii):</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>C.iloc[:, -1]</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>C.iloc[:, 0]</code></p></li>
@@ -481,24 +484,27 @@ aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong>: - (i): <code>"Buffet"</code>. When using
+<code>.loc</code>, we reference labels instead of numerical indices.
+Since the index represents order <code>"type"</code> and is sorted
+alphabetically (<code>"Buffet"</code>, <code>"Drinks"</code>,
+<code>"Meal"</code>, <code>"Snack"</code>), <code>"Buffet"</code> is the
+correct label for selecting the row corresponding to buffet orders.</p>
 <ul>
-<li><p><code>(i)``Buffet</code> - when using <code>.loc[]</code>, we
-reference labels instead of numerical indices. Since the index
-represents order <code>"type"</code> and is sorted alphabetically
-(“Buffet”, “Drinks”, “Meal”, “Snacks”), “Buffet” is the correct label
-for selecting the row corresponding to buffet orders.</p></li>
-<li><p><code>(ii)</code> <code>Low</code> - similarly, the column order
-is sorted alphabetically as “High”, “Low”, “Moderate”, “Very Low”,
-making “Low” the correct column label to select deliveries in “Low”
-traffic.</p></li>
-<li><p><code>(iii)</code> <code>C.iloc[:, 1]</code> - Here, we are using
-<code>.iloc[]</code>, which is integer-location based indexing. The
-<code>[:, 1]</code> part means we are selecting all rows (:) in the
-second column (index 1), which corresponds to “Low” traffic, since the
-columns are sorted alphabetically as “High”, “Low”, “Moderate”, “Very
-Low”. By selecting <code>C.iloc[:, 1]</code>, we are referencing all the
-values in the “Low” column, and .sum() will give the total number of
-deliveries made in “Low” traffic, across all order types.</p></li>
+<li><p>(ii): <code>"Low"</code>. Similarly, the column order is sorted
+alphabetically as <code>"High"</code>, <code>"Low"</code>,
+<code>"Moderate"</code>, <code>"Very Low"</code>, making
+<code>"Low"</code> the correct column label to select deliveries in
+<code>"Low"</code> traffic.</p></li>
+<li><p>(iii): <code>C.iloc[:, 1]</code>. Here, we are using
+<code>.iloc</code>, which is integer-location based indexing. The
+<code>[:, 1]</code> part means we are selecting all rows
+(<code>:</code>) in the second column (index 1), which corresponds to
+<code>"Low"</code> traffic, since the columns are sorted alphabetically.
+By selecting <code>C.iloc[:, 1]</code>, we are referencing all the
+values in the <code>"Low"</code> column, and <code>.sum()</code> will
+give the total number of deliveries made in <code>"Low"</code> traffic
+across all order types.</p></li>
 </ul>
 </div>
 </div>
@@ -514,14 +520,15 @@ below in their entirety.</p>
 <img src="../assets/images/wn25-midterm/B.png" width=40%>
 </center>
 <p>Note that the <code>"type"</code> value in row <strong>3</strong> of
-DataFrame <code>B</code> is unknown. Remember from the Data Overview
-page that the only possible values in the <code>"type"</code> column are
-<code>"Buffet"</code>, <code>"Drinks"</code>, <code>"Meal"</code>, and
+DataFrame <code>B</code> is unknown.<br />
+Remember from the Data Overview page that the only possible values in
+the <code>"type"</code> column are <code>"Buffet"</code>,
+<code>"Drinks"</code>, <code>"Meal"</code>, and
 <code>"Snack"</code>.</p>
 <p><br></p>
 <h3 id="problem-6.1">Problem 6.1</h3>
-<p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has
-<code>7</code> rows.</p>
+<p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has 7
+rows.</p>
 <p>What must the unknown value, <span
 class="math inline">\boxed{\text{???}}</span>, be?</p>
 <ul class="task-list">
@@ -543,15 +550,7 @@ aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> <code>Drinks</code></p>
-<p>When performing a merge operation on DataFrames A and B using the
-<code>"type"</code> column as the key, the number of rows in the result
-depends on the number of matching entries between A and B for each value
-in the <code>"type"</code> column. The possible values for
-<code>"type"</code> are <code>"Buffet"</code>, <code>"Drinks"</code>,
-<code>"Meal"</code>, and <code>"Snack"</code>. Also, when the type of
-merge is not specified, the default merge type to consider is an
-<strong>inner merge</strong>.</p>
+<p><strong>Answer</strong>: <code>"Drinks"</code></p>
 <p>Given that the resulting DataFrame after the merge has 7 rows, this
 means that there are 7 matches between the rows in A and B based on the
 <code>"type"</code> column. The value in the third row of DataFrame B is
@@ -568,12 +567,22 @@ we will have at least 5 rows of <code>"Buffet"</code>.</p>
 option will give us exactly 7 rows in our merged dataset. If the unknown
 value is:</p>
 <ul>
-<li><strong>Drinks</strong>: We have 2 rows with type
+<li><p><strong>Drinks</strong>: We have 2 rows with type
 <code>"Drinks"</code> in DataFrame A and 1 row with type
 <code>"Drinks"</code> (unknown value replaced) in DataFrame B, which
 gives us <span class="math inline">2 \times 1 = 2</span> rows in our
 merged dataset. This is the correct answer because now we will have 5
-(Buffet rows) + 2 (Drinks rows) = 7 rows in the merged dataset.</li>
+(Buffet rows) + 2 (Drinks rows) = 7 rows in the merged dataset.</p></li>
+<li><p><strong>Buffet</strong>: We have 5 rows of <code>"Buffet"</code>
+in DataFrame A and 2 rows in DataFrame B, which gives us <span class="math inline">2 \times 5 = 10</span> rows in our merged
+dataset.</p></li>
+<li><p><strong>Meal</strong>: We have 0 rows of <code>"Meal"</code> in
+DataFrame A and 2 row in DataFrame B, which gives us <span class="math inline">0 \times 2 = 0</span> row in our merged
+dataset.</p></li>
+<li><p><strong>Snack</strong>: We have 0 rows of <code>"Snack"</code> in
+DataFrame A and 3 rows in DataFrame B, which gives us <span class="math inline">0 \times 3 = 0</span> rows in our merged dataset.
+This is the correct answer because now we will have exactly 10 rows (all
+Buffet rows) in total.</p></li>
 </ul>
 </div>
 </div>
@@ -581,10 +590,10 @@ merged dataset. This is the correct answer because now we will have 5
 </div>
 <p><br></p>
 <h3 id="problem-6.2">Problem 6.2</h3>
-<p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has
-<code>10</code> rows.</p>
+<p>Suppose the DataFrame <code>A.merge(B, on="type")</code> has 10
+rows.</p>
 <p>What must the unknown value, <span
-class="math inline">\boxed{\text{???}}</span> be?</p>
+class="math inline">\boxed{\text{???}}</span>, be?</p>
 <ul class="task-list">
 <li><p><input type="radio" disabled="" /> <code>"Drinks"</code></p></li>
 <li><p><input type="radio" disabled="" /> <code>"Buffet"</code></p></li>
@@ -604,22 +613,15 @@ aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> <code>Buffet</code></p>
-<p>Using similar logic to part a, we can then go through each of the
-different options to see which option will give us exactly 10 rows in
-our merged dataset. If the unknown value is:</p>
+<p><strong>Answer</strong>: <code>"Buffet"</code></p>
+<p>Using the same logic as in the solution to 6.1, if the unknown value
+is <code>"Buffet"</code>, the merged dataset will include:</p>
 <ul>
-<li><p><strong>Drinks</strong>: We have 2 rows with type
-<code>"Drinks"</code> in DataFrame A and 1 row with type
-<code>"Drinks"</code> (unknown value replaced) in DataFrame B, which
-gives us <span class="math inline">2 \times 1 = 2</span> rows in our
-merged dataset. This gives us 5 (Buffet rows) + 2 (Drinks rows) = 7 rows
-in the merged dataset, not 10.</p></li>
-<li><p><strong>Buffet</strong>: We have 5 rows of <code>"Buffet"</code>
-in DataFrame A and 2 rows in DataFrame B, which gives us <span class="math inline">2 \times 5 = 10</span> rows in our merged dataset.
-This is the correct answer because now we will have exactly 10 rows (all
-Buffet rows) in total.</p></li>
+<li><code>5</code> (<code>Buffet rows from A</code>) * <code>2</code>
+(<code>Buffet rows from B</code>) = <code>10</code> rows.</li>
 </ul>
+<p>This matches the stated total, so the unknown must be
+<code>"Buffet"</code>.</p>
 </div>
 </div>
 </div>
@@ -651,11 +653,7 @@ aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> 14</p>
-<p>An outer merge combines all rows from both A and B. If a row in A
-does not have a corresponding match in B (or vice versa), the resulting
-merged DataFrame will contain that row, with missing values filled as
-NaN.</p>
+<p><strong>Answer</strong>: <code>14</code></p>
 <p>We can replace the unknown value with each type and compute how many
 rows we expect to see in the final dataset after an outer merge:</p>
 <ul>
@@ -708,23 +706,15 @@ aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> 2</p>
-<p>We are asked to perform a merge on two columns: <code>"type"</code>
-and <code>"rating"</code>. This means that for each row in the merged
-DataFrame, the <code>"type"</code> and <code>"rating"</code> must match
-between A and B for the row to appear in the result. Also, the type of
-merge is <strong>inner</strong> since the type of merge is not
-specified.</p>
-<p>Given that the unknown value is <code>"Buffet"</code>, let’s analyze
-the possible matches:</p>
-<ul>
-<li>We can see that only <strong>type <code>"Buffet"</code> with rating
-4.6</strong> has a match in both DataFrames. The total number of rows
-with <code>"Buffet"</code> and rating 4.6 is <strong>2</strong> (1 from
-A and 1 from B).</li>
-</ul>
-<p>Thus, the total number of rows in the merged DataFrame is
-<strong>2</strong>.</p>
+<p><strong>Answer</strong>: <code>2</code></p>
+<p>When merging on both <code>"type"</code> and <code>"rating"</code>,
+only exact matches in both columns will contribute to the result. Since
+the unknown value is <code>"Buffet"</code>, the only matching
+combination is <code>"Buffet"</code> with rating <code>4.6</code>, which
+appears once in each DataFrame.</p>
+<p>Thus, the total number of rows is
+<code>1 (from A) * 1 (from B) = 1</code> per matching pair, and if both
+datasets hold one each, the result has <code>2</code> rows.</p>
 </div>
 </div>
 </div>
@@ -799,49 +789,83 @@ aria-labelledby="heading7" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong></p>
+<p><strong>Correct answers</strong></p>
+<ul>
+<li><code>one_sim</code> draws <code>k</code> drivers with replacement,
+instead of without replacement</li>
+<li><code>simulation</code> only picks one value of <code>k</code>, when
+it should select a new <code>k</code> on each iteration</li>
+</ul>
 <p><strong><code>one_sim</code> draws <code>k</code> drivers with
-replacement, instead of without replacement</strong> - Because
-<code>np.random.choice()</code> is called separately each time within
-the for loop, there is no guarantee that all k chosen drivers will be
-distinct across iterations. Which means that some drivers might be
-picked more than once, violating the “unique drivers” requirement.The
-correct way to choose the k drivers would be -</p>
+replacement, instead of without replacement</strong></p>
+<p>Because <code>np.random.choice()</code> is called separately each
+time within the for loop, there is no guarantee that all k chosen
+drivers will be distinct across iterations. Which means that some
+drivers might be picked more than once, violating the “unique drivers”
+requirement. The correct way to choose the k drivers would be -</p>
 <div id="cb1" class="sourceCode">
 <pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>np.random.choice(drivers, k, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre>
 </div>
 <p><strong><code>simulation</code> only picks one value of
 <code>k</code>, when it should select a new <code>k</code> on each
-iteration</strong> - The code defines k once at the beginning of
-simulation() using <code>choose_k()</code>. This means that the same
-value of k is used for all iterations of the simulation. However, as per
-the problem statement, k should be chosen anew on each iteration of the
-simulation. Therefore, the function <code>choose_k()</code> should be
-called within the loop to select a random k for each iteration.</p>
+iteration</strong></p>
+<p>The code defines k once at the beginning of simulation() using
+<code>choose_k()</code>. This means that the same value of k is used for
+all iterations of the simulation. However, as per the problem statement,
+k should be chosen anew on each iteration of the simulation. Therefore,
+the function <code>choose_k()</code> should be called within the loop to
+select a random k for each iteration.</p>
+<p>Now, for the other options:</p>
+<ul>
+<li><p><strong><code>drivers</code> only includes the drivers that made
+one delivery, rather than all drivers</strong></p>
+<p><code>orders["driver"].unique()</code> returns all unique drivers,
+regardless of how many deliveries they made, so this issue doesn’t exist
+in the code.</p></li>
+<li><p><strong><code>choose_k</code> returns a random integer between
+<code>1</code> and <code>11</code>, instead of one from <code>1</code>
+to <code>10</code></strong></p>
+<p><code>np.random.choice(np.arange(1, 11))</code> correctly selects a
+random integer from 1 to 10 (inclusive), so this is not an
+issue.</p></li>
+<li><p><strong><code>choose_k</code> always returns the same
+number</strong></p>
+<p><code>choose_k()</code> generates a random number between 1 and 10
+every time it is called. Therefore, it does not always return the same
+number.</p></li>
+<li><p><strong><code>one_sim</code> always returns <code>False</code>,
+because <code>selected</code> is always an empty array</strong></p>
+<p>The array <code>selected</code> is updated correctly inside the loop,
+and it will contain the selected drivers for the simulation, so it
+doesn’t always return <code>False</code>.</p></li>
+<li><p><strong><code>one_sim</code> draws <code>k</code> drivers without
+replacement, instead of with replacement</strong></p>
+<p>The issue is not about drawing without replacement; the issue is that
+the function draws with replacement within the for loop, which could
+result in the same driver being chosen more than once.</p></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
+<hr />
 <p>Suppose the DataFrame <code>D</code> contains a subset of the rows in
-<code>orders</code>, such that:</p>
-<ul>
-<li><p>Some of the values in the <code>"minutes"</code> column are
-missing.</p></li>
-<li><p>None of the values in the <code>"minutes"</code> column are
-missing for orders made in <code>"Moderate"</code> traffic.</p></li>
-</ul>
-<p>Each part of this question is independent of all other parts. In each
-part, <strong>select all</strong> expressions that are
-<strong>guaranteed</strong> to evaluate to the <strong>same</strong>
-value, <strong>before and after</strong> the imputation code is run. The
-first part is done for you.</p>
-<p><br></p>
+<code>orders</code>, such that: - Some of the values in the
+<code>"minutes"</code> column are missing. - None of the values in the
+<code>"minutes"</code> column are missing for orders made in
+<code>"Moderate"</code> traffic. Each part of this question is
+independent of all other parts. In each part, <strong>select
+all</strong> expressions that are <strong>guaranteed</strong> to
+evaluate to the <strong>same</strong> value, <strong>before and
+after</strong> the imputation code is run. The first part is done for
+you. **<br></p>
 <h3 id="problem-8.1">Problem 8.1</h3>
+<p>**</p>
 <div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
 <ul>
 <li><code>D.shape[0]</code></li>
 </ul>
@@ -870,14 +894,12 @@ not alter the number of rows.</p>
 <p><br></p>
 <h3 id="problem-8.2">Problem 8.2</h3>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
-</ul>
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
+<p>[ ] <code>D["minutes"].mean()</code> [ ]
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
+<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
+above. **** **</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_2">
@@ -891,31 +913,36 @@ aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> In this imputation code we are performing
-mean imputation by filling the missing values with the mean of the whole
-dataset</p>
-<p><code>D["minutes"].mean()</code> - This expression will remain the
-same before and after the imputation because we are filling the missing
-values in “minutes” with the mean of the column. Thus, the overall mean
-of the column will remain unchanged.</p>
+<p><strong> </strong>Answer**: <code>D["minutes"].mean()</code>,
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p>
+<p>In this imputation code we are performing mean imputation by filling
+the missing values with the mean of the whole dataset.</p>
+<p><code>D["minutes"].mean()</code> - As we’ve seen in class, replacing
+missing values with the mean of the observed values does not change the
+mean.</p>
 <p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
 Since the imputation does not affect the rows where “traffic” is
 “Moderate” (i.e., these rows already have no missing values), the mean
 for this subset of the data will remain unchanged as well.</p>
+<p><code>D.groupby("traffic")["minutes"].mean()</code> - This expression
+will change after imputation. The grouped means for traffic categories
+that had missing values will be affected by the imputation, as we’re
+replacing missing values with the overall mean rather than
+group-specific means. **</p>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
+<p><br><strong> </strong><br></p>
 <h3 id="problem-8.3">Problem 8.3</h3>
-<pre><code>t = lambda x: x.fillna(x.mean())
-D[&quot;minutes&quot;] = D.groupby(&quot;traffic&quot;)[&quot;minutes&quot;].transform(t)</code></pre>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
-</ul>
+<p>**</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> D.groupby(<span class="st">&quot;traffic&quot;</span>)[<span class="st">&quot;minutes&quot;</span>].transform(t)</span></code></pre></div>
+<p>[ ] <code>D["minutes"].mean()</code> [ ]
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
+<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
+above. **** **</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_3">
@@ -929,9 +956,15 @@ aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> In this imputation code we are performing
-conditional mean imputation by filling the missing values with the
-minutes of each group of traffic.</p>
+<p><strong> </strong>Answer**:
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code>,
+<code>D.groupby("traffic")["minutes"].mean()</code></p>
+<p>In this imputation code we are performing conditional mean imputation
+by filling the missing values with the minutes of each group of
+traffic.</p>
+<p><code>D["minutes"].mean()</code> - This expression will change after
+imputation. When we fill missing values with group-specific means, the
+overall mean can change.</p>
 <p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
 Since the imputation only fills in missing values for the “minutes”
 column based on the mean of the “minutes” values within each traffic
@@ -941,22 +974,22 @@ groups by the “traffic” column and fills missing values using the mean
 of “minutes” within each group. Since “Moderate” traffic already had no
 missing values, the mean for this group will not be affected, and
 neither will the means for other groups, assuming the missing values are
-only filled within their respective groups.</p>
+only filled within their respective groups. **</p>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
+<p><br><strong> </strong><br></p>
 <h3 id="problem-8.4">Problem 8.4</h3>
-<pre><code>present = D.loc[D[&quot;minutes&quot;].notna(), &quot;minutes&quot;]
-n = D[&quot;minutes&quot;].isna().sum()
-D.loc[D[&quot;minutes&quot;].isna(), &quot;minutes&quot;] = np.random.choice(present, n)</code></pre>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
-<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
-</ul>
+<p>**</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a> present <span class="op">=</span> D.loc[D[<span class="st">&quot;minutes&quot;</span>].notna(), <span class="st">&quot;minutes&quot;</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> n <span class="op">=</span> D[<span class="st">&quot;minutes&quot;</span>].isna().<span class="bu">sum</span>()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a> D.loc[D[<span class="st">&quot;minutes&quot;</span>].isna(), <span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> np.random.choice(present, n)</span></code></pre></div>
+<p>[ ] <code>D["minutes"].mean()</code> [ ]
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
+<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
+above. **** **</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_4">
@@ -970,18 +1003,28 @@ aria-labelledby="heading8_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> In this imputation code we are performing
-unconditional probabalistic imputation by filling the missing values by
-randomly sampling from the present values in the “minutes” column</p>
+<p><strong> </strong>Answer**:
+<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p>
+<p>In this imputation code we are performing unconditional probabilistic
+imputation by filling the missing values by randomly sampling from the
+present values in the “minutes” column.</p>
+<p><code>D["minutes"].mean()</code> - This expression will likely change
+after imputation, as we’re replacing missing values with randomly
+selected observed values.</p>
 <p><code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> -
 Since “Moderate” traffic rows have no missing values, the imputation
 does not affect them. Therefore, the mean for this subset of data will
 remain unchanged.</p>
+<p><code>D.groupby("traffic")["minutes"].mean()</code> - The means for
+traffic categories that had missing values will likely change after
+imputation, as we’re filling in those missing values with randomly
+selected values from the entire dataset rather than values specific to
+each traffic category. **</p>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
+<p><br><strong> </strong>**</p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
 <p>In the DataFrame <code>orders</code>, assume that:</p>

@@ -21,8 +21,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -85,7 +86,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="..\assets\theme.css" />
   <script defer=""
   src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -1186,8 +1187,8 @@ aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
 </header>
 <p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
 <p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
-<p><span class="math display">\frac{dR}{dh}(h) = 2(x+1)
-e^{(x+1)^2}</span></p>
+<p><span class="math display">\frac{dR}{dh}(h) = 2(h+1)
+e^{(h+1)^2}</span></p>
 <p>Then, we know that</p>
 <p><span class="math display">h^{(1)} = h^{(0)} - \alpha
 \frac{dR}{dh}(h^{(0)}) = 0 - \alpha \frac{dR}{dh}(0)</span></p>
