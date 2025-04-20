@@ -1,6 +1,6 @@
 # BEGIN PROB
 
-<i>Source: [Winter 2024 Final Part 2](../wi24-final-pt2/index.html), Problem 4</i>
+<!-- <i>Source: [Winter 2024 Final Part 2](../wi24-final-pt2/index.html), Problem 4</i> -->
 
 In hospital, there are $10$ patients who have recently been exposed to COVID. The hospital purchased a new COVID testing machine. The machine could comprehensively analyze multiple body measurements to produce a COVID score for each patient, ranging from $1$ to $10$. According to the instruction manual of the machine, a higher COVID score means the patient is more likely to be infected by COVID, while a lower COVID score means the patient is less likely to be infected. The COVID score of each patient is listed below:
 

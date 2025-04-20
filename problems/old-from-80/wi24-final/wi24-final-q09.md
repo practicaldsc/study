@@ -2,7 +2,7 @@
 
 Suppose Yutian builds a classifier that predicts whether or not a hotel provides free parking. The confusion matrix for her classifier, when evaluated on our training set, is given below.
 
-<center><img src="../../assets/images/wi24-final/confusion.png" width=550></center>
+<center><img src="../../assets/images/old-from-80/wi24-final/confusion.png" width=550></center>
 
 # BEGIN SUBPROB
 

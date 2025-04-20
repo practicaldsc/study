@@ -23,8 +23,10 @@ $$x^{(t+1)} = x^{(t)} - \alpha(3x^{(t)^2} + 2x^{(t)}) = -\frac{3}{4}x^{(t)^2} + 
 # BEGIN SUBPROB
 
 Suppose $x^{(0)} = -1$.
-- What is the value of $x^{(1)}$?
-- Will gradient descent eventually converge, given the initial guess $x^{(0)} = -1$ and step size $\alpha = \frac{1}{4}$?
+
+ -  What is the value of $x^{(1)}$?
+
+ -  Will gradient descent eventually converge, given the initial guess $x^{(0)} = -1$ and step size $\alpha = \frac{1}{4}$?
 
 # BEGIN SOLUTION
 
@@ -61,8 +63,10 @@ divergent.
 # BEGIN SUBPROB
 
 Suppose $x^{(0)} = 1$.
-- What is the value of $x^{(1)}$?
-- Will gradient descent eventually converge, given the initial guess $x^{(0)} = 1$ and step size $\alpha = \frac{1}{4}$?
+
+ -  What is the value of $x^{(1)}$?
+
+ -  Will gradient descent eventually converge, given the initial guess $x^{(0)} = 1$ and step size $\alpha = \frac{1}{4}$?
 
 # BEGIN SOLUTION
 
