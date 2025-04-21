@@ -3,13 +3,24 @@ context: >
   The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
   <br><br>We encourage you to attempt these problems **before** Wednesday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
   <br><br>We will enable the solutions here after the review session, though you can find the written solutions to these problems in other discussion worksheets.
+  <br><br>While you can treat this as a mock exam of sorts, there are many topics that are in scope for the final exam that do not appear here, and this may not be representative of the length of the real Final Exam.
 show_solution: false
 problems:
-  - disc08/sp23-final-pt1-q05 # multiple lineaer regression
-  - disc10/q11 # lamda regularization
-  - disc11/fa21-midterm-q03 # gradient descent
-  - disc12/sp24-final-q13 # logisitic regression + classification metrics
-  - old-from-40a/fa21-final/q07 # clustering
-  - disc10/wi23-final-q08 # cv
-  - disc09/sp24-final-q10 # feature engineering
-  - disc10/su20-midterm-q04 # one-hot encoding/rank
+  # - disc08/sp23-final-pt1-q05 # multiple lineaer regression
+  # - disc10/q11 # lamda regularization
+  # - disc11/fa21-midterm-q03 # gradient descent
+  # - disc12/sp24-final-q13 # logisitic regression + classification metrics
+  # - old-from-40a/fa21-final/q07 # clustering
+  # - disc10/wi23-final-q08 # cv
+  # - disc09/sp24-final-q10 # feature engineering
+  # - disc10/su20-midterm-q04 # one-hot encoding/rank
+  # Suraj's edits are below
+  - disc08/sp24-final-q04 # 1. Normal equations interpretation
+  - disc10/wi23-final-q09
+  - disc10/su20-midterm-q04 # q5
+  - disc10/sp22-final-q11 # CV
+  - disc10/q11 # regularization/BV
+  - disc11/fa21-midterm-q03 # grad desc
+  - disc12/wi23-final-q07 # precision/recall
+  - disc12/q13 # log reg
+  - disc13/wi23-final-q05 # clustering

@@ -20,6 +20,71 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../assets/theme.css" />
   <script defer=""
@@ -71,439 +136,145 @@ attempt these problems <strong>before</strong> Wednesday’s exam review
 session, so that we have enough time to walk through the solutions to
 all of the problems. <br><br>We will enable the solutions here after the
 review session, though you can find the written solutions to these
-problems in other discussion worksheets.</p>
+problems in other discussion worksheets. <br><br>While you can treat
+this as a mock exam of sorts, there are many topics that are in scope
+for the final exam that do not appear here, and this may not be
+representative of the length of the real Final Exam.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
-<p>Suppose we want to predict how long it takes to run a Jupyter
-notebook on Datahub. For 100 different Jupyter notebooks, we collect the
-following 5 pieces of information:</p>
-<ul>
-<li><p><strong>cells</strong>: number of cells in the notebook</p></li>
-<li><p><strong>lines</strong>: number of lines of code</p></li>
-<li><p><strong>max iterations</strong>: largest number of iterations in
-any loop in the notebook, or 1 if there are no loops</p></li>
-<li><p><strong>variables</strong>: number of variables defined in the
-notebook</p></li>
-<li><p><strong>runtime</strong>: number of seconds for the notebook to
-run on Datahub</p></li>
-</ul>
-<p>Then we use multiple regression to fit a prediction rule of the form
-<!-- $$H(\text{cells, lines, max iterations, variables}) =  w_0 + w_1 \cdot \text{cells} \cdot \text{lines} + w_2 \cdot (\text{max iterations})^{\text{variables} - 10}$$ --></p>
-<p><span class="math display">H(\text{cells}_i, \text{lines}_i,
-\text{max iterations}_i, \text{variables}_i) =  
-w_0 + w_1 \cdot \text{cells}_i \cdot \text{lines}_i + w_2 \cdot
-(\text{max iterations}_i)^{\text{variables}_i - 10}</span></p>
+<p>Consider the vectors <span class="math inline">\vec{u}</span> and
+<span class="math inline">\vec{v}</span>, defined below.</p>
+<p><span class="math display">\vec{u} = \begin{bmatrix} 1 \\ 0 \\ 0
+\end{bmatrix} \qquad \vec{v} = \begin{bmatrix} 0 \\ 1 \\ 1
+\end{bmatrix}</span></p>
+<p>We define <span class="math inline">X \in \mathbb{R}^{3 \times
+2}</span> to be the matrix whose first column is <span
+class="math inline">\vec u</span> and whose second column is <span
+class="math inline">\vec v</span>.</p>
 <p><br></p>
 <h3 id="problem-1.1">Problem 1.1</h3>
-<p>What are the dimensions of the design matrix <span
-class="math inline">X</span>?</p>
-<p><span class="math display">
-\begin{bmatrix}
-&amp; &amp; &amp; \\
-&amp; &amp; &amp; \\
-&amp; &amp; &amp; \\
-\end{bmatrix}_{r \times c}
-</span></p>
-<p>So, what should <span class="math inline">r</span> and <span
-class="math inline">c</span> be for: <span class="math inline">r</span>
-rows <span class="math inline">\times</span> <span
-class="math inline">c</span> columns.</p>
+<p>In this part only, let <span class="math inline">\vec{y} =
+\begin{bmatrix} -1 \\ k \\ 252 \end{bmatrix}</span>.</p>
+<p>Find a scalar <span class="math inline">k</span> such that <span
+class="math inline">\vec{y}</span> is in <span
+class="math inline">\text{span}(\vec u, \vec v)</span>. Give your answer
+as a constant with no variables.</p>
 <p><br></p>
 <h3 id="problem-1.2">Problem 1.2</h3>
-<p>In <strong>one sentence</strong>, what does the entry in row 3,
-column 2 of the design matrix X represent? (Count rows and columns
-starting at 1, not 0).</p>
+<p>Show that: <span class="math display">(X^TX)^{-1}X^T =
+\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \frac{1}{2} &amp;
+\frac{1}{2} \end{bmatrix}</span></p>
+<p><em>Hint: If <span class="math inline">A = \begin{bmatrix} a_1 &amp;
+0 \\ 0 &amp; a_2 \end{bmatrix}</span>, then <span
+class="math inline">A^{-1} = \begin{bmatrix} \frac{1}{a_1} &amp; 0 \\ 0
+&amp; \frac{1}{a_2} \end{bmatrix}</span>.</em></p>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>In parts (c) and (d) only, let <span class="math inline">\vec{y} =
+\begin{bmatrix} 4 \\ 2 \\ 8 \end{bmatrix}</span>.</p>
+<p>Find scalars <span class="math inline">a</span> and <span
+class="math inline">b</span> such that <span class="math inline">a \vec
+u + b \vec v</span> is the vector in <span
+class="math inline">\text{span}(\vec u, \vec v)</span> that is as close
+to <span class="math inline">\vec{y}</span> as possible. Give your
+answers as constants with no variables.</p>
+<p><br></p>
+<h3 id="problem-1.4">Problem 1.4</h3>
+<p>Let <span class="math inline">\vec{e} = \vec{y} - (a \vec u + b \vec
+v)</span>, where <span class="math inline">a</span> and <span
+class="math inline">b</span> are the values you found in part (c).</p>
+<p>What is <span class="math inline">\lVert \vec{e} \rVert</span>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">0</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">3 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">4 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">2\sqrt{21}</span></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-1.5">Problem 1.5</h3>
+<p>Is it true that, for any vector <span class="math inline">\vec{y} \in
+\mathbb{R}^3</span>, we can find scalars <span
+class="math inline">c</span> and <span class="math inline">d</span> such
+that the sum of the entries in the vector <span
+class="math inline">\vec{y} - (c \vec u + d \vec v)</span> is 0?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes, because <span class="math inline">\vec{u}</span> and <span class="math inline">\vec{v}</span> are linearly independent.</p></li>
+<li><p><input type="radio" disabled="" /> Yes, because <span class="math inline">\vec{u}</span> and <span class="math inline">\vec{v}</span> are orthogonal.</p></li>
+<li><p><input type="radio" disabled="" /> Yes, but for a reason that isn’t listed here.</p></li>
+<li><p><input type="radio" disabled="" /> No, because <span class="math inline">\vec{y}</span> is not
+necessarily in</p></li>
+<li><p><input type="radio" disabled="" /> No, because neither <span class="math inline">\vec{u}</span> nor
+<span class="math inline">\vec{v}</span> is equal to the vector</p></li>
+<li><p><input type="radio" disabled="" /> No, but for a reason that isn’t listed here.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-1.6">Problem 1.6</h3>
+<p>Suppose that <span class="math inline">Q \in \mathbb{R}^{100 \times
+12}</span>, <span class="math inline">\vec{s} \in
+\mathbb{R}^{100}</span>, and <span class="math inline">\vec{f} \in
+\mathbb{R}^{12}</span>. What are the dimensions of the following
+product?</p>
+<p><span class="math display">\vec{s}^T Q \vec{f}</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> scalar</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 1</span> vector</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">100 \times 1</span> vector</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">100 \times 12</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 12</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 100</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> undefined</p></li>
+</ul>
 <p><br></p>
 <hr />
 <h2 id="problem-2">Problem 2</h2>
-<p>Suppose we want to use LASSO (i.e. minimize mean squared error with
-<span class="math inline">L_1</span> regularization) to fit a linear
-model that predicts the number of ingredients in a product given its
-price and rating.</p>
-<p>Let <span class="math inline">\lambda</span> be a non-negative
-regularization hyperparameter. Using cross-validation, we determine the
-average validation mean squared error — which we’ll refer to as AVMSE in
-this question — for several different choices of <span
-class="math inline">\lambda</span>. The results are given below.</p>
-<center><img src="../assets/images/disc10/avmse.png" width=600></center>
-<p><br></p>
-<h3 id="problem-2.1">Problem 2.1</h3>
-<p>As <span class="math inline">\lambda</span> increases, what happens
-to model complexity and model variance?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Model complexity and model variance both increase.</p></li>
-<li><p><input type="radio" disabled="" /> Model complexity increases while model variance decreases.</p></li>
-<li><p><input type="radio" disabled="" /> Model complexity decreases while model variance increases.</p></li>
-<li><p><input type="radio" disabled="" /> Model complexity and model variance both decrease.</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-2.2">Problem 2.2</h3>
-<p>What does the value <span class="math inline">A</span> on the graph
-above correspond to?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
-to use to train a model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-2.3">Problem 2.3</h3>
-<p>What does the value <span class="math inline">B</span> on the graph
-above correspond to?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
-to use to train a model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-2.4">Problem 2.4</h3>
-<p>What does the value <span class="math inline">C</span> on the graph
-above correspond to?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
-to use to train a model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
-<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
-</ul>
-<p><br></p>
+<p>One piece of information that may be useful as a feature is the
+proportion of SAT test takers in a state in a given year that qualify
+for free lunches in school. The Series <code>lunch_props</code> contains
+8 values, each of which are either <code>"low"</code>,
+<code>"medium"</code>, or <code>"high"</code>. Since we can’t use
+strings as features in a model, we decide to encode these strings using
+the following <code>Pipeline</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The FunctionTransformer is only needed to change the result</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the OneHotEncoder from a &quot;sparse&quot; matrix to a regular matrix</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># so that it can be used with StandardScaler;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it doesn&#39;t change anything mathematically.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pl <span class="op">=</span> Pipeline([</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ohe&quot;</span>, OneHotEncoder(drop<span class="op">=</span><span class="st">&quot;first&quot;</span>)),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ft&quot;</span>, FunctionTransformer(<span class="kw">lambda</span> X: X.toarray())),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ss&quot;</span>, StandardScaler())</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<p>After calling <code>pl.fit(lunch_props)</code>,
+<code>pl.transform(lunch_props)</code> evaluates to the following
+array:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>array([[ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>,  <span class="fl">2.64575131</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>]])</span></code></pre></div>
+<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
+to the following array:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
+<p>Given the above information, we can conclude that
+<code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
+<code>"low"</code>, <strong>(b)</strong> value(s) equal to
+<code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
+<code>"high"</code>. <em>(Note: You should write one positive integer in
+each box such that the numbers add up to 8.)</em></p>
+<p>What are (a), (b), and (c)? Give you answers as positive
+integers.</p>
 <hr />
 <h2 id="problem-3">Problem 3</h2>
-<p>Suppose we want to minimize the function</p>
-<p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
-<p><br></p>
-<h3 id="problem-3.1">Problem 3.1</h3>
-<p>Without using gradient descent or calculus, what is the value <span
-class="math inline">h^*</span> that minimizes <span
-class="math inline">R(h)</span>?</p>
-<p><br></p>
-<h3 id="problem-3.2">Problem 3.2</h3>
-<p>Now, suppose we want to use gradient descent to minimize <span
-class="math inline">R(h)</span>. Assume we use an initial guess of <span
-class="math inline">h^{(1)} = 0</span>. What is <span
-class="math inline">h^{(1)}</span>? Give your answer in terms of a
-generic step size, <span class="math inline">\alpha</span>, and other
-constants. (<span class="math inline">e</span> is a constant.)</p>
-<p><br></p>
-<h3 id="problem-3.3">Problem 3.3</h3>
-<p>Using your answers from the previous two parts, what should we set
-the value of <span class="math inline">\alpha</span> to be if we want to
-ensure that gradient descent finds <span class="math inline">h^*</span>
-after just one iteration?</p>
-<p><br></p>
-<h3 id="problem-3.4">Problem 3.4</h3>
-<p>Below is a graph of <span class="math inline">R(h)</span> with no
-axis labels.</p>
-<!-- TODO -->
-<center><img src="../assets/images/disc11/graph.png" width="500" height="350"></center>
-<p>True or False: Given an appropriate choice of step size, <span
-class="math inline">\alpha</span>, gradient descent is guaranteed to
-find the minimizer of <span class="math inline">R(h)</span>.</p>
-<p><br></p>
-<hr />
-<h2 id="problem-4">Problem 4</h2>
-<p>Suppose you fit a logistic regression classifier. The classifier’s
-predictions on a test set of 5 points are shown below, along with the
-actual labels.</p>
-<center><img src="../assets/images/old-from-80/sp24-final/eval.png" style="width: 200px"></center>
-<p>Recall that for logistic regression, we must also choose a threshold
-<span class="math inline">\tau</span> to convert the predicted
-probabilities to predicted labels. For this question, assume that <span
-class="math inline">0 &lt; \tau &lt; 1</span>. Precision is undefined
-when the classifier doesn’t make any positive predictions (since <span
-class="math inline">\frac{0}{0}</span> is undefined). In each part, show
-your work and draw a box around your final answer. Each of your final
-answers should be a single number.</p>
-<p><br></p>
-<h3 id="problem-4.1">Problem 4.1</h3>
-<p>What is the <strong>lowest</strong> possible precision for any
-threshold <span class="math inline">\tau</span>?</p>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-4.2">Problem 4.2</h3>
-<p>What is the <strong>lowest</strong> possible recall for any threshold
-<span class="math inline">\tau</span>?</p>
-<p><br></p>
-<h3 id="problem-4.3">Problem 4.3</h3>
-<p>What is the <strong>highest</strong> possible recall if the
-classifier achieves a precision of 1?</p>
-<p><br></p>
-<hr />
-<h2 id="problem-5">Problem 5</h2>
-<p>Consider the following dataset of <span
-class="math inline">n=7</span> points in <span
-class="math inline">d=2</span> dimensions.</p>
-<center><img src="../assets/images/disc13/graph.png" width="500"></center>
-<p><br></p>
-<h3 id="problem-5.1">Problem 5.1</h3>
-<p>Suppose we decide to use agglomerative clustering to cluster the
-data. How many possible pairs of clusters could we combine in the first
-iteration?</p>
-<p><br></p>
-<h3 id="problem-5.2">Problem 5.2</h3>
-<p>Suppose we want to identify <span class="math inline">k=2</span>
-clusters in this dataset using <span class="math inline">k</span>-means
-clustering.</p>
-<p>Determine the centroids <span class="math inline">\vec{\mu}_1</span>
-and <span class="math inline">\vec{\mu}_2</span> that minimize inertia.
-(Let <span class="math inline">\vec{\mu}_1</span> be the centroid with a
-smaller <span class="math inline">x_1</span> coordinate.) Justify your
-answers.</p>
-<p><em>Note: You don’t have to run the k-Means Clustering algorithm to
-answer this question.</em></p>
-<p><br></p>
-<h3 id="problem-5.3">Problem 5.3</h3>
-<p>What is the total inertia for the centroids you chose in the previous
-part? Show your work.</p>
-<p><br></p>
-<hr />
-<h2 id="problem-6">Problem 6</h2>
-<p>We will aim to build a classifier that takes in demographic
-information about a state from a particular year and predicts whether or
-not the state’s mean math score is higher than its mean verbal score
-that year.</p>
-<p>In honor of the
-<a href="https://www.reddit.com/r/UCSD/comments/11o0w9r/chicken_event/">rotisserie
-chicken event</a> on UCSD’s campus in March of 2023,
-<code>sklearn</code> released a new classifier class called
-<code>ChickenClassifier</code>.</p>
-<p><br></p>
-<h3 id="problem-6.1">Problem 6.1</h3>
-<p><code>ChickenClassifier</code>s have many hyperparameters, one of
-which is <code>height</code>. As we increase the value of
-<code>height</code>, the model variance of the resulting
-<code>ChickenClassifier</code> also increases.</p>
-<p>First, we consider the training and testing accuracy of a
-<code>ChickenClassifier</code> trained using various values of
-<code>height</code>. Consider the plot below.</p>
-<center><img src='../assets/images/disc10/accuracy.png' width=30%></center>
-<ul>
-<li>Note that <strong>accuracy</strong> is a metric that measures how
-well a classifier performs by comparing the number of correct
-predictions to the total number of predictions.</li>
-</ul>
-<p>Which of the following depicts <strong>training accuracy
-vs. <code>height</code></strong>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Option 1</p></li>
-<li><p><input type="radio" disabled="" /> Option 2</p></li>
-<li><p><input type="radio" disabled="" /> Option 3</p></li>
-</ul>
-<p>Which of the following depicts <strong>testing accuracy
-vs. <code>height</code></strong>?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> Option 1</p></li>
-<li><p><input type="radio" disabled="" /> Option 2</p></li>
-<li><p><input type="radio" disabled="" /> Option 3</p></li>
-</ul>
-<p><br></p>
-<p><code>ChickenClassifier</code>s have another hyperparameter,
-<code>color</code>, for which there are four possible values:
-<code>"yellow"</code>, <code>"brown"</code>, <code>"red"</code>, and
-<code>"orange"</code>. To find the optimal value of <code>color</code>,
-we perform <span class="math inline">k</span>-fold cross-validation with
-<span class="math inline">k=4</span>. The results are given in the table
-below.</p>
-<center><img src='../assets/images/disc10/CV.png' width=30%></center>
-<p><br></p>
-<h3 id="problem-6.2">Problem 6.2</h3>
-<p>Which value of <code>color</code> has the best average validation
-accuracy?</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>"yellow"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"brown"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"red"</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>"orange"</code></p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-6.3">Problem 6.3</h3>
-<p>True or False: It is possible for a hyperparameter value to have the
-best average validation accuracy across all folds, but not have the best
-validation accuracy in any one particular fold.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> True</p></li>
-<li><p><input type="radio" disabled="" /> False</p></li>
-</ul>
-<p><br></p>
-<h3 id="problem-6.4">Problem 6.4</h3>
-<p>Now, instead of finding the best <code>height</code> and best
-<code>color</code> individually, we decide to perform a grid search that
-uses <span class="math inline">k</span>-fold cross-validation to find
-the combination of <code>height</code> and <code>color</code> with the
-best average validation accuracy.</p>
-<p>For the purposes of this question, assume that:</p>
-<ul>
-<li>We are performing <span class="math inline">k</span>-fold cross
-validation.</li>
-<li>Our training set contains <span class="math inline">n</span> rows,
-where <span class="math inline">n</span> is greater than 5 and is a
-multiple of <span class="math inline">k</span>.</li>
-<li>There are <span class="math inline">h_1</span> possible values of
-<code>height</code> and <span class="math inline">h_2</span> possible
-values of <code>color</code>.</li>
-</ul>
-<p>Consider the following three subparts:</p>
-<ul>
-<li>A. What is the size of each fold?</li>
-<li>B. How many times is row 5 in the training set used for
-training?</li>
-<li>C. How many times is row 5 in the training set used for
-validation?</li>
-</ul>
-<p>Choose from the following options.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">k</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{k}{n}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{n}{k}</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{n}{k} \cdot (k - 1)</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">h_1h_2k</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">h_1h_2(k-1)</span></p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">\frac{nh_1h_2}{k}</span></p></li>
-<li><p><input type="radio" disabled="" /> None of the above</p></li>
-</ul>
-<p><br></p>
-<hr />
-<h2 id="problem-7">Problem 7</h2>
-<p>The two plots below show the total number of boots (top) and sandals
-(bottom) purchased per month in the <code>df</code> table. Assume that
-there is one data point per month.</p>
-<center><img src="../../assets/images/disc09/boot.png" style="width: 100%; height: auto;"></center>
-<center><img src="../../assets/images/disc09/sandal.png" style="width: 100%; height: auto;"></center>
-<p>For each of the following regression models, use the visualizations
-shown above to select the value that is <strong>closest</strong> to the
-fitted model weights. If it is not possible to determine the model
-weight, select “Not enough info”. For the models below:</p>
-<ul>
-<li>The notation <span class="math inline">\text{boot}</span> refers to
-the number of boots sold.</li>
-<li>The notation <span class="math inline">\text{sandal}</span> refers
-to the number of sandals sold.</li>
-<li><span class="math inline">\text{summer}=1</span> is a column with
-value 1 if the month is between March (03) and August (08),
-inclusive.</li>
-<li><span class="math inline">\text{winter}=1</span> is a column with
-value 1 if the month is between September (09) and February (02),
-inclusive.</li>
-</ul>
-<p><br></p>
-<h3 id="problem-7.1">Problem 7.1</h3>
-<p><span class="math inline">\text{predicted boot}_i = w_0</span></p>
-<p><span class="math inline">w_0</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 50</p></li>
-<li><p><input type="radio" disabled="" /> 100</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-7.2">Problem 7.2</h3>
-<p><span class="math inline">\text{predicted boot}_i = w_0 + w_1 \cdot
-\text{sandals}_i</span></p>
-<p><span class="math inline">w_0</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -100</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 100</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><span class="math inline">w_1</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -100</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 100</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-7.3">Problem 7.3</h3>
-<p><span class="math inline">\text{predicted boot}_i  = w_0 + w_1 \cdot
-(\text{summer=1})_i</span></p>
-<p><span class="math inline">w_0</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -100</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 100</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><span class="math inline">w_1</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -80</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 80</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-7.4">Problem 7.4</h3>
-<p><span class="math inline">\text{predicted sandal}_i  = w_0 + w_1
-\cdot (\text{summer=1})_i</span></p>
-<p><span class="math inline">w_0</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -20</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 20</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><span class="math inline">w_1</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -80</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 80</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><br></p>
-<p><br></p>
-<h3 id="problem-7.5">Problem 7.5</h3>
-<p><span class="math inline">\text{predicted sandal}_i  = w_0 + w_1
-\cdot (\text{summer=1})_i + w_2 \cdot (\text{winter=1})_i</span></p>
-<p><span class="math inline">w_0</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -20</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 20</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><span class="math inline">w_1</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -80</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 80</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><span class="math inline">w_2</span>:</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> -80</p></li>
-<li><p><input type="radio" disabled="" /> -1</p></li>
-<li><p><input type="radio" disabled="" /> 0</p></li>
-<li><p><input type="radio" disabled="" /> 1</p></li>
-<li><p><input type="radio" disabled="" /> 80</p></li>
-<li><p><input type="radio" disabled="" /> Not enough info</p></li>
-</ul>
-<p><br></p>
-<hr />
-<h2 id="problem-8">Problem 8</h2>
 <p>Suppose we have one qualitative variable that that we convert to
 numerical values using one- hot encoding. We’ve shown the first four
 rows of the resulting design matrix below:</p>
 <center><img src='../assets/images/disc10/matrix.png' width=400></center>
 <p><br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
+<h3 id="problem-3.1">Problem 3.1</h3>
 <p>Say we train a linear model <span class="math inline">m_1</span> on
 these data. Then, we replace all of the 1 values in column
 <strong>a</strong> with 3’s and all of the 1 values in column
@@ -520,7 +291,7 @@ class="math inline">m_2</span>.</p>
 <li><p><input type="radio" disabled="" /> impossible to tell</p></li>
 </ul>
 <p><br></p>
-<h3 id="problem-8.2">Problem 8.2</h3>
+<h3 id="problem-3.2">Problem 3.2</h3>
 <p>To account for the intercept term, we add a column of all ones to our
 design matrix from part a. That is, the resulting design matrix has four
 columns: <strong>a</strong> with 3’s instead of 1’s, <strong>b</strong>
@@ -531,6 +302,374 @@ What is the rank of the new design matrix with these four columns?</p>
 <li><p><input type="radio" disabled="" /> 2</p></li>
 <li><p><input type="radio" disabled="" /> 3</p></li>
 <li><p><input type="radio" disabled="" /> 4</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>Suppose we build a binary classifier that uses a song’s
+<code>"track_name"</code> and <code>"artist_names"</code> to predict
+whether its genre is <code>"Hip-Hop/Rap"</code> (1) or not (0).</p>
+<p>For our classifier, we decide to use a brand-new model built into
+<code>sklearn</code> called the<br />
+<code>BillyClassifier</code>. A <code>BillyClassifier</code> instance
+has three hyperparameters that we’d like to tune. Below, we show a
+dictionary containing the values for each hyperparameter that we’d like
+to try:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hyp_grid <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radius&quot;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">100</span>], <span class="co"># 12 total</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;inflection&quot;</span>: [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="co"># 10 total</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;color&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>] <span class="co"># 5 total</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To find the best combination of hyperparameters for our
+<code>BillyClassifier</code>, we first conduct a train-test split, which
+we use to create a training set with 800 rows. We then use
+<code>GridSearchCV</code> to conduct <span
+class="math inline">k</span>-fold cross-validation for each combination
+of hyperparameters in <code>hyp_grid</code>, with <span
+class="math inline">k=4</span>.</p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>When we call <code>GridSearchCV</code>, how many times is a
+<code>BillyClassifier</code> instance trained in total? Give your answer
+as an integer.</p>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>In each of the 4 folds of the data, how large is the training set,
+and how large is the validation set? Give your answers as integers.</p>
+<p>size of training set =</p>
+<p>size of validation set =</p>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>Suppose that after fitting a <code>GridSearchCV</code> instance, its
+<code>best_params_</code> attribute is</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&quot;radius&quot;</span>: <span class="dv">8</span>, <span class="st">&quot;inflection&quot;</span>: <span class="dv">4</span>, <span class="st">&quot;color&quot;</span>: <span class="st">&quot;blue&quot;</span>}</span></code></pre></div>
+<p>Select all true statements below.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average training accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average validation accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest training accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest validation accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> A <code>BillyClassifier</code> that is fit using the specific
+combination of hyperparameters in <code>best_params_</code> is
+guaranteed to have the best accuracy on unseen testing data among all
+combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Suppose we want to use LASSO (i.e. minimize mean squared error with
+<span class="math inline">L_1</span> regularization) to fit a linear
+model that predicts the number of ingredients in a product given its
+price and rating.</p>
+<p>Let <span class="math inline">\lambda</span> be a non-negative
+regularization hyperparameter. Using cross-validation, we determine the
+average validation mean squared error — which we’ll refer to as AVMSE in
+this question — for several different choices of <span
+class="math inline">\lambda</span>. The results are given below.</p>
+<center><img src="../assets/images/disc10/avmse.png" width=600></center>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>As <span class="math inline">\lambda</span> increases, what happens
+to model complexity and model variance?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model complexity and model variance both increase.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity increases while model variance decreases.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity decreases while model variance increases.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity and model variance both decrease.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>What does the value <span class="math inline">A</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>What does the value <span class="math inline">B</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-5.4">Problem 5.4</h3>
+<p>What does the value <span class="math inline">C</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose we want to minimize the function</p>
+<p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Without using gradient descent or calculus, what is the value <span
+class="math inline">h^*</span> that minimizes <span
+class="math inline">R(h)</span>?</p>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>Now, suppose we want to use gradient descent to minimize <span
+class="math inline">R(h)</span>. Assume we use an initial guess of <span
+class="math inline">h^{(1)} = 0</span>. What is <span
+class="math inline">h^{(1)}</span>? Give your answer in terms of a
+generic step size, <span class="math inline">\alpha</span>, and other
+constants. (<span class="math inline">e</span> is a constant.)</p>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>Using your answers from the previous two parts, what should we set
+the value of <span class="math inline">\alpha</span> to be if we want to
+ensure that gradient descent finds <span class="math inline">h^*</span>
+after just one iteration?</p>
+<p><br></p>
+<h3 id="problem-6.4">Problem 6.4</h3>
+<p>Below is a graph of <span class="math inline">R(h)</span> with no
+axis labels.</p>
+<!-- TODO -->
+<center><img src="../assets/images/disc11/graph.png" width="500" height="350"></center>
+<p>True or False: Given an appropriate choice of step size, <span
+class="math inline">\alpha</span>, gradient descent is guaranteed to
+find the minimizer of <span class="math inline">R(h)</span>.</p>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>We decide to build a classifier that takes in a state’s demographic
+information and predicts whether, in a given year:</p>
+<ul>
+<li><p>The state’s mean math score was greater than its mean verbal
+score (1), or</p></li>
+<li><p>the state’s mean math score was less than or equal to its mean
+verbal score (0).</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>The simplest possible classifier we could build is one that predicts
+the same label (1 or 0) every time, independent of all other
+features.</p>
+<p>Consider the following statement:</p>
+<p><em>If <code>a &gt; b</code>, then the constant classifier that
+maximizes training accuracy predicts 1 every time; otherwise, it
+predicts 0 every time.</em></p>
+<p>For which combination of <code>a</code> and <code>b</code> is the
+above statement <strong>not guaranteed</strong> to be true?</p>
+<p><em>Note: Treat <code>sat</code> as our training set.</em></p>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">&gt;</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<p>Option 3:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>).mean()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 4:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> ((sat[<span class="st">&#39;Math&#39;</span>] <span class="op">/</span> sat[<span class="st">&#39;Verbal&#39;</span>]) <span class="op">&gt;</span> <span class="dv">1</span>).mean() <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Option 1</p></li>
+<li><p><input type="radio" disabled="" /> Option 2</p></li>
+<li><p><input type="radio" disabled="" /> Option 3</p></li>
+<li><p><input type="radio" disabled="" /> Option 4</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>Suppose we train a classifier, named Classifier 1, and it achieves an
+accuracy of <span class="math inline">\frac{5}{9}</span> on our training
+set.</p>
+<p>Typically, root mean squared error (RMSE) is used as a performance
+metric for regression models, but mathematically, nothing is stopping us
+from using it as a performance metric for classification models as
+well.</p>
+<p>What is the RMSE of Classifier 1 on our training set? Give your
+answer as a <strong>simplified fraction</strong>.</p>
+<p><br></p>
+<h3 id="problem-7.3">Problem 7.3</h3>
+<p>While Classifier 1’s accuracy on our training set is <span
+class="math inline">\frac{5}{9}</span>, its accuracy on our test set is
+<span class="math inline">\frac{1}{4}</span>. Which of the following
+scenarios is most likely?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to decrease its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to decrease its
+complexity.</p></li>
+</ul>
+<p><br></p>
+<p>For the remainder of this question, suppose we train another
+classifier, named Classifier 2, again on our training set. Its
+performance on the training set is described in the confusion matrix
+below. Note that the columns of the confusion matrix have been
+separately normalized so that each has a sum of 1.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-7.4">Problem 7.4</h3>
+<p>Suppose <code>conf</code> is the DataFrame above. Which of the
+following evaluates to a Series of length 2 whose only unique value is
+the number <code>1</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=0)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=1)</code></p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-7.5">Problem 7.5</h3>
+<p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
+0.6.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> precision</p></li>
+<li><p><input type="radio" disabled="" /> recall</p></li>
+</ul>
+<p><br></p>
+<p>For your convenience, we show the column-normalized confusion matrix
+from the previous page below. You will need to use the specific numbers
+in this matrix when answering the following subpart.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-7.6">Problem 7.6</h3>
+<p>Suppose a fraction <span class="math inline">\alpha</span> of the
+labels in the training set are actually 1 and the remaining <span
+class="math inline">1 - \alpha</span> are actually 0. The accuracy of
+Classifier 2 is 0.65. What is the value of <span
+class="math inline">\alpha</span>? </p>
+<p>Hint: If you’re unsure on how to proceed, here are some guiding
+questions:</p>
+<ul>
+<li><p>Suppose the number of <span class="math inline">y</span>-values
+that are actually 1 is <span class="math inline">A</span> and that the
+number of <span class="math inline">y</span>-values that are actually 0
+is <span class="math inline">B</span>. In terms of <span
+class="math inline">A</span> and <span class="math inline">B</span>,
+what is the accuracy of Classifier 2? Remember, you’ll need to refer to
+the numbers in the confusion matrix above.</p></li>
+<li><p>What is the relationship between <span
+class="math inline">A</span>, <span class="math inline">B</span>, and
+<span class="math inline">\alpha</span>? How does it simplify your
+calculation for the accuracy in the previous step?</p></li>
+</ul>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>Suppose we fit a logistic regression model that predicts whether a
+product is designed for sensitive skin, given its price, <span
+class="math inline">x^{(1)}</span>, number of ingredients, <span
+class="math inline">x^{(2)}</span>, and rating, <span
+class="math inline">x^{(3)}</span>. After minimizing average
+cross-entropy loss, the optimal parameter vector is as follows:</p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix} -1 \\ 1 / 5 \\
+- 3 / 5 \\ 0 \end{bmatrix}</span></p>
+<p>In other words, the intercept term is <span
+class="math inline">-1</span>, the coefficient on price is <span
+class="math inline">\frac{1}{5}</span>, the coefficient on the number of
+ingredients is <span class="math inline">-\frac{3}{5}</span>, and the
+coefficient on rating is <span class="math inline">0</span>.</p>
+<p>Consider the following four products:</p>
+<ul>
+<li><p><strong>Wolfcare</strong>: Costs $15, made of 20 ingredients, 4.5
+rating</p></li>
+<li><p><strong>Go Blue Glow</strong>: Costs $25, made of 5 ingredients,
+4.9 rating</p></li>
+<li><p><strong>DataSPF</strong>: Costs $50, made of 15 ingredients, 3.6
+rating</p></li>
+<li><p><strong>Maize Mist</strong>: Free, made of 1 ingredient, 5.0
+rating</p></li>
+</ul>
+<p>Which of the following products have a predicted probability of being
+designed for sensitive skin of <strong>at least 0.5 (50%)</strong>? For
+each product, select Yes or No.</p>
+<p><strong>Wolfcare</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>Go Blue Glow</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>DataSPF</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>Maize Mist</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>Consider the following plot of data in <span
+class="math inline">d=2</span> dimensions. We’d like to use <span
+class="math inline">k</span>-means clustering to cluster the data into
+<span class="math inline">k=3</span> clusters.</p>
+<p>Suppose the crosses represent initial centroids, which are not
+themselves data points.</p>
+<center><img src="../assets/images/disc13/image.png" width="500"></center>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>Which of the following facts are true about the cluster assignment
+during the first iteration, as determined by these initial centroids?
+Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>The cross shapes in the plot above represent positions of the initial
+centroids before the first iteration. Now the algorithm is run for one
+iteration, after which the centroids have been adjusted.</p>
+<p>We are now starting the second iteration. Which of the following
+facts are true about the cluster assignment during the
+<strong>second</strong> iteration? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>Compare the value of inertia after the end of the second iteration to
+the value of inertia at the end of the first iteration. Which of the
+following facts are true? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The inertia at the end of the second iteration is lower.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there are actually 4 clusters in
+the data but we are using k-means with <span class="math inline">k=3</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there are actually 5 clusters in
+the data but we are using k-means with <span class="math inline">k=3</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there is an outlier that does not
+belong to any cluster.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia at the end of the second iteration is the same as at the
+end of the first iteration.</p></li>
 </ul>
 <p><br></p>
 <hr />
