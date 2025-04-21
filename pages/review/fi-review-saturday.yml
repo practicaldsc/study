@@ -10,7 +10,7 @@ problems:
   - disc09/sp24-final-q10 # Normal equations
   - disc10/wi23-final-q08 # 3. Accuracy and CV
   - disc10/su20-midterm-q03 # regularization
-  - disc11/sp24-final-q05 # GD
+  - disc11/fa22-midterm-q01 #GD
   - disc12/fa19-derivative1 # precision/recall
   - disc12/fa19-midterm-q07 # log reg
   - old-from-40a/fa21-final/q07 # clustering

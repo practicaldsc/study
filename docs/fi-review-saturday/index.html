@@ -488,40 +488,40 @@ observation variance of the model <span class="math inline">\vec{h} = X
 <p><br></p>
 <hr />
 <h2 id="problem-5">Problem 5</h2>
-<p>Let <span class="math inline">\vec{x} = \begin{bmatrix} x_1 \\ x_2
-\end{bmatrix}</span>. Consider the function <span
-class="math inline">g(\vec{x}) = (x_1 - 3)^2 + (x_1^2 -
-x_2)^2</span>.</p>
+<p>Suppose we’d like to use gradient descent to minimize the function
+<span class="math inline">f(x) = x^3 + x^2</span>. Suppose we choose a
+learning rate of <span class="math inline">\alpha =
+\frac{1}{4}</span>.</p>
 <p><br></p>
 <h3 id="problem-5.1">Problem 5.1</h3>
-<p>Find <span class="math inline">\nabla g(\vec{x})</span>, the gradient
-of <span class="math inline">g(\vec{x})</span>, and use it to show that
-<span class="math inline">\nabla g\left( \begin{bmatrix} -1 \\ 1
-\end{bmatrix} \right) = \begin{bmatrix} -8 \\ 0
-\end{bmatrix}</span>.</p>
+<p>Suppose <span class="math inline">x^{(t)}</span> is our guess of the
+minimizing input <span class="math inline">x^{*}</span> at timestep
+<span class="math inline">t</span>, i.e. <span
+class="math inline">x^{(t)}</span> is the result of performing <span
+class="math inline">t</span> iterations of gradient descent, given some
+initial guess. Write an expression for <span
+class="math inline">x^{(t+1)}</span>. Your answer should be an
+expression involving <span class="math inline">x^{(t)}</span> and some
+constants.</p>
 <p><br></p>
 <h3 id="problem-5.2">Problem 5.2</h3>
-<p>We’d like to find the vector <span
-class="math inline">\vec{x}^*</span> that minimizes <span
-class="math inline">g(\vec{x})</span> using gradient descent. Perform
-one iteration of gradient descent by hand, using the initial guess <span
-class="math inline">\vec{x}^{(0)} = \begin{bmatrix} -1 \\ 1
-\end{bmatrix}</span> and the learning rate <span
-class="math inline">\alpha = \frac{1}{2}</span>. In other words, what is
-<span class="math inline">\vec{x}^{(1)}</span>?</p>
+<p>Suppose <span class="math inline">x^{(0)} = -1</span>.</p>
+<ul>
+<li><p>What is the value of <span
+class="math inline">x^{(1)}</span>?</p></li>
+<li><p>Will gradient descent eventually converge, given the initial
+guess <span class="math inline">x^{(0)} = -1</span> and step size <span
+class="math inline">\alpha = \frac{1}{4}</span>?</p></li>
+</ul>
 <p><br></p>
 <h3 id="problem-5.3">Problem 5.3</h3>
-<p>Consider the function <span class="math inline">f(t) = (t - 3)^2 +
-(t^2 - 1)^2</span>. Select the true statement below.</p>
-<ul class="task-list">
-<li><p><input type="radio" disabled="" /> <span class="math inline">f(t)</span> is convex and has a global
-minimum.</p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">f(t)</span> is not convex, but has a global
-minimum.</p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">f(t)</span> is convex, but doesn’t have a
-global minimum.</p></li>
-<li><p><input type="radio" disabled="" /> <span class="math inline">f(t)</span> is not convex and doesn’t have
-a global minimum.</p></li>
+<p>Suppose <span class="math inline">x^{(0)} = 1</span>.</p>
+<ul>
+<li><p>What is the value of <span
+class="math inline">x^{(1)}</span>?</p></li>
+<li><p>Will gradient descent eventually converge, given the initial
+guess <span class="math inline">x^{(0)} = 1</span> and step size <span
+class="math inline">\alpha = \frac{1}{4}</span>?</p></li>
 </ul>
 <p><br></p>
 <hr />
