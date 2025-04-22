@@ -165,17 +165,19 @@ You should work on these problems **on paper**, since your exams will also be on
   <thead>
     <tr>
       <th scope="col">Semester</th>
-      <th scope="col">Instructor(s)</th>
       <th scope="col">Exam</th>
     </tr>
   </thead>
   <tbody>
-  <tr>
+    <tr>
       <th scope="row">Fall 2024</th>
-      <td>Suraj Rampure</td>
       <td><a href='fa24-midterm/index.html'>Midterm</a><br>
           <a href='fa24-final/index.html'>Final</a>
       </td>
+    </tr>
+    <tr>
+      <th scope="row">Winter 2025</th>
+      <td><a href='wn25-midterm/index.html'>Midterm</a></td>
     </tr>
   </tbody>
 </table>
