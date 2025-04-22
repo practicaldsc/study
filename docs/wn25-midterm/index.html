@@ -850,25 +850,25 @@ result in the same driver being chosen more than once.</p></li>
 </div>
 <hr />
 <h2 id="problem-8">Problem 8</h2>
-<hr />
 <p>Suppose the DataFrame <code>D</code> contains a subset of the rows in
-<code>orders</code>, such that: - Some of the values in the
-<code>"minutes"</code> column are missing. - None of the values in the
-<code>"minutes"</code> column are missing for orders made in
-<code>"Moderate"</code> traffic. Each part of this question is
-independent of all other parts. In each part, <strong>select
-all</strong> expressions that are <strong>guaranteed</strong> to
-evaluate to the <strong>same</strong> value, <strong>before and
-after</strong> the imputation code is run. The first part is done for
-you. **<br></p>
-<h3 id="problem-8.1">Problem 8.1</h3>
-<p>**</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
+<code>orders</code>, such that:</p>
 <ul>
-<li><code>D.shape[0]</code></li>
+<li><p>Some of the values in the <code>"minutes"</code> column are
+missing.</p></li>
+<li><p>None of the values in the <code>"minutes"</code> column are
+missing for orders made in <code>"Moderate"</code> traffic.</p></li>
 </ul>
+<p>Each part of this question is independent of all other parts. In each
+part, <strong>select all</strong> expressions that are
+<strong>guaranteed</strong> to evaluate to the <strong>same</strong>
+value, <strong>before and after</strong> the imputation code is run. The
+first part is done for you.</p>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
+<p><strong>Answer</strong> <code>D.shape[0]</code></p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_1">
@@ -896,10 +896,12 @@ not alter the number of rows.</p>
 <div class="sourceCode" id="cb10"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> t(D[<span class="st">&quot;minutes&quot;</span>])</span></code></pre></div>
-<p>[ ] <code>D["minutes"].mean()</code> [ ]
-<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
-<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
-above. **** **</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_2">
@@ -913,7 +915,7 @@ aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong> </strong>Answer**: <code>D["minutes"].mean()</code>,
+<p><strong>Answer</strong>: <code>D["minutes"].mean()</code>,
 <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p>
 <p>In this imputation code we are performing mean imputation by filling
 the missing values with the mean of the whole dataset.</p>
@@ -928,21 +930,22 @@ for this subset of the data will remain unchanged as well.</p>
 will change after imputation. The grouped means for traffic categories
 that had missing values will be affected by the imputation, as we’re
 replacing missing values with the overall mean rather than
-group-specific means. **</p>
+group-specific means.</p>
 </div>
 </div>
 </div>
 </div>
-<p><br><strong> </strong><br></p>
+<p><br></p>
 <h3 id="problem-8.3">Problem 8.3</h3>
-<p>**</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a> t <span class="op">=</span> <span class="kw">lambda</span> x: x.fillna(x.mean())</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a> D[<span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> D.groupby(<span class="st">&quot;traffic&quot;</span>)[<span class="st">&quot;minutes&quot;</span>].transform(t)</span></code></pre></div>
-<p>[ ] <code>D["minutes"].mean()</code> [ ]
-<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
-<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
-above. **** **</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_3">
@@ -956,7 +959,7 @@ aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong> </strong>Answer**:
+<p><strong>Answer</strong>:
 <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code>,
 <code>D.groupby("traffic")["minutes"].mean()</code></p>
 <p>In this imputation code we are performing conditional mean imputation
@@ -974,22 +977,23 @@ groups by the “traffic” column and fills missing values using the mean
 of “minutes” within each group. Since “Moderate” traffic already had no
 missing values, the mean for this group will not be affected, and
 neither will the means for other groups, assuming the missing values are
-only filled within their respective groups. **</p>
+only filled within their respective groups.</p>
 </div>
 </div>
 </div>
 </div>
-<p><br><strong> </strong><br></p>
+<p><br></p>
 <h3 id="problem-8.4">Problem 8.4</h3>
-<p>**</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a> present <span class="op">=</span> D.loc[D[<span class="st">&quot;minutes&quot;</span>].notna(), <span class="st">&quot;minutes&quot;</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> n <span class="op">=</span> D[<span class="st">&quot;minutes&quot;</span>].isna().<span class="bu">sum</span>()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a> D.loc[D[<span class="st">&quot;minutes&quot;</span>].isna(), <span class="st">&quot;minutes&quot;</span>] <span class="op">=</span> np.random.choice(present, n)</span></code></pre></div>
-<p>[ ] <code>D["minutes"].mean()</code> [ ]
-<code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code> [ ]
-<code>D.groupby("traffic")["minutes"].mean()</code> [ ] None of the
-above. **** **</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <code>D["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> <code>D.groupby("traffic")["minutes"].mean()</code></p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading8_4">
@@ -1003,7 +1007,7 @@ aria-labelledby="heading8_4" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong> </strong>Answer**:
+<p><strong>Answer</strong>:
 <code>D.loc[D["traffic"] == "Moderate", "minutes"].mean()</code></p>
 <p>In this imputation code we are performing unconditional probabilistic
 imputation by filling the missing values by randomly sampling from the
@@ -1019,12 +1023,12 @@ remain unchanged.</p>
 traffic categories that had missing values will likely change after
 imputation, as we’re filling in those missing values with randomly
 selected values from the entire dataset rather than values specific to
-each traffic category. **</p>
+each traffic category.</p>
 </div>
 </div>
 </div>
 </div>
-<p><br><strong> </strong>**</p>
+<p><br></p>
 <hr />
 <h2 id="problem-9">Problem 9</h2>
 <p>In the DataFrame <code>orders</code>, assume that:</p>
@@ -1065,6 +1069,10 @@ aria-labelledby="heading9" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
+<p><strong>Answer</strong></p>
+<center>
+<img src="../assets/images/wn25-midterm/newplot.png" width="60%"/>
+</center>
 </div>
 </div>
 </div>
@@ -1113,10 +1121,14 @@ aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
 <h1 class="title"> </h1>
 </header>
 <p><strong>Answer</strong> 5</p>
-<p>The vector for Document 1 is: <span class="math inline">\vec{d_1} =
-(1, 1, k, 0, 0)</span></p>
-<p>The vector for Document 2 is: <span class="math inline">\vec{d_2} =
-(0, 0, 1, 1, 1)</span></p>
+<p>The bag of words vector for Document 1 is: <span class="math display">\begin{bmatrix} 1 \\ 1 \\ k \\ 0 \\ 0
+\end{bmatrix}</span></p>
+<p>The bag of words vector for Document 2 is:<span class="math display">\begin{bmatrix} 0 \\ 0 \\ 1 \\ 1 \\ 1
+\end{bmatrix}</span></p>
+<p>The cosine similarity can be calculated using the formula: <span class="math display">
+\text{cosine sim}(\vec d_1, \vec d_2) = \frac{\vec d_1 \cdot \vec
+d_2}{\lVert d_1 \rVert \lVert d_2 \rVert}
+</span></p>
 <p>For the two vectors <span class="math inline">\vec{d_1} = (1, 1, k,
 0, 0)</span> and <span class="math inline">\vec{d_2} = (0, 0, 1, 1,
 1)</span>, the dot product is: <span class="math display">
@@ -1129,10 +1141,6 @@ vectors. <span class="math display">
 <p><span class="math display">
 \|\vec{d_2}\| = \sqrt{0^2 + 0^2 + 1^2 + 1^2 + 1^2} = \sqrt{3}
 </span></p>
-<p>Now we can calculate the cosine similarity using the formula: <span class="math display">
-\text{Cosine similarity} = \frac{\text{Dot product}}{\|\vec{d_1}\| \cdot
-\|\vec{d_2}\|}
-</span></p>
 <p>Substitute the values we calculated: <span class="math display">
 \text{Cosine similarity} = \frac{k}{\sqrt{2 + k^2} \cdot \sqrt{3}}
 </span></p>
@@ -1140,7 +1148,7 @@ vectors. <span class="math display">
 <span class="math display">
 \frac{k}{\sqrt{2 + k^2} \cdot \sqrt{3}} = \frac{5}{9}
 </span></p>
-<p>Solving for k gives us 5.</p>
+<p>Solving for <code>k</code> gives us 5.</p>
 </div>
 </div>
 </div>
@@ -1150,25 +1158,25 @@ vectors. <span class="math display">
 <p>In this part, assume we are using a base-2 logarithm.</p>
 <ol type="i">
 <li>Which term in <strong>document 1</strong> has the largest TF-IDF? If
-there are ties select them all</li>
+there are ties, select them all.</li>
 </ol>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>butter</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>chicken</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>naan</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>curry</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>with</code></p></li>
+<li><p><input type="checkbox" disabled="" /> butter</p></li>
+<li><p><input type="checkbox" disabled="" /> chicken</p></li>
+<li><p><input type="checkbox" disabled="" /> naan</p></li>
+<li><p><input type="checkbox" disabled="" /> curry</p></li>
+<li><p><input type="checkbox" disabled="" /> with</p></li>
 </ul>
-<ol type="i">
+<ol start="2" type="i">
 <li>Which term in <strong>document 2</strong> has the largest TF-IDF? If
-there are ties select them all</li>
+there are ties, select them all.</li>
 </ol>
 <ul class="task-list">
-<li><p><input type="radio" disabled="" /> <code>butter</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>chicken</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>naan</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>curry</code></p></li>
-<li><p><input type="radio" disabled="" /> <code>with</code></p></li>
+<li><p><input type="checkbox" disabled="" /> butter</p></li>
+<li><p><input type="checkbox" disabled="" /> chicken</p></li>
+<li><p><input type="checkbox" disabled="" /> naan</p></li>
+<li><p><input type="checkbox" disabled="" /> curry</p></li>
+<li><p><input type="checkbox" disabled="" /> with</p></li>
 </ul>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -1183,9 +1191,11 @@ aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> - <code>(i)</code> <code>butter</code> and
-<code>chicken</code> - <code>(i)</code> <code>curry</code> and
-<code>with</code></p>
+<p><strong>Answer</strong></p>
+<ul>
+<li><p>butter and chicken</p></li>
+<li><p>curry and with</p></li>
+</ul>
 <p>The TF-IDF score of a term in a document is given by: <span class="math display">
 \text{tf-idf}(t,d) = \text{tf}(t,d) \cdot \text{idf}(t)
                     = \frac{\# \text{ of occurrences of } t \text{ in }
@@ -1193,37 +1203,23 @@ d }{\text{total } \# \text{ of terms in } d} \cdot
 \log_2\left(\frac{\text{total } \# \text{ of documents}}{\# \text{ of
 documents in which } t \text{ appears}}\right)
 </span></p>
-<p><strong>Document 1</strong>:</p>
-<ul>
-<li><code>butter</code>: Appears 1 time in the document, so the TF is
-<span class="math inline">\frac{1}{k+2}</span>.</li>
-<li><code>chicken</code>: Appears 1 time in the document, so the TF is
-<span class="math inline">\frac{1}{k+2}</span>.</li>
-<li><code>naan</code>: Appears <span class="math inline">k</span> times,
-so the TF is <span class="math inline">\frac{k}{k+2}</span>.</li>
-<li><code>curry</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{k+2}</span>.</li>
-<li><code>with</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{k+2}</span>.</li>
-</ul>
-<p><strong>Document 2</strong>:</p>
-<ul>
-<li><code>curry</code>: Appears 1 time in the document, so the TF is
-<span class="math inline">\frac{1}{3}</span>.</li>
-<li><code>with</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{3}</span>.</li>
-<li><code>naan</code>: Appears 1 time, so the TF is <span class="math inline">\frac{1}{3}</span>.</li>
-</ul>
-<p>The IDF for terms is computed based on their presence across both
-documents:</p>
-<ul>
-<li>For terms like <code>butter</code>, <code>chicken</code>, and
-<code>naan</code> in document 1, the IDF will be based on their presence
-across both documents.</li>
-<li>For terms like <code>curry</code> and <code>with</code> in document
-2, they will have a higher IDF.</li>
-</ul>
-<p>The terms <code>butter</code>, <code>chicken</code> in document 1 and
-<code>curry</code>, <code>with</code> in document 2 have the largest
-TF-IDF scores, respectively, due to their unique occurrences in each
-document.</p>
+<p>TF-IDF scores are high when:</p>
+<ol type="1">
+<li><p>A term occurs frequently in the document (high TF), and</p></li>
+<li><p>A term appears in few documents in the corpus (high
+IDF).</p></li>
+</ol>
+<p><strong>Naan</strong> appears in both documents, so its IDF is 0 and
+its TF-IDF is 0 in both.</p>
+<p><strong>Butter</strong> and <strong>chicken</strong> each appear only
+once, and only in document 1. So their TF is low, but their IDF is
+high.</p>
+<p><strong>Curry</strong> and <strong>with</strong> each appear only
+once, and only in document 2. So they also have high IDF and non-zero
+TF.</p>
+<p>Therefore, <strong>butter</strong> and <strong>chicken</strong> have
+the highest TF-IDF in document 1, and <strong>curry</strong> and
+<strong>with</strong> in document 2.</p>
 </div>
 </div>
 </div>
@@ -1277,15 +1273,25 @@ aria-labelledby="heading10_3" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong> <span class="math inline">\text{WS}(t, d)
 &lt; 1</span></p>
-<p>The <strong>Wolverine Score (WS)</strong> compares the occurrence of
-a term <span class="math inline">t</span> within a document <span class="math inline">d</span> relative to its occurrence across the
-entire corpus. If the value of WS for a term is less than 1, it
-indicates that the term <span class="math inline">t</span> is more
-common in document <span class="math inline">d</span> than it is in the
-overall corpus. This implies that the term is likely an important term
-for document <span class="math inline">d</span>.</p>
-<p>The WS formula suggests that if the term <span class="math inline">t</span> occurs more frequently in document <span class="math inline">d</span> relative to its occurrence in the entire
-corpus, the WS score will be less than 1, making <span class="math inline">t</span> a significant term for document <span class="math inline">d</span>.</p>
+<p>The Wolverine Score compares a term’s relative frequency in document
+<span class="math inline">d</span> versus its average frequency in the
+entire corpus.</p>
+<p>The first part of WS, <span class="math inline">\frac{\text{total
+terms in } d}{\# \text{ of occurrences of } t \text{ in } d}</span>, is
+the inverse of how frequent <span class="math inline">t</span> is in
+<span class="math inline">d</span>.</p>
+<p>The second part, <span class="math inline">\frac{\text{total
+occurrences of } t \text{ in corpus}}{\text{total terms in
+corpus}}</span>, is the overall frequency of <span class="math inline">t</span>.</p>
+<p>If WS is less than 1, it means that the term occurs more often
+<em>within</em> <span class="math inline">d</span> than <em>on
+average</em> across all documents. This implies that the term is
+especially important or relevant to <span class="math inline">d</span>.</p>
+<p>Example: If a term appears 5 times in a 10-word document (50%), but
+only 10 times in a 100-word corpus (10%), then: <span class="math display">
+\text{WS} = \left(\frac{10}{5}\right) \cdot \left(\frac{10}{100}\right)
+= 2 \cdot 0.1 = 0.2 &lt; 1
+</span> So WS &lt; 1 means the term is concentrated in <span class="math inline">d</span>.</p>
 </div>
 </div>
 </div>
@@ -1342,18 +1348,21 @@ aria-labelledby="heading11" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong></p>
 <ul>
-<li><code>(i)</code>
-<code>python soup.find_all("div", class_="menu-item") or soup.find_all("div", attrs={"class": "menu-item"}).</code></li>
+<li><div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>soup.find_all(<span class="st">"div"</span>, class_<span class="op">=</span><span class="st">"menu-item"</span>) <span class="kw">or</span> soup.find_all(<span class="st">"div"</span>, attrs<span class="op">=</span>{<span class="st">"class"</span>: <span class="st">"menu-item"</span>}). </span></code></pre></div></li>
+<li><div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="bu">float</span>(x.get(<span class="st">"data-calories"</span>)) <span class="op">&lt;</span> <span class="dv">500</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a>x.find(<span class="st">"h2"</span>).text </span></code></pre></div></li>
 </ul>
+<div id="cb4" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a>soup.find_all(<span class="st">"div"</span>, class_<span class="op">=</span><span class="st">"menu-item"</span>) <span class="kw">or</span> soup.find_all(<span class="st">"div"</span>, attrs<span class="op">=</span>{<span class="st">"class"</span>: <span class="st">"menu-item"</span>}). </span></code></pre>
+</div>
 <p>We want to extract all the menu items from the HTML. Each menu item
 is contained within a div tag with the class menu-item. So, we need to
 find all the div elements that have this class. In BeautifulSoup, we can
 do this with the <code>find_all()</code> method, which searches the
 document for all elements matching a specific condition.</p>
-<ul>
-<li><code>(ii)</code>
-<code>python float(x.get("data-calories")) &lt; 500</code></li>
-</ul>
+<div id="cb5" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="bu">float</span>(x.get(<span class="st">"data-calories"</span>)) <span class="op">&lt;</span> <span class="dv">500</span> </span></code></pre>
+</div>
 <p>This code is used to check whether the number of calories in each
 menu item is less than 500. We first use
 <code>x.get("data-calories")</code> to retrieve the calorie count as a
@@ -1361,9 +1370,9 @@ string. We then convert that string to a floating-point number using
 float() so we can compare it with 500. If the calorie count is less than
 500, we extract the name of the menu item from the
 <code>&lt;h2&gt;</code> tag and add it to the low_cals list.</p>
-<ul>
-<li><code>(iii)</code> <code>python x.find("h2").text</code></li>
-</ul>
+<div id="cb6" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1" tabindex="-1"></a>x.find(<span class="st">"h2"</span>).text</span></code></pre>
+</div>
 <p>Lastly, we want to extract the name of the menu item from each
 selected div element. The find(“h2”) method is called on x.
 <code>.find</code> searches for the first occurrence of a
@@ -1424,21 +1433,28 @@ aria-labelledby="heading12" data-bs-parent="#accordionExample">
 </header>
 <p><strong>Answer</strong></p>
 <ul>
-<li><p><code>(i)</code> <code>(\d+)\.(\d{3})</code></p>
-<ul>
-<li><code>(\d+)</code>: This part matches one or more digits before the
+<li><p><code>(\d+)\.(\d{3})</code></p></li>
+<li><div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="bu">int</span>(p[<span class="dv">0</span>] <span class="op">+</span> p[<span class="dv">1</span>]) <span class="op">/</span> <span class="dv">100</span> </span></code></pre></div></li>
+</ul>
+<p><br/>
+</p>
+<p><code>(\d+)\.(\d{3})</code></p>
+<p><code>(\d+)</code>: This part matches one or more digits before the
 first decimal point. The parentheses around capture this part into a
-group, allowing us to extract the digits before the first decimal.</li>
-<li><code>\.</code>: This matches the literal decimal point. The
+group, allowing us to extract the digits before the first decimal.</p>
+<p><code>\.</code>: This matches the literal decimal point. The
 backslash  is necessary because the dot . is a special character in
 regular expressions that usually matches any character, so we need to
-escape it with a backslash to match an actual period.</li>
-<li><code>(\d{3})</code>: This matches exactly three digits after the
+escape it with a backslash to match an actual period.</p>
+<p><code>(\d{3})</code>: This matches exactly three digits after the
 first decimal and before the second decimal. The parentheses around
 capture these digits into another group, allowing us to extract them
-separately.</li>
-</ul></li>
-<li><p><code>(ii)</code> <code>python int(p[0] + p[1]) / 100</code></p>
+separately.</p>
+<p><br/>
+</p>
+<div id="cb2" class="sourceCode">
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="bu">int</span>(p[<span class="dv">0</span>] <span class="op">+</span> p[<span class="dv">1</span>]) <span class="op">/</span> <span class="dv">100</span> </span></code></pre>
+</div>
 <p>p is a tuple returned by the split_pieces(s) function, where p[0] is
 the first part (before the first decimal point) and p[1] is the part
 between the two decimals.</p>
@@ -1447,8 +1463,7 @@ between the two decimals.</p>
 these two parts together, creating the string “83334”. This represents
 the combined value of the minutes, but it’s not in the correct format.
 We can wrap this around the int function which will convert the
-concatenated string “83334” into an integer.</p></li>
-</ul>
+concatenated string “83334” into an integer.</p>
 </div>
 </div>
 </div>
@@ -1752,17 +1767,17 @@ aria-labelledby="heading14_1" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> <code>&gt;</code></p>
-<p>The function <span class="math inline">F(x)</span> is the line that
-minimizes mean squared error (MSE), while <span class="math inline">G(x)</span> is the line that minimizes mean absolute
-error (MAE).</p>
-<p>The sum of squared errors (SSE) is the total squared difference
-between actual and predicted values, which is closely tied to MSE. Since
-<span class="math inline">F</span> is specifically chosen to minimize
-MSE, its SSE must be strictly smaller than that of any other line,
-including <span class="math inline">G</span>.</p>
-<p>Thus, the sum of squared errors for <span class="math inline">G</span> is greater than the sum of squared errors
-for <span class="math inline">F</span>, making the correct answer:<br/>
+<p><strong>Answer</strong> &gt;</p>
+<p>The quantity <span class="math inline">\frac{1}{n} \sum_{i = 1}^n
+(y_i - F(x_i))^2</span> is the <strong>mean squared error</strong> (MSE)
+of model <span class="math inline">F</span>. By definition, <span class="math inline">F</span> is the line that minimizes MSE over all
+possible linear models.</p>
+<p>The quantity <span class="math inline">\frac{1}{n} \sum_{i = 1}^n
+(y_i - G(x_i))^2</span> is the mean squared error of model <span class="math inline">G</span>, which is not optimized for MSE but rather
+for <strong>mean absolute error</strong> (MAE).</p>
+<p>Since <span class="math inline">F</span> is specifically constructed
+to minimize the squared error, and <span class="math inline">G</span> is
+not, we must have:<br/>
 <span class="math display"> \sum_{i = 1}^{n} (y_i - G(x_i))^2 &gt;
 \sum_{i = 1}^{n} (y_i - F(x_i))^2 </span></p>
 </div>
@@ -1796,17 +1811,21 @@ aria-labelledby="heading14_2" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> <code>&lt;</code></p>
-<p>The function <span class="math inline">G(x)</span> is the line that
-minimizes mean absolute error (MAE), meaning it has the smallest sum of
-absolute errors (SAE), which is given by:<br/>
-<span class="math display"> \sum_{i=1}^{n} | y_i - G(x_i) | </span></p>
-<p>Since <span class="math inline">G</span> minimizes MAE, its SAE must
-be smaller than the SAE of any other line, including <span class="math inline">F</span>.</p>
-<p>Now, note that the expression given in the problem <strong>squares
-the entire SAE</strong>. Since <span class="math inline">G</span> has
-the smallest SAE, its squared SAE will also be smaller than that of
-<span class="math inline">F</span>:<br/>
+<p><strong>Answer</strong> &lt;</p>
+<p>The quantity <span class="math inline">\frac{1}{n} \sum_{i = 1}^n |
+y_i - G(x_i) |</span> is the <strong>mean absolute error</strong> (MAE)
+of model <span class="math inline">G</span>. By definition, <span class="math inline">G</span> is the line that minimizes MAE over all
+possible linear models.</p>
+<p>The quantity <span class="math inline">\frac{1}{n} \sum_{i = 1}^n |
+y_i - F(x_i) |</span> is the mean absolute error of model <span class="math inline">F</span>, which is not optimized for MAE but rather
+for <strong>mean squared error</strong> (MSE).</p>
+<p>Since <span class="math inline">G</span> is specifically constructed
+to minimize the absolute error, and <span class="math inline">F</span>
+is not, we must have:<br/>
+<span class="math display"> \sum_{i = 1}^{n} | y_i - G(x_i) | &lt;
+\sum_{i = 1}^{n} | y_i - F(x_i) | </span></p>
+<p>Squaring both sides preserves the inequality (since both sides are
+non-negative), so:<br/>
 <span class="math display"> \left( \sum_{i = 1}^{n} | y_i - G(x_i) |
 \right)^2 &lt; \left( \sum_{i = 1}^{n} | y_i - F(x_i) | \right)^2
 </span></p>
@@ -1841,7 +1860,7 @@ aria-labelledby="heading14_3" data-bs-parent="#accordionExample">
 <header id="title-block-header">
 <h1 class="title"> </h1>
 </header>
-<p><strong>Answer</strong> <code>Line 1</code></p>
+<p><strong>Answer</strong> Line 1</p>
 <p>The key idea is that models trained with squared loss (MSE) are more
 sensitive to outliers than models trained with absolute loss (MAE).</p>
 <p>Since Line 1 appears to be “pulled up” more strongly by an outlier,
@@ -1860,12 +1879,14 @@ the MSE-minimizing line.</p>
 <p><br></p>
 <hr />
 <h2 id="problem-15">Problem 15</h2>
+<p><strong>Optional</strong></p>
 <p>In Question 7, assuming that there are 100 unique drivers, what is
 the true, theoretical probability that <code>"WOLVAA01"</code> wins a
 free gift card? Show your work, and your final answer, which should be a
 <strong>fraction</strong>.</p>
 <p>Don’t spend time on this question if you haven’t attempted all other
-questions, as it is purely for (very little) extra credit.</p>
+questions, as it is purely for (very little)
+<code>extra credit</code>.</p>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
 <h2 class="accordion-header" id="heading15">
