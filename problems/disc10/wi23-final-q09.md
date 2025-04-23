@@ -32,12 +32,13 @@ and `pl.named_steps["ohe"].get_feature_names()` evaluates to the following array
 array(["x0_low", "x0_med"], dtype=object)
 ```
 
-Given the above information, we can conclude that `lunch_props` has __(a)__ value(s) equal to `"low"`, __(b)__ value(s) equal to `"medium"`, and __(c)__ value(s) equal to `"high"`. *(Note: You should write one positive integer in each box such that the numbers add up to 8.)*
+Given the above information, we can conclude that `lunch_props` has __(a)__ value(s) equal to `"low"`, __(b)__ value(s) equal to `"medium"`, and __(c)__ value(s) equal to `"high"`. *(Note: Each of (a), (b), and (c) should be positive numbers, such that together, they add to 8.)*
 
 
-What are (a), (b), and (c)? Give you answers as positive integers. 
+What are (a), (b), and (c)? Give your answers as positive integers. 
 
 # BEGIN SOLN
+
 **Answer: ** 3, 1, 4
 
 The first column of the transformed array corresponds to the standardized one-hot-encoded `low` column. There are 3 values that are positive, which means there are 3 values that were originally `1` in that column pre-standardization. This means that 3 of the values in `lunch_props` were originally `"low"`.

@@ -17,9 +17,8 @@ $\text{span}(\vec u, \vec v)$. Give your answer as a constant with no
 variables.
 
 # BEGIN SOLUTION
-**Answer**:
 
-$252$.
+**Answer**: $252$.
 
 Vectors in $\text{span}(\vec u, \vec v)$ are all linear combinations of $\vec{u}$ and $\vec{v}$, meaning they have the form:
 
@@ -43,9 +42,8 @@ _Hint: If $A = \begin{bmatrix} a_1 & 0 \\ 0 & a_2 \end{bmatrix}$, then
 $A^{-1} = \begin{bmatrix} \frac{1}{a_1} & 0 \\ 0 & \frac{1}{a_2} \end{bmatrix}$._
 
 # BEGIN SOLUTION
-**Answer**:
 
-We can construct the following series of matrices to get $(X^TX)^{-1}X^T$.
+**Answer**: We can construct the following series of matrices to get $(X^TX)^{-1}X^T$.
 
 - $X = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 1 \end{bmatrix}$
 - $X^T = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \end{bmatrix}$
@@ -59,7 +57,7 @@ We can construct the following series of matrices to get $(X^TX)^{-1}X^T$.
 
 # BEGIN SUBPROB
 
-In parts (c) and (d) only, let
+In parts 3 and 4 only, let
 $\vec{y} = \begin{bmatrix} 4 \\ 2 \\ 8 \end{bmatrix}$.
 
 Find scalars $a$ and $b$ such that $a \vec u + b \vec v$ is the vector
@@ -67,9 +65,8 @@ in $\text{span}(\vec u, \vec v)$ that is as close to $\vec{y}$ as
 possible. Give your answers as constants with no variables.
 
 # BEGIN SOLUTION
-**Answer**:
 
-$a = 4$, $b = 5$.
+**Answer**: $a = 4$, $b = 5$.
 
 The result from the part (b) implies that when using the normal equations to find coefficients for $\vec u$ and $\vec v$ – which we know from lecture produce an error vector whose length is minimized – the coefficient on $\vec u$ must be $y_1$ and the coefficient on $\vec v$ must be $\frac{y_2 + y_3}{2}$. This can be shown by taking the result from part (b), $\begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{1}{2} \end{bmatrix}$, and multiplying it by the vector $\vec y = \begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix}$.
 
@@ -94,9 +91,9 @@ What is $\lVert \vec{e} \rVert$?
 ( ) $2\sqrt{21}$
 
 # BEGIN SOLUTION
-**Answer**:
 
-$3 \sqrt{2}$.
+
+**Answer**: $3 \sqrt{2}$.
 
 The correct value of $a \vec u + b \vec v = \begin{bmatrix} 4 \\ 5 \\ 5\end{bmatrix}$. Then, $\vec{e} = \begin{bmatrix} 4 \\ 2 \\ 8 \end{bmatrix} - \begin{bmatrix} 4 \\ 5 \\ 5 \end{bmatrix} = \begin{bmatrix} 0 \\ -3 \\ 3 \end{bmatrix}$, which has a length of $\sqrt{0^2 + (-3)^2 + 3^2} = 3\sqrt{2}$.
 
@@ -113,16 +110,13 @@ $\vec{y} - (c \vec u + d \vec v)$ is 0?
 ( ) Yes, because $\vec{u}$ and $\vec{v}$ are linearly independent.
 ( ) Yes, because $\vec{u}$ and $\vec{v}$ are orthogonal.
 ( ) Yes, but for a reason that isn't listed here.
-( ) No, because $\vec{y}$ is not necessarily in
-$\text{span}(\vec{u}, \vec{v})$.
-( ) No, because neither $\vec{u}$ nor $\vec{v}$ is equal to the vector
-$\begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^T$.
+( ) No, because $\vec{y}$ is not necessarily in $\text{span}(\vec{u}, \vec{v})$.
+( ) No, because neither $\vec{u}$ nor $\vec{v}$ is equal to the vector $\begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^T$.
 ( ) No, but for a reason that isn't listed here.
 
 # BEGIN SOLUTION
-**Answer**:
 
-Yes, but for a reason that isn't listed here.
+**Answer**: Yes, but for a reason that isn't listed here.
 
 Here's the full reason:
 
@@ -153,9 +147,8 @@ $$\vec{s}^T Q \vec{f}$$
 ( ) undefined
 
 # BEGIN SOLUTION
-**Answer**:
 
-Correct: Scalar.
+**Answer**: Scalar.
 
 - $\vec{s}^T$: 1 x 100
 - $Q$: 100 x 12.
