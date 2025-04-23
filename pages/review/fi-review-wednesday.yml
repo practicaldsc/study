@@ -4,7 +4,7 @@ context: >
   <br><br>We encourage you to attempt these problems **before** Wednesday's exam review session, so that we have enough time to walk through the solutions to all of the problems.
   <br><br>We will enable the solutions here after the review session, though you can find the written solutions to these problems in other discussion worksheets.
   <br><br>While you can treat this as a mock exam of sorts, there are many topics that are in scope for the final exam that do not appear here, and this may not be representative of the length of the real Final Exam.
-show_solution: false
+show_solution: true
 problems:
   - disc08/sp24-final-q04 # 1. Normal equations interpretation
   - disc10/wi23-final-q09
