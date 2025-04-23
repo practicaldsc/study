@@ -25,7 +25,7 @@ minimizing input $h^*$ is $-1$.
 # BEGIN SUBPROB
 
 Now, suppose we want to use gradient descent to minimize
-$R(h)$. Assume we use an initial guess of $h^{(1)} = 0$. What is $h^{(1)}$? Give
+$R(h)$. Assume we use an initial guess of $h^{(0)} = 0$. What is $h^{(1)}$? Give
 your answer in terms of a generic step size, $\alpha$, and other
 constants. ($e$ is a constant.)
 
