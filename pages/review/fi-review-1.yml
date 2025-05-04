@@ -1,0 +1,14 @@
+title: "Final Review, Worksheet 1"
+context: >
+  The problems in this worksheet are taken from past exams in similar classes. Work on them **on paper**, since the exams you take in this course will also be on paper. 
+show_solution: true
+problems:
+  - disc08/sp24-final-q04 # 1. Normal equations interpretation
+  - disc10/wi23-final-q09
+  - disc10/su20-midterm-q04 # q5
+  - disc10/sp22-final-q11 # CV
+  - disc10/q11 # regularization/BV
+  - disc11/fa21-midterm-q03 # grad desc
+  - disc12/wi23-final-q07 # precision/recall
+  - disc12/q13 # log reg
+  - disc13/wi23-final-q05 # clustering

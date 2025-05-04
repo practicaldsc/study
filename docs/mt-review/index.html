@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Midterm Review</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Midterm Review</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>The EECS 398 staff are looking into hotels — some in San Diego, for
+their family to stay at for graduation (and to eat Mexican food), and
+some elsewhere, for summer trips.</p>
+<p>Each row of <code>hotels</code> contains information about a
+different hotel in San Diego. Specifically, for each hotel, we have:</p>
+<ul>
+<li><code>"Hotel Name" (str)</code>: The name of the hotel.
+<strong>Assume hotel names are unique.</strong></li>
+<li><code>"Location" (str):</code> The hotel’s neighborhood in San
+Diego.</li>
+<li><code>"Chain" (str):</code> The chain the hotel is a part of; either
+<code>"Hilton", "Marriott", "Hyatt", or "Other".</code> A hotel chain is
+a group of hotels owned or operated by a shared company.</li>
+<li><code>"Number of Rooms" (int)</code>: The number of rooms the hotel
+has.</li>
+</ul>
+<p>The first few rows of <code>hotels</code> are shown below, but hotels
+has many more rows than are shown.</p>
+<center><img src="../../assets/images/mt-review-monday/hotels.png" width=500></center>
+<p>Now, consider the variable <code>summed</code>, defined below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>summed <span class="op">=</span> hotels.groupby(<span class="st">&quot;Chain&quot;</span>)[<span class="st">&quot;Number of Rooms&quot;</span>].<span class="bu">sum</span>().idxmax()</span></code></pre></div>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>What is <code>type(summed)</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>int</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>str</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>Series</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>DataFrame</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>DataFrameGroupBy</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>str</code></p>
+<p>When we do a <code>groupby</code> on the <code>Chain</code> column in
+<code>hotels</code>, this means that the values in the
+<code>Chain</code> column will be the indices of the DataFrame or Series
+we get as output, in this case the Series
+<code>hotels.groupby("Chain")["Number of Rooms"].sum()</code>.</p>
+<p>Since the values of <code>Chain</code> are strings, and since
+<code>.idxmax()</code> will return a value from the index of the
+aforementioned Series, <code>summed</code> is a string.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>In one sentence, explain what the value of <code>summed</code> means.
+Phrase your explanation as if you had to give it to someone who is not a
+data science major; that is, don’t say something like “it is the result
+of grouping <code>hotels</code> by <code>"Chain"</code>, selecting the
+<code>"Number of Rooms"</code> column, …”, but instead, give the value
+context.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>summed</code> is the name of the hotel
+chain with the most total rooms</p>
+<p>The result of the <code>.groupby()</code> and <code>.sum()</code> is
+a Series indexed by the unique <code>Chains</code>, whose values are the
+total number of rooms in hotels owned by each chain. The
+<code>idxmax()</code> function gets the index corresponding to the
+largest value in the Series, which will be the hotel chain name with the
+most total rooms.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>Consider the variable <code>curious</code>, defined below.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>curious <span class="op">=</span> frame[<span class="st">&quot;Chain&quot;</span>].value_counts().idxmax()</span></code></pre></div>
+<p>Fill in the blank: <code>curious</code> is guaranteed to be equal to
+<code>summed</code> only if <code>frame</code> has one row for every
+____ in San Diego.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> hotel</p></li>
+<li><p><input type="radio" disabled="" /> hotel chain</p></li>
+<li><p><input type="radio" disabled="" /> hotel room</p></li>
+<li><p><input type="radio" disabled="" /> neighborhood</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> hotel room</p>
+<p><code>curious</code> gets the most common value of <code>Chain</code>
+in the DataFrame <code>frame</code>. We already know that
+<code>summed</code> is the hotel chain with the most rooms in San Diego,
+so <code>curious</code> only equals <code>summed</code> if the most
+common <code>Chain</code> in <code>frame</code> is the hotel chain with
+the most total rooms; this occurs when each row of <code>frame</code> is
+a single hotel room.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.4">Problem 1.4</h3>
+<p>Fill in the blanks so that <code>popular_areas</code> is an array of
+the names of the unique neighborhoods that have at least 5 hotels and at
+least 1000 hotel rooms.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> <span class="kw">lambda</span> df: __(i)__</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    popular_areas <span class="op">=</span> (hotels</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    .groupby(__(ii)__)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                    .__(iii)__</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                    __(iv)__)</span></code></pre></div>
+<ol type="1">
+<li><p>What goes in blank (i)?</p></li>
+<li><p>What goes in blank (ii)?</p></li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>"Hotel Name"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Location"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Chain"</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>"Number of Rooms"</code></p></li>
+</ul>
+<ol start="3" type="1">
+<li>What goes in blank (iii)?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>agg(f)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>filter(f)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>transform(f)</code></p></li>
+</ul>
+<ol start="4" type="1">
+<li>What goes in blank (iv)?</li>
+</ol>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_4" class="accordion-collapse collapse"
+aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>:</p>
+<ol type="1">
+<li><code>df.shape[0] &gt;= 5 and df["Number of Rooms"].sum() &gt;= 1000</code></li>
+<li><code>"Location"</code></li>
+<li><code>filter(f)</code></li>
+<li><code>["Location"].unique()</code> or equivalent</li>
+</ol>
+<p>We’d like to only consider certain neighborhoods according to group
+characteristics (having &gt;= 5 hotels and &gt;= 1000 hotel rooms), and
+<code>.filter()</code> allows us to do that by excluding groups not
+meeting those criteria. So, we can write a function that evaluates those
+criteria on one group at a time (the <code>df</code> of input to
+<code>f</code> is the subset of <code>hotels</code> containing just one
+<code>Location</code> value), and calling <code>filter(f)</code> means
+that the only remaining rows are hotels in neighborhoods that match
+those criteria. Finally, all we have to do is get the unique
+neighborhoods from this DataFrame, which are the neighborhoods for which
+<code>f</code> returned <code>True</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.5">Problem 1.5</h3>
+<p>Consider the code below.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    cond1 <span class="op">=</span> hotels[<span class="st">&quot;Chain&quot;</span>] <span class="op">==</span> <span class="st">&quot;Marriott&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    cond2 <span class="op">=</span> hotels[<span class="st">&quot;Location&quot;</span>] <span class="op">==</span> <span class="st">&quot;Coronado&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    combined <span class="op">=</span> hotels[cond1].merge(hotels[cond2], on<span class="op">=</span><span class="st">&quot;Hotel Name&quot;</span>, how<span class="op">=</span>???)</span></code></pre></div>
+<ol type="1">
+<li>If we replace <code>???</code> with <code>"inner"</code> in the code
+above, which of the following will be equal to
+<code>combined.shape[0]</code>?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>min(cond1.sum(), cond2.sum())</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>(cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + (cond1 &amp; cond2).sum()</code></p></li>
+</ul>
+<ol start="2" type="1">
+<li>If we replace <code>???</code> with <code>"outer"</code> in the code
+above, which of the following will be equal to
+<code>combined.shape[0]</code>?</li>
+</ol>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>min(cond1.sum(), cond2.sum())</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>(cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>cond1.sum() + (cond1 &amp; cond2).sum()</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_5" aria-expanded="true" aria-controls="collapse1_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_5" class="accordion-collapse collapse"
+aria-labelledby="heading1_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>:</p>
+<ol type="1">
+<li><code>(cond1 &amp; cond2).sum()</code></li>
+<li><code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code></li>
+</ol>
+<p>Note that <code>cond1</code> and <code>cond2</code> are boolean
+Series, and <code>hotels[cond1]</code> and <code>hotels[cond2]</code>
+are the subsets of <code>hotels</code> where
+<code>Chain == "Marriott</code> and
+<code>"Location" == "Coronado"</code>, respectively.</p>
+<ol type="1">
+<li><p>When we perform an inner merge, we’re selecting every row where a
+<code>Hotel Name</code> appears in <em>both</em>
+<code>hotels[cond1]</code> and <code>hotels[cond2]</code>. This is the
+same set of indices (and therefore hotel names, since those are unique)
+as where <code>(cond1 &amp; cond2) == True</code>. So, the length of
+<code>combined</code> will be the same as the number of
+<code>True</code>s in <code>(cond1 &amp; cond2)</code>.</p></li>
+<li><p>When we perform an outer merge, we’re selecting every row that
+appears in <em>either</em> DataFrame, although there will not be repeats
+for hotels that are both Marriott properties and are in Coronado. So, to
+find the total number of rows in either DataFrame, we take the sum of
+the sizes of each, and subtract rows that appear in both, which
+corresponds to answer
+<code>cond1.sum() + cond2.sum() - (cond1 &amp; cond2).sum()</code>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>Billina Records, a new record company focused on creating new TikTok
+audios, has its offices on the 23rd floor of a skyscraper with 75 floors
+(numbered 1 through 75). The owners of the building promised that 10
+different random floors will be selected to be renovated.</p>
+<p>Below, fill in the blanks to complete a simulation that will estimate
+the probability that Billina Records’ floor will be renovated.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>repetitions <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> np.arange(repetitions):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    choices <span class="op">=</span> np.random.choice(__(a)__, <span class="dv">10</span>, __(b)__)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> __(c)__:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>prob_renovate <span class="op">=</span> total <span class="op">/</span> repetitions</span></code></pre></div>
+<p>What goes in blank (a)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>np.arange(1, 75)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(10, 75)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(0, 76)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.arange(1, 76)</code></p></li>
+</ul>
+<p>What goes in blank (b)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>replace=True</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>replace=False</code></p></li>
+</ul>
+<p>What goes in blank (c)?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>choices == 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>choices is 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices == 23) &gt; 0</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>np.count_nonzero(choices) == 23</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>choices.str.contains(23)</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <code>np.arange(1, 76)</code>,
+<code>replace=False</code>,
+<code>np.count_nonzero(choices == 23) &gt; 0</code></p>
+<p>Here, the idea is to randomly choose 10 <strong>different</strong>
+floors repeatedly, and each time, check if floor 23 was selected.</p>
+<p>Blank (a): The first argument to <code>np.random.choice</code> needs
+to be an array/list containing the options we want to choose from,
+i.e. an array/list containing the values 1, 2, 3, 4, …, 75, since those
+are the numbers of the floors. <code>np.arange(a, b)</code> returns an
+array of integers spaced out by 1 starting from <code>a</code> and
+ending at <code>b-1</code>. As such, the correct call to
+<code>np.arange</code> is <code>np.arange(1, 76)</code>.</p>
+<p>Blank (b): Since we want to select 10 different floors, we need to
+specify <code>replace=False</code> (the default behavior is
+<code>replace=True</code>).</p>
+<p>Blank (c): The <code>if</code> condition needs to check if 23 was one
+of the 10 numbers that were selected, i.e. if 23 is in
+<code>choices</code>. It needs to evaluate to a single Boolean value,
+i.e. <code>True</code> (if 23 was selected) or <code>False</code> (if 23
+was not selected). Let’s go through each incorrect option to see why
+it’s wrong:</p>
+<ul>
+<li>Option 1, <code>choices == 23</code>, does not evaluate to a single
+Boolean value; rather, it evaluates to an array of length 10, containing
+multiple <code>True</code>s and <code>False</code>s.</li>
+<li>Option 2, <code>choices is 23</code>, does not evaluate to what we
+want – it checks to see if the array <code>choices</code> is the same
+Python object as the number 23, which it is not (and will never be,
+since an array cannot be a single number).</li>
+<li>Option 4, <code>np.count_nonzero(choices) == 23</code>, does
+evaluate to a single Boolean, however it is not quite correct.
+<code>np.count_nonzero(choices)</code> will always evaluate to 10, since
+<code>choices</code> is made up of 10 integers randomly selected from 1,
+2, 3, 4, …, 75, none of which are 0. As such,
+<code>np.count_nonzero(choices) == 23</code> is the same as
+<code>10 == 23</code>, which is always False, regardless of whether or
+not 23 is in <code>choices</code>.</li>
+<li>Option 5, <code>choices.str.contains(23)</code>, errors, since
+<code>choices</code> is not a Series (and <code>.str</code> can only
+follow a Series). If <code>choices</code> were a Series, this would
+still error, since the argument to <code>.str.contains</code> must be a
+string, not an int.</li>
+</ul>
+<p>By process of elimination, Option 3,
+<code>np.count_nonzero(choices == 23) &gt; 0</code>, must be the correct
+answer. Let’s look at it piece-by-piece:</p>
+<ul>
+<li>As we saw in Option 1, <code>choices == 23</code> is a Boolean array
+that contains <code>True</code> each time the selected floor was floor
+23 and <code>False</code> otherwise. (Since we’re sampling without
+replacement, floor 23 can only be selected at most once, and so
+<code>choices == 23</code> can only contain the value <code>True</code>
+at most once.)</li>
+<li><code>np.count_nonzero(choices == 23)</code> evaluates to the number
+of <code>True</code>s in <code>choices == 23</code>. If it is positive
+(i.e. 1), it means that floor 23 was selected. If it is 0, it means
+floor 23 was not selected.</li>
+<li>Thus, <code>np.count_nonzero(choices == 23) &gt; 0</code> evaluates
+to <code>True</code> if (and only if) floor 23 was selected.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Suppose the DataFrame <code>today</code> consists of 15 rows — 3 rows
+for each of 5 different <code>"artist_names"</code>. For each artist, it
+contains the <code>"track_name"</code> for their three most-streamed
+songs today. For instance, there may be one row for
+<code>"olivia rodrigo"</code> and <code>"favorite crime"</code>, one row
+for <code>"olivia rodrigo"</code> and <code>"drivers license"</code>,
+and one row for <code>"olivia rodrigo"</code> and
+<code>"deja vu"</code>.</p>
+<p>Another DataFrame, <code>genres</code>, is shown below in its
+entirety.</p>
+<center><img src='../assets/images/disc04/genres.png' width=300></center>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>Suppose we perform an <strong>inner</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. If the five <code>"artist_names"</code> in
+<code>today</code> are the same as the five <code>"artist_names"</code>
+in <code>genres</code>, what fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{5}</span></p>
+<p>If the five <code>"artist_names"</code> in <code>today</code> and
+<strong>genres</strong> are the same, the DataFrame that results from an
+inner merge will have 15 rows, one for each row in <code>today</code>.
+This is because there are 3 matches for <code>"harry styles"</code>, 3
+matches for <code>"olivia rodrigo"</code>, 3 matches for
+<code>"glass animals"</code>, and so on.</p>
+<p>In the merged DataFrame’s 15 rows, 6 of them will correspond to
+<code>"Pop"</code> artists — 3 to <code>"harry styles"</code> and 3 to
+<code>"olivia rodrigo"</code>. Thus, the fraction of rows that contain
+<code>"Pop"</code> in the <code>"genre"</code> column is <span class="math inline">\frac{6}{15} = \frac{2}{5}</span> (which is the
+fraction of rows that contained <code>"Pop"</code> in
+<code>genres["genre"]</code>, too).</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<p>Suppose we perform an <strong>inner</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. Furthermore, suppose that the only
+overlapping <code>"artist_names"</code> between <code>today</code> and
+<code>genres</code> are <code>"drake"</code> and
+<code>"olivia rodrigo"</code>. What fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{1}{2}</span></p>
+<p>If we perform an inner merge, there will only be 6 rows in the merged
+DataFrame — 3 for <code>"olivia rodrigo"</code> and 3 for
+<code>"drake"</code>. 3 of those 6 rows will have <code>"Pop"</code> in
+the <code>"genre"</code> column, hence the answer is <span class="math inline">\frac{3}{6} = \frac{1}{2}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.3">Problem 3.3</h3>
+<p>Suppose we perform an <strong>outer</strong> merge between
+<code>today</code> and <code>genres</code> on
+<code>"artist_names"</code>. Furthermore, suppose that the only
+overlapping <code>"artist_names"</code> between <code>today</code> and
+<code>genres</code> are <code>"drake"</code> and
+<code>"olivia rodrigo"</code>. What fraction of the rows in the merged
+DataFrame will contain <code>"Pop"</code> in the <code>"genre"</code>
+column? Give your answer as a simplified fraction.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_3" aria-expanded="true" aria-controls="collapse3_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_3" class="accordion-collapse collapse"
+aria-labelledby="heading3_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{9}</span></p>
+<p>Since we are performing an outer merge, we can decompose the rows in
+the merged DataFrame into three groups:</p>
+<ul>
+<li><p>Rows that are in <code>today</code> that are not in
+<code>genres</code>. There are 9 of these (3 each for the 3 artists that
+are in <code>today</code> and not <code>genres</code>).
+<code>today</code> doesn’t have a <code>"genre"</code> column, and so
+all of these <code>"genre"</code>s will be <code>NaN</code> upon
+merging.</p></li>
+<li><p>Rows that are in <code>genres</code> that are not in
+<code>today</code>. There are 3 of these — one for
+<code>"harry styles"</code>, one for <code>"glass animals"</code>, and
+one for <code>"doja cat"</code>. 1 of these 3 have <code>"Pop"</code> in
+the <code>"genre"</code> column.</p></li>
+<li><p>Rows that are in both <code>today</code> and <code>genres</code>.
+There are 6 of these — 3 for <code>"olivia rodrigo"</code> and 3 for
+<code>"drake"</code> — and 3 of those rows contain <code>"Pop"</code> in
+the <code>"genre"</code> column.</p></li>
+</ul>
+<p>Tallying things up, we see that there are <span class="math inline">9
++ 3 + 6 = 18</span> rows in the merged DataFrame overall, of which <span class="math inline">0 + 1 + 3 = 4</span> have <code>"Pop"</code> in the
+<code>"genre"</code> column. Hence, the relevant fraction is <span class="math inline">\frac{4}{18} = \frac{2}{9}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>The DataFrame <code>random_10</code> contains the
+<code>"track_name"</code> and <code>"genre"</code> of 10 randomly-chosen
+songs in Spotify’s Top 200 today, along with their
+<code>"genre_rank"</code>, which is their rank in the Top 200
+<strong>among songs in their <code>"genre"</code></strong>. For
+instance, “the real slim shady" is the 20th-ranked Hip-Hop/Rap song in
+the Top 200 today. <code>random_10</code> is shown below in its
+entirety.</p>
+<center><img src='../assets/images/disc05/imp-with-nan.png' width=35%></center>
+<p>The <code>"genre_rank"</code> column of <code>random_10</code>
+contains missing values. Below, we provide four different imputed
+<code>"genre_rank"</code> columns, each of which was created using a
+different imputation technique. On the next page, match each of the four
+options to the imputation technique that was used in the option.</p>
+<center><img src='../assets/images/disc05/imp-options-grid.png' width=80%></center>
+<p>Note that each option (A, B, C, D) should be used exactly once
+between parts (a) and (d).</p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>In which option was unconditional mean imputation used?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>Explanation given in part d) below</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>In which option was mean imputation conditional on
+<code>"genre"</code> used?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option D</p>
+<p>Explanation given in part d) below</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>In which option was unconditional probabilistic imputation used?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option C</p>
+<p>Explanation given in part d) below</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.4">Problem 4.4</h3>
+<p>In which option was probabilistic imputation conditional on
+<code>"genre"</code> used?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_4" aria-expanded="true" aria-controls="collapse4_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_4" class="accordion-collapse collapse"
+aria-labelledby="heading4_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option A</p>
+<ul>
+<li><p>First, note that in Option B, all three missing values are filled
+in with the same number, 7. The mean of the observed values in
+<code>random_10["genre_rank"]</code> is 7, so we must have performed
+unconditional mean imputation in Option B. (Technically, it’s possible
+for Option B to be the result of unconditional probabilistic imputation,
+but we stated that each option could only be used once, and there is
+another option that can only be unconditional probabilistic
+imputation.)</p></li>
+<li><p>Then note that in Option C, the very last missing value (in the
+<code>"Pop"</code> <code>"genre"</code>) is filled in with a 7, which is
+not the mean of the observed <code>"Pop"</code> values, but rather a
+value from the <code>"Alternative"</code> <code>"genre"</code>. This
+must mean that unconditional probabilistic imputation was used in Option
+C, since that’s the only way a value from a different group can be used
+for imputation (if we are not performing some sort of mean
+imputation).</p></li>
+<li><p>This leaves Option A and Option D. The last two missing values
+(the two in the <code>"Pop"</code> <code>"genre"</code>) are both filled
+in with the same value, 2 in Option A and 5 in Option D. The mean of the
+observed values for the <code>"Pop"</code> <code>"genre"</code> is <span class="math inline">\frac{9+2+4}{3} = 5</span>, so mean imputation
+conditional on <code>"genre"</code> must have been used in Option D and
+thus probabilistic imputation conditional on <code>"genre"</code> must
+have been used in Option A.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>You want to use regular expressions to extract out the number of
+ounces from the 5 product names below.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 58%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>Index</strong></th>
+<th><strong>Product Name</strong></th>
+<th><strong>Expected Output</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Adult Dog Food 18-Count, 3.5 oz Pouches</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Gardetto’s Snack Mix, 1.75 Ounce</td>
+<td>1.75</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Colgate Whitening Toothpaste, 3 oz Tube</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Adult Dog Food, 13.2 oz. Cans 24 Pack</td>
+<td>13.2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Keratin Hair Spray 2!6 oz</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>The names are stored in a pandas Series called <code>names</code>.
+For each snippet below, select the indexes for all the product names
+that <strong>will not</strong> be matched correctly.</p>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>For the snippet below, which indexes correspond to products that will
+<strong>not</strong> be matched correctly?</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;([\d.]+) oz&#39;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> 0</p></li>
+<li><p><input type="checkbox" disabled="" /> 1</p></li>
+<li><p><input type="checkbox" disabled="" /> 2</p></li>
+<li><p><input type="checkbox" disabled="" /> 3</p></li>
+<li><p><input type="checkbox" disabled="" /> 4</p></li>
+<li><p><input type="checkbox" disabled="" /> All names will be matched correctly.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Only product 1 will <strong>not</strong> be
+matched; the pattern only looks for “oz” so the “Ounce” is not
+identified. See this <a href="https://regex101.com/r/yovYEb/1">Regex101
+link</a> for an illustration.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>For the snippet below, which indexes correspond to products that will
+<strong>not</strong> be matched correctly?</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;(\d+?.\d+) oz|Ounce&#39;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> 0</p></li>
+<li><p><input type="checkbox" disabled="" /> 1</p></li>
+<li><p><input type="checkbox" disabled="" /> 2</p></li>
+<li><p><input type="checkbox" disabled="" /> 3</p></li>
+<li><p><input type="checkbox" disabled="" /> 4</p></li>
+<li><p><input type="checkbox" disabled="" /> All names will be matched correctly.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> 1, 2, and 4 are either not matched or done
+so incorrectly. This pattern matches <strong>either</strong> numbers+any
+character+numbers+[a space]+“oz” OR “Ounce”. However it fails in the
+following ways:</p>
+<ul>
+<li>For index 1, the pattern matches too little: only “Ounce” when it
+should match “1.75 Ounce”.</li>
+<li>For index 2, “3 oz” is missed entirely, as the number is a single
+digit.</li>
+<li>For index 4, the pattern matches too much: “2!6 oz” when it should
+match of “6 oz”.</li>
+</ul>
+<center><img src="../assets/images/disc06/q5-2.png" width="600"/></center>
+<p>See this <a href="https://regex101.com/r/ujrwg0/1">Regex101 link</a>
+for an interactive illustration.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Rahul is trying to scrape the website of an online bookstore ‘The
+Book Club’.</p>
+<pre><code>&lt;HTML&gt;
+&lt;H1&gt;The Book Club&lt;/H1&gt;
+&lt;BODY BGCOLOR=&quot;FFFFFF&quot;&gt;
+Email us at &lt;a href=&quot;mailto:support@thebookclub.com&quot;&gt;
+support@thebookclub.com&lt;/a&gt;.
+
+&lt;div&gt;
+    &lt;ol class=&quot;row&quot;&gt;
+    &lt;li class=&quot;book_list&quot;&gt;
+    
+        &lt;article class=&quot;product_pod&quot;&gt;
+            &lt;div class=&quot;image_container&quot;&gt;
+                    &lt;img src=&quot;pic1.jpeg&quot; alt=&quot;A Light in the Attic&quot; 
+                    class=&quot;thumbnail&quot;&gt;
+            &lt;/div&gt;
+            
+            &lt;p class=&quot;star-rating Three&quot;&gt;&lt;/p&gt;
+            
+            &lt;h3&gt;
+            &lt;a href=&quot;cat/index.html&quot; title=&quot;A Light in the Attic&quot;&gt;
+            A Light in the Attic
+            &lt;/a&gt;
+            &lt;/h3&gt;
+        
+            &lt;div class=&quot;product_price&quot;&gt;
+                &lt;p class=&quot;price_color&quot;&gt;£51.77&lt;/p&gt;
+                
+                &lt;p class=&quot;instock availability&quot;&gt;
+                    &lt;i class=&quot;icon-ok&quot;&gt;&lt;/i&gt;
+                    In stock
+                &lt;/p&gt;
+        
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;/div&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;</code></pre>
+<p>Which is the equivalent Document Object Model (DOM) tree of this HTML
+file?</p>
+<center><img  src='../assets/images/disc05/q4.png'  width=100%></center>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Tree A</p></li>
+<li><p><input type="radio" disabled="" /> Tree B</p></li>
+<li><p><input type="radio" disabled="" /> Tree C</p></li>
+<li><p><input type="radio" disabled="" /> Tree D</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Tree D</p>
+<p>Following tree D in the image from top to bottom, we can follow the
+nesting of tags in the HTML file to verify that the DOM tree D matches
+the syntax of the HTML file.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>Rahul wants to extract the <code>‘instock availability’</code> status
+of the book titled ‘A Light in the Attic’. Which of the following
+expressions will evaluate to <code>"In Stock"</code>? Assume that Rahul
+has already parsed the HTML into a BeautifulSoup object stored in the
+variable named <code>soup</code>.</p>
+<p>Code Snippet A</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    .get(<span class="st">&#39;icon-ok&#39;</span>).strip()</span></code></pre></div>
+<p>Code Snippet B</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).text.strip()</span></code></pre></div>
+<p>Code Snippet C</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>}).find(<span class="st">&#39;i&#39;</span>)<span class="op">\</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    .text.strip()</span></code></pre></div>
+<p>Code Snippet D</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;div&#39;</span>, attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>:<span class="st">&#39;product_price&#39;</span>})<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;p&#39;</span>,attrs <span class="op">=</span> {<span class="st">&#39;class&#39;</span>: <span class="st">&#39;instock availability&#39;</span>})<span class="op">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    .find(<span class="st">&#39;i&#39;</span>).text.strip()</span></code></pre></div>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Code Snippet B</p>
+<p>Code Snippet B is the only option that finds the tag <code>p</code>
+with the attribute <code>class</code> being equal to
+<code>instock availability</code> and then getting the text contained in
+that tag, which is equal to <code>‘instock availability’</code>.</p>
+<p>Option A will cause an error because of <code>.get('icon-ok')</code>
+since <code>'icon-ok'</code> is not the name of the attribute, but is
+instead the value of the <code>class</code> attribute.</p>
+<p>Option C and D will both get the text of the <code>i</code> tag,
+which is <code>''</code> and is therefore incorrect.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>Rahul also wants to extract the number of stars that the book titled
+‘A Light in the Attic’ received. If you look at the HTML file, you will
+notice that the book received a star rating of three. Which code snippet
+will evaluate to <code>"Three"</code>?</p>
+<p>Code Snippet A</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;article&#39;</span>).get(<span class="st">&#39;class&#39;</span>).strip()</span></code></pre></div>
+<p>Code Snippet B</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).text.split(<span class="st">&#39; &#39;</span>)</span></code></pre></div>
+<p>Code Snippet C</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    soup.find(<span class="st">&#39;p&#39;</span>).get(<span class="st">&#39;class&#39;</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<p>None of the above</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Code Snippet C</p>
+<p>Code Snippet C finds the first occurence of the tag <code>p</code>,
+gets the contents of its <code>class</code> attribute as a list, and
+returns the last element, which is the rating <code>'Three'</code> as
+desired.</p>
+<p>Option A will error because <code>.get('class')</code> returns
+<code>['product_pod']</code> and strip cannot be used on a list, but
+also the content of the list does not bring us closer to the desired
+result.</p>
+<p>Option B gets the text contained within the first <code>p</code> tag
+as a list, which is <code>['']</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>Tahseen decides to look at reviews for the same hotel, but he
+modifies them so that the only terms they contain are
+<code>"taco"</code> and <code>"sand"</code>. The bag-of-words
+representations of three reviews are shown as vectors below.</p>
+<center><img src="../../assets/images/disc06/sand_taco.png" width=350></center>
+<p>Using cosine similarity to measure similarity, which pair of reviews
+are the most similar? If there are multiple pairs of reviews that are
+most similar, select them all.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_2</span></p></li>
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_3</span></p></li>
+<li><p><input type="checkbox" disabled="" /> <span class="math inline">\vec{r}_2</span> and <span class="math inline">\vec{r}_3</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="true" aria-controls="collapse7">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7" class="accordion-collapse collapse"
+aria-labelledby="heading7" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\vec{r}_1</span>
+and <span class="math inline">\vec{r}_2</span>, <strong>and</strong>
+<span class="math inline">\vec{r}_2</span> and <span class="math inline">\vec{r}_3</span></p>
+<p>The cosine similarity of two vectors <span class="math inline">\vec{a}</span> and <span class="math inline">\vec{b}</span> is <span class="math inline">\frac{\vec{a} \cdot \vec{b}}{||\vec{a}|| \cdot
+||\vec{b}||}</span>.</p>
+<ul>
+<li>The cosine similarity of <span class="math inline">\vec{r}_1</span>
+and <span class="math inline">\vec{r}_2</span> is: <span class="math display">\frac{2 \cdot 4 + 3 \cdot 4}{\sqrt{13} \cdot
+\sqrt{32}} = \frac{20}{4 \cdot \sqrt{26}} =
+\frac{5}{\sqrt{26}}</span></li>
+<li>The cosine similarity of <span class="math inline">\vec{r}_1</span>
+and <span class="math inline">\vec{r}_3</span> is: <span class="math display">\frac{2 \cdot 6 + 3 \cdot 4}{\sqrt{13} \cdot
+\sqrt{52}} = \frac{24}{26} = \frac{12}{13}</span></li>
+<li>The cosine similarity of <span class="math inline">\vec{r}_2</span>
+and <span class="math inline">\vec{r}_3</span> is: <span class="math display">\frac{4 \cdot 6 + 4 \cdot 4}{\sqrt{32} \cdot
+\sqrt{52}} = \frac{40}{8 \cdot \sqrt{26}} =
+\frac{5}{\sqrt{26}}</span></li>
+</ul>
+<p><span class="math inline">\frac{12}{13} \approx 0.9231</span> and
+<span class="math inline">\frac{5}{\sqrt{26}} \approx 0.9806</span>.
+Since <strong>larger</strong> cosine similarities mean more similar
+vectors, our answer is vector pairs <span class="math inline">\vec{r}_1</span>, <span class="math inline">\vec{r}_2</span> AND <span class="math inline">\vec{r}_2</span>, <span class="math inline">\vec{r}_3</span>.</p>
+<p>Note that we could’ve answered the question without finding the
+cosine similarity between <span class="math inline">\vec{r}_1</span> and
+<span class="math inline">\vec{r}_3</span>. Remember, the cosine
+similarity between two vectors is the cosine of the
+<strong>angle</strong> between the two vectors.</p>
+<ul>
+<li>The angle between <span class="math inline">\vec{r}_1</span> and
+<span class="math inline">\vec{r}_3</span> is clearly bigger than the
+angle between <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_2</span>, because <span class="math inline">\vec{r}_2</span> is in between <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_3</span>, so we can rule out <span class="math inline">\vec{r}_1</span> and <span class="math inline">\vec{r}_3</span>.</li>
+<li>The question then boils down to comparing the angle between <span class="math inline">\vec{r}_1, \vec{r}_2</span> and the angle between
+<span class="math inline">\vec{r}_2</span>, <span class="math inline">\vec{r}_3</span>. We can compute the cosine
+similarities of both pairs, as we did above. But, there’s a slightly
+easier way!</li>
+<li>Specifically, note that <span class="math inline">\vec{r}_3 =
+\begin{bmatrix} 6 \\ 4 \end{bmatrix} = 2 \begin{bmatrix} 3 \\ 2
+\end{bmatrix}</span>, i.e. it is a scalar multiple of <span class="math inline">\begin{bmatrix} 3 \\ 2 \end{bmatrix}</span>, meaning
+<span class="math inline">\vec{r}_3</span> points in the same direction
+as <span class="math inline">\begin{bmatrix} 3 \\ 2
+\end{bmatrix}</span>, just is twice the length. This means that the
+angle between <span class="math inline">\vec{r}_2</span> and <span class="math inline">\vec{r}_3</span> is the same as the angle between
+<span class="math inline">\vec{r}_2</span> and <span class="math inline">\begin{bmatrix} 3 \\ 2 \end{bmatrix}</span> (and
+remember, if two pairs of vectors have the same angle between them, they
+have the same cosine similarity).</li>
+<li>Why does that matter? Because, now we’re comparing the cosine
+similarity between: <span class="math display">\vec{r}_1 =
+\begin{bmatrix} 2 \\ 3 \end{bmatrix}, \vec{r}_2 = \begin{bmatrix} 4
+\\  4 \end{bmatrix} \\ \\ \text{ and } \\ \\ \vec{r_2} = \begin{bmatrix}
+4 \\ 4 \end{bmatrix}, \frac{1}{2}\vec{r}_3 = \begin{bmatrix} 3 \\ 2
+\end{bmatrix}</span></li>
+<li>Because of symmetry (work this out yourself!), the two pairs of
+vectors have the same cosine similarity, and thus the same angle!</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>You create a table called <code>gums</code> that only contains the
+chewing gum purchases of <code>df</code>, then you create a bag-of-words
+matrix called <code>bow</code> from the <code>name</code> column of
+<code>gums</code>. The <code>bow</code> matrix is stored as a DataFrame
+shown below:</p>
+<center><img src="../../assets/images/disc06/bow.png" width=400></center>
+<p>You also have the following outputs:</p>
+<pre><code>&gt;&gt;&gt; bow_df.sum(axis=0)     &gt;&gt;&gt; bow_df.sum(axis=1)     &gt;&gt;&gt; bow_df.loc[0, &#39;pur&#39;]
+pur            5           0     21                   0
+gum           41           1     22
+sugar          2           2     22                   &gt;&gt;&gt; (bow_df[&#39;paperboard&#39;] &gt; 0).sum()
+              ..                 ..                   20
+90             4           37    22
+paperboard    22           38    10                   &gt;&gt;&gt; bow_df[&#39;gum&#39;].sum()
+80            20           39    17                   41
+Length: 139                Length: 40</code></pre>
+<p>For each question below, write your answer as an unsimplified math
+expression (no need to simplify fractions or logarithms) in the space
+provided, or write “Need more information” if there is not enough
+information provided to answer the question.</p>
+<p><br></p>
+<h3 id="problem-8.1">Problem 8.1</h3>
+<p>What is the TF-IDF for the word “pur” in document 0?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_1" aria-expanded="true" aria-controls="collapse8_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_1" class="accordion-collapse collapse"
+aria-labelledby="heading8_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> 0</p>
+<p>First, it’s worth discussing what information we have.</p>
+<ol type="1">
+<li><code>bow_df.sum(axis=0)</code> computes the sum of each
+<strong>column</strong> of <code>bow_df</code>. Each column of
+<code>bow_df</code> refers to a specific word, so the sum of a column in
+<code>bow_df</code> tells us the number of occurrences of a particular
+word <strong>across the entire corpus (all documents)</strong>.</li>
+<li><code>bow_df.sum(axis=1)</code> computes the sum of each
+<strong>row</strong> of <code>bow_df</code>. Each row of
+<code>bow_df</code> refers to a specific document, so the sum of a row
+in <code>bow_df</code> tells us the <strong>number of words in a
+particular document</strong>.</li>
+<li><code>bow_df.loc[0, 'pur']</code> being <code>0</code> tells us that
+the word <code>"pur"</code> appears 0 times in document 0.</li>
+<li><code>(bow_df["paperboard"] &gt; 0).sum()</code> being
+<code>20</code> means that there are 20 documents that contain the word
+<code>"paperboard"</code>.</li>
+<li><code>bow_df["gum"].sum()</code> being <code>41</code> means that
+<code>"gum"</code> appears 41 times across all documents.</li>
+</ol>
+<p>Now, back to the subpart at hand. The TF-IDF of “pur” in document 0
+is <strong>0</strong>, because bullet point 3 above tells us that “pur”
+doesn’t occur at all in document 0. This means that the term frequency
+of “pur” in document 0 is 0, which means the TF-IDF (which is the
+product of the term frequency and inverse document frequency) of “pur”
+in document 0 is also 0, because 0 multiplied by the IDF of “pur” must
+be 0.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.2">Problem 8.2</h3>
+<p>What is the TF-IDF for the word “gum” in document 0?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_2" aria-expanded="true" aria-controls="collapse8_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_2" class="accordion-collapse collapse"
+aria-labelledby="heading8_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> Need more information</p>
+<p>Let’s try and compute the TF-IDF of “gum” in document 0. The formula
+is as follows:</p>
+<p><span class="math display">
+\text{tfidf}(\text{gum}, \text{document 0}) = \text{tf}(\text{gum},
+\text{document 0}) \cdot \text{idf}(\text{gum})
+</span></p>
+<p><span class="math display">
+= \frac{\# \text{ of words in document 0 equal to gum}}{\# \text{ of
+words in document 0}} \cdot \log \left( \frac{\text{ total \# of
+documents}}{\text{total \# of documents containing gum}} \right)
+</span></p>
+<p><span class="math display">
+= \frac{1}{21} \cdot \log \left( \frac{40}{???} \right)
+</span></p>
+<!-- $$\begin{align*}  \text{tfidf}(\text{"gum"}, \text{document 0}) &= \text{tf}(\text{"gum"}, \text{document 0}) \cdot \text{idf}(\text{"gum"}) \\ &= \frac{\text{\# of words in document 0 equal to "gum"}}{\text{\# of words in document 0}} \cdot \log \left( \frac{\text{total \# of documents}}{\text{total \# of documents containing "gum"}} \right) \\ &= \frac{1}{21} \cdot \log \left( \frac{40}{???} \right) \end{align*}$$ -->
+<p>We don’t know the number of documents containing “gum” – all we know
+(from bullet point 5 in the previous solution) is that “gum” appears 41
+times across all documents, but we don’t know how many unique documents
+contain “gum”. So, we need more information.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-8.3">Problem 8.3</h3>
+<p>What is the TF-IDF for the word “paperboard” in document 1?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8_3" aria-expanded="true" aria-controls="collapse8_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8_3" class="accordion-collapse collapse"
+aria-labelledby="heading8_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer:</strong> <span class="math inline">\frac{1}{22}</span></p>
+<p>Let’s try and compute the TF-IDF of “paperboard” in document 1. The
+formula is as follows (assuming a base-2 logarithm):</p>
+<p><span class="math display">
+\text{tfidf}(\text{"paperboard"}, \text{document 1}) =
+\text{tf}(\text{"paperboard"}, \text{document 1}) \cdot
+\text{idf}(\text{"paperboard"})
+</span></p>
+<p><span class="math display">
+= \frac{\text{\# of words in document 1 equal to
+"paperboard"}}{\text{\# of words in document 1}} \cdot \log
+\left( \frac{\text{total \# of documents}}{\text{total \# of documents
+containing "paperboard"}} \right)
+</span></p>
+<p><span class="math display">
+= \frac{\text{1}}{\text{22}} \cdot \log \left(
+\frac{\text{40}}{\text{20}} \right) = \frac{\text{1}}{\text{22}} \cdot
+\log(\text{2}) = \frac{\text{1}}{\text{22}} \cdot \text{1} =
+\frac{\text{1}}{\text{22}}
+</span></p>
+<!-- $$\begin{align*} \text{tfidf}(\text{"paperboard"}, \text{document 1}) &= \text{tf}(\text{"paperboard"}, \text{document 1}) \cdot \text{idf}(\text{"paperboard"}) \\ &= \frac{\text{# of words in document 1 equal to "paperboard"}}{\text{# of words in document 1}} \cdot \log \left( \frac{\text{total # of documents}}{\text{total # of documents containing "paperboard"}} \right) \\ &= \frac{1}{22} \cdot \log \left( \frac{40}{20} \right) \\ &= \frac{1}{22} \cdot \log(2) = \frac{1}{22} \cdot 1 \\ &= \frac{1}{22} \end{align*}$$ -->
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<!--  -->
+<p>Consider a dataset of <span class="math inline">n</span>
+<strong>integers</strong>, <span class="math inline">y_1, y_2, ...,
+y_n</span>, whose histogram is given below:</p>
+<center><img src='../../assets/images/disc07/hist-dist.png' width=900></center>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes:</p>
+<p><span class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n
+\begin{cases} 0 &amp; y_i = h \\ 1 &amp; y_i \neq h
+\end{cases}</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">30.</span></p>
+<p>The minimizer of empirical risk for the constant model when using
+zero-one loss is the mode.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n |y_i -
+h|</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">7.</span></p>
+<p>The minimizer of empirical risk for the constant model when using
+absolute loss is the median. If the bar at 30 wasn’t there, the median
+would be 6, but the existence of that bar drags the “halfway” point up
+slightly, to 7.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \frac{1}{n} \sum_{i = 1}^n (y_i -
+h)^2</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_3" class="accordion-collapse collapse"
+aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">11.</span></p>
+<p>The minimizer of empirical risk for the constant model when using
+squared loss is the mean. The mean is heavily influenced by the presence
+of outliers, of which there are many at 30, dragging the mean up to 11.
+While you can’t calculate the mean here, given the large right tail,
+this question can be answered by understanding that the mean must be
+larger than the median, which is 7, and 11 is the next biggest
+option.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.4">Problem 9.4</h3>
+<p>Which of the following is closest to the constant prediction <span
+class="math inline">h^*</span> that minimizes: <span
+class="math display">\displaystyle \lim_{p \rightarrow \infty}
+\frac{1}{n} \sum_{i = 1}^n |y_i - h|^p</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">1</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">5</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">7</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">11</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">15</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">30</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_4" aria-expanded="true" aria-controls="collapse9_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_4" class="accordion-collapse collapse"
+aria-labelledby="heading9_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math inline">15.</span></p>
+<p>The minimizer of empirical risk for the constant model when using
+infinity loss is the midrange, i.e. halfway between the min and max.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-10">Problem 10</h2>
+<p>Consider a dataset that consists of <span class="math inline">y_1,
+\cdots, y_n</span>. In class, we used calculus to minimize mean squared
+error, <span class="math inline">R_{sq}(h) = \frac{1}{n} \sum_{i = 1}^n
+(h - y_i)^2</span>. In this problem, we want you to apply the same
+approach to a slightly different loss function defined below: <span
+class="math display">L_{\text{midterm}}(y,h)=(\alpha y - h)^2+\lambda
+h</span></p>
+<p><br></p>
+<h3 id="problem-10.1">Problem 10.1</h3>
+<p>Write down the empiricial risk <span
+class="math inline">R_{\text{midterm}}(h)</span> by using the above loss
+function.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_1" aria-expanded="true" aria-controls="collapse10_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_1" class="accordion-collapse collapse"
+aria-labelledby="heading10_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">R_{\text{midterm}}(h)=\frac{1}{n}\sum_{i=1}^{n}[(\alpha
+y_i - h)^2+\lambda h]=[\frac{1}{n}\sum_{i=1}^{n}(\alpha y_i - h)^2]
++\lambda h</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-10.2">Problem 10.2</h3>
+<p>The mean of dataset is <span class="math inline">\bar{y}</span>, i.e.
+<span class="math inline">\bar{y} = \frac{1}{n} \sum_{i = 1}^n
+y_i</span>. Find <span class="math inline">h^*</span> that minimizes
+<span class="math inline">R_{\text{midterm}}(h)</span> using calculus.
+Your result should be in terms of <span
+class="math inline">\bar{y}</span>, <span
+class="math inline">\alpha</span> and <span
+class="math inline">\lambda</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading10_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10_2" aria-expanded="true" aria-controls="collapse10_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse10_2" class="accordion-collapse collapse"
+aria-labelledby="heading10_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^*=\alpha \bar{y} -
+\frac{\lambda}{2}</span></p>
+<hr/>
+<p><br/></p>
+<p><span class="math display">
+\begin{align*}
+\frac{d}{dh}R_{\text{midterm}}(h)&amp;= [\frac{2}{n}\sum_{i=1}^{n}(h-
+\alpha y_i  )] +\lambda \\
+&amp;=2 h-2\alpha \bar{y} + \lambda.
+\end{align*}
+</span></p>
+<p>By setting <span class="math inline">\frac{d}{dh}R_{\text{midterm}}(h)=0</span> we get
+<span class="math display">2 h^*-2\alpha \bar{y} + \lambda=0 \Rightarrow
+h^*=\alpha \bar{y} - \frac{\lambda}{2}.</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<p><span class="math display"> </span></p>
+</body>
+</html>

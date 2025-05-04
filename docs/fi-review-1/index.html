@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Final Review, Worksheet 1</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Final Review, Worksheet 1</h1>
+</header>
+<p><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- add after bootstrap.min.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"/>
+<!-- add after bootstrap.min.js or bootstrap.bundle.min.js -->
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script></p>
+<!-- for difficulty gauges-->
+<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-B947E6J6H4"></script> -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-B947E6J6H4');
+</script>
+<p><a href="../index.html">← return to study.practicaldsc.org</a></p>
+<hr />
+<p>The problems in this worksheet are taken from past exams in similar
+classes. Work on them <strong>on paper</strong>, since the exams you
+take in this course will also be on paper.</p>
+<hr />
+<h2 id="problem-1">Problem 1</h2>
+<p>Consider the vectors <span class="math inline">\vec{u}</span> and
+<span class="math inline">\vec{v}</span>, defined below.</p>
+<p><span class="math display">\vec{u} = \begin{bmatrix} 1 \\ 0 \\ 0
+\end{bmatrix} \qquad \vec{v} = \begin{bmatrix} 0 \\ 1 \\ 1
+\end{bmatrix}</span></p>
+<p>We define <span class="math inline">X \in \mathbb{R}^{3 \times
+2}</span> to be the matrix whose first column is <span
+class="math inline">\vec u</span> and whose second column is <span
+class="math inline">\vec v</span>.</p>
+<p><br></p>
+<h3 id="problem-1.1">Problem 1.1</h3>
+<p>In this part only, let <span class="math inline">\vec{y} =
+\begin{bmatrix} -1 \\ k \\ 252 \end{bmatrix}</span>.</p>
+<p>Find a scalar <span class="math inline">k</span> such that <span
+class="math inline">\vec{y}</span> is in <span
+class="math inline">\text{span}(\vec u, \vec v)</span>. Give your answer
+as a constant with no variables.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_1" class="accordion-collapse collapse"
+aria-labelledby="heading1_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">252</span>.</p>
+<p>Vectors in <span class="math inline">\text{span}(\vec u, \vec
+v)</span> are all linear combinations of <span class="math inline">\vec{u}</span> and <span class="math inline">\vec{v}</span>, meaning they have the form:</p>
+<p><span class="math display">
+a \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + b \begin{bmatrix} 0 \\ 1
+\\ 1 \end{bmatrix} = \begin{bmatrix} a \\ b \\ b \end{bmatrix}
+</span></p>
+<p>From this, any vector in the span must have its second and third
+components equal. Since <span class="math inline">\vec{y}</span> has its
+third component as 252, so k must equal to 252.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.2">Problem 1.2</h3>
+<p>Show that: <span class="math display">(X^TX)^{-1}X^T =
+\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \frac{1}{2} &amp;
+\frac{1}{2} \end{bmatrix}</span></p>
+<p><em>Hint: If <span class="math inline">A = \begin{bmatrix} a_1 &amp;
+0 \\ 0 &amp; a_2 \end{bmatrix}</span>, then <span
+class="math inline">A^{-1} = \begin{bmatrix} \frac{1}{a_1} &amp; 0 \\ 0
+&amp; \frac{1}{a_2} \end{bmatrix}</span>.</em></p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_2" aria-expanded="true" aria-controls="collapse1_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_2" class="accordion-collapse collapse"
+aria-labelledby="heading1_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: We can construct the following series of
+matrices to get <span class="math inline">(X^TX)^{-1}X^T</span>.</p>
+<ul>
+<li><span class="math inline">X = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1
+\\ 0 &amp; 1 \end{bmatrix}</span></li>
+<li><span class="math inline">X^T = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 \end{bmatrix}</span></li>
+<li><span class="math inline">X^TX = \begin{bmatrix} 1 &amp; 0 \\ 0
+&amp; 2 \end{bmatrix}</span></li>
+<li><span class="math inline">(X^TX)^{-1} = \begin{bmatrix} 1 &amp; 0 \\
+0 &amp; \frac{1}{2} \end{bmatrix}</span></li>
+<li><span class="math inline">(X^TX)^{-1}X^T = \begin{bmatrix} 1 &amp; 0
+&amp; 0 \\ 0 &amp; \frac{1}{2} &amp; \frac{1}{2}
+\end{bmatrix}</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.3">Problem 1.3</h3>
+<p>In parts 3 and 4 only, let <span class="math inline">\vec{y} =
+\begin{bmatrix} 4 \\ 2 \\ 8 \end{bmatrix}</span>.</p>
+<p>Find scalars <span class="math inline">a</span> and <span
+class="math inline">b</span> such that <span class="math inline">a \vec
+u + b \vec v</span> is the vector in <span
+class="math inline">\text{span}(\vec u, \vec v)</span> that is as close
+to <span class="math inline">\vec{y}</span> as possible. Give your
+answers as constants with no variables.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_3" aria-expanded="true" aria-controls="collapse1_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_3" class="accordion-collapse collapse"
+aria-labelledby="heading1_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">a = 4</span>,
+<span class="math inline">b = 5</span>.</p>
+<p>The result from the part (b) implies that when using the normal
+equations to find coefficients for <span class="math inline">\vec
+u</span> and <span class="math inline">\vec v</span> – which we know
+from lecture produce an error vector whose length is minimized – the
+coefficient on <span class="math inline">\vec u</span> must be <span class="math inline">y_1</span> and the coefficient on <span class="math inline">\vec v</span> must be <span class="math inline">\frac{y_2 + y_3}{2}</span>. This can be shown by
+taking the result from part (b), <span class="math inline">\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp;
+\frac{1}{2} &amp; \frac{1}{2} \end{bmatrix}</span>, and multiplying it
+by the vector <span class="math inline">\vec y = \begin{bmatrix} y_1 \\
+y_2 \\ y_3 \end{bmatrix}</span>.</p>
+<p>Here, <span class="math inline">y_1 = 4</span>, so <span class="math inline">a = 4</span>. We also know <span class="math inline">y_2 = 2</span> and <span class="math inline">y_3 =
+8</span>, so <span class="math inline">b = \frac{2+8}{2} = 5</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.4">Problem 1.4</h3>
+<p>Let <span class="math inline">\vec{e} = \vec{y} - (a \vec u + b \vec
+v)</span>, where <span class="math inline">a</span> and <span
+class="math inline">b</span> are the values you found in part (c).</p>
+<p>What is <span class="math inline">\lVert \vec{e} \rVert</span>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <span class="math inline">0</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">3 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">4 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">6 \sqrt{2}</span></p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">2\sqrt{21}</span></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_4" aria-expanded="true" aria-controls="collapse1_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_4" class="accordion-collapse collapse"
+aria-labelledby="heading1_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: <span class="math inline">3
+\sqrt{2}</span>.</p>
+<p>The correct value of <span class="math inline">a \vec u + b \vec v =
+\begin{bmatrix} 4 \\ 5 \\ 5\end{bmatrix}</span>. Then, <span class="math inline">\vec{e} = \begin{bmatrix} 4 \\ 2 \\ 8 \end{bmatrix}
+- \begin{bmatrix} 4 \\ 5 \\ 5 \end{bmatrix} = \begin{bmatrix} 0 \\ -3 \\
+3 \end{bmatrix}</span>, which has a length of <span class="math inline">\sqrt{0^2 + (-3)^2 + 3^2} = 3\sqrt{2}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.5">Problem 1.5</h3>
+<p>Is it true that, for any vector <span class="math inline">\vec{y} \in
+\mathbb{R}^3</span>, we can find scalars <span
+class="math inline">c</span> and <span class="math inline">d</span> such
+that the sum of the entries in the vector <span
+class="math inline">\vec{y} - (c \vec u + d \vec v)</span> is 0?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes, because <span class="math inline">\vec{u}</span> and <span class="math inline">\vec{v}</span> are linearly independent.</p></li>
+<li><p><input type="radio" disabled="" /> Yes, because <span class="math inline">\vec{u}</span> and <span class="math inline">\vec{v}</span> are orthogonal.</p></li>
+<li><p><input type="radio" disabled="" /> Yes, but for a reason that isn’t listed here.</p></li>
+<li><p><input type="radio" disabled="" /> No, because <span class="math inline">\vec{y}</span> is not
+necessarily in <span class="math inline">\text{span}(\vec{u},
+\vec{v})</span>.</p></li>
+<li><p><input type="radio" disabled="" /> No, because neither <span class="math inline">\vec{u}</span> nor
+<span class="math inline">\vec{v}</span> is equal to the vector <span class="math inline">\begin{bmatrix} 1 &amp; 1 &amp; 1
+\end{bmatrix}^T</span>.</p></li>
+<li><p><input type="radio" disabled="" /> No, but for a reason that isn’t listed here.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_5" aria-expanded="true" aria-controls="collapse1_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_5" class="accordion-collapse collapse"
+aria-labelledby="heading1_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Yes, but for a reason that isn’t listed
+here.</p>
+<p>Here’s the full reason:</p>
+<ol type="1">
+<li>We can use the normal equations to find <span class="math inline">c</span> and <span class="math inline">d</span>, no
+matter what <span class="math inline">\vec{y}</span> is.</li>
+<li>The error vector <span class="math inline">\vec e</span> that
+results from using the normal equations is such that <span class="math inline">\vec e</span> is orthogonal to the span of the
+columns of <span class="math inline">X</span>.</li>
+<li>The columns of <span class="math inline">X</span> are just <span class="math inline">\vec u</span> and <span class="math inline">\vec
+v</span>. So, <span class="math inline">\vec e</span> is orthogonal to
+any linear combination of <span class="math inline">\vec u</span> and
+<span class="math inline">\vec v</span>.</li>
+<li>One of the many linear combinations of <span class="math inline">\vec u</span> and <span class="math inline">\vec
+v</span> is <span class="math inline">\begin{bmatrix} 1 \\ 0 \\ 0
+\end{bmatrix} + \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} =
+\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}</span>.</li>
+<li>This means that the vector <span class="math inline">\vec e</span>
+is orthogonal to <span class="math inline">\begin{bmatrix} 1 \\ 1 \\ 1
+\end{bmatrix}</span>, which means that <span class="math inline">\vec{1}^T \vec{e} = 0 \implies \sum_{i = 1}^3 e_i =
+0</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-1.6">Problem 1.6</h3>
+<p>Suppose that <span class="math inline">Q \in \mathbb{R}^{100 \times
+12}</span>, <span class="math inline">\vec{s} \in
+\mathbb{R}^{100}</span>, and <span class="math inline">\vec{f} \in
+\mathbb{R}^{12}</span>. What are the dimensions of the following
+product?</p>
+<p><span class="math display">\vec{s}^T Q \vec{f}</span></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> scalar</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 1</span> vector</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">100 \times 1</span> vector</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">100 \times 12</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 12</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> <span class="math inline">12 \times 100</span> matrix</p></li>
+<li><p><input type="radio" disabled="" /> undefined</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading1_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1_6" aria-expanded="true" aria-controls="collapse1_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse1_6" class="accordion-collapse collapse"
+aria-labelledby="heading1_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Scalar.</p>
+<ul>
+<li><span class="math inline">\vec{s}^T</span>: 1 x 100</li>
+<li><span class="math inline">Q</span>: 100 x 12.</li>
+<li><span class="math inline">\vec{f}</span>: 12 x 1.</li>
+</ul>
+<p>The inner dimensions of 100 and 12 cancel, and so <span class="math inline">\vec{s}^T Q \vec{f}</span> is of shape 1 x 1.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-2">Problem 2</h2>
+<p>One piece of information that may be useful as a feature is the
+proportion of SAT test takers in a state in a given year that qualify
+for free lunches in school. The Series <code>lunch_props</code> contains
+8 values, each of which are either <code>"low"</code>,
+<code>"medium"</code>, or <code>"high"</code>. Since we can’t use
+strings as features in a model, we decide to encode these strings using
+the following <code>Pipeline</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The FunctionTransformer is only needed to change the result</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the OneHotEncoder from a &quot;sparse&quot; matrix to a regular matrix</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># so that it can be used with StandardScaler;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it doesn&#39;t change anything mathematically.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pl <span class="op">=</span> Pipeline([</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ohe&quot;</span>, OneHotEncoder(drop<span class="op">=</span><span class="st">&quot;first&quot;</span>)),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ft&quot;</span>, FunctionTransformer(<span class="kw">lambda</span> X: X.toarray())),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;ss&quot;</span>, StandardScaler())</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<p>After calling <code>pl.fit(lunch_props)</code>,
+<code>pl.transform(lunch_props)</code> evaluates to the following
+array:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>array([[ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>,  <span class="fl">2.64575131</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>       [ <span class="fl">1.29099445</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       [<span class="op">-</span><span class="fl">0.77459667</span>, <span class="op">-</span><span class="fl">0.37796447</span>]])</span></code></pre></div>
+<p>and <code>pl.named_steps["ohe"].get_feature_names()</code> evaluates
+to the following array:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>array([<span class="st">&quot;x0_low&quot;</span>, <span class="st">&quot;x0_med&quot;</span>], dtype<span class="op">=</span><span class="bu">object</span>)</span></code></pre></div>
+<p>Given the above information, we can conclude that
+<code>lunch_props</code> has <strong>(a)</strong> value(s) equal to
+<code>"low"</code>, <strong>(b)</strong> value(s) equal to
+<code>"medium"</code>, and <strong>(c)</strong> value(s) equal to
+<code>"high"</code>. <em>(Note: Each of (a), (b), and (c) should be
+positive numbers, such that together, they add to 8.)</em></p>
+<p>What are (a), (b), and (c)? Give your answers as positive
+integers.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse2" class="accordion-collapse collapse"
+aria-labelledby="heading2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 3, 1, 4</p>
+<p>The first column of the transformed array corresponds to the
+standardized one-hot-encoded <code>low</code> column. There are 3 values
+that are positive, which means there are 3 values that were originally
+<code>1</code> in that column pre-standardization. This means that 3 of
+the values in <code>lunch_props</code> were originally
+<code>"low"</code>.</p>
+<p>The second column of the transformed array corresponds to the
+standardized one-hot-encoded <code>med</code> column. There is only 1
+value in the transformed column that is positive, which means only 1 of
+the values in <code>lunch_props</code> was originally
+<code>"medium"</code>.</p>
+<p>The Series <code>lunch_props</code> has 8 values, 3 of which were
+identified as <code>"low"</code> in subpart 1, and 1 of which was
+identified as <code>"medium"</code> in subpart 2. The number of values
+being <code>"high"</code> must therefore be <span class="math inline">8
+- 3 - 1 = 4</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-3">Problem 3</h2>
+<p>Suppose we have one qualitative variable that that we convert to
+numerical values using one- hot encoding. We’ve shown the first four
+rows of the resulting design matrix below:</p>
+<center><img src='../assets/images/disc10/matrix.png' width=400></center>
+<p><br></p>
+<h3 id="problem-3.1">Problem 3.1</h3>
+<p>Say we train a linear model <span class="math inline">m_1</span> on
+these data. Then, we replace all of the 1 values in column
+<strong>a</strong> with 3’s and all of the 1 values in column
+<strong>b</strong> with 2’s and train a new linear model <span
+class="math inline">m_2</span>. Neither <span
+class="math inline">m_1</span> nor <span class="math inline">m_2</span>
+have an intercept term. On the training data, the average squared loss
+for <span class="math inline">m_1</span> will be ________ that of <span
+class="math inline">m_2</span>.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> greater than</p></li>
+<li><p><input type="radio" disabled="" /> less than</p></li>
+<li><p><input type="radio" disabled="" /> equal to</p></li>
+<li><p><input type="radio" disabled="" /> impossible to tell</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_1" class="accordion-collapse collapse"
+aria-labelledby="heading3_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>The answer is equal to.</p>
+<p>Because we can simply adjust the weights in the opposite way that we
+rescale the one-hot columns, any model obtainable with the original
+encoding can also be obtained with the rescaled encoding. This
+guarantees that the training loss remains unchanged.</p>
+<p>When one-hot encoding is used, each category is represented by a
+column that typically contains only 0s and 1s. Rescaling these columns
+means multiplying the 1s by a constant (for example, turning 1 into 2 or
+3). However, if we also adjust the corresponding weights in the model by
+dividing by that same constant, the product of the rescaled column value
+and its weight remains the same. Since the model’s predictions are based
+on these products, the predictions will not change, and as a result, the
+average squared loss on the training data will also remain
+unchanged.</p>
+<p>For example, let us say we have categorical variable “Color” with
+three levels: Red, Green, and Blue. We one-hot encode this variable into
+three columns. For an observation: - If the color is Red, the encoded
+values might be: Red = 1, Green = 0, Blue = 0.</p>
+<p>Now, suppose we decide to multiply the column for Red by 2. The new
+value for a Red observation becomes 2 instead of 1. To keep the
+prediction the same, we can simply use half the weight for this column
+in the model. This inverse adjustment ensures that the final product
+(column value multiplied by weight) remains unchanged. Thus, the model’s
+prediction and the average squared loss on the training data stay the
+same.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-3.2">Problem 3.2</h3>
+<p>To account for the intercept term, we add a column of all ones to our
+design matrix from part a. That is, the resulting design matrix has four
+columns: <strong>a</strong> with 3’s instead of 1’s, <strong>b</strong>
+with 2’s instead of 1’s, <strong>c</strong>, and a column of all ones.
+What is the rank of the new design matrix with these four columns?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> 1</p></li>
+<li><p><input type="radio" disabled="" /> 2</p></li>
+<li><p><input type="radio" disabled="" /> 3</p></li>
+<li><p><input type="radio" disabled="" /> 4</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading3_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3_2" aria-expanded="true" aria-controls="collapse3_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse3_2" class="accordion-collapse collapse"
+aria-labelledby="heading3_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers:</strong></p>
+<p>The answer is 3.</p>
+<p>Note that the column <strong>c</strong> = intercept column −<span class="math inline">\frac{1}{3}</span><strong>a</strong> + <span class="math inline">\frac{1}{2}</span><strong>b</strong>. Hence, there
+is a linear dependence relationship, meaning that one of the columns is
+redundant and that the rank of the new design matrix is 3.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-4">Problem 4</h2>
+<p>Suppose we build a binary classifier that uses a song’s
+<code>"track_name"</code> and <code>"artist_names"</code> to predict
+whether its genre is <code>"Hip-Hop/Rap"</code> (1) or not (0).</p>
+<p>For our classifier, we decide to use a brand-new model built into
+<code>sklearn</code> called the<br />
+<code>BillyClassifier</code>. A <code>BillyClassifier</code> instance
+has three hyperparameters that we’d like to tune. Below, we show a
+dictionary containing the values for each hyperparameter that we’d like
+to try:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hyp_grid <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;radius&quot;</span>: [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">100</span>], <span class="co"># 12 total</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;inflection&quot;</span>: [<span class="op">-</span><span class="dv">5</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="co"># 10 total</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;color&quot;</span>: [<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;purple&quot;</span>] <span class="co"># 5 total</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>To find the best combination of hyperparameters for our
+<code>BillyClassifier</code>, we first conduct a train-test split, which
+we use to create a training set with 800 rows. We then use
+<code>GridSearchCV</code> to conduct <span
+class="math inline">k</span>-fold cross-validation for each combination
+of hyperparameters in <code>hyp_grid</code>, with <span
+class="math inline">k=4</span>.</p>
+<p><br></p>
+<h3 id="problem-4.1">Problem 4.1</h3>
+<p>When we call <code>GridSearchCV</code>, how many times is a
+<code>BillyClassifier</code> instance trained in total? Give your answer
+as an integer.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_1" class="accordion-collapse collapse"
+aria-labelledby="heading4_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 2400</p>
+<p>There are <span class="math inline">12 \cdot 10 \cdot 5 = 600</span>
+combinations of hyperparameters. For each combination of
+hyperparameters, we will train a <code>BillyClassifier</code> with that
+combination of hyperparameters <span class="math inline">k = 4</span>
+times. So, the total number of <code>BillyClassifier</code> instances
+that will be trained is <span class="math inline">600 \cdot 4 =
+2400</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.2">Problem 4.2</h3>
+<p>In each of the 4 folds of the data, how large is the training set,
+and how large is the validation set? Give your answers as integers.</p>
+<p>size of training set =</p>
+<p>size of validation set =</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_2" aria-expanded="true" aria-controls="collapse4_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_2" class="accordion-collapse collapse"
+aria-labelledby="heading4_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> 600, 200</p>
+<p>Since we performed <span class="math inline">k=4</span>
+cross-validation, we must divide the training set into four disjoint
+groups each of the same size. <span class="math inline">\frac{800}{4} =
+200</span>, so each group is of size 200. Each time we perform cross
+validation, one group is used for validation, and the other three are
+used for training, so the validation set size is 200 and the training
+set size is <span class="math inline">200 \cdot 3 = 600</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-4.3">Problem 4.3</h3>
+<p>Suppose that after fitting a <code>GridSearchCV</code> instance, its
+<code>best_params_</code> attribute is</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&quot;radius&quot;</span>: <span class="dv">8</span>, <span class="st">&quot;inflection&quot;</span>: <span class="dv">4</span>, <span class="st">&quot;color&quot;</span>: <span class="st">&quot;blue&quot;</span>}</span></code></pre></div>
+<p>Select all true statements below.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average training accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest average validation accuracy
+among all combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest training accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> The specific combination of hyperparameters in
+<code>best_params_</code> had the highest validation accuracy among all
+combinations of hyperparameters in <code>hyp_grid</code>, in each of the
+4 folds of the training data.</p></li>
+<li><p><input type="checkbox" disabled="" /> A <code>BillyClassifier</code> that is fit using the specific
+combination of hyperparameters in <code>best_params_</code> is
+guaranteed to have the best accuracy on unseen testing data among all
+combinations of hyperparameters in <code>hyp_grid</code>.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading4_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4_3" aria-expanded="true" aria-controls="collapse4_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse4_3" class="accordion-collapse collapse"
+aria-labelledby="heading4_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option B</p>
+<p>When performing cross validation, we select the combination of
+hyperparameters that had the highest <strong>average validation
+accuracy</strong> across all four folds of the data. That is, by
+definition, how <code>best_params_</code> came to be. None of the other
+options are guaranteed to be true.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-5">Problem 5</h2>
+<p>Suppose we want to use LASSO (i.e. minimize mean squared error with
+<span class="math inline">L_1</span> regularization) to fit a linear
+model that predicts the number of ingredients in a product given its
+price and rating.</p>
+<p>Let <span class="math inline">\lambda</span> be a non-negative
+regularization hyperparameter. Using cross-validation, we determine the
+average validation mean squared error — which we’ll refer to as AVMSE in
+this question — for several different choices of <span
+class="math inline">\lambda</span>. The results are given below.</p>
+<center><img src="../assets/images/disc10/avmse.png" width=600></center>
+<p><br></p>
+<h3 id="problem-5.1">Problem 5.1</h3>
+<p>As <span class="math inline">\lambda</span> increases, what happens
+to model complexity and model variance?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Model complexity and model variance both increase.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity increases while model variance decreases.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity decreases while model variance increases.</p></li>
+<li><p><input type="radio" disabled="" /> Model complexity and model variance both decrease.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_1" class="accordion-collapse collapse"
+aria-labelledby="heading5_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Model complexity and model variance both
+decrease.</p>
+<p>As <span class="math inline">\lambda</span> increases, the <span class="math inline">L_1</span> regularization penalizes larger
+coefficient values more heavily, forcing the model to forget the details
+in the training data and focus on the bigger picture. This effectively
+reduces the number of non-zero coefficients, decreasing model
+complexity. Since model complexity and model variance are the same
+thing, variance also decreases.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.2">Problem 5.2</h3>
+<p>What does the value <span class="math inline">A</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_2" aria-expanded="true" aria-controls="collapse5_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_2" class="accordion-collapse collapse"
+aria-labelledby="heading5_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of an unregularized multiple
+linear regression model.</p>
+<p>Point <span class="math inline">A</span> represents the case where
+<span class="math inline">\lambda = 0</span>, meaning no regularization
+is applied. This corresponds to an unregularized multiple linear
+regression model.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.3">Problem 5.3</h3>
+<p>What does the value <span class="math inline">B</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_3" aria-expanded="true" aria-controls="collapse5_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_3" class="accordion-collapse collapse"
+aria-labelledby="heading5_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of the <span class="math inline">\lambda</span> we’d choose to use to train a
+model.</p>
+<p>Point <span class="math inline">B</span> is the minimum point on the
+graph, indicating the optimal <span class="math inline">\lambda</span>
+value that minimizes the AVMSE. This is because we don’t typically
+regularize the intercept term’s coefficient, <span class="math inline">w_0^*</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-5.4">Problem 5.4</h3>
+<p>What does the value <span class="math inline">C</span> on the graph
+above correspond to?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> The AVMSE of the <span class="math inline">\lambda</span> we’d choose
+to use to train a model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of an unregularized multiple linear regression model.</p></li>
+<li><p><input type="radio" disabled="" /> The AVMSE of the constant model.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading5_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5_4" aria-expanded="true" aria-controls="collapse5_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse5_4" class="accordion-collapse collapse"
+aria-labelledby="heading5_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The AVMSE of the constant model.</p>
+<p>Point <span class="math inline">C</span> represents the AVMSE when
+<span class="math inline">\lambda</span> is very large, effectively
+forcing all coefficients to zero. This corresponds to the constant
+model.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-6">Problem 6</h2>
+<p>Suppose we want to minimize the function</p>
+<p><span class="math display">R(h) = e^{(h + 1)^2}</span></p>
+<p><br></p>
+<h3 id="problem-6.1">Problem 6.1</h3>
+<p>Without using gradient descent or calculus, what is the value <span
+class="math inline">h^*</span> that minimizes <span
+class="math inline">R(h)</span>?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_1" class="accordion-collapse collapse"
+aria-labelledby="heading6_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^* = -1</span></p>
+<p>The minimum possible value of the exponent is <span class="math inline">0</span>, since anything squared is non-negative.
+The exponent is 0 when <span class="math inline">(x+1)^2 = 0</span>,
+i.e. when <span class="math inline">x = -1</span>. Since <span class="math inline">e^{(x+1)^2}</span> gets larger as <span class="math inline">(x+1)^2</span> gets larger, the minimizing input
+<span class="math inline">h^*</span> is <span class="math inline">-1</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.2">Problem 6.2</h3>
+<p>Now, suppose we want to use gradient descent to minimize <span
+class="math inline">R(h)</span>. Assume we use an initial guess of <span
+class="math inline">h^{(0)} = 0</span>. What is <span
+class="math inline">h^{(1)}</span>? Give your answer in terms of a
+generic step size, <span class="math inline">\alpha</span>, and other
+constants. (<span class="math inline">e</span> is a constant.)</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_2" aria-expanded="true" aria-controls="collapse6_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_2" class="accordion-collapse collapse"
+aria-labelledby="heading6_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
+<p>First, we find <span class="math inline">\frac{dR}{dh}(h)</span>:</p>
+<p><span class="math display">\frac{dR}{dh}(h) = 2(h+1)
+e^{(h+1)^2}</span></p>
+<p>Then, we know that</p>
+<p><span class="math display">h^{(1)} = h^{(0)} - \alpha
+\frac{dR}{dh}(h^{(0)}) = 0 - \alpha \frac{dR}{dh}(0)</span></p>
+<p>In our case, <span class="math inline">\frac{dR}{dh}(0) = 2(0 + 1)
+e^{(0+1)^2} = 2e</span>, so</p>
+<p><span class="math display">h^{(1)} = -\alpha \cdot 2e</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.3">Problem 6.3</h3>
+<p>Using your answers from the previous two parts, what should we set
+the value of <span class="math inline">\alpha</span> to be if we want to
+ensure that gradient descent finds <span class="math inline">h^*</span>
+after just one iteration?</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_3" aria-expanded="true" aria-controls="collapse6_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_3" class="accordion-collapse collapse"
+aria-labelledby="heading6_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><span class="math display">\alpha = \frac{1}{2e}</span></p>
+<p>We know from the part 2 that <span class="math inline">h^{(1)} =
+-\alpha \cdot 2e</span>, and we know from part 1 that <span class="math inline">h^* = -1</span>. If gradient descent converges in
+one iteration, that means that <span class="math inline">h^{(1)} =
+h^*</span>; solving this yields</p>
+<p><span class="math display">-\alpha \cdot 2e = -1 \implies \alpha =
+\frac{1}{2e}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-6.4">Problem 6.4</h3>
+<p>Below is a graph of <span class="math inline">R(h)</span> with no
+axis labels.</p>
+<!-- TODO -->
+<center><img src="../assets/images/disc11/graph.png" width="500" height="350"></center>
+<p>True or False: Given an appropriate choice of step size, <span
+class="math inline">\alpha</span>, gradient descent is guaranteed to
+find the minimizer of <span class="math inline">R(h)</span>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading6_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6_4" aria-expanded="true" aria-controls="collapse6_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse6_4" class="accordion-collapse collapse"
+aria-labelledby="heading6_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>True.</p>
+<p><span class="math inline">R(h)</span> is convex, since the graph is
+bowl shaped. (It can also be proved that <span class="math inline">R(h)</span> is convex using the second derivative
+test.) It is also differentiable, as we saw in part 2. As a result,
+since it’s both convex and differentiable, gradient descent is
+guaranteed to be able to minimize it given an appropriate choice of step
+size.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-7">Problem 7</h2>
+<p>We decide to build a classifier that takes in a state’s demographic
+information and predicts whether, in a given year:</p>
+<ul>
+<li><p>The state’s mean math score was greater than its mean verbal
+score (1), or</p></li>
+<li><p>the state’s mean math score was less than or equal to its mean
+verbal score (0).</p></li>
+</ul>
+<p><br></p>
+<h3 id="problem-7.1">Problem 7.1</h3>
+<p>The simplest possible classifier we could build is one that predicts
+the same label (1 or 0) every time, independent of all other
+features.</p>
+<p>Consider the following statement:</p>
+<p><em>If <code>a &gt; b</code>, then the constant classifier that
+maximizes training accuracy predicts 1 every time; otherwise, it
+predicts 0 every time.</em></p>
+<p>For which combination of <code>a</code> and <code>b</code> is the
+above statement <strong>not guaranteed</strong> to be true?</p>
+<p><em>Note: Treat <code>sat</code> as our training set.</em></p>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">&gt;</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>]).mean()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<p>Option 3:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (sat[<span class="st">&#39;Math&#39;</span>] <span class="op">-</span> sat[<span class="st">&#39;Verbal&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>).mean()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.5</span></span></code></pre></div>
+<p>Option 4:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> ((sat[<span class="st">&#39;Math&#39;</span>] <span class="op">/</span> sat[<span class="st">&#39;Verbal&#39;</span>]) <span class="op">&gt;</span> <span class="dv">1</span>).mean() <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Option 1</p></li>
+<li><p><input type="radio" disabled="" /> Option 2</p></li>
+<li><p><input type="radio" disabled="" /> Option 3</p></li>
+<li><p><input type="radio" disabled="" /> Option 4</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_1" aria-expanded="true" aria-controls="collapse7_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_1" class="accordion-collapse collapse"
+aria-labelledby="heading7_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Conceptually, we’re looking for a combination of <code>a</code> and
+<code>b</code> such that when <code>a &gt; b</code>, it’s true that
+<strong>in more than 50% of states, the <code>"Math"</code> value is
+larger than the <code>"Verbal"</code> value</strong>. Let’s look at all
+four options through this lens:</p>
+<ul>
+<li>Option 1: <code>sat['Math'] &gt; sat['Verbal']</code> is a Series of
+Boolean values, containing <code>True</code> for all states where the
+<code>"Math"</code> value is larger than the <code>"Verbal"</code> value
+and <code>False</code> for all other states. The mean of this series,
+then, is the proportion of states satisfying this criteria, and since
+<code>b</code> is <code>0.5</code>, <code>a &gt; b</code> is
+<code>True</code> only when the bolded condition above is
+<code>True</code>.</li>
+<li>Option 3 is the same as Option 1 – note that <span class="math inline">x &gt; y</span> is equivalent to <span class="math inline">x - y &gt; 0</span>.</li>
+<li>Option 4: <code>sat['Math'] / sat['Verbal']</code> is a Series that
+contains values greater than 1 whenever a state’s <code>"Math"</code>
+value is larger than its <code>"Verbal"</code> value and less than or
+equal to 1 in all other cases. As in the other options that work,
+<code>(sat['Math'] / sat['Verbal']) &gt; 1</code> is a Boolean Series
+with <code>True</code> for all states with a larger <code>"Math"</code>
+value than <code>"Verbal"</code> values; <code>a &gt; b</code> compares
+the proportion of <code>True</code> values in this Series to 0.5. (Here,
+<span class="math inline">p - 0.5 &gt; 0</span> is the same as <span class="math inline">p &gt; 0.5</span>.)</li>
+</ul>
+<p>Then, by process of elimination, Option 2 must be the correct option
+– that is, it must be the only option that <strong>doesn’t</strong>
+work. But why? <code>sat['Math'] - sat['Verbal']</code> is a Series
+containing the difference between each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values, and <code>.mean()</code> computes the mean
+of these differences. The issue is that here, we don’t care about
+<em>how different</em> each state’s <code>"Math"</code> and
+<code>"Verbal"</code> values are; rather, we just care about the
+proportion of states with a bigger <code>"Math"</code> value than
+<code>"Verbal"</code> value. It could be the case that 90% of states
+have a larger <code>"Math"</code> value than <code>"Verbal"</code>
+value, but one state has such a big <code>"Verbal"</code> value that it
+makes the mean difference between <code>"Math"</code> and
+<code>"Verbal"</code> scores negative. (A property you’ll learn about in
+future probability courses is that this is equal to the difference in
+the mean <code>"Math"</code> value for all states and the mean
+<code>"Verbal"</code> value for all states – this is called the
+“linearity of expectation” – but you don’t need to know that to answer
+this question.)</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.2">Problem 7.2</h3>
+<p>Suppose we train a classifier, named Classifier 1, and it achieves an
+accuracy of <span class="math inline">\frac{5}{9}</span> on our training
+set.</p>
+<p>Typically, root mean squared error (RMSE) is used as a performance
+metric for regression models, but mathematically, nothing is stopping us
+from using it as a performance metric for classification models as
+well.</p>
+<p>What is the RMSE of Classifier 1 on our training set? Give your
+answer as a <strong>simplified fraction</strong>.</p>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_2" aria-expanded="true" aria-controls="collapse7_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_2" class="accordion-collapse collapse"
+aria-labelledby="heading7_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{2}{3}</span></p>
+<p>An accuracy of <span class="math inline">\frac{5}{9}</span> means
+that the model is such that out of 9 values, 5 are labeled correctly. By
+extension, this means that 4 out of 9 are not labeled correctly as 0 or
+1.</p>
+<p>Remember, RMSE is defined as</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i =
+1}^n (y_i - H(x_i))^2}</span></p>
+<p>where <span class="math inline">y_i</span> represents the <span class="math inline">i</span>th actual value and <span class="math inline">H(x_i)</span> represents the <span class="math inline">i</span>th prediction. Here, <span class="math inline">y_i</span> is either 0 or 1 and $H(x_i) is also
+either 0 or 1. We’re told that <span class="math inline">\frac{5}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are the same; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 0^2 = 0</span>. We’re also told
+that <span class="math inline">\frac{4}{9}</span> of the time, <span class="math inline">y_i</span> and <span class="math inline">H(x_i)</span> are different; in those cases, <span class="math inline">(y_i - H(x_i))^2 = 1</span>. So,</p>
+<p><span class="math display">\text{RMSE} = \sqrt{\frac{5}{9} \cdot 0 +
+\frac{4}{9} \cdot 1} = \sqrt{\frac{4}{9}} = \frac{2}{3}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.3">Problem 7.3</h3>
+<p>While Classifier 1’s accuracy on our training set is <span
+class="math inline">\frac{5}{9}</span>, its accuracy on our test set is
+<span class="math inline">\frac{1}{4}</span>. Which of the following
+scenarios is most likely?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 overfit to our training set; we need to decrease its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to increase its
+complexity.</p></li>
+<li><p><input type="radio" disabled="" /> Classifier 1 underfit to our training set; we need to decrease its
+complexity.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_3" aria-expanded="true" aria-controls="collapse7_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_3" class="accordion-collapse collapse"
+aria-labelledby="heading7_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 2</p>
+<p>Since the accuracy of Classifier 1 is much higher on the dataset used
+to train it than the dataset it was tested on, it’s likely Classifer 1
+overfit to the training set because it was too complex. To fix the
+issue, we need to decrease its complexity, so that it focuses on
+learning the general structure of the data in the training set and not
+too much on the random noise in the training set.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>For the remainder of this question, suppose we train another
+classifier, named Classifier 2, again on our training set. Its
+performance on the training set is described in the confusion matrix
+below. Note that the columns of the confusion matrix have been
+separately normalized so that each has a sum of 1.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-7.4">Problem 7.4</h3>
+<p>Suppose <code>conf</code> is the DataFrame above. Which of the
+following evaluates to a Series of length 2 whose only unique value is
+the number <code>1</code>?</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=0)</code></p></li>
+<li><p><input type="radio" disabled="" /> <code>conf.sum(axis=1)</code></p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_4">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_4" aria-expanded="true" aria-controls="collapse7_4">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_4" class="accordion-collapse collapse"
+aria-labelledby="heading7_4" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> Option 1</p>
+<p>Note that the columns of <code>conf</code> sum to 1 – <span class="math inline">0.9 + 0.1 = 1</span>, and <span class="math inline">0.4 + 0.6 = 1</span>. To create a Series with just
+the value 1, then, we need to sum the columns of <code>conf</code>,
+which we can do using <code>conf.sum(axis=0)</code>.
+<code>conf.sum(axis=1)</code> would sum the rows of
+<code>conf</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-7.5">Problem 7.5</h3>
+<p>Fill in the blank: the ___ of Classifier 2 is guaranteed to be
+0.6.</p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> precision</p></li>
+<li><p><input type="radio" disabled="" /> recall</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_5">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_5" aria-expanded="true" aria-controls="collapse7_5">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_5" class="accordion-collapse collapse"
+aria-labelledby="heading7_5" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> recall</p>
+<p>The number 0.6 appears in the bottom-right corner of
+<code>conf</code>. Since <code>conf</code> is column-normalized, the
+value 0.6 represents the proportion of values in the second column that
+were predicted to be 1. The second column contains values that were
+actually 1, so 0.6 is really <strong>the proportion of values that were
+actually 1 that were predicted to be 1</strong>, that is, <span class="math inline">\frac{\text{actually 1 and predicted
+1}}{\text{actually 1}}</span>. This is the definition of recall!</p>
+<p>If you’d like to think in terms of true positives, etc., then
+remember that: - True Positives (TP) are values that were actually 1 and
+were predicted to be 1. - True Negatives (TN) are values that were
+actually 0 and were predicted to be 0. - False Positives (FP) are values
+that were actually 0 and were predicted to be 1. - False Negatives (FN)
+are values that were actually 1 and were predicted to be 0.</p>
+<p>Recall is <span class="math inline">\frac{\text{TP}}{\text{TP} +
+\text{FN}}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>For your convenience, we show the column-normalized confusion matrix
+from the previous page below. You will need to use the specific numbers
+in this matrix when answering the following subpart.</p>
+<center><img src='../assets/images/old-from-80/wi23-final/conf-matrix.png' width=30%></center>
+<p><br></p>
+<h3 id="problem-7.6">Problem 7.6</h3>
+<p>Suppose a fraction <span class="math inline">\alpha</span> of the
+labels in the training set are actually 1 and the remaining <span
+class="math inline">1 - \alpha</span> are actually 0. The accuracy of
+Classifier 2 is 0.65. What is the value of <span
+class="math inline">\alpha</span>? </p>
+<p>Hint: If you’re unsure on how to proceed, here are some guiding
+questions:</p>
+<ul>
+<li><p>Suppose the number of <span class="math inline">y</span>-values
+that are actually 1 is <span class="math inline">A</span> and that the
+number of <span class="math inline">y</span>-values that are actually 0
+is <span class="math inline">B</span>. In terms of <span
+class="math inline">A</span> and <span class="math inline">B</span>,
+what is the accuracy of Classifier 2? Remember, you’ll need to refer to
+the numbers in the confusion matrix above.</p></li>
+<li><p>What is the relationship between <span
+class="math inline">A</span>, <span class="math inline">B</span>, and
+<span class="math inline">\alpha</span>? How does it simplify your
+calculation for the accuracy in the previous step?</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading7_6">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7_6" aria-expanded="true" aria-controls="collapse7_6">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse7_6" class="accordion-collapse collapse"
+aria-labelledby="heading7_6" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer: </strong> <span class="math inline">\frac{5}{6}</span></p>
+<p>Here is one way to solve this problem:</p>
+<p>accuracy = <span class="math inline">\frac{TP + TN}{TP + TN + FP +
+FN}</span></p>
+<p>Given the values from the confusion matrix:</p>
+<p>accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9
+\cdot (1 - \alpha)}{\alpha + (1 - \alpha)}</span><br/>
+accuracy = <span class="math inline">\frac{0.6 \cdot \alpha + 0.9 - 0.9
+\cdot \alpha}{1}</span><br/>
+accuracy = <span class="math inline">0.9 - 0.3 \cdot \alpha</span></p>
+<p>Therefore:</p>
+<p>0.65 = <span class="math inline">0.9 - 0.3 \cdot \alpha</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.9 - 0.65</span><br/>
+<span class="math inline">0.3 \cdot \alpha</span> = <span class="math inline">0.25</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{0.25}{0.3}</span><br/>
+<span class="math inline">\alpha</span> = <span class="math inline">\frac{5}{6}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<h2 id="problem-8">Problem 8</h2>
+<p>Suppose we fit a logistic regression model that predicts whether a
+product is designed for sensitive skin, given its price, <span
+class="math inline">x^{(1)}</span>, number of ingredients, <span
+class="math inline">x^{(2)}</span>, and rating, <span
+class="math inline">x^{(3)}</span>. After minimizing average
+cross-entropy loss, the optimal parameter vector is as follows:</p>
+<p><span class="math display">\vec{w}^* = \begin{bmatrix} -1 \\ 1 / 5 \\
+- 3 / 5 \\ 0 \end{bmatrix}</span></p>
+<p>In other words, the intercept term is <span
+class="math inline">-1</span>, the coefficient on price is <span
+class="math inline">\frac{1}{5}</span>, the coefficient on the number of
+ingredients is <span class="math inline">-\frac{3}{5}</span>, and the
+coefficient on rating is <span class="math inline">0</span>.</p>
+<p>Consider the following four products:</p>
+<ul>
+<li><p><strong>Wolfcare</strong>: Costs $15, made of 20 ingredients, 4.5
+rating</p></li>
+<li><p><strong>Go Blue Glow</strong>: Costs $25, made of 5 ingredients,
+4.9 rating</p></li>
+<li><p><strong>DataSPF</strong>: Costs $50, made of 15 ingredients, 3.6
+rating</p></li>
+<li><p><strong>Maize Mist</strong>: Free, made of 1 ingredient, 5.0
+rating</p></li>
+</ul>
+<p>Which of the following products have a predicted probability of being
+designed for sensitive skin of <strong>at least 0.5 (50%)</strong>? For
+each product, select Yes or No.</p>
+<p><strong>Wolfcare</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>Go Blue Glow</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>DataSPF</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<p><strong>Maize Mist</strong></p>
+<ul class="task-list">
+<li><p><input type="radio" disabled="" /> Yes</p></li>
+<li><p><input type="radio" disabled="" /> No</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading8">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse8" class="accordion-collapse collapse"
+aria-labelledby="heading8" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p>Using the logistic function, we can predict the probability that a
+product is designed for sensitive skin using:</p>
+<p><span class="math display"> P(y_i = 1 | \vec{x}_i) = \sigma(\vec w^*
+\cdot \text{Aug} (\vec x_i) ) </span></p>
+<p>where <span class="math inline">\sigma(t) = \frac{1}{1 +
+e^{-t}}</span> is the sigmoid function.</p>
+<p>One of the properties we discussed in Lecture 22 was that <span class="math inline">\sigma(0) = \frac{1}{2}</span>, meaning that if the
+input to <span class="math inline">\sigma(\cdot)</span> is greater than
+or equal to 0, the predicted probability is greater than or equal to
+<span class="math inline">\frac{1}{2}</span>. So, the problem here
+reduces to computing <span class="math inline">\vec w^* \cdot \text{Aug}
+(\vec x_i)</span> for all four products, and checking whether this dot
+product is <span class="math inline">\geq 0</span>.</p>
+<p><strong>Wolfcare</strong>:</p>
+<p><span class="math display">
+\vec w^* \cdot \text{Aug} (\vec x_\text{Wolfcare}) = \begin{bmatrix} -1
+\\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix} \cdot \begin{bmatrix}
+1 \\ 15 \\ 20 \\ 4.5 \end{bmatrix}
+</span> <span class="math display">
+= -1 + \frac{1}{5}(15) - \frac{3}{5}(20) + 0 = -1 + 3 - 12 = -10
+</span></p>
+<p>Since <span class="math inline">-10 &lt; 0</span>, <span class="math inline">P(y_\text{Wolfcare} = 1 | \vec{x}_\text{Wolfcare})
+&lt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{No}}</span>.</p>
+<p><strong>Go Blue Glow</strong>:</p>
+<p><span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{Go Blue Glow})
+&amp;= \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix} \cdot \begin{bmatrix} 1 \\ 25 \\ 5 \\ 4.9 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(25) - \frac{3}{5}(5) + 0 = -1 + 5 - 3 = 1
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">1 &gt; 0</span>, <span class="math inline">P(y_\text{Go Blue Glow} = 1 | \vec{x}_\text{Go Blue
+Glow}) &gt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{Yes}}</span>.</p>
+<p><strong>DataSPF</strong>:</p>
+<p><span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{DataSPF}) &amp;=
+\begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0 \end{bmatrix}
+\cdot \begin{bmatrix} 1 \\ 50 \\ 15 \\ 3.6 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(50) - \frac{3}{5}(15) + 0 = -1 + 10 - 9 = 0
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">\vec w^* \cdot \text{Aug} (\vec
+x_\text{DataSPF})= 0</span>, <span class="math inline">P(y_\text{DataSPF} = 1 | \vec{x}_\text{DataSPF}) =
+\frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{Yes}}</span>.</p>
+<p><strong>Maize Mist</strong>: <span class="math display">
+\begin{align*} \vec w^* \cdot \text{Aug} (\vec x_\text{Maize Mist})
+&amp;= \begin{bmatrix} -1 \\ \frac{1}{5} \\ -\frac{3}{5} \\ 0
+\end{bmatrix} \cdot \begin{bmatrix} 1 \\ 0 \\ 1 \\ 5.0 \end{bmatrix}
+\\ &amp;= -1 + \frac{1}{5}(0) - \frac{3}{5}(1) + 0 = -1 - 0.6 = -1.6
+\end{align*}
+</span></p>
+<p>Since <span class="math inline">-1.6 &lt; 0</span>, <span class="math inline">P(y_\text{Maize Mist} = 1 | \vec{x}_\text{Maize
+Mist}) &lt; \frac{1}{2}</span>, so the answer is <span class="math inline">\boxed{\text{No}}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="problem-9">Problem 9</h2>
+<p>Consider the following plot of data in <span
+class="math inline">d=2</span> dimensions. We’d like to use <span
+class="math inline">k</span>-means clustering to cluster the data into
+<span class="math inline">k=3</span> clusters.</p>
+<p>Suppose the crosses represent initial centroids, which are not
+themselves data points.</p>
+<center><img src="../assets/images/disc13/image.png" width="500"></center>
+<p><br></p>
+<h3 id="problem-9.1">Problem 9.1</h3>
+<p>Which of the following facts are true about the cluster assignment
+during the first iteration, as determined by these initial centroids?
+Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_1">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_1" aria-expanded="true" aria-controls="collapse9_1">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_1" class="accordion-collapse collapse"
+aria-labelledby="heading9_1" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: Exactly two clusters contain at least 12
+data points.</p>
+<ul>
+<li>The top cluster will contain 13 data points.</li>
+<li>The left cluster will contain 10 data points.</li>
+<li>The bottom right cluster will contain 12 data points, including the
+outlier since it is closer to the bottom cross than to the left
+one.</li>
+</ul>
+<p>Thus, the top cluster and bottom right clusters will contain at least
+12 data points in Step 1 of the first iteration.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.2">Problem 9.2</h3>
+<p>The cross shapes in the plot above represent positions of the initial
+centroids before the first iteration. Now the algorithm is run for one
+iteration, after which the centroids have been adjusted.</p>
+<p>We are now starting the second iteration. Which of the following
+facts are true about the cluster assignment during the
+<strong>second</strong> iteration? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain 11 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly one cluster contains at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> Exactly two clusters contain at least 12 data points.</p></li>
+<li><p><input type="checkbox" disabled="" /> None of the above.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_2">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_2" aria-expanded="true" aria-controls="collapse9_2">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_2" class="accordion-collapse collapse"
+aria-labelledby="heading9_2" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answers</strong>: Both of:</p>
+<ul>
+<li>Exactly two clusters contain 11 data points.</li>
+<li>Exactly one cluster contains at least 12 data points.</li>
+</ul>
+<p>Let’s look at each cluster once again.</p>
+<ul>
+<li>The top cluster will contain the same 13 data points as it did
+before the centroids were ever adjusted. All that happened in Step 2 of
+the first iteration was that the top centroid was moved down slightly,
+to the average <span class="math inline">x^{(2)}</span> position of the
+13 points up top.</li>
+<li>The left cluster will contain 11 data points, including the one
+outlier. This is because, in Step 2 of the first iteration, the bottom
+right centroid moved to the right since it was pulled closer by the 11
+non-outliers in the bottom right that were assigned to it in Step 1 of
+the first iteration. At the same time, the left centroid moved to the
+center of the group of 10 points in the left, since remember, the
+outlier belonged to the bottom right cluster in Step 1 of the first
+iteration.
+<ul>
+<li>As a result, the outlier is now closer to the left centroid than the
+bottom right centroid, so it will be assigned to the left cluster in
+Step 1 of the second iteration.</li>
+</ul></li>
+<li>The right cluster no longer possesses the outlier for the reasons
+described above, so the right cluster now just contains the bottom-right
+group of 11 data points.</li>
+</ul>
+<p>So, the cluster sizes are 13, 11, and 11, which means that two of the
+clusters contain 11 data points and one of the clusters contains at
+least 12 data points.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<h3 id="problem-9.3">Problem 9.3</h3>
+<p>Compare the value of inertia after the end of the second iteration to
+the value of inertia at the end of the first iteration. Which of the
+following facts are true? Select all that apply.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" /> The inertia at the end of the second iteration is lower.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there are actually 4 clusters in
+the data but we are using k-means with <span class="math inline">k=3</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there are actually 5 clusters in
+the data but we are using k-means with <span class="math inline">k=3</span>.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia doesn’t decrease since there is an outlier that does not
+belong to any cluster.</p></li>
+<li><p><input type="checkbox" disabled="" /> The inertia at the end of the second iteration is the same as at the
+end of the first iteration.</p></li>
+</ul>
+<div id="accordionExample" class="accordion">
+<div class="accordion-item">
+<h2 class="accordion-header" id="heading9_3">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse9_3" aria-expanded="true" aria-controls="collapse9_3">
+Click to view the solution.
+</button>
+</h2>
+<div id="collapse9_3" class="accordion-collapse collapse"
+aria-labelledby="heading9_3" data-bs-parent="#accordionExample">
+<div class="accordion-body">
+<header id="title-block-header">
+<h1 class="title"> </h1>
+</header>
+<p><strong>Answer</strong>: The inertia at the end of the second
+iteration is lower.</p>
+<p>The inertia after each iteration of <span class="math inline">k</span>-means clustering is non-increasing.
+Specifically, at the end of the second iteration the outlier having
+moved from the bottom right cluster to the left cluster will have
+decreased the inertia, as this movement reduced the total sum of the
+squared distances of points to their closest centroids.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<hr />
+<p><span class="math display"> </span></p>
+</body>
+</html>

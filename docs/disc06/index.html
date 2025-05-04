@@ -131,12 +131,7 @@
 <hr />
 <p>The problems in this worksheet are taken from past exams in similar
 classes. Work on them <strong>on paper</strong>, since the exams you
-take in this course will also be on paper. <br><br>We encourage you to
-complete this worksheet in a live discussion section. Solutions will be
-made available after all discussion sections have concluded. You don’t
-need to submit your answers anywhere.<br><br><b>Note: We do not plan to
-cover all problems here in the live discussion section</b>; the problems
-we don’t cover can be used for extra practice.</p>
+take in this course will also be on paper.</p>
 <hr />
 <h2 id="problem-1">Problem 1</h2>
 <p>Jingrui finds a messy text file containing room availability and
@@ -819,7 +814,7 @@ that <strong>will not</strong> be matched correctly.</p>
 <p>For the snippet below, which indexes correspond to products that will
 <strong>not</strong> be matched correctly?</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;</span><span class="kw">(</span><span class="pp">[</span><span class="dv">\d</span><span class="pp">.]</span><span class="op">+</span><span class="kw">)</span><span class="vs"> oz&#39;</span></span>
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;([\d.]+) oz&#39;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> 0</p></li>
@@ -855,7 +850,7 @@ link</a> for an illustration.</p>
 <p>For the snippet below, which indexes correspond to products that will
 <strong>not</strong> be matched correctly?</p>
 <div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+?</span><span class="dv">.\d</span><span class="op">+</span><span class="kw">)</span><span class="vs"> oz</span><span class="cf">|</span><span class="vs">Ounce&#39;</span></span>
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> <span class="vs">r&#39;(\d+?.\d+) oz|Ounce&#39;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>names.<span class="bu">str</span>.findall(regex)</span></code></pre></div>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" /> 0</p></li>
@@ -932,7 +927,7 @@ followed by either “am” or “pm”.</p>
 match object returns the groups of the match as a tuple. For nested
 groups, the outermost group is returned first. For example:</p>
 <div class="sourceCode" id="cb10"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">..</span><span class="kw">(</span><span class="dv">...</span><span class="kw">))</span><span class="vs">&#39;</span>, <span class="st">&#39;hello&#39;</span>).groups()</span>
+class="sourceCode py"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.match(<span class="vs">r&#39;(..(...))&#39;</span>, <span class="st">&#39;hello&#39;</span>).groups()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>(<span class="st">&#39;hello&#39;</span>, <span class="st">&#39;llo&#39;</span>)</span></code></pre></div>
 <p>Option A:</p>
 <div class="sourceCode" id="cb11"><pre
@@ -942,17 +937,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <p>Option B:</p>
 <div class="sourceCode" id="cb12"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)</span><span class="vs">:</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)(</span><span class="pp">[apm]</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(\d+):(\d+)([apm]</span><span class="sc">{2}</span><span class="vs">)&#39;</span>, x).groups()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">1</span>], res[<span class="dv">2</span>])</span></code></pre></div>
 <p>Option C:</p>
 <div class="sourceCode" id="cb13"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">)(</span><span class="vs">:</span><span class="kw">(</span><span class="dv">\d</span><span class="op">+</span><span class="kw">))</span><span class="op">?</span><span class="kw">(</span><span class="vs">am</span><span class="cf">|</span><span class="vs">pm</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(\d+)(:(\d+))?(am|pm)&#39;</span>, x).groups()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">2</span>], res[<span class="dv">3</span>])</span></code></pre></div>
 <p>Option D:</p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(x):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;</span><span class="kw">(</span><span class="dv">.</span><span class="op">+</span><span class="kw">(</span><span class="dv">.</span><span class="op">{3}</span><span class="kw">)</span><span class="op">?</span><span class="kw">)(</span><span class="dv">..</span><span class="kw">)</span><span class="vs">&#39;</span>, x).groups()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> re.match(<span class="vs">r&#39;(.+(.</span><span class="sc">{3}</span><span class="vs">)?)(..)&#39;</span>, x).groups()</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> convert(res[<span class="dv">0</span>], res[<span class="dv">1</span>], res[<span class="dv">2</span>])</span></code></pre></div>
 <div id="accordionExample" class="accordion">
 <div class="accordion-item">
@@ -2086,11 +2081,6 @@ today.</p>
 </div>
 <p><br></p>
 <hr />
-<h2 id="section"><span class="math display"> </span></h2>
-<h4
-id="feedback-find-an-error-still-confused-have-a-suggestion-let-us-know-here.">👋
-Feedback: Find an error? Still confused? Have a suggestion? Let us know
-<a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.</h4>
-<hr />
+<p><span class="math display"> </span></p>
 </body>
 </html>

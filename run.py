@@ -397,14 +397,14 @@ def process_page(path, is_exam=True):
         out += f'\n\n {params["footer"]} \n\n'
 
     # Temporary summer add-on to collect feedback
-    out += '''
----
+#     out += '''
+# ---
 
-#### 👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.
+# #### 👋 Feedback: Find an error? Still confused? Have a suggestion? Let us know <a href="https://forms.gle/xK4DpWXh9rq8AKP37">here</a>.
 
----
+# ---
     
-'''
+# '''
 
     if 'title' in params.keys():
         title = params['title']
