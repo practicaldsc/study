@@ -427,9 +427,13 @@ def write_page(path, called_from_write_all_pages=False):
     # Generate the Markdown
     page, title = process_page(path, is_exam=is_exam)
 
+    # Create docs folder if it doesn't exist
+    if not os.path.exists(DST_FOLDER):
+        os.mkdir(DST_FOLDER)
+
     # Write the Markdown
     open_path = os.path.join(DST_FOLDER, f'{assignment_name}.md')
-    f = open(open_path, 'w', encoding='UTF-8') # CHANGED
+    f = open(open_path, 'w', encoding='UTF-8')
     f.write(page)
     f.close()
 
@@ -437,23 +441,22 @@ def write_page(path, called_from_write_all_pages=False):
     dst_folder_path = os.path.join(DST_FOLDER, assignment_name)
 
     if not os.path.exists(dst_folder_path):
-        os.mkdir(dst_folder_path) # make folder
+        os.mkdir(dst_folder_path)
 
     # If an assignment title wasn't defined in params, try and create it using the file name
-    # For discussions at least, we will specify it and process_page will return it
     if not title:
         title = format_assignment_name(assignment_name)
     src_path = os.path.join(DST_FOLDER, f'{assignment_name}.md')
     dst_path = os.path.join(DST_FOLDER, assignment_name, 'index.html')
     css_path = os.path.join('..', 'assets', 'theme.css')
-    os.system(f'pandoc -s --standalone --katex --from markdown-markdown_in_html_blocks+raw_html -c {css_path} --metadata title="{title}" {src_path} -o {dst_path}')
+    
+    # Use faster pandoc options
+    os.system(f'pandoc -s --standalone --katex --from markdown-markdown_in_html_blocks+raw_html -c {css_path} --metadata title="{title}" {src_path} -o {dst_path} --quiet')
 
     # Delete the intermediate Markdown
     os.remove(src_path)
 
-    # Copy over the images for just that page, but only if called individually
-    # If called in bulk, this shouldn't be run, since this is handled by
-    # write_all_pages
+    # Only copy images if not called in bulk
     if not called_from_write_all_pages:
         src_path = os.path.join('assets', 'images', assignment_name)
         dst_path = os.path.join(DST_FOLDER, src_path)
@@ -600,64 +603,65 @@ if __name__ == '__main__':
         create_index()
 
     elif sys.argv[1] == "listen":
-            # Obtain the file paths for all markdown files.
-            # We will be looking to see if the modification time changes to signal an update
-            page_paths = os.path.join('pages', '*', '*.yml')
-            all_paths = glob.glob(page_paths)
-            
-            # This creates an array that contains an entry for each yml file containing all the yml and md paths related to it.
-            # These are all the files we would want to check for edits.
-            listen_files = []
-            for path in all_paths:
-                r_file = open(path, 'r')
-                r = r_file.read()
-                r_file.close()
-                params = yaml.safe_load(r)
-                listen_files += [[path] + list(map(lambda x: os.path.join("problems",x + ".md"),params.get("problems",[])))]
+        # Obtain the file paths for all markdown files.
+        # We will be looking to see if the modification time changes to signal an update
+        page_paths = os.path.join('pages', '*', '*.yml')
+        all_paths = glob.glob(page_paths)
+        
+        # This creates an array that contains an entry for each yml file containing all the yml and md paths related to it.
+        # These are all the files we would want to check for edits.
+        listen_files = []
+        for path in all_paths:
+            r_file = open(path, 'r')
+            r = r_file.read()
+            r_file.close()
+            params = yaml.safe_load(r)
+            listen_files += [[path] + list(map(lambda x: os.path.join("problems",x + ".md"),params.get("problems",[])))]
 
-            # This uses the same format as the listen_files variable to store the timestamp info for each file.
-            # Timestamps are used to check for file changes to signal updates.
-            cached_stamp = []
-            for i,section in enumerate(listen_files):
-                cached_stamp += [[]]
-                for file in section:
-                    cached_stamp[i] += [os.stat(file).st_mtime]
+        # This uses the same format as the listen_files variable to store the timestamp info for each file.
+        # Timestamps are used to check for file changes to signal updates.
+        cached_stamp = []
+        for i,section in enumerate(listen_files):
+            cached_stamp += [[]]
+            for file in section:
+                cached_stamp[i] += [os.stat(file).st_mtime]
 
 
-            # Beginning of listening loop.
-            # This is based on the second response to this post: https://stackoverflow.com/questions/182197/how-do-i-watch-a-file-for-changes            
-            while True:
-                try:
-                    # Every second
-                    time.sleep(1)
-                    # For each markdown file
-                    for i, section in enumerate(listen_files):
-                        for j, path in enumerate(section):
-                            # Get the last modified time stamp
-                            stamp = os.stat(path).st_mtime
-                            # Compare to currently cached timestamp
-                            # If its different then the file in questions has been modified and needs to be reflected on the html file
-                            if stamp != cached_stamp[i][j]:
-                                # When a yml file is updated, we also need to update the files listened to reflect changes
-                                # to the problem section
-                                if ".yml" in path:
-                                    print(f"Updating tracked problems for {section[0]}")
-                                    r_file = open(path, 'r')
-                                    r = r_file.read()
-                                    r_file.close()
-                                    new_problems = yaml.safe_load(r).get("problems",[])
-                                    # Replace old listened files with new listened files to reflects changes to the .yml file
-                                    listen_files[i] = [path] + list(map(lambda x: os.path.join("problems",x + ".md"),new_problems))
-                                    cached_stamp[i] = [os.stat(file).st_mtime for file in listen_files[i]]
-                                # Update cached timestamp to reflect the update
-                                cached_stamp[i][j] = stamp
-                                print(f"Updating: {section[0]}")
-                                # Update the new HTML folder
-                                update_page(section[0])
-                                print("Finished Updating! Refresh the .html file on your browser to see changes!")
-                                break
-                except KeyboardInterrupt:
-                    break
+        # Beginning of listening loop.
+        # This is based on the second response to this post: https://stackoverflow.com/questions/182197/how-do-i-watch-a-file-for-changes            
+        while True:
+            try:
+                # Every second
+                time.sleep(1)
+                # For each markdown file
+                for i, section in enumerate(listen_files):
+                    for j, path in enumerate(section):
+                        # Get the last modified time stamp
+                        stamp = os.stat(path).st_mtime
+                        # Compare to currently cached timestamp
+                        # If its different then the file in questions has been modified and needs to be reflected on the html file
+                        if stamp != cached_stamp[i][j]:
+                            # When a yml file is updated, we also need to update the files listened to reflect changes
+                            # to the problem section
+                            if ".yml" in path:
+                                print(f"Updating tracked problems for {section[0]}")
+                                r_file = open(path, 'r')
+                                r = r_file.read()
+                                r_file.close()
+                                new_problems = yaml.safe_load(r).get("problems",[])
+                                # Replace old listened files with new listened files to reflects changes to the .yml file
+                                listen_files[i] = [path] + list(map(lambda x: os.path.join("problems",x + ".md"),new_problems))
+                                cached_stamp[i] = [os.stat(file).st_mtime for file in listen_files[i]]
+                            # Update cached timestamp to reflect the update
+                            cached_stamp[i][j] = stamp
+                            print(f"Updating: {section[0]}")
+                            # Update the new HTML folder
+                            update_page(section[0])
+                            print("Finished Updating! Refresh the .html file on your browser to see changes!")
+                            break
+            except KeyboardInterrupt:
+                break
     else:
+        # Process single file(s) - skip unnecessary operations
         for page in sys.argv[1:]:
             write_page(page)

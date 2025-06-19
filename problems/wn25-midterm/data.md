@@ -1,7 +1,3 @@
-::: center
-**Data Overview: Food Deliveries**
-:::
-
 In this exam, we'll work with the DataFrame `orders`, which contains
 information about deliveries made using various food delivery services
 in India.

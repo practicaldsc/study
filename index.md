@@ -63,9 +63,13 @@ In addition, we have a few "review" worksheets which contain topics from multipl
   </thead>
   <tbody>
     <tr>
+      <th scope="row">Spring 2025</th>
+      <td>Midterm (<a href='../assets/pdf/sp25-midterm.pdf'>PDF</a>)</td>
+    </tr>
+    <tr>
       <th scope="row">Winter 2025</th>
       <td><a href='wn25-midterm/index.html'>Midterm</a><br>
-          Final (coming soon, but the exam PDF can be found <a href="../assets/pdf/wn25-final.pdf">here</a>)</td>
+          <a href='wn25-final/index.html'>Final (recently added!)</a></td>
     </tr>
     <tr>
       <th scope="row">Fall 2024</th>

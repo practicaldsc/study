@@ -1,0 +1,17 @@
+title: "Winter 2025 Final Exam"
+instructors: Suraj Rampure
+context: >
+  This exam was administered in-person. The exam was closed-notes, except students were allowed to bring a single two-sided notes sheet. No calculators were allowed. Students had 120 minutes to take this exam.
+  <br><br>Access the original exam PDF <a href="../assets/pdf/wn25-final.pdf">here</a>.
+show_solution: true
+data_info: wn25-final/data
+problems:
+  - wn25-final/q01
+  - wn25-final/q02
+  - wn25-final/q03
+  - wn25-final/q04
+  - wn25-final/q05
+  - wn25-final/q06
+  - wn25-final/q07
+  - wn25-final/q08
+  - wn25-final/q09
