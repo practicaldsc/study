@@ -64,7 +64,8 @@ In addition, we have a few "review" worksheets which contain topics from multipl
   <tbody>
     <tr>
       <th scope="row">Spring 2025</th>
-      <td>Midterm (<a href='../assets/pdf/sp25-midterm.pdf'>PDF</a>)</td>
+      <td>Midterm (<a href='../assets/pdf/sp25-midterm.pdf'>PDF</a>)<br>
+          Final (<a href='../assets/pdf/sp25-final.pdf'>PDF</a>)</td>
     </tr>
     <tr>
       <th scope="row">Winter 2025</th>
